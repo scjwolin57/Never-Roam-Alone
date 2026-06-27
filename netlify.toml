@@ -1,0 +1,19 @@
+# Netlify configuration for Never Roam Alone
+#
+# The site is a folder of static HTML files served from the project root,
+# plus serverless functions (flights, image, translate) in netlify/functions.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Ensure the functions run on Node 18+, where the global `fetch` used by the
+# functions is available. (Older Node has no global fetch and they'd 502.)
+[build.environment]
+  NODE_VERSION = "18"
+
+# Friendly path: /api/flights -> the serverless function
+[[redirects]]
+  from = "/api/flights"
+  to = "/.netlify/functions/flights"
+  status = 200

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Never Roam Alone — Travel Blog</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+<!-- MapLibre GL (free, open-source map engine — no API key needed) -->
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  .menu-toggle{display:none}
+
+  /* ---------- Hero / map ---------- */
+  .hero{max-width:var(--maxw);margin:0 auto;padding:38px 22px 10px;text-align:center}
+  .hero h1{font-size:clamp(2rem,5vw,3.3rem);margin:0 0 8px}
+  .hero p.kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 14px}
+  .hero p.sub{color:var(--muted);max-width:620px;margin:0 auto 22px;font-size:1.05rem}
+
+  .map-wrap{
+    position:relative;max-width:var(--maxw);margin:0 auto 10px;padding:0 22px;
+  }
+  #map{
+    width:100%;height:560px;border-radius:18px;overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid rgba(14,124,134,.18);
+  }
+  .map-legend{
+    position:absolute;left:38px;bottom:20px;background:rgba(255,255,255,.94);
+    border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);font-size:.8rem;max-width:210px;
+  }
+  .map-legend b{display:block;margin-bottom:6px;font-size:.82rem}
+  .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
+  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(239,111,83,.55);border:1.5px solid var(--coral)}
+  .map-note{max-width:var(--maxw);margin:0 auto;padding:6px 22px 0;color:var(--muted);font-size:.78rem;text-align:center}
+
+  /* Tooltip / popup */
+  .maplibregl-popup{max-width:240px!important}
+  .maplibregl-popup-content{
+    border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);font-family:inherit;
+  }
+  .tip-city{font-family:Georgia,serif;font-weight:700;font-size:1.05rem;margin:0}
+  .tip-country{color:var(--muted);font-size:.82rem;margin:1px 0 8px}
+  .tip-num{color:var(--teal-dark);font-weight:800;font-size:1.25rem;margin:0}
+  .tip-num span{font-weight:600;color:var(--muted);font-size:.78rem;display:block;text-transform:uppercase;letter-spacing:.08em}
+  .explore-btn{display:inline-block;margin-top:12px;background:#185e3f;color:#fff!important;font-weight:700;
+    font-size:.82rem;letter-spacing:.02em;padding:8px 16px;border-radius:22px;text-decoration:none;transition:background .2s}
+  .explore-btn:hover{background:var(--teal)}
+
+  /* ---------- Sections ---------- */
+  section.block{max-width:var(--maxw);margin:0 auto;padding:64px 22px}
+  .section-head{text-align:center;margin-bottom:34px}
+  .section-head .kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.74rem}
+  .section-head h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin:6px 0 0}
+
+  /* About */
+  .about{display:grid;grid-template-columns:300px 1fr;gap:42px;align-items:center;
+    background:var(--card);border-radius:20px;padding:34px;box-shadow:var(--shadow)}
+  .about img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px}
+  .about h3{margin:0 0 10px;font-size:1.6rem}
+  .about p{color:var(--muted);margin:0 0 14px}
+  .about .sig{font-family:Georgia,serif;font-style:italic;color:var(--teal-dark);font-size:1.15rem}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer .brand{justify-content:center;color:#e97451}
+  footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
+
+  @media(max-width:880px){
+    .tiles{grid-template-columns:1fr}
+    nav.links{display:none}
+    #map{height:440px}
+    .map-legend{left:30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <svg class="logo" viewBox="0 0 120 120" width="46" height="46" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+          <circle cx="60" cy="60" r="53"/>
+          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
+          <path d="M22,86 Q60,74 98,86"/>
+        </g>
+        <g fill="#185e3f">
+          <circle cx="50" cy="62" r="5.2"/>
+          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
+          <circle cx="70" cy="62" r="5.2"/>
+          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
+          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
+        </g>
+      </svg>
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="choose.html">Destination Finder</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero + interactive map ===== -->
+<a id="top"></a>
+<div class="hero">
+  <p class="kicker">A world worth exploring</p>
+  <h1>Where will you roam to next?</h1>
+  <p class="sub">Scan the globe and hover over a city to see how many travelers roam it's streets each year. Click on a city to learn more</p>
+</div>
+
+<div class="map-wrap">
+  <div id="map"></div>
+  <div class="map-legend">
+    <b>Annual international visitors</b>
+    <div class="legend-row"><span class="legend-bubble" style="width:10px;height:10px"></span> ~5 million</div>
+    <div class="legend-row"><span class="legend-bubble" style="width:18px;height:18px"></span> ~12 million</div>
+    <div class="legend-row"><span class="legend-bubble" style="width:28px;height:28px"></span> 20 million +</div>
+    <div class="legend-row" style="margin-top:8px">Hover a bubble for details</div>
+  </div>
+</div>
+<p class="map-note">Drag to pan · scroll to zoom · hover a bubble for the number · click a city to open its page. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.</p>
+
+<!-- ===== About ===== -->
+<section class="block" id="about">
+  <div class="section-head">
+    <h2>About Me</h2>
+  </div>
+  <div class="about">
+    <img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" />
+    <div>
+      <h3>Hi, I'm Jeff</h3>
+      <p>This is placeholder bio text — swap it for your own. Tell readers who you are, where the travel bug bit you, and what kind of trips you love most. A short, warm paragraph works best: one that makes a first-time visitor want to follow along.</p>
+      <p>Maybe mention how many countries you've reached, the trip that changed everything, or why you believe the best places are better shared. Keep it to three or four sentences and let the photos do the rest.</p>
+      <p class="sig">— see you out there</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
+  <small>Prototype · interactive map + blog layout · built to be refined</small>
+</footer>
+
+<script>
+/* ---------------------------------------------------------
+   STARTER CITY DATA
+   visitors = approximate annual INTERNATIONAL arrivals (millions)
+   Sourced/approximated from Euromonitor "Top 100 City Destinations"
+   and Mastercard Global Destination Cities Index. Placeholder values
+   meant for layout — easy to replace with a verified dataset later.
+----------------------------------------------------------*/
+const CITIES = [
+  {city:"Hong Kong",   country:"China (SAR)",        lng:114.1694, lat:22.3193, visitors:26.7},
+  {city:"Bangkok",     country:"Thailand",           lng:100.5018, lat:13.7563, visitors:22.8},
+  {city:"London",      country:"United Kingdom",     lng:-0.1276,  lat:51.5072, visitors:19.6},
+  {city:"Macau",       country:"China (SAR)",        lng:113.5439, lat:22.1987, visitors:20.6},
+  {city:"Singapore",   country:"Singapore",          lng:103.8198, lat:1.3521,  visitors:19.8},
+  {city:"Paris",       country:"France",             lng:2.3522,   lat:48.8566, visitors:19.1},
+  {city:"Dubai",       country:"UAE",                lng:55.2708,  lat:25.2048, visitors:17.5},
+  {city:"New York",    country:"United States",      lng:-74.0060, lat:40.7128, visitors:13.6},
+  {city:"Kuala Lumpur",country:"Malaysia",           lng:101.6869, lat:3.1390,  visitors:14.0},
+  {city:"Istanbul",    country:"Türkiye",            lng:28.9784,  lat:41.0082, visitors:13.4},
+  {city:"Tokyo",       country:"Japan",              lng:139.6917, lat:35.6895, visitors:12.9},
+  {city:"Antalya",     country:"Türkiye",            lng:30.7133,  lat:36.8969, visitors:12.4},
+  {city:"Seoul",       country:"South Korea",        lng:126.9780, lat:37.5665, visitors:11.3},
+  {city:"Osaka",       country:"Japan",              lng:135.5023, lat:34.6937, visitors:10.1},
+  {city:"Rome",        country:"Italy",              lng:12.4964,  lat:41.9028, visitors:10.1},
+  {city:"Phuket",      country:"Thailand",           lng:98.3923,  lat:7.8804,  visitors:9.9},
+  {city:"Barcelona",   country:"Spain",              lng:2.1734,   lat:41.3851, visitors:9.1},
+  {city:"Amsterdam",   country:"Netherlands",        lng:4.9041,   lat:52.3676, visitors:9.0},
+  {city:"Milan",       country:"Italy",              lng:9.1900,   lat:45.4642, visitors:8.8},
+  {city:"Vienna",      country:"Austria",            lng:16.3738,  lat:48.2082, visitors:7.9},
+  {city:"Prague",      country:"Czechia",            lng:14.4378,  lat:50.0755, visitors:8.0},
+  {city:"Los Angeles", country:"United States",      lng:-118.2437,lat:34.0522, visitors:7.5},
+  {city:"Sydney",      country:"Australia",          lng:151.2093, lat:-33.8688,visitors:4.0},
+  {city:"Cape Town",   country:"South Africa",       lng:18.4241,  lat:-33.9249,visitors:1.7},
+  {city:"Rio de Janeiro",country:"Brazil",           lng:-43.1729, lat:-22.9068,visitors:2.3},
+  {city:"Cancún",      country:"Mexico",             lng:-86.8515, lat:21.1619, visitors:6.1},
+  {city:"Marrakech",   country:"Morocco",            lng:-7.9811,  lat:31.6295, visitors:3.0}
+];
+
+const geojson = {
+  type:"FeatureCollection",
+  features: CITIES.map(c => ({
+    type:"Feature",
+    properties:{ city:c.city, country:c.country, visitors:c.visitors },
+    geometry:{ type:"Point", coordinates:[c.lng, c.lat] }
+  }))
+};
+
+const map = new maplibregl.Map({
+  container:"map",
+  style:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+  center:[20, 28],
+  zoom:1.4,
+  attributionControl:true
+});
+map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right");
+
+map.on("load", () => {
+  map.addSource("cities", { type:"geojson", data:geojson });
+
+  // Bubble layer — radius scales with visitor count
+  map.addLayer({
+    id:"city-bubbles",
+    type:"circle",
+    source:"cities",
+    paint:{
+      "circle-radius":[
+        "interpolate",["linear"],["get","visitors"],
+        1, 5,
+        10, 13,
+        20, 22,
+        27, 28
+      ],
+      "circle-color":"#ef6f53",
+      "circle-opacity":0.55,
+      "circle-stroke-color":"#ef6f53",
+      "circle-stroke-width":1.5,
+      "circle-stroke-opacity":0.95
+    }
+  });
+
+  const popup = new maplibregl.Popup({ closeButton:false, closeOnClick:false, offset:14, maxWidth:"260px" });
+  let pinned = false;
+
+  function popupHTML(p, withButton){
+    const num = Number(p.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+    let html =
+      `<p class="tip-city">${p.city}</p>
+       <p class="tip-country">${p.country}</p>
+       <p class="tip-num">${num}M<span>annual visitors</span></p>`;
+    if(withButton){
+      html += `<a class="explore-btn" href="city.html?city=${encodeURIComponent(p.city)}">Explore ${p.city} &rarr;</a>`;
+    }
+    return html;
+  }
+
+  // Hover: quick info tooltip (paused while a card is pinned open)
+  map.on("mousemove","city-bubbles",(e)=>{
+    if(pinned) return;
+    map.getCanvas().style.cursor="pointer";
+    const f = e.features[0];
+    popup.setLngLat(f.geometry.coordinates).setHTML(popupHTML(f.properties,false)).addTo(map);
+  });
+  map.on("mouseleave","city-bubbles",()=>{
+    if(pinned) return;
+    map.getCanvas().style.cursor="";
+    popup.remove();
+  });
+
+  // Click a bubble: pin a card that includes the "Explore" button
+  map.on("click","city-bubbles",(e)=>{
+    const f = e.features[0];
+    pinned = true;
+    popup.setLngLat(f.geometry.coordinates).setHTML(popupHTML(f.properties,true)).addTo(map);
+    map.easeTo({ center:f.geometry.coordinates, duration:600 });
+  });
+
+  // Click empty map area: dismiss the pinned card
+  map.on("click",(e)=>{
+    const hit = map.queryRenderedFeatures(e.point,{ layers:["city-bubbles"] });
+    if(!hit.length){ pinned=false; popup.remove(); map.getCanvas().style.cursor=""; }
+  });
+});
+
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

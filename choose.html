@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Destination Finder — Never Roam Alone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
+    --coral:#e97451;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.65}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:24px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--green);border-color:var(--coral)}
+  nav.links a.active{color:var(--green);border-color:var(--coral)}
+
+  .intro{max-width:760px;margin:0 auto;padding:60px 22px 10px;text-align:center}
+  .intro .kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem}
+  .intro h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0 10px}
+  .intro p{color:var(--muted);font-size:1.08rem;margin:0}
+
+  .chooser{max-width:560px;margin:30px auto 0;padding:0 22px}
+  .chooser .panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px 28px}
+  .chooser .panel + .panel{margin-top:20px}
+
+  .tool-switch{max-width:820px;margin:26px auto 4px;padding:0 22px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .switch-btn{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid rgba(24,94,63,.22);
+    border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--ink);transition:.18s;user-select:none}
+  .switch-btn:hover{border-color:var(--green)}
+  .switch-btn input{position:absolute;opacity:0;width:0;height:0}
+  .switch-btn .box{width:18px;height:18px;border:2px solid var(--green);border-radius:3px;flex-shrink:0;position:relative;transition:.18s}
+  .switch-btn.active{border-color:var(--green);background:rgba(24,94,63,.07)}
+  .switch-btn.active .box{background:var(--green)}
+  .switch-btn.active .box::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+  label.field{display:block;font-family:Georgia,serif;font-size:1.25rem;margin-bottom:12px}
+  .field-note{color:var(--muted);font-size:.95rem;margin:-4px 0 16px}
+  .label-hint{display:inline-block;margin-top:4px;font-family:-apple-system,sans-serif;font-size:.85rem;font-weight:400;color:var(--muted)}
+  .autocomplete{position:relative}
+  .origin-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
+    border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
+  .origin-input:focus{outline:none;border-color:var(--green)}
+  .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;background:#fff;
+    border:1px solid rgba(24,94,63,.2);border-radius:12px;box-shadow:var(--shadow);max-height:290px;overflow:auto}
+  .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .ac-list li:hover,.ac-list li.active{background:rgba(24,94,63,.08)}
+  .ac-city{font-weight:600;font-size:.95rem}
+  .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
+  .ac-code{font-weight:800;color:var(--green);font-size:.9rem;flex-shrink:0;letter-spacing:.04em}
+  .origin-status{font-size:.82rem;color:var(--muted);margin-top:10px}
+  .stops-group{display:flex;flex-direction:column;gap:10px}
+  .stops-group .switch-btn{width:100%}
+  .date-input{font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
+    border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:14px 16px;transition:border-color .2s}
+  .date-input:focus{outline:none;border-color:var(--green)}
+  .cal-wrap{position:relative;max-width:360px}
+  .date-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;font-size:1.05rem;font-family:inherit;
+    color:var(--ink);background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 16px;cursor:pointer;transition:border-color .2s}
+  .date-trigger:hover{border-color:var(--green)}
+  .date-trigger .cal-ico{color:var(--green);font-size:.8rem}
+  .cal-popup{position:absolute;z-index:40;top:calc(100% + 8px);left:0;width:360px;max-width:92vw;background:#fff;
+    border-radius:18px;box-shadow:0 18px 50px rgba(20,40,50,.28);padding:18px;border:1px solid rgba(24,94,63,.15)}
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .cal-title{font-family:Georgia,serif;font-weight:700;font-size:1.3rem;color:var(--green)}
+  .cal-nav{width:40px;height:40px;border-radius:11px;border:none;background:rgba(24,94,63,.08);color:var(--green);
+    font-size:1.3rem;line-height:1;cursor:pointer;transition:.15s}
+  .cal-nav:hover:not(:disabled){background:rgba(24,94,63,.2)}
+  .cal-nav:disabled{opacity:.3;cursor:default}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal-dow{text-align:center;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:6px 0}
+  .cal-day{height:44px;display:flex;align-items:center;justify-content:center;border-radius:11px;font-size:1rem;cursor:pointer;transition:.12s}
+  .cal-day:hover:not(.disabled):not(.empty){background:rgba(24,94,63,.14)}
+  .cal-day.disabled{color:#c4ccce;cursor:default}
+  .cal-day.empty{cursor:default}
+  .cal-day.today{box-shadow:inset 0 0 0 2px var(--coral)}
+  .cal-day.selected{background:var(--green);color:#fff;font-weight:700}
+  .cal-foot{display:flex;justify-content:flex-end;margin-top:12px}
+  .cal-clear{background:none;border:none;color:var(--muted);font-size:.86rem;cursor:pointer;font-weight:600}
+  .cal-clear:hover{color:var(--green)}
+  .date-row{display:flex;gap:16px;flex-wrap:wrap}
+  .date-col{flex:1 1 200px;min-width:0}
+  .date-cap{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
+  .check-row{display:flex;align-items:center;gap:10px;margin-top:16px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.95rem}
+  .check-row input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+  .flights-head{text-align:center;font-size:1.5rem;margin:0 0 18px;color:var(--green)}
+  .flight-price{font-weight:800;color:var(--green);font-size:.92rem;white-space:nowrap}
+  .show-more{background:var(--green);color:#fff;font-weight:700;font-size:.9rem;border:none;border-radius:24px;padding:11px 24px;cursor:pointer;transition:background .2s}
+  .show-more:hover{background:var(--teal)}
+  /* Flight/destination cards: 3-column grid, taller so the landmark photo shows well */
+  #flightGrid{grid-template-columns:repeat(3,1fr)}
+  #flightGrid .flight-card{min-height:140px}
+  @media(max-width:900px){#flightGrid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){#flightGrid{grid-template-columns:1fr}}
+  /* Destination/flight rows with a landmark photo behind the text */
+  .flight-card{position:relative;overflow:hidden;min-height:88px;color:#fff;border:none;
+    background-color:#2c3e36;background-size:contain;background-repeat:no-repeat;background-position:center}
+  .flight-card::before{content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(12,28,23,.82) 0%,rgba(12,28,23,.5) 55%,rgba(12,28,23,.68) 100%)}
+  .flight-card > *{position:relative;z-index:1}
+  .flight-card .dest{font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+  .flight-card .ac-name{color:rgba(255,255,255,.88)}
+  .flight-card .flight-price{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+  .photo-credit{position:absolute;right:9px;bottom:5px;z-index:2;font-size:.6rem;line-height:1.2;
+    color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.7)}
+  .photo-credit a{color:inherit;text-decoration:underline}
+  .photo-credit a:hover{color:#fff}
+  .visa-row.train-pick{cursor:pointer;transition:background .15s}
+  .visa-row.train-pick:hover{background:rgba(24,94,63,.06)}
+  .select-wrap{position:relative}
+  select#priority,select#budget,select#travelmode{
+    width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
+    background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;
+    transition:border-color .2s}
+  select#priority:focus,select#budget:focus,select#travelmode:focus{outline:none;border-color:var(--green)}
+  .select-wrap::after{content:"";position:absolute;right:18px;top:50%;width:10px;height:10px;
+    border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
+    transform:translateY(-70%) rotate(45deg);pointer-events:none}
+
+  .results{max-width:var(--maxw);margin:0 auto;padding:36px 22px 20px}
+  .results h2{text-align:center;font-size:1.5rem;margin:0 0 6px}
+  .results .sub{text-align:center;color:var(--muted);margin:0 0 28px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
+  .card .photo{height:170px;background-size:cover;background-position:center;position:relative}
+  .card .visit{position:absolute;top:12px;right:12px;background:rgba(24,94,63,.92);color:#fff;
+    font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:20px}
+  .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
+  .card .country{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .card h3{font-size:1.2rem;margin:6px 0 8px}
+  .card p{color:var(--muted);font-size:.92rem;margin:0 0 16px;flex:1}
+  .card .go{align-self:flex-start;background:var(--coral);color:#fff;font-weight:700;font-size:.82rem;
+    padding:8px 16px;border-radius:22px;transition:background .2s}
+  .card .go:hover{background:var(--green)}
+
+  .empty{text-align:center;color:var(--muted);padding:30px 22px 10px;font-size:1.02rem}
+
+  .visa{max-width:560px;margin:24px auto 0;padding:10px 22px 0}
+  .visa-panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px 28px;text-align:center}
+  .visa-title{font-size:1.7rem;margin:0 0 8px;color:var(--green)}
+  .visa-sub{font-family:Georgia,serif;font-weight:400;font-size:1.12rem;color:var(--ink);margin:0 0 18px}
+  .visa .select-wrap{max-width:400px;margin:0 auto}
+  select#passport{width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
+    background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;transition:border-color .2s}
+  select#passport:focus{outline:none;border-color:var(--green)}
+  .visa-status{margin:16px 0 0;font-size:.85rem;color:var(--muted)}
+  .visa-status a{color:var(--teal);font-weight:600}
+  .visa-results{max-width:var(--maxw);margin:24px auto 0;padding:0 22px}
+  .visa-summary{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
+  .chip2{font-size:.78rem;font-weight:700;padding:6px 12px;border-radius:20px;color:#fff}
+  .visa-filter{display:block;width:100%;max-width:380px;margin:0 auto 22px;font-size:1rem;font-family:inherit;
+    padding:12px 16px;border:2px solid rgba(24,94,63,.25);border-radius:12px;background:#fff}
+  .visa-filter:focus{outline:none;border-color:var(--green)}
+  .visa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:12px}
+  .visa-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;
+    border-radius:12px;padding:11px 14px;box-shadow:var(--shadow)}
+  .visa-row .dest{font-weight:600;font-size:.95rem}
+  .visa-row .right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+  .badge{font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:16px;color:#fff;white-space:nowrap}
+  .verify{font-size:.74rem;color:var(--teal);font-weight:700;white-space:nowrap}
+  .verify:hover{text-decoration:underline}
+  .visa-disclaimer{font-size:.78rem;color:var(--muted);margin:24px auto 0;text-align:center;max-width:700px}
+  .visa-disclaimer a{color:var(--teal);font-weight:600}
+  .b-free{background:#1f8f4e}.b-voa{background:#0e7c86}.b-eta{background:#3b6fb0}
+  .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#5b6b75}
+
+  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer .brand{justify-content:center;color:#e97451;font-size:1.6rem}
+
+  @media(max-width:820px){nav.links{display:none}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+          <circle cx="60" cy="60" r="53"/>
+          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
+          <path d="M22,86 Q60,74 98,86"/>
+        </g>
+        <g fill="#185e3f">
+          <circle cx="50" cy="62" r="5.2"/>
+          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
+          <circle cx="70" cy="62" r="5.2"/>
+          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
+          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
+        </g>
+      </svg>
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html">Map</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="choose.html" class="active">Destination Finder</a>
+    </nav>
+  </div>
+</header>
+
+<div class="intro">
+  <p class="kicker">Not sure where to roam?</p>
+  <h1>Help Me Choose</h1>
+</div>
+
+<div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="activities" checked>
+    <span class="box"></span><span>Favorite Travel Activities</span>
+  </label>
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="budget">
+    <span class="box"></span><span>Travel Budget</span>
+  </label>
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="travelmode">
+    <span class="box"></span><span>Mode of Travel</span>
+  </label>
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="visa">
+    <span class="box"></span><span>Do I Need A Visa?</span>
+  </label>
+</div>
+
+<div class="tool-section" data-tool="activities">
+  <div class="chooser">
+    <div class="panel">
+      <label class="field" for="priority">Favorite Travel Activities</label>
+      <p class="field-note">Tell us what matters most on a trip and we'll point you toward the cities you'll love.</p>
+      <div class="select-wrap">
+        <select id="priority">
+          <option value="" selected disabled>Select an activity…</option>
+          <option value="Nightlife">Nightlife</option>
+          <option value="Restaurants">Restaurants</option>
+          <option value="Museums &amp; Culture">Museums &amp; Culture</option>
+          <option value="Architecture">Architecture</option>
+          <option value="Nature">Nature</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="results" id="results">
+    <p class="empty">Pick an activity above to see matching destinations.</p>
+  </div>
+</div>
+
+<div class="tool-section" data-tool="budget" hidden>
+  <div class="chooser">
+    <div class="panel">
+      <label class="field" for="budget">Travel Budget</label>
+      <p class="field-note">Let us help you curate the best trip based off your travel budget.</p>
+      <div class="select-wrap">
+        <select id="budget">
+          <option value="" selected disabled>Select your budget…</option>
+          <option value="shoestring">Can't afford much right now but I want to go somewhere</option>
+          <option value="low">I have a bit to spend but I'm still keeping it low</option>
+          <option value="flexible">I'm open to a flexible budget depending on the itinerary</option>
+          <option value="comfortable">I have a good bit of money set aside for this trip</option>
+          <option value="luxury">Money is no object, I want the best</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tool-section" data-tool="travelmode" hidden>
+  <div class="chooser">
+    <div class="panel">
+      <label class="field" for="travelmode">Mode of Travel</label>
+      <p class="field-note">I prefer to travel by:</p>
+      <div class="select-wrap">
+        <select id="travelmode">
+          <option value="" selected disabled>Select a mode…</option>
+          <option value="Plane">Plane</option>
+          <option value="Train">Train</option>
+          <option value="Boat">Boat</option>
+          <option value="Bus">Bus</option>
+          <option value="Car">Car</option>
+          <option value="Any">Any</option>
+        </select>
+      </div>
+
+      <div id="originWrap" class="origin-wrap" hidden>
+        <label class="field" for="originInput" id="originLabel" style="margin-top:22px">Origin city or airport code</label>
+        <div class="autocomplete">
+          <input type="text" id="originInput" class="origin-input" placeholder="Start typing a city or airport code…" autocomplete="off" />
+          <ul id="originList" class="ac-list" hidden></ul>
+        </div>
+        <p class="origin-status" id="originStatus"></p>
+
+        <div id="trainResults" class="visa-results" hidden style="margin-top:12px;margin-bottom:0">
+          <h2 class="flights-head" id="trainHead"></h2>
+          <div class="visa-grid" id="trainGrid"></div>
+          <p class="visa-disclaimer">Major stations are a curated starter list — easy to expand later. Pick one to set it as your origin.</p>
+        </div>
+
+        <div id="departWrap" class="depart-wrap">
+          <label class="field" style="margin-top:22px">When are you traveling?</label>
+          <div class="date-row">
+            <div class="date-col">
+              <span class="date-cap">Departure</span>
+              <div class="cal-wrap">
+                <button type="button" id="dateTrigger" class="date-trigger"><span id="dateTriggerText">Select a date</span><span class="cal-ico">▾</span></button>
+                <div id="calPopup" class="cal-popup" hidden></div>
+                <input type="date" id="departDate" hidden />
+              </div>
+            </div>
+            <div class="date-col" id="returnCol" hidden>
+              <span class="date-cap">Return</span>
+              <div class="cal-wrap">
+                <button type="button" id="returnTrigger" class="date-trigger"><span id="returnTriggerText">Select a date</span><span class="cal-ico">▾</span></button>
+                <div id="returnPopup" class="cal-popup" hidden></div>
+                <input type="date" id="returnDate" hidden />
+              </div>
+            </div>
+          </div>
+          <label class="check-row"><input type="checkbox" id="roundTrip" /> <span>Add return travel (round trip)</span></label>
+        </div>
+      </div>
+
+      <div id="planeWrap" hidden>
+        <label class="field" style="margin-top:22px">Flight stops</label>
+        <div class="stops-group" role="radiogroup" aria-label="Flight stops preference">
+          <label class="switch-btn"><input type="radio" name="stops" value="direct"><span class="box"></span><span>I only want a direct flight</span></label>
+          <label class="switch-btn"><input type="radio" name="stops" value="one"><span class="box"></span><span>I'm fine with one stop</span></label>
+          <label class="switch-btn"><input type="radio" name="stops" value="multi"><span class="box"></span><span>Multiple stops are ok</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="flightResults" class="visa-results" hidden>
+    <h2 class="flights-head" id="flightsHead"></h2>
+    <div class="visa-summary" id="flightSummary"></div>
+    <div class="visa-grid" id="flightGrid"></div>
+    <p class="visa-disclaimer">These are illustrative sample flights for the prototype — not real schedules, prices, or availability. Live flight search will be powered by a flights API (e.g. Amadeus or Duffel) in the production build.</p>
+  </div>
+
+
+</div>
+
+<div class="tool-section" data-tool="visa" hidden>
+<section class="visa">
+  <div class="visa-panel">
+    <h2 class="visa-title">Visa free or do I need?</h2>
+    <h3 class="visa-sub">I hold a passport from the following country</h3>
+    <div class="select-wrap">
+      <select id="passport">
+        <option value="" selected disabled>Select your country…</option>
+      </select>
+    </div>
+    <p class="visa-status" id="visaStatus">Loading live visa data…</p>
+  </div>
+
+  <div id="visaResults" class="visa-results" hidden>
+    <div class="visa-summary" id="visaSummary"></div>
+    <input type="text" id="visaFilter" class="visa-filter" placeholder="Filter destinations…" />
+    <div class="visa-grid" id="visaGrid"></div>
+    <p class="visa-disclaimer">Indicative guidance from the open <a href="https://github.com/ilyankou/passport-index-dataset" target="_blank" rel="noopener">Passport Index dataset</a>. Visa rules change frequently — always confirm with the destination's official embassy or e-visa service before you book. Use “Verify” on any row to double-check.</p>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="brand"><span>Never Roam Alone</span></div>
+</footer>
+
+<script>
+/* Shared starter dataset (kept in sync with the map for now). */
+const CITIES = [
+  {city:"Hong Kong",country:"China (SAR)",visitors:26.7,tagline:"Neon harbor nights and dim-sum mornings."},
+  {city:"Bangkok",country:"Thailand",visitors:22.8,tagline:"Temples, tuk-tuks, and street food that never sleeps."},
+  {city:"London",country:"United Kingdom",visitors:19.6,tagline:"Centuries of history around every rainy corner."},
+  {city:"Macau",country:"China (SAR)",visitors:20.6,tagline:"Portuguese colonial charm beneath dazzling lights."},
+  {city:"Singapore",country:"Singapore",visitors:19.8,tagline:"A garden city where every cuisine has a home."},
+  {city:"Paris",country:"France",visitors:19.1,tagline:"Boulevards, cafés, and light that earns its name."},
+  {city:"Dubai",country:"UAE",visitors:17.5,tagline:"Desert futurism reaching for the sky."},
+  {city:"New York",country:"United States",visitors:13.6,tagline:"Eight million stories on one electric grid."},
+  {city:"Kuala Lumpur",country:"Malaysia",visitors:14.0,tagline:"Twin towers above a rainforest of cultures."},
+  {city:"Istanbul",country:"Türkiye",visitors:13.4,tagline:"Where two continents share a single skyline."},
+  {city:"Tokyo",country:"Japan",visitors:12.9,tagline:"Ancient ritual and neon future, side by side."},
+  {city:"Antalya",country:"Türkiye",visitors:12.4,tagline:"A turquoise coast beneath ancient ruins."},
+  {city:"Seoul",country:"South Korea",visitors:11.3,tagline:"Palaces, pop, and midnight markets."},
+  {city:"Osaka",country:"Japan",visitors:10.1,tagline:"Japan's kitchen, loud and proud."},
+  {city:"Rome",country:"Italy",visitors:10.1,tagline:"An open-air museum you can eat your way through."},
+  {city:"Phuket",country:"Thailand",visitors:9.9,tagline:"Limestone islands and warm Andaman tides."},
+  {city:"Barcelona",country:"Spain",visitors:9.1,tagline:"Gaudí's dreams beside the Mediterranean."},
+  {city:"Amsterdam",country:"Netherlands",visitors:9.0,tagline:"Canals, bicycles, and golden-age light."},
+  {city:"Milan",country:"Italy",visitors:8.8,tagline:"Fashion, fresco, and effortless style."},
+  {city:"Vienna",country:"Austria",visitors:7.9,tagline:"Coffee houses and concert halls of old Europe."},
+  {city:"Prague",country:"Czechia",visitors:8.0,tagline:"A fairy-tale city of spires and bridges."},
+  {city:"Los Angeles",country:"United States",visitors:7.5,tagline:"Sunshine, screens, and endless coastline."},
+  {city:"Sydney",country:"Australia",visitors:4.0,tagline:"Harbor sails and beaches within the city."},
+  {city:"Cape Town",country:"South Africa",visitors:1.7,tagline:"Where a flat-topped mountain meets two oceans."},
+  {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,tagline:"Mountains, beaches, and rhythm in the air."},
+  {city:"Cancún",country:"Mexico",visitors:6.1,tagline:"Caribbean blue with Maya ruins next door."},
+  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets."}
+];
+
+/* Which cities best match each priority (starter picks — easy to tweak). */
+const PRIORITIES = {
+  "Nightlife":          ["Bangkok","Hong Kong","New York","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
+  "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore"],
+  "Museums & Culture":  ["Paris","London","Rome","Vienna","Istanbul","New York"],
+  "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul"],
+  "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya"]
+};
+
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const results = document.getElementById("results");
+
+const priorityEl = document.getElementById("priority");
+const budgetEl = document.getElementById("budget");
+const BUDGET_NOTE = {
+  shoestring:"on a shoestring",
+  low:"keeping it low",
+  flexible:"with a flexible budget",
+  comfortable:"with room to spend",
+  luxury:"going all out"
+};
+
+function renderPicks(){
+  const pri = priorityEl.value;
+  if(!pri) return;
+  const names = PRIORITIES[pri] || [];
+  const picks = names.map(n => CITIES.find(c => c.city === n)).filter(Boolean);
+
+  if(!picks.length){
+    results.innerHTML = `<p class="empty">No matches yet for that pick.</p>`;
+    return;
+  }
+  const cards = picks.map(c=>{
+    const sg = slug(c.city);
+    const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+    return `
+      <article class="card">
+        <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
+          <span class="visit">${num}M / yr</span>
+        </div>
+        <div class="body">
+          <div class="country">${c.country}</div>
+          <h3>${c.city}</h3>
+          <p>${c.tagline}</p>
+          <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+        </div>
+      </article>`;
+  }).join("");
+
+  const budChip = budgetEl.value
+    ? `<span class="chip2 b-voa" style="vertical-align:middle;margin-left:10px">${BUDGET_NOTE[budgetEl.value]}</span>`
+    : "";
+
+  results.innerHTML = `
+    <h2>Top picks for ${pri.replace("&amp;","&")} lovers${budChip}</h2>
+    <p class="sub">Cities from the map that lean into what you care about most.</p>
+    <div class="grid">${cards}</div>`;
+  results.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+priorityEl.addEventListener("change", () => { renderPicks(); saveState(); });
+budgetEl.addEventListener("change", () => { renderPicks(); saveState(); });
+
+/* ---- Tool switcher: show only the dropdown selected by the radio buttons ---- */
+const toolSections = document.querySelectorAll(".tool-section");
+const switchBtns = document.querySelectorAll(".switch-btn");
+function showTool(val){
+  toolSections.forEach(s => { s.hidden = (s.dataset.tool !== val); });
+  switchBtns.forEach(b => b.classList.toggle("active", b.querySelector("input").value === val));
+  // Note: tool state is intentionally preserved when switching radios.
+}
+document.querySelectorAll('input[name="tool"]').forEach(r => {
+  r.addEventListener("change", () => { showTool(r.value); saveState(); });
+});
+showTool("activities");
+
+/* ---- Mode of Travel: airport / city autocomplete shown when "Plane" is picked ---- */
+const travelmodeEl = document.getElementById("travelmode");
+const originWrap   = document.getElementById("originWrap");
+const originInput  = document.getElementById("originInput");
+const originList   = document.getElementById("originList");
+const originStatus = document.getElementById("originStatus");
+const planeWrap = document.getElementById("planeWrap");
+const originLabel = document.getElementById("originLabel");
+let AIRPORTS = null, airportsLoading = false, CITY_LIST = null;
+
+const ORIGIN_LABELS = {
+  Plane: ["Origin city or airport code",  "Start typing a city or airport code…"],
+  Train: ["Origin city or train station", "Start typing a city or train station…", "(station names will autopopulate)"],
+  Boat:  ["Origin city or port",          "Start typing a city or port…"],
+  Bus:   ["Origin city or bus station",   "Start typing a city or bus station…"],
+  Car:   ["Origin city",                  "Start typing a city…"],
+  Any:   ["Origin city",                  "Start typing a city…"]
+};
+
+function applyModeUI(mode){
+  originWrap.hidden = !mode;                 // origin city shows for every mode
+  planeWrap.hidden = mode !== "Plane";       // stops + date are flight-only
+  if(mode){
+    const L = ORIGIN_LABELS[mode] || ["Origin city", "Start typing a city…"];
+    if(originLabel) originLabel.innerHTML = L[0] + (L[2] ? `<br><span class="label-hint">${L[2]}</span>` : "");
+    originInput.placeholder = L[1];
+    if(!AIRPORTS && !airportsLoading) loadAirports();
+  }
+}
+travelmodeEl.addEventListener("change", () => {
+  const mode = travelmodeEl.value;
+  originInput.value = "";                     // clear origin when the mode changes
+  selectedOrigin = null;
+  originList.hidden = true;
+  if(typeof flightResults !== "undefined" && flightResults) flightResults.hidden = true;
+  if(typeof trainResults !== "undefined" && trainResults) trainResults.hidden = true;
+  applyModeUI(mode);
+  saveState();
+});
+
+function resetTravelMode(){
+  travelmodeEl.value = "";
+  originWrap.hidden = true;
+  planeWrap.hidden = true;
+  if(flightResults) flightResults.hidden = true;
+  if(trainResults) trainResults.hidden = true;
+  originInput.value = "";
+  selectedOrigin = null;
+  document.querySelectorAll('input[name="stops"]').forEach(r => r.checked = false);
+  document.querySelectorAll(".stops-group .switch-btn").forEach(b => b.classList.remove("active"));
+  departCal.reset(); returnCal.reset(); roundTrip.checked = false; returnCol.hidden = true;
+}
+
+function loadAirports(){
+  airportsLoading = true;
+  originStatus.textContent = "Loading airport list…";
+  fetch("https://cdn.jsdelivr.net/gh/jpatokal/openflights@master/data/airports.dat")
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+    .then(text => { AIRPORTS = parseAirports(text); buildCityList(); originStatus.textContent = AIRPORTS.length + " places loaded — start typing."; })
+    .catch(() => { originStatus.innerHTML = "Couldn't load the airport list (you may be offline, or the page is open as a local file). It loads automatically once the site is hosted; meanwhile you can type your city or code manually."; });
+}
+
+function parseLine(line){
+  const out=[]; let cur="", q=false;
+  for(let i=0;i<line.length;i++){
+    const ch=line[i];
+    if(q){ if(ch==='"'){ if(line[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=ch; }
+    else { if(ch===','){out.push(cur);cur="";} else if(ch==='"'){q=true;} else cur+=ch; }
+  }
+  out.push(cur); return out;
+}
+function parseAirports(text){
+  const arr=[];
+  for(const line of text.split(/\r?\n/)){
+    if(!line) continue;
+    const f=parseLine(line);
+    const name=f[1], city=f[2], country=f[3], iata=f[4];
+    if(!iata || iata==="\\N" || iata.length!==3 || !/^[A-Za-z]{3}$/.test(iata)) continue;
+    arr.push({ name, city, country, code:iata.toUpperCase() });
+  }
+  return arr;
+}
+
+/* Curated major train stations by city (used in Train mode) */
+const TRAIN_STATIONS = {
+  "London": ["St Pancras International","King's Cross","Paddington","Victoria","Waterloo","Euston","Liverpool Street"],
+  "Paris": ["Gare du Nord","Gare de Lyon","Gare Saint-Lazare","Gare de l'Est","Gare Montparnasse","Gare d'Austerlitz"],
+  "New York": ["Grand Central Terminal","Penn Station","Moynihan Train Hall"],
+  "Tokyo": ["Tokyo Station","Shinjuku Station","Shibuya Station","Ueno Station","Shinagawa Station"],
+  "Berlin": ["Berlin Hauptbahnhof","Berlin Ostbahnhof","Berlin Gesundbrunnen","Berlin Südkreuz"],
+  "Rome": ["Roma Termini","Roma Tiburtina"],
+  "Madrid": ["Madrid Atocha","Madrid Chamartín"],
+  "Barcelona": ["Barcelona Sants","Estació de França"],
+  "Amsterdam": ["Amsterdam Centraal","Amsterdam Zuid"],
+  "Milan": ["Milano Centrale","Milano Porta Garibaldi"],
+  "Munich": ["München Hauptbahnhof","München Ost"],
+  "Frankfurt": ["Frankfurt Hauptbahnhof","Frankfurt Süd"],
+  "Vienna": ["Wien Hauptbahnhof","Wien Meidling"],
+  "Prague": ["Praha hlavní nádraží","Praha-Holešovice"],
+  "Brussels": ["Bruxelles-Midi / Brussel-Zuid","Bruxelles-Central","Bruxelles-Nord"],
+  "Zurich": ["Zürich Hauptbahnhof","Zürich Oerlikon"],
+  "Geneva": ["Genève-Cornavin"],
+  "Lisbon": ["Lisboa Santa Apolónia","Lisboa Oriente","Lisboa Rossio"],
+  "Edinburgh": ["Edinburgh Waverley","Edinburgh Haymarket"],
+  "Manchester": ["Manchester Piccadilly","Manchester Victoria"],
+  "Chicago": ["Chicago Union Station"],
+  "Washington": ["Washington Union Station"],
+  "Boston": ["South Station","North Station"],
+  "Toronto": ["Toronto Union Station"],
+  "Seoul": ["Seoul Station","Yongsan Station"],
+  "Osaka": ["Shin-Osaka Station","Osaka Station"],
+  "Kyoto": ["Kyoto Station"],
+  "Shanghai": ["Shanghai Hongqiao","Shanghai Railway Station","Shanghai South"],
+  "Beijing": ["Beijing South","Beijing Railway Station","Beijing West"],
+  "Mumbai": ["Chhatrapati Shivaji Maharaj Terminus","Mumbai Central"],
+  "Delhi": ["New Delhi Railway Station","Hazrat Nizamuddin"]
+};
+const TRAIN_CITIES = Object.keys(TRAIN_STATIONS).sort((a,b)=>a.localeCompare(b));
+
+function buildCityList(){
+  if(!AIRPORTS) return;
+  const seen=new Set(), list=[];
+  for(const a of AIRPORTS){
+    if(!a.city) continue;
+    const key=a.city+"|"+a.country;
+    if(seen.has(key)) continue;
+    seen.add(key); list.push({city:a.city, country:a.country});
+  }
+  CITY_LIST=list;
+}
+
+/* Build suggestion items per travel mode */
+function airportItems(query){
+  const q=query.trim().toLowerCase(); if(q.length<2 || !AIRPORTS) return [];
+  const codeQ=q.toUpperCase(); const starts=[], contains=[];
+  for(const a of AIRPORTS){
+    const city=(a.city||"").toLowerCase();
+    if(a.code===codeQ){ starts.unshift(a); continue; }
+    if(a.code.startsWith(codeQ) || city.startsWith(q)) starts.push(a);
+    else if(city.includes(q) || (a.name||"").toLowerCase().includes(q)) contains.push(a);
+  }
+  return starts.concat(contains).slice(0,8).map(a=>({
+    label:`${a.city||a.name}, ${a.country}`, sub:a.name, code:a.code, type:"final",
+    value:`${a.city||a.name} (${a.code})`, origin:{city:a.city||a.name, name:a.name, code:a.code}
+  }));
+}
+function cityItems(query){
+  const q=query.trim().toLowerCase(); if(q.length<2 || !CITY_LIST) return [];
+  const starts=[], contains=[];
+  for(const c of CITY_LIST){
+    const city=c.city.toLowerCase();
+    if(city.startsWith(q)) starts.push(c);
+    else if(city.includes(q)) contains.push(c);
+    if(starts.length>=12) break;
+  }
+  return starts.concat(contains).slice(0,8).map(c=>({
+    label:`${c.city}, ${c.country}`, sub:"", code:"", type:"final", value:c.city, origin:{city:c.city, code:""}
+  }));
+}
+function trainCityItems(query){
+  const q=query.trim().toLowerCase();
+  return TRAIN_CITIES.filter(c=>c.toLowerCase().includes(q)).slice(0,8).map(c=>({
+    label:c, sub:`${TRAIN_STATIONS[c].length} major stations`, code:"", type:"train-city", city:c
+  }));
+}
+function trainStationItems(city){
+  return TRAIN_STATIONS[city].map(s=>({
+    label:s, sub:city, code:"", type:"final", value:`${s}, ${city}`, origin:{city, code:""}
+  }));
+}
+
+let acItems=[], acIndex=-1;
+function renderList(items){
+  acItems=items; acIndex=-1;
+  if(!items.length){ originList.hidden=true; originList.innerHTML=""; return; }
+  originList.innerHTML = items.map((it,i)=>
+    `<li data-i="${i}"><span class="ac-city">${it.label}${it.sub?`<span class="ac-name">${it.sub}</span>`:""}</span>` +
+    `${it.code?`<span class="ac-code">${it.code}</span>`:""}</li>`).join("");
+  originList.hidden=false;
+}
+function selectItem(it){
+  if(!it) return;
+  if(it.type==="train-city"){              // show the city's stations as a results panel
+    originInput.value = it.city;
+    originList.hidden = true;
+    renderTrainResults(it.city);
+    return;
+  }
+  originInput.value = it.value;
+  selectedOrigin = it.origin || null;
+  originList.hidden = true;
+  if(travelmodeEl.value==="Plane") maybeRenderFlights();
+  saveState();
+}
+function runSearch(){
+  const mode = travelmodeEl.value;
+  const q = originInput.value;
+  if(mode==="Plane")      renderList(airportItems(q));
+  else if(mode==="Train"){
+    renderList(trainCityItems(q));
+    const qt=q.trim().toLowerCase();
+    if(qt.length>=2){
+      const hits=[];
+      for(const city of TRAIN_CITIES)
+        for(const s of TRAIN_STATIONS[city])
+          if(s.toLowerCase().includes(qt)) hits.push({station:s,city});
+      if(hits.length){
+        trainHead.textContent=`Stations matching "${q.trim()}"`;
+        trainGrid.innerHTML=hits.map(({station,city})=>
+          `<div class="visa-row train-pick" data-station="${station.replace(/"/g,'&quot;')}" data-city="${city.replace(/"/g,'&quot;')}">
+            <span>${station}</span><span class="right"><span class="badge b-voa">${city}</span></span>
+          </div>`).join("");
+        trainResults.hidden=false;
+      }
+    }
+  }
+  else renderList(cityItems(q));
+}
+
+originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; runSearch(); saveState(); });
+originInput.addEventListener("focus", ()=>{ if(travelmodeEl.value==="Train" && !originInput.value.trim()) renderList(trainCityItems("")); });
+originList.addEventListener("click", (e)=>{ const li=e.target.closest("li"); if(li) selectItem(acItems[+li.dataset.i]); });
+originInput.addEventListener("keydown", (e)=>{
+  if(originList.hidden) return;
+  if(e.key==="ArrowDown"){ acIndex=Math.min(acIndex+1, acItems.length-1); e.preventDefault(); }
+  else if(e.key==="ArrowUp"){ acIndex=Math.max(acIndex-1, 0); e.preventDefault(); }
+  else if(e.key==="Enter"){ if(acIndex>=0){ selectItem(acItems[acIndex]); e.preventDefault(); } return; }
+  else if(e.key==="Escape"){ originList.hidden=true; return; }
+  else return;
+  [...originList.children].forEach((li,i)=>li.classList.toggle("active", i===acIndex));
+});
+document.addEventListener("click", (e)=>{ if(!originWrap.contains(e.target)) originList.hidden=true; });
+
+/* ---- Flight stops radios -> reveal a departure-date calendar ---- */
+const departWrap = document.getElementById("departWrap");
+const departDate = document.getElementById("departDate");
+if(departDate){ departDate.min = new Date().toISOString().split("T")[0]; }
+document.querySelectorAll('input[name="stops"]').forEach(r => {
+  r.addEventListener("change", ()=>{
+    document.querySelectorAll(".stops-group .switch-btn").forEach(b =>
+      b.classList.toggle("active", b.querySelector("input").checked));
+    maybeRenderFlights();
+    saveState();
+  });
+});
+
+/* ---- Sample flight results (prototype): once date is set, list flights filtered by stops ---- */
+let selectedOrigin = null;
+const flightResults = document.getElementById("flightResults");
+const flightGrid    = document.getElementById("flightGrid");
+const flightSummary = document.getElementById("flightSummary");
+const flightsHead   = document.getElementById("flightsHead");
+
+const DESTS = [
+  {city:"London",code:"LHR"},{city:"Paris",code:"CDG"},{city:"New York",code:"JFK"},
+  {city:"Tokyo",code:"HND"},{city:"Dubai",code:"DXB"},{city:"Singapore",code:"SIN"},
+  {city:"Hong Kong",code:"HKG"},{city:"Los Angeles",code:"LAX"},{city:"Frankfurt",code:"FRA"},
+  {city:"Amsterdam",code:"AMS"},{city:"Sydney",code:"SYD"},{city:"Istanbul",code:"IST"},
+  {city:"Bangkok",code:"BKK"},{city:"Toronto",code:"YYZ"},{city:"Madrid",code:"MAD"},
+  {city:"Rome",code:"FCO"},{city:"Seoul",code:"ICN"},{city:"São Paulo",code:"GRU"},
+  {city:"Mexico City",code:"MEX"},{city:"Doha",code:"DOH"},{city:"Barcelona",code:"BCN"},
+  {city:"Munich",code:"MUC"},{city:"Chicago",code:"ORD"},{city:"San Francisco",code:"SFO"},
+  {city:"Delhi",code:"DEL"},{city:"Cape Town",code:"CPT"},{city:"Lisbon",code:"LIS"},{city:"Vienna",code:"VIE"}
+];
+const AIRLINES = ["Skyway Air","Atlas Airlines","Meridian","Blue Horizon","Aurora Jet","TransGlobal","Northwind","Cirrus Air"];
+
+function hashStr(s){ let h=1779033703 ^ s.length; for(let i=0;i<s.length;i++){ h=Math.imul(h ^ s.charCodeAt(i),3432918353); h=h<<13 | h>>>19; } return (h ^= h>>>16)>>>0; }
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a ^ a>>>15, 1|a); t=t+Math.imul(t ^ t>>>7, 61|t) ^ t; return ((t ^ t>>>14)>>>0)/4294967296; }; }
+function fmtTime(h,m){ const hh=((h%24)+24)%24; const ap=hh<12?"AM":"PM"; let h12=hh%12; if(h12===0)h12=12; return `${h12}:${String(m).padStart(2,"0")} ${ap}`; }
+function fmtDur(h){ const hh=Math.floor(h); const mm=Math.round((h-hh)*60); return `${hh}h ${mm}m`; }
+
+const STOPS_PARAM = { direct:"1", one:"2", multi:"0" }; // SerpApi stops codes
+
+// City-landmark photos come from Unsplash via the /image proxy (key stays server-side).
+const IMG_CACHE = {};
+const UTM = "?utm_source=never_roam_alone&utm_medium=referral";
+function applyCardImage(card, d){
+  if(!d || !d.url) return;                     // leaves the dark fallback panel
+  card.style.backgroundImage = `url('${d.url}')`;
+  if(d.credit){
+    const prof = (d.creditLink || "https://unsplash.com/") + UTM;
+    const cred = document.createElement("span");
+    cred.className = "photo-credit";
+    cred.innerHTML = `Photo: <a href="${prof}" target="_blank" rel="noopener">${d.credit}</a> / ` +
+                     `<a href="https://unsplash.com/${UTM}" target="_blank" rel="noopener">Unsplash</a>`;
+    card.appendChild(cred);
+  }
+}
+async function loadCardImages(){
+  const cards = [...flightGrid.querySelectorAll(".flight-card[data-city]")];
+  for(const card of cards){
+    const city = card.dataset.city;
+    if(!city) continue;
+    if(IMG_CACHE[city] !== undefined){ applyCardImage(card, IMG_CACHE[city]); continue; }
+    try{
+      const r = await fetch(`/.netlify/functions/image?q=${encodeURIComponent(city + " landmark")}`);
+      if(!r.ok) throw new Error(r.status);
+      const d = await r.json();
+      IMG_CACHE[city] = (d && d.url) ? d : null;
+      applyCardImage(card, IMG_CACHE[city]);
+    }catch(e){ IMG_CACHE[city] = null; }
+  }
+}
+function maybeRenderFlights(){
+  const pref = (document.querySelector('input[name="stops"]:checked')||{}).value;
+  if(!(selectedOrigin && pref && departDate.value)) return;
+  const wantRound = roundTrip && roundTrip.checked;
+  const retDate = wantRound ? returnDate.value : "";
+  if(wantRound && !retDate) return;                         // round trip needs a return date
+  if(selectedOrigin.code){
+    fetchExplore(selectedOrigin, departDate.value, pref, retDate);   // live Google Travel Explore
+  } else {
+    renderFlights(selectedOrigin, pref, departDate.value);  // sample fallback (no airport code)
+  }
+}
+
+async function fetchExplore(origin, date, pref, retDate){
+  flightsHead.textContent = `Exploring destinations from ${origin.code}…`;
+  flightSummary.innerHTML = "";
+  flightGrid.innerHTML = `<p class="empty">Loading live destinations…</p>`;
+  flightResults.hidden = false;
+  const params = { departure_id:origin.code, outbound_date:date, stops:STOPS_PARAM[pref]||"0", currency:"USD" };
+  if(retDate){ params.type = "1"; params.return_date = retDate; }   // round trip
+  const qs = new URLSearchParams(params);
+  try{
+    const r = await fetch(`/.netlify/functions/flights?${qs.toString()}`);
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data = await r.json();
+    if(data.error) throw new Error(data.error);
+    renderExplore(data, origin, date);
+  }catch(e){
+    renderFlights(origin, pref, date);   // graceful fallback to sample flights
+  }
+}
+
+function renderExplore(data, origin, date){
+  const list = (data.destinations || []).slice();
+  const prettyDate = new Date(date+"T00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"});
+  flightsHead.textContent = `Destinations from ${origin.code} · ${prettyDate}`;
+  if(!list.length){
+    flightSummary.innerHTML = "";
+    flightGrid.innerHTML = `<p class="empty">No destinations returned for that date — try another date or allow more stops.</p>`;
+    flightResults.hidden = false; return;
+  }
+  const counts = {0:0,1:0,2:0};
+  list.forEach(d => counts[Math.min(d.number_of_stops||0,2)]++);
+  const chips = [];
+  if(counts[0]) chips.push(`<span class="chip2 b-free">${counts[0]} <span>direct</span></span>`);
+  if(counts[1]) chips.push(`<span class="chip2 b-voa">${counts[1]} <span>one-stop</span></span>`);
+  if(counts[2]) chips.push(`<span class="chip2 b-evisa">${counts[2]} <span>multi-stop</span></span>`);
+  flightSummary.innerHTML = chips.join("");
+  list.sort((a,b)=> (a.flight_price!=null?a.flight_price:Infinity) - (b.flight_price!=null?b.flight_price:Infinity)); // cheapest first
+  const rows = list.map(d=>{
+    const stops = d.number_of_stops || 0;
+    const [cls,label] = stops===0 ? ["b-free","Direct"] : stops===1 ? ["b-voa","1 stop"] : ["b-evisa", stops+" stops"];
+    const code = (d.destination_airport && d.destination_airport.code) ? ` (${d.destination_airport.code})` : "";
+    const dur = d.flight_duration ? `${Math.floor(d.flight_duration/60)}h ${d.flight_duration%60}m` : "";
+    const price = (d.flight_price!=null) ? `$${d.flight_price}` : "";
+    const sub = [d.airline, dur].filter(Boolean).join(" · ");
+    return `<div class="visa-row flight-card" data-city="${(d.name||'').replace(/"/g,'&quot;')}">
+      <span class="dest">${d.name||"Destination"}${code}<span class="ac-name">${sub}</span></span>
+      <span class="right"><span class="badge ${cls}">${label}</span><span class="flight-price">${price}</span></span>
+    </div>`;
+  });
+  paintFlightGrid(rows);
+  flightResults.hidden = false;
+  flightResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+// Show the first 6 destination cards; reveal the rest behind a "Show more" button.
+function paintFlightGrid(rows){
+  const old = document.getElementById("flightMore");
+  if(old) old.remove();
+  flightGrid.innerHTML = rows.slice(0, 6).join("");
+  if(rows.length > 6){
+    const wrap = document.createElement("div");
+    wrap.id = "flightMore";
+    wrap.style.gridColumn = "1 / -1";
+    wrap.style.textAlign = "center";
+    wrap.style.marginTop = "6px";
+    wrap.innerHTML = '<button type="button" class="show-more">Show more (' + (rows.length - 6) + ')</button>';
+    flightGrid.appendChild(wrap);
+    wrap.querySelector("button").addEventListener("click", function(){
+      flightGrid.innerHTML = rows.join("");
+      loadCardImages();
+      if(window.NRA_i18n) window.NRA_i18n.apply();
+    });
+  }
+  loadCardImages();
+}
+
+function renderFlights(origin, pref, date){
+  const maxStops = pref==="direct" ? 0 : pref==="one" ? 1 : 9;
+  const flights = DESTS.filter(d => d.code !== origin.code).map(d => {
+    const rng = mulberry32(hashStr(origin.code + d.code + date));
+    const r = rng();
+    const stops = r<0.5 ? 0 : r<0.8 ? 1 : (r<0.95 ? 2 : 3);
+    const depHour = 5 + Math.floor(rng()*17);
+    const depMin = [0,10,15,30,40,45,55][Math.floor(rng()*7)];
+    const durH = (1.5 + rng()*13) + stops*1.4;
+    const airline = AIRLINES[Math.floor(rng()*AIRLINES.length)];
+    const price = Math.round((140 + rng()*820) + (stops===0?120:stops===1?40:0));
+    const arrTotal = depHour*60 + depMin + Math.round(durH*60);
+    return { d, stops, depHour, depMin, durH, airline, price,
+             arrH: Math.floor(arrTotal/60), arrM: arrTotal%60, plus: Math.floor(arrTotal/1440) };
+  }).filter(f => f.stops <= maxStops)
+    .sort((a,b) => a.price - b.price);   // cheapest first
+
+  const badge = s => s===0 ? ["b-free","Direct"] : s===1 ? ["b-voa","1 stop"] : s===2 ? ["b-evisa","2 stops"] : ["b-req", s+" stops"];
+  const counts = {0:0,1:0,2:0};
+  flights.forEach(f => counts[Math.min(f.stops,2)]++);
+  const chips = [];
+  if(counts[0]) chips.push(`<span class="chip2 b-free">${counts[0]} <span>direct</span></span>`);
+  if(counts[1]) chips.push(`<span class="chip2 b-voa">${counts[1]} <span>one-stop</span></span>`);
+  if(counts[2]) chips.push(`<span class="chip2 b-evisa">${counts[2]} <span>multi-stop</span></span>`);
+
+  const prettyDate = new Date(date + "T00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"});
+  flightsHead.textContent = `Flights from ${origin.city||origin.name} (${origin.code}) · ${prettyDate}`;
+  flightSummary.innerHTML = chips.join("");
+
+  if(!flights.length){
+    const old = document.getElementById("flightMore"); if(old) old.remove();
+    flightGrid.innerHTML = `<p class="empty">No direct flights found for that date — try allowing a stop.</p>`;
+  } else {
+    const rows = flights.map(f => {
+      const [cls,label] = badge(f.stops);
+      const arr = fmtTime(f.arrH, f.arrM) + (f.plus ? ` +${f.plus}` : "");
+      return `<div class="visa-row flight-card" data-city="${(f.d.city||'').replace(/"/g,'&quot;')}">
+        <span class="dest">${f.d.city} (${f.d.code})<span class="ac-name">${f.airline} · ${fmtTime(f.depHour,f.depMin)} – ${arr} · ${fmtDur(f.durH)}</span></span>
+        <span class="right"><span class="badge ${cls}">${label}</span><span class="flight-price">$${f.price}</span></span>
+      </div>`;
+    });
+    paintFlightGrid(rows);
+  }
+
+  flightResults.hidden = false;
+  flightResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+/* ---- Custom calendar widget (larger, styled) — reusable for departure & return ---- */
+const calToday = new Date(); calToday.setHours(0,0,0,0);
+const CAL_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const CAL_DOW = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+const pad2 = n => String(n).padStart(2,"0");
+const calISO = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
+const calPretty = d => d.toLocaleDateString(undefined,{weekday:"short",month:"long",day:"numeric",year:"numeric"});
+
+function makeCalendar(o){
+  let vy = calToday.getFullYear(), vm = calToday.getMonth(), sel = null;
+  const minD = () => (o.minDate ? o.minDate() : calToday);
+  function build(){
+    const min = minD();
+    const startDow = new Date(vy, vm, 1).getDay();
+    const days = new Date(vy, vm+1, 0).getDate();
+    const canPrev = (vy>min.getFullYear()) || (vy===min.getFullYear() && vm>min.getMonth());
+    let cells = "";
+    for(let i=0;i<startDow;i++) cells += `<div class="cal-day empty"></div>`;
+    for(let d=1; d<=days; d++){
+      const dd = new Date(vy, vm, d);
+      const past = dd < min;
+      const cls = ["cal-day"];
+      if(past) cls.push("disabled");
+      if(dd.getTime()===calToday.getTime()) cls.push("today");
+      if(sel && dd.getTime()===sel.getTime()) cls.push("selected");
+      cells += `<div class="${cls.join(" ")}" ${past?"":`data-d="${d}"`}>${d}</div>`;
+    }
+    o.popup.innerHTML =
+      `<div class="cal-head">
+         <button type="button" class="cal-nav cal-prev" ${canPrev?"":"disabled"}>&lsaquo;</button>
+         <div class="cal-title">${CAL_MONTHS[vm]} ${vy}</div>
+         <button type="button" class="cal-nav cal-next">&rsaquo;</button>
+       </div>
+       <div class="cal-grid">${CAL_DOW.map(d=>`<div class="cal-dow">${d}</div>`).join("")}${cells}</div>
+       <div class="cal-foot"><button type="button" class="cal-clear">Clear</button></div>`;
+  }
+  function reset(){ sel=null; o.input.value=""; o.triggerText.textContent="Select a date"; o.popup.hidden=true; vy=calToday.getFullYear(); vm=calToday.getMonth(); }
+  function setValue(iso){ if(!iso){ reset(); return; } sel=new Date(iso+"T00:00"); sel.setHours(0,0,0,0); o.input.value=iso; o.triggerText.textContent=calPretty(sel); vy=sel.getFullYear(); vm=sel.getMonth(); }
+  o.trigger.addEventListener("click",(e)=>{ e.stopPropagation(); if(o.popup.hidden){ build(); o.popup.hidden=false; } else o.popup.hidden=true; });
+  o.popup.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    if(e.target.closest(".cal-prev")){ if(vm===0){vm=11;vy--;}else vm--; build(); return; }
+    if(e.target.closest(".cal-next")){ if(vm===11){vm=0;vy++;}else vm++; build(); return; }
+    if(e.target.closest(".cal-clear")){ reset(); o.onPick && o.onPick(""); return; }
+    const cell = e.target.closest("[data-d]");
+    if(cell){ sel=new Date(vy,vm,+cell.dataset.d); o.input.value=calISO(sel); o.triggerText.textContent=calPretty(sel); o.popup.hidden=true; o.onPick && o.onPick(o.input.value); }
+  });
+  document.addEventListener("click",(e)=>{ if(!o.popup.contains(e.target) && !o.trigger.contains(e.target)) o.popup.hidden=true; });
+  return { reset, setValue, getValue:()=>o.input.value };
+}
+
+const returnDate = document.getElementById("returnDate");
+const roundTrip = document.getElementById("roundTrip");
+const returnCol = document.getElementById("returnCol");
+
+const departCal = makeCalendar({
+  trigger: document.getElementById("dateTrigger"),
+  triggerText: document.getElementById("dateTriggerText"),
+  popup: document.getElementById("calPopup"),
+  input: departDate,
+  minDate: () => calToday,
+  onPick: (val) => {
+    const rv = returnCal.getValue();
+    if(rv && val && new Date(rv) < new Date(val)) returnCal.reset();   // keep return on/after departure
+    maybeRenderFlights(); saveState();
+  }
+});
+const returnCal = makeCalendar({
+  trigger: document.getElementById("returnTrigger"),
+  triggerText: document.getElementById("returnTriggerText"),
+  popup: document.getElementById("returnPopup"),
+  input: returnDate,
+  minDate: () => departDate.value ? new Date(departDate.value+"T00:00") : calToday,
+  onPick: () => { maybeRenderFlights(); saveState(); }
+});
+
+roundTrip.addEventListener("change", () => {
+  returnCol.hidden = !roundTrip.checked;
+  if(!roundTrip.checked) returnCal.reset();
+  maybeRenderFlights(); saveState();
+});
+
+/* ---- Train station results: shown after picking a city in Train mode ---- */
+const trainResults = document.getElementById("trainResults");
+const trainHead = document.getElementById("trainHead");
+const trainGrid = document.getElementById("trainGrid");
+function renderTrainResults(city){
+  const stations = TRAIN_STATIONS[city] || [];
+  trainHead.textContent = `Major train stations in ${city}`;
+  trainGrid.innerHTML = stations.map(s =>
+    `<div class="visa-row train-pick" data-station="${s.replace(/"/g,'&quot;')}" data-city="${city.replace(/"/g,'&quot;')}">
+       <span class="dest">${s}<span class="ac-name">${city}</span></span>
+       <span class="right"><span class="badge b-voa">Station</span></span>
+     </div>`).join("");
+  trainResults.hidden = false;
+}
+trainGrid.addEventListener("click", (e)=>{
+  const row = e.target.closest(".train-pick"); if(!row) return;
+  originInput.value = `${row.dataset.station}, ${row.dataset.city}`;
+  selectedOrigin = { city:row.dataset.city, code:"" };
+  trainResults.hidden = true;
+  saveState();
+});
+
+/* ---- Visa Free Travel: populate the passport-country dropdown ---- */
+const COUNTRIES = [
+  "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia",
+  "Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan",
+  "Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde",
+  "Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros",
+  "Congo (Republic of the)","Congo (Democratic Republic of the)","Costa Rica","Côte d'Ivoire","Croatia","Cuba",
+  "Cyprus","Czechia","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador",
+  "Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia",
+  "Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary",
+  "Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan",
+  "Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya",
+  "Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta",
+  "Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro",
+  "Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger",
+  "Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama",
+  "Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda",
+  "Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino",
+  "Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia",
+  "Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan",
+  "Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo",
+  "Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine",
+  "United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City",
+  "Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
+];
+const passport = document.getElementById("passport");
+let pendingPassport = null;
+COUNTRIES.forEach(name=>{
+  const o = document.createElement("option");
+  o.value = name; o.textContent = name;
+  passport.appendChild(o);
+});
+
+/* ---- Visa Free Travel: live lookup against the open Passport Index dataset ---- */
+const PI_URL = "https://cdn.jsdelivr.net/gh/ilyankou/passport-index-dataset@master/passport-index-tidy.csv";
+const visaStatus  = document.getElementById("visaStatus");
+const visaResults = document.getElementById("visaResults");
+const visaSummary = document.getElementById("visaSummary");
+const visaGrid    = document.getElementById("visaGrid");
+const visaFilter  = document.getElementById("visaFilter");
+
+let DATA = null; // Map(passport -> Array<[destination, requirement]>)
+
+function classify(reqRaw){
+  const r = String(reqRaw).trim().toLowerCase();
+  if(r === "-1" || r === "") return null;            // same country / blank
+  const n = Number(r);
+  if(!isNaN(n) && n > 0) return {cat:"free",  label:"Visa-free · " + n + "d", cls:"b-free",  rank:0};
+  if(r === "visa free")        return {cat:"free",  label:"Visa-free",       cls:"b-free",  rank:0};
+  if(r === "visa on arrival")  return {cat:"voa",   label:"On arrival",      cls:"b-voa",   rank:1};
+  if(r === "eta")              return {cat:"eta",   label:"eTA",             cls:"b-eta",   rank:2};
+  if(r === "e-visa")           return {cat:"evisa", label:"eVisa",           cls:"b-evisa", rank:3};
+  if(r === "visa required")    return {cat:"req",   label:"Visa required",   cls:"b-req",   rank:4};
+  if(r === "no admission")     return {cat:"no",    label:"No admission",    cls:"b-no",    rank:5};
+  return {cat:"other", label:reqRaw, cls:"b-no", rank:4};
+}
+
+function parseCSV(text){
+  const lines = text.split(/\r?\n/);
+  const map = new Map();
+  const passports = new Set();
+  for(let i=0;i<lines.length;i++){
+    const line = lines[i];
+    if(!line) continue;
+    const firstComma = line.indexOf(",");
+    const lastComma  = line.lastIndexOf(",");
+    if(firstComma < 0 || lastComma <= firstComma) continue;
+    const p   = line.slice(0, firstComma).trim();
+    const d   = line.slice(firstComma + 1, lastComma).trim();
+    const req = line.slice(lastComma + 1).trim();
+    if(i === 0 && p.toLowerCase() === "passport") continue; // header row
+    if(!map.has(p)) map.set(p, []);
+    map.get(p).push([d, req]);
+    passports.add(p);
+  }
+  return { map, passports:[...passports].sort((a,b)=>a.localeCompare(b)) };
+}
+
+function itemsFor(p){
+  const rows = DATA.get(p) || [];
+  return rows.map(([d,req]) => ({ d, info: classify(req) }))
+             .filter(x => x.info)
+             .sort((a,b) => a.info.rank - b.info.rank || a.d.localeCompare(b.d));
+}
+
+function rowHTML(p, x){
+  const q = encodeURIComponent("visa requirements for " + p + " passport holders travelling to " + x.d);
+  return '<div class="visa-row"><span class="dest">' + x.d + '</span>' +
+         '<span class="right"><span class="badge ' + x.info.cls + '">' + x.info.label + '</span>' +
+         '<a class="verify" href="https://www.google.com/search?q=' + q + '" target="_blank" rel="noopener">Verify &rsaquo;</a>' +
+         '</span></div>';
+}
+
+function renderGrid(p, items){
+  const f = visaFilter.value.trim().toLowerCase();
+  const shown = f ? items.filter(x => x.d.toLowerCase().includes(f)) : items;
+  visaGrid.innerHTML = shown.length
+    ? shown.map(x => rowHTML(p, x)).join("")
+    : '<p class="empty">No destinations match that filter.</p>';
+}
+
+function render(p){
+  if(!DATA || !DATA.get(p)){ visaResults.hidden = true; return; }
+  const items = itemsFor(p);
+  const counts = {};
+  items.forEach(x => counts[x.info.cat] = (counts[x.info.cat]||0) + 1);
+  const order = [["free","b-free","visa-free"],["voa","b-voa","on arrival"],["eta","b-eta","eTA"],
+                 ["evisa","b-evisa","eVisa"],["req","b-req","visa required"],["no","b-no","no admission"]];
+  visaSummary.innerHTML = order.filter(o => counts[o[0]])
+    .map(o => '<span class="chip2 ' + o[1] + '">' + counts[o[0]] + ' <span>' + o[2] + '</span></span>').join("");
+  visaFilter.value = "";
+  renderGrid(p, items);
+  visaResults.hidden = false;
+  visaResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+}
+
+passport.addEventListener("change", e => { render(e.target.value); saveState(); });
+visaFilter.addEventListener("input", () => {
+  const p = passport.value;
+  if(DATA && DATA.get(p)) renderGrid(p, itemsFor(p));
+});
+
+fetch(PI_URL)
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+  .then(text => {
+    const parsed = parseCSV(text);
+    DATA = parsed.map;
+    // Repopulate the dropdown from the dataset so names always match the lookup
+    const keep = passport.value;
+    passport.innerHTML = '<option value="" selected disabled>Select your country…</option>';
+    parsed.passports.forEach(n => {
+      const o = document.createElement("option"); o.value = n; o.textContent = n; passport.appendChild(o);
+    });
+    const want = pendingPassport || keep;
+    if(parsed.passports.includes(want)){ passport.value = want; render(want); }
+    pendingPassport = null;
+    visaStatus.textContent = "Pick your passport to see entry requirements for every country.";
+  })
+  .catch(() => {
+    visaStatus.innerHTML = "Live visa data couldn't load (you may be offline, or the page is open from a local file). " +
+      "Once the site is hosted online this loads automatically — meanwhile you can check an official source like " +
+      "<a href='https://www.iatatravelcentre.com/' target='_blank' rel='noopener'>IATA Travel Centre</a>.";
+  });
+
+/* ---- Persist the whole form across page reloads (graceful if storage is blocked) ---- */
+const STORE_KEY = "nra_choose_state_v1";
+function saveState(){
+  try{
+    localStorage.setItem(STORE_KEY, JSON.stringify({
+      tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "activities",
+      priority: priorityEl.value,
+      budget: budgetEl.value,
+      travelmode: travelmodeEl.value,
+      originText: originInput.value,
+      origin: selectedOrigin,
+      depart: departDate.value,
+      round: roundTrip.checked,
+      returnDate: returnDate.value,
+      stops: (document.querySelector('input[name="stops"]:checked')||{}).value || "",
+      passport: passport.value
+    }));
+  }catch(e){}
+}
+function loadState(){
+  let s; try{ s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); }catch(e){ s = null; }
+  if(!s) return;
+
+  if(s.priority) priorityEl.value = s.priority;
+  if(s.budget) budgetEl.value = s.budget;
+  if(s.priority) renderPicks();
+
+  if(s.travelmode){
+    travelmodeEl.value = s.travelmode;
+    applyModeUI(s.travelmode);
+    if(s.originText) originInput.value = s.originText;
+    selectedOrigin = s.origin || null;
+    if(s.stops){
+      const r = document.querySelector(`input[name="stops"][value="${s.stops}"]`);
+      if(r){ r.checked = true; document.querySelectorAll(".stops-group .switch-btn").forEach(b => b.classList.toggle("active", b.querySelector("input").checked)); }
+    }
+    if(s.depart) departCal.setValue(s.depart);
+    if(s.round){ roundTrip.checked = true; returnCol.hidden = false; if(s.returnDate) returnCal.setValue(s.returnDate); }
+    if(s.travelmode === "Plane") maybeRenderFlights();
+  }
+
+  if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; if(DATA && DATA.get(s.passport)) render(s.passport); }
+
+  if(s.tool){
+    const tr = document.querySelector(`input[name="tool"][value="${s.tool}"]`);
+    if(tr) tr.checked = true;
+    showTool(s.tool);
+  }
+}
+loadState();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

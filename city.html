@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Never Roam Alone — City</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
+    --coral:#ef6f53;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.65}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:24px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--green);border-color:var(--coral)}
+
+  /* Hero */
+  .hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:flex-end;
+    background-size:cover;background-position:center;color:#fff}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(10,30,25,.15) 0%,rgba(10,30,25,.75) 100%)}
+  .hero-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%;padding:0 22px 40px}
+  .crumb{font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:#ffd9c9;margin-bottom:10px}
+  .crumb a:hover{color:#fff}
+  .hero h1{font-size:clamp(2.4rem,7vw,4.5rem);margin:0;line-height:1.02;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+  .hero .country{font-size:1.1rem;opacity:.95;margin-top:6px}
+  .hero .tagline{font-family:Georgia,serif;font-style:italic;font-size:1.25rem;margin:14px 0 0;max-width:640px}
+  .chip{display:inline-flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:8px 16px;border-radius:30px;margin-top:18px}
+  .chip b{font-size:1.35rem}
+  .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
+
+  section{max-width:var(--maxw);margin:0 auto;padding:54px 22px}
+  .lead{font-size:1.15rem;color:var(--ink);max-width:760px}
+  .muted{color:var(--muted)}
+  .placeholder-note{background:#fff6ef;border:1px dashed var(--coral);color:#a24a34;
+    border-radius:12px;padding:12px 16px;font-size:.86rem;margin-top:20px}
+
+  /* Facts grid — 3 columns for the stat cards, temp card spans full row */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .fact{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .fact .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
+  .fact .v{font-size:1.25rem;font-family:Georgia,serif;margin-top:6px}
+
+  /* Language card */
+  .lang-list{margin-top:8px;display:flex;flex-direction:column;gap:7px}
+  .lang-row{display:flex;align-items:center;gap:10px}
+  .lang-name{font-size:.9rem;font-family:Georgia,serif;min-width:110px;flex-shrink:0}
+  .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
+  .lang-bar-track{flex:1;height:5px;background:#eee;border-radius:4px;overflow:hidden}
+  .lang-bar{height:100%;border-radius:4px;background:var(--teal);opacity:.75}
+
+  /* Temperature card */
+  .fact-wide{grid-column:1/-1}
+  .temp-rows{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:10px}
+  .temp-row{padding:10px 14px 10px 0;border-right:1px solid rgba(0,0,0,.07)}
+  .temp-row:last-child{border-right:none;padding-right:0}
+  .temp-row:first-child{padding-left:0}
+  .season-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+  .temp-val{display:block;font-family:Georgia,serif;font-size:1.1rem;font-weight:700;
+    color:var(--ink);margin-bottom:8px}
+  .temp-bar-track{height:6px;background:#eee;border-radius:4px;overflow:hidden}
+  .temp-bar{height:100%;border-radius:4px;transition:width .4s ease}
+
+  .sec-head{font-size:1.8rem;margin:0 0 22px}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .tile{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+    transition:transform .25s, box-shadow .25s;display:flex;flex-direction:column}
+  .tile:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
+  .tile .photo{height:180px;background-size:cover;background-position:center}
+  .tile .body{padding:16px 18px 20px}
+  .tile .date{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .tile h3{font-size:1.1rem;margin:6px 0 8px;line-height:1.3}
+  .tile p{color:var(--muted);font-size:.9rem;margin:0}
+  .tile .readmore{display:inline-block;margin-top:12px;color:var(--green);font-weight:700;font-size:.82rem}
+
+  .back{display:inline-block;margin-top:8px;background:var(--green);color:#fff;font-weight:700;
+    padding:12px 22px;border-radius:30px;transition:background .2s}
+  .back:hover{background:var(--teal)}
+
+  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer .brand{justify-content:center;color:#e97451}
+
+  .notfound{text-align:center;padding:120px 22px}
+  .notfound h1{font-size:2.4rem;margin-bottom:10px}
+
+  @media(max-width:820px){
+    nav.links{display:none}
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .fact-wide{grid-column:1/-1}
+    .temp-rows{grid-template-columns:repeat(2,1fr)}
+    .temp-row{border-right:none;border-bottom:1px solid rgba(0,0,0,.07);padding:10px 0}
+    .temp-row:nth-child(2n){padding-left:14px;border-left:1px solid rgba(0,0,0,.07)}
+    .temp-row:last-child{border-bottom:none}
+    .tiles{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    .facts{grid-template-columns:1fr}
+    .temp-rows{grid-template-columns:1fr}
+    .temp-row:nth-child(2n){padding-left:0;border-left:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+          <circle cx="60" cy="60" r="53"/>
+          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
+          <path d="M22,86 Q60,74 98,86"/>
+        </g>
+        <g fill="#185e3f">
+          <circle cx="50" cy="62" r="5.2"/>
+          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
+          <circle cx="70" cy="62" r="5.2"/>
+          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
+          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
+        </g>
+      </svg>
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links">
+      <a href="index.html">Map</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="choose.html">Destination Finder</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content"><!-- filled by JS --></main>
+
+<footer>
+  <div class="brand" style="font-size:1.6rem"><span>Never Roam Alone</span></div>
+</footer>
+
+<script>
+/* Starter city dataset (shared with the map; will be unified into one source
+   when we move to the production build). visitors = approx. annual international
+   arrivals in millions. temps = avg high °F for each seasonal quarter. */
+const CITIES = [
+  {city:"Hong Kong",country:"China (SAR)",visitors:26.7,pop:"7.4M",lat:22.3193,lng:114.1694,tagline:"Neon harbor nights and dim-sum mornings.",
+   temps:{q1:65,q2:83,q3:90,q4:74},
+   langs:[{l:"Cantonese",p:88},{l:"English",p:54},{l:"Mandarin",p:48}]},
+  {city:"Bangkok",country:"Thailand",visitors:22.8,pop:"10.5M",lat:13.7563,lng:100.5018,tagline:"Temples, tuk-tuks, and street food that never sleeps.",
+   temps:{q1:91,q2:95,q3:91,q4:88},
+   langs:[{l:"Thai",p:93},{l:"Chinese dialects",p:9},{l:"English",p:8}]},
+  {city:"London",country:"United Kingdom",visitors:19.6,pop:"9.6M",lat:51.5072,lng:-0.1276,tagline:"Centuries of history around every rainy corner.",
+   temps:{q1:47,q2:64,q3:74,q4:54},
+   langs:[{l:"English",p:78},{l:"Polish",p:2},{l:"Punjabi",p:1}]},
+  {city:"Macau",country:"China (SAR)",visitors:20.6,pop:"680K",lat:22.1987,lng:113.5439,tagline:"Portuguese colonial charm beneath dazzling lights.",
+   temps:{q1:64,q2:82,q3:89,q4:74},
+   langs:[{l:"Cantonese",p:80},{l:"Mandarin",p:5},{l:"Portuguese",p:3}]},
+  {city:"Singapore",country:"Singapore",visitors:19.8,pop:"5.9M",lat:1.3521,lng:103.8198,tagline:"A garden city where every cuisine has a home.",
+   temps:{q1:87,q2:89,q3:88,q4:87},
+   langs:[{l:"English",p:48},{l:"Mandarin",p:30},{l:"Malay",p:10}]},
+  {city:"Paris",country:"France",visitors:19.1,pop:"2.2M",lat:48.8566,lng:2.3522,tagline:"Boulevards, cafés, and light that earns its name.",
+   temps:{q1:48,q2:67,q3:79,q4:54},
+   langs:[{l:"French",p:89},{l:"Arabic",p:3},{l:"Portuguese",p:2}]},
+  {city:"Dubai",country:"UAE",visitors:17.5,pop:"3.6M",lat:25.2048,lng:55.2708,tagline:"Desert futurism reaching for the sky.",
+   temps:{q1:76,q2:97,q3:107,q4:84},
+   langs:[{l:"Hindi / Urdu",p:32},{l:"Arabic",p:26},{l:"English",p:18}]},
+  {city:"New York",country:"United States",visitors:13.6,pop:"8.3M",lat:40.7128,lng:-74.0060,tagline:"Eight million stories on one electric grid.",
+   temps:{q1:40,q2:69,q3:83,q4:56},
+   langs:[{l:"English",p:62},{l:"Spanish",p:17},{l:"Chinese",p:7}]},
+  {city:"Kuala Lumpur",country:"Malaysia",visitors:14.0,pop:"1.8M",lat:3.1390,lng:101.6869,tagline:"Twin towers above a rainforest of cultures.",
+   temps:{q1:88,q2:90,q3:89,q4:88},
+   langs:[{l:"Malay",p:50},{l:"Mandarin",p:30},{l:"Tamil",p:10}]},
+  {city:"Istanbul",country:"Türkiye",visitors:13.4,pop:"15.8M",lat:41.0082,lng:28.9784,tagline:"Where two continents share a single skyline.",
+   temps:{q1:49,q2:71,q3:86,q4:62},
+   langs:[{l:"Turkish",p:92},{l:"Kurdish",p:6},{l:"Arabic",p:2}]},
+  {city:"Tokyo",country:"Japan",visitors:12.9,pop:"13.9M",lat:35.6895,lng:139.6917,tagline:"Ancient ritual and neon future, side by side.",
+   temps:{q1:48,q2:72,q3:87,q4:63},
+   langs:[{l:"Japanese",p:98},{l:"Chinese",p:1},{l:"Korean",p:1}]},
+  {city:"Antalya",country:"Türkiye",visitors:12.4,pop:"1.3M",lat:36.8969,lng:30.7133,tagline:"A turquoise coast beneath ancient ruins.",
+   temps:{q1:57,q2:78,q3:96,q4:69},
+   langs:[{l:"Turkish",p:95},{l:"Russian",p:3},{l:"German",p:1}]},
+  {city:"Seoul",country:"South Korea",visitors:11.3,pop:"9.7M",lat:37.5665,lng:126.9780,tagline:"Palaces, pop, and midnight markets.",
+   temps:{q1:34,q2:69,q3:85,q4:54},
+   langs:[{l:"Korean",p:96},{l:"Chinese",p:2},{l:"English",p:1}]},
+  {city:"Osaka",country:"Japan",visitors:10.1,pop:"2.7M",lat:34.6937,lng:135.5023,tagline:"Japan's kitchen, loud and proud.",
+   temps:{q1:50,q2:74,q3:89,q4:65},
+   langs:[{l:"Japanese",p:98},{l:"Korean",p:1},{l:"Chinese",p:1}]},
+  {city:"Rome",country:"Italy",visitors:10.1,pop:"2.8M",lat:41.9028,lng:12.4964,tagline:"An open-air museum you can eat your way through.",
+   temps:{q1:55,q2:73,q3:89,q4:64},
+   langs:[{l:"Italian",p:92},{l:"Romanian",p:2},{l:"Arabic",p:1}]},
+  {city:"Phuket",country:"Thailand",visitors:9.9,pop:"420K",lat:7.8804,lng:98.3923,tagline:"Limestone islands and warm Andaman tides.",
+   temps:{q1:90,q2:90,q3:86,q4:86},
+   langs:[{l:"Thai",p:85},{l:"Chinese dialects",p:8},{l:"Malay",p:4}]},
+  {city:"Barcelona",country:"Spain",visitors:9.1,pop:"1.6M",lat:41.3851,lng:2.1734,tagline:"Gaudí's dreams beside the Mediterranean.",
+   temps:{q1:57,q2:72,q3:84,q4:65},
+   langs:[{l:"Spanish",p:98},{l:"Catalan",p:72},{l:"English",p:15}]},
+  {city:"Amsterdam",country:"Netherlands",visitors:9.0,pop:"930K",lat:52.3676,lng:4.9041,tagline:"Canals, bicycles, and golden-age light.",
+   temps:{q1:43,q2:61,q3:69,q4:50},
+   langs:[{l:"Dutch",p:79},{l:"Turkish",p:5},{l:"Moroccan Arabic",p:4}]},
+  {city:"Milan",country:"Italy",visitors:8.8,pop:"1.4M",lat:45.4642,lng:9.1900,tagline:"Fashion, fresco, and effortless style.",
+   temps:{q1:47,q2:72,q3:84,q4:55},
+   langs:[{l:"Italian",p:88},{l:"Romanian",p:3},{l:"Arabic",p:2}]},
+  {city:"Vienna",country:"Austria",visitors:7.9,pop:"1.9M",lat:48.2082,lng:16.3738,tagline:"Coffee houses and concert halls of old Europe.",
+   temps:{q1:38,q2:67,q3:78,q4:51},
+   langs:[{l:"German",p:80},{l:"Serbian",p:6},{l:"Turkish",p:3}]},
+  {city:"Prague",country:"Czechia",visitors:8.0,pop:"1.4M",lat:50.0755,lng:14.4378,tagline:"A fairy-tale city of spires and bridges.",
+   temps:{q1:36,q2:65,q3:75,q4:48},
+   langs:[{l:"Czech",p:91},{l:"Slovak",p:3},{l:"Ukrainian",p:2}]},
+  {city:"Los Angeles",country:"United States",visitors:7.5,pop:"3.9M",lat:34.0522,lng:-118.2437,tagline:"Sunshine, screens, and endless coastline.",
+   temps:{q1:66,q2:74,q3:83,q4:73},
+   langs:[{l:"English",p:59},{l:"Spanish",p:32},{l:"Chinese",p:3}]},
+  {city:"Sydney",country:"Australia",visitors:4.0,pop:"5.3M",lat:-33.8688,lng:151.2093,tagline:"Harbor sails and beaches within the city.",
+   temps:{q1:80,q2:69,q3:61,q4:71},
+   langs:[{l:"English",p:65},{l:"Mandarin",p:5},{l:"Arabic",p:4}]},
+  {city:"Cape Town",country:"South Africa",visitors:1.7,pop:"4.6M",lat:-33.9249,lng:18.4241,tagline:"Where a flat-topped mountain meets two oceans.",
+   temps:{q1:79,q2:67,q3:60,q4:71},
+   langs:[{l:"Afrikaans",p:36},{l:"Xhosa",p:29},{l:"English",p:28}]},
+  {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,pop:"6.7M",lat:-22.9068,lng:-43.1729,tagline:"Mountains, beaches, and rhythm in the air.",
+   temps:{q1:87,q2:79,q3:74,q4:82},
+   langs:[{l:"Portuguese",p:97},{l:"Spanish",p:1},{l:"English",p:1}]},
+  {city:"Cancún",country:"Mexico",visitors:6.1,pop:"930K",lat:21.1619,lng:-86.8515,tagline:"Caribbean blue with Maya ruins next door.",
+   temps:{q1:83,q2:91,q3:92,q4:84},
+   langs:[{l:"Spanish",p:88},{l:"Mayan",p:8},{l:"English",p:4}]},
+  {city:"Marrakech",country:"Morocco",visitors:3.0,pop:"1.1M",lat:31.6295,lng:-7.9811,tagline:"A maze of souks, spice, and rooftop sunsets.",
+   temps:{q1:63,q2:84,q3:100,q4:73},
+   langs:[{l:"Darija",p:65},{l:"Tamazight",p:30},{l:"French",p:20}]}
+];
+
+/* Returns a CSS color for a given °F temperature */
+function tempColor(f) {
+  if (f <= 35)  return '#74b9ff'; /* cold blue   */
+  if (f <= 50)  return '#55efc4'; /* cool teal   */
+  if (f <= 65)  return '#a8e063'; /* mild green  */
+  if (f <= 78)  return '#ffeaa7'; /* warm yellow */
+  if (f <= 90)  return '#fd9644'; /* hot orange  */
+  return '#e55039';               /* very hot red */
+}
+
+/* Maps °F to a 0–100 bar width (anchored at 28°F min, 110°F max) */
+function tempWidth(f) {
+  return Math.min(100, Math.max(4, Math.round((f - 28) / 82 * 100)));
+}
+
+/* Convert °F to °C */
+function toCelsius(f) { return Math.round((f - 32) * 5 / 9); }
+
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const params = new URLSearchParams(location.search);
+const wanted = params.get("city");
+const c = CITIES.find(x => x.city.toLowerCase() === (wanted||"").toLowerCase());
+const content = document.getElementById("content");
+
+if(!c){
+  document.title = "City not found — Never Roam Alone";
+  content.innerHTML = `
+    <div class="notfound">
+      <h1>We haven't mapped that one yet</h1>
+      <p class="muted">That city isn't in the guide yet. Head back to the map and pick another.</p>
+      <p style="margin-top:24px"><a class="back" href="index.html">&larr; Back to the map</a></p>
+    </div>`;
+} else {
+  document.title = `${c.city} — Never Roam Alone`;
+  const sg = slug(c.city);
+  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+  const hero = `https://picsum.photos/seed/${sg}-hero/1600/900`;
+
+  const stories = [
+    {t:`First Impressions of ${c.city}`, d:"Coming soon", s:`${sg}-a`},
+    {t:`What to Eat in ${c.city}`, d:"Coming soon", s:`${sg}-b`},
+    {t:`A Perfect Day in ${c.city}`, d:"Coming soon", s:`${sg}-c`}
+  ];
+
+  /* Build temperature rows for the seasonal card */
+  const seasons = [
+    {label:'Jan – Mar', f: c.temps.q1},
+    {label:'Apr – Jun', f: c.temps.q2},
+    {label:'Jul – Sep', f: c.temps.q3},
+    {label:'Oct – Dec', f: c.temps.q4}
+  ];
+
+  const tempRowsHTML = seasons.map(({label, f}) => `
+    <div class="temp-row">
+      <span class="season-label">${label}</span>
+      <span class="temp-val">${f}°F / ${toCelsius(f)}°C</span>
+      <div class="temp-bar-track">
+        <div class="temp-bar" style="width:${tempWidth(f)}%;background:${tempColor(f)}"></div>
+      </div>
+    </div>`).join('');
+
+  content.innerHTML = `
+    <div class="hero" style="background-image:url('${hero}')">
+      <div class="hero-inner">
+        <div class="crumb"><a href="index.html">Map</a> &nbsp;/&nbsp; ${c.country}</div>
+        <h1>${c.city}</h1>
+        <div class="country">${c.country}</div>
+        <p class="tagline">${c.tagline}</p>
+        <div class="chip"><b>${num}M</b><span>annual visitors</span></div>
+      </div>
+    </div>
+
+    <section class="i18n-ml">
+      <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
+      <div class="placeholder-note">📝 Placeholder text — this intro, the photos, and the stories below are samples. Real content gets added per city as you publish.</div>
+
+      <div class="facts">
+        <div class="fact"><div class="k">Population</div><div class="v">${c.pop}</div></div>
+        <div class="fact"><div class="k">Annual visitors</div><div class="v">${num} M</div></div>
+        <div class="fact">
+          <div class="k">Languages spoken</div>
+          <div class="lang-list">
+            ${c.langs.map(({l,p})=>`
+            <div class="lang-row">
+              <span class="lang-name">${l}</span>
+              <div class="lang-bar-track"><div class="lang-bar" style="width:${p}%"></div></div>
+              <span class="lang-pct">${p}%</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="fact fact-wide">
+          <div class="k">Best time to visit &mdash; avg high temperature</div>
+          <div class="temp-rows">${tempRowsHTML}</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <h2 class="sec-head">Stories from ${c.city}</h2>
+      <div class="tiles">
+        ${stories.map(s=>`
+          <a class="tile" href="post.html?post=${encodeURIComponent(s.s)}">
+            <div class="photo" style="background-image:url('https://picsum.photos/seed/${s.s}/600/400')"></div>
+            <div class="body">
+              <div class="date">${s.d}</div>
+              <h3>${s.t}</h3>
+              <p>A short preview of the post will appear here.</p>
+              <span class="readmore">Read story &rarr;</span>
+            </div>
+          </a>`).join("")}
+      </div>
+      <p style="margin-top:34px"><a class="back" href="index.html">&larr; Back to the map</a></p>
+    </section>`;
+}
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>
