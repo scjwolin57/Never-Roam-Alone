@@ -143,12 +143,7 @@
       </svg>
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
-    <nav class="links">
-      <a href="#top">Home</a>
-      <a href="#about">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="choose.html">Destination Finder</a>
-    </nav>
+    <nav class="links" data-site-nav></nav>
   </div>
 </header>
 
@@ -283,7 +278,7 @@ map.on("load", () => {
        <p class="tip-country">${p.country}</p>
        <p class="tip-num">${num}M<span>annual visitors</span></p>`;
     if(withButton){
-      html += `<a class="explore-btn" href="city.html?city=${encodeURIComponent(p.city)}">Explore ${p.city} &rarr;</a>`;
+      html += `<a class="explore-btn" href="city.html?city=${encodeURIComponent(p.city)}&from=map">Explore ${p.city} &rarr;</a>`;
     }
     return html;
   }
@@ -317,6 +312,7 @@ map.on("load", () => {
 });
 
 </script>
+<script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
 </html>

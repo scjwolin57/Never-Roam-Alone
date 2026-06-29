@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ask A Roamer — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  nav.links a.active{color:var(--teal);border-color:var(--coral)}
+  .menu-toggle{display:none}
+
+  /* ---------- Page hero ---------- */
+  .page-hero{
+    background:linear-gradient(135deg, #0a5c64 0%, #185e3f 100%);
+    color:#fff;text-align:center;padding:72px 22px 64px;
+  }
+  .page-hero .kicker{
+    color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;
+    letter-spacing:.22em;font-size:.74rem;margin:0 0 12px;
+  }
+  .page-hero h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 14px;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:580px;margin:0 auto;font-size:1.05rem}
+
+  /* ---------- Two-column layout ---------- */
+  .layout{
+    max-width:var(--maxw);margin:-34px auto 0;padding:0 22px;
+    display:flex;align-items:flex-start;gap:26px;position:relative;z-index:2;
+  }
+  .main{flex:1;min-width:0}
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{width:248px;flex-shrink:0;position:sticky;top:84px}
+  .side-card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:16px 14px}
+  .side-card h2{font-size:1.05rem;margin:2px 6px 12px;color:var(--ink)}
+  .cat-list{display:flex;flex-direction:column;gap:2px;max-height:62vh;overflow-y:auto}
+  .cat-btn{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    width:100%;text-align:left;border:none;background:none;cursor:pointer;
+    font-family:inherit;font-size:.92rem;color:var(--ink);
+    padding:9px 12px;border-radius:10px;transition:background .15s,color .15s;
+  }
+  .cat-btn:hover{background:rgba(14,124,134,.08)}
+  .cat-btn.active{background:#185e3f;color:#fff;font-weight:700}
+  .cat-btn .cat-count{
+    flex-shrink:0;background:rgba(14,124,134,.12);color:var(--teal-dark);
+    font-size:.74rem;font-weight:700;padding:1px 9px;border-radius:12px;min-width:24px;text-align:center;
+  }
+  .cat-btn.active .cat-count{background:rgba(255,255,255,.22);color:#fff}
+  .cat-btn.pinned{font-weight:700}
+  .cat-sep{height:1px;background:rgba(20,40,50,.1);margin:8px 6px}
+  .side-sub{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:700;margin:2px 8px 6px}
+
+  /* ---------- Ask composer card ---------- */
+  .ask-card{
+    background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+    padding:24px 26px 20px;margin-bottom:24px;
+  }
+  .ask-card h2{margin:0 0 4px;font-size:1.45rem}
+  .ask-card .hint{color:var(--muted);font-size:.92rem;margin:0 0 18px}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-weight:700;font-size:.82rem;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+  .opt{font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted)}
+  .field input[type=text], .field textarea, .field select{
+    width:100%;padding:12px 14px;border:2px solid rgba(14,124,134,.2);border-radius:12px;
+    background:#fff;font-size:.97rem;color:var(--ink);font-family:inherit;outline:none;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  .field select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235b6b75' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;}
+  .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--teal);box-shadow:0 4px 16px rgba(14,124,134,.14)}
+  .field textarea{resize:vertical;min-height:88px;line-height:1.5}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+    background:#185e3f;color:#fff;font-weight:700;font-size:.95rem;font-family:inherit;
+    padding:12px 22px;border-radius:26px;transition:background .2s, transform .15s;
+  }
+  .btn:hover{background:var(--teal)}
+  .btn:active{transform:translateY(1px)}
+  .btn.secondary{background:transparent;color:var(--teal);padding:10px 14px}
+  .btn.secondary:hover{background:rgba(14,124,134,.08)}
+  .ask-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:6px}
+
+  /* ---------- Active category banner ---------- */
+  .cat-banner{display:flex;align-items:baseline;gap:10px;margin:0 2px 16px;flex-wrap:wrap}
+  .cat-banner h2{font-size:1.5rem;margin:0}
+  .cat-banner .sub{color:var(--muted);font-size:.9rem}
+
+  /* ---------- Controls: search + sort ---------- */
+  .controls-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+  .search-inner{position:relative;flex:1;min-width:200px}
+  .search-inner svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
+  #forum-search{
+    width:100%;padding:12px 16px 12px 46px;
+    border:2px solid rgba(14,124,134,.2);border-radius:40px;
+    background:#fff;font-size:.95rem;color:var(--ink);
+    box-shadow:0 4px 16px rgba(20,40,50,.06);outline:none;font-family:inherit;
+    transition:border-color .2s, box-shadow .2s;
+  }
+  #forum-search:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,124,134,.18)}
+  .sort-wrap{position:relative;flex-shrink:0}
+  .sort-wrap::after{
+    content:"";position:absolute;right:13px;top:50%;transform:translateY(-50%);
+    width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;
+    border-top:6px solid var(--muted);pointer-events:none;
+  }
+  #sort-select{
+    appearance:none;-webkit-appearance:none;padding:12px 36px 12px 16px;
+    border:2px solid rgba(14,124,134,.2);border-radius:40px;background:#fff;
+    font-size:.95rem;color:var(--ink);box-shadow:0 4px 16px rgba(20,40,50,.06);
+    outline:none;cursor:pointer;font-family:inherit;white-space:nowrap;
+  }
+  #sort-select:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,124,134,.18)}
+
+  /* ---------- Question threads ---------- */
+  .threads{display:flex;flex-direction:column;gap:18px;padding-bottom:60px}
+  .qcard{
+    background:var(--card);border-radius:16px;box-shadow:var(--shadow);
+    padding:22px 24px;transition:opacity .3s;
+  }
+  .qcard.dimmed{display:none}
+  .qmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin-bottom:8px}
+  .avatar{
+    width:30px;height:30px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:.82rem;color:#fff;font-family:-apple-system,sans-serif;
+  }
+  .qmeta .who{font-weight:700;color:var(--ink);font-size:.86rem}
+  .qmeta .loc{background:rgba(14,124,134,.1);color:var(--teal-dark);font-weight:700;
+    padding:2px 9px;border-radius:14px;font-size:.72rem;cursor:pointer}
+  .qmeta .loc:hover{background:rgba(14,124,134,.2)}
+  .qcard h3{margin:2px 0 6px;font-size:1.28rem;line-height:1.3}
+  .qbody{color:var(--ink);margin:0 0 14px;white-space:pre-wrap}
+  .qfoot{display:flex;align-items:center;gap:18px;border-top:1px solid rgba(20,40,50,.08);padding-top:12px}
+  .reply-toggle{display:inline-flex;align-items:center;gap:7px;cursor:pointer;color:var(--teal);
+    font-weight:700;font-size:.88rem;background:none;border:none;font-family:inherit;padding:0}
+  .reply-toggle:hover{color:var(--teal-dark)}
+  .reply-toggle .count-pill{background:var(--teal);color:#fff;border-radius:12px;padding:1px 9px;font-size:.74rem}
+  .reply-toggle .count-pill.zero{background:var(--coral)}
+
+  /* Replies */
+  .replies{margin-top:14px;display:none;flex-direction:column;gap:12px}
+  .replies.open{display:flex}
+  .reply{display:flex;gap:11px}
+  .reply .rbody{background:var(--sand);border-radius:12px;padding:10px 14px;flex:1}
+  .reply .rhead{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--muted);margin-bottom:3px}
+  .reply .rhead .who{font-weight:700;color:var(--ink);font-size:.82rem}
+  .reply .rtext{margin:0;white-space:pre-wrap;font-size:.94rem}
+  /* Reply voting */
+  .vote-row{display:flex;gap:8px;margin-top:9px}
+  .vote-row.inline{margin-top:0;margin-right:4px}
+  .vote-btn{
+    display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+    border:1.5px solid rgba(20,40,50,.14);background:#fff;border-radius:20px;
+    padding:4px 11px;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--muted);
+    transition:background .15s,border-color .15s,color .15s;
+  }
+  .vote-btn svg{width:15px;height:15px;flex-shrink:0}
+  .vote-btn .vcount{font-variant-numeric:tabular-nums}
+  .vote-btn.up:hover{border-color:var(--teal);color:var(--teal)}
+  .vote-btn.down:hover{border-color:var(--coral);color:#c2462c}
+  .vote-btn.up.active{background:rgba(14,124,134,.12);border-color:var(--teal);color:var(--teal-dark)}
+  .vote-btn.down.active{background:rgba(239,111,83,.14);border-color:var(--coral);color:#c2462c}
+
+  /* Reply composer */
+  .reply-form{display:none;gap:11px;margin-top:6px}
+  .reply-form.open{display:flex}
+  .reply-form .rf-fields{flex:1;display:flex;flex-direction:column;gap:8px}
+  .reply-form input[type=text]{
+    padding:9px 12px;border:2px solid rgba(14,124,134,.2);border-radius:10px;
+    font-size:.9rem;font-family:inherit;outline:none;max-width:240px;
+  }
+  .reply-form textarea{
+    padding:10px 12px;border:2px solid rgba(14,124,134,.2);border-radius:10px;
+    font-size:.92rem;font-family:inherit;outline:none;resize:vertical;min-height:62px;line-height:1.5;
+  }
+  .reply-form input:focus, .reply-form textarea:focus{border-color:var(--teal)}
+  .reply-form .rf-actions{display:flex;gap:8px;align-items:center}
+  .reply-form .btn{padding:9px 18px;font-size:.88rem}
+
+  .empty-state{text-align:center;color:var(--muted);padding:44px 22px;font-size:1.02rem;
+    background:var(--card);border-radius:16px;box-shadow:var(--shadow)}
+  .empty-state strong{color:var(--ink)}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer .brand{justify-content:center;color:#e97451}
+  footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:880px){
+    nav.links{display:none}
+    .layout{flex-direction:column;gap:18px}
+    .sidebar{width:100%;position:static;top:auto}
+    .side-card h2{display:inline-block}
+    .cat-list{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:8px;max-height:none;padding-bottom:4px}
+    .cat-btn{flex-shrink:0;white-space:nowrap;background:rgba(14,124,134,.06)}
+    .cat-sep{display:none}
+    .side-sub{display:none}
+    .row2{grid-template-columns:1fr}
+    .controls-inner{flex-direction:column;align-items:stretch}
+    .sort-wrap, #sort-select{width:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 120 120" width="46" height="46" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+          <circle cx="60" cy="60" r="53"/>
+          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
+          <path d="M22,86 Q60,74 98,86"/>
+        </g>
+        <g fill="#185e3f">
+          <circle cx="50" cy="62" r="5.2"/>
+          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
+          <circle cx="70" cy="62" r="5.2"/>
+          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
+          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
+        </g>
+      </svg>
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<!-- ===== Page hero ===== -->
+<div class="page-hero">
+  <p class="kicker">Travelers helping travelers</p>
+  <h1>Ask A Roamer</h1>
+  <p>Got a question about a destination, a route, or a tip you can't find anywhere else? Pick a city on the left, ask the community — and share what you know when someone else needs a hand.</p>
+</div>
+
+<!-- ===== Two-column layout ===== -->
+<div class="layout">
+
+  <!-- ---- Sidebar: General Travel + cities A-Z ---- -->
+  <aside class="sidebar">
+    <div class="side-card">
+      <h2>Browse by city</h2>
+      <div class="cat-list" id="cat-list"><!-- categories injected here --></div>
+    </div>
+  </aside>
+
+  <!-- ---- Main column ---- -->
+  <div class="main">
+
+    <!-- Ask a question composer -->
+    <section class="ask-card" id="ask-card">
+      <h2>Ask a question</h2>
+      <p class="hint">Be specific — the more context you give, the better the answers you'll get back.</p>
+      <form id="ask-form" autocomplete="off">
+        <div class="row2">
+          <div class="field">
+            <label for="q-name">Your name <span class="opt">(optional)</span></label>
+            <input type="text" id="q-name" placeholder="Anonymous Roamer" maxlength="40" />
+          </div>
+          <div class="field">
+            <label for="q-city">Which city is this about?</label>
+            <select id="q-city"><!-- options injected --></select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="q-title">Question</label>
+          <input type="text" id="q-title" placeholder="What's the best way to get from Kyoto to Osaka?" maxlength="140" required />
+        </div>
+        <div class="field">
+          <label for="q-body">Details</label>
+          <textarea id="q-body" placeholder="Add any context — dates, budget, who you're traveling with, what you've already tried…" maxlength="1200"></textarea>
+        </div>
+        <div class="ask-actions">
+          <button class="btn" type="submit" id="post-btn">Post question</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Active category banner -->
+    <div class="cat-banner">
+      <h2 id="cat-title">General Travel</h2>
+      <span class="sub" id="cat-sub"></span>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-inner">
+      <div class="search-inner">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="forum-search" type="search" placeholder="Search questions…" autocomplete="off" aria-label="Search questions" />
+      </div>
+      <div class="sort-wrap">
+        <select id="sort-select" aria-label="Sort questions">
+          <option value="newest">Newest first</option>
+          <option value="active">Most replies</option>
+          <option value="unanswered">Unanswered</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Threads -->
+    <div class="threads" id="threads"></div>
+    <div class="empty-state" id="empty-state" style="display:none"></div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
+  <small>Prototype · community Q&amp;A · posts are saved locally in your browser for now</small>
+</footer>
+
+<script>
+/* ==================================================================
+   ASK A ROAMER — community forum (prototype)
+
+   Persistence is routed through a single async data layer (ForumStore)
+   so it can be swapped from localStorage to a Netlify serverless
+   backend later WITHOUT touching the rendering / UI code below.
+
+   To go live: replace the method bodies in ForumStore with fetch()
+   calls to /.netlify/functions/forum (GET list, POST question,
+   POST reply). Everything else stays the same.
+================================================================== */
+
+/* Cities mirror the map dataset in index.html. General Travel is the
+   pinned catch-all bucket for questions not tied to a specific city. */
+const GENERAL = "General Travel";
+const CITIES = [
+  "Amsterdam","Antalya","Bangkok","Barcelona","Cancún","Cape Town","Dubai",
+  "Hong Kong","Istanbul","Kuala Lumpur","London","Los Angeles","Macau",
+  "Marrakech","Milan","New York","Osaka","Paris","Phuket","Prague",
+  "Rio de Janeiro","Rome","Seoul","Singapore","Sydney","Tokyo","Vienna"
+].sort((a,b) => a.localeCompare(b));
+const CATEGORIES = [GENERAL, ...CITIES];
+
+const ForumStore = (function () {
+  const KEY = "nra_forum_v2";
+  const OLD_KEY = "nra_forum_v1";
+  const VOTES_KEY = "nra_forum_votes_v1"; // replyId -> 'up' | 'down' (this browser's own vote)
+
+  /* ---- seed data (first visit) ---- */
+  const SEED = [
+    {
+      id:"seed-1", name:"Mara T.", city:"Osaka", likes:8, dislikes:0,
+      title:"Best way to get from Kyoto to Osaka on a budget?",
+      body:"Heading over in October with a friend. Is the JR train worth it or should we look at buses? Trying to keep costs down but don't want to waste a half-day in transit.",
+      created: Date.now() - 1000*60*60*26,
+      replies:[
+        {id:"r1", name:"Devon", body:"Take the JR Special Rapid — it's about 30 minutes and way cheaper than the shinkansen. If you already have a JR Pass it's free.", created: Date.now()-1000*60*60*22, likes:14, dislikes:0},
+        {id:"r2", name:"Anonymous Roamer", body:"Buses are cheaper but honestly not worth the extra hour. The local trains run constantly so you never really wait.", created: Date.now()-1000*60*60*19, likes:5, dislikes:1}
+      ]
+    },
+    {
+      id:"seed-2", name:"Anonymous Roamer", city:"Istanbul", likes:12, dislikes:1,
+      title:"Do I need a visa for a 5-day layover in Istanbul on a US passport?",
+      body:"Booked a long layover and want to leave the airport and explore. Couldn't get a clear answer online.",
+      created: Date.now() - 1000*60*60*50,
+      replies:[
+        {id:"r3", name:"Priya", body:"US passport holders get visa-free entry to Türkiye for up to 90 days, so a 5-day stop is totally fine. Just make sure your passport has 6+ months validity.", created: Date.now()-1000*60*60*44, likes:22, dislikes:0}
+      ]
+    },
+    {
+      id:"seed-3", name:"Kenji", city:"Tokyo", likes:4, dislikes:0,
+      title:"Is the 7-day JR Pass still worth it for a Tokyo-only trip?",
+      body:"We're staying in Tokyo the whole time with maybe one day trip. Worth buying the national pass or just use an IC card?",
+      created: Date.now() - 1000*60*60*8,
+      replies:[
+        {id:"r4", name:"Anonymous Roamer", body:"If you're not leaving the Tokyo area, skip the national pass — just load a Suica/Pasmo. The pass only pays off once you're doing intercity shinkansen trips.", created: Date.now()-1000*60*60*6, likes:9, dislikes:0}
+      ]
+    },
+    {
+      id:"seed-4", name:"Sophie", city:"Paris", likes:6, dislikes:0,
+      title:"Best non-touristy neighborhood to stay in Paris for a week?",
+      body:"First time, but I'd rather feel like a local than be next to the Eiffel Tower. Walkable, cafes, good metro access.",
+      created: Date.now() - 1000*60*60*30,
+      replies:[]
+    },
+    {
+      id:"seed-5", name:"Luca", city:GENERAL, likes:3, dislikes:0,
+      title:"How many days do you really need for the W Trek in Patagonia?",
+      body:"Everyone says something different — 4 days, 5 days, do it in reverse… What actually worked for you?",
+      created: Date.now() - 1000*60*30,
+      replies:[]
+    }
+  ];
+
+  function normalize(q){
+    // ensure every question has a valid category
+    if (!q.city || CATEGORIES.indexOf(q.city) === -1) q.city = GENERAL;
+    if (typeof q.likes !== "number") q.likes = 0;
+    if (typeof q.dislikes !== "number") q.dislikes = 0;
+    if (!Array.isArray(q.replies)) q.replies = [];
+    q.replies.forEach(r => {
+      if (typeof r.likes !== "number") r.likes = 0;
+      if (typeof r.dislikes !== "number") r.dislikes = 0;
+    });
+    return q;
+  }
+
+  function read() {
+    // current schema
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) return JSON.parse(raw).map(normalize);
+    } catch (e) {}
+    // migrate from v1 (had a free-text "loc" field instead of "city")
+    try {
+      const old = localStorage.getItem(OLD_KEY);
+      if (old) {
+        const migrated = JSON.parse(old).map(q => {
+          const guess = (q.loc && CITIES.indexOf(q.loc) !== -1) ? q.loc : GENERAL;
+          return normalize({ ...q, city: q.city || guess });
+        });
+        write(migrated);
+        return migrated;
+      }
+    } catch (e) {}
+    // first visit
+    const seed = JSON.parse(JSON.stringify(SEED)).map(normalize);
+    write(seed);
+    return seed;
+  }
+
+  function write(list){ try { localStorage.setItem(KEY, JSON.stringify(list)); } catch (e) {} }
+  function readVotes(){ try { return JSON.parse(localStorage.getItem(VOTES_KEY)) || {}; } catch (e) { return {}; } }
+  function writeVotes(v){ try { localStorage.setItem(VOTES_KEY, JSON.stringify(v)); } catch (e) {} }
+  /* shared up/down vote logic. `key` is the vote-map key ("q:<id>" for a
+     question, "<replyId>" for a reply). dir = "up"|"down"; same dir = toggle off. */
+  function applyVote(obj, key, dir){
+    const votes = readVotes();
+    const prev = votes[key] || null;
+    if (prev === "up")   obj.likes    = Math.max(0, obj.likes - 1);
+    if (prev === "down") obj.dislikes = Math.max(0, obj.dislikes - 1);
+    let next;
+    if (prev === dir){ next = null; }
+    else { next = dir; if (dir === "up") obj.likes++; else obj.dislikes++; }
+    if (next) votes[key] = next; else delete votes[key];
+    writeVotes(votes);
+    return { likes: obj.likes, dislikes: obj.dislikes, vote: next };
+  }
+  function uid(){ return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7); }
+
+  return {
+    async list(){ return read(); },
+    async addQuestion({ name, city, title, body }){
+      const list = read();
+      const q = normalize({
+        id: uid(),
+        name: (name||"").trim() || "Anonymous Roamer",
+        city: (CATEGORIES.indexOf(city) !== -1) ? city : GENERAL,
+        title: title.trim(),
+        body: (body||"").trim(),
+        created: Date.now(),
+        replies: []
+      });
+      list.unshift(q);
+      write(list);
+      return q;
+    },
+    async addReply(questionId, { name, body }){
+      const list = read();
+      const q = list.find(x => x.id === questionId);
+      if (!q) return null;
+      const r = { id: uid(), name:(name||"").trim()||"Anonymous Roamer", body: body.trim(), created: Date.now(), likes:0, dislikes:0 };
+      q.replies.push(r);
+      write(list);
+      return r;
+    },
+    /* this browser's own vote per reply, e.g. { "r1": "up" } */
+    votes(){ return readVotes(); },
+    /* dir = "up" | "down"; clicking your current vote again removes it (toggle) */
+    async vote(questionId, replyId, dir){
+      const list = read();
+      const q = list.find(x => x.id === questionId);
+      if (!q) return null;
+      const r = q.replies.find(x => x.id === replyId);
+      if (!r) return null;
+      const res = applyVote(r, replyId, dir);
+      write(list);
+      return res;
+    },
+    /* vote on a top-level question (vote-map key is namespaced "q:<id>") */
+    async voteQuestion(questionId, dir){
+      const list = read();
+      const q = list.find(x => x.id === questionId);
+      if (!q) return null;
+      const res = applyVote(q, "q:" + questionId, dir);
+      write(list);
+      return res;
+    }
+  };
+})();
+
+/* ------------------------------------------------------------------
+   Rendering / UI
+------------------------------------------------------------------ */
+const catListEl  = document.getElementById("cat-list");
+const citySelect = document.getElementById("q-city");
+const catTitleEl = document.getElementById("cat-title");
+const catSubEl   = document.getElementById("cat-sub");
+const threadsEl  = document.getElementById("threads");
+const emptyEl    = document.getElementById("empty-state");
+const searchEl   = document.getElementById("forum-search");
+const sortEl     = document.getElementById("sort-select");
+const askForm    = document.getElementById("ask-form");
+
+let QUESTIONS = [];
+let activeCat = GENERAL;
+let VOTES = {};   // this browser's own up/down votes, keyed by reply id
+
+const ICON_UP   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`;
+const ICON_DOWN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>`;
+
+const AVATAR_COLORS = ["#0e7c86","#ef6f53","#185e3f","#7a5cc4","#c4732e","#0a5c64","#b0436b"];
+function avatarColor(name){ let h=0; for (let i=0;i<name.length;i++) h=(h*31+name.charCodeAt(i))>>>0; return AVATAR_COLORS[h%AVATAR_COLORS.length]; }
+function initials(name){ const p=name.trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); }
+function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function timeAgo(ts){
+  const s=Math.floor((Date.now()-ts)/1000);
+  if(s<60) return "just now";
+  const m=Math.floor(s/60); if(m<60) return m+(m===1?" min ago":" mins ago");
+  const h=Math.floor(m/60); if(h<24) return h+(h===1?" hour ago":" hours ago");
+  const d=Math.floor(h/24); if(d<30) return d+(d===1?" day ago":" days ago");
+  const mo=Math.floor(d/30); return mo+(mo===1?" month ago":" months ago");
+}
+function avatarHTML(name,big){ const c=avatarColor(name); return `<span class="avatar" style="background:${c}${big?'':';width:24px;height:24px;font-size:.7rem'}">${esc(initials(name))}</span>`; }
+
+/* ---- sidebar + composer category options ---- */
+function countFor(cat){ return QUESTIONS.filter(q => q.city === cat).length; }
+
+function renderSidebar(){
+  const make = (cat, pinned) => `
+    <button class="cat-btn ${pinned?'pinned':''} ${cat===activeCat?'active':''}" data-cat="${esc(cat)}">
+      <span>${esc(cat)}</span>
+      <span class="cat-count">${countFor(cat)}</span>
+    </button>`;
+  let html = make(GENERAL, true);
+  html += `<div class="cat-sep"></div><div class="side-sub">Cities</div>`;
+  html += CITIES.map(c => make(c, false)).join("");
+  catListEl.innerHTML = html;
+}
+
+function renderCitySelect(){
+  const cur = citySelect.value || activeCat;
+  citySelect.innerHTML = CATEGORIES.map(c => `<option value="${esc(c)}">${esc(c)}</option>`).join("");
+  citySelect.value = (CATEGORIES.indexOf(cur) !== -1) ? cur : activeCat;
+}
+
+/* Shared thumbs up/down control. key = vote-map key; attrs = extra markup
+   on the wrapper (data-reply / data-q) used by the click handler. */
+function voteRowHTML(key, likes, dislikes, attrs, inline){
+  const v = VOTES[key] || null;
+  return `
+    <div class="vote-row ${inline?'inline':''}" ${attrs}>
+      <button type="button" class="vote-btn up ${v==='up'?'active':''}" data-vote="up" aria-pressed="${v==='up'}" title="Helpful">
+        ${ICON_UP}<span class="vcount">${likes}</span>
+      </button>
+      <button type="button" class="vote-btn down ${v==='down'?'active':''}" data-vote="down" aria-pressed="${v==='down'}" title="Not helpful">
+        ${ICON_DOWN}<span class="vcount">${dislikes}</span>
+      </button>
+    </div>`;
+}
+
+function replyHTML(r){
+  return `
+    <div class="reply">
+      ${avatarHTML(r.name,false)}
+      <div class="rbody">
+        <div class="rhead"><span class="who">${esc(r.name)}</span> · <span>${timeAgo(r.created)}</span></div>
+        <p class="rtext">${esc(r.body)}</p>
+        ${voteRowHTML(r.id, r.likes, r.dislikes, `data-reply="${r.id}"`, false)}
+      </div>
+    </div>`;
+}
+
+function questionHTML(q){
+  const count=q.replies.length;
+  return `
+    <article class="qcard" data-id="${q.id}" data-search="${esc((q.title+" "+q.body).toLowerCase())}">
+      <div class="qmeta">
+        ${avatarHTML(q.name,true)}
+        <span class="who">${esc(q.name)}</span>
+        <span class="loc" data-cat="${esc(q.city)}">${esc(q.city)}</span>
+        <span>· ${timeAgo(q.created)}</span>
+      </div>
+      <h3>${esc(q.title)}</h3>
+      ${q.body ? `<p class="qbody">${esc(q.body)}</p>` : ""}
+      <div class="qfoot">
+        ${voteRowHTML("q:"+q.id, q.likes, q.dislikes, `data-q="${q.id}"`, true)}
+        <button class="reply-toggle" data-action="toggle-replies">
+          <span class="count-pill ${count===0?'zero':''}">${count}</span>
+          ${count===1?"reply":"replies"}
+        </button>
+        <button class="reply-toggle" data-action="toggle-form">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Add a reply
+        </button>
+      </div>
+      <div class="replies">${q.replies.map(replyHTML).join("")}</div>
+      <form class="reply-form" data-id="${q.id}">
+        <div class="rf-fields">
+          <input type="text" class="rf-name" placeholder="Your name (optional)" maxlength="40" />
+          <textarea class="rf-body" placeholder="Share what you know…" maxlength="800" required></textarea>
+          <div class="rf-actions">
+            <button class="btn" type="submit">Post reply</button>
+            <button class="btn secondary" type="button" data-action="cancel-reply">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </article>`;
+}
+
+function applyView(){
+  const q = searchEl.value.trim().toLowerCase();
+  const sort = sortEl.value;
+
+  // 1. filter to the active category
+  let view = QUESTIONS.filter(item => item.city === activeCat);
+
+  // 2. sort
+  if (sort==="newest")          view.sort((a,b)=>b.created-a.created);
+  else if (sort==="active")     view.sort((a,b)=>b.replies.length-a.replies.length || b.created-a.created);
+  else if (sort==="unanswered") view.sort((a,b)=>a.replies.length-b.replies.length || b.created-a.created);
+
+  threadsEl.innerHTML = view.map(questionHTML).join("");
+
+  // 3. search filter within the category
+  let visible=0;
+  threadsEl.querySelectorAll(".qcard").forEach(card=>{
+    const match = !q || card.dataset.search.includes(q);
+    card.classList.toggle("dimmed", !match);
+    if (match) visible++;
+  });
+
+  // 4. banner + empty states
+  catTitleEl.textContent = activeCat;
+  const total = view.length;
+  catSubEl.textContent = total === 0 ? "" : (total===1 ? "1 question" : total+" questions");
+
+  if (total === 0){
+    emptyEl.style.display="block";
+    emptyEl.innerHTML = `No questions in <strong>${esc(activeCat)}</strong> yet — be the first to ask one!`;
+  } else if (visible === 0){
+    emptyEl.style.display="block";
+    emptyEl.innerHTML = `No questions match "<strong>${esc(searchEl.value.trim())}</strong>" in ${esc(activeCat)}.`;
+  } else {
+    emptyEl.style.display="none";
+  }
+
+  if (window.NRA_I18N && typeof window.NRA_I18N.refresh === "function") window.NRA_I18N.refresh();
+}
+
+function setCategory(cat){
+  if (CATEGORIES.indexOf(cat) === -1) return;
+  activeCat = cat;
+  searchEl.value = "";
+  renderSidebar();
+  applyView();
+}
+
+/* ---- sidebar clicks ---- */
+catListEl.addEventListener("click",(e)=>{
+  const btn = e.target.closest(".cat-btn");
+  if (!btn) return;
+  setCategory(btn.dataset.cat);
+});
+
+/* ---- clicking a card's category chip jumps / voting on a reply ---- */
+threadsEl.addEventListener("click", async (e)=>{
+  // reply vote (thumbs up / down)
+  const vbtn = e.target.closest(".vote-btn");
+  if (vbtn){
+    const row = vbtn.closest(".vote-row");
+    const card = vbtn.closest(".qcard");
+    const res = row.dataset.q
+      ? await ForumStore.voteQuestion(row.dataset.q, vbtn.dataset.vote)
+      : await ForumStore.vote(card.dataset.id, row.dataset.reply, vbtn.dataset.vote);
+    if (res){
+      row.querySelector(".up .vcount").textContent = res.likes;
+      row.querySelector(".down .vcount").textContent = res.dislikes;
+      const up = row.querySelector(".up"), down = row.querySelector(".down");
+      up.classList.toggle("active", res.vote === "up");
+      down.classList.toggle("active", res.vote === "down");
+      up.setAttribute("aria-pressed", res.vote === "up");
+      down.setAttribute("aria-pressed", res.vote === "down");
+      VOTES = ForumStore.votes();
+      QUESTIONS = await ForumStore.list();   // keep in-memory counts in sync
+    }
+    return;
+  }
+
+  const chip = e.target.closest(".loc");
+  if (chip){ setCategory(chip.dataset.cat); window.scrollTo({top:0,behavior:"smooth"}); return; }
+
+  const btn = e.target.closest("[data-action]");
+  if (!btn) return;
+  const card = btn.closest(".qcard");
+  const action = btn.dataset.action;
+  if (action==="toggle-replies"){
+    card.querySelector(".replies").classList.toggle("open");
+  } else if (action==="toggle-form"){
+    const form = card.querySelector(".reply-form");
+    form.classList.toggle("open");
+    if (form.classList.contains("open")) form.querySelector(".rf-body").focus();
+  } else if (action==="cancel-reply"){
+    card.querySelector(".reply-form").classList.remove("open");
+  }
+});
+
+/* ---- post a reply ---- */
+threadsEl.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const form = e.target.closest(".reply-form");
+  if (!form) return;
+  const id   = form.dataset.id;
+  const name = form.querySelector(".rf-name").value;
+  const body = form.querySelector(".rf-body").value.trim();
+  if (!body) return;
+  await ForumStore.addReply(id,{name,body});
+  QUESTIONS = await ForumStore.list();
+  renderSidebar();
+  applyView();
+  const card = threadsEl.querySelector(`.qcard[data-id="${id}"]`);
+  if (card) card.querySelector(".replies").classList.add("open");
+});
+
+/* ---- ask a question ---- */
+askForm.addEventListener("submit", async (e)=>{
+  e.preventDefault();
+  const title = document.getElementById("q-title").value.trim();
+  if (!title) return;
+  const city = citySelect.value;
+  await ForumStore.addQuestion({
+    name: document.getElementById("q-name").value,
+    city,
+    title,
+    body: document.getElementById("q-body").value
+  });
+  askForm.reset();
+  QUESTIONS = await ForumStore.list();
+  sortEl.value = "newest";
+  // jump to the category the question was filed under so the user sees it
+  activeCat = city;
+  renderSidebar();
+  renderCitySelect();
+  applyView();
+  document.querySelector(".cat-banner").scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+searchEl.addEventListener("input", applyView);
+sortEl.addEventListener("change", applyView);
+
+/* ---- boot ---- */
+(async function init(){
+  QUESTIONS = await ForumStore.list();
+  VOTES = ForumStore.votes();
+  renderSidebar();
+  renderCitySelect();
+  applyView();
+})();
+</script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

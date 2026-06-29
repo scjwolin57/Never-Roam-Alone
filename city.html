@@ -138,11 +138,7 @@
       </svg>
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
-    <nav class="links">
-      <a href="index.html">Map</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="choose.html">Destination Finder</a>
-    </nav>
+    <nav class="links" data-site-nav></nav>
   </div>
 </header>
 
@@ -261,16 +257,23 @@ function toCelsius(f) { return Math.round((f - 32) * 5 / 9); }
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const params = new URLSearchParams(location.search);
 const wanted = params.get("city");
+const from   = params.get("from"); // "map" | "guides" | null
 const c = CITIES.find(x => x.city.toLowerCase() === (wanted||"").toLowerCase());
 const content = document.getElementById("content");
+
+/* Back-button config based on origin */
+const backHref  = from === "guides" ? "cities.html" : "index.html";
+const backLabel = from === "guides" ? "&larr; Back to City Guides" : "&larr; Back to the map";
+const crumbHref = from === "guides" ? "cities.html" : "index.html";
+const crumbText = from === "guides" ? "City Guides" : "Map";
 
 if(!c){
   document.title = "City not found — Never Roam Alone";
   content.innerHTML = `
     <div class="notfound">
       <h1>We haven't mapped that one yet</h1>
-      <p class="muted">That city isn't in the guide yet. Head back to the map and pick another.</p>
-      <p style="margin-top:24px"><a class="back" href="index.html">&larr; Back to the map</a></p>
+      <p class="muted">That city isn't in the guide yet. Head back and pick another.</p>
+      <p style="margin-top:24px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </div>`;
 } else {
   document.title = `${c.city} — Never Roam Alone`;
@@ -304,7 +307,7 @@ if(!c){
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       <div class="hero-inner">
-        <div class="crumb"><a href="index.html">Map</a> &nbsp;/&nbsp; ${c.country}</div>
+        <div class="crumb"><a href="${crumbHref}">${crumbText}</a> &nbsp;/&nbsp; ${c.country}</div>
         <h1>${c.city}</h1>
         <div class="country">${c.country}</div>
         <p class="tagline">${c.tagline}</p>
@@ -351,10 +354,11 @@ if(!c){
             </div>
           </a>`).join("")}
       </div>
-      <p style="margin-top:34px"><a class="back" href="index.html">&larr; Back to the map</a></p>
+      <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </section>`;
 }
 </script>
+<script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
 </html>

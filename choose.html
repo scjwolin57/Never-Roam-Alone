@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Destination Finder — Never Roam Alone</title>
+<title>Help Me Choose — Never Roam Alone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
@@ -208,11 +208,7 @@
       </svg>
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
-    <nav class="links">
-      <a href="index.html">Map</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="choose.html" class="active">Destination Finder</a>
-    </nav>
+    <nav class="links" data-site-nav></nav>
   </div>
 </header>
 
@@ -306,12 +302,6 @@
         </div>
         <p class="origin-status" id="originStatus"></p>
 
-        <div id="trainResults" class="visa-results" hidden style="margin-top:12px;margin-bottom:0">
-          <h2 class="flights-head" id="trainHead"></h2>
-          <div class="visa-grid" id="trainGrid"></div>
-          <p class="visa-disclaimer">Major stations are a curated starter list — easy to expand later. Pick one to set it as your origin.</p>
-        </div>
-
         <div id="departWrap" class="depart-wrap">
           <label class="field" style="margin-top:22px">When are you traveling?</label>
           <div class="date-row">
@@ -354,7 +344,17 @@
     <p class="visa-disclaimer">These are illustrative sample flights for the prototype — not real schedules, prices, or availability. Live flight search will be powered by a flights API (e.g. Amadeus or Duffel) in the production build.</p>
   </div>
 
+  <div id="trainResults" class="visa-results" hidden>
+    <h2 class="flights-head" id="trainHead"></h2>
+    <div class="visa-grid" id="trainGrid"></div>
+    <p class="visa-disclaimer">Major stations are a curated starter list — easy to expand later. Pick one to set it as your origin.</p>
+  </div>
 
+  <div id="trainBoard" class="visa-results" hidden>
+    <h2 class="flights-head" id="trainBoardHead"></h2>
+    <div class="visa-grid" id="trainBoardGrid"></div>
+    <p class="visa-disclaimer">Live departures pulled in real time from open national railway APIs (no key required): iRail for Belgium, Digitraffic for Finland, and Irish Rail for Ireland. Boards reflect current service, so they update as trains run.</p>
+  </div>
 </div>
 
 <div class="tool-section" data-tool="visa" hidden>
@@ -527,6 +527,7 @@ travelmodeEl.addEventListener("change", () => {
   originList.hidden = true;
   if(typeof flightResults !== "undefined" && flightResults) flightResults.hidden = true;
   if(typeof trainResults !== "undefined" && trainResults) trainResults.hidden = true;
+  if(typeof trainBoard !== "undefined" && trainBoard) trainBoard.hidden = true;
   applyModeUI(mode);
   saveState();
 });
@@ -537,6 +538,7 @@ function resetTravelMode(){
   planeWrap.hidden = true;
   if(flightResults) flightResults.hidden = true;
   if(trainResults) trainResults.hidden = true;
+  if(trainBoard) trainBoard.hidden = true;
   originInput.value = "";
   selectedOrigin = null;
   document.querySelectorAll('input[name="stops"]').forEach(r => r.checked = false);
@@ -606,9 +608,106 @@ const TRAIN_STATIONS = {
   "Shanghai": ["Shanghai Hongqiao","Shanghai Railway Station","Shanghai South"],
   "Beijing": ["Beijing South","Beijing Railway Station","Beijing West"],
   "Mumbai": ["Chhatrapati Shivaji Maharaj Terminus","Mumbai Central"],
-  "Delhi": ["New Delhi Railway Station","Hazrat Nizamuddin"]
+  "Delhi": ["New Delhi Railway Station","Hazrat Nizamuddin"],
+  "Brussels": ["Bruxelles-Midi / Brussel-Zuid","Bruxelles-Central","Bruxelles-Nord"],
+  "Dublin": ["Dublin Heuston","Dublin Connolly","Dublin Pearse","Tara Street","Dún Laoghaire","Bray"],
+  "Helsinki": ["Helsinki Central","Pasila","Tikkurila","Espoo","Leppävaara","Huopalahti"]
 };
 const TRAIN_CITIES = Object.keys(TRAIN_STATIONS).sort((a,b)=>a.localeCompare(b));
+
+/* ---- Live, key-free national railway APIs (no API key required) ----
+   These power real-time station lists + departure boards in Train mode.
+   iRail (Belgium) and Digitraffic (Finland) send CORS headers, so they work
+   straight from the browser. Irish Rail is included too and degrades
+   gracefully if its endpoint blocks the cross-origin call. */
+const _fiCodeToName = {};     // Digitraffic shortCode -> readable station name (all FI)
+const _helsinkiCodes = {};    // Helsinki-area station name -> shortCode
+const TRAIN_APIS = {
+  "Brussels": {
+    source: "iRail · Belgian Railways (SNCB/NMBS)",
+    stations: async () => {
+      const r = await fetch("https://api.irail.be/stations/?format=json&lang=en");
+      const d = await r.json();
+      return d.station
+        .filter(s => /brux|brussel/i.test(s.standardname || s.name || ""))
+        .map(s => s.name);
+    },
+    departures: async (station) => {
+      const r = await fetch(`https://api.irail.be/liveboard/?station=${encodeURIComponent(station)}&format=json&lang=en&alerts=false`);
+      const d = await r.json();
+      const deps = (d.departures && d.departures.departure) || [];
+      return deps.map(x => ({
+        dest: x.station,
+        time: new Date(parseInt(x.time,10)*1000).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}),
+        platform: (x.platform && x.platform !== "?") ? x.platform : "",
+        line: (x.vehicleinfo && x.vehicleinfo.shortname) || "",
+        delay: Math.round(parseInt(x.delay || "0", 10) / 60),
+        canceled: x.canceled === "1"
+      }));
+    }
+  },
+  "Helsinki": {
+    source: "Digitraffic · Finnish Railways (VR)",
+    stations: async () => {
+      const r = await fetch("https://rata.digitraffic.fi/api/v1/metadata/stations");
+      const d = await r.json();
+      d.forEach(s => { _fiCodeToName[s.stationShortCode] = (s.stationName || "").replace(/ asema$/, ""); });
+      const hel = d.filter(s => s.passengerTraffic && s.countryCode === "FI"
+        && s.latitude > 60.1 && s.latitude < 60.35 && s.longitude > 24.7 && s.longitude < 25.2);
+      hel.forEach(s => { _helsinkiCodes[(s.stationName||"").replace(/ asema$/, "")] = s.stationShortCode; });
+      return hel.map(s => (s.stationName || "").replace(/ asema$/, ""));
+    },
+    departures: async (station) => {
+      if(!Object.keys(_helsinkiCodes).length){ try{ await TRAIN_APIS["Helsinki"].stations(); }catch(e){} }
+      const code = _helsinkiCodes[station];
+      if(!code) return [];
+      const r = await fetch(`https://rata.digitraffic.fi/api/v1/live-trains/station/${code}?departing_trains=12&arriving_trains=0&arrived_trains=0&departed_trains=0&include_nonstopping=false`);
+      const trains = await r.json();
+      const out = [];
+      trains.forEach(t => {
+        const rows = t.timeTableRows || [];
+        const row = rows.find(rr => rr.stationShortCode === code && rr.type === "DEPARTURE" && rr.commercialStop);
+        if(!row) return;
+        const last = rows[rows.length - 1];
+        out.push({
+          dest: _fiCodeToName[last.stationShortCode] || last.stationShortCode,
+          time: new Date(row.scheduledTime).toLocaleTimeString([], {hour:"2-digit", minute:"2-digit"}),
+          platform: row.commercialTrack || "",
+          line: t.commuterLineID || ((t.trainType || "") + (t.trainNumber || "")),
+          delay: row.differenceInMinutes || 0,
+          canceled: !!row.cancelled,
+          _sort: new Date(row.scheduledTime).getTime()
+        });
+      });
+      return out.sort((a,b) => a._sort - b._sort);
+    }
+  },
+  "Dublin": {
+    source: "Irish Rail · Iarnród Éireann",
+    stations: async () => {
+      const r = await fetch("https://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML");
+      const xml = new DOMParser().parseFromString(await r.text(), "text/xml");
+      return [...xml.querySelectorAll("objStation")].filter(s => {
+        const lat = parseFloat(s.querySelector("StationLatitude")?.textContent || "0");
+        const lng = parseFloat(s.querySelector("StationLongitude")?.textContent || "0");
+        return lat > 53.2 && lat < 53.5 && lng > -6.5 && lng < -6.0;
+      }).map(s => s.querySelector("StationDesc")?.textContent).filter(Boolean);
+    },
+    departures: async (station) => {
+      const r = await fetch(`https://api.irishrail.ie/realtime/realtime.asmx/getStationDataByNameXML?StationDesc=${encodeURIComponent(station)}`);
+      const xml = new DOMParser().parseFromString(await r.text(), "text/xml");
+      return [...xml.querySelectorAll("objStationData")].map(d => ({
+        dest: d.querySelector("Destination")?.textContent || "",
+        time: d.querySelector("Expdepart")?.textContent || d.querySelector("Schdepart")?.textContent || "",
+        platform: "",
+        line: d.querySelector("Traincode")?.textContent || "",
+        delay: parseInt(d.querySelector("Late")?.textContent || "0", 10),
+        canceled: false,
+        due: d.querySelector("Duein")?.textContent || ""
+      })).filter(x => x.dest);
+    }
+  }
+};
 
 function buildCityList(){
   if(!AIRPORTS) return;
@@ -676,6 +775,7 @@ function selectItem(it){
   if(it.type==="train-city"){              // show the city's stations as a results panel
     originInput.value = it.city;
     originList.hidden = true;
+    selectedOrigin = null;                 // a station hasn't been chosen yet
     renderTrainResults(it.city);
     return;
   }
@@ -689,28 +789,11 @@ function runSearch(){
   const mode = travelmodeEl.value;
   const q = originInput.value;
   if(mode==="Plane")      renderList(airportItems(q));
-  else if(mode==="Train"){
-    renderList(trainCityItems(q));
-    const qt=q.trim().toLowerCase();
-    if(qt.length>=2){
-      const hits=[];
-      for(const city of TRAIN_CITIES)
-        for(const s of TRAIN_STATIONS[city])
-          if(s.toLowerCase().includes(qt)) hits.push({station:s,city});
-      if(hits.length){
-        trainHead.textContent=`Stations matching "${q.trim()}"`;
-        trainGrid.innerHTML=hits.map(({station,city})=>
-          `<div class="visa-row train-pick" data-station="${station.replace(/"/g,'&quot;')}" data-city="${city.replace(/"/g,'&quot;')}">
-            <span>${station}</span><span class="right"><span class="badge b-voa">${city}</span></span>
-          </div>`).join("");
-        trainResults.hidden=false;
-      }
-    }
-  }
-  else renderList(cityItems(q));
+  else if(mode==="Train") renderList(trainCityItems(q));
+  else                    renderList(cityItems(q));
 }
 
-originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; runSearch(); saveState(); });
+originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; if(typeof trainBoard!=="undefined" && trainBoard) trainBoard.hidden=true; runSearch(); saveState(); });
 originInput.addEventListener("focus", ()=>{ if(travelmodeEl.value==="Train" && !originInput.value.trim()) renderList(trainCityItems("")); });
 originList.addEventListener("click", (e)=>{ const li=e.target.closest("li"); if(li) selectItem(acItems[+li.dataset.i]); });
 originInput.addEventListener("keydown", (e)=>{
@@ -795,6 +878,7 @@ async function loadCardImages(){
   }
 }
 function maybeRenderFlights(){
+  if(travelmodeEl.value !== "Plane") return;
   const pref = (document.querySelector('input[name="stops"]:checked')||{}).value;
   if(!(selectedOrigin && pref && departDate.value)) return;
   const wantRound = roundTrip && roundTrip.checked;
@@ -994,7 +1078,7 @@ const departCal = makeCalendar({
   onPick: (val) => {
     const rv = returnCal.getValue();
     if(rv && val && new Date(rv) < new Date(val)) returnCal.reset();   // keep return on/after departure
-    maybeRenderFlights(); saveState();
+    maybeRenderFlights(); maybeRenderTrainResults(); saveState();
   }
 });
 const returnCal = makeCalendar({
@@ -1016,7 +1100,11 @@ roundTrip.addEventListener("change", () => {
 const trainResults = document.getElementById("trainResults");
 const trainHead = document.getElementById("trainHead");
 const trainGrid = document.getElementById("trainGrid");
-function renderTrainResults(city){
+const trainBoard = document.getElementById("trainBoard");
+const trainBoardHead = document.getElementById("trainBoardHead");
+const trainBoardGrid = document.getElementById("trainBoardGrid");
+
+function renderCuratedStations(city){
   const stations = TRAIN_STATIONS[city] || [];
   trainHead.textContent = `Major train stations in ${city}`;
   trainGrid.innerHTML = stations.map(s =>
@@ -1024,13 +1112,76 @@ function renderTrainResults(city){
        <span class="dest">${s}<span class="ac-name">${city}</span></span>
        <span class="right"><span class="badge b-voa">Station</span></span>
      </div>`).join("");
-  trainResults.hidden = false;
 }
+async function renderTrainResults(city){
+  trainBoard.hidden = true;                    // reset any prior departure board
+  trainResults.hidden = false;
+  trainResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+  const api = TRAIN_APIS[city];
+  if(api){
+    trainHead.textContent = `Train stations in ${city}`;
+    trainGrid.innerHTML = `<div class="visa-row" style="color:var(--muted);padding:12px">Loading live stations from ${api.source}…</div>`;
+    try{
+      const names = await api.stations();
+      if(names && names.length){
+        trainGrid.innerHTML = names.map(s =>
+          `<div class="visa-row train-pick" data-station="${s.replace(/"/g,'&quot;')}" data-city="${city.replace(/"/g,'&quot;')}">
+             <span class="dest">${s}<span class="ac-name">${city}</span></span>
+             <span class="right"><span class="badge b-free">Live</span></span>
+           </div>`).join("");
+        return;
+      }
+    }catch(e){ /* fall through to curated list */ }
+  }
+  renderCuratedStations(city);
+}
+
+/* ---- Live departure board: shown once an origin station + date are set ---- */
+async function maybeRenderTrainResults(){
+  if(travelmodeEl.value !== "Train") return;
+  if(!selectedOrigin || !selectedOrigin.station || !departDate.value) return;
+  const city = selectedOrigin.city, station = selectedOrigin.station;
+  const api = TRAIN_APIS[city];
+  trainBoard.hidden = false;
+  trainBoardHead.textContent = `Departures from ${station}`;
+  trainBoard.scrollIntoView({behavior:"smooth", block:"nearest"});
+  if(!api || !api.departures){
+    trainBoardGrid.innerHTML = `<p class="empty">Live departures aren't wired up for this station yet. Real-time boards are available for stations in Brussels, Helsinki, and Dublin — pick one of those to see live results.</p>`;
+    return;
+  }
+  trainBoardGrid.innerHTML = `<p class="empty">Loading live departures from ${api.source}…</p>`;
+  try{
+    let deps = await api.departures(station);
+    if(!deps || !deps.length){
+      trainBoardGrid.innerHTML = `<p class="empty">No upcoming departures are listed for ${station} right now. Live boards reflect real-time service, so this can happen late at night — try another station.</p>`;
+      return;
+    }
+    deps = deps.slice(0, 12);
+    trainBoardHead.textContent = `Live departures · ${station}`;
+    trainBoardGrid.innerHTML = deps.map(d => {
+      const cls = d.canceled ? "b-evisa" : (d.delay > 0 ? "b-voa" : "b-free");
+      const status = d.canceled ? "Cancelled" : (d.delay > 0 ? `+${d.delay} min` : "On time");
+      const bits = [];
+      if(d.line) bits.push(d.line);
+      if(d.platform) bits.push(`Platform ${d.platform}`);
+      if(d.due) bits.push(`due in ${d.due} min`);
+      const sub = bits.join(" · ");
+      return `<div class="visa-row">
+        <span class="dest">${d.dest || "—"}${sub ? `<span class="ac-name">${sub}</span>` : ""}</span>
+        <span class="right"><span class="badge ${cls}">${status}</span><span class="flight-price">${d.time || ""}</span></span>
+      </div>`;
+    }).join("");
+  }catch(e){
+    trainBoardGrid.innerHTML = `<p class="empty">Couldn't reach the live railway API just now — it may be rate-limiting requests or blocking cross-origin calls from this page. Once deployed behind the site's API proxy this will load reliably.</p>`;
+  }
+}
+
 trainGrid.addEventListener("click", (e)=>{
   const row = e.target.closest(".train-pick"); if(!row) return;
   originInput.value = `${row.dataset.station}, ${row.dataset.city}`;
-  selectedOrigin = { city:row.dataset.city, code:"" };
+  selectedOrigin = { city:row.dataset.city, station:row.dataset.station, code:"" };
   trainResults.hidden = true;
+  maybeRenderTrainResults();
   saveState();
 });
 
@@ -1119,11 +1270,93 @@ function itemsFor(p){
              .sort((a,b) => a.info.rank - b.info.rank || a.d.localeCompare(b.d));
 }
 
+/* Official government visa / e-visa / travel-authorisation portals, keyed by the
+   destination names used in the Passport Index dataset. Only verified official
+   (government-domain) portals are listed here; anything not listed falls back to a
+   targeted search for that country's official visa / embassy page. */
+const OFFICIAL_VISA_SITES = {
+  "India":"https://indianvisaonline.gov.in/evisa/",
+  "Turkey":"https://www.evisa.gov.tr/",
+  "Australia":"https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601",
+  "United States":"https://travel.state.gov/content/travel/en/us-visas.html",
+  "Canada":"https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html",
+  "United Kingdom":"https://www.gov.uk/browse/visas-immigration",
+  "Russia":"https://evisa.kdmid.ru/",
+  "China":"https://www.visaforchina.cn/",
+  "Vietnam":"https://evisa.gov.vn/",
+  "Cambodia":"https://www.evisa.gov.kh/",
+  "Sri Lanka":"https://eta.gov.lk/",
+  "Kenya":"https://www.etakenya.go.ke/",
+  "Tanzania":"https://eservices.immigration.go.tz/",
+  "Egypt":"https://visa2egypt.gov.eg/",
+  "Saudi Arabia":"https://visa.mofa.gov.sa/",
+  "United Arab Emirates":"https://smartservices.icp.gov.ae/",
+  "Oman":"https://evisa.rop.gov.om/",
+  "Bahrain":"https://www.evisa.gov.bh/",
+  "Kuwait":"https://evisa.moi.gov.kw/",
+  "Qatar":"https://hayya.qa/",
+  "Iran":"https://evisatraveller.mfa.ir/",
+  "Pakistan":"https://visa.nadra.gov.pk/",
+  "Bangladesh":"https://www.visa.gov.bd/",
+  "Myanmar":"https://evisa.moip.gov.mm/",
+  "Laos":"https://laoevisa.gov.la/",
+  "Thailand":"https://www.thaievisa.go.th/",
+  "Indonesia":"https://evisa.imigrasi.go.id/",
+  "Singapore":"https://eservices.ica.gov.sg/",
+  "Philippines":"https://etravel.gov.ph/",
+  "South Korea":"https://www.k-eta.go.kr/",
+  "Japan":"https://www.mofa.go.jp/j_info/visit/visa/",
+  "Taiwan":"https://niaspeedy.immigration.gov.tw/nia_southeast/",
+  "Hong Kong":"https://www.immd.gov.hk/eng/services/visas/overview.html",
+  "New Zealand":"https://nzeta.immigration.govt.nz/",
+  "Maldives":"https://imuga.immigration.gov.mv/",
+  "Bhutan":"https://bhutanecdi.gov.bt/",
+  "Mongolia":"https://www.evisa.mn/",
+  "Kazakhstan":"https://www.vmp.gov.kz/",
+  "Kyrgyzstan":"https://www.evisa.e-gov.kg/",
+  "Uzbekistan":"https://e-visa.gov.uz/",
+  "Tajikistan":"https://www.evisa.tj/",
+  "Azerbaijan":"https://evisa.gov.az/",
+  "Georgia":"https://www.evisa.gov.ge/",
+  "Armenia":"https://evisa.mfa.am/",
+  "Belarus":"https://evisa.gov.by/",
+  "Moldova":"https://evisa.gov.md/",
+  "Ukraine":"https://evisa.mfa.gov.ua/",
+  "Ethiopia":"https://www.evisa.gov.et/",
+  "Uganda":"https://visas.immigration.go.ug/",
+  "Rwanda":"https://www.migration.gov.rw/",
+  "Zambia":"https://eservices.zambiaimmigration.gov.zm/",
+  "Zimbabwe":"https://www.evisa.gov.zw/",
+  "Nigeria":"https://evisa.immigration.gov.ng/",
+  "Lesotho":"https://evisa.gov.ls/",
+  "Djibouti":"https://www.evisa.gov.dj/"
+};
+
+// Categories where the traveller has to obtain something before/at entry.
+const NEEDS_VISA = new Set(["voa","eta","evisa","req","other"]);
+
+// Official portal for a destination, or a targeted search when we don't have one on file.
+function officialLink(dest){
+  if(OFFICIAL_VISA_SITES[dest]) return OFFICIAL_VISA_SITES[dest];
+  return "https://www.google.com/search?q=" +
+         encodeURIComponent(dest + " official government visa application embassy site");
+}
+
 function rowHTML(p, x){
-  const q = encodeURIComponent("visa requirements for " + p + " passport holders travelling to " + x.d);
+  let link;
+  if(NEEDS_VISA.has(x.info.cat)){
+    // Needs a visa / authorisation -> link straight to the official source.
+    link = '<a class="verify" href="' + officialLink(x.d) +
+           '" target="_blank" rel="noopener">Official site &rsaquo;</a>';
+  } else {
+    // Visa-free (or no-admission): keep the general "verify the rule" search.
+    const q = encodeURIComponent("visa requirements for " + p + " passport holders travelling to " + x.d);
+    link = '<a class="verify" href="https://www.google.com/search?q=' + q +
+           '" target="_blank" rel="noopener">Verify &rsaquo;</a>';
+  }
   return '<div class="visa-row"><span class="dest">' + x.d + '</span>' +
          '<span class="right"><span class="badge ' + x.info.cls + '">' + x.info.label + '</span>' +
-         '<a class="verify" href="https://www.google.com/search?q=' + q + '" target="_blank" rel="noopener">Verify &rsaquo;</a>' +
+         link +
          '</span></div>';
 }
 
@@ -1217,6 +1450,7 @@ function loadState(){
     if(s.depart) departCal.setValue(s.depart);
     if(s.round){ roundTrip.checked = true; returnCol.hidden = false; if(s.returnDate) returnCal.setValue(s.returnDate); }
     if(s.travelmode === "Plane") maybeRenderFlights();
+    if(s.travelmode === "Train") maybeRenderTrainResults();
   }
 
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; if(DATA && DATA.get(s.passport)) render(s.passport); }
@@ -1229,6 +1463,7 @@ function loadState(){
 }
 loadState();
 </script>
+<script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
 </html>

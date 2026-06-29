@@ -20,6 +20,9 @@
     "Home": { es: "Inicio", fr: "Accueil", it: "Home", zh: "主页" },
     "Blog": { es: "Blog", fr: "Blog", it: "Blog", zh: "博客" },
     "Map": { es: "Mapa", fr: "Carte", it: "Mappa", zh: "地图" },
+    "About": { es: "Acerca de", fr: "À propos", it: "Chi siamo", zh: "关于" },
+    "City Guides": { es: "Guías de ciudades", fr: "Guides de villes", it: "Guide alle città", zh: "城市指南" },
+    "Destination Finder": { es: "Buscador de destinos", fr: "Recherche de destinations", it: "Trova destinazioni", zh: "目的地查找器" },
     "Destination Finder Tools": { es: "Buscador de destinos", fr: "Outils de destination", it: "Trova destinazioni", zh: "目的地查找工具" },
 
     "A world worth sharing": { es: "Un mundo que vale la pena compartir", fr: "Un monde à partager", it: "Un mondo da condividere", zh: "值得分享的世界" },
@@ -122,7 +125,30 @@
     "visa-free": { es: "sin visa", fr: "sans visa", it: "senza visto", zh: "免签" },
     "on arrival": { es: "a la llegada", fr: "à l'arrivée", it: "all'arrivo", zh: "落地签" },
     "visa required": { es: "visa requerida", fr: "visa requis", it: "visto richiesto", zh: "需要签证" },
-    "no admission": { es: "sin admisión", fr: "non admis", it: "nessun ingresso", zh: "不可入境" }
+    "no admission": { es: "sin admisión", fr: "non admis", it: "nessun ingresso", zh: "不可入境" },
+
+    /* Ask A Roamer (community forum) */
+    "Ask A Roamer": { es: "Pregunta a un viajero", fr: "Demandez à un voyageur", it: "Chiedi a un viaggiatore", zh: "问问旅行者" },
+    "Travelers helping travelers": { es: "Viajeros ayudando a viajeros", fr: "Des voyageurs qui s'entraident", it: "Viaggiatori che aiutano viaggiatori", zh: "旅行者互相帮助" },
+    "Got a question about a destination, a route, or a tip you can't find anywhere else? Pick a city on the left, ask the community — and share what you know when someone else needs a hand.": { es: "¿Tienes una pregunta sobre un destino, una ruta o un consejo que no encuentras en otro lado? Elige una ciudad a la izquierda, pregunta a la comunidad y comparte lo que sabes cuando alguien más necesite ayuda.", fr: "Une question sur une destination, un itinéraire ou une astuce introuvable ailleurs ? Choisissez une ville à gauche, demandez à la communauté — et partagez ce que vous savez quand quelqu'un a besoin d'aide.", it: "Hai una domanda su una destinazione, un itinerario o un consiglio che non trovi altrove? Scegli una città a sinistra, chiedi alla community e condividi ciò che sai quando qualcun altro ha bisogno di una mano.", zh: "对某个目的地、路线或别处找不到的小贴士有疑问？在左侧选择一个城市，向社区提问——当别人需要帮助时也分享你所知道的。" },
+    "Browse by city": { es: "Explorar por ciudad", fr: "Parcourir par ville", it: "Sfoglia per città", zh: "按城市浏览" },
+    "Cities": { es: "Ciudades", fr: "Villes", it: "Città", zh: "城市" },
+    "General Travel": { es: "Viajes en general", fr: "Voyage en général", it: "Viaggi in generale", zh: "综合旅行" },
+    "Which city is this about?": { es: "¿Sobre qué ciudad es?", fr: "De quelle ville s'agit-il ?", it: "Di quale città si tratta?", zh: "这是关于哪个城市的？" },
+    "Ask a question": { es: "Haz una pregunta", fr: "Poser une question", it: "Fai una domanda", zh: "提个问题" },
+    "Be specific — the more context you give, the better the answers you'll get back.": { es: "Sé específico: cuanto más contexto des, mejores serán las respuestas.", fr: "Soyez précis : plus vous donnez de contexte, meilleures seront les réponses.", it: "Sii specifico: più contesto fornisci, migliori saranno le risposte.", zh: "尽量具体——你提供的背景越多，得到的回答就越好。" },
+    "Question": { es: "Pregunta", fr: "Question", it: "Domanda", zh: "问题" },
+    "Details": { es: "Detalles", fr: "Détails", it: "Dettagli", zh: "详情" },
+    "Post question": { es: "Publicar pregunta", fr: "Publier la question", it: "Pubblica domanda", zh: "发布问题" },
+    "Add a reply": { es: "Añadir respuesta", fr: "Ajouter une réponse", it: "Aggiungi risposta", zh: "添加回复" },
+    "Post reply": { es: "Publicar respuesta", fr: "Publier la réponse", it: "Pubblica risposta", zh: "发布回复" },
+    "Cancel": { es: "Cancelar", fr: "Annuler", it: "Annulla", zh: "取消" },
+    "reply": { es: "respuesta", fr: "réponse", it: "risposta", zh: "回复" },
+    "replies": { es: "respuestas", fr: "réponses", it: "risposte", zh: "回复" },
+    "just now": { es: "ahora mismo", fr: "à l'instant", it: "proprio ora", zh: "刚刚" },
+    "Newest first": { es: "Más recientes primero", fr: "Plus récentes d'abord", it: "Più recenti prima", zh: "最新优先" },
+    "Most replies": { es: "Más respuestas", fr: "Plus de réponses", it: "Più risposte", zh: "回复最多" },
+    "Unanswered": { es: "Sin responder", fr: "Sans réponse", it: "Senza risposta", zh: "未回答" }
   };
 
   /* ---- Storage ---- */
