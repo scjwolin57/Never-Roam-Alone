@@ -78,6 +78,64 @@
   .temp-bar-track{height:6px;background:#eee;border-radius:4px;overflow:hidden}
   .temp-bar{height:100%;border-radius:4px;transition:width .4s ease}
 
+  /* Currency card + converter */
+  .card-accept{display:flex;align-items:center;flex-wrap:wrap;gap:10px 12px;margin-top:10px;padding:10px 14px;
+    background:var(--sand);border-radius:12px}
+  .card-accept .ca-icon{flex-shrink:0;display:inline-flex;color:var(--green)}
+  .card-accept .ca-text{flex:1 1 220px;min-width:0;font-size:.92rem;line-height:1.3}
+  .card-accept .ca-pct{font-family:Georgia,serif;font-weight:700;font-size:1.15rem}
+  .card-accept .ca-label{color:var(--muted)}
+  .card-accept .ca-word{font-weight:700}
+  .card-accept .ca-bar-track{flex:1 1 120px;min-width:90px;height:7px;background:#e7e0d2;border-radius:4px;overflow:hidden}
+  .card-accept .ca-bar{height:100%;border-radius:4px;transition:width .4s ease}
+  .cur-grid{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:12px;align-items:stretch}
+
+  /* Cost cards */
+  .cost-card{display:flex;flex-direction:column}
+  .cost-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
+  .cost-card .v{font-size:1.65rem;margin-top:2px}
+  .cost-note{color:var(--muted);font-size:.76rem;margin-top:4px}
+  .tip-line{display:flex;align-items:flex-start;gap:7px;margin-top:auto;padding-top:12px;
+    border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.35}
+  .tip-line .tip-ic{flex-shrink:0;color:var(--teal);display:inline-flex;margin-top:1px}
+  .tip-line b{font-weight:700}
+  .hotel-tiers{display:flex;gap:18px;margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .hotel-tiers .ht{display:flex;flex-direction:column}
+  .hotel-tiers .ht-k{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+  .hotel-tiers .ht-v{font-family:Georgia,serif;font-weight:700;font-size:1.05rem;margin-top:2px}
+  .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
+  .rides-list{display:flex;flex-wrap:wrap;gap:6px}
+  .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(24,94,63,.08);
+    border:1px solid rgba(24,94,63,.18);border-radius:20px;padding:3px 10px}
+  .rides-none{font-size:.8rem;color:var(--muted)}
+  .cur-local{background:var(--sand);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;justify-content:center}
+  .cur-symbol{font-family:Georgia,serif;font-size:2.4rem;line-height:1;color:var(--green)}
+  .cur-code{font-weight:700;letter-spacing:.06em;margin-top:8px;font-size:1.05rem}
+  .cur-name{color:var(--muted);font-size:.86rem;margin-top:2px}
+  .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
+  .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
+  .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(24,94,63,.22);
+    border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
+  .conv-field:focus-within{border-color:var(--green)}
+  .conv-field input{border:none;outline:none;background:transparent;font-size:1.05rem;font-family:inherit;
+    color:var(--ink);flex:1 1 auto;width:auto;min-width:48px}
+  .conv-field .tag{font-weight:700;color:var(--teal);font-size:.9rem;flex-shrink:0}
+  .conv-field select{border:none;outline:none;background:transparent;font-size:.9rem;font-weight:700;
+    color:var(--teal);font-family:inherit;cursor:pointer;flex:0 1 auto;min-width:0;
+    text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+  .conv-eq{font-size:1.3rem;color:var(--muted);font-weight:700;flex-shrink:0}
+  .conv-swap{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
+    background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;
+    transition:background .2s, transform .35s}
+  .conv-swap:hover{background:var(--teal)}
+  .conv-swap:active{transform:rotate(180deg)}
+  .conv-swap svg{display:block}
+  .conv-rate{font-size:.82rem;color:var(--muted)}
+  .conv-rate b{color:var(--ink)}
+  .conv-rate .src{font-size:.72rem;opacity:.8;margin-left:4px}
+
   .sec-head{font-size:1.8rem;margin:0 0 22px}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .tile{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
@@ -109,6 +167,7 @@
     .temp-row:nth-child(2n){padding-left:14px;border-left:1px solid rgba(0,0,0,.07)}
     .temp-row:last-child{border-bottom:none}
     .tiles{grid-template-columns:1fr}
+    .cur-grid{grid-template-columns:1fr}
   }
   @media(max-width:520px){
     .facts{grid-template-columns:1fr}
@@ -138,7 +197,12 @@
       </svg>
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
-    <nav class="links" data-site-nav></nav>
+    <nav class="links">
+      <a href="index.html">Map</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="cities.html">City Guides</a>
+      <a href="choose.html">Destination Finder</a>
+    </nav>
   </div>
 </header>
 
@@ -254,6 +318,157 @@ function tempWidth(f) {
 /* Convert °F to °C */
 function toCelsius(f) { return Math.round((f - 32) * 5 / 9); }
 
+/* ---------- Currency ---------- */
+/* Local currency for each city (keyed by name, so the main dataset stays clean) */
+const CITY_CUR = {
+  "Hong Kong":"HKD","Bangkok":"THB","London":"GBP","Macau":"MOP","Singapore":"SGD",
+  "Paris":"EUR","Dubai":"AED","New York":"USD","Kuala Lumpur":"MYR","Istanbul":"TRY",
+  "Tokyo":"JPY","Antalya":"TRY","Seoul":"KRW","Osaka":"JPY","Rome":"EUR",
+  "Phuket":"THB","Barcelona":"EUR","Amsterdam":"EUR","Milan":"EUR","Vienna":"EUR",
+  "Prague":"CZK","Los Angeles":"USD","Sydney":"AUD","Cape Town":"ZAR",
+  "Rio de Janeiro":"BRL","Cancún":"MXN","Marrakech":"MAD"
+};
+
+/* Approx. % of businesses that accept credit/debit cards (rough estimates) */
+const CITY_CARD = {
+  "Hong Kong":85,"Bangkok":55,"London":95,"Macau":80,"Singapore":92,
+  "Paris":90,"Dubai":88,"New York":96,"Kuala Lumpur":65,"Istanbul":85,
+  "Tokyo":70,"Antalya":70,"Seoul":96,"Osaka":68,"Rome":75,
+  "Phuket":60,"Barcelona":88,"Amsterdam":90,"Milan":80,"Vienna":72,
+  "Prague":78,"Los Angeles":96,"Sydney":95,"Cape Town":80,
+  "Rio de Janeiro":85,"Cancún":78,"Marrakech":40
+};
+
+/* Color + word for a card-acceptance percentage */
+function cardLevel(p) {
+  if (p >= 85) return {c:"#1d9a6c", w:"widely accepted"};
+  if (p >= 65) return {c:"#e0a800", w:"commonly accepted"};
+  return {c:"#ef6f53", w:"carry cash — limited acceptance"};
+}
+
+/* Typical traveler costs in USD: hotel/night (mid-range), restaurant meal/person
+   (sit-down), and a ~10 km taxi/Uber fare. Rough estimates. */
+const CITY_COST = {
+  "Hong Kong":{hotel:150,meal:25,taxi:13}, "Bangkok":{hotel:45,meal:8,taxi:5},
+  "London":{hotel:165,meal:30,taxi:25},   "Macau":{hotel:130,meal:22,taxi:10},
+  "Singapore":{hotel:140,meal:22,taxi:10},"Paris":{hotel:150,meal:28,taxi:20},
+  "Dubai":{hotel:120,meal:25,taxi:8},     "New York":{hotel:250,meal:35,taxi:25},
+  "Kuala Lumpur":{hotel:50,meal:8,taxi:5},"Istanbul":{hotel:60,meal:12,taxi:7},
+  "Tokyo":{hotel:110,meal:15,taxi:25},    "Antalya":{hotel:55,meal:12,taxi:7},
+  "Seoul":{hotel:90,meal:12,taxi:10},     "Osaka":{hotel:90,meal:14,taxi:22},
+  "Rome":{hotel:120,meal:25,taxi:18},     "Phuket":{hotel:55,meal:10,taxi:12},
+  "Barcelona":{hotel:120,meal:22,taxi:15},"Amsterdam":{hotel:160,meal:28,taxi:25},
+  "Milan":{hotel:130,meal:25,taxi:18},    "Vienna":{hotel:120,meal:22,taxi:18},
+  "Prague":{hotel:90,meal:15,taxi:12},    "Los Angeles":{hotel:200,meal:30,taxi:25},
+  "Sydney":{hotel:150,meal:28,taxi:22},   "Cape Town":{hotel:90,meal:15,taxi:12},
+  "Rio de Janeiro":{hotel:80,meal:15,taxi:10},"Cancún":{hotel:120,meal:20,taxi:12},
+  "Marrakech":{hotel:70,meal:12,taxi:6}
+};
+
+/* Budget (b) and high-end (h) nightly hotel averages in USD */
+const CITY_HOTEL = {
+  "Hong Kong":{b:60,h:350}, "Bangkok":{b:18,h:150}, "London":{b:80,h:400}, "Macau":{b:55,h:320},
+  "Singapore":{b:65,h:330}, "Paris":{b:75,h:400}, "Dubai":{b:50,h:350}, "New York":{b:120,h:550},
+  "Kuala Lumpur":{b:20,h:150}, "Istanbul":{b:25,h:180}, "Tokyo":{b:50,h:300}, "Antalya":{b:25,h:160},
+  "Seoul":{b:40,h:250}, "Osaka":{b:40,h:240}, "Rome":{b:60,h:330}, "Phuket":{b:22,h:200},
+  "Barcelona":{b:55,h:300}, "Amsterdam":{b:80,h:380}, "Milan":{b:65,h:330}, "Vienna":{b:60,h:300},
+  "Prague":{b:40,h:230}, "Los Angeles":{b:100,h:450}, "Sydney":{b:75,h:350}, "Cape Town":{b:40,h:250},
+  "Rio de Janeiro":{b:35,h:220}, "Cancún":{b:55,h:350}, "Marrakech":{b:30,h:250}
+};
+
+/* Ride-sharing / e-hailing apps available in each city (empty = taxis only) */
+const CITY_RIDES = {
+  "Hong Kong":["Uber","DiDi","HKTaxi"], "Bangkok":["Grab","Bolt","inDrive"],
+  "London":["Uber","Bolt","Free Now"], "Macau":[],
+  "Singapore":["Grab","Gojek","Tada"], "Paris":["Uber","Bolt","Heetch"],
+  "Dubai":["Uber","Careem","Yango"], "New York":["Uber","Lyft","Curb"],
+  "Kuala Lumpur":["Grab","AirAsia","inDrive"], "Istanbul":["Uber","BiTaksi","iTaksi"],
+  "Tokyo":["Uber","GO","DiDi"], "Antalya":["Uber","BiTaksi"],
+  "Seoul":["Kakao T","UT (Uber)","Tada"], "Osaka":["Uber","GO","DiDi"],
+  "Rome":["Free Now","Uber","itTaxi"], "Phuket":["Grab","Bolt","Maxim"],
+  "Barcelona":["Uber","Cabify","Bolt"], "Amsterdam":["Uber","Bolt"],
+  "Milan":["Free Now","Uber","Bolt"], "Vienna":["Uber","Bolt","Free Now"],
+  "Prague":["Uber","Bolt","Liftago"], "Los Angeles":["Uber","Lyft"],
+  "Sydney":["Uber","DiDi","Ola"], "Cape Town":["Uber","Bolt","inDrive"],
+  "Rio de Janeiro":["Uber","99","inDrive"], "Cancún":["Uber","DiDi","inDrive"],
+  "Marrakech":["Heetch","inDrive"]
+};
+
+/* Icons for the cost cards */
+const COST_ICONS = {
+  hotel:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v12"/><path d="M2 14h20v5"/><path d="M22 19v-5a2 2 0 0 0-2-2H6V9a2 2 0 0 1 2-2h2"/><path d="M6 12V9"/></svg>`,
+  meal:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 2v7"/><path d="M8 2v7"/><path d="M6.5 9v13"/><path d="M5 9h3"/><path d="M17 2c-1.66 0-3 2.5-3 5.5 0 2.6 1 4.4 2.3 4.9L16 22"/></svg>`,
+  taxi:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.4-4.2A2 2 0 0 1 8.3 7.4h7.4a2 2 0 0 1 1.9 1.4L19 13"/><rect x="3" y="13" width="18" height="5" rx="1.5"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/><path d="M10 7V5h4v2"/></svg>`
+};
+const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.6 9.3c-.6-.6-1.6-1-2.6-1-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1 0-2-.4-2.6-1"/></svg>`;
+
+/* Restaurant tipping custom per city: s = status, r = typical rate / note */
+const CITY_TIP = {
+  "Hong Kong":{s:"not",r:"10% service often added"}, "Bangkok":{s:"optional",r:"~5–10%"},
+  "London":{s:"customary",r:"10–15% (often added)"}, "Macau":{s:"not",r:"10% service often added"},
+  "Singapore":{s:"not",r:"10% service usually included"}, "Paris":{s:"included",r:"service included; round up"},
+  "Dubai":{s:"optional",r:"~10–15%"}, "New York":{s:"expected",r:"18–20%"},
+  "Kuala Lumpur":{s:"not",r:"10% service often added"}, "Istanbul":{s:"customary",r:"~5–10%"},
+  "Tokyo":{s:"not",r:"not expected"}, "Antalya":{s:"customary",r:"~5–10%"},
+  "Seoul":{s:"not",r:"not expected"}, "Osaka":{s:"not",r:"not expected"},
+  "Rome":{s:"optional",r:"cover charge; round up"}, "Phuket":{s:"optional",r:"~5–10%"},
+  "Barcelona":{s:"optional",r:"round up / ~5%"}, "Amsterdam":{s:"optional",r:"~5–10%"},
+  "Milan":{s:"optional",r:"cover charge; round up"}, "Vienna":{s:"customary",r:"~5–10%"},
+  "Prague":{s:"customary",r:"~10%"}, "Los Angeles":{s:"expected",r:"18–20%"},
+  "Sydney":{s:"optional",r:"~10% for good service"}, "Cape Town":{s:"customary",r:"10–15%"},
+  "Rio de Janeiro":{s:"included",r:"10% usually included"}, "Cancún":{s:"customary",r:"10–15%"},
+  "Marrakech":{s:"customary",r:"~5–10%"}
+};
+
+/* Label + color for a tipping status */
+function tipInfo(s) {
+  if (s === "expected")  return {c:"#ef6f53", w:"expected"};
+  if (s === "customary") return {c:"#e0a800", w:"customary"};
+  if (s === "optional")  return {c:"#e0a800", w:"optional"};
+  if (s === "included")  return {c:"#1d9a6c", w:"service included"};
+  return {c:"#1d9a6c", w:"not customary"};
+}
+
+/* Currency display info (symbol + name) */
+const CURRENCIES = {
+  USD:{s:"$",n:"US Dollar"}, EUR:{s:"€",n:"Euro"}, GBP:{s:"£",n:"British Pound"},
+  JPY:{s:"¥",n:"Japanese Yen"}, CNY:{s:"CN¥",n:"Chinese Yuan"}, AUD:{s:"A$",n:"Australian Dollar"},
+  CAD:{s:"C$",n:"Canadian Dollar"}, CHF:{s:"Fr",n:"Swiss Franc"}, HKD:{s:"HK$",n:"Hong Kong Dollar"},
+  SGD:{s:"S$",n:"Singapore Dollar"}, THB:{s:"฿",n:"Thai Baht"}, MYR:{s:"RM",n:"Malaysian Ringgit"},
+  KRW:{s:"₩",n:"South Korean Won"}, TRY:{s:"₺",n:"Turkish Lira"}, AED:{s:"د.إ",n:"UAE Dirham"},
+  MAD:{s:"د.م.",n:"Moroccan Dirham"}, MOP:{s:"MOP$",n:"Macanese Pataca"}, CZK:{s:"Kč",n:"Czech Koruna"},
+  ZAR:{s:"R",n:"South African Rand"}, BRL:{s:"R$",n:"Brazilian Real"}, MXN:{s:"Mex$",n:"Mexican Peso"},
+  INR:{s:"₹",n:"Indian Rupee"}, IDR:{s:"Rp",n:"Indonesian Rupiah"}, PHP:{s:"₱",n:"Philippine Peso"},
+  VND:{s:"₫",n:"Vietnamese Dong"}, NZD:{s:"NZ$",n:"New Zealand Dollar"}, SEK:{s:"kr",n:"Swedish Krona"},
+  NOK:{s:"kr",n:"Norwegian Krone"}, DKK:{s:"kr",n:"Danish Krone"}, PLN:{s:"zł",n:"Polish Złoty"}
+};
+
+/* Fallback exchange rates: units of currency per 1 USD (approximate).
+   Refined live from open.er-api.com when the page loads online. */
+let RATES = {
+  USD:1, EUR:0.92, GBP:0.79, JPY:150, CNY:7.2, AUD:1.52, CAD:1.36, CHF:0.88,
+  HKD:7.8, SGD:1.34, THB:35, MYR:4.6, KRW:1350, TRY:34, AED:3.67, MAD:9.9,
+  MOP:8.05, CZK:23, ZAR:18.5, BRL:5.2, MXN:18, INR:83, IDR:15800, PHP:57,
+  VND:25000, NZD:1.65, SEK:10.6, NOK:10.8, DKK:6.9, PLN:4.0
+};
+let ratesLive = false;
+
+/* Convert an amount from one currency to another via USD */
+function convert(amount, from, to) {
+  if (!RATES[from] || !RATES[to]) return null;
+  return amount * (RATES[to] / RATES[from]);
+}
+
+/* Format a converted number sensibly (no decimals for big-unit currencies) */
+function fmtMoney(x, code) {
+  if (x === null || !isFinite(x)) return "—";
+  const big = ["JPY","KRW","IDR","VND","HUF"].includes(code);
+  if (big) return x.toLocaleString(undefined, {maximumFractionDigits:0});
+  if (x !== 0 && Math.abs(x) < 0.01)  // tiny values: show real precision, not "0.00"
+    return x.toLocaleString(undefined, {minimumFractionDigits:4, maximumFractionDigits:6});
+  return x.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
+}
+
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const params = new URLSearchParams(location.search);
 const wanted = params.get("city");
@@ -304,6 +519,71 @@ if(!c){
       </div>
     </div>`).join('');
 
+  /* Currency card setup */
+  const curCode = CITY_CUR[c.city] || "USD";
+  const curInfo = CURRENCIES[curCode] || {s:curCode, n:curCode};
+  const defaultTarget = curCode === "USD" ? "EUR" : "USD";
+  const cardPct = CITY_CARD[c.city];
+  const cardLvl = cardPct != null ? cardLevel(cardPct) : null;
+  const cardAcceptHTML = cardPct == null ? "" : `
+          <div class="card-accept">
+            <span class="ca-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="5" width="20" height="14" rx="2.5"/><line x1="2" y1="10" x2="22" y2="10"/>
+              </svg>
+            </span>
+            <div class="ca-text">
+              <span class="ca-pct" style="color:${cardLvl.c}">${cardPct}%</span>
+              <span class="ca-label"> of businesses take cards — <span class="ca-word" style="color:${cardLvl.c}">${cardLvl.w}</span></span>
+            </div>
+            <div class="ca-bar-track"><div class="ca-bar" style="width:${cardPct}%;background:${cardLvl.c}"></div></div>
+          </div>`;
+
+  const cost = CITY_COST[c.city];
+  const hotelRange = CITY_HOTEL[c.city];
+  const hotelTiersHTML = !hotelRange ? "" : `
+          <div class="hotel-tiers">
+            <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">$${hotelRange.b.toLocaleString()}</span></div>
+            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">$${hotelRange.h.toLocaleString()}</span></div>
+          </div>`;
+  const rides = CITY_RIDES[c.city];
+  const ridesHTML = rides == null ? "" : `
+          <div class="rides">
+            <span class="rides-k">Ride-share apps</span>
+            ${rides.length
+              ? `<div class="rides-list">${rides.map(r => `<span class="ride-chip">${r}</span>`).join('')}</div>`
+              : `<span class="rides-none">Local taxis — no major apps</span>`}
+          </div>`;
+  const tip = CITY_TIP[c.city];
+  const tipLvl = tip ? tipInfo(tip.s) : null;
+  const tipHTML = !tip ? "" : `
+          <div class="tip-line">
+            <span class="tip-ic" aria-hidden="true">${TIP_ICON}</span>
+            <span>Tipping <b style="color:${tipLvl.c}">${tipLvl.w}</b> &middot; ${tip.r}</span>
+          </div>`;
+  const costCardsHTML = cost == null ? "" : `
+        <div class="fact cost-card">
+          <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
+          <div class="k">Hotel &middot; per night</div>
+          <div class="v">$${cost.hotel.toLocaleString()}</div>
+          <div class="cost-note">mid-range &middot; avg, USD</div>
+          ${hotelTiersHTML}
+        </div>
+        <div class="fact cost-card">
+          <span class="cost-icon" aria-hidden="true">${COST_ICONS.meal}</span>
+          <div class="k">Meal &middot; per person</div>
+          <div class="v">$${cost.meal.toLocaleString()}</div>
+          <div class="cost-note">sit-down restaurant &middot; USD</div>
+          ${tipHTML}
+        </div>
+        <div class="fact cost-card">
+          <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
+          <div class="k">Taxi / Uber &middot; 10 km</div>
+          <div class="v">$${cost.taxi.toLocaleString()}</div>
+          <div class="cost-note">typical fare &middot; USD</div>
+          ${ridesHTML}
+        </div>`;
+
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       <div class="hero-inner">
@@ -320,6 +600,10 @@ if(!c){
       <div class="placeholder-note">📝 Placeholder text — this intro, the photos, and the stories below are samples. Real content gets added per city as you publish.</div>
 
       <div class="facts">
+        <div class="fact fact-wide">
+          <div class="k">Best time to visit &mdash; avg high temperature</div>
+          <div class="temp-rows">${tempRowsHTML}</div>
+        </div>
         <div class="fact"><div class="k">Population</div><div class="v">${c.pop}</div></div>
         <div class="fact"><div class="k">Annual visitors</div><div class="v">${num} M</div></div>
         <div class="fact">
@@ -334,9 +618,22 @@ if(!c){
           </div>
         </div>
         <div class="fact fact-wide">
-          <div class="k">Best time to visit &mdash; avg high temperature</div>
-          <div class="temp-rows">${tempRowsHTML}</div>
+          <div class="k">Currency &amp; converter</div>
+          ${cardAcceptHTML}
+          <div class="cur-grid">
+            <div class="cur-local">
+              <div class="cur-symbol">${curInfo.s}</div>
+              <div class="cur-code">${curCode}</div>
+              <div class="cur-name">${curInfo.n}</div>
+            </div>
+            <div class="cur-conv">
+              <div class="conv-sub">Enter an amount, pick a currency, or tap &#8644; to reverse</div>
+              <div class="conv-row" id="conv-row"></div>
+              <div class="conv-rate" id="conv-rate"></div>
+            </div>
+          </div>
         </div>
+        ${costCardsHTML}
       </div>
     </section>
 
@@ -356,9 +653,80 @@ if(!c){
       </div>
       <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </section>`;
+
+  /* ---------- Converter wiring (reversible) ---------- */
+  const localCode = curCode;
+  let compareCode = defaultTarget;
+  let reversed = false;   // false: local → compare ; true: compare → local
+  let lastRaw = null;     // last converted value, carried over on swap
+
+  const SWAP_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>`;
+
+  function compareOptions() {
+    return Object.keys(CURRENCIES)
+      .filter(code => code !== localCode)
+      .map(code => `<option value="${code}"${code === compareCode ? " selected" : ""}>${code} · ${CURRENCIES[code].n}</option>`)
+      .join('');
+  }
+
+  function fieldHTML(role, isLocal) {
+    const input = role === "from"
+      ? `<input id="conv-amt" type="number" min="0" step="any" aria-label="Amount to convert" />`
+      : `<input id="conv-out" type="text" readonly aria-label="Converted amount" />`;
+    const currency = isLocal
+      ? `<span class="tag">${localCode}</span>`
+      : `<select id="conv-sel" aria-label="Compare currency">${compareOptions()}</select>`;
+    return `<div class="conv-field">${input}${currency}</div>`;
+  }
+
+  function renderConverter(amount) {
+    const fromLocal = !reversed;
+    document.getElementById("conv-row").innerHTML =
+      fieldHTML("from", fromLocal) +
+      `<button type="button" class="conv-swap" id="conv-swap" title="Reverse currencies" aria-label="Reverse currencies">${SWAP_SVG}</button>` +
+      fieldHTML("to", !fromLocal);
+    document.getElementById("conv-amt").value = amount;
+    bindConverter();
+    renderConversion();
+  }
+
+  function renderConversion() {
+    const fromCode = reversed ? compareCode : localCode;
+    const toCode   = reversed ? localCode : compareCode;
+    const amt = parseFloat(document.getElementById("conv-amt").value);
+    lastRaw = isNaN(amt) ? null : convert(amt, fromCode, toCode);
+    document.getElementById("conv-out").value = lastRaw === null ? "" : fmtMoney(lastRaw, toCode);
+    const one = convert(1, fromCode, toCode);
+    document.getElementById("conv-rate").innerHTML =
+      `1 ${fromCode} = <b>${fmtMoney(one, toCode)} ${toCode}</b>` +
+      `<span class="src">· ${ratesLive ? "live rates" : "approx. rates"}</span>`;
+  }
+
+  function bindConverter() {
+    document.getElementById("conv-amt").addEventListener("input", renderConversion);
+    document.getElementById("conv-sel").addEventListener("change", e => { compareCode = e.target.value; renderConversion(); });
+    document.getElementById("conv-swap").addEventListener("click", () => {
+      const carry = (lastRaw !== null && isFinite(lastRaw)) ? +lastRaw.toFixed(4) : 1;
+      reversed = !reversed;
+      renderConverter(carry);
+    });
+  }
+
+  renderConverter(1);
+
+  /* Refine with live rates when online (free, no API key needed) */
+  fetch("https://open.er-api.com/v6/latest/USD")
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      if (data && data.result === "success" && data.rates) {
+        RATES = Object.assign({}, RATES, data.rates);
+        ratesLive = true;
+        renderConversion();
+      }
+    })
+    .catch(() => { /* keep fallback rates silently */ });
 }
 </script>
-<script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
 </html>

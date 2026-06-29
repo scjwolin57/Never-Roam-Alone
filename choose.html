@@ -123,11 +123,11 @@
   .visa-row.train-pick{cursor:pointer;transition:background .15s}
   .visa-row.train-pick:hover{background:rgba(24,94,63,.06)}
   .select-wrap{position:relative}
-  select#priority,select#budget,select#travelmode{
+  select#priority,select#budget,select#travelmode,select#duration{
     width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
     background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;
     transition:border-color .2s}
-  select#priority:focus,select#budget:focus,select#travelmode:focus{outline:none;border-color:var(--green)}
+  select#priority:focus,select#budget:focus,select#travelmode:focus,select#duration:focus{outline:none;border-color:var(--green)}
   .select-wrap::after{content:"";position:absolute;right:18px;top:50%;width:10px;height:10px;
     border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
     transform:translateY(-70%) rotate(45deg);pointer-events:none}
@@ -214,7 +214,8 @@
 
 <div class="intro">
   <p class="kicker">Not sure where to roam?</p>
-  <h1>Help Me Choose</h1>
+  <h1>Inspire My Next Adventure</h1>
+  <p class="subtitle">Choose an attribute to help guide you to places that fit your desire</p>
 </div>
 
 <div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
@@ -233,6 +234,10 @@
   <label class="switch-btn">
     <input type="radio" name="tool" value="visa">
     <span class="box"></span><span>Do I Need A Visa?</span>
+  </label>
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="duration">
+    <span class="box"></span><span>Trip Duration</span>
   </label>
 </div>
 
@@ -377,6 +382,37 @@
     <p class="visa-disclaimer">Indicative guidance from the open <a href="https://github.com/ilyankou/passport-index-dataset" target="_blank" rel="noopener">Passport Index dataset</a>. Visa rules change frequently — always confirm with the destination's official embassy or e-visa service before you book. Use “Verify” on any row to double-check.</p>
   </div>
 </section>
+</div>
+
+<div class="tool-section" data-tool="duration" hidden>
+  <div class="chooser">
+    <div class="panel">
+      <label class="field" for="duration">Trip Duration</label>
+      <p class="field-note">How long are you planning to travel? We'll help match you with destinations that suit your timeframe.</p>
+      <div class="select-wrap">
+        <select id="duration">
+          <option value="" selected disabled>Select a duration…</option>
+          <option value="short">3 days or less</option>
+          <option value="week">1 week</option>
+          <option value="twoweeks">2 weeks</option>
+          <option value="month">1 month</option>
+          <option value="long">Long adventure</option>
+        </select>
+      </div>
+
+      <div id="durationOriginWrap" style="margin-top:22px">
+        <label class="field" for="durationOriginInput">Where are you traveling from?</label>
+        <div class="autocomplete">
+          <input type="text" id="durationOriginInput" class="origin-input" placeholder="Start typing a city…" autocomplete="off" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="results" id="durationResults" hidden>
+    <h2 id="durationResultsHead"></h2>
+    <p class="sub" id="durationResultsSub"></p>
+    <div class="grid" id="durationGrid"></div>
+  </div>
 </div>
 
 <footer>
@@ -1462,6 +1498,67 @@ function loadState(){
   }
 }
 loadState();
+
+/* ---- Trip Duration: show placeholder cards when an origin city is typed ---- */
+const PLACEHOLDER_CITIES = [
+  { city:"Tokyo",       country:"Japan",        tagline:"Neon skylines meet ancient temples at every turn.",          visitors:14.0 },
+  { city:"Barcelona",   country:"Spain",         tagline:"Sun-soaked boulevards, Gaudí, and world-class tapas.",        visitors:12.2 },
+  { city:"Cape Town",   country:"South Africa",  tagline:"Where mountains meet the ocean in spectacular fashion.",      visitors:4.6  },
+  { city:"Mexico City", country:"Mexico",        tagline:"Centuries of culture packed into a single electric capital.", visitors:9.8  },
+  { city:"Kyoto",       country:"Japan",         tagline:"Bamboo groves, geisha districts, and a thousand shrines.",    visitors:5.3  },
+  { city:"Lisbon",      country:"Portugal",      tagline:"Hilltop trams and tiled façades over the silver Tagus.",      visitors:4.9  },
+];
+
+const durationSelect  = document.getElementById("duration");
+const durationOrigin  = document.getElementById("durationOriginInput");
+const durationResults = document.getElementById("durationResults");
+const durationHead    = document.getElementById("durationResultsHead");
+const durationSub     = document.getElementById("durationResultsSub");
+const durationGrid    = document.getElementById("durationGrid");
+
+const DURATION_LABELS = {
+  short:    "3 days or less",
+  week:     "1 week",
+  twoweeks: "2 weeks",
+  month:    "1 month",
+  long:     "a long adventure",
+};
+
+function renderDurationCards() {
+  const originVal = durationOrigin.value.trim();
+  const durVal    = durationSelect.value;
+  if (!originVal || !durVal) { durationResults.hidden = true; return; }
+
+  const durLabel = DURATION_LABELS[durVal] || durVal;
+  durationHead.textContent = `Places to explore from ${originVal} for ${durLabel}`;
+  durationSub.textContent  = "Placeholder destinations — recommendations will be tailored once matching logic is added.";
+
+  durationGrid.innerHTML = PLACEHOLDER_CITIES.map(c => {
+    const sg  = c.city.toLowerCase().replace(/\s+/g, "-");
+    const num = Number(c.visitors).toLocaleString(undefined, { minimumFractionDigits:1, maximumFractionDigits:1 });
+    return `
+      <article class="card">
+        <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-dur/600/400')">
+          <span class="visit">${num}M / yr</span>
+        </div>
+        <div class="body">
+          <div class="country">${c.country}</div>
+          <h3>${c.city}</h3>
+          <p>${c.tagline}</p>
+          <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+        </div>
+      </article>`;
+  }).join("");
+
+  durationResults.hidden = false;
+}
+
+let durationOriginTimer;
+durationOrigin.addEventListener("input", () => {
+  clearTimeout(durationOriginTimer);
+  durationOriginTimer = setTimeout(renderDurationCards, 400);
+});
+durationSelect.addEventListener("change", renderDurationCards);
 </script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
