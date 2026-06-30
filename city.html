@@ -109,6 +109,65 @@
   .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(24,94,63,.08);
     border:1px solid rgba(24,94,63,.18);border-radius:20px;padding:3px 10px}
   .rides-none{font-size:.8rem;color:var(--muted)}
+  /* 4-up cost cards row */
+  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .drinks-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+  .drink-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
+    font-size:.9rem;border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:9px}
+  .drink-row:last-child{border-bottom:none;padding-bottom:0}
+  .drink-row .dr-k{color:var(--ink)}
+  .drink-row .dr-v{font-family:Georgia,serif;font-weight:700;white-space:nowrap}
+  .drink-row .alc-note{color:var(--coral);font-weight:700;font-size:.76rem;text-align:right;line-height:1.25}
+  .drinks-foot{margin-top:10px;font-size:.7rem;font-style:italic;color:var(--muted)}
+
+  /* Transportation section */
+  .transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:6px}
+  .tcard{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+    cursor:pointer;transition:transform .2s, box-shadow .2s}
+  .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,40,50,.16)}
+  .tcard:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .tcard-more{margin-top:auto;padding-top:14px;font-size:.76rem;font-weight:700;color:var(--green)}
+  .tcard-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
+  .tcard-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700;margin-bottom:10px}
+  .tcard-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+  .tcard-list li{font-size:.88rem;font-family:Georgia,serif;padding-left:14px;position:relative;line-height:1.3}
+  .tcard-list li::before{content:"";position:absolute;left:0;top:.52em;width:5px;height:5px;border-radius:50%;background:var(--coral)}
+  .tcard-none{font-size:.85rem;color:var(--muted);font-style:italic;margin:0}
+  .car-info{display:flex;flex-direction:column;gap:9px}
+  .car-row{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;
+    border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:9px}
+  .car-row:last-child{border-bottom:none;padding-bottom:0}
+  .car-k{color:var(--muted)}
+  .car-v{font-family:Georgia,serif;font-weight:700;text-align:right}
+
+  /* More-info modal */
+  .modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(15,30,25,.55);backdrop-filter:blur(3px);
+    display:flex;align-items:center;justify-content:center;padding:22px}
+  .modal-overlay[hidden]{display:none}
+  .modal-card{background:var(--card);border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.35);
+    max-width:560px;width:100%;max-height:85vh;overflow:auto;padding:30px 30px 34px;position:relative}
+  .modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border:none;border-radius:50%;
+    background:var(--sand);color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer;transition:background .2s}
+  .modal-close:hover{background:#e7e0d2}
+  .modal-title{font-size:1.55rem;margin:0 0 14px;padding-right:34px}
+  .modal-body{color:var(--muted);line-height:1.6}
+  .modal-placeholder{font-style:italic}
+  /* Airport modal content */
+  .air-name{font-family:Georgia,serif;font-weight:700;font-size:1.05rem;color:var(--ink);margin:0 0 6px}
+  .air-dist{display:flex;align-items:baseline;gap:9px;margin-bottom:18px}
+  .air-dist-v{font-family:Georgia,serif;font-weight:700;font-size:1.5rem;color:var(--green)}
+  .air-dist-k{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .air-sub{font-size:.95rem;margin:0 0 4px;color:var(--ink)}
+  .air-rows{margin:0}
+  .air-rows dt{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin-top:15px}
+  .air-rows dd{margin:3px 0 0;font-size:.92rem;color:var(--ink)}
+  .air-taxi-meta{font-size:.84rem;color:var(--muted)}
+  .air-transit{margin:4px 0 0;padding-left:18px}
+  .air-transit li{margin:2px 0}
+  .air-transit b{font-weight:700}
+  .air-link{color:var(--green);font-weight:700}
+  .air-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
+    border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   .cur-local{background:var(--sand);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;justify-content:center}
   .cur-symbol{font-family:Georgia,serif;font-size:2.4rem;line-height:1;color:var(--green)}
   .cur-code{font-weight:700;letter-spacing:.06em;margin-top:8px;font-size:1.05rem}
@@ -154,6 +213,9 @@
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#e97451}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
 
   .notfound{text-align:center;padding:120px 22px}
   .notfound h1{font-size:2.4rem;margin-bottom:10px}
@@ -168,11 +230,13 @@
     .temp-row:last-child{border-bottom:none}
     .tiles{grid-template-columns:1fr}
     .cur-grid{grid-template-columns:1fr}
+    .cost-cards-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:520px){
     .facts{grid-template-columns:1fr}
     .temp-rows{grid-template-columns:1fr}
     .temp-row:nth-child(2n){padding-left:0;border-left:none}
+    .cost-cards-grid{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -208,8 +272,21 @@
 
 <main id="content"><!-- filled by JS --></main>
 
+<!-- More-info popup (shared; populated on card click) -->
+<div class="modal-overlay" id="info-modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <h3 class="modal-title" id="modal-title"></h3>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
 <footer>
   <div class="brand" style="font-size:1.6rem"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
 </footer>
 
 <script>
@@ -394,6 +471,138 @@ const CITY_RIDES = {
   "Marrakech":["Heetch","inDrive"]
 };
 
+/* Official taxi colour + fare type. fare = "metered" | "fixed" | "unmetered". */
+const CITY_TAXI = {
+  "Hong Kong":{color:"Red (urban), green, blue",fare:"metered",fareNote:"Metered"},
+  "Bangkok":{color:"Multi-coloured",fare:"metered",fareNote:"Metered — insist on the meter"},
+  "London":{color:"Black cabs",fare:"metered",fareNote:"Metered"},
+  "Macau":{color:"Black with cream top",fare:"metered",fareNote:"Metered"},
+  "Singapore":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Paris":{color:"Varies (lit roof sign)",fare:"metered",fareNote:"Metered"},
+  "Dubai":{color:"Cream with coloured roof",fare:"metered",fareNote:"Metered"},
+  "New York":{color:"Yellow",fare:"metered",fareNote:"Metered"},
+  "Kuala Lumpur":{color:"Red & white / blue",fare:"metered",fareNote:"Metered — often haggled"},
+  "Istanbul":{color:"Yellow",fare:"metered",fareNote:"Metered"},
+  "Tokyo":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Antalya":{color:"Yellow",fare:"metered",fareNote:"Metered"},
+  "Seoul":{color:"Orange or silver",fare:"metered",fareNote:"Metered"},
+  "Osaka":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Rome":{color:"White",fare:"fixed",fareNote:"Fixed rate from airport; metered in town"},
+  "Phuket":{color:"Red / yellow",fare:"unmetered",fareNote:"Unmetered — agree fare first"},
+  "Barcelona":{color:"Black & yellow",fare:"metered",fareNote:"Metered"},
+  "Amsterdam":{color:"Varies (blue plate)",fare:"metered",fareNote:"Metered"},
+  "Milan":{color:"White",fare:"metered",fareNote:"Metered"},
+  "Vienna":{color:"Varies (silver / white)",fare:"metered",fareNote:"Metered"},
+  "Prague":{color:"Varies",fare:"metered",fareNote:"Metered — use registered cabs"},
+  "Los Angeles":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Sydney":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Cape Town":{color:"Varies by company",fare:"metered",fareNote:"Metered"},
+  "Rio de Janeiro":{color:"Yellow with blue stripe",fare:"metered",fareNote:"Metered"},
+  "Cancún":{color:"White (varies)",fare:"unmetered",fareNote:"Unmetered — agree fare first"},
+  "Marrakech":{color:"Beige (petit taxi)",fare:"metered",fareNote:"Metered — often haggled"}
+};
+
+/* Colour for a taxi fare type */
+function taxiFareColor(cat) {
+  if (cat === "metered") return "#1d9a6c";
+  if (cat === "fixed")   return "#0e7c86";
+  return "#e0a800"; // unmetered / haggle
+}
+
+/* Takeaway coffee, beer (0.5L), and bottled water averages in USD.
+   beer can be a number, or "restricted" / "notallowed" for alcohol rules. */
+const CITY_DRINKS = {
+  "Hong Kong":{coffee:4.5,beer:6,water:1.2}, "Bangkok":{coffee:2.5,beer:3,water:0.5},
+  "London":{coffee:4,beer:7,water:1.5}, "Macau":{coffee:4,beer:5,water:1},
+  "Singapore":{coffee:4.5,beer:9,water:1.2}, "Paris":{coffee:3.5,beer:7,water:1.5},
+  "Dubai":{coffee:4.5,beer:"restricted",water:0.5}, "New York":{coffee:4.5,beer:8,water:1.5},
+  "Kuala Lumpur":{coffee:3,beer:4,water:0.6}, "Istanbul":{coffee:3,beer:4,water:0.4},
+  "Tokyo":{coffee:3.5,beer:5,water:1}, "Antalya":{coffee:3,beer:4,water:0.4},
+  "Seoul":{coffee:4,beer:4.5,water:1}, "Osaka":{coffee:3.5,beer:5,water:1},
+  "Rome":{coffee:1.5,beer:6,water:1}, "Phuket":{coffee:2.5,beer:3,water:0.5},
+  "Barcelona":{coffee:2,beer:3.5,water:1}, "Amsterdam":{coffee:3.5,beer:6,water:1.5},
+  "Milan":{coffee:1.5,beer:6,water:1}, "Vienna":{coffee:4,beer:5,water:1.2},
+  "Prague":{coffee:3,beer:2,water:1}, "Los Angeles":{coffee:4.5,beer:7,water:1.5},
+  "Sydney":{coffee:4,beer:7,water:1.8}, "Cape Town":{coffee:2.5,beer:2.5,water:0.8},
+  "Rio de Janeiro":{coffee:2,beer:2.5,water:0.8}, "Cancún":{coffee:3,beer:2.5,water:0.8},
+  "Marrakech":{coffee:1.5,beer:"restricted",water:0.4}
+};
+
+/* Icon for the drinks card (takeaway coffee cup) */
+const DRINK_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h11l-1 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 9z"/><path d="M5 9h13"/><path d="M8 9l1-4h6l1 4"/></svg>`;
+
+/* Transportation per city. car.idp = Int'l Driving Permit guidance for visitors;
+   car.rental = mid-size car, 1 day, USD. car.side = which side they drive on. */
+const CITY_TRANSPORT = {
+  "Hong Kong":{air:["Hong Kong Int'l (HKG)"],train:["Hung Hom","West Kowloon (high-speed)"],bus:["Cross-border coach terminals"],ferry:["Central Ferry Piers","Macau Ferry Terminal (Sheung Wan)","China Ferry Terminal"],car:{side:"left",idp:"Recommended",rental:70}},
+  "Bangkok":{air:["Suvarnabhumi (BKK)","Don Mueang (DMK)"],train:["Krung Thep Aphiwat (Bang Sue)","Hua Lamphong"],bus:["Mo Chit (Northern)","Ekkamai (Eastern)","Sai Tai Mai (Southern)"],ferry:["Sathorn (Chao Phraya piers)"],car:{side:"left",idp:"Required",rental:30}},
+  "London":{air:["Heathrow (LHR)","Gatwick (LGW)","Stansted (STN)","Luton (LTN)"],train:["King's Cross","St Pancras Int'l","Paddington","Waterloo"],bus:["Victoria Coach Station"],ferry:["Tilbury (London Int'l Cruise)","Thames Clipper piers"],car:{side:"left",idp:"Recommended",rental:55}},
+  "Macau":{air:["Macau Int'l (MFM)"],train:[],bus:["Border Gate (Portas do Cerco)"],ferry:["Outer Harbour Ferry Terminal","Taipa Ferry Terminal"],car:{side:"left",idp:"Recommended",rental:60}},
+  "Singapore":{air:["Changi (SIN)"],train:["Woodlands CIQ (to Malaysia)"],bus:["Queen Street Terminal"],ferry:["Singapore Cruise Centre (HarbourFront)","Tanah Merah Ferry Terminal","Marina Bay Cruise Centre"],car:{side:"left",idp:"Recommended",rental:80}},
+  "Paris":{air:["Charles de Gaulle (CDG)","Orly (ORY)","Beauvais (BVA)"],train:["Gare du Nord","Gare de Lyon","Gare Montparnasse","Gare de l'Est"],bus:["Paris-Bercy Seine (Gallieni)"],ferry:[],car:{side:"right",idp:"Recommended",rental:50}},
+  "Dubai":{air:["Dubai Int'l (DXB)","Al Maktoum (DWC)"],train:[],bus:["Al Ghubaiba (Bur Dubai)","Union Square (Deira)"],ferry:["Port Rashid (cruise)","Dubai Marina water-bus & abra stations"],car:{side:"right",idp:"Required",rental:40}},
+  "New York":{air:["JFK","Newark (EWR)","LaGuardia (LGA)"],train:["Grand Central","Penn Station"],bus:["Port Authority Bus Terminal"],ferry:["Staten Island Ferry (Whitehall)","NYC Ferry (Pier 11)","Manhattan Cruise Terminal"],car:{side:"right",idp:"Recommended",rental:70}},
+  "Kuala Lumpur":{air:["KL Int'l (KLIA)","KLIA2"],train:["KL Sentral"],bus:["Terminal Bersepadu Selatan (TBS)","Pudu Sentral"],ferry:["Port Klang (cruise/ferry, ~40 km)"],car:{side:"left",idp:"Recommended",rental:30}},
+  "Istanbul":{air:["Istanbul (IST)","Sabiha Gökçen (SAW)"],train:["Halkalı / Söğütlüçeşme (high-speed)","Sirkeci","Haydarpaşa"],bus:["Esenler Otogar","Harem (Asian side)","Alibeyköy"],ferry:["Eminönü","Karaköy","Kadıköy","Yenikapı (fast ferries)"],car:{side:"right",idp:"Recommended",rental:35}},
+  "Tokyo":{air:["Haneda (HND)","Narita (NRT)"],train:["Tokyo Station","Shinjuku","Shinagawa","Ueno"],bus:["Busta Shinjuku","Tokyo Station (Yaesu)"],ferry:["Tokyo Ferry Terminal (Ariake)","Takeshiba Pier (islands)"],car:{side:"left",idp:"Required",rental:60}},
+  "Antalya":{air:["Antalya (AYT)"],train:[],bus:["Antalya Otogar (intercity terminal)"],ferry:["Port of Antalya","Kaleiçi Marina"],car:{side:"right",idp:"Recommended",rental:30}},
+  "Seoul":{air:["Incheon (ICN)","Gimpo (GMP)"],train:["Seoul Station (KTX)","Yongsan","Suseo (SRT)"],bus:["Express Bus Terminal (Gangnam)","Dong-Seoul","Nambu"],ferry:["Incheon Port (ferries, ~40 km)"],car:{side:"right",idp:"Required",rental:55}},
+  "Osaka":{air:["Kansai Int'l (KIX)","Itami (ITM)"],train:["Shin-Osaka (Shinkansen)","Osaka / Umeda","Namba"],bus:["OCAT (Namba)","Osaka Station JR Highway Bus"],ferry:["Osaka Nanko Ferry Terminal","Tempozan (bay)"],car:{side:"left",idp:"Required",rental:60}},
+  "Rome":{air:["Fiumicino (FCO)","Ciampino (CIA)"],train:["Roma Termini","Roma Tiburtina"],bus:["Roma Tiburtina (coach hub)","Anagnina"],ferry:["Civitavecchia (port of Rome)"],car:{side:"right",idp:"Required",rental:45}},
+  "Phuket":{air:["Phuket Int'l (HKT)"],train:[],bus:["Phuket Bus Terminal 1 & 2"],ferry:["Rassada Pier","Ao Po","Bang Rong (island ferries)"],car:{side:"left",idp:"Required",rental:30}},
+  "Barcelona":{air:["Barcelona-El Prat (BCN)"],train:["Barcelona Sants","Estació de França","Passeig de Gràcia"],bus:["Barcelona Nord (Estació del Nord)","Sants"],ferry:["Port of Barcelona (ferry & cruise)"],car:{side:"right",idp:"Recommended",rental:45}},
+  "Amsterdam":{air:["Schiphol (AMS)"],train:["Amsterdam Centraal","Sloterdijk","Zuid"],bus:["Duivendrecht (Flixbus/Eurolines)","Amstel"],ferry:["IJmuiden / Amsterdam Ferry Terminal (DFDS)","GVB ferries (behind Centraal)"],car:{side:"right",idp:"Recommended",rental:55}},
+  "Milan":{air:["Malpensa (MXP)","Linate (LIN)","Bergamo (BGY)"],train:["Milano Centrale","Porta Garibaldi","Cadorna"],bus:["Lampugnano (autostazione)","San Donato"],ferry:[],car:{side:"right",idp:"Required",rental:45}},
+  "Vienna":{air:["Vienna Int'l (VIE)"],train:["Wien Hauptbahnhof","Wien Meidling","Westbahnhof"],bus:["Vienna Int'l Busterminal (Erdberg)"],ferry:["Schwedenplatz (Danube boats, Twin City Liner)"],car:{side:"right",idp:"Recommended",rental:50}},
+  "Prague":{air:["Václav Havel (PRG)"],train:["Praha hlavní nádraží (main)","Praha-Holešovice"],bus:["ÚAN Florenc (central bus station)"],ferry:[],car:{side:"right",idp:"Recommended",rental:40}},
+  "Los Angeles":{air:["LAX","Hollywood Burbank (BUR)","Long Beach (LGB)"],train:["Union Station"],bus:["Union Station (Greyhound/Flixbus)","El Monte"],ferry:["San Pedro (Catalina Express)","Long Beach Cruise Terminal"],car:{side:"right",idp:"Recommended",rental:55}},
+  "Sydney":{air:["Sydney (SYD)"],train:["Central Station","Town Hall","Wynyard"],bus:["Central / Eddy Ave coach terminal"],ferry:["Circular Quay","Manly Wharf","Barangaroo","Overseas Passenger Terminal (cruise)"],car:{side:"left",idp:"Recommended",rental:50}},
+  "Cape Town":{air:["Cape Town Int'l (CPT)"],train:["Cape Town Station (Metrorail / Shosholoza Meyl)"],bus:["Cape Town Station deck (Intercape)"],ferry:["V&A Waterfront (Robben Island ferry)","Cape Town Cruise Terminal"],car:{side:"left",idp:"Recommended",rental:35}},
+  "Rio de Janeiro":{air:["Galeão / Tom Jobim (GIG)","Santos Dumont (SDU)"],train:["Central do Brasil (suburban)"],bus:["Novo Rio (Rodoviária)"],ferry:["Praça XV (barcas to Niterói)","Píer Mauá (cruise)"],car:{side:"right",idp:"Required",rental:40}},
+  "Cancún":{air:["Cancún Int'l (CUN)"],train:["Cancún (Tren Maya)"],bus:["ADO Cancún Centro","ADO Airport Terminal"],ferry:["Puerto Juárez (Isla Mujeres)","Playa del Carmen (Cozumel, ~60 km)"],car:{side:"right",idp:"Recommended",rental:40}},
+  "Marrakech":{air:["Marrakech Menara (RAK)"],train:["Marrakech Station (ONCF)"],bus:["Gare Routière (CTM / Supratours)","Bab Doukkala"],ferry:[],car:{side:"right",idp:"Recommended",rental:30}}
+};
+
+const TRANSPORT_ICONS = {
+  air:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15.5 13 11V4.2a1.7 1.7 0 0 0-3.4 0V11l-8 4.5V17l8-2.3v4l-2.2 1.6V22l3.9-1.1L15.2 22v-1.4L13 18.9v-4L21 17z"/></svg>`,
+  train:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2.5"/><path d="M5 11h14"/><circle cx="9" cy="13.5" r="1"/><circle cx="15" cy="13.5" r="1"/><path d="M8 16l-2 5"/><path d="M16 16l2 5"/></svg>`,
+  bus:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v11"/><path d="M5 11h14"/><path d="M4 17h16"/><circle cx="8" cy="18.5" r="1.3"/><circle cx="16" cy="18.5" r="1.3"/></svg>`,
+  ferry:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c1.4 0 1.6 1 3 1s1.6-1 3-1 1.6 1 3 1 1.6-1 3-1 1.6 1 3 1"/><path d="M5 18 3.5 12.5h17L19 18"/><path d="M12 4v4"/><path d="M8.5 8h7"/></svg>`,
+  car:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><rect x="3" y="13" width="18" height="5" rx="1.5"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>`
+};
+
+/* Primary airport detail per city. km = distance to city center; costs in USD.
+   ride.avail = "yes" | "limited" | "no". transit: {m: option, c: USD cost}. */
+const CITY_AIRPORT = {
+  "Hong Kong":{name:"Hong Kong Int'l (HKG)",km:34,drive:"40 min",rentals:["Avis","Hertz"],carService:60,taxi:35,ride:{avail:"limited",cost:40},transit:[{m:"Airport Express (24 min)",c:14},{m:"Citybus A-lines",c:5}]},
+  "Bangkok":{name:"Suvarnabhumi (BKK)",km:30,drive:"40–60 min",rentals:["Avis","Budget","Hertz","Thai Rent A Car"],carService:30,taxi:12,ride:{avail:"yes",cost:13},transit:[{m:"Airport Rail Link (30 min)",c:1.3},{m:"Airport bus",c:1}]},
+  "London":{name:"Heathrow (LHR)",km:24,drive:"45–70 min",rentals:["Avis","Hertz","Enterprise","Europcar","Sixt"],carService:70,taxi:70,ride:{avail:"yes",cost:45},transit:[{m:"Heathrow Express (15 min)",c:32},{m:"Elizabeth Line",c:13},{m:"Piccadilly Line (Tube)",c:7}]},
+  "Macau":{name:"Macau Int'l (MFM)",km:9,drive:"15–20 min",rentals:["Avis"],carService:25,taxi:10,ride:{avail:"no",cost:0},transit:[{m:"Bus AP1",c:0.8},{m:"Hotel free shuttles",c:0}]},
+  "Singapore":{name:"Changi (SIN)",km:20,drive:"20–30 min",rentals:["Avis","Hertz","Sixt"],carService:40,taxi:20,ride:{avail:"yes",cost:18},transit:[{m:"MRT East-West Line (45 min)",c:2},{m:"Airport shuttle",c:7}]},
+  "Paris":{name:"Charles de Gaulle (CDG)",km:25,drive:"45–60 min",rentals:["Avis","Hertz","Europcar","Sixt","Enterprise"],carService:60,taxi:60,ride:{avail:"yes",cost:50},transit:[{m:"RER B (35 min)",c:12},{m:"Roissybus",c:16}]},
+  "Dubai":{name:"Dubai Int'l (DXB)",km:13,drive:"15–25 min",rentals:["Avis","Hertz","Europcar","Budget","Thrifty"],carService:40,taxi:15,ride:{avail:"yes",cost:18},transit:[{m:"Metro Red Line (20 min)",c:2}]},
+  "New York":{name:"JFK",km:26,drive:"45–75 min",rentals:["Avis","Hertz","Enterprise","Budget","National"],carService:80,taxi:75,ride:{avail:"yes",cost:70},transit:[{m:"AirTrain + LIRR",c:15},{m:"AirTrain + Subway",c:11}]},
+  "Kuala Lumpur":{name:"KL Int'l (KLIA)",km:45,drive:"45–60 min",rentals:["Avis","Hertz","Mayflower"],carService:30,taxi:20,ride:{avail:"yes",cost:18},transit:[{m:"KLIA Ekspres (33 min)",c:12},{m:"Airport coach",c:3}]},
+  "Istanbul":{name:"Istanbul (IST)",km:40,drive:"45–70 min",rentals:["Avis","Hertz","Europcar","Sixt"],carService:35,taxi:25,ride:{avail:"yes",cost:25},transit:[{m:"Metro M11",c:1},{m:"HAVAIST bus",c:4}]},
+  "Tokyo":{name:"Haneda (HND)",km:18,drive:"30–45 min",rentals:["Toyota Rent a Car","Nippon","Times Car","Nissan"],carService:60,taxi:50,ride:{avail:"yes",cost:55},transit:[{m:"Tokyo Monorail (13 min)",c:4},{m:"Keikyu Line",c:3}]},
+  "Antalya":{name:"Antalya (AYT)",km:13,drive:"20 min",rentals:["Avis","Hertz","Europcar","Sixt"],carService:25,taxi:15,ride:{avail:"limited",cost:15},transit:[{m:"Antray tram",c:0.7},{m:"Havaş shuttle",c:3}]},
+  "Seoul":{name:"Incheon (ICN)",km:48,drive:"60–90 min",rentals:["Lotte Rent-a-Car","AJ","SK","Avis"],carService:70,taxi:60,ride:{avail:"yes",cost:60},transit:[{m:"AREX Express (43 min)",c:8},{m:"AREX all-stop",c:4},{m:"Limousine bus",c:13}]},
+  "Osaka":{name:"Kansai Int'l (KIX)",km:50,drive:"50–70 min",rentals:["Toyota Rent a Car","Nippon","Times Car","Nissan"],carService:70,taxi:90,ride:{avail:"limited",cost:90},transit:[{m:"JR Haruka (50 min)",c:11},{m:"Nankai Rapi:t",c:10},{m:"Airport limousine bus",c:11}]},
+  "Rome":{name:"Fiumicino (FCO)",km:32,drive:"45 min",rentals:["Avis","Hertz","Europcar","Sixt","Maggiore"],carService:55,taxi:55,ride:{avail:"yes",cost:70},transit:[{m:"Leonardo Express (32 min)",c:15},{m:"FL1 regional train",c:9},{m:"Airport bus",c:7}]},
+  "Phuket":{name:"Phuket Int'l (HKT)",km:32,drive:"45 min",rentals:["Avis","Budget","Thai Rent A Car"],carService:30,taxi:25,ride:{avail:"yes",cost:20},transit:[{m:"Airport Smart Bus",c:5},{m:"Shared minibus",c:5}]},
+  "Barcelona":{name:"Barcelona-El Prat (BCN)",km:13,drive:"20–30 min",rentals:["Avis","Hertz","Europcar","Sixt","Goldcar"],carService:45,taxi:35,ride:{avail:"yes",cost:30},transit:[{m:"Aerobús (35 min)",c:7},{m:"Metro L9 Sud",c:6},{m:"R2 Nord train",c:5}]},
+  "Amsterdam":{name:"Schiphol (AMS)",km:17,drive:"20–30 min",rentals:["Avis","Hertz","Europcar","Sixt","Enterprise"],carService:55,taxi:45,ride:{avail:"yes",cost:40},transit:[{m:"Train to Centraal (17 min)",c:6},{m:"Airport Express bus 397",c:7}]},
+  "Milan":{name:"Malpensa (MXP)",km:50,drive:"50 min",rentals:["Avis","Hertz","Europcar","Sixt","Maggiore"],carService:60,taxi:110,ride:{avail:"yes",cost:120},transit:[{m:"Malpensa Express (50 min)",c:14},{m:"Airport bus",c:11}]},
+  "Vienna":{name:"Vienna Int'l (VIE)",km:18,drive:"20–30 min",rentals:["Avis","Hertz","Europcar","Sixt"],carService:50,taxi:40,ride:{avail:"yes",cost:30},transit:[{m:"City Airport Train (16 min)",c:14},{m:"S-Bahn S7",c:5},{m:"Vienna Airport Lines bus",c:10}]},
+  "Prague":{name:"Václav Havel (PRG)",km:17,drive:"25–35 min",rentals:["Avis","Hertz","Europcar","Sixt"],carService:40,taxi:30,ride:{avail:"yes",cost:20},transit:[{m:"Airport Express bus",c:4},{m:"Bus 119 + Metro A",c:2}]},
+  "Los Angeles":{name:"LAX",km:30,drive:"30–60 min",rentals:["Avis","Hertz","Enterprise","Budget","National"],carService:70,taxi:60,ride:{avail:"yes",cost:55},transit:[{m:"Metro Rail + shuttle",c:2},{m:"FlyAway bus to Union Station",c:10}]},
+  "Sydney":{name:"Sydney (SYD)",km:10,drive:"20–30 min",rentals:["Avis","Hertz","Europcar","Budget","Thrifty"],carService:50,taxi:40,ride:{avail:"yes",cost:35},transit:[{m:"Airport Link train (13 min)",c:13},{m:"Bus 400",c:3}]},
+  "Cape Town":{name:"Cape Town Int'l (CPT)",km:20,drive:"20–30 min",rentals:["Avis","Hertz","Europcar","Budget","First Car Rental"],carService:30,taxi:25,ride:{avail:"yes",cost:15},transit:[{m:"MyCiTi bus (30 min)",c:6}]},
+  "Rio de Janeiro":{name:"Galeão / Tom Jobim (GIG)",km:20,drive:"30–45 min",rentals:["Localiza","Movida","Unidas","Avis","Hertz"],carService:40,taxi:30,ride:{avail:"yes",cost:20},transit:[{m:"Premium Express bus",c:4},{m:"BRT + Metro",c:3}]},
+  "Cancún":{name:"Cancún Int'l (CUN)",km:20,drive:"25–35 min",rentals:["Avis","Hertz","Europcar","Alamo","America Car Rental"],carService:40,taxi:45,ride:{avail:"limited",cost:25},transit:[{m:"ADO bus to downtown",c:5}]},
+  "Marrakech":{name:"Marrakech Menara (RAK)",km:6,drive:"15 min",rentals:["Avis","Hertz","Europcar","Sixt"],carService:20,taxi:10,ride:{avail:"limited",cost:8},transit:[{m:"Bus 19 (airport shuttle)",c:3}]}
+};
+
 /* Icons for the cost cards */
 const COST_ICONS = {
   hotel:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v12"/><path d="M2 14h20v5"/><path d="M22 19v-5a2 2 0 0 0-2-2H6V9a2 2 0 0 1 2-2h2"/><path d="M6 12V9"/></svg>`,
@@ -469,6 +678,16 @@ function fmtMoney(x, code) {
   return x.toLocaleString(undefined, {minimumFractionDigits:2, maximumFractionDigits:2});
 }
 
+/* Format a USD price converted into another currency for the cost cards
+   (symbol prefix + sensibly rounded amount) */
+function fmtPrice(usd, code) {
+  const v = convert(usd, "USD", code);
+  if (v === null) return "$" + usd.toLocaleString();
+  const sym = (CURRENCIES[code] && CURRENCIES[code].s) || (code + " ");
+  const digits = Math.abs(v) < 10 ? 1 : 0;
+  return sym + v.toLocaleString(undefined, {maximumFractionDigits: digits});
+}
+
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const params = new URLSearchParams(location.search);
 const wanted = params.get("city");
@@ -541,12 +760,8 @@ if(!c){
 
   const cost = CITY_COST[c.city];
   const hotelRange = CITY_HOTEL[c.city];
-  const hotelTiersHTML = !hotelRange ? "" : `
-          <div class="hotel-tiers">
-            <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">$${hotelRange.b.toLocaleString()}</span></div>
-            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">$${hotelRange.h.toLocaleString()}</span></div>
-          </div>`;
   const rides = CITY_RIDES[c.city];
+  const drinks = CITY_DRINKS[c.city];
   const ridesHTML = rides == null ? "" : `
           <div class="rides">
             <span class="rides-k">Ride-share apps</span>
@@ -561,28 +776,84 @@ if(!c){
             <span class="tip-ic" aria-hidden="true">${TIP_ICON}</span>
             <span>Tipping <b style="color:${tipLvl.c}">${tipLvl.w}</b> &middot; ${tip.r}</span>
           </div>`;
-  const costCardsHTML = cost == null ? "" : `
+  /* Build the three cost cards with prices in the given currency code */
+  function buildCostCards(code) {
+    if (cost == null) return "";
+    const hotelTiers = !hotelRange ? "" : `
+          <div class="hotel-tiers">
+            <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">${fmtPrice(hotelRange.b, code)}</span></div>
+            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">${fmtPrice(hotelRange.h, code)}</span></div>
+          </div>`;
+    return `
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
           <div class="k">Hotel &middot; per night</div>
-          <div class="v">$${cost.hotel.toLocaleString()}</div>
-          <div class="cost-note">mid-range &middot; avg, USD</div>
-          ${hotelTiersHTML}
+          <div class="v">${fmtPrice(cost.hotel, code)}</div>
+          <div class="cost-note">mid-range &middot; avg, ${code}</div>
+          ${hotelTiers}
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.meal}</span>
           <div class="k">Meal &middot; per person</div>
-          <div class="v">$${cost.meal.toLocaleString()}</div>
-          <div class="cost-note">sit-down restaurant &middot; USD</div>
+          <div class="v">${fmtPrice(cost.meal, code)}</div>
+          <div class="cost-note">sit-down restaurant &middot; ${code}</div>
           ${tipHTML}
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
           <div class="k">Taxi / Uber &middot; 10 km</div>
-          <div class="v">$${cost.taxi.toLocaleString()}</div>
-          <div class="cost-note">typical fare &middot; USD</div>
+          <div class="v">${fmtPrice(cost.taxi, code)}</div>
+          <div class="cost-note">typical fare &middot; ${code}</div>
           ${ridesHTML}
+        </div>
+        ${drinks == null ? "" : `
+        <div class="fact cost-card">
+          <span class="cost-icon" aria-hidden="true">${DRINK_ICON}</span>
+          <div class="k">Drinks</div>
+          <div class="drinks-list">
+            <div class="drink-row"><span class="dr-k">Coffee &middot; takeaway</span><span class="dr-v">${fmtPrice(drinks.coffee, code)}</span></div>
+            <div class="drink-row"><span class="dr-k">Beer &middot; 0.5L</span>${
+              typeof drinks.beer === "number"
+                ? `<span class="dr-v">${fmtPrice(drinks.beer, code)}</span>`
+                : `<span class="alc-note">${drinks.beer === "notallowed" ? "Public alcohol not allowed" : "Public alcohol restricted"}</span>`
+            }</div>
+            <div class="drink-row"><span class="dr-k">Water &middot; bottle</span><span class="dr-v">${fmtPrice(drinks.water, code)}</span></div>
+          </div>
+          <div class="drinks-foot">average prices per drink</div>
+        </div>`}`;
+  }
+
+  /* Build the transportation cards; car rental price uses currency `code` */
+  function buildTransport(code) {
+    const t = CITY_TRANSPORT[c.city];
+    if (!t) return "";
+    const listCard = (icon, title, items, emptyMsg) => `
+        <div class="tcard" tabindex="0" role="button" data-info="${title}" aria-label="${title} — more info">
+          <span class="tcard-icon" aria-hidden="true">${icon}</span>
+          <div class="tcard-k">${title}</div>
+          ${items && items.length
+            ? `<ul class="tcard-list">${items.map(i => `<li>${i}</li>`).join('')}</ul>`
+            : `<p class="tcard-none">${emptyMsg}</p>`}
+          <span class="tcard-more">More info &rarr;</span>
         </div>`;
+    const side = t.car.side === "left" ? "Left" : "Right";
+    const carCard = `
+        <div class="tcard" tabindex="0" role="button" data-info="Car rental" aria-label="Car rental — more info">
+          <span class="tcard-icon" aria-hidden="true">${TRANSPORT_ICONS.car}</span>
+          <div class="tcard-k">Car rental</div>
+          <div class="car-info">
+            <div class="car-row"><span class="car-k">Drives on</span><span class="car-v">${side} side</span></div>
+            <div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${t.car.idp}</span></div>
+            <div class="car-row"><span class="car-k">Mid-size &middot; day</span><span class="car-v">${fmtPrice(t.car.rental, code)}</span></div>
+          </div>
+          <span class="tcard-more">More info &rarr;</span>
+        </div>`;
+    return listCard(TRANSPORT_ICONS.air, "Major airports", t.air, "—")
+         + listCard(TRANSPORT_ICONS.train, "Major train stations", t.train, "No intercity rail")
+         + listCard(TRANSPORT_ICONS.bus, "Major bus stations", t.bus, "—")
+         + listCard(TRANSPORT_ICONS.ferry, "Ferry / boat ports", t.ferry, "No passenger ferry ports")
+         + carCard;
+  }
 
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
@@ -633,8 +904,13 @@ if(!c){
             </div>
           </div>
         </div>
-        ${costCardsHTML}
+        <div id="cost-cards" class="cost-cards-grid"></div>
       </div>
+    </section>
+
+    <section style="padding-top:0">
+      <h2 class="sec-head">Getting around ${c.city}</h2>
+      <div id="transport-cards" class="transport-grid"></div>
     </section>
 
     <section style="padding-top:0">
@@ -702,9 +978,20 @@ if(!c){
       `<span class="src">· ${ratesLive ? "live rates" : "approx. rates"}</span>`;
   }
 
+  function renderCosts() {
+    const el = document.getElementById("cost-cards");
+    if (el) el.innerHTML = buildCostCards(compareCode);
+    const tel = document.getElementById("transport-cards");
+    if (tel) tel.innerHTML = buildTransport(compareCode);
+  }
+
   function bindConverter() {
     document.getElementById("conv-amt").addEventListener("input", renderConversion);
-    document.getElementById("conv-sel").addEventListener("change", e => { compareCode = e.target.value; renderConversion(); });
+    document.getElementById("conv-sel").addEventListener("change", e => {
+      compareCode = e.target.value;
+      renderConversion();
+      renderCosts();   // cost + transport cards follow the selected currency
+    });
     document.getElementById("conv-swap").addEventListener("click", () => {
       const carry = (lastRaw !== null && isFinite(lastRaw)) ? +lastRaw.toFixed(4) : 1;
       reversed = !reversed;
@@ -713,6 +1000,7 @@ if(!c){
   }
 
   renderConverter(1);
+  renderCosts();
 
   /* Refine with live rates when online (free, no API key needed) */
   fetch("https://open.er-api.com/v6/latest/USD")
@@ -722,9 +1010,77 @@ if(!c){
         RATES = Object.assign({}, RATES, data.rates);
         ratesLive = true;
         renderConversion();
+        renderCosts();   // refresh cost cards with live rates
       }
     })
     .catch(() => { /* keep fallback rates silently */ });
+
+  /* ---------- Transport card "more info" popup ---------- */
+  const modal      = document.getElementById("info-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalBody  = document.getElementById("modal-body");
+  const modalClose = document.getElementById("modal-close");
+
+  function buildAirportModal(code) {
+    const a = CITY_AIRPORT[c.city];
+    if (!a) return `<p class="modal-placeholder">More information coming soon.</p>`;
+    const mi = Math.round(a.km * 0.621371);
+    const others = ((CITY_TRANSPORT[c.city] && CITY_TRANSPORT[c.city].air) || []).filter(x => x !== a.name);
+    const rideText = a.ride.avail === "no"
+      ? "Not available"
+      : `${a.ride.avail === "limited" ? "Limited availability" : "Available"} &middot; avg ${fmtPrice(a.ride.cost, code)}`;
+    const transit = a.transit.map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
+    const tx = CITY_TAXI[c.city];
+    const taxiMeta = tx ? `<br><span class="air-taxi-meta">Official: ${tx.color} &middot; <b style="color:${taxiFareColor(tx.fare)}">${tx.fareNote}</b></span>` : "";
+    return `
+      <p class="air-name">${a.name}</p>
+      <div class="air-dist"><span class="air-dist-v">${a.km} km / ${mi} mi</span><span class="air-dist-k">to city center</span></div>
+      <h4 class="air-sub">Getting to the city center</h4>
+      <dl class="air-rows">
+        <dt>Car rental</dt><dd>Drive ~${a.drive} &middot; on-site counters: ${a.rentals.join(", ")}</dd>
+        <dt>Car service</dt><dd>avg ${fmtPrice(a.carService, code)} &middot; <a class="air-link" href="#">Book a transfer &rarr;</a></dd>
+        <dt>Taxi</dt><dd>avg ${fmtPrice(a.taxi, code)}${taxiMeta}</dd>
+        <dt>Ride-hailing</dt><dd>${rideText}</dd>
+        <dt>Public transit</dt><dd><ul class="air-transit">${transit}</ul></dd>
+      </dl>
+      ${others.length ? `<p class="air-foot">Figures shown for ${a.name}. Other airports: ${others.join(", ")}.</p>` : ""}`;
+  }
+
+  function openModal(title) {
+    modalTitle.textContent = `${title} — ${c.city}`;
+    if (title === "Major airports" && CITY_AIRPORT[c.city]) {
+      modalBody.innerHTML = buildAirportModal(compareCode);
+    } else {
+      // Placeholder content — detailed info to be filled in later.
+      modalBody.innerHTML = `<p class="modal-placeholder">More information about ${title.toLowerCase()} in ${c.city} is coming soon.</p>`;
+    }
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    modalClose.focus();
+  }
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  // Open on card click (event delegation — survives re-renders)
+  const transportEl = document.getElementById("transport-cards");
+  if (transportEl) {
+    transportEl.addEventListener("click", e => {
+      const card = e.target.closest(".tcard");
+      if (card && card.dataset.info) openModal(card.dataset.info);
+    });
+    transportEl.addEventListener("keydown", e => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest(".tcard");
+      if (card && card.dataset.info) { e.preventDefault(); openModal(card.dataset.info); }
+    });
+  }
+
+  // Dismiss: X button, backdrop click, or Escape
+  modalClose.addEventListener("click", closeModal);
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
 }
 </script>
 <script src="i18n.js"></script>

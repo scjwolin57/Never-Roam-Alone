@@ -165,7 +165,10 @@
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
   footer .brand{justify-content:center;color:#e97451}
-  footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   @media(max-width:880px){
     .tiles{grid-template-columns:1fr}
@@ -249,6 +252,10 @@
 
 <footer>
   <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
   <small>Prototype · interactive map + blog layout · built to be refined</small>
 </footer>
 
