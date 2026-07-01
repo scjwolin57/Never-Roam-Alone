@@ -1,5 +1,5 @@
 # Never Roam Alone — Project Summary
-*Last updated: June 26, 2026*
+*Last updated: June 30, 2026*
 
 ---
 
@@ -21,6 +21,20 @@ The project lives at:
 - Blog tile grid (6 posts) linking to `post.html?post=slug`
 - Language switcher (EN/ES/FR/IT/ZH) wired via `i18n.js`
 
+### `blog.html` — Blog Listing Page *(new)*
+- Full blog post directory — all posts displayed as a tile grid
+- Search bar (filters articles live as you type) with clear button
+- Sort dropdown: Newest → Oldest / Oldest → Newest / Most Liked / Most Viewed
+- "No results" state shown when search returns nothing
+- Footer links to privacy policy and terms of service
+
+### `cities.html` — City Guides Directory *(new)*
+- Grid of all city cards (27 cities), each linking to `city.html?city=Name&from=guides`
+- Live search/filter bar — filters by city name or country as you type
+- Visitor count chip on each card (e.g. "26.7M visitors/yr")
+- Placeholder photos from Picsum (keyed by city slug for consistency)
+- Count badge showing how many cities match the current filter
+
 ### `choose.html` — Destination Finder Tools
 Four radio-button-switched tools:
 
@@ -31,15 +45,29 @@ Four radio-button-switched tools:
    - **Train**: city search → auto-populates major train stations (30-city dictionary)
    - Other modes: city origin field + date picker
    - Flight results: sorted cheapest-first, 6-card cap + "Show more" button, 3-column grid, **Unsplash** landmark photos (proxied through Netlify function with photographer credit)
-4. **Visa Free or Do I Need?** — country dropdown using Passport Index dataset → visa requirement results
+4. **Do I Need A Visa?** — country dropdown using Passport Index dataset → visa requirement results
 
 Form state persists across page reloads (`localStorage` key `nra_choose_state_v1`). Origin city field clears when mode of travel changes.
 
-### `city.html` — Per-City Page
+### `city.html` — Per-City Page *(significantly expanded)*
 - Hero section: city name, tagline, annual visitor chip
+- **Cost cards** — 4-up grid showing typical mid-range costs: hotel/night, restaurant meal, local transport, and a city-specific item; all in USD
+- **Currency converter** — local currency with live conversion input; swap button reverses direction; compare-currency dropdown
+- **Getting Around section** — airport details card (name, distance, drive time, car rental companies, taxi/rideshare/transit options with costs) + transport grid cards
+- **Neighborhood guide** — curated neighborhoods per city with descriptions
+- **Embassy finder** — dropdown of home countries → Google Maps link to nearest embassy
+- **Stories tile grid** linking to `post.html`
 - Long-form article section (`.i18n-ml`) auto-translated by MyMemory proxy
-- Stories tile grid linking to `post.html`
-- URL param: `?city=Paris`
+- "City not found" fallback page for unknown URL params
+- URL param: `?city=Paris` (optional `&from=guides` to set back-nav context)
+
+### `askaroamer.html` — Community Q&A Forum *(new)*
+- Two-column layout: sidebar + main content area
+- **Sidebar**: "Browse by city" — category list (General Travel + all cities A-Z); clicking a category filters the thread list
+- **Ask a question form**: name (optional, defaults to "Anonymous Roamer"), city dropdown, question title (140 char max), details body (1200 char max)
+- **Thread list**: displays questions with reply counts; supports search and sort (Newest first / Most replies / Unanswered)
+- **Active category banner** shows the currently selected city/topic
+- Questions and replies stored in `localStorage` for the prototype
 
 ### `post.html` — Blog Post Template
 6 posts: `kyoto-backstreets`, `lisbon-on-foot`, `marrakech-morning`, `patagonia-pack-light`, `48-hours-hanoi`, `quiet-santorini`
@@ -50,6 +78,14 @@ Form state persists across page reloads (`localStorage` key `nra_choose_state_v1
 ---
 
 ## Shared Infrastructure
+
+### `nav.js` — Shared Navigation Script *(new)*
+- Single source of truth for the site-wide menu — edit `NAV_ITEMS` here to change the menu on every page at once
+- Current menu items: Home · About · Blog · City Guides · Destination Finder · Ask A Roamer
+- Auto-highlights the active page link based on the current filename (`ACTIVE_BY_PAGE` map); `post.html` and `city.html` inherit the parent section's highlight
+- **Mobile hamburger menu**: collapses to a ☰ button below 880px; morphs into an ✕ when open; drops down as a rounded panel; closes on link click, outside click, or Esc
+- Integrates with `i18n.js` — calls `NRA_i18n.apply()` after injecting menu HTML so translations cover freshly added nav links
+- Each page just needs `<nav class="links" data-site-nav></nav>` as a placeholder
 
 ### `i18n.js` — Language Switcher
 - Supports EN / ES / FR / IT / ZH
@@ -99,6 +135,8 @@ All API keys live **only** in Netlify environment variables — never in browser
 | Translation | MyMemory (proxied) | Free, no credit card, 5k chars/day anonymous / 50k with email |
 | Airport data | OpenFlights dataset | Free, comprehensive, client-side autocomplete |
 | Visa data | Passport Index CDN | Live data, no key needed |
+| City placeholder photos | Picsum (keyed by city slug) | No API key, consistent image per city |
+| Forum/Q&A storage | localStorage (prototype) | Zero backend needed for prototype stage |
 
 ---
 
@@ -117,7 +155,7 @@ All API keys live **only** in Netlify environment variables — never in browser
 
 ### Immediate
 - [ ] **Verify Unsplash is working on Netlify** — Check that `UNSPLASH_ACCESS_KEY` is set with scope "All scopes" in Netlify env vars, redeploy if needed
-- [ ] **Sync index.html** — Latest version on disk is 18,231 bytes; confirm whether the Cursor edit you intended (making blog tiles clickable or another change) is present. Re-apply in Cursor if needed.
+- [ ] **Sync index.html** — Confirm blog tiles link to `blog.html` and nav uses `nav.js` placeholder pattern
 
 ### Short-Term Features (from Objectives_Overview.md)
 - [ ] **Lodging at price points** — accommodation search/filter tool
@@ -125,7 +163,7 @@ All API keys live **only** in Netlify environment variables — never in browser
 - [ ] **Destination Planner** — full trip itinerary builder
 - [ ] **Cafes, Restaurants, Bars, Clubs** — venue discovery per destination
 - [ ] **Entertainment Calendar** — events with ad slots
-- [ ] **Ask a Local** — AI + human-curated Q&A
+- [ ] **Ask a Local** — AI + human-curated Q&A (askaroamer.html is the prototype shell; needs backend)
 - [ ] **Host Listings with Ratings** — user-posted accommodation with ratings
 
 ### Polish / QA
@@ -133,6 +171,8 @@ All API keys live **only** in Netlify environment variables — never in browser
 - [ ] Verify flight cards display Unsplash images correctly after Netlify fix
 - [ ] Mobile responsiveness pass (especially the 3-column flight grid)
 - [ ] Add `/api/image` and `/api/translate` friendly redirects to `netlify.toml` (parallel to `/api/flights`)
+- [ ] Replace Picsum placeholder photos in `cities.html` with real Unsplash city photos (via `image.js` proxy)
+- [ ] Wire `askaroamer.html` to a real backend (Supabase or similar) to persist questions/replies across sessions
 
 ---
 

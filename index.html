@@ -278,7 +278,7 @@ map.on("load", () => {
        <p class="tip-country">${p.country}</p>
        <p class="tip-num">${num}M<span>annual visitors</span></p>`;
     if(withButton){
-      html += `<a class="explore-btn" href="city.html?city=${encodeURIComponent(p.city)}&from=map">Explore ${p.city} &rarr;</a>`;
+      html += `<a class="explore-btn" href="city.html?city=${encodeURIComponent(p.city)}">Explore ${p.city} &rarr;</a>`;
     }
     return html;
   }

@@ -57,6 +57,33 @@
   .fact .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
   .fact .v{font-size:1.25rem;font-family:Georgia,serif;margin-top:6px}
 
+  /* Combined population + visitors card */
+  .stat-combo .sc-top{display:flex}
+  .stat-combo .sc-top .sc-item{flex:1;min-width:0}
+  .stat-combo .sc-top .sc-item + .sc-item{padding-left:16px;border-left:1px solid rgba(0,0,0,.07)}
+  .sc-metrics{margin-top:14px;padding-top:12px;border-top:1px solid rgba(0,0,0,.07)}
+  .sc-metrics .ratio-line:first-child{margin-top:0}
+  .ratio-line{margin-top:6px;font-size:.82rem;color:var(--muted)}
+  .ratio-line b{font-family:Georgia,serif;font-weight:700}
+  .idx-link{font-family:Georgia,serif;font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  .stat-disclaimer{margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(0,0,0,.07);
+    font-size:.7rem;line-height:1.4;color:var(--muted)}
+
+  /* Emergency + embassy card */
+  .emrg{margin-top:8px;display:flex;flex-direction:column;gap:7px}
+  .emrg-row{display:flex;justify-content:space-between;gap:8px;font-size:.9rem}
+  .emrg-k{color:var(--muted)}
+  .emrg-v{font-family:Georgia,serif;font-weight:700}
+  .emrg-v a{color:var(--ink)}
+  .emrg-note{font-size:.76rem;color:var(--muted);font-style:italic}
+  .embassy{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
+  .embassy-k{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin-bottom:8px}
+  .embassy select{width:100%;padding:9px 10px;border:2px solid rgba(24,94,63,.2);border-radius:10px;
+    background:#fff;font-family:inherit;font-size:.88rem;color:var(--ink);cursor:pointer}
+  .embassy select:focus{outline:none;border-color:var(--green)}
+  .embassy-hint{margin:10px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
+  .embassy-link{display:inline-block;margin-top:10px;color:var(--green);font-weight:700;font-size:.85rem}
+
   /* Language card */
   .lang-list{margin-top:8px;display:flex;flex-direction:column;gap:7px}
   .lang-row{display:flex;align-items:center;gap:10px}
@@ -64,6 +91,10 @@
   .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
   .lang-bar-track{flex:1;height:5px;background:#eee;border-radius:4px;overflow:hidden}
   .lang-bar{height:100%;border-radius:4px;background:var(--teal);opacity:.75}
+  .rel-section{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
+  .rel-section .rel-k{margin-bottom:8px}
+  .rel-bar{background:var(--green)}
+  .rel-pct{color:var(--green)}
 
   /* Temperature card */
   .fact-wide{grid-column:1/-1}
@@ -73,8 +104,14 @@
   .temp-row:first-child{padding-left:0}
   .season-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;
     letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+  .season-name{font-weight:600;color:var(--teal)}
   .temp-val{display:block;font-family:Georgia,serif;font-size:1.1rem;font-weight:700;
-    color:var(--ink);margin-bottom:8px}
+    color:var(--ink);margin-bottom:4px}
+  .rain-val{display:block;font-size:.76rem;color:var(--muted);margin-bottom:8px}
+  .rain-val svg{vertical-align:-1px;margin-right:3px;color:#5aa7d8}
+  .temp-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .temp-foot{font-size:.74rem;color:var(--muted);font-style:italic}
+  .temp-foot svg{vertical-align:-1px;margin-right:3px;color:#5aa7d8}
   .temp-bar-track{height:6px;background:#eee;border-radius:4px;overflow:hidden}
   .temp-bar{height:100%;border-radius:4px;transition:width .4s ease}
 
@@ -195,6 +232,24 @@
   .conv-rate b{color:var(--ink)}
   .conv-rate .src{font-size:.72rem;opacity:.8;margin-left:4px}
 
+  /* Neighborhood guide */
+  .hood-intro{color:var(--muted);font-size:1.02rem;max-width:760px;margin:0 0 24px;font-style:italic}
+  .hoods{display:flex;flex-direction:column;gap:22px}
+  .hood{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .hood-hero{position:relative;height:260px;background:#1a3a2a center/cover no-repeat;transition:background-image .4s}
+  .hood-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.25) 55%,rgba(0,0,0,.08) 100%)}
+  .hood-name{position:absolute;bottom:28px;left:0;right:0;z-index:1;font-size:1.6rem;font-weight:700;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.6);margin:0;padding:0 28px}
+  .hood-credit{position:absolute;bottom:8px;right:12px;z-index:1;font-size:.65rem;color:rgba(255,255,255,.7);line-height:1.3}
+  .hood-credit a{color:rgba(255,255,255,.8);text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:2px}
+  .hood-credit a:hover{color:#fff}
+  .hood-body{padding:22px;display:flex;flex-direction:column;flex:1}
+  .hood-desc{color:var(--muted);font-size:.92rem;margin:0 0 16px;font-style:italic}
+  .hood-lodging{margin-top:auto;border-top:1px solid rgba(0,0,0,.07);padding-top:14px;display:flex;flex-direction:column;gap:10px}
+  .lodge-row{display:flex;align-items:baseline;gap:10px}
+  .lodge-tier{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    padding:3px 0;border-radius:20px;color:#fff;width:84px;text-align:center}
+  .lodge-name{font-size:.86rem;color:var(--muted);font-style:italic}
+
   .sec-head{font-size:1.8rem;margin:0 0 22px}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .tile{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
@@ -213,9 +268,6 @@
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#e97451}
-  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-  footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
-  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
 
   .notfound{text-align:center;padding:120px 22px}
   .notfound h1{font-size:2.4rem;margin-bottom:10px}
@@ -261,12 +313,7 @@
       </svg>
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
-    <nav class="links">
-      <a href="index.html">Map</a>
-      <a href="index.html#blog">Blog</a>
-      <a href="cities.html">City Guides</a>
-      <a href="choose.html">Destination Finder</a>
-    </nav>
+    <nav class="links" data-site-nav></nav>
   </div>
 </header>
 
@@ -283,10 +330,6 @@
 
 <footer>
   <div class="brand" style="font-size:1.6rem"><span>Never Roam Alone</span></div>
-  <div class="foot-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
 </footer>
 
 <script>
@@ -394,6 +437,15 @@ function tempWidth(f) {
 
 /* Convert °F to °C */
 function toCelsius(f) { return Math.round((f - 32) * 5 / 9); }
+
+/* Season names per quarter (Jan–Mar, Apr–Jun, Jul–Sep, Oct–Dec) by latitude:
+   tropical = wet/dry; otherwise four seasons flipped for the southern hemisphere. */
+function seasonsFor(lat) {
+  if (Math.abs(lat) < 20) return ["Dry season","Hot season","Wet season","Wet season"];
+  return lat < 0
+    ? ["Summer","Autumn","Winter","Spring"]
+    : ["Winter","Spring","Summer","Autumn"];
+}
 
 /* ---------- Currency ---------- */
 /* Local currency for each city (keyed by name, so the main dataset stays clean) */
@@ -508,6 +560,224 @@ function taxiFareColor(cat) {
   if (cat === "fixed")   return "#0e7c86";
   return "#e0a800"; // unmetered / haggle
 }
+
+/* Emergency contact numbers per city (police + ambulance/fire). */
+const CITY_EMERGENCY = {
+  "Hong Kong":{police:"999",medical:"999"},
+  "Bangkok":{police:"191",medical:"1669",note:"Tourist Police 1155"},
+  "London":{police:"999",medical:"999",note:"112 also works"},
+  "Macau":{police:"999",medical:"999"},
+  "Singapore":{police:"999",medical:"995"},
+  "Paris":{police:"17",medical:"15",note:"EU emergency 112"},
+  "Dubai":{police:"999",medical:"998"},
+  "New York":{police:"911",medical:"911"},
+  "Kuala Lumpur":{police:"999",medical:"999"},
+  "Istanbul":{police:"112",medical:"112"},
+  "Tokyo":{police:"110",medical:"119"},
+  "Antalya":{police:"112",medical:"112"},
+  "Seoul":{police:"112",medical:"119"},
+  "Osaka":{police:"110",medical:"119"},
+  "Rome":{police:"112",medical:"118",note:"EU emergency 112"},
+  "Phuket":{police:"191",medical:"1669",note:"Tourist Police 1155"},
+  "Barcelona":{police:"112",medical:"112"},
+  "Amsterdam":{police:"112",medical:"112"},
+  "Milan":{police:"112",medical:"118",note:"EU emergency 112"},
+  "Vienna":{police:"133",medical:"144",note:"EU emergency 112"},
+  "Prague":{police:"158",medical:"155",note:"EU emergency 112"},
+  "Los Angeles":{police:"911",medical:"911"},
+  "Sydney":{police:"000",medical:"000",note:"112 from mobile"},
+  "Cape Town":{police:"10111",medical:"10177",note:"112 from mobile"},
+  "Rio de Janeiro":{police:"190",medical:"192"},
+  "Cancún":{police:"911",medical:"911"},
+  "Marrakech":{police:"19",medical:"15",note:"112 from mobile"}
+};
+
+/* Home countries for the embassy finder dropdown */
+const EMBASSY_COUNTRIES = ["United States","United Kingdom","Canada","Australia","Ireland",
+  "Germany","France","Spain","Italy","Netherlands","Switzerland","Sweden","India","China",
+  "Japan","South Korea","Singapore","United Arab Emirates","Brazil","Mexico","South Africa","New Zealand"];
+
+/* Top 3 religions by share of population (approximate; can overlap in some places) */
+const CITY_RELIGION = {
+  "Hong Kong":[{r:"No religion",p:57},{r:"Buddhism / Taoism",p:28},{r:"Christianity",p:12}],
+  "Bangkok":[{r:"Buddhism",p:93},{r:"Islam",p:5},{r:"Christianity",p:1}],
+  "London":[{r:"Christianity",p:41},{r:"No religion",p:27},{r:"Islam",p:15}],
+  "Macau":[{r:"Buddhism / folk",p:65},{r:"No religion",p:20},{r:"Christianity",p:9}],
+  "Singapore":[{r:"Buddhism",p:31},{r:"Christianity",p:19},{r:"Islam",p:16}],
+  "Paris":[{r:"Christianity",p:47},{r:"No religion",p:40},{r:"Islam",p:8}],
+  "Dubai":[{r:"Islam",p:76},{r:"Christianity",p:9},{r:"Hinduism",p:7}],
+  "New York":[{r:"Christianity",p:59},{r:"No religion",p:24},{r:"Judaism",p:8}],
+  "Kuala Lumpur":[{r:"Islam",p:46},{r:"Buddhism",p:35},{r:"Hinduism",p:9}],
+  "Istanbul":[{r:"Islam",p:97},{r:"No religion",p:2},{r:"Christianity",p:1}],
+  "Tokyo":[{r:"Shinto",p:49},{r:"Buddhism",p:46},{r:"Christianity",p:1}],
+  "Antalya":[{r:"Islam",p:98},{r:"No religion",p:1},{r:"Christianity",p:1}],
+  "Seoul":[{r:"No religion",p:56},{r:"Christianity",p:28},{r:"Buddhism",p:16}],
+  "Osaka":[{r:"Shinto",p:49},{r:"Buddhism",p:46},{r:"Christianity",p:1}],
+  "Rome":[{r:"Christianity",p:80},{r:"No religion",p:15},{r:"Islam",p:3}],
+  "Phuket":[{r:"Buddhism",p:73},{r:"Islam",p:25},{r:"Christianity",p:1}],
+  "Barcelona":[{r:"Christianity",p:55},{r:"No religion",p:37},{r:"Islam",p:5}],
+  "Amsterdam":[{r:"No religion",p:55},{r:"Christianity",p:24},{r:"Islam",p:14}],
+  "Milan":[{r:"Christianity",p:75},{r:"No religion",p:18},{r:"Islam",p:4}],
+  "Vienna":[{r:"Christianity",p:49},{r:"No religion",p:34},{r:"Islam",p:14}],
+  "Prague":[{r:"No religion",p:70},{r:"Christianity",p:25},{r:"Other",p:2}],
+  "Los Angeles":[{r:"Christianity",p:63},{r:"No religion",p:27},{r:"Judaism",p:3}],
+  "Sydney":[{r:"Christianity",p:44},{r:"No religion",p:39},{r:"Islam",p:5}],
+  "Cape Town":[{r:"Christianity",p:80},{r:"Islam",p:10},{r:"No religion",p:6}],
+  "Rio de Janeiro":[{r:"Christianity",p:80},{r:"No religion",p:11},{r:"Spiritism",p:5}],
+  "Cancún":[{r:"Christianity",p:82},{r:"No religion",p:11},{r:"Other",p:5}],
+  "Marrakech":[{r:"Islam",p:99},{r:"Christianity",p:1},{r:"Judaism",p:0.2}]
+};
+
+/* Average length of stay (days) — used for the daily tourist ratio */
+const CITY_STAY = {
+  "Hong Kong":3.3,"Bangkok":4.5,"London":5.5,"Macau":1.2,"Singapore":3.4,
+  "Paris":2.5,"Dubai":3.5,"New York":4,"Kuala Lumpur":5.5,"Istanbul":5,
+  "Tokyo":4,"Antalya":9,"Seoul":4.5,"Osaka":3,"Rome":3,
+  "Phuket":8,"Barcelona":3,"Amsterdam":2.5,"Milan":2.5,"Vienna":3,
+  "Prague":2.5,"Los Angeles":4,"Sydney":5,"Cape Town":5,
+  "Rio de Janeiro":4,"Cancún":6,"Marrakech":4
+};
+
+/* Walkability score (0–100, Walk Score style) */
+const CITY_WALK = {
+  "Hong Kong":90,"Bangkok":70,"London":90,"Macau":85,"Singapore":85,
+  "Paris":95,"Dubai":45,"New York":88,"Kuala Lumpur":55,"Istanbul":75,
+  "Tokyo":88,"Antalya":60,"Seoul":80,"Osaka":85,"Rome":85,
+  "Phuket":40,"Barcelona":92,"Amsterdam":90,"Milan":88,"Vienna":88,
+  "Prague":88,"Los Angeles":69,"Sydney":80,"Cape Town":55,
+  "Rio de Janeiro":70,"Cancún":45,"Marrakech":75
+};
+
+/* Colour + label for a walk score */
+function walkInfo(s) {
+  if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
+  if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
+  if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
+  return {c:"#ef6f53", w:"Car-dependent"};
+}
+
+/* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
+const CITY_SAFETY = {
+  "Hong Kong":{safety:78,crime:22}, "Bangkok":{safety:60,crime:40},
+  "London":{safety:47,crime:53}, "Macau":{safety:80,crime:20},
+  "Singapore":{safety:77,crime:23}, "Paris":{safety:45,crime:55},
+  "Dubai":{safety:84,crime:16}, "New York":{safety:50,crime:50},
+  "Kuala Lumpur":{safety:45,crime:55}, "Istanbul":{safety:58,crime:42},
+  "Tokyo":{safety:75,crime:25}, "Antalya":{safety:60,crime:40},
+  "Seoul":{safety:73,crime:27}, "Osaka":{safety:73,crime:27},
+  "Rome":{safety:50,crime:50}, "Phuket":{safety:58,crime:42},
+  "Barcelona":{safety:42,crime:58}, "Amsterdam":{safety:58,crime:42},
+  "Milan":{safety:46,crime:54}, "Vienna":{safety:74,crime:26},
+  "Prague":{safety:65,crime:35}, "Los Angeles":{safety:47,crime:53},
+  "Sydney":{safety:58,crime:42}, "Cape Town":{safety:25,crime:75},
+  "Rio de Janeiro":{safety:27,crime:73}, "Cancún":{safety:42,crime:58},
+  "Marrakech":{safety:55,crime:45}
+};
+
+/* Colour for a safety index (higher = safer), 5 tiers */
+function safetyColor(s) {
+  if (s >= 80) return "#1d9a6c"; // 80–100  green
+  if (s >= 60) return "#7cb342"; // 60–79   yellow-green
+  if (s >= 40) return "#e0a800"; // 40–59   yellow
+  if (s >= 20) return "#fd7e14"; // 20–39   orange
+  return "#e01010";              // 0–19    bright red
+}
+
+/* Colour for a crime index (higher = worse), 5 tiers — inverse of safety */
+function crimeColor(s) {
+  if (s <= 19) return "#1d9a6c"; // 0–19    green
+  if (s <= 39) return "#7cb342"; // 20–39   yellow-green
+  if (s <= 59) return "#e0a800"; // 40–59   yellow
+  if (s <= 79) return "#fd7e14"; // 60–79   orange
+  return "#e01010";              // 80–100  bright red
+}
+
+/* Five most popular neighborhoods per city */
+/* Most photographed landmark per neighborhood — used to fetch Wikipedia thumbnail */
+const CITY_HOOD_LANDMARK = {
+  "Hong Kong":{"Central":"Victoria Peak","Tsim Sha Tsui":"Avenue of Stars, Hong Kong","Causeway Bay":"Causeway Bay, Hong Kong","Mong Kok":"Mong Kok","Wan Chai":"Wan Chai"},
+  "Bangkok":{"Sukhumvit":"Sukhumvit Road","Silom":"Lumpini Park","Khao San / Banglamphu":"Khao San Road","Riverside (Bang Rak)":"Wat Arun","Siam":"Siam Square"},
+  "London":{"Soho & Westminster":"Palace of Westminster","Shoreditch":"Brick Lane","Kensington":"Kensington Palace","Camden":"Camden Market","Notting Hill":"Portobello Road"},
+  "Macau":{"Macau Peninsula":"Ruins of Saint Paul's, Macau","Taipa":"Taipa","Cotai":"The Venetian Macao","Coloane":"Coloane","Senado Square":"Largo do Senado"},
+  "Singapore":{"Marina Bay":"Marina Bay Sands","Chinatown":"Chinatown, Singapore","Little India":"Little India, Singapore","Orchard":"Orchard Road","Kampong Glam":"Kampong Glam"},
+  "Paris":{"Le Marais":"Le Marais","Saint-Germain-des-Prés":"Saint-Germain-des-Prés","Montmartre":"Sacré-Cœur de Montmartre","Latin Quarter":"Panthéon, Paris","Champs-Élysées":"Champs-Élysées"},
+  "Dubai":{"Downtown Dubai":"Burj Khalifa","Dubai Marina":"Dubai Marina","Jumeirah":"Burj Al Arab","Deira":"Dubai Gold Souk","Business Bay":"Business Bay"},
+  "New York":{"Midtown":"Times Square","SoHo":"SoHo, Manhattan","Greenwich Village":"Washington Square Park","Williamsburg":"Williamsburg, Brooklyn","Upper East Side":"Metropolitan Museum of Art"},
+  "Kuala Lumpur":{"Bukit Bintang":"Bukit Bintang","KLCC":"Petronas Towers","Chinatown (Petaling)":"Petaling Street","Bangsar":"Bangsar","Chow Kit":"Chow Kit"},
+  "Istanbul":{"Sultanahmet":"Sultan Ahmed Mosque","Beyoğlu (Taksim)":"İstiklal Avenue","Kadıköy":"Kadıköy","Beşiktaş":"Dolmabahçe Palace","Karaköy":"Karaköy"},
+  "Tokyo":{"Shinjuku":"Shinjuku, Tokyo","Shibuya":"Shibuya crossing","Ginza":"Ginza","Asakusa":"Senso-ji","Akihabara":"Akihabara"},
+  "Antalya":{"Kaleiçi (Old Town)":"Hadrian's Gate, Antalya","Lara":"Lara Beach","Konyaaltı":"Konyaaltı Beach","Muratpaşa":"Muratpaşa","Belek":"Belek"},
+  "Seoul":{"Myeongdong":"Myeongdong","Hongdae":"Hongdae, Seoul","Gangnam":"Gangnam District","Insadong":"Insadong","Itaewon":"Itaewon"},
+  "Osaka":{"Namba (Minami)":"Dōtonbori","Umeda (Kita)":"Umeda Sky Building","Shinsekai":"Tsūtenkaku","Tennoji":"Shitennō-ji","Shinsaibashi":"Shinsaibashi"},
+  "Rome":{"Centro Storico":"Trevi Fountain","Trastevere":"Trastevere","Monti":"Colosseum","Prati (Vaticano)":"St. Peter's Basilica","Testaccio":"Testaccio, Rome"},
+  "Phuket":{"Patong":"Patong Beach","Karon":"Karon Beach","Kata":"Kata Beach","Phuket Old Town":"Phuket Old Town","Kamala":"Kamala Beach"},
+  "Barcelona":{"Gothic Quarter":"Gothic Quarter, Barcelona","Eixample":"Sagrada Família","Gràcia":"Park Güell","El Born":"El Born, Barcelona","Barceloneta":"Barceloneta Beach"},
+  "Amsterdam":{"Jordaan":"Jordaan","Canal Ring":"Amsterdam canals","De Pijp":"De Pijp","Oud-West":"Vondelpark","Centrum":"Dam Square"},
+  "Milan":{"Duomo / Centro":"Milan Cathedral","Brera":"Brera, Milan","Navigli":"Navigli","Porta Nuova":"Porta Nuova, Milan","Isola":"Isola, Milan"},
+  "Vienna":{"Innere Stadt":"Stephansdom","Leopoldstadt":"Prater","Mariahilf":"Naschmarkt","Neubau":"MuseumsQuartier Vienna","Landstraße":"Belvedere, Vienna"},
+  "Prague":{"Old Town":"Old Town Square, Prague","Malá Strana":"Charles Bridge","New Town":"Wenceslas Square","Vinohrady":"Vinohrady","Žižkov":"Žižkov Television Tower"},
+  "Los Angeles":{"Hollywood":"Hollywood Sign","Santa Monica":"Santa Monica Pier","Downtown LA":"Downtown Los Angeles","Venice":"Venice Beach, Los Angeles","Beverly Hills":"Rodeo Drive"},
+  "Sydney":{"CBD":"Sydney Opera House","The Rocks":"The Rocks, Sydney","Bondi":"Bondi Beach","Darling Harbour":"Darling Harbour","Surry Hills":"Surry Hills, New South Wales"},
+  "Cape Town":{"City Bowl":"Table Mountain","V&A Waterfront":"Victoria & Alfred Waterfront","Sea Point":"Sea Point, Cape Town","Camps Bay":"Camps Bay","Woodstock":"Woodstock, Cape Town"},
+  "Rio de Janeiro":{"Copacabana":"Copacabana Beach","Ipanema":"Ipanema Beach","Leblon":"Leblon","Santa Teresa":"Santa Teresa, Rio de Janeiro","Lapa / Centro":"Arcos da Lapa"},
+  "Cancún":{"Hotel Zone":"Cancún","Downtown (El Centro)":"Cancún","Puerto Cancún":"Puerto Cancún","Punta Cancún":"Cancún Hotel Zone","Puerto Juárez":"Puerto Juárez"},
+  "Marrakech":{"Medina":"Djemaa el-Fna","Gueliz":"Gueliz","Hivernage":"Hivernage","Kasbah":"Kasbah of Marrakesh","Palmeraie":"Palmeraie"}
+};
+
+const CITY_HOODS = {
+  "Hong Kong":["Central","Tsim Sha Tsui","Causeway Bay","Mong Kok","Wan Chai"],
+  "Bangkok":["Sukhumvit","Silom","Khao San / Banglamphu","Riverside (Bang Rak)","Siam"],
+  "London":["Soho & Westminster","Shoreditch","Kensington","Camden","Notting Hill"],
+  "Macau":["Macau Peninsula","Taipa","Cotai","Coloane","Senado Square"],
+  "Singapore":["Marina Bay","Chinatown","Little India","Orchard","Kampong Glam"],
+  "Paris":["Le Marais","Saint-Germain-des-Prés","Montmartre","Latin Quarter","Champs-Élysées"],
+  "Dubai":["Downtown Dubai","Dubai Marina","Jumeirah","Deira","Business Bay"],
+  "New York":["Midtown","SoHo","Greenwich Village","Williamsburg","Upper East Side"],
+  "Kuala Lumpur":["Bukit Bintang","KLCC","Chinatown (Petaling)","Bangsar","Chow Kit"],
+  "Istanbul":["Sultanahmet","Beyoğlu (Taksim)","Kadıköy","Beşiktaş","Karaköy"],
+  "Tokyo":["Shinjuku","Shibuya","Ginza","Asakusa","Akihabara"],
+  "Antalya":["Kaleiçi (Old Town)","Lara","Konyaaltı","Muratpaşa","Belek"],
+  "Seoul":["Myeongdong","Hongdae","Gangnam","Insadong","Itaewon"],
+  "Osaka":["Namba (Minami)","Umeda (Kita)","Shinsekai","Tennoji","Shinsaibashi"],
+  "Rome":["Centro Storico","Trastevere","Monti","Prati (Vaticano)","Testaccio"],
+  "Phuket":["Patong","Karon","Kata","Phuket Old Town","Kamala"],
+  "Barcelona":["Gothic Quarter","Eixample","Gràcia","El Born","Barceloneta"],
+  "Amsterdam":["Jordaan","Canal Ring","De Pijp","Oud-West","Centrum"],
+  "Milan":["Duomo / Centro","Brera","Navigli","Porta Nuova","Isola"],
+  "Vienna":["Innere Stadt","Leopoldstadt","Mariahilf","Neubau","Landstraße"],
+  "Prague":["Old Town","Malá Strana","New Town","Vinohrady","Žižkov"],
+  "Los Angeles":["Hollywood","Santa Monica","Downtown LA","Venice","Beverly Hills"],
+  "Sydney":["CBD","The Rocks","Bondi","Darling Harbour","Surry Hills"],
+  "Cape Town":["City Bowl","V&A Waterfront","Sea Point","Camps Bay","Woodstock"],
+  "Rio de Janeiro":["Copacabana","Ipanema","Leblon","Santa Teresa","Lapa / Centro"],
+  "Cancún":["Hotel Zone","Downtown (El Centro)","Puerto Cancún","Punta Cancún","Puerto Juárez"],
+  "Marrakech":["Medina","Gueliz","Hivernage","Kasbah","Palmeraie"]
+};
+
+/* Lodging tiers shown under each neighborhood */
+const LODGE_TIERS = [
+  {k:"High-end", c:"#185e3f"},
+  {k:"Mid-range", c:"#0e7c86"},
+  {k:"Budget", c:"#c0792c"}
+];
+
+/* Average days of measurable rainfall per quarter (3-month total) */
+const CITY_RAIN = {
+  "Hong Kong":{q1:15,q2:38,q3:45,q4:18}, "Bangkok":{q1:6,q2:35,q3:50,q4:25},
+  "London":{q1:38,q2:33,q3:33,q4:42}, "Macau":{q1:15,q2:36,q3:42,q4:16},
+  "Singapore":{q1:40,q2:38,q3:38,q4:52}, "Paris":{q1:30,q2:28,q3:26,q4:33},
+  "Dubai":{q1:6,q2:1,q3:0,q4:3}, "New York":{q1:33,q2:30,q3:28,q4:30},
+  "Kuala Lumpur":{q1:42,q2:48,q3:45,q4:58}, "Istanbul":{q1:38,q2:18,q3:10,q4:33},
+  "Tokyo":{q1:15,q2:30,q3:33,q4:22}, "Antalya":{q1:30,q2:12,q3:2,q4:22},
+  "Seoul":{q1:18,q2:28,q3:33,q4:16}, "Osaka":{q1:16,q2:30,q3:30,q4:20},
+  "Rome":{q1:24,q2:18,q3:10,q4:28}, "Phuket":{q1:12,q2:40,q3:48,q4:38},
+  "Barcelona":{q1:13,q2:13,q3:10,q4:16}, "Amsterdam":{q1:45,q2:40,q3:42,q4:50},
+  "Milan":{q1:18,q2:28,q3:20,q4:24}, "Vienna":{q1:20,q2:30,q3:28,q4:22},
+  "Prague":{q1:24,q2:33,q3:30,q4:26}, "Los Angeles":{q1:18,q2:5,q3:1,q4:10},
+  "Sydney":{q1:33,q2:33,q3:28,q4:33}, "Cape Town":{q1:10,q2:25,q3:30,q4:14},
+  "Rio de Janeiro":{q1:36,q2:22,q3:18,q4:30}, "Cancún":{q1:15,q2:25,q3:38,q4:28},
+  "Marrakech":{q1:15,q2:8,q3:2,q4:12}
+};
 
 /* Takeaway coffee, beer (0.5L), and bottled water averages in USD.
    beer can be a number, or "restricted" / "notallowed" for alcohol rules. */
@@ -688,6 +958,21 @@ function fmtPrice(usd, code) {
   return sym + v.toLocaleString(undefined, {maximumFractionDigits: digits});
 }
 
+/* Parse a population string like "7.4M" / "680K" into an absolute number */
+function parsePop(s) {
+  const n = parseFloat(s);
+  if (/M/i.test(s)) return n * 1e6;
+  if (/K/i.test(s)) return n * 1e3;
+  return n;
+}
+
+/* Colour for the tourist-to-local ratio: >30% red, 10–30% yellow, ≤10% green */
+function ratioColor(p) {
+  if (p > 30) return "#e55039";
+  if (p > 10) return "#e0a800";
+  return "#1d9a6c";
+}
+
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const params = new URLSearchParams(location.search);
 const wanted = params.get("city");
@@ -715,6 +1000,18 @@ if(!c){
   const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
   const hero = `https://picsum.photos/seed/${sg}-hero/1600/900`;
 
+  /* Daily tourist-to-local ratio:
+     avg daily tourists = annual visitors × avg length of stay ÷ 365;
+     ratio = avg daily tourists ÷ resident population. */
+  const popM = parsePop(c.pop) / 1e6;
+  const stayDays = CITY_STAY[c.city];
+  const avgDailyTouristsM = stayDays ? c.visitors * stayDays / 365 : null;
+  const touristRatio = (avgDailyTouristsM != null && popM > 0)
+    ? Math.round(avgDailyTouristsM / popM * 100) : null;
+  const walk = CITY_WALK[c.city];
+  const walkLvl = walk != null ? walkInfo(walk) : null;
+  const safety = CITY_SAFETY[c.city];
+
   const stories = [
     {t:`First Impressions of ${c.city}`, d:"Coming soon", s:`${sg}-a`},
     {t:`What to Eat in ${c.city}`, d:"Coming soon", s:`${sg}-b`},
@@ -722,17 +1019,37 @@ if(!c){
   ];
 
   /* Build temperature rows for the seasonal card */
-  const seasons = [
-    {label:'Jan – Mar', f: c.temps.q1},
-    {label:'Apr – Jun', f: c.temps.q2},
-    {label:'Jul – Sep', f: c.temps.q3},
-    {label:'Oct – Dec', f: c.temps.q4}
-  ];
+  /* Neighborhood guide (real names, placeholder descriptions + lodging) */
+  const hoods = CITY_HOODS[c.city] || [];
+  const hoodsHTML = hoods.map(name => `
+        <div class="hood">
+          <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
+            <h3 class="hood-name">${name}</h3>
+            <p class="hood-credit"></p>
+          </div>
+          <div class="hood-body">
+            <p class="hood-desc">Placeholder — a short overview of ${name} will go here: the vibe, who it suits, and what's nearby.</p>
+            <div class="hood-lodging">
+              ${LODGE_TIERS.map(t => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">Recommendation coming soon</span></div>`).join('')}
+            </div>
+          </div>
+        </div>`).join('');
 
-  const tempRowsHTML = seasons.map(({label, f}) => `
+  const rain = CITY_RAIN[c.city] || {};
+  const seasonNames = seasonsFor(c.lat);
+  const seasons = [
+    {label:'Jan – Mar', f: c.temps.q1, r: rain.q1, s: seasonNames[0]},
+    {label:'Apr – Jun', f: c.temps.q2, r: rain.q2, s: seasonNames[1]},
+    {label:'Jul – Sep', f: c.temps.q3, r: rain.q3, s: seasonNames[2]},
+    {label:'Oct – Dec', f: c.temps.q4, r: rain.q4, s: seasonNames[3]}
+  ];
+  const RAIN_ICON = `<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5s6.5 7.5 6.5 12.5a6.5 6.5 0 0 1-13 0C5.5 10 12 2.5 12 2.5z"/></svg>`;
+
+  const tempRowsHTML = seasons.map(({label, f, r, s}) => `
     <div class="temp-row">
-      <span class="season-label">${label}</span>
+      <span class="season-label">${label} <span class="season-name">(${s})</span></span>
       <span class="temp-val">${f}°F / ${toCelsius(f)}°C</span>
+      ${r == null ? "" : `<span class="rain-val">${RAIN_ICON} ${Math.round(r / 3)} days/mo</span>`}
       <div class="temp-bar-track">
         <div class="temp-bar" style="width:${tempWidth(f)}%;background:${tempColor(f)}"></div>
       </div>
@@ -762,6 +1079,31 @@ if(!c){
   const hotelRange = CITY_HOTEL[c.city];
   const rides = CITY_RIDES[c.city];
   const drinks = CITY_DRINKS[c.city];
+
+  /* Emergency numbers + embassy finder card */
+  const em = CITY_EMERGENCY[c.city];
+  const telHref = s => "tel:" + s.replace(/\D/g, "");
+  const emergencyHTML = !em ? "" : `
+          <div class="emrg">
+            <div class="emrg-row"><span class="emrg-k">Police</span><span class="emrg-v"><a href="${telHref(em.police)}">${em.police}</a></span></div>
+            <div class="emrg-row"><span class="emrg-k">Ambulance / Fire</span><span class="emrg-v"><a href="${telHref(em.medical)}">${em.medical}</a></span></div>
+            ${em.note ? `<div class="emrg-note">${em.note}</div>` : ""}
+          </div>`;
+  const embassyCardHTML = `
+        <div class="fact safety-card">
+          <div class="k">Emergency &amp; embassy</div>
+          ${emergencyHTML}
+          <div class="embassy">
+            <label class="embassy-k" for="embassy-sel">Find your embassy</label>
+            <select id="embassy-sel">
+              <option value="" selected>Select your country…</option>
+              ${EMBASSY_COUNTRIES.map(cc => `<option value="${cc}">${cc}</option>`).join('')}
+            </select>
+            <p class="embassy-hint" id="embassy-hint">Pick a country for a Maps link to the nearest embassy.</p>
+            <a class="embassy-link" id="embassy-link" target="_blank" rel="noopener" hidden></a>
+          </div>
+        </div>`;
+
   const ridesHTML = rides == null ? "" : `
           <div class="rides">
             <span class="rides-k">Ride-share apps</span>
@@ -872,13 +1214,27 @@ if(!c){
 
       <div class="facts">
         <div class="fact fact-wide">
-          <div class="k">Best time to visit &mdash; avg high temperature</div>
+          <div class="temp-head">
+            <div class="k">Best time to visit &mdash; avg high temperature</div>
+            <div class="temp-foot">${RAIN_ICON} Average measurable rain days per month</div>
+          </div>
           <div class="temp-rows">${tempRowsHTML}</div>
         </div>
-        <div class="fact"><div class="k">Population</div><div class="v">${c.pop}</div></div>
-        <div class="fact"><div class="k">Annual visitors</div><div class="v">${num} M</div></div>
+        <div class="fact stat-combo">
+          <div class="sc-top">
+            <div class="sc-item"><div class="k">Population</div><div class="v">${c.pop}</div></div>
+            <div class="sc-item"><div class="k">Annual visitors</div><div class="v">${num} M</div></div>
+          </div>
+          <div class="sc-metrics">
+            ${touristRatio == null ? "" : `<div class="ratio-line">Daily tourist-to-local ratio <b style="color:${ratioColor(touristRatio)}">${touristRatio}%</b> &middot; ~${stayDays}-day avg stay</div>`}
+            ${walkLvl == null ? "" : `<div class="ratio-line">Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}</div>`}
+            ${safety == null ? "" : `<div class="ratio-line">Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a></div>`}
+          </div>
+          <p class="stat-disclaimer"><em>*these average figures are displayed for reference purposes and may not reflect real world conditions</em></p>
+        </div>
+        ${embassyCardHTML}
         <div class="fact">
-          <div class="k">Languages spoken</div>
+          <div class="k">Languages spoken by majority</div>
           <div class="lang-list">
             ${c.langs.map(({l,p})=>`
             <div class="lang-row">
@@ -886,6 +1242,17 @@ if(!c){
               <div class="lang-bar-track"><div class="lang-bar" style="width:${p}%"></div></div>
               <span class="lang-pct">${p}%</span>
             </div>`).join('')}
+          </div>
+          <div class="rel-section">
+            <div class="k rel-k">Religion by majority</div>
+            <div class="lang-list">
+              ${(CITY_RELIGION[c.city]||[]).map(({r,p})=>`
+              <div class="lang-row">
+                <span class="lang-name">${r}</span>
+                <div class="lang-bar-track"><div class="lang-bar rel-bar" style="width:${p}%"></div></div>
+                <span class="lang-pct rel-pct">${p}%</span>
+              </div>`).join('')}
+            </div>
           </div>
         </div>
         <div class="fact fact-wide">
@@ -914,6 +1281,12 @@ if(!c){
     </section>
 
     <section style="padding-top:0">
+      <h2 class="sec-head">Neighborhood guide &mdash; ${c.city}</h2>
+      <p class="hood-intro">Placeholder — an overview of ${c.city}'s neighborhoods will go here, helping you choose the right base for your trip.</p>
+      <div class="hoods">${hoodsHTML}</div>
+    </section>
+
+    <section style="padding-top:0">
       <h2 class="sec-head">Stories from ${c.city}</h2>
       <div class="tiles">
         ${stories.map(s=>`
@@ -929,6 +1302,37 @@ if(!c){
       </div>
       <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </section>`;
+
+  /* ---------- Neighborhood hero images (Unsplash — most downloaded landscape) ---------- */
+  (function loadHoodImages() {
+    const landmarks = CITY_HOOD_LANDMARK[c.city] || {};
+    document.querySelectorAll('.hood-hero[data-hood]').forEach(async el => {
+      const name = el.dataset.hood;
+      const landmark = landmarks[name];
+      const query = landmark ? `${landmark} ${c.city}` : `${name} ${c.city}`;
+      const fallback = `https://picsum.photos/seed/${encodeURIComponent(c.city + '-' + name)}/1200/520`;
+
+      try {
+        const r = await fetch(`/.netlify/functions/image?q=${encodeURIComponent(query)}`);
+        if (!r.ok) throw new Error('fetch failed');
+        const d = await r.json();
+        if (d.url) {
+          el.style.backgroundImage = `url('${d.url}')`;
+          const creditEl = el.querySelector('.hood-credit');
+          if (creditEl && d.credit) {
+            const utm = 'utm_source=never_roam_alone&utm_medium=referral';
+            const photographerUrl = d.creditLink ? `${d.creditLink}?${utm}` : `https://unsplash.com/?${utm}`;
+            const unsplashUrl = `https://unsplash.com/?${utm}`;
+            creditEl.innerHTML = `Photo by <a href="${photographerUrl}" target="_blank" rel="noopener">${d.credit}</a> on <a href="${unsplashUrl}" target="_blank" rel="noopener">Unsplash</a>`;
+          }
+        } else {
+          el.style.backgroundImage = `url('${fallback}')`;
+        }
+      } catch (_) {
+        el.style.backgroundImage = `url('${fallback}')`;
+      }
+    });
+  })();
 
   /* ---------- Converter wiring (reversible) ---------- */
   const localCode = curCode;
@@ -1081,8 +1485,29 @@ if(!c){
   modalClose.addEventListener("click", closeModal);
   modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !modal.hidden) closeModal(); });
+
+  /* ---------- Embassy finder ---------- */
+  const embSel  = document.getElementById("embassy-sel");
+  const embLink = document.getElementById("embassy-link");
+  const embHint = document.getElementById("embassy-hint");
+  if (embSel) {
+    embSel.addEventListener("change", () => {
+      const country = embSel.value;
+      if (!country) {
+        embLink.hidden = true;
+        if (embHint) embHint.hidden = false;
+        return;
+      }
+      const q = encodeURIComponent(`${country} embassy or consulate in ${c.city}`);
+      embLink.href = `https://www.google.com/maps/search/?api=1&query=${q}`;
+      embLink.textContent = `Nearest ${country} embassy on Google Maps →`;
+      embLink.hidden = false;
+      if (embHint) embHint.hidden = true;
+    });
+  }
 }
 </script>
+<script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
 </html>

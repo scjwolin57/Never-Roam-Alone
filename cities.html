@@ -47,6 +47,10 @@
   #city-search{width:100%;padding:12px 16px 12px 42px;font-size:.97rem;font-family:inherit;
     border:2px solid rgba(24,94,63,.2);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s}
   #city-search:focus{outline:none;border-color:var(--green)}
+  #city-sort{padding:12px 38px 12px 16px;font-size:.92rem;font-family:inherit;font-weight:600;
+    border:2px solid rgba(24,94,63,.2);border-radius:12px;background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235b6b75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 12px center;
+    background-size:15px;color:var(--ink);transition:border-color .2s;appearance:none;-webkit-appearance:none;cursor:pointer}
+  #city-sort:focus{outline:none;border-color:var(--green)}
   .count-badge{font-size:.85rem;color:var(--muted);white-space:nowrap}
 
   /* Grid */
@@ -129,6 +133,13 @@
     </svg>
     <input id="city-search" type="search" placeholder="Search cities or countries…" autocomplete="off" />
   </div>
+  <select id="city-sort" aria-label="Sort cities">
+    <option value="az">A → Z</option>
+    <option value="za">Z → A</option>
+    <option value="visited">Most Visited</option>
+    <option value="cheap">Least Expensive</option>
+    <option value="lux">Most Expensive</option>
+  </select>
   <span class="count-badge" id="count-label"></span>
 </div>
 
@@ -148,33 +159,33 @@
 
 <script>
 const CITIES = [
-  {city:"Hong Kong",country:"China (SAR)",visitors:26.7,tagline:"Neon harbor nights and dim-sum mornings."},
-  {city:"Bangkok",country:"Thailand",visitors:22.8,tagline:"Temples, tuk-tuks, and street food that never sleeps."},
-  {city:"London",country:"United Kingdom",visitors:19.6,tagline:"Centuries of history around every rainy corner."},
-  {city:"Macau",country:"China (SAR)",visitors:20.6,tagline:"Portuguese colonial charm beneath dazzling lights."},
-  {city:"Singapore",country:"Singapore",visitors:19.8,tagline:"A garden city where every cuisine has a home."},
-  {city:"Paris",country:"France",visitors:19.1,tagline:"Boulevards, cafés, and light that earns its name."},
-  {city:"Dubai",country:"UAE",visitors:17.5,tagline:"Desert futurism reaching for the sky."},
-  {city:"New York",country:"United States",visitors:13.6,tagline:"Eight million stories on one electric grid."},
-  {city:"Kuala Lumpur",country:"Malaysia",visitors:14.0,tagline:"Twin towers above a rainforest of cultures."},
-  {city:"Istanbul",country:"Türkiye",visitors:13.4,tagline:"Where two continents share a single skyline."},
-  {city:"Tokyo",country:"Japan",visitors:12.9,tagline:"Ancient ritual and neon future, side by side."},
-  {city:"Antalya",country:"Türkiye",visitors:12.4,tagline:"A turquoise coast beneath ancient ruins."},
-  {city:"Seoul",country:"South Korea",visitors:11.3,tagline:"Palaces, pop, and midnight markets."},
-  {city:"Osaka",country:"Japan",visitors:10.1,tagline:"Japan's kitchen, loud and proud."},
-  {city:"Rome",country:"Italy",visitors:10.1,tagline:"An open-air museum you can eat your way through."},
-  {city:"Phuket",country:"Thailand",visitors:9.9,tagline:"Limestone islands and warm Andaman tides."},
-  {city:"Barcelona",country:"Spain",visitors:9.1,tagline:"Gaudí's dreams beside the Mediterranean."},
-  {city:"Amsterdam",country:"Netherlands",visitors:9.0,tagline:"Canals, bicycles, and golden-age light."},
-  {city:"Milan",country:"Italy",visitors:8.8,tagline:"Fashion, fresco, and effortless style."},
-  {city:"Vienna",country:"Austria",visitors:7.9,tagline:"Coffee houses and concert halls of old Europe."},
-  {city:"Prague",country:"Czechia",visitors:8.0,tagline:"A fairy-tale city of spires and bridges."},
-  {city:"Los Angeles",country:"United States",visitors:7.5,tagline:"Sunshine, screens, and endless coastline."},
-  {city:"Sydney",country:"Australia",visitors:4.0,tagline:"Harbor sails and beaches within the city."},
-  {city:"Cape Town",country:"South Africa",visitors:1.7,tagline:"Where a flat-topped mountain meets two oceans."},
-  {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,tagline:"Mountains, beaches, and rhythm in the air."},
-  {city:"Cancún",country:"Mexico",visitors:6.1,tagline:"Caribbean blue with Maya ruins next door."},
-  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets."}
+  {city:"Hong Kong",country:"China (SAR)",visitors:26.7,tagline:"Neon harbor nights and dim-sum mornings.",cost:{hotel:150,meal:25,taxi:13}},
+  {city:"Bangkok",country:"Thailand",visitors:22.8,tagline:"Temples, tuk-tuks, and street food that never sleeps.",cost:{hotel:45,meal:8,taxi:5}},
+  {city:"London",country:"United Kingdom",visitors:19.6,tagline:"Centuries of history around every rainy corner.",cost:{hotel:165,meal:30,taxi:25}},
+  {city:"Macau",country:"China (SAR)",visitors:20.6,tagline:"Portuguese colonial charm beneath dazzling lights.",cost:{hotel:130,meal:22,taxi:10}},
+  {city:"Singapore",country:"Singapore",visitors:19.8,tagline:"A garden city where every cuisine has a home.",cost:{hotel:140,meal:22,taxi:10}},
+  {city:"Paris",country:"France",visitors:19.1,tagline:"Boulevards, cafés, and light that earns its name.",cost:{hotel:150,meal:28,taxi:20}},
+  {city:"Dubai",country:"UAE",visitors:17.5,tagline:"Desert futurism reaching for the sky.",cost:{hotel:120,meal:25,taxi:8}},
+  {city:"New York",country:"United States",visitors:13.6,tagline:"Eight million stories on one electric grid.",cost:{hotel:250,meal:35,taxi:25}},
+  {city:"Kuala Lumpur",country:"Malaysia",visitors:14.0,tagline:"Twin towers above a rainforest of cultures.",cost:{hotel:50,meal:8,taxi:5}},
+  {city:"Istanbul",country:"Türkiye",visitors:13.4,tagline:"Where two continents share a single skyline.",cost:{hotel:60,meal:12,taxi:7}},
+  {city:"Tokyo",country:"Japan",visitors:12.9,tagline:"Ancient ritual and neon future, side by side.",cost:{hotel:110,meal:15,taxi:25}},
+  {city:"Antalya",country:"Türkiye",visitors:12.4,tagline:"A turquoise coast beneath ancient ruins.",cost:{hotel:55,meal:12,taxi:7}},
+  {city:"Seoul",country:"South Korea",visitors:11.3,tagline:"Palaces, pop, and midnight markets.",cost:{hotel:90,meal:12,taxi:10}},
+  {city:"Osaka",country:"Japan",visitors:10.1,tagline:"Japan's kitchen, loud and proud.",cost:{hotel:90,meal:14,taxi:22}},
+  {city:"Rome",country:"Italy",visitors:10.1,tagline:"An open-air museum you can eat your way through.",cost:{hotel:120,meal:25,taxi:18}},
+  {city:"Phuket",country:"Thailand",visitors:9.9,tagline:"Limestone islands and warm Andaman tides.",cost:{hotel:55,meal:10,taxi:12}},
+  {city:"Barcelona",country:"Spain",visitors:9.1,tagline:"Gaudí's dreams beside the Mediterranean.",cost:{hotel:120,meal:22,taxi:15}},
+  {city:"Amsterdam",country:"Netherlands",visitors:9.0,tagline:"Canals, bicycles, and golden-age light.",cost:{hotel:160,meal:28,taxi:25}},
+  {city:"Milan",country:"Italy",visitors:8.8,tagline:"Fashion, fresco, and effortless style.",cost:{hotel:130,meal:25,taxi:18}},
+  {city:"Vienna",country:"Austria",visitors:7.9,tagline:"Coffee houses and concert halls of old Europe.",cost:{hotel:120,meal:22,taxi:18}},
+  {city:"Prague",country:"Czechia",visitors:8.0,tagline:"A fairy-tale city of spires and bridges.",cost:{hotel:90,meal:15,taxi:12}},
+  {city:"Los Angeles",country:"United States",visitors:7.5,tagline:"Sunshine, screens, and endless coastline.",cost:{hotel:200,meal:30,taxi:25}},
+  {city:"Sydney",country:"Australia",visitors:4.0,tagline:"Harbor sails and beaches within the city.",cost:{hotel:150,meal:28,taxi:22}},
+  {city:"Cape Town",country:"South Africa",visitors:1.7,tagline:"Where a flat-topped mountain meets two oceans.",cost:{hotel:90,meal:15,taxi:12}},
+  {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,tagline:"Mountains, beaches, and rhythm in the air.",cost:{hotel:80,meal:15,taxi:10}},
+  {city:"Cancún",country:"Mexico",visitors:6.1,tagline:"Caribbean blue with Maya ruins next door.",cost:{hotel:120,meal:20,taxi:12}},
+  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets.",cost:{hotel:70,meal:12,taxi:6}}
 ];
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -219,19 +230,40 @@ function buildCards(list) {
     list.length === CITIES.length ? `${CITIES.length} destinations` : `${list.length} of ${CITIES.length} destinations`;
 }
 
-// Initial render
-buildCards(CITIES);
+function dailyCost(c) { return c.cost.hotel + c.cost.meal + c.cost.taxi; }
 
-// Live search
-document.getElementById("city-search").addEventListener("input", function() {
-  const q = this.value.trim().toLowerCase();
-  if (!q) { buildCards(CITIES); return; }
-  buildCards(CITIES.filter(c =>
-    c.city.toLowerCase().includes(q) ||
-    c.country.toLowerCase().includes(q) ||
-    c.tagline.toLowerCase().includes(q)
-  ));
-});
+function sortList(list, mode) {
+  const sorted = list.slice();
+  switch (mode) {
+    case "az": sorted.sort((a, b) => a.city.localeCompare(b.city)); break;
+    case "za": sorted.sort((a, b) => b.city.localeCompare(a.city)); break;
+    case "visited": sorted.sort((a, b) => b.visitors - a.visitors); break;
+    case "cheap": sorted.sort((a, b) => dailyCost(a) - dailyCost(b)); break;
+    case "lux": sorted.sort((a, b) => dailyCost(b) - dailyCost(a)); break;
+  }
+  return sorted;
+}
+
+function applyFilters() {
+  const q = document.getElementById("city-search").value.trim().toLowerCase();
+  const mode = document.getElementById("city-sort").value;
+  let list = CITIES;
+  if (q) {
+    list = CITIES.filter(c =>
+      c.city.toLowerCase().includes(q) ||
+      c.country.toLowerCase().includes(q) ||
+      c.tagline.toLowerCase().includes(q)
+    );
+  }
+  buildCards(sortList(list, mode));
+}
+
+// Initial render
+applyFilters();
+
+// Live search + sort
+document.getElementById("city-search").addEventListener("input", applyFilters);
+document.getElementById("city-sort").addEventListener("change", applyFilters);
 </script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>

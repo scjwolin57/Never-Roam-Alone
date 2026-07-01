@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Service — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+
+  /* ---------- Legal page content ---------- */
+  .legal-hero{max-width:820px;margin:0 auto;padding:48px 22px 6px;text-align:center}
+  .legal-hero p.kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 12px}
+  .legal-hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 8px}
+  .legal-hero p.updated{color:var(--muted);font-size:.9rem;margin:0}
+
+  .legal{
+    max-width:820px;margin:26px auto 60px;padding:40px 42px;
+    background:var(--card);border-radius:20px;box-shadow:var(--shadow);
+  }
+  .legal h2{font-size:1.4rem;margin:34px 0 10px;color:var(--teal-dark)}
+  .legal h2:first-child{margin-top:0}
+  .legal h3{font-size:1.08rem;margin:20px 0 6px}
+  .legal p{color:#34454e;margin:0 0 14px}
+  .legal ul{color:#34454e;margin:0 0 14px;padding-left:22px}
+  .legal li{margin:6px 0}
+  .legal a.inline{color:var(--teal);border-bottom:1px solid rgba(14,124,134,.4)}
+  .legal a.inline:hover{color:var(--coral);border-color:var(--coral)}
+  .callout{
+    background:var(--sand);border-left:4px solid var(--coral);
+    border-radius:10px;padding:14px 18px;margin:0 0 18px;color:#34454e;font-size:.95rem;
+  }
+  .legal .emph{
+    background:#fff4f0;border:1px solid rgba(239,111,83,.35);
+    border-radius:12px;padding:18px 20px;margin:0 0 18px;
+  }
+  .legal .emph p{margin:0}
+  .toc{background:var(--sand);border-radius:12px;padding:16px 20px;margin:0 0 28px}
+  .toc b{display:block;margin-bottom:8px;font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+  .toc a{color:var(--teal-dark);font-weight:600;font-size:.92rem;display:block;padding:3px 0}
+  .toc a:hover{color:var(--coral)}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer .brand{justify-content:center;color:#e97451}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
+
+  @media(max-width:880px){
+    nav.links{display:none}
+    .legal{padding:28px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 120 120" width="46" height="46" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
+          <circle cx="60" cy="60" r="53"/>
+          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
+          <path d="M22,86 Q60,74 98,86"/>
+        </g>
+        <g fill="#185e3f">
+          <circle cx="50" cy="62" r="5.2"/>
+          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
+          <circle cx="70" cy="62" r="5.2"/>
+          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
+          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
+        </g>
+      </svg>
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="legal-hero">
+  <p class="kicker">The fine print</p>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: June 30, 2026</p>
+</div>
+
+<main class="legal">
+
+  <div class="toc">
+    <b>On this page</b>
+    <a href="#accept">1. Acceptance of these terms</a>
+    <a href="#informational">2. Informational purpose only</a>
+    <a href="#liability">3. No liability — you agree to hold us harmless</a>
+    <a href="#use">4. Acceptable use</a>
+    <a href="#ip">5. Intellectual property</a>
+    <a href="#thirdparty">6. Third-party links &amp; services</a>
+    <a href="#warranty">7. "As is" — no warranties</a>
+    <a href="#indemnify">8. Indemnification</a>
+    <a href="#changes">9. Changes to the site &amp; terms</a>
+    <a href="#law">10. Governing law</a>
+    <a href="#contact">11. Contact us</a>
+  </div>
+
+  <div class="callout">
+    Welcome to <strong>Never Roam Alone</strong>. These Terms of Service ("Terms") are an agreement between you and the owner of this website. Please read them carefully — by using the site, you agree to them.
+  </div>
+
+  <h2 id="accept">1. Acceptance of these terms</h2>
+  <p>By accessing or using <strong>neverroamalone.com</strong> (the "site"), you confirm that you have read, understood, and agree to be bound by these Terms and by our <a class="inline" href="privacy.html">Privacy Policy</a>. If you do not agree, please do not use the site. If you use the site on behalf of someone else, you confirm you have the authority to accept these Terms for them.</p>
+
+  <h2 id="informational">2. Informational purpose only</h2>
+  <p>Never Roam Alone is a personal travel blog and trip-planning tool. <strong>All content on this site — including articles, city guides, maps, visitor figures, flight and travel results, budget suggestions, visa information, photos, and any tools — is provided for general informational and inspirational purposes only.</strong></p>
+  <p>It is not professional advice of any kind. It is not travel, financial, legal, medical, safety, immigration, or visa advice, and it should not be relied upon as a substitute for advice from a qualified professional or an official source. Travel conditions, prices, schedules, visa and entry rules, safety situations, and other details change constantly and may be inaccurate, incomplete, or out of date at any given moment.</p>
+  <p><strong>Always verify any information independently</strong> — for example with airlines, official government and embassy websites, your travel provider, and current local authorities — before making travel decisions, bookings, or any other plans.</p>
+
+  <h2 id="liability">3. No liability — you agree to hold us harmless</h2>
+  <div class="emph">
+    <p><strong>You use this site and any information on it entirely at your own risk. By using the site, you agree that the site owner cannot and will not be held liable for any loss, injury, cost, or damages of any kind — whether direct, indirect, incidental, consequential, or otherwise — arising from or related to your use of the site or your reliance on any information found here.</strong></p>
+  </div>
+  <p>This includes, without limitation, any damages or losses resulting from: acting on or following any information, suggestion, figure, or result presented on the site; errors, inaccuracies, or omissions in any content; travel plans, bookings, expenses, missed connections, or trips that did not go as expected; any decision you make based on the site; or any interruption, unavailability, or technical problem with the site.</p>
+  <p>You acknowledge that any reliance you place on the site's content is solely your own responsibility. To the fullest extent permitted by law, the site owner disclaims all liability in connection with your use of the site. Some jurisdictions do not allow the exclusion of certain liabilities, so some of these limitations may not apply to you; in that case, the site owner's liability is limited to the smallest amount permitted by law.</p>
+
+  <h2 id="use">4. Acceptable use</h2>
+  <p>You agree to use the site lawfully and not to: misuse, disrupt, or attempt to gain unauthorized access to the site or its underlying systems; scrape, copy, or harvest content or data except as ordinarily permitted by a browser; introduce malware or attempt to interfere with the site's security or normal operation; or use the site in any way that infringes the rights of others or violates any applicable law.</p>
+
+  <h2 id="ip">5. Intellectual property</h2>
+  <p>Unless otherwise noted, the site's original text, design, logo, and layout are the property of the site owner and are protected by intellectual-property laws. You may view and share content for personal, non-commercial use with appropriate credit, but you may not reproduce, republish, or sell it without permission. Some images, map data, and datasets are provided by third parties (such as Unsplash photographers and open data sources) and remain the property of their respective owners.</p>
+
+  <h2 id="thirdparty">6. Third-party links &amp; services</h2>
+  <p>The site links to and relies on third-party websites and services (for example, maps, photo providers, flight-search results, and translation services). We do not control these third parties and are not responsible for their content, accuracy, availability, pricing, or practices. Visiting a third-party site or using a third-party service is subject to that party's own terms and policies, and is done at your own risk.</p>
+
+  <h2 id="warranty">7. "As is" — no warranties</h2>
+  <p>The site and all of its content are provided "as is" and "as available," without warranties of any kind, whether express or implied. To the fullest extent permitted by law, we disclaim all warranties, including any implied warranties of accuracy, merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the site will be uninterrupted, error-free, secure, or free of harmful components, or that any information on it is accurate or current.</p>
+
+  <h2 id="indemnify">8. Indemnification</h2>
+  <p>You agree to defend, indemnify, and hold harmless the site owner from any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or related to your use of the site, your violation of these Terms, or your violation of any law or the rights of a third party.</p>
+
+  <h2 id="changes">9. Changes to the site &amp; terms</h2>
+  <p>The site is an evolving prototype. We may add, change, suspend, or remove any part of the site at any time without notice. We may also update these Terms from time to time; when we do, we'll revise the "Last updated" date above. Your continued use of the site after a change means you accept the updated Terms.</p>
+
+  <h2 id="law">10. Governing law</h2>
+  <p>These Terms are governed by the laws of the United States and the state in which the site owner resides, without regard to conflict-of-law principles. Any dispute relating to the site or these Terms will be subject to the exclusive jurisdiction of the courts located there. If any part of these Terms is found to be unenforceable, the remaining provisions will stay in full effect.</p>
+
+  <h2 id="contact">11. Contact us</h2>
+  <p>Questions about these Terms? Get in touch:</p>
+  <ul>
+    <li><strong>Email:</strong> <a class="inline" href="mailto:hello@neverroamalone.com">hello@neverroamalone.com</a></li>
+    <li><strong>Website:</strong> <a class="inline" href="index.html">neverroamalone.com</a></li>
+  </ul>
+
+</main>
+
+<footer>
+  <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <small>Prototype · interactive map + blog layout · built to be refined</small>
+</footer>
+
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>
