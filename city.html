@@ -285,10 +285,38 @@
     .cost-cards-grid{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:520px){
+    /* Full-width layout with tighter padding */
+    section{padding:32px 14px}
+    .hero{min-height:280px;height:48vh}
+    .hero-inner{padding:0 14px 24px}
+    .hero h1{font-size:2rem}
+    .hero .tagline{font-size:1rem;margin-top:8px}
+    .nav-inner{padding:10px 14px}
+
+    /* Grids → single column */
     .facts{grid-template-columns:1fr}
     .temp-rows{grid-template-columns:1fr}
     .temp-row:nth-child(2n){padding-left:0;border-left:none}
     .cost-cards-grid{grid-template-columns:1fr}
+    .transport-grid{grid-template-columns:1fr}
+
+    /* Cards — let them breathe edge to edge */
+    .fact{padding:14px}
+    .tcard{padding:14px}
+    .modal-card{padding:20px 16px 24px;border-radius:14px}
+
+    /* Currency converter stacks neatly */
+    .conv-row{flex-direction:column;align-items:stretch}
+    .conv-eq{text-align:center}
+    .conv-swap{align-self:center}
+
+    /* Neighborhood cards */
+    .hood-hero{height:200px}
+    .hood-body{padding:16px}
+    .hood-name{font-size:1.3rem;padding:0 16px}
+
+    /* Sec heading */
+    .sec-head{font-size:1.45rem;margin-bottom:14px}
   }
 </style>
 </head>
