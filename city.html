@@ -53,7 +53,7 @@
 
   /* Facts grid — 3 columns for the stat cards, temp card spans full row */
   .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
-  .fact{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .fact{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);min-width:0}
   .fact .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
   .fact .v{font-size:1.25rem;font-family:Georgia,serif;margin-top:6px}
 
@@ -125,10 +125,11 @@
   .card-accept .ca-word{font-weight:700}
   .card-accept .ca-bar-track{flex:1 1 120px;min-width:90px;height:7px;background:#e7e0d2;border-radius:4px;overflow:hidden}
   .card-accept .ca-bar{height:100%;border-radius:4px;transition:width .4s ease}
-  .cur-grid{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:12px;align-items:stretch}
+  .cur-grid{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:12px;align-items:stretch;min-width:0}
+  .cur-grid > *{min-width:0}
 
   /* Cost cards */
-  .cost-card{display:flex;flex-direction:column}
+  .cost-card{display:flex;flex-direction:column;min-width:0}
   .cost-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
   .cost-card .v{font-size:1.65rem;margin-top:2px}
   .cost-note{color:var(--muted);font-size:.76rem;margin-top:4px}
@@ -160,7 +161,7 @@
   /* Transportation section */
   .transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:6px}
   .tcard{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;
-    cursor:pointer;transition:transform .2s, box-shadow .2s}
+    cursor:pointer;transition:transform .2s, box-shadow .2s;min-width:0}
   .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,40,50,.16)}
   .tcard:focus-visible{outline:2px solid var(--green);outline-offset:2px}
   .tcard-more{margin-top:auto;padding-top:14px;font-size:.76rem;font-weight:700;color:var(--green)}
@@ -253,7 +254,7 @@
   .sec-head{font-size:1.8rem;margin:0 0 22px}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .tile{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
-    transition:transform .25s, box-shadow .25s;display:flex;flex-direction:column}
+    transition:transform .25s, box-shadow .25s;display:flex;flex-direction:column;min-width:0}
   .tile:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
   .tile .photo{height:180px;background-size:cover;background-position:center}
   .tile .body{padding:16px 18px 20px}
@@ -307,6 +308,8 @@
 
     /* Currency converter stacks neatly */
     .conv-row{flex-direction:column;align-items:stretch}
+    .conv-field{flex:none;width:100%;min-width:0}
+    .conv-field select{max-width:100%}
     .conv-eq{text-align:center}
     .conv-swap{align-self:center}
 
