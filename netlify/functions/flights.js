@@ -19,8 +19,9 @@ exports.handler = async (event) => {
   const stops    = p.stops || "0";            // 0 any, 1 nonstop, 2 <=1 stop, 3 <=2 stops
   const currency = (p.currency || "USD").toUpperCase();
 
-  if (!/^[A-Z]{3}$/.test(departure_id)) {
-    return json(400, { error: "Provide departure_id (a 3-letter airport code)." });
+  // Accept one airport code, or up to six comma-separated codes ("all airports" in a city)
+  if (!/^[A-Z]{3}(,[A-Z]{3}){0,5}$/.test(departure_id)) {
+    return json(400, { error: "Provide departure_id (a 3-letter airport code, or up to 6 comma-separated codes)." });
   }
   if (outbound_date && !/^\d{4}-\d{2}-\d{2}$/.test(outbound_date)) {
     return json(400, { error: "outbound_date must be YYYY-MM-DD." });

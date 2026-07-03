@@ -259,20 +259,16 @@
   <small>Prototype · interactive map + blog layout · built to be refined</small>
 </footer>
 
+<script src="posts.js"></script>
 <script>
 /* ------------------------------------------------------------------
-   POST DATA
-   dateIndex = position in the original newest-first list (0 = newest).
-   likes / views = placeholder numbers; swap for real data later.
+   POST DATA now lives in posts.js — the single source of truth.
+   Add a post there and it appears here (and everywhere) automatically.
 ------------------------------------------------------------------ */
-const POSTS = [
-  {slug:"kyoto-backstreets",   title:"Three Days Lost in Kyoto's Backstreets", tag:"Japan",     date:"June 2026",  seed:"kyoto",      dateIndex:0, likes:312, views:8400},
-  {slug:"lisbon-on-foot",      title:"Why Lisbon Is Best on Foot",              tag:"Portugal",  date:"May 2026",   seed:"lisbon",     dateIndex:1, likes:274, views:7100},
-  {slug:"marrakech-morning",   title:"A Slow Morning in Marrakech",             tag:"Morocco",   date:"April 2026", seed:"marrakech",  dateIndex:2, likes:198, views:5800},
-  {slug:"patagonia-pack-light",title:"Patagonia Taught Me to Pack Light",       tag:"Argentina", date:"March 2026", seed:"patagonia",  dateIndex:3, likes:421, views:11200},
-  {slug:"48-hours-hanoi",      title:"48 Hours in Hanoi",                       tag:"Vietnam",   date:"Feb 2026",   seed:"hanoi",      dateIndex:4, likes:509, views:13700},
-  {slug:"quiet-santorini",     title:"The Quiet Side of Santorini",             tag:"Greece",    date:"Jan 2026",   seed:"santorini",  dateIndex:5, likes:187, views:4900},
-];
+const POSTS = window.NRA_POSTS_UTIL.byNewest().map((p, i) => Object.assign({}, p, {
+  dateIndex: i,                                        // 0 = newest
+  dateLabel: window.NRA_POSTS_UTIL.shortDate(p.date)   // e.g. "June 2026"
+}));
 
 const tilesContainer = document.getElementById("tiles");
 const searchInput    = document.getElementById("blog-search");
@@ -293,7 +289,7 @@ const tileEls = POSTS.map(p => {
       <span class="tag">${p.tag}</span>
     </div>
     <div class="body">
-      <div class="date">${p.date}</div>
+      <div class="date">${p.dateLabel}</div>
       <h3>${p.title}</h3>
       <p>${p.excerpt || ""}</p>
       <span class="readmore">Read story &rarr;</span>
@@ -301,16 +297,6 @@ const tileEls = POSTS.map(p => {
   tilesContainer.appendChild(el);
   return el;
 });
-
-/* Rebuild POSTS excerpts (they're in POSTS but not mapped above yet) */
-POSTS.forEach((p, i) => tileEls[i].querySelector("p").textContent = [
-  "Temple bells, a tiny noodle counter, and the lantern-lit alley I never meant to find.",
-  "Hills, tiles, and the tram that everyone photographs — plus the views nobody mentions.",
-  "Mint tea, the call of the souk, and learning to haggle without losing the smile.",
-  "What the wind takes, the mountains give back. Notes from the end of the world.",
-  "Coffee thick as honey, motorbike rivers, and the best two dollars I ever spent on dinner.",
-  "Skip the sunset crowds — the island's real magic is at 7am with a coffee and no one around."
-][i]);
 
 /* ------------------------------------------------------------------
    Core render: apply sort first, then push matching tiles to front

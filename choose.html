@@ -99,6 +99,7 @@
   .date-cap{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
   .check-row{display:flex;align-items:center;gap:10px;margin-top:16px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.95rem}
   .check-row input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
+  .check-row[hidden]{display:none}
   .flights-head{text-align:center;font-size:1.5rem;margin:0 0 18px;color:var(--green)}
   .flight-price{font-weight:800;color:var(--green);font-size:.92rem;white-space:nowrap}
   .show-more{background:var(--green);color:#fff;font-weight:700;font-size:.9rem;border:none;border-radius:24px;padding:11px 24px;cursor:pointer;transition:background .2s}
@@ -143,6 +144,8 @@
   .card .photo{height:170px;background-size:cover;background-position:center;position:relative}
   .card .visit{position:absolute;top:12px;right:12px;background:rgba(24,94,63,.92);color:#fff;
     font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:20px}
+  .card .rank-chip{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;
+    font-size:.82rem;font-weight:800;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
   .card .country{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
   .card h3{font-size:1.2rem;margin:6px 0 8px}
@@ -179,6 +182,13 @@
   .verify:hover{text-decoration:underline}
   .visa-disclaimer{font-size:.78rem;color:var(--muted);margin:24px auto 0;text-align:center;max-width:700px}
   .visa-disclaimer a{color:var(--teal);font-weight:600}
+  /* "Ways to get there" block on budget cards */
+  .ways{margin:-6px 0 14px;padding:10px 12px;background:rgba(24,94,63,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
+  .ways .way{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:2px 0}
+  .ways .way.best{color:var(--green);font-weight:700}
+  .ways .way-dist{margin-top:4px;font-size:.72rem;color:var(--muted)}
+  .live-tag{font-style:normal;background:#1f8f4e;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
+  .est-tag{font-style:normal;background:#cf8a2c;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
   .b-free{background:#1f8f4e}.b-voa{background:#0e7c86}.b-eta{background:#3b6fb0}
   .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#5b6b75}
 
@@ -280,6 +290,25 @@
       </div>
     </div>
   </div>
+  <div class="chooser">
+    <div class="panel">
+      <label class="field" for="budgetOrigin">Traveling from
+        <span class="label-hint">(optional — we'll find the cheapest way to get to each place)</span>
+      </label>
+      <div class="autocomplete">
+        <input type="text" id="budgetOrigin" class="origin-input" placeholder="Start typing your home city or airport…" autocomplete="off" />
+        <ul id="budgetOriginList" class="ac-list" hidden></ul>
+      </div>
+      <label class="check-row" style="margin-top:10px">
+        <input type="checkbox" id="includeRegionalBudget" />
+        <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
+      </label>
+      <p class="origin-status" id="budgetOriginStatus"></p>
+    </div>
+  </div>
+  <div class="results" id="budgetResults">
+    <p class="empty">Pick a budget above to see destinations that fit it.</p>
+  </div>
 </div>
 
 <div class="tool-section" data-tool="travelmode" hidden>
@@ -305,6 +334,10 @@
           <input type="text" id="originInput" class="origin-input" placeholder="Start typing a city or airport code…" autocomplete="off" />
           <ul id="originList" class="ac-list" hidden></ul>
         </div>
+        <label class="check-row" id="regionalRow" hidden style="margin-top:10px">
+          <input type="checkbox" id="includeRegional" />
+          <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
+        </label>
         <p class="origin-status" id="originStatus"></p>
 
         <div id="departWrap" class="depart-wrap">
@@ -354,6 +387,12 @@
     <div class="visa-grid" id="trainGrid"></div>
     <p class="visa-disclaimer">Major stations are a curated starter list — easy to expand later. Pick one to set it as your origin.</p>
   </div>
+
+  <div id="groundResults" class="visa-results" hidden>
+    <h2 class="flights-head" id="groundHead"></h2>
+    <div class="visa-grid" id="groundGrid"></div>
+    <p class="visa-disclaimer" id="groundNote"></p>
+  </div>
 </div>
 
 <div class="tool-section" data-tool="visa" hidden>
@@ -382,39 +421,15 @@
   <div class="brand"><span>Never Roam Alone</span></div>
 </footer>
 
+<script src="iso-countries.js"></script>
+<script src="destinations.js"></script>
+<script src="transport.js"></script>
 <script>
-/* Shared starter dataset (kept in sync with the map for now). */
-const CITIES = [
-  {city:"Hong Kong",country:"China (SAR)",visitors:26.7,tagline:"Neon harbor nights and dim-sum mornings."},
-  {city:"Bangkok",country:"Thailand",visitors:22.8,tagline:"Temples, tuk-tuks, and street food that never sleeps."},
-  {city:"London",country:"United Kingdom",visitors:19.6,tagline:"Centuries of history around every rainy corner."},
-  {city:"Macau",country:"China (SAR)",visitors:20.6,tagline:"Portuguese colonial charm beneath dazzling lights."},
-  {city:"Singapore",country:"Singapore",visitors:19.8,tagline:"A garden city where every cuisine has a home."},
-  {city:"Paris",country:"France",visitors:19.1,tagline:"Boulevards, cafés, and light that earns its name."},
-  {city:"Dubai",country:"UAE",visitors:17.5,tagline:"Desert futurism reaching for the sky."},
-  {city:"New York",country:"United States",visitors:13.6,tagline:"Eight million stories on one electric grid."},
-  {city:"Kuala Lumpur",country:"Malaysia",visitors:14.0,tagline:"Twin towers above a rainforest of cultures."},
-  {city:"Istanbul",country:"Türkiye",visitors:13.4,tagline:"Where two continents share a single skyline."},
-  {city:"Tokyo",country:"Japan",visitors:12.9,tagline:"Ancient ritual and neon future, side by side."},
-  {city:"Antalya",country:"Türkiye",visitors:12.4,tagline:"A turquoise coast beneath ancient ruins."},
-  {city:"Seoul",country:"South Korea",visitors:11.3,tagline:"Palaces, pop, and midnight markets."},
-  {city:"Osaka",country:"Japan",visitors:10.1,tagline:"Japan's kitchen, loud and proud."},
-  {city:"Rome",country:"Italy",visitors:10.1,tagline:"An open-air museum you can eat your way through."},
-  {city:"Phuket",country:"Thailand",visitors:9.9,tagline:"Limestone islands and warm Andaman tides."},
-  {city:"Barcelona",country:"Spain",visitors:9.1,tagline:"Gaudí's dreams beside the Mediterranean."},
-  {city:"Amsterdam",country:"Netherlands",visitors:9.0,tagline:"Canals, bicycles, and golden-age light."},
-  {city:"Milan",country:"Italy",visitors:8.8,tagline:"Fashion, fresco, and effortless style."},
-  {city:"Vienna",country:"Austria",visitors:7.9,tagline:"Coffee houses and concert halls of old Europe."},
-  {city:"Prague",country:"Czechia",visitors:8.0,tagline:"A fairy-tale city of spires and bridges."},
-  {city:"Los Angeles",country:"United States",visitors:7.5,tagline:"Sunshine, screens, and endless coastline."},
-  {city:"Sydney",country:"Australia",visitors:4.0,tagline:"Harbor sails and beaches within the city."},
-  {city:"Cape Town",country:"South Africa",visitors:1.7,tagline:"Where a flat-topped mountain meets two oceans."},
-  {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,tagline:"Mountains, beaches, and rhythm in the air."},
-  {city:"Cancún",country:"Mexico",visitors:6.1,tagline:"Caribbean blue with Maya ruins next door."},
-  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets."}
-];
+/* Destination data (costs, coordinates, regions) lives in destinations.js —
+   shared by every tool on this page. */
+const CITIES = window.NRA_DESTINATIONS;
 
-/* Which cities best match each priority (starter picks — easy to tweak). */
+/* Fallback picks if the live OpenStreetMap ranking can't load (offline etc.) */
 const PRIORITIES = {
   "Nightlife":          ["Bangkok","Hong Kong","New York","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
   "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore"],
@@ -422,6 +437,59 @@ const PRIORITIES = {
   "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul"],
   "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya"]
 };
+
+/* ---- Live activity rankings from OpenStreetMap (Overpass API) ----
+   For the chosen activity we count real mapped venues within 10 km of
+   each city's center, then rank the cities by that count. Results are
+   cached in the browser for 30 days to keep load off the free service. */
+const ACTIVITY_OSM = {
+  "Nightlife":         { sel:'node["amenity"~"^(bar|pub|nightclub)$"]',        label:"bars, pubs & nightclubs" },
+  "Restaurants":       { sel:'node["amenity"="restaurant"]',                    label:"restaurants" },
+  "Museums & Culture": { sel:'nwr["tourism"~"^(museum|gallery)$"]',             label:"museums & galleries" },
+  "Architecture":      { sel:'node["historic"]',                                label:"historic landmarks & monuments" },
+  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" }
+};
+const OSM_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
+const ACT_CACHE_DAYS = 30;
+
+function activityCacheKey(act){ return "nra_actcounts_v1_" + act; }
+
+async function fetchActivityCounts(act){
+  // cached?
+  try{
+    const c = JSON.parse(localStorage.getItem(activityCacheKey(act)) || "null");
+    if(c && c.t && (Date.now() - c.t) < ACT_CACHE_DAYS*864e5 && Array.isArray(c.counts) && c.counts.length === CITIES.length){
+      return c.counts;
+    }
+  }catch(e){}
+  // one query counts venues around every city (results come back in order)
+  const sel = ACTIVITY_OSM[act].sel;
+  let q = "[out:json][timeout:20];";
+  CITIES.forEach(c => { q += `${sel}(around:10000,${c.lat},${c.lng});out count;`; });
+  let lastErr;
+  for(const ep of OSM_ENDPOINTS){
+    // Public Overpass mirrors are free/shared and sometimes overloaded — don't
+    // let a slow one leave the visitor staring at "Counting…" forever. Give
+    // each mirror 9 seconds, then move on to the next one / the fallback.
+    const ctl = ("AbortController" in window) ? new AbortController() : null;
+    const timer = ctl ? setTimeout(() => ctl.abort(), 7000) : null;
+    try{
+      const r = await fetch(ep, { method:"POST", body:"data="+encodeURIComponent(q),
+                                  headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+                                  signal: ctl ? ctl.signal : undefined });
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      const data = await r.json();
+      const counts = (data.elements||[]).filter(e => e.type === "count")
+                     .map(e => parseInt((e.tags && (e.tags.total || e.tags.nodes)) || "0", 10) || 0);
+      if(counts.length !== CITIES.length) throw new Error("bad count data");
+      if(!counts.some(n => n > 0)) throw new Error("empty data");
+      try{ localStorage.setItem(activityCacheKey(act), JSON.stringify({t:Date.now(), counts})); }catch(e){}
+      return counts;
+    }catch(e){ lastErr = e; }
+    finally{ if(timer) clearTimeout(timer); }
+  }
+  throw lastErr || new Error("overpass unavailable");
+}
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 const results = document.getElementById("results");
@@ -436,46 +504,258 @@ const BUDGET_NOTE = {
   luxury:"going all out"
 };
 
-function renderPicks(){
+function activityCardHTML(c, rank, count, label){
+  const sg = slug(c.city);
+  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+  const why = (count != null)
+    ? `<strong style="color:var(--green)">${count.toLocaleString()}</strong> ${label} <span style="font-size:.85em">within 10&nbsp;km of the center (OpenStreetMap)</span><br>`
+    : "";
+  const rankChip = (rank != null) ? `<span class="rank-chip">#${rank}</span>` : "";
+  return `
+    <article class="card">
+      <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
+        ${rankChip}<span class="visit">${num}M / yr</span>
+      </div>
+      <div class="body">
+        <div class="country">${c.country}</div>
+        <h3>${c.city}</h3>
+        <p>${why}${c.tagline}</p>
+        <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+      </div>
+    </article>`;
+}
+
+let actRenderSeq = 0;   // guards against out-of-order async renders
+async function renderPicks(){
   const pri = priorityEl.value;
   if(!pri) return;
-  const names = PRIORITIES[pri] || [];
-  const picks = names.map(n => CITIES.find(c => c.city === n)).filter(Boolean);
-
-  if(!picks.length){
-    results.innerHTML = `<p class="empty">No matches yet for that pick.</p>`;
-    return;
-  }
-  const cards = picks.map(c=>{
-    const sg = slug(c.city);
-    const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
-    return `
-      <article class="card">
-        <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
-          <span class="visit">${num}M / yr</span>
-        </div>
-        <div class="body">
-          <div class="country">${c.country}</div>
-          <h3>${c.city}</h3>
-          <p>${c.tagline}</p>
-          <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
-        </div>
-      </article>`;
-  }).join("");
-
+  const seq = ++actRenderSeq;
+  const label = (ACTIVITY_OSM[pri] || {}).label || pri.toLowerCase();
   const budChip = budgetEl.value
     ? `<span class="chip2 b-voa" style="vertical-align:middle;margin-left:10px">${BUDGET_NOTE[budgetEl.value]}</span>`
     : "";
+  const head = `<h2>Top cities for ${pri.replace("&amp;","&")} lovers${budChip}</h2>`;
 
-  results.innerHTML = `
-    <h2>Top picks for ${pri.replace("&amp;","&")} lovers${budChip}</h2>
-    <p class="sub">Cities from the map that lean into what you care about most.</p>
-    <div class="grid">${cards}</div>`;
+  results.innerHTML = head + `<p class="sub" id="actLoadingMsg">Counting real ${label} on OpenStreetMap…</p>`;
   results.scrollIntoView({behavior:"smooth", block:"start"});
+  // Reassure the visitor if this is taking a while — the timeout below still
+  // guarantees a result (live or fallback) well before this ever shows.
+  const slowTimer = setTimeout(() => {
+    const el = document.getElementById("actLoadingMsg");
+    if(el) el.textContent = "Still checking a couple of map data sources — almost there…";
+  }, 4000);
+
+  try{
+    const counts = await fetchActivityCounts(pri);
+    clearTimeout(slowTimer);
+    if(seq !== actRenderSeq) return;   // user changed selection meanwhile
+    const ranked = CITIES.map((c,i) => ({c, n:counts[i]}))
+                         .sort((a,b) => b.n - a.n)
+                         .slice(0, 9);
+    results.innerHTML = head + `
+      <p class="sub">Ranked by the number of ${label} mapped within 10 km of each city center — live data from <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a>.</p>
+      <div class="grid">${ranked.map((r,i) => activityCardHTML(r.c, i+1, r.n, label)).join("")}</div>
+      <p class="visa-disclaimer">Counts come from community-mapped OpenStreetMap data and refresh at most every ${ACT_CACHE_DAYS} days on your device. Mapping density varies by city, so treat close rankings as ties.</p>`;
+  }catch(e){
+    clearTimeout(slowTimer);
+    if(seq !== actRenderSeq) return;
+    const names = PRIORITIES[pri] || [];
+    const picks = names.map(n => CITIES.find(c => c.city === n)).filter(Boolean);
+    if(!picks.length){ results.innerHTML = head + `<p class="empty">No matches yet for that pick.</p>`; return; }
+    results.innerHTML = head + `
+      <p class="sub">Editor's picks — the live OpenStreetMap ranking didn't answer in time (you may be offline, or the free map data service is busy right now). Try again in a moment, or check back once the site is hosted.</p>
+      <div class="grid">${picks.map(c => activityCardHTML(c, null, null, label)).join("")}</div>`;
+  }
 }
 
 priorityEl.addEventListener("change", () => { renderPicks(); saveState(); });
-budgetEl.addEventListener("change", () => { renderPicks(); saveState(); });
+budgetEl.addEventListener("change", () => { renderBudget(true); saveState(); });
+
+/* ---- Travel Budget tool: real destinations filtered + sorted by tier ----
+   Daily costs are estimates (see destinations.js) and are labeled as such. */
+const budgetResults = document.getElementById("budgetResults");
+
+const BUDGET_TIERS = {
+  shoestring: {
+    costKey:"budget", filter:c => c.dailyCost.budget <= 45,
+    sort:(a,b)=> a.dailyCost.budget - b.dailyCost.budget,
+    title:"Where a little money goes a long way",
+    sub:"Sorted cheapest first — estimated daily costs on a backpacker budget (hostels, street food, public transit).",
+    styleNote:"backpacker style"
+  },
+  low: {
+    costKey:"budget", filter:c => c.dailyCost.budget <= 70,
+    sort:(a,b)=> a.dailyCost.budget - b.dailyCost.budget,
+    title:"Affordable trips that still feel like a splurge",
+    sub:"Sorted cheapest first — estimated daily costs on a budget style (guesthouses, casual eats, transit).",
+    styleNote:"budget style"
+  },
+  flexible: {
+    costKey:"mid", filter:c => c.dailyCost.mid >= 90 && c.dailyCost.mid <= 200,
+    sort:(a,b)=> b.visitors - a.visitors,
+    title:"Crowd favorites for a flexible budget",
+    sub:"Sorted by popularity (annual visitors) — estimated daily costs at a mid-range style (3-star hotels, restaurants).",
+    styleNote:"mid-range style"
+  },
+  comfortable: {
+    costKey:"mid", filter:c => c.dailyCost.mid >= 150 && c.dailyCost.mid <= 300,
+    sort:(a,b)=> b.visitors - a.visitors,
+    title:"Popular destinations worth the spend",
+    sub:"Sorted by popularity (annual visitors) — estimated daily costs at a comfortable mid-range style.",
+    styleNote:"mid-range style"
+  },
+  luxury: {
+    costKey:"luxury", filter:c => c.dailyCost.luxury >= 450,
+    sort:(a,b)=> b.dailyCost.luxury - a.dailyCost.luxury,
+    title:"The world's great luxury playgrounds",
+    sub:"Sorted most premium first — estimated daily costs in high-end style (5-star hotels, fine dining, private transport).",
+    styleNote:"luxury style"
+  }
+};
+
+/* Optional origin for the Budget tool — enables "cheapest way there" */
+let budgetOrigin = null;
+const budgetOriginInput = document.getElementById("budgetOrigin");
+const budgetOriginList  = document.getElementById("budgetOriginList");
+
+const MODE_NAMES = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
+
+function waysHTML(c){
+  if(!(budgetOrigin && budgetOrigin.lat != null)) return "";
+  const cmp = NRA_TRANSPORT.compareModes(budgetOrigin, c);
+  if(!cmp.modes.length) return "";
+  // Swap in a live flight price when the flight service has answered
+  cmp.modes.forEach(m => {
+    if(m.mode === "plane"){
+      const live = NRA_TRANSPORT.flightPriceFor(c.city);
+      if(live != null){ m.cost = live; m.live = true; }
+    }
+  });
+  cmp.modes.sort((a,b)=> a.cost - b.cost);
+  const line = (m, best) => `
+    <div class="way${best ? " best" : ""}" data-mode="${m.mode}">
+      <span>${m.icon} ${MODE_NAMES[m.mode]}${best ? " — cheapest way there" : ""}</span>
+      <span>${m.live ? "$"+m.cost+' <em class="live-tag">live</em>' : "≈ $"+m.cost+' <em class="est-tag">est.</em>'}
+        · ~<span class="way-time">${NRA_TRANSPORT.fmtH(m.timeH)}</span>${m.note ? " · "+m.note : ""}</span>
+    </div>`;
+  return `<div class="ways" data-ways="${c.city.replace(/"/g,'&quot;')}">
+    ${line(cmp.modes[0], true)}
+    ${cmp.modes.slice(1,3).map(m => line(m, false)).join("")}
+    <div class="way-dist">${cmp.km.toLocaleString()} km from ${budgetOrigin.city}</div>
+  </div>`;
+}
+
+function budgetCardHTML(c, costKey, styleNote){
+  const sg = slug(c.city);
+  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+  const cost = c.dailyCost[costKey];
+  return `
+    <article class="card">
+      <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
+        <span class="visit">${num}M / yr</span>
+      </div>
+      <div class="body">
+        <div class="country">${c.country}</div>
+        <h3>${c.city}</h3>
+        <p><strong style="color:var(--green)">≈ $${cost}/day</strong> <span style="font-size:.8em">(est., ${styleNote})</span><br>${c.tagline}</p>
+        ${waysHTML(c)}
+        <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+      </div>
+    </article>`;
+}
+
+function renderBudget(scroll){
+  const tierKey = budgetEl.value;
+  if(!tierKey){ budgetResults.innerHTML = `<p class="empty">Pick a budget above to see destinations that fit it.</p>`; return; }
+  const tier = BUDGET_TIERS[tierKey];
+  const picks = CITIES.filter(tier.filter).sort(tier.sort);
+  if(!picks.length){
+    budgetResults.innerHTML = `<p class="empty">No destinations match that budget yet — try the next tier up or down.</p>`;
+    return;
+  }
+  const originNote = (budgetOrigin && budgetOrigin.lat != null)
+    ? ` Travel prices marked <em>est.</em> are estimates (car = average rental + fuel; train/bus/boat = typical fares by distance); flight prices marked <em>live</em> come from a real search. Modes that aren't physically possible are left out.`
+    : "";
+  budgetResults.innerHTML = `
+    <h2>${tier.title}</h2>
+    <p class="sub">${tier.sub}</p>
+    <div class="grid">${picks.map(c => budgetCardHTML(c, tier.costKey, tier.styleNote)).join("")}</div>
+    <p class="visa-disclaimer">Daily costs are estimates per person, compiled ${window.NRA_COSTS_VERIFIED} from published traveler averages (e.g. BudgetYourTrip). Your real spend depends on season, exchange rates, and travel style.${originNote}</p>`;
+  if(scroll) budgetResults.scrollIntoView({behavior:"smooth", block:"start"});
+
+  /* Live upgrades (deployed site): real flight prices, then real train routes */
+  if(budgetOrigin && budgetOrigin.lat != null){
+    // Fetch live flight prices ONCE per origin, then re-render with them
+    if(budgetOrigin.code && flightsFetchedFor !== budgetOrigin.code){
+      flightsFetchedFor = budgetOrigin.code;
+      NRA_TRANSPORT.liveFlightPrices(budgetOrigin.code).then(p => { if(p) renderBudget(false); });
+    }
+    // Real scheduled train/bus durations for the first 6 cards (prototype: Transitous)
+    picks.slice(0,6).forEach(c => {
+      const el = budgetResults.querySelector(`[data-ways="${CSS.escape(c.city)}"] .way[data-mode="train"] .way-time`) ||
+                 budgetResults.querySelector(`[data-ways="${CSS.escape(c.city)}"] .way[data-mode="bus"] .way-time`);
+      if(!el || el.parentElement.querySelector(".live-tag")) return;
+      NRA_TRANSPORT.transitousCheck(budgetOrigin, c).then(res => {
+        if(res && res.timeH && !el.parentElement.querySelector(".live-tag")){
+          el.textContent = NRA_TRANSPORT.fmtH(res.timeH);
+          el.insertAdjacentHTML("afterend", ' <em class="live-tag">real route</em>');
+        }
+      });
+    });
+  }
+}
+let flightsFetchedFor = null;
+
+/* Budget origin autocomplete (same data as the Mode of Travel tool) */
+let bAcItems = [], bAcIndex = -1;
+function bRenderList(items){
+  bAcItems = items; bAcIndex = -1;
+  if(!items.length){ budgetOriginList.hidden = true; budgetOriginList.innerHTML = ""; return; }
+  budgetOriginList.innerHTML = items.map((it,i)=>
+    `<li data-i="${i}"><span class="ac-city">${it.label}${it.sub?`<span class="ac-name">${it.sub}</span>`:""}</span>` +
+    `${it.code?`<span class="ac-code">${it.code}</span>`:""}</li>`).join("");
+  budgetOriginList.hidden = false;
+}
+function bSelect(it){
+  if(!it) return;
+  budgetOriginInput.value = it.value;
+  const o = it.origin || {};
+  budgetOrigin = { city:o.city, code:o.code||"", country:o.country||"", lat:o.lat, lng:o.lng,
+                   region: NRA_TRANSPORT.regionFor(o.country||"") };
+  budgetOriginList.hidden = true;
+  renderBudget(false);
+  saveState();
+}
+budgetOriginInput.addEventListener("focus", ()=>{ if(!AIRPORTS && !airportsLoading) loadAirports(); });
+budgetOriginInput.addEventListener("input", ()=>{
+  budgetOrigin = null;
+  bRenderList(airportItems(budgetOriginInput.value));
+  if(!budgetOriginInput.value.trim()) renderBudget(false);   // cleared -> plain results
+  saveState();
+});
+budgetOriginList.addEventListener("click",(e)=>{ const li=e.target.closest("li"); if(li) bSelect(bAcItems[+li.dataset.i]); });
+budgetOriginInput.addEventListener("keydown",(e)=>{
+  if(budgetOriginList.hidden) return;
+  if(e.key==="ArrowDown"){ bAcIndex=Math.min(bAcIndex+1,bAcItems.length-1); e.preventDefault(); }
+  else if(e.key==="ArrowUp"){ bAcIndex=Math.max(bAcIndex-1,0); e.preventDefault(); }
+  else if(e.key==="Enter"){ if(bAcIndex>=0){ bSelect(bAcItems[bAcIndex]); e.preventDefault(); } return; }
+  else if(e.key==="Escape"){ budgetOriginList.hidden=true; return; }
+  else return;
+  [...budgetOriginList.children].forEach((li,i)=>li.classList.toggle("active", i===bAcIndex));
+});
+document.addEventListener("click",(e)=>{ if(!budgetOriginInput.parentElement.contains(e.target)) budgetOriginList.hidden=true; });
+
+/* ---- "Include regional airports" checkboxes (one shared preference) ---- */
+const regionalBoxes = [document.getElementById("includeRegional"), document.getElementById("includeRegionalBudget")].filter(Boolean);
+function setRegionalPref(on, skipSave){
+  regionalPref = !!on;
+  regionalBoxes.forEach(b => { b.checked = regionalPref; });
+  // refresh whichever suggestion list is open
+  if(!originList.hidden) runSearch();
+  if(!budgetOriginList.hidden) bRenderList(airportItems(budgetOriginInput.value));
+  if(!skipSave) saveState();
+}
+regionalBoxes.forEach(b => b.addEventListener("change", () => setRegionalPref(b.checked)));
 
 /* ---- Tool switcher: show only the dropdown selected by the radio buttons ---- */
 const toolSections = document.querySelectorAll(".tool-section");
@@ -512,6 +792,8 @@ const ORIGIN_LABELS = {
 function applyModeUI(mode){
   originWrap.hidden = !mode;                 // origin city shows for every mode
   planeWrap.hidden = mode !== "Plane";       // stops + date are flight-only
+  const rr = document.getElementById("regionalRow");
+  if(rr) rr.hidden = mode !== "Plane";       // regional-airports checkbox is flight-only
   if(mode){
     const L = ORIGIN_LABELS[mode] || ["Origin city", "Start typing a city…"];
     if(originLabel) originLabel.innerHTML = L[0] + (L[2] ? `<br><span class="label-hint">${L[2]}</span>` : "");
@@ -526,6 +808,7 @@ travelmodeEl.addEventListener("change", () => {
   originList.hidden = true;
   if(typeof flightResults !== "undefined" && flightResults) flightResults.hidden = true;
   if(typeof trainResults !== "undefined" && trainResults) trainResults.hidden = true;
+  if(typeof groundResults !== "undefined" && groundResults) groundResults.hidden = true;
   applyModeUI(mode);
   saveState();
 });
@@ -536,6 +819,7 @@ function resetTravelMode(){
   planeWrap.hidden = true;
   if(flightResults) flightResults.hidden = true;
   if(trainResults) trainResults.hidden = true;
+  if(groundResults) groundResults.hidden = true;
   originInput.value = "";
   selectedOrigin = null;
   document.querySelectorAll('input[name="stops"]').forEach(r => r.checked = false);
@@ -543,13 +827,63 @@ function resetTravelMode(){
   departCal.reset(); returnCal.reset(); roundTrip.checked = false; returnCol.hidden = true;
 }
 
+function setAirportStatus(html){
+  originStatus.innerHTML = html;
+  const b = document.getElementById("budgetOriginStatus");
+  if(b) b.innerHTML = html;
+}
+/* Airports come from the open OurAirports dataset, which labels each
+   airport's size and whether it has scheduled commercial service.
+   We keep ONLY commercial airports: "large" (international) always,
+   "medium" (regional) when the checkbox is ticked. Private airfields
+   are excluded entirely. Falls back to the OpenFlights list (no size
+   info) if OurAirports can't be reached. */
 function loadAirports(){
   airportsLoading = true;
-  originStatus.textContent = "Loading airport list…";
-  fetch("https://cdn.jsdelivr.net/gh/jpatokal/openflights@master/data/airports.dat")
+  setAirportStatus("Loading airport list…");
+  fetch("https://davidmegginson.github.io/ourairports-data/airports.csv")
     .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
-    .then(text => { AIRPORTS = parseAirports(text); buildCityList(); originStatus.textContent = AIRPORTS.length + " places loaded — start typing."; })
-    .catch(() => { originStatus.innerHTML = "Couldn't load the airport list (you may be offline, or the page is open as a local file). It loads automatically once the site is hosted; meanwhile you can type your city or code manually."; });
+    .then(text => {
+      AIRPORTS = parseOurAirports(text);
+      if(!AIRPORTS) throw new Error("bad data");
+      buildCityList();
+      setAirportStatus(AIRPORTS.length + " commercial airports loaded — start typing.");
+    })
+    .catch(() =>
+      fetch("https://cdn.jsdelivr.net/gh/jpatokal/openflights@master/data/airports.dat")
+        .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
+        .then(text => { AIRPORTS = parseAirports(text); buildCityList(); setAirportStatus(AIRPORTS.length + " places loaded — start typing."); })
+        .catch(() => { setAirportStatus("Couldn't load the airport list (you may be offline, or the page is open as a local file). It loads automatically once the site is hosted; meanwhile you can type your city or code manually."); })
+    );
+}
+
+function parseOurAirports(text){
+  const lines = text.split(/\r?\n/);
+  if(lines.length < 2) return null;
+  const H = parseLine(lines[0]).map(h => h.replace(/^"|"$/g,"").trim());
+  const iType=H.indexOf("type"), iName=H.indexOf("name"), iLat=H.indexOf("latitude_deg"),
+        iLng=H.indexOf("longitude_deg"), iCountry=H.indexOf("iso_country"),
+        iCity=H.indexOf("municipality"), iSched=H.indexOf("scheduled_service"), iIata=H.indexOf("iata_code");
+  if(iType<0 || iIata<0 || iSched<0 || iName<0) return null;
+  const NAMES = window.NRA_COUNTRY_NAMES || {};
+  const arr=[];
+  for(let i=1;i<lines.length;i++){
+    if(!lines[i]) continue;
+    const f = parseLine(lines[i]);
+    const iata = (f[iIata]||"").trim().toUpperCase();
+    if(!/^[A-Z]{3}$/.test(iata)) continue;
+    if((f[iSched]||"").trim() !== "yes") continue;                 // commercial service only
+    const type = (f[iType]||"").trim();
+    if(type !== "large_airport" && type !== "medium_airport") continue;  // no private/heliport/closed
+    const cc = (f[iCountry]||"").trim();
+    arr.push({
+      name: f[iName], city: (f[iCity]||"").trim() || f[iName],
+      country: NAMES[cc] || cc, code: iata,
+      lat: parseFloat(f[iLat]), lng: parseFloat(f[iLng]),
+      cls: type === "large_airport" ? "international" : "regional"
+    });
+  }
+  return arr.length ? arr : null;
 }
 
 function parseLine(line){
@@ -568,7 +902,7 @@ function parseAirports(text){
     const f=parseLine(line);
     const name=f[1], city=f[2], country=f[3], iata=f[4];
     if(!iata || iata==="\\N" || iata.length!==3 || !/^[A-Za-z]{3}$/.test(iata)) continue;
-    arr.push({ name, city, country, code:iata.toUpperCase() });
+    arr.push({ name, city, country, code:iata.toUpperCase(), lat:parseFloat(f[6]), lng:parseFloat(f[7]) });
   }
   return arr;
 }
@@ -609,32 +943,60 @@ const TRAIN_STATIONS = {
 };
 const TRAIN_CITIES = Object.keys(TRAIN_STATIONS).sort((a,b)=>a.localeCompare(b));
 
+let CITY_AIRPORTS = null;   // "city|country" -> all airports in that city
 function buildCityList(){
   if(!AIRPORTS) return;
-  const seen=new Set(), list=[];
+  const seen=new Set(), list=[]; CITY_AIRPORTS = {};
   for(const a of AIRPORTS){
     if(!a.city) continue;
     const key=a.city+"|"+a.country;
+    (CITY_AIRPORTS[key] = CITY_AIRPORTS[key] || []).push(a);
     if(seen.has(key)) continue;
-    seen.add(key); list.push({city:a.city, country:a.country});
+    seen.add(key); list.push({city:a.city, country:a.country, lat:a.lat, lng:a.lng});
   }
   CITY_LIST=list;
 }
 
 /* Build suggestion items per travel mode */
+/* Regional airports are hidden unless the user opts in (checkbox) */
+let regionalPref = false;
+const showAirport = a => regionalPref || a.cls !== "regional";
+
 function airportItems(query){
   const q=query.trim().toLowerCase(); if(q.length<2 || !AIRPORTS) return [];
   const codeQ=q.toUpperCase(); const starts=[], contains=[];
   for(const a of AIRPORTS){
+    if(!showAirport(a)) continue;
     const city=(a.city||"").toLowerCase();
     if(a.code===codeQ){ starts.unshift(a); continue; }
     if(a.code.startsWith(codeQ) || city.startsWith(q)) starts.push(a);
     else if(city.includes(q) || (a.name||"").toLowerCase().includes(q)) contains.push(a);
   }
-  return starts.concat(contains).slice(0,8).map(a=>({
-    label:`${a.city||a.name}, ${a.country}`, sub:a.name, code:a.code, type:"final",
-    value:`${a.city||a.name} (${a.code})`, origin:{city:a.city||a.name, name:a.name, code:a.code}
-  }));
+  const picks = starts.concat(contains).slice(0,8);
+  const items = [], seenCity = new Set();
+  for(const a of picks){
+    const key = (a.city||a.name)+"|"+a.country;
+    // If this city has several airports (that pass the filter), offer "All airports" first
+    const cityAll = CITY_AIRPORTS ? (CITY_AIRPORTS[key]||[]).filter(showAirport) : [];
+    if(!seenCity.has(key) && cityAll.length > 1){
+      seenCity.add(key);
+      const all = cityAll.slice(0,6);                     // search up to 6 airports at once
+      const codes = all.map(x=>x.code);
+      items.push({
+        label:`${a.city}, ${a.country} — All airports`, sub:codes.join(" · "), code:"ALL", type:"final",
+        value:`${a.city} (all airports)`,
+        origin:{city:a.city, name:"All "+a.city+" airports", code:codes.join(","), country:a.country,
+                lat: all.reduce((s,x)=>s+x.lat,0)/all.length, lng: all.reduce((s,x)=>s+x.lng,0)/all.length}
+      });
+    }
+    items.push({
+      label:`${a.city||a.name}, ${a.country}`,
+      sub:a.name + (a.cls==="regional" ? " · regional" : ""), code:a.code, type:"final",
+      value:`${a.city||a.name} (${a.code})`,
+      origin:{city:a.city||a.name, name:a.name, code:a.code, country:a.country, lat:a.lat, lng:a.lng}
+    });
+  }
+  return items.slice(0,9);
 }
 function cityItems(query){
   const q=query.trim().toLowerCase(); if(q.length<2 || !CITY_LIST) return [];
@@ -646,7 +1008,8 @@ function cityItems(query){
     if(starts.length>=12) break;
   }
   return starts.concat(contains).slice(0,8).map(c=>({
-    label:`${c.city}, ${c.country}`, sub:"", code:"", type:"final", value:c.city, origin:{city:c.city, code:""}
+    label:`${c.city}, ${c.country}`, sub:"", code:"", type:"final", value:c.city,
+    origin:{city:c.city, code:"", country:c.country, lat:c.lat, lng:c.lng}
   }));
 }
 function trainCityItems(query){
@@ -682,6 +1045,7 @@ function selectItem(it){
   selectedOrigin = it.origin || null;
   originList.hidden = true;
   if(travelmodeEl.value==="Plane") maybeRenderFlights();
+  else renderGroundResults();
   saveState();
 }
 function runSearch(){
@@ -692,7 +1056,7 @@ function runSearch(){
   else                    renderList(cityItems(q));
 }
 
-originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; runSearch(); saveState(); });
+originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; if(groundResults) groundResults.hidden=true; runSearch(); saveState(); });
 originInput.addEventListener("focus", ()=>{ if(travelmodeEl.value==="Train" && !originInput.value.trim()) renderList(trainCityItems("")); });
 originList.addEventListener("click", (e)=>{ const li=e.target.closest("li"); if(li) selectItem(acItems[+li.dataset.i]); });
 originInput.addEventListener("keydown", (e)=>{
@@ -761,8 +1125,9 @@ function applyCardImage(card, d){
     card.appendChild(cred);
   }
 }
-async function loadCardImages(){
-  const cards = [...flightGrid.querySelectorAll(".flight-card[data-city]")];
+async function loadCardImages(){ return loadCardImagesIn(flightGrid); }
+async function loadCardImagesIn(grid){
+  const cards = [...grid.querySelectorAll(".flight-card[data-city]")];
   for(const card of cards){
     const city = card.dataset.city;
     if(!city) continue;
@@ -994,6 +1359,98 @@ roundTrip.addEventListener("change", () => {
   maybeRenderFlights(); saveState();
 });
 
+/* ---- Ground-mode destination results (Train / Bus / Boat / Car / Any) ----
+   Which of the featured cities can you actually reach from the origin by
+   the chosen mode? Nearest first. Costs are estimates (labeled); train/bus
+   travel times get upgraded to real scheduled routes when Transitous
+   (prototype service) answers. */
+const groundResults = document.getElementById("groundResults");
+const groundHead = document.getElementById("groundHead");
+const groundGrid = document.getElementById("groundGrid");
+const groundNote = document.getElementById("groundNote");
+
+const GROUND_MODE_KEY = { Train:"train", Bus:"bus", Boat:"boat", Car:"car", Any:null };
+const GROUND_BADGE = { train:"b-voa", bus:"b-eta", car:"b-evisa", boat:"b-free", plane:"b-req" };
+const GROUND_NAME = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
+
+/* Fill in coordinates/region for an origin that only has a city name
+   (e.g. one picked from the train-station list). */
+function resolveOriginGeo(origin){
+  if(origin.lat != null && origin.lng != null){
+    if(!origin.region) origin.region = NRA_TRANSPORT.regionFor(origin.country || "");
+    return origin;
+  }
+  const inSet = CITIES.find(c => c.city.toLowerCase() === (origin.city||"").toLowerCase());
+  if(inSet) return { ...origin, lat:inSet.lat, lng:inSet.lng, country:inSet.country, region:inSet.region };
+  if(CITY_LIST){
+    const inList = CITY_LIST.find(c => c.city.toLowerCase() === (origin.city||"").toLowerCase());
+    if(inList) return { ...origin, lat:inList.lat, lng:inList.lng, country:inList.country,
+                        region: NRA_TRANSPORT.regionFor(inList.country || "") };
+  }
+  return null;
+}
+
+function renderGroundResults(){
+  const uiMode = travelmodeEl.value;
+  if(!(uiMode in GROUND_MODE_KEY)) return;
+  const modeKey = GROUND_MODE_KEY[uiMode];
+  const geo = selectedOrigin ? resolveOriginGeo(selectedOrigin) : null;
+  if(!geo){ groundResults.hidden = true; return; }
+
+  const rows = [];
+  for(const c of CITIES){
+    if(c.city.toLowerCase() === (geo.city||"").toLowerCase()) continue;    // not your own city
+    const cmp = NRA_TRANSPORT.compareModes(geo, c, { looseBoat: uiMode === "Boat" });
+    let m;
+    if(modeKey){ m = cmp.modes.find(x => x.mode === modeKey); }
+    else { m = cmp.modes[0]; }                                             // "Any" = cheapest workable
+    if(!m) continue;
+    rows.push({ c, m, km:cmp.km });
+  }
+  rows.sort((a,b) => a.km - b.km);                                         // nearest first
+
+  const modeLabel = uiMode === "Any" ? "any mode" : uiMode.toLowerCase();
+  groundHead.textContent = `Where you can go from ${geo.city} by ${modeLabel}`;
+
+  if(!rows.length){
+    groundGrid.innerHTML = `<p class="empty">No featured cities are reachable from ${geo.city} by ${modeLabel} yet — more destinations are on the way. Try another mode of travel in the meantime.</p>`;
+    groundNote.textContent = "";
+    groundResults.hidden = false;
+    groundResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+    return;
+  }
+
+  groundGrid.innerHTML = rows.map(r => `
+    <div class="visa-row flight-card" data-city="${r.c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m.mode}">
+      <span class="dest">${r.c.city} · ${r.c.country}
+        <span class="ac-name">≈ $${r.m.cost} <em class="est-tag">est.</em> · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span> · ${r.km.toLocaleString()} km${r.m.note ? " · " + r.m.note : ""}</span>
+      </span>
+      <span class="right">
+        <span class="badge ${GROUND_BADGE[r.m.mode] || "b-voa"}">${r.m.icon} ${GROUND_NAME[r.m.mode]}</span>
+        <a class="verify" href="city.html?city=${encodeURIComponent(r.c.city)}">Explore &rsaquo;</a>
+      </span>
+    </div>`).join("");
+  groundNote.innerHTML = `Prices are estimates (car = average rental + fuel; train/bus/boat = typical fares for the distance)` +
+    (uiMode === "Boat" || rows.some(r => r.m.mode === "boat") ? `; boat rows apply only if a ferry actually runs the route` : "") +
+    `. Travel times marked <em class="live-tag">real route</em> come from live timetable data. Modes that aren't physically possible are excluded.`;
+  groundResults.hidden = false;
+  groundResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+  loadCardImagesIn(groundGrid);
+
+  /* upgrade the nearest 6 train/bus rows to real scheduled durations */
+  rows.slice(0,6).forEach(r => {
+    if(r.m.mode !== "train" && r.m.mode !== "bus") return;
+    const el = groundGrid.querySelector(`[data-city="${CSS.escape(r.c.city)}"] .way-time`);
+    if(!el) return;
+    NRA_TRANSPORT.transitousCheck(geo, r.c).then(res => {
+      if(res && res.timeH && !el.parentElement.querySelector(".live-tag")){
+        el.textContent = NRA_TRANSPORT.fmtH(res.timeH);
+        el.insertAdjacentHTML("afterend", ' <em class="live-tag">real route</em>');
+      }
+    });
+  });
+}
+
 /* ---- Train station results: shown after picking a city in Train mode ---- */
 const trainResults = document.getElementById("trainResults");
 const trainHead = document.getElementById("trainHead");
@@ -1014,6 +1471,7 @@ trainGrid.addEventListener("click", (e)=>{
   originInput.value = `${row.dataset.station}, ${row.dataset.city}`;
   selectedOrigin = { city:row.dataset.city, code:"" };
   trainResults.hidden = true;
+  renderGroundResults();     // picking a station sets the origin — show destinations
   saveState();
 });
 
@@ -1169,6 +1627,9 @@ function saveState(){
       tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "activities",
       priority: priorityEl.value,
       budget: budgetEl.value,
+      budgetOriginText: budgetOriginInput.value,
+      budgetOrigin: budgetOrigin,
+      regional: regionalPref,
       travelmode: travelmodeEl.value,
       originText: originInput.value,
       origin: selectedOrigin,
@@ -1186,7 +1647,11 @@ function loadState(){
 
   if(s.priority) priorityEl.value = s.priority;
   if(s.budget) budgetEl.value = s.budget;
+  if(s.budgetOriginText) budgetOriginInput.value = s.budgetOriginText;
+  if(s.budgetOrigin) budgetOrigin = s.budgetOrigin;
+  if(s.regional) setRegionalPref(true, true);
   if(s.priority) renderPicks();
+  if(s.budget) renderBudget(false);
 
   if(s.travelmode){
     travelmodeEl.value = s.travelmode;
@@ -1200,6 +1665,7 @@ function loadState(){
     if(s.depart) departCal.setValue(s.depart);
     if(s.round){ roundTrip.checked = true; returnCol.hidden = false; if(s.returnDate) returnCal.setValue(s.returnDate); }
     if(s.travelmode === "Plane") maybeRenderFlights();
+    else if(selectedOrigin) renderGroundResults();
   }
 
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; if(DATA && DATA.get(s.passport)) render(s.passport); }

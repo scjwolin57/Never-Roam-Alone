@@ -79,6 +79,7 @@
   /* ---------- Sidebar ---------- */
   .sidebar{width:248px;flex-shrink:0;position:sticky;top:84px}
   .side-card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:16px 14px}
+  .side-card + .side-card{margin-top:16px}
   .side-card h2{font-size:1.05rem;margin:2px 6px 12px;color:var(--ink)}
   .cat-list{display:flex;flex-direction:column;gap:2px;max-height:62vh;overflow-y:auto}
   .cat-btn{
@@ -290,8 +291,12 @@
 <!-- ===== Two-column layout ===== -->
 <div class="layout">
 
-  <!-- ---- Sidebar: General Travel + cities A-Z ---- -->
+  <!-- ---- Sidebar: account + General Travel + cities A-Z ---- -->
   <aside class="sidebar">
+    <div class="side-card">
+      <h2>Your profile</h2>
+      <div id="nra-account"><!-- account widget injected by auth.js --></div>
+    </div>
     <div class="side-card">
       <h2>Browse by city</h2>
       <div class="cat-list" id="cat-list"><!-- categories injected here --></div>
@@ -369,17 +374,18 @@
   <small>Prototype · community Q&amp;A · posts are saved locally in your browser for now</small>
 </footer>
 
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
 <script>
 /* ==================================================================
-   ASK A ROAMER — community forum (prototype)
+   ASK A ROAMER — community forum
 
-   Persistence is routed through a single async data layer (ForumStore)
-   so it can be swapped from localStorage to a Netlify serverless
-   backend later WITHOUT touching the rendering / UI code below.
-
-   To go live: replace the method bodies in ForumStore with fetch()
-   calls to /.netlify/functions/forum (GET list, POST question,
-   POST reply). Everything else stays the same.
+   Persistence goes through a single async data layer (ForumStore):
+   • With Supabase connected (see nra-config.js) posts live in a shared
+     database everyone can see, and question authors can get an email
+     when someone replies (criteria 14-18).
+   • Without it, the original local-browser storage is used (guest
+     prototype mode) — nothing breaks.
 ================================================================== */
 
 /* Cities mirror the map dataset in index.html. General Travel is the
@@ -393,7 +399,7 @@ const CITIES = [
 ].sort((a,b) => a.localeCompare(b));
 const CATEGORIES = [GENERAL, ...CITIES];
 
-const ForumStore = (function () {
+const LocalStore = (function () {
   const KEY = "nra_forum_v2";
   const OLD_KEY = "nra_forum_v1";
   const VOTES_KEY = "nra_forum_votes_v1"; // replyId -> 'up' | 'down' (this browser's own vote)
@@ -552,6 +558,73 @@ const ForumStore = (function () {
 })();
 
 /* ------------------------------------------------------------------
+   Shared community store (Supabase) — same interface as LocalStore.
+   Chosen at boot; per-browser vote memory still lives in localStorage.
+------------------------------------------------------------------ */
+function makeRemoteStore(sb){
+  const VOTES_KEY = "nra_forum_votes_remote_v1";
+  const readVotes = () => { try{ return JSON.parse(localStorage.getItem(VOTES_KEY)) || {}; }catch(e){ return {}; } };
+  const writeVotes = v => { try{ localStorage.setItem(VOTES_KEY, JSON.stringify(v)); }catch(e){} };
+  const mapReply = r => ({ id:r.id, name:r.name, body:r.body, likes:r.likes, dislikes:r.dislikes, created:Date.parse(r.created_at) });
+  const mapQ = q => ({
+    id:q.id, name:q.name, city:q.city, title:q.title, body:q.body,
+    likes:q.likes, dislikes:q.dislikes, created:Date.parse(q.created_at),
+    replies:(q.replies||[]).map(mapReply).sort((a,b)=>a.created-b.created)
+  });
+  async function rpcVote(kind, id, key, dir){
+    const votes = readVotes();
+    const prev = votes[key] || null;
+    let dLikes = 0, dDislikes = 0, next;
+    if (prev === "up") dLikes--; if (prev === "down") dDislikes--;
+    if (prev === dir) next = null;
+    else { next = dir; if (dir === "up") dLikes++; else dDislikes++; }
+    const { data, error } = await sb.rpc("adjust_votes", { kind, row_id:id, d_likes:dLikes, d_dislikes:dDislikes });
+    if (error) return null;
+    if (next) votes[key] = next; else delete votes[key];
+    writeVotes(votes);
+    const row = Array.isArray(data) ? data[0] : data;
+    return { likes:row.likes, dislikes:row.dislikes, vote:next };
+  }
+  const authedName = given => (given||"").trim()
+    || (window.NRA_AUTH && NRA_AUTH.user() ? (NRA_AUTH.displayName()||"").trim() : "")
+    || "Anonymous Roamer";
+  return {
+    async list(){
+      const { data, error } = await sb.from("questions")
+        .select("id,name,city,title,body,likes,dislikes,created_at,replies(id,name,body,likes,dislikes,created_at)")
+        .order("created_at", { ascending:false });
+      if (error) throw error;
+      return (data||[]).map(mapQ);
+    },
+    async addQuestion({ name, city, title, body }){
+      const user = window.NRA_AUTH ? NRA_AUTH.user() : null;
+      const row = { name:authedName(name), city:(CATEGORIES.indexOf(city)!==-1)?city:GENERAL,
+                    title:title.trim(), body:(body||"").trim(), user_id:user?user.id:null };
+      const { data, error } = await sb.from("questions").insert(row).select().single();
+      if (error) throw error;
+      return mapQ({ ...data, replies:[] });
+    },
+    async addReply(questionId, { name, body }){
+      const user = window.NRA_AUTH ? NRA_AUTH.user() : null;
+      const row = { question_id:questionId, name:authedName(name), body:body.trim(), user_id:user?user.id:null };
+      const { data, error } = await sb.from("replies").insert(row).select().single();
+      if (error) throw error;
+      // Tell the question's author (server checks their preference first).
+      try{
+        fetch("/.netlify/functions/notify", { method:"POST", headers:{ "Content-Type":"application/json" },
+          body: JSON.stringify({ questionId, replyName:row.name, replyPreview:row.body.slice(0,240) }) });
+      }catch(e){}
+      return mapReply(data);
+    },
+    votes(){ return readVotes(); },
+    async vote(questionId, replyId, dir){ return rpcVote("reply", replyId, replyId, dir); },
+    async voteQuestion(questionId, dir){ return rpcVote("question", questionId, "q:"+questionId, dir); }
+  };
+}
+
+let ForumStore = LocalStore;   // swapped to the shared store at boot when configured
+
+/* ------------------------------------------------------------------
    Rendering / UI
 ------------------------------------------------------------------ */
 const catListEl  = document.getElementById("cat-list");
@@ -708,6 +781,7 @@ function applyView(){
   }
 
   if (window.NRA_I18N && typeof window.NRA_I18N.refresh === "function") window.NRA_I18N.refresh();
+  if (typeof syncNameFields === "function") syncNameFields();
 }
 
 function setCategory(cat){
@@ -810,13 +884,37 @@ askForm.addEventListener("submit", async (e)=>{
 searchEl.addEventListener("input", applyView);
 sortEl.addEventListener("change", applyView);
 
-/* ---- boot ---- */
+/* ---- signed-in users: their display name becomes the default poster name ---- */
+function syncNameFields(){
+  const signedIn = window.NRA_AUTH && NRA_AUTH.user();
+  const dn = signedIn ? NRA_AUTH.displayName() : "";
+  const qName = document.getElementById("q-name");
+  if (qName) qName.placeholder = dn || "Anonymous Roamer";
+  document.querySelectorAll(".rf-name").forEach(i => { i.placeholder = dn ? dn : "Your name (optional)"; });
+}
+
+/* ---- boot: use the shared community store when Supabase is connected ---- */
 (async function init(){
+  if (window.NRA_AUTH){
+    await NRA_AUTH.ready();
+    const sb = NRA_AUTH.client();
+    if (NRA_AUTH.enabled && sb){
+      const remote = makeRemoteStore(sb);
+      try{
+        QUESTIONS = await remote.list();      // proves the database answers
+        ForumStore = remote;
+        const foot = document.querySelector("footer small");
+        if (foot) foot.textContent = "Community Q&A · posts are shared with all Roamers";
+      }catch(e){ /* database unreachable — stay in guest mode */ }
+    }
+    NRA_AUTH.onChange(() => { syncNameFields(); });
+  }
   QUESTIONS = await ForumStore.list();
   VOTES = ForumStore.votes();
   renderSidebar();
   renderCitySelect();
   applyView();
+  syncNameFields();
 })();
 </script>
 <script src="nav.js"></script>

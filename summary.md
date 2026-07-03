@@ -1,5 +1,5 @@
 # Never Roam Alone — Project Summary
-*Last updated: June 30, 2026*
+*Last updated: July 2, 2026*
 
 ---
 
@@ -36,14 +36,15 @@ The project lives at:
 - Count badge showing how many cities match the current filter
 
 ### `choose.html` — Destination Finder Tools
-Four radio-button-switched tools:
+Four radio-button-switched tools (destination data shared via `destinations.js`):
 
 1. **Favorite Travel Activities** — activity dropdown → city recommendations
-2. **Travel Budget** — 5 budget tiers with curated destination suggestions
+2. **Travel Budget** — 5 budget tiers filtered/sorted against real estimated daily costs (budget / mid / luxury tiers from `destinations.js`), with "≈ $X/day" labels and an estimates disclaimer
 3. **Mode of Travel** — Plane / Train / Boat / Bus / Car / Any (adaptive UI per mode)
    - **Plane**: origin airport autocomplete (OpenFlights dataset), departure date calendar, round-trip checkbox + return date calendar, stops radio buttons → live **Google Travel Explore** flight results via SerpApi (proxied through Netlify function)
    - **Train**: city search → auto-populates major train stations (30-city dictionary)
    - Other modes: city origin field + date picker
+   - **Reachable-destination results** *(new, July 2)*: after picking an origin for Train / Bus / Car, the tool shows only destinations on the same landmass (region data in `destinations.js` — e.g. no train from New York to Tokyo; the Darién Gap separates North and South America; Japan/Korea are land-isolated). Island origins and unknown countries get friendly "try Plane or Boat" messages. **Boat** shows cities with a major cruise/ferry port (with "port is ~1 hr away" notes for Rome, Seoul, Bangkok, London). **Any** shows every destination, most-visited first.
    - Flight results: sorted cheapest-first, 6-card cap + "Show more" button, 3-column grid, **Unsplash** landmark photos (proxied through Netlify function with photographer credit)
 4. **Do I Need A Visa?** — country dropdown using Passport Index dataset → visa requirement results
 
@@ -78,6 +79,18 @@ Form state persists across page reloads (`localStorage` key `nra_choose_state_v1
 ---
 
 ## Shared Infrastructure
+
+### `posts.js` — Single Source of Truth for Blog Posts *(new, July 2)*
+- All 6 blog posts (title, date, excerpt, likes/views, full article body) live in one file with plain-English "how to add a post" instructions at the top
+- `index.html` (latest 3 tiles), `blog.html` (full grid + search/sort), and `post.html` (article page) all read from it — add a post once, it appears everywhere
+- Includes shared helpers: `byNewest()`, `bySlug()`, and date formatters
+
+### `destinations.js` — Single Source of Truth for Destinations *(new, July 2)*
+- The 27-city dataset (name, country, coordinates, visitors, tagline) shared by every Destination Finder tool
+- **Estimated daily costs** per travel style (budget / mid / luxury, compiled July 2026 from published traveler averages) — powers the Travel Budget tool
+- **Region labels** (eurasia, japan, korea, n-america, s-america, africa, oceania) — powers overland reachability in the Mode of Travel tool
+- **Country → region lookup** (`NRA_COUNTRY_REGION`, ~150 countries incl. "island" for places with no land link) + `NRA_REGION_OF()` helper
+- **Sea-port city list** (`NRA_SEA_CITIES`) + out-of-town port notes (`NRA_PORT_NOTE`) — powers Boat mode
 
 ### `nav.js` — Shared Navigation Script *(new)*
 - Single source of truth for the site-wide menu — edit `NAV_ITEMS` here to change the menu on every page at once
@@ -151,11 +164,17 @@ All API keys live **only** in Netlify environment variables — never in browser
 
 ---
 
+## Recently Completed (July 2, 2026)
+- [x] **"Preview route" button** on every result card in choose.html (Activities, Budget, and Mode of Travel tools), next to Explore. Opens Google Maps directions in a new tab — origin- and mode-aware on the Mode of Travel tool (train/bus → transit, car → driving); other tools pass just the destination so Maps uses the visitor's location. Built as one `routeUrl()` helper with a comment marking where to swap in the future booking page.
+- [x] Moved blog posts into `posts.js` and wired index / blog / post pages to it
+- [x] Moved destination data into `destinations.js` with estimated daily costs and region labels
+- [x] Rebuilt the Travel Budget tool on real cost estimates
+- [x] Mode of Travel: region-based reachable-destination results for Train / Bus / Car, sea-port results for Boat, everything for Any — verified in a headless browser (London by train → 16 same-landmass cities; Seoul by train → friendly "no overland routes" message)
+
 ## Pending / Next Steps
 
 ### Immediate
 - [ ] **Verify Unsplash is working on Netlify** — Check that `UNSPLASH_ACCESS_KEY` is set with scope "All scopes" in Netlify env vars, redeploy if needed
-- [ ] **Sync index.html** — Confirm blog tiles link to `blog.html` and nav uses `nav.js` placeholder pattern
 
 ### Short-Term Features (from Objectives_Overview.md)
 - [ ] **Lodging at price points** — accommodation search/filter tool

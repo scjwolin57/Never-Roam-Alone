@@ -94,77 +94,14 @@
   <div class="brand"><span>Never Roam Alone</span></div>
 </footer>
 
+<script src="posts.js"></script>
 <script>
-/* Blog posts. Body is an array of blocks: ["p", text] | ["lead", text] | ["h2", text] | ["quote", text].
-   This is the single source for full posts; the home-page tiles link in by slug. */
-const POSTS = {
-  "kyoto-backstreets":{
-    title:"Three Days Lost in Kyoto's Backstreets", tag:"Japan", date:"June 12, 2026",
-    location:"Kyoto, Japan", seed:"kyoto",
-    body:[
-      ["lead","I came to Kyoto with a list of temples and left with a map of noodle counters, hidden shrines, and the particular quiet of a lane at dawn."],
-      ["p","The famous sights earn their fame, and you should see them. But Kyoto rewards the wanderer more than the checklist. On my second morning I gave up on the plan, picked a direction, and started walking."],
-      ["quote","The best alley in Kyoto is always the one you weren't looking for."],
-      ["p","By noon I'd found a tea house older than my country, a cat who owned a doorway, and a grandmother who pressed a warm sweet potato into my hands and waved away my money. None of it was on the list. All of it is why I'll go back."],
-      ["h2","If you go"],
-      ["p","Stay near the Kamo River, rent nothing, and leave a full afternoon with no destination. Kyoto fills empty time better than almost anywhere I've been."]
-    ]
-  },
-  "lisbon-on-foot":{
-    title:"Why Lisbon Is Best on Foot", tag:"Portugal", date:"May 28, 2026",
-    location:"Lisbon, Portugal", seed:"lisbon",
-    body:[
-      ["lead","Lisbon is a city built on hills and tiled in light. The famous tram is lovely — but the city only really opens up when you climb it yourself."],
-      ["p","Every wrong turn here ends at a viewpoint. The miradouros are scattered across the hills like rewards for getting lost, and the walk between them is half the pleasure: laundry strung overhead, the smell of grilled sardines, a fado drifting from a doorway."],
-      ["quote","Take the stairs. The view is the whole point, and you earn it twice."],
-      ["p","I walked until my legs gave out, then sat with a custard tart and watched the river turn gold. There are faster ways to see Lisbon. There is no better one."]
-    ]
-  },
-  "marrakech-morning":{
-    title:"A Slow Morning in Marrakech", tag:"Morocco", date:"April 9, 2026",
-    location:"Marrakech, Morocco", seed:"marrakech",
-    body:[
-      ["lead","The medina is loud by mid-morning. So I learned to wake before it did."],
-      ["p","At six the souks belong to cats and shopkeepers sweeping their thresholds. Mint tea appears before you ask. The light comes in low and copper, and for an hour the whole maze feels like a secret you've been let in on."],
-      ["quote","Haggle with a smile, drink the tea slowly, and never be in a hurry to leave."],
-      ["p","By the time the crowds arrived I'd already had my morning — a rooftop, a glass of tea, and the call to prayer rolling across the rooftops. Marrakech gives its best to early risers."]
-    ]
-  },
-  "patagonia-pack-light":{
-    title:"Patagonia Taught Me to Pack Light", tag:"Argentina", date:"March 3, 2026",
-    location:"Patagonia, Argentina", seed:"patagonia",
-    body:[
-      ["lead","I brought too much of everything except patience. The wind at the end of the world has a way of sorting your priorities."],
-      ["p","Out here the weather changes four times an hour and the trails ask more of you than the guidebooks admit. You stop carrying what you don't need very quickly — in your pack and otherwise."],
-      ["quote","What the wind takes, the mountains give back."],
-      ["p","On the last day the clouds finally lifted off the peaks, and I understood why people come all this way for a view that might not show up. It did. It was worth every gram I'd hauled and every one I'd left behind."]
-    ]
-  },
-  "48-hours-hanoi":{
-    title:"48 Hours in Hanoi", tag:"Vietnam", date:"February 18, 2026",
-    location:"Hanoi, Vietnam", seed:"hanoi",
-    body:[
-      ["lead","Two days is not enough for Hanoi. It is, however, exactly enough to fall for it."],
-      ["p","The Old Quarter moves like a river of motorbikes, and the trick is to wade in slowly and trust it to part around you. Between crossings there is coffee thick as honey, broth that takes all night to make, and plastic stools that somehow hold the best meals of the trip."],
-      ["quote","The best two dollars I ever spent was dinner on a street corner in Hanoi."],
-      ["p","I left with a notebook full of addresses I'll never find again and a standing plan to come back hungry."]
-    ]
-  },
-  "quiet-santorini":{
-    title:"The Quiet Side of Santorini", tag:"Greece", date:"January 21, 2026",
-    location:"Santorini, Greece", seed:"santorini",
-    body:[
-      ["lead","Everyone photographs the same sunset. The island's real magic happens hours earlier, when no one's awake to see it."],
-      ["p","Skip the evening crush in Oia and set an alarm instead. At seven the caldera is silver and still, the cafés are empty, and the blue domes belong only to you and a few cats picking their way along the walls."],
-      ["quote","Same island, completely different place — just shift your clock by twelve hours."],
-      ["p","By the time the tour buses arrived I was already on my second coffee, perfectly content to let everyone else fight over the famous view."]
-    ]
-  }
-};
+/* Post content now lives in posts.js — the single source of truth.
+   Add a post there and its article page works automatically. */
 
 const params = new URLSearchParams(location.search);
 const slug = (params.get("post")||"").toLowerCase();
-const post = POSTS[slug];
+const post = window.NRA_POSTS_UTIL.bySlug(slug);
 const content = document.getElementById("content");
 
 function render(b){
@@ -184,7 +121,7 @@ if(post){
       <div class="hero-inner">
         <span class="tag">${post.tag}</span>
         <h1>${post.title}</h1>
-        <div class="meta">${post.date} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
+        <div class="meta">${window.NRA_POSTS_UTIL.longDate(post.date)} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
       </div>
     </div>
     <article class="post i18n-ml">
@@ -194,14 +131,14 @@ if(post){
       </div>
       ${post.body.map(render).join("\n")}
     </article>
-    <div class="post-foot"><a class="back" href="index.html#blog">&larr; Back to all stories</a></div>`;
+    <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
 } else {
   document.title = "Coming soon — Never Roam Alone";
   content.innerHTML = `
     <div class="soon">
       <h1>This story is still being written</h1>
       <p>That post hasn't been published yet — check back soon, or explore the ones that are ready.</p>
-      <p style="margin-top:26px"><a class="back" href="index.html#blog">&larr; Back to all stories</a></p>
+      <p style="margin-top:26px"><a class="back" href="blog.html">&larr; Back to all stories</a></p>
     </div>`;
 }
 </script>
