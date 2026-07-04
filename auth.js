@@ -172,15 +172,25 @@ window.NRA_AUTH = (function(){
         <button class="nra-tab" data-tab="google">Google</button>
       </div>
       <div data-pane="password">
-        <div class="nra-field"><label>Email</label><input type="email" id="nra-em" autocomplete="email"></div>
-        <div class="nra-field"><label>Password</label><input type="password" id="nra-pw" autocomplete="current-password"></div>
-        <div class="nra-field" id="nra-pw2-wrap" style="display:none"><label>Confirm password</label><input type="password" id="nra-pw2" autocomplete="new-password"></div>
-        <div class="nra-field" id="nra-name-wrap" style="display:none"><label>Display name</label><input type="text" id="nra-dn" maxlength="40" placeholder="How you'll appear on posts"></div>
-        <div class="nra-row-btns">
-          <button class="nra-btn" id="nra-do-signin">Sign in</button>
-          <button class="nra-btn ghost" id="nra-toggle-signup">New here? Create account</button>
+        <div id="nra-pw-view">
+          <div class="nra-field"><label>Email</label><input type="email" id="nra-em" autocomplete="email"></div>
+          <div class="nra-field"><label>Password</label><input type="password" id="nra-pw" autocomplete="current-password"></div>
+          <div class="nra-field" id="nra-pw2-wrap" style="display:none"><label>Confirm password</label><input type="password" id="nra-pw2" autocomplete="new-password"></div>
+          <div class="nra-field" id="nra-name-wrap" style="display:none"><label>Display name</label><input type="text" id="nra-dn" maxlength="40" placeholder="How you'll appear on posts"></div>
+          <div class="nra-row-btns">
+            <button class="nra-btn" id="nra-do-signin">Sign in</button>
+            <button class="nra-btn ghost" id="nra-toggle-signup">New here? Create account</button>
+          </div>
+          <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-forgot">Forgot password?</button></div>
         </div>
-        <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-forgot">Forgot password?</button></div>
+        <div id="nra-forgot-view" style="display:none">
+          <p class="nra-note" style="margin:0 0 12px">Enter your email and we'll send you a link to reset your password.</p>
+          <div class="nra-field"><label>Email</label><input type="email" id="nra-forgot-em" autocomplete="email"></div>
+          <div class="nra-row-btns">
+            <button class="nra-btn" id="nra-do-forgot">Send reset link</button>
+            <button class="nra-btn ghost" id="nra-forgot-back">Back to sign in</button>
+          </div>
+        </div>
       </div>
       <div data-pane="magic" style="display:none">
         <div class="nra-field"><label>Email</label><input type="email" id="nra-magic-em" autocomplete="email"></div>
@@ -203,7 +213,7 @@ window.NRA_AUTH = (function(){
     bg.querySelectorAll(".nra-tab").forEach(t => t.addEventListener("click", () => {
       bg.querySelectorAll(".nra-tab").forEach(x => x.classList.toggle("active", x === t));
       bg.querySelectorAll("[data-pane]").forEach(p => p.style.display = (p.dataset.pane === t.dataset.tab) ? "" : "none");
-      msg("");
+      showForgot(false); // leaving and returning to the Password tab always lands on sign-in, not the reset view
     }));
     let signupMode = false;
     const msg = (text, err) => {
@@ -272,10 +282,19 @@ window.NRA_AUTH = (function(){
         }catch(e){ msg(friendlyAuthError(e, false), true); }
       });
     });
-    bg.querySelector("#nra-forgot").addEventListener("click", async () => {
-      const btn = bg.querySelector("#nra-forgot");
-      const email = bg.querySelector("#nra-em").value.trim();
-      if (!email) return msg("Enter your email address above, then click Forgot password.", true);
+    /* Forgot password gets its own simple view: just an email field. */
+    const showForgot = (on) => {
+      bg.querySelector("#nra-pw-view").style.display = on ? "none" : "";
+      bg.querySelector("#nra-forgot-view").style.display = on ? "" : "none";
+      if (on) bg.querySelector("#nra-forgot-em").value = bg.querySelector("#nra-em").value.trim();
+      msg("");
+    };
+    bg.querySelector("#nra-forgot").addEventListener("click", () => showForgot(true));
+    bg.querySelector("#nra-forgot-back").addEventListener("click", () => showForgot(false));
+    bg.querySelector("#nra-do-forgot").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-do-forgot");
+      const email = bg.querySelector("#nra-forgot-em").value.trim();
+      if (!email) return msg("Enter your email address.", true);
       if (!isValidEmail(email)) return msg("That email address doesn't look right — double check it.", true);
       await withLoading(btn, "Sending…", async () => {
         try{
