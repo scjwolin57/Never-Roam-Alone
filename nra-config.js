@@ -18,6 +18,6 @@
    ===================================================================== */
 
 window.NRA_CONFIG = {
-  SUPABASE_URL: "https://supabase.com/dashboard/project/oferixjdgwwjpstowqis/settings/api-keys",        // e.g. "https://abcdefgh.supabase.co"
+  SUPABASE_URL: "https://oferixjdgwwjpstowqis.supabase.co",        // e.g. "https://abcdefgh.supabase.co"
   SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9mZXJpeGpkZ3d3anBzdG93cWlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwNDI1OTIsImV4cCI6MjA5ODYxODU5Mn0.TNjuvQbevpPOY7ALCIY1rp__N0aMNDREYB3ruU9LGGE"    // the long "anon public" key
 };

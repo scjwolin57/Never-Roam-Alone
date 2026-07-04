@@ -97,6 +97,26 @@ window.NRA_AUTH = (function(){
   const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const initials = n => { const p = String(n||"?").trim().split(/\s+/); return ((p[0]||"?")[0]+(p.length>1?p[p.length-1][0]:"")).toUpperCase(); };
 
+  /* ---- form-rule constants + helpers, so every validation message stays in one place ---- */
+  const MIN_PW_LEN = 6; // matches Supabase's default minimum — raise this to match if you change it in Supabase settings
+  const isValidEmail = s => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+
+  /* ---- turn Supabase's raw error text into a short, plain-language message ----
+     Deliberately vague about whether an email is registered (no "no account found"
+     / "already registered" messages) so the form can't be used to fish for which
+     emails have signed up — see project decision 2026-07-04. */
+  function friendlyAuthError(e, signupMode){
+    const raw = (e && e.message) || "";
+    const low = raw.toLowerCase();
+    if (low.includes("invalid login credentials")) return "Incorrect email or password.";
+    if (low.includes("email not confirmed")) return "Please confirm your email first — check your inbox for the link we sent.";
+    if (low.includes("already registered") || low.includes("already exists")) return signupMode ? "That didn't go through — check your email for a confirmation link, or try signing in." : "That didn't work — try again.";
+    if (low.includes("password") && low.includes("least")) return raw; // Supabase's own "at least N characters" message is already concise
+    if (low.includes("rate limit") || low.includes("too many")) return "Too many attempts — please wait a minute and try again.";
+    if (low.includes("failed to load") || low.includes("timeout") || low.includes("network")) return "Couldn't reach the sign-in service — check your connection and try again.";
+    return raw || "That didn't work — try again.";
+  }
+
   function renderWidget(){
     const el = document.getElementById("nra-account");
     if (!el) return;
@@ -145,6 +165,7 @@ window.NRA_AUTH = (function(){
       <div data-pane="password">
         <div class="nra-field"><label>Email</label><input type="email" id="nra-em" autocomplete="email"></div>
         <div class="nra-field"><label>Password</label><input type="password" id="nra-pw" autocomplete="current-password"></div>
+        <div class="nra-field" id="nra-pw2-wrap" style="display:none"><label>Confirm password</label><input type="password" id="nra-pw2" autocomplete="new-password"></div>
         <div class="nra-field" id="nra-name-wrap" style="display:none"><label>Display name</label><input type="text" id="nra-dn" maxlength="40" placeholder="How you'll appear on posts"></div>
         <div class="nra-row-btns">
           <button class="nra-btn" id="nra-do-signin">Sign in</button>
@@ -175,43 +196,68 @@ window.NRA_AUTH = (function(){
     }));
     let signupMode = false;
     const msg = (text, err) => { const m = bg.querySelector("#nra-msg"); m.textContent = text; m.className = "nra-msg" + (err ? " err" : ""); m.style.display = text ? "" : "none"; };
+    /* ---- run a button through a loading state so people can't double-click their way to duplicate signups ---- */
+    async function withLoading(btn, busyText, fn){
+      const original = btn.textContent;
+      btn.disabled = true; btn.textContent = busyText;
+      try{ await fn(); }
+      finally{ btn.disabled = false; btn.textContent = original; }
+    }
     bg.querySelector("#nra-toggle-signup").addEventListener("click", () => {
       signupMode = !signupMode;
       bg.querySelector("#nra-name-wrap").style.display = signupMode ? "" : "none";
+      bg.querySelector("#nra-pw2-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-do-signin").textContent = signupMode ? "Create account" : "Sign in";
       bg.querySelector("#nra-toggle-signup").textContent = signupMode ? "Have an account? Sign in" : "New here? Create account";
       msg("");
     });
     bg.querySelector("#nra-do-signin").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-do-signin");
       const email = bg.querySelector("#nra-em").value.trim(), pw = bg.querySelector("#nra-pw").value;
-      if (!email || !pw) return msg("Enter your email and a password.", true);
-      try{
-        if (signupMode){
-          const dn = bg.querySelector("#nra-dn").value.trim();
-          const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] } } });
-          if (error) throw error;
-          msg("Account created! Check your email to confirm, then sign in.");
-        } else {
-          const { error } = await sb.auth.signInWithPassword({ email, password: pw });
-          if (error) throw error;
-          closeModal();
-        }
-      }catch(e){ msg(e.message || "That didn't work — try again.", true); }
+
+      /* ---- concise, specific messages for every way the form can be filled in wrong ---- */
+      if (!email) return msg("Enter your email address.", true);
+      if (!isValidEmail(email)) return msg("That email address doesn't look right — double check it.", true);
+      if (!pw) return msg("Enter a password.", true);
+      if (signupMode && pw.length < MIN_PW_LEN) return msg(`Password needs to be at least ${MIN_PW_LEN} characters.`, true);
+      if (signupMode){
+        const pw2 = bg.querySelector("#nra-pw2").value;
+        if (pw !== pw2) return msg("Those passwords don't match — try typing them again.", true);
+      }
+
+      await withLoading(btn, signupMode ? "Creating account…" : "Signing in…", async () => {
+        try{
+          if (signupMode){
+            const dn = bg.querySelector("#nra-dn").value.trim();
+            const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] } } });
+            if (error) throw error;
+            msg("Account created! Check your email to confirm, then sign in.");
+          } else {
+            const { error } = await sb.auth.signInWithPassword({ email, password: pw });
+            if (error) throw error;
+            closeModal();
+          }
+        }catch(e){ msg(friendlyAuthError(e, signupMode), true); }
+      });
     });
     bg.querySelector("#nra-do-magic").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-do-magic");
       const email = bg.querySelector("#nra-magic-em").value.trim();
-      if (!email) return msg("Enter your email first.", true);
-      try{
-        const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.href } });
-        if (error) throw error;
-        msg("Link sent! Check your inbox and click it to sign in.");
-      }catch(e){ msg(e.message || "Couldn't send the link — try again.", true); }
+      if (!email) return msg("Enter your email address.", true);
+      if (!isValidEmail(email)) return msg("That email address doesn't look right — double check it.", true);
+      await withLoading(btn, "Sending…", async () => {
+        try{
+          const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.href } });
+          if (error) throw error;
+          msg("Link sent! Check your inbox and click it to sign in.");
+        }catch(e){ msg(friendlyAuthError(e, false), true); }
+      });
     });
     bg.querySelector("#nra-do-google").addEventListener("click", async () => {
       try{
         const { error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: location.href } });
         if (error) throw error;
-      }catch(e){ msg(e.message || "Google sign-in isn't set up yet.", true); }
+      }catch(e){ msg(friendlyAuthError(e, false), true); }
     });
   }
   function closeModal(){ const m = document.getElementById("nra-modal-bg"); if (m) m.remove(); }
