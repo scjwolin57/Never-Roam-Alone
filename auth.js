@@ -52,7 +52,11 @@ window.NRA_AUTH = (function(){
       const { data } = await sb.auth.getSession();
       session = data ? data.session : null;
       await fetchProfile();
-      sb.auth.onAuthStateChange(async (_evt, s) => { session = s; await fetchProfile(); emit(); });
+      sb.auth.onAuthStateChange(async (evt, s) => {
+        session = s; await fetchProfile(); emit();
+        // User arrived from a password-reset email link — let them choose a new password.
+        if (evt === "PASSWORD_RECOVERY") openRecoveryModal();
+      });
     }catch(e){ sb = null; session = null; }
     readyResolve();
     emit();
@@ -100,6 +104,11 @@ window.NRA_AUTH = (function(){
   /* ---- form-rule constants + helpers, so every validation message stays in one place ---- */
   const MIN_PW_LEN = 6; // matches Supabase's default minimum — raise this to match if you change it in Supabase settings
   const isValidEmail = s => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
+  /* Clean page address (no ?query or #hash) for email links to send people back to.
+     On a non-web address (like opening the file directly) return undefined so
+     Supabase falls back to the Site URL configured in the dashboard. */
+  const pageUrl = () => (location.protocol === "http:" || location.protocol === "https:")
+    ? location.origin + location.pathname : undefined;
 
   /* ---- turn Supabase's raw error text into a short, plain-language message ----
      Deliberately vague about whether an email is registered (no "no account found"
@@ -171,6 +180,7 @@ window.NRA_AUTH = (function(){
           <button class="nra-btn" id="nra-do-signin">Sign in</button>
           <button class="nra-btn ghost" id="nra-toggle-signup">New here? Create account</button>
         </div>
+        <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-forgot">Forgot password?</button></div>
       </div>
       <div data-pane="magic" style="display:none">
         <div class="nra-field"><label>Email</label><input type="email" id="nra-magic-em" autocomplete="email"></div>
@@ -185,6 +195,7 @@ window.NRA_AUTH = (function(){
         <p class="nra-note">Uses your Google account — nothing extra to remember.</p>
       </div>
       <p class="nra-msg" id="nra-msg" style="display:none"></p>
+      <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-resend" style="display:none">Resend confirmation email</button></div>
     </div>`;
     document.body.appendChild(bg);
     bg.addEventListener("click", e => { if (e.target === bg) closeModal(); });
@@ -195,7 +206,10 @@ window.NRA_AUTH = (function(){
       msg("");
     }));
     let signupMode = false;
-    const msg = (text, err) => { const m = bg.querySelector("#nra-msg"); m.textContent = text; m.className = "nra-msg" + (err ? " err" : ""); m.style.display = text ? "" : "none"; };
+    const msg = (text, err) => {
+      const m = bg.querySelector("#nra-msg"); m.textContent = text; m.className = "nra-msg" + (err ? " err" : ""); m.style.display = text ? "" : "none";
+      bg.querySelector("#nra-resend").style.display = "none"; // hidden unless the unconfirmed-email case shows it
+    };
     /* ---- run a button through a loading state so people can't double-click their way to duplicate signups ---- */
     async function withLoading(btn, busyText, fn){
       const original = btn.textContent;
@@ -207,6 +221,7 @@ window.NRA_AUTH = (function(){
       signupMode = !signupMode;
       bg.querySelector("#nra-name-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-pw2-wrap").style.display = signupMode ? "" : "none";
+      bg.querySelector("#nra-forgot").style.display = signupMode ? "none" : "";
       bg.querySelector("#nra-do-signin").textContent = signupMode ? "Create account" : "Sign in";
       bg.querySelector("#nra-toggle-signup").textContent = signupMode ? "Have an account? Sign in" : "New here? Create account";
       msg("");
@@ -237,7 +252,39 @@ window.NRA_AUTH = (function(){
             if (error) throw error;
             closeModal();
           }
-        }catch(e){ msg(friendlyAuthError(e, signupMode), true); }
+        }catch(e){
+          msg(friendlyAuthError(e, signupMode), true);
+          // Lost the confirmation email? Offer to send another.
+          if (String((e && e.message) || "").toLowerCase().includes("email not confirmed"))
+            bg.querySelector("#nra-resend").style.display = "";
+        }
+      });
+    });
+    bg.querySelector("#nra-resend").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-resend");
+      const email = bg.querySelector("#nra-em").value.trim();
+      if (!email || !isValidEmail(email)) return msg("Enter your email address above first.", true);
+      await withLoading(btn, "Sending…", async () => {
+        try{
+          const { error } = await sb.auth.resend({ type: "signup", email, options:{ emailRedirectTo: pageUrl() } });
+          if (error) throw error;
+          msg("Confirmation email sent — check your inbox (and spam folder).");
+        }catch(e){ msg(friendlyAuthError(e, false), true); }
+      });
+    });
+    bg.querySelector("#nra-forgot").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-forgot");
+      const email = bg.querySelector("#nra-em").value.trim();
+      if (!email) return msg("Enter your email address above, then click Forgot password.", true);
+      if (!isValidEmail(email)) return msg("That email address doesn't look right — double check it.", true);
+      await withLoading(btn, "Sending…", async () => {
+        try{
+          const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: pageUrl() });
+          if (error) throw error;
+          // Same message whether or not the email has an account — keeps the form
+          // from being used to fish for registered emails (decision 2026-07-04).
+          msg("If that email has an account, a reset link is on its way — check your inbox.");
+        }catch(e){ msg(friendlyAuthError(e, false), true); }
       });
     });
     bg.querySelector("#nra-do-magic").addEventListener("click", async () => {
@@ -247,7 +294,7 @@ window.NRA_AUTH = (function(){
       if (!isValidEmail(email)) return msg("That email address doesn't look right — double check it.", true);
       await withLoading(btn, "Sending…", async () => {
         try{
-          const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: location.href } });
+          const { error } = await sb.auth.signInWithOtp({ email, options:{ emailRedirectTo: pageUrl() } });
           if (error) throw error;
           msg("Link sent! Check your inbox and click it to sign in.");
         }catch(e){ msg(friendlyAuthError(e, false), true); }
@@ -255,12 +302,49 @@ window.NRA_AUTH = (function(){
     });
     bg.querySelector("#nra-do-google").addEventListener("click", async () => {
       try{
-        const { error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: location.href } });
+        const { error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: pageUrl() } });
         if (error) throw error;
       }catch(e){ msg(friendlyAuthError(e, false), true); }
     });
   }
   function closeModal(){ const m = document.getElementById("nra-modal-bg"); if (m) m.remove(); }
+
+  /* ---- shown when someone lands here from a password-reset email ---- */
+  function openRecoveryModal(){
+    ensureCSS();
+    closeModal();
+    const bg = document.createElement("div");
+    bg.className = "nra-modal-bg"; bg.id = "nra-modal-bg";
+    bg.innerHTML = `<div class="nra-modal" role="dialog" aria-label="Choose a new password">
+      <button class="nra-close" aria-label="Close">✕</button>
+      <h3>Choose a new password</h3>
+      <p class="sub">You're signed in from your reset link — set a new password to finish.</p>
+      <div class="nra-field"><label>New password</label><input type="password" id="nra-new-pw" autocomplete="new-password"></div>
+      <div class="nra-field"><label>Confirm new password</label><input type="password" id="nra-new-pw2" autocomplete="new-password"></div>
+      <div class="nra-row-btns"><button class="nra-btn" id="nra-do-reset">Save new password</button></div>
+      <p class="nra-msg" id="nra-msg" style="display:none"></p>
+    </div>`;
+    document.body.appendChild(bg);
+    const msg = (text, err) => { const m = bg.querySelector("#nra-msg"); m.textContent = text; m.className = "nra-msg" + (err ? " err" : ""); m.style.display = text ? "" : "none"; };
+    bg.querySelector(".nra-close").addEventListener("click", closeModal);
+    bg.addEventListener("click", e => { if (e.target === bg) closeModal(); });
+    bg.querySelector("#nra-do-reset").addEventListener("click", async () => {
+      const btn = bg.querySelector("#nra-do-reset");
+      const pw = bg.querySelector("#nra-new-pw").value, pw2 = bg.querySelector("#nra-new-pw2").value;
+      if (!pw) return msg("Enter a new password.", true);
+      if (pw.length < MIN_PW_LEN) return msg(`Password needs to be at least ${MIN_PW_LEN} characters.`, true);
+      if (pw !== pw2) return msg("Those passwords don't match — try typing them again.", true);
+      const original = btn.textContent;
+      btn.disabled = true; btn.textContent = "Saving…";
+      try{
+        const { error } = await sb.auth.updateUser({ password: pw });
+        if (error) throw error;
+        msg("Password updated! You're signed in.");
+        setTimeout(closeModal, 1600);
+      }catch(e){ msg(friendlyAuthError(e, false), true); }
+      finally{ btn.disabled = false; btn.textContent = original; }
+    });
+  }
 
   async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; emit(); }
   async function setNotify(on){
