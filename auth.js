@@ -61,25 +61,33 @@ window.NRA_AUTH = (function(){
 
   async function init(){
     if (!enabled){ readyResolve(); renderWidget(); return; }
+    // Safety net: never let the rest of the page wait forever on us. If anything
+    // below stalls, release ready() after a few seconds so the forum still loads.
+    const readyTimer = setTimeout(readyResolve, 6000);
     try{
       await loadLib();
       sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
-      // Listen for auth events IMMEDIATELY — before any awaits — so the
-      // PASSWORD_RECOVERY event (which fires while the library is still
-      // processing the reset link) can't slip past us.
-      sb.auth.onAuthStateChange(async (evt, s) => {
-        session = s; await fetchProfile(); emit();
-        // User arrived from a password-reset email link — let them choose a new password.
-        if (evt === "PASSWORD_RECOVERY") showRecoveryOnce();
-      });
       const { data } = await sb.auth.getSession();
       session = data ? data.session : null;
       await fetchProfile();
-      // Backup for the same case: if the page address carried the reset marker
-      // and we're signed in, show the new-password screen even if the event
-      // was somehow missed.
+      // Subscribe to auth changes AFTER the initial getSession. Subscribing before
+      // it and awaiting a database call inside the callback deadlocks supabase-js
+      // (the auth lock is held by getSession while the callback waits on it), which
+      // hangs the whole page. We also defer the callback's DB work out of the
+      // callback with setTimeout(…,0) so later sign-in/out events can't deadlock either.
+      sb.auth.onAuthStateChange((evt, s) => {
+        session = s;
+        setTimeout(async () => {
+          await fetchProfile(); emit();
+          if (evt === "PASSWORD_RECOVERY") showRecoveryOnce();
+        }, 0);
+      });
+      // Reset-email case: if we arrived from the reset link and we're signed in,
+      // show the new-password screen. The marker was captured at script load, so
+      // this works even though we subscribed after getSession stripped the URL.
       if (arrivedFromRecovery && session) showRecoveryOnce();
     }catch(e){ sb = null; session = null; }
+    clearTimeout(readyTimer);
     readyResolve();
     emit();
   }
