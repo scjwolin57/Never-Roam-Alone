@@ -1,0 +1,31 @@
+/* =====================================================================
+   AMATIC SC — self-hosted logo font (replaces Google Fonts for privacy:
+   visitors' addresses are no longer sent to Google on every page load).
+
+   SETUP (one time): the two font files below must sit in this /fonts
+   folder. To get them:
+     1. Go to https://gwfh.mranftl.com/fonts/amatic-sc?subsets=latin
+     2. Tick weights 400 (regular) and 700, charset "latin"
+     3. Click the download button (a .zip)
+     4. From the zip, copy the two .woff2 files into this folder and
+        rename them to exactly:
+           amatic-sc-400.woff2
+           amatic-sc-700.woff2
+   Until the files are present, browsers quietly fall back to the Georgia
+   serif font — nothing breaks.
+   ===================================================================== */
+
+@font-face {
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("amatic-sc-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Amatic SC";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("amatic-sc-700.woff2") format("woff2");
+}

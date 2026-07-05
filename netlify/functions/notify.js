@@ -51,7 +51,7 @@ exports.handler = async (event) => {
     const pr = await fetch(`${SUPABASE_URL}/rest/v1/profiles?id=eq.${q.user_id}&select=email,display_name,notify_replies`, { headers: sbHeaders });
     const ps = await pr.json();
     const p = Array.isArray(ps) && ps[0];
-    console.log("[notify] profile lookup:", { httpStatus: pr.status, found: !!p, hasEmail: !!(p && p.email), recipient: p && p.email, notify_replies: p && p.notify_replies });
+    console.log("[notify] profile lookup:", { httpStatus: pr.status, found: !!p, hasEmail: !!(p && p.email), notify_replies: p && p.notify_replies });
     if (!p || !p.email) { console.log("[notify] STOP: the author's profile has no email on file."); return json(200, { sent: false, reason: "no email on file" }); }
     if (p.notify_replies === false) { console.log("[notify] STOP: the author turned reply notifications OFF."); return json(200, { sent: false, reason: "notifications off" }); }
 
@@ -74,7 +74,7 @@ exports.handler = async (event) => {
               <p style="margin:0;color:#3a4a52">${escapeHtml(replyPreview)}${replyPreview.length >= 240 ? "…" : ""}</p>
             </div>
             <a href="${link}" style="display:inline-block;background:#185e3f;color:#ffffff;text-decoration:none;font-weight:bold;padding:12px 24px;border-radius:24px">Read &amp; reply &rarr;</a>
-            <p style="margin:24px 0 0;font-size:12px;color:#8a9aa3">You're getting this because reply notifications are on in your Never Roam Alone profile. Turn them off any time from the Ask A Roamer sidebar.</p>
+            <p style="margin:24px 0 0;font-size:12px;color:#8a9aa3">You're getting this because reply notifications are on in your Never Roam Alone profile. Turn them off any time with the checkbox on the Ask A Roamer page.</p>
           </div>`
       })
     });
@@ -83,8 +83,7 @@ exports.handler = async (event) => {
       console.error("[notify] STOP: Resend rejected the email. HTTP", er.status, "detail:", detail.slice(0, 500));
       return json(502, { sent: false, error: "Email service error", detail: detail.slice(0, 300) });
     }
-    const okBody = await er.text();
-    console.log("[notify] SUCCESS: Resend accepted the email to", p.email, "| Resend response:", okBody.slice(0, 300));
+    console.log("[notify] SUCCESS: Resend accepted the email.");
     return json(200, { sent: true });
   } catch (e) {
     console.error("[notify] STOP: threw an error:", (e && e.message) || e);

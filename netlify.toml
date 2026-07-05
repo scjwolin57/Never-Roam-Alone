@@ -17,3 +17,29 @@
   from = "/api/flights"
   to = "/.netlify/functions/flights"
   status = 200
+
+# ---------------------------------------------------------------------
+# Security headers (sent with every page).
+# In plain English:
+#  - HSTS: browsers must always use the encrypted (https) connection.
+#  - nosniff: browsers can't second-guess file types (blocks a class of attacks).
+#  - X-Frame-Options / frame-ancestors: no other site can embed ours in a
+#    hidden frame to trick users into clicking things (clickjacking).
+#  - Referrer-Policy: other sites we link to only learn our domain, not the
+#    full page address the visitor came from.
+#  - Permissions-Policy: the site declares it never uses camera/mic/location.
+#  - Content-Security-Policy: an allowlist of exactly which outside services
+#    the browser may load code, images, fonts, and data from. Anything not
+#    listed is blocked — the main defense against injected malicious code.
+#    If a new external service is ever added to the site, its address must
+#    be added here too, or the browser will block it (check the console).
+# ---------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://picsum.photos https://fastly.picsum.photos https://images.unsplash.com https://plus.unsplash.com https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com; connect-src 'self' https://oferixjdgwwjpstowqis.supabase.co wss://oferixjdgwwjpstowqis.supabase.co https://cdn.jsdelivr.net https://overpass-api.de https://overpass.kumi.systems https://api.transitous.org https://open.er-api.com https://davidmegginson.github.io https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://unpkg.com; worker-src 'self' blob:; child-src blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"

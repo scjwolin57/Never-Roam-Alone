@@ -6,9 +6,7 @@
 <title>Privacy Policy — Never Roam Alone</title>
 
 <!-- Amatic SC (logo font) -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
 
 <style>
   :root{
@@ -124,7 +122,7 @@
 <div class="legal-hero">
   <p class="kicker">Your privacy matters</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: June 30, 2026</p>
+  <p class="updated">Last updated: July 5, 2026</p>
 </div>
 
 <main class="legal">
@@ -148,17 +146,26 @@
   </div>
 
   <div class="callout">
-    <strong>The short version:</strong> Never Roam Alone is a personal travel blog and trip-planning tool. We don't sell your data, we don't run advertising trackers, and we don't make you create an account. Your preferences (like language choice) are stored in your own browser. We use a small number of trusted services to display maps, photos, flight results, and translations.
+    <strong>The short version:</strong> Never Roam Alone is a personal travel blog and trip-planning tool. We don't sell your data, we don't run advertising trackers, and we don't make you create an account — the whole site, including asking and answering questions in the community forum, works without one. If you <em>choose</em> to create a free profile, we store the details you give us (email, display name, and anything you add to your profile) so you can be recognized on your posts and, if you opt in, get an email when someone replies to your question. You can delete your account yourself at any time from your profile page.
   </div>
 
   <h2 id="intro">1. Who we are</h2>
   <p>This Privacy Policy explains how <strong>Never Roam Alone</strong> ("we," "us," or "the site") handles information when you visit <strong>neverroamalone.com</strong> and use its features. Never Roam Alone is an independently operated personal travel blog and trip-planning website. For privacy questions, you can reach the site owner using the contact details in <a class="inline" href="#contact">Section 14</a>.</p>
 
   <h2 id="collect">2. Information we collect</h2>
-  <p>We've designed the site to collect as little personal information as possible. You do not need to create an account to use it.</p>
+  <p>We've designed the site to collect as little personal information as possible. You do not need to create an account to use it — including to post in the community forum.</p>
 
   <h3>Information you give us</h3>
   <p>If you contact us by email, we receive whatever you choose to include in that message (such as your name and email address). When you use the trip-planning tools, you may type in details like a departure airport, a destination, or travel dates. This information is used to fetch results for you and is not tied to your identity.</p>
+
+  <h3>If you create a profile (optional)</h3>
+  <p>If you choose to create a free account (with an email and password, an emailed sign-in link, or Google), we store your <strong>email address</strong>, your <strong>display name</strong>, and your <strong>notification preference</strong> in our account database (hosted by Supabase). You may also choose to add optional profile details — a short bio, your home city and country, your travel style, and links like a website or Instagram handle. All of these are optional, editable, and deletable on your profile page. If you sign in with Google, we receive your email address and name from Google; we never see your Google password.</p>
+
+  <h3>Community forum posts</h3>
+  <p>Questions and replies you post on Ask A Roamer are <strong>public</strong> — anyone can read them, along with the name shown on them. If you post while signed in, the post is linked to your account; if you post signed out, it's saved without any account link under the name you type (or "Anonymous Roamer"). Please don't include personal details you wouldn't want public in the body of a post.</p>
+
+  <h3>Reply notification emails</h3>
+  <p>If you have an account, asked your question while signed in, and left "Email me when someone replies" switched on, we send you an email when your question gets a reply (delivered through Resend, our email provider). The email contains your question title and a preview of the reply. You can switch these emails off at any time using the checkbox on the Ask A Roamer page.</p>
 
   <h3>Information collected automatically</h3>
   <ul>
@@ -170,12 +177,16 @@
   <p>We do not knowingly collect sensitive personal information, we do not build advertising profiles, and we do not sell or rent personal information to anyone.</p>
 
   <h2 id="cookies">3. Cookies &amp; local storage</h2>
-  <p>Never Roam Alone does not use advertising or cross-site tracking cookies. To make the site work, we save a few small pieces of information directly in your browser's <em>local storage</em>:</p>
+  <p>Never Roam Alone does not use advertising or cross-site tracking cookies, and does not use any analytics trackers. Everything we save in your browser is <strong>strictly functional</strong> — it exists only so the site works and remembers your own choices. That is why you don't see a cookie consent banner: there is nothing here that requires one. The complete list of what we store in your browser's <em>local storage</em>:</p>
   <ul>
-    <li><code>nra_lang</code> — remembers the display language you selected.</li>
-    <li><code>nra_choose_state_v1</code> — remembers what you entered in the destination-finder tools so your choices survive a page refresh.</li>
+    <li><code>nra_lang</code> — the display language you selected.</li>
+    <li><code>nra_choose_state_v1</code> — what you entered in the destination-finder tools, so your choices survive a page refresh.</li>
+    <li><code>nra_forum_v2</code> — forum questions and replies you post while the shared database is unavailable (guest mode); these stay on your device only.</li>
+    <li><code>nra_forum_votes_v1</code> / <code>nra_forum_votes_remote_v1</code> — which forum posts you've given a thumbs up or down, so you can't vote twice.</li>
+    <li><code>nra_actcounts_v1_…</code> — a short-lived cache of activity counts for the Activities tool, so repeat searches load faster.</li>
+    <li><code>sb-…-auth-token</code> — your sign-in session token, created only if you sign in to an account (set by Supabase). Signing out removes it.</li>
   </ul>
-  <p>This information never leaves your device and is not used to track you. You can clear it at any time through your browser settings, though doing so will reset your saved preferences.</p>
+  <p>Apart from the sign-in token (which is sent to our account provider to keep you signed in), this information never leaves your device and is not used to track you. You can clear it at any time through your browser settings, though doing so will reset your saved preferences and sign you out.</p>
 
   <h2 id="use">4. How we use information</h2>
   <p>We use the limited information described above to:</p>
@@ -191,19 +202,29 @@
   <p>To provide its features, the site relies on a small set of reputable third-party services. When you use the relevant feature, your browser or our servers may exchange limited data (such as your search terms or IP address) with these providers, each of which has its own privacy policy:</p>
   <ul>
     <li><strong>Netlify</strong> — website hosting and serverless functions. <a class="inline" href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Privacy policy</a></li>
+    <li><strong>Supabase</strong> — hosts our account database (profiles) and the shared community forum posts, and handles sign-in. <a class="inline" href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+    <li><strong>Resend</strong> — sends account emails (confirmations, password resets) and reply-notification emails. <a class="inline" href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></li>
+    <li><strong>Google (sign-in only)</strong> — if you choose "Sign in with Google," Google confirms your identity to us. <a class="inline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
     <li><strong>MapLibre / CARTO basemaps</strong> — the interactive 3-D globe and map tiles. <a class="inline" href="https://carto.com/privacy/" target="_blank" rel="noopener">CARTO privacy policy</a></li>
     <li><strong>Unsplash</strong> — destination and landmark photography. <a class="inline" href="https://unsplash.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+    <li><strong>Picsum</strong> — placeholder photography on some pages.</li>
     <li><strong>SerpApi (Google Travel results)</strong> — live flight search results for the trip-planning tools. <a class="inline" href="https://serpapi.com/legal" target="_blank" rel="noopener">Legal &amp; privacy</a></li>
+    <li><strong>OpenStreetMap Overpass API</strong> — live venue counts for the Activities tool, provided by community-run servers. <a class="inline" href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">OSM Foundation privacy policy</a></li>
+    <li><strong>Transitous</strong> — public-transport route lookups for train and bus results. <a class="inline" href="https://transitous.org" target="_blank" rel="noopener">Project site</a></li>
+    <li><strong>ExchangeRate-API (open.er-api.com)</strong> — live currency conversion rates on city pages.</li>
+    <li><strong>OurAirports / OpenFlights / Passport Index datasets</strong> — open airport, route, and visa datasets loaded from GitHub-based content servers (jsDelivr and GitHub Pages).</li>
+    <li><strong>jsDelivr &amp; unpkg</strong> — content-delivery networks that serve some of the site's code libraries.</li>
     <li><strong>MyMemory</strong> — on-the-fly translation of long-form articles. <a class="inline" href="https://mymemory.translated.net/doc/en/privacy.php" target="_blank" rel="noopener">Privacy policy</a></li>
-    <li><strong>Google Fonts</strong> — the display font used for the site's logo and headings. <a class="inline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
   </ul>
+  <p>The site's display font is hosted on our own server, so no font request is sent to Google when you load a page.</p>
   <p>We share only what each service needs to do its job, and we keep the keys for these services on our server rather than in your browser. We are not responsible for the privacy practices of these third parties; we encourage you to review their policies.</p>
 
   <h2 id="sharing">6. How we share information</h2>
   <p>We do not sell, rent, or trade your personal information. We only share information in these limited situations: with the service providers listed above so they can perform their function; when required by law, legal process, or a valid government request; to protect the rights, safety, or property of the site, its visitors, or the public; or in connection with a transfer of the site to a new owner, in which case this policy would continue to apply.</p>
 
   <h2 id="rights">7. Your privacy rights (GDPR &amp; CCPA/CPRA)</h2>
-  <p>Depending on where you live, you may have rights over your personal information. Because we collect so little and do not maintain user accounts, in many cases we may not hold information that identifies you.</p>
+  <p>Depending on where you live, you may have rights over your personal information. If you never created an account, in most cases we hold nothing that identifies you.</p>
+  <p><strong>Delete your account yourself:</strong> if you have a profile, you can delete it at any time from your <a class="inline" href="profile.html">profile page</a>. Deleting your account permanently removes your email, profile details, and sign-in credentials, and makes any forum posts you made anonymous.</p>
 
   <h3>If you are in the European Economic Area or the UK (GDPR)</h3>
   <p>You have the right to access, correct, delete, or restrict the use of your personal data, to object to certain processing, and to data portability. Where we process data, we rely on legitimate interests (running and securing the site) and your consent (where applicable). You also have the right to lodge a complaint with your local data protection authority.</p>
@@ -214,7 +235,7 @@
   <p>To exercise any of these rights, contact us using the details in <a class="inline" href="#contact">Section 14</a>. We will respond within the time required by applicable law and may need to verify your request.</p>
 
   <h2 id="retention">8. Data retention</h2>
-  <p>We keep server logs only as long as needed for security and troubleshooting, after which they are deleted or anonymized. Email correspondence is kept as long as needed to address your request. Preferences stored in your browser remain until you clear them.</p>
+  <p>We keep server logs only as long as needed for security and troubleshooting, after which they are deleted or anonymized. Email correspondence is kept as long as needed to address your request. Preferences stored in your browser remain until you clear them. Account and profile information is kept until you delete your account (or ask us to); public forum posts remain after account deletion but are made anonymous.</p>
 
   <h2 id="security">9. Security</h2>
   <p>The site is served over encrypted HTTPS connections, and access keys for third-party services are stored securely on the server rather than exposed in the browser. While no method of transmission over the internet is ever completely secure, we take reasonable measures to protect the limited information we handle.</p>
@@ -234,7 +255,8 @@
   <h2 id="contact">14. Contact us</h2>
   <p>If you have questions about this Privacy Policy or how your information is handled, please get in touch:</p>
   <ul>
-    <li><strong>Email:</strong> <a class="inline" href="mailto:hello@neverroamalone.com">hello@neverroamalone.com</a></li>
+    <!-- TODO: switch to a @neverroamalone.com address once domain email is set up -->
+    <li><strong>Email:</strong> <a class="inline" href="mailto:jcwolinsky@gmail.com">jcwolinsky@gmail.com</a></li>
     <li><strong>Website:</strong> <a class="inline" href="index.html">neverroamalone.com</a></li>
   </ul>
 
