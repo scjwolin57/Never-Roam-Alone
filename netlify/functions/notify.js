@@ -16,7 +16,15 @@ exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
 
   const { SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL } = process.env;
+  // Log which config is present (booleans only — never log the secret values).
+  console.log("[notify] env present:", {
+    SUPABASE_URL: !!SUPABASE_URL,
+    SUPABASE_SERVICE_KEY: !!SUPABASE_SERVICE_KEY,
+    RESEND_API_KEY: !!RESEND_API_KEY,
+    SITE_URL: !!SITE_URL
+  });
   if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY || !RESEND_API_KEY) {
+    console.error("[notify] STOP: a required environment variable is missing (see booleans above).");
     return json(500, { error: "Server not configured for notifications." });
   }
 
@@ -25,7 +33,8 @@ exports.handler = async (event) => {
   const questionId = String(payload.questionId || "").trim();
   const replyName = String(payload.replyName || "A fellow Roamer").slice(0, 40);
   const replyPreview = String(payload.replyPreview || "").slice(0, 240);
-  if (!/^[0-9a-f-]{36}$/i.test(questionId)) return json(400, { error: "Bad question id" });
+  console.log("[notify] request for questionId:", questionId, "| replyName:", replyName);
+  if (!/^[0-9a-f-]{36}$/i.test(questionId)) { console.error("[notify] STOP: questionId is not a valid UUID:", questionId); return json(400, { error: "Bad question id" }); }
 
   const sbHeaders = { apikey: SUPABASE_SERVICE_KEY, Authorization: "Bearer " + SUPABASE_SERVICE_KEY };
 
@@ -34,15 +43,17 @@ exports.handler = async (event) => {
     const qr = await fetch(`${SUPABASE_URL}/rest/v1/questions?id=eq.${questionId}&select=title,user_id,name`, { headers: sbHeaders });
     const qs = await qr.json();
     const q = Array.isArray(qs) && qs[0];
-    if (!q) return json(404, { error: "Question not found" });
-    if (!q.user_id) return json(200, { sent: false, reason: "author has no account" });
+    console.log("[notify] question lookup:", { httpStatus: qr.status, found: !!q, hasAuthorAccount: !!(q && q.user_id) });
+    if (!q) { console.error("[notify] STOP: no question row found for that id (RLS or wrong id?)."); return json(404, { error: "Question not found" }); }
+    if (!q.user_id) { console.log("[notify] STOP: the question's author was NOT signed in — no account to email."); return json(200, { sent: false, reason: "author has no account" }); }
 
     // 2. author's email + notification preference
     const pr = await fetch(`${SUPABASE_URL}/rest/v1/profiles?id=eq.${q.user_id}&select=email,display_name,notify_replies`, { headers: sbHeaders });
     const ps = await pr.json();
     const p = Array.isArray(ps) && ps[0];
-    if (!p || !p.email) return json(200, { sent: false, reason: "no email on file" });
-    if (p.notify_replies === false) return json(200, { sent: false, reason: "notifications off" });
+    console.log("[notify] profile lookup:", { httpStatus: pr.status, found: !!p, hasEmail: !!(p && p.email), recipient: p && p.email, notify_replies: p && p.notify_replies });
+    if (!p || !p.email) { console.log("[notify] STOP: the author's profile has no email on file."); return json(200, { sent: false, reason: "no email on file" }); }
+    if (p.notify_replies === false) { console.log("[notify] STOP: the author turned reply notifications OFF."); return json(200, { sent: false, reason: "notifications off" }); }
 
     // 3. send the email through Resend
     const link = (SITE_URL || "https://neverroamalone.netlify.app") + "/askaroamer.html";
@@ -69,10 +80,14 @@ exports.handler = async (event) => {
     });
     if (!er.ok) {
       const detail = await er.text();
+      console.error("[notify] STOP: Resend rejected the email. HTTP", er.status, "detail:", detail.slice(0, 500));
       return json(502, { sent: false, error: "Email service error", detail: detail.slice(0, 300) });
     }
+    const okBody = await er.text();
+    console.log("[notify] SUCCESS: Resend accepted the email to", p.email, "| Resend response:", okBody.slice(0, 300));
     return json(200, { sent: true });
   } catch (e) {
+    console.error("[notify] STOP: threw an error:", (e && e.message) || e);
     return json(502, { sent: false, error: "Notification failed" });
   }
 };
