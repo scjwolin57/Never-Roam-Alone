@@ -129,7 +129,12 @@
   .btn:active{transform:translateY(1px)}
   .btn.secondary{background:transparent;color:var(--teal);padding:10px 14px}
   .btn.secondary:hover{background:rgba(14,124,134,.08)}
-  .ask-actions{display:flex;align-items:center;justify-content:flex-end;gap:12px;margin-top:6px}
+  .ask-actions{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:6px;flex-wrap:wrap}
+  .notify-opt{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink);cursor:pointer;user-select:none}
+  .notify-opt input{width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+  .notify-opt.disabled{opacity:.55;cursor:not-allowed}
+  .notify-opt.disabled input{cursor:not-allowed}
+  .notify-note{margin:8px 0 0;text-align:right;font-size:.78rem;color:var(--muted)}
 
   /* ---------- Active category banner ---------- */
   .cat-banner{display:flex;align-items:baseline;gap:10px;margin:0 2px 16px;flex-wrap:wrap}
@@ -330,8 +335,13 @@
           <textarea id="q-body" placeholder="Add any context — dates, budget, who you're traveling with, what you've already tried…" maxlength="1200"></textarea>
         </div>
         <div class="ask-actions">
+          <label class="notify-opt disabled" id="q-notify-wrap">
+            <input type="checkbox" id="q-notify" disabled />
+            <span>Email me when someone replies to my questions</span>
+          </label>
           <button class="btn" type="submit" id="post-btn">Post question</button>
         </div>
+        <p class="notify-note" id="q-notify-note">Sign in with a profile to get email notifications.</p>
       </form>
     </section>
 
@@ -871,6 +881,7 @@ askForm.addEventListener("submit", async (e)=>{
     body: document.getElementById("q-body").value
   });
   askForm.reset();
+  syncNotifyUI();   // reset() unchecks the box visually — restore it from the saved preference
   QUESTIONS = await ForumStore.list();
   sortEl.value = "newest";
   // jump to the category the question was filed under so the user sees it
@@ -893,6 +904,41 @@ function syncNameFields(){
   document.querySelectorAll(".rf-name").forEach(i => { i.placeholder = dn ? dn : "Your name (optional)"; });
 }
 
+/* ---- reply-notification checkbox (next to Post question) ----
+   Reflects the signed-in user's profile preference. Email notifications
+   require a profile, so the box is disabled (with a note) when signed out. */
+function syncNotifyUI(){
+  const wrap = document.getElementById("q-notify-wrap");
+  const box  = document.getElementById("q-notify");
+  const note = document.getElementById("q-notify-note");
+  if (!wrap || !box || !note) return;
+  const auth = window.NRA_AUTH;
+  const signedIn = !!(auth && auth.enabled && auth.user());
+  if (signedIn){
+    box.disabled = false;
+    box.checked = auth.notifyReplies ? auth.notifyReplies() : true;
+    wrap.classList.remove("disabled");
+    note.style.display = "none";
+  } else {
+    box.checked = false;
+    box.disabled = true;
+    wrap.classList.add("disabled");
+    note.style.display = "";
+  }
+}
+(function wireNotifyBox(){
+  const box = document.getElementById("q-notify");
+  if (!box) return;
+  box.addEventListener("change", async () => {
+    if (!window.NRA_AUTH || !NRA_AUTH.user()){ box.checked = false; return; }
+    const want = box.checked;
+    box.disabled = true;
+    const ok = await NRA_AUTH.setNotify(want);
+    box.disabled = false;
+    if (!ok) box.checked = !want;   // revert if the save failed
+  });
+})();
+
 /* ---- boot: use the shared community store when Supabase is connected ---- */
 (async function init(){
   if (window.NRA_AUTH){
@@ -907,7 +953,7 @@ function syncNameFields(){
         if (foot) foot.textContent = "Community Q&A · posts are shared with all Roamers";
       }catch(e){ /* database unreachable — stay in guest mode */ }
     }
-    NRA_AUTH.onChange(() => { syncNameFields(); });
+    NRA_AUTH.onChange(() => { syncNameFields(); syncNotifyUI(); });
   }
   QUESTIONS = await ForumStore.list();
   VOTES = ForumStore.votes();
@@ -915,6 +961,7 @@ function syncNameFields(){
   renderCitySelect();
   applyView();
   syncNameFields();
+  syncNotifyUI();
 })();
 </script>
 <script src="nav.js"></script>

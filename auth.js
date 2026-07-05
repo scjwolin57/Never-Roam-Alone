@@ -6,6 +6,9 @@
      • magic link (we email you a sign-in link — no password)
      • Google
 
+   Also handles: create account (with confirm-password), forgot password
+   (dedicated email-only view) → reset screen, and resend-confirmation.
+
    If nra-config.js has no Supabase keys, this module stays dormant and
    the site runs in guest mode. Login is always optional (criterion 17).
 
@@ -19,6 +22,16 @@ window.NRA_AUTH = (function(){
   let sb = null, session = null, profile = null;
   const listeners = [];
   let readyResolve; const readyP = new Promise(res => readyResolve = res);
+
+  /* Capture the "arrived from a password-reset email" marker NOW, at script load,
+     because the Supabase library strips it from the address once it processes it. */
+  const arrivedFromRecovery = /type=recovery/.test(location.hash) || /type=recovery/.test(location.search);
+  let recoveryShown = false;
+  function showRecoveryOnce(){
+    if (recoveryShown) return;
+    recoveryShown = true;
+    openRecoveryModal();
+  }
 
   function onChange(cb){ listeners.push(cb); }
   function emit(){ listeners.forEach(cb => { try{ cb(session, profile); }catch(e){} }); renderWidget(); }
@@ -39,7 +52,9 @@ window.NRA_AUTH = (function(){
   async function fetchProfile(){
     if (!sb || !session) { profile = null; return; }
     try{
-      const { data } = await sb.from("profiles").select("display_name,email,notify_replies").eq("id", session.user.id).single();
+      const { data } = await sb.from("profiles")
+        .select("display_name,email,notify_replies,bio,home_city,home_country,travel_style,travel_company,website,instagram,avatar_url")
+        .eq("id", session.user.id).single();
       profile = data || null;
     }catch(e){ profile = null; }
   }
@@ -49,14 +64,21 @@ window.NRA_AUTH = (function(){
     try{
       await loadLib();
       sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
-      const { data } = await sb.auth.getSession();
-      session = data ? data.session : null;
-      await fetchProfile();
+      // Listen for auth events IMMEDIATELY — before any awaits — so the
+      // PASSWORD_RECOVERY event (which fires while the library is still
+      // processing the reset link) can't slip past us.
       sb.auth.onAuthStateChange(async (evt, s) => {
         session = s; await fetchProfile(); emit();
         // User arrived from a password-reset email link — let them choose a new password.
-        if (evt === "PASSWORD_RECOVERY") openRecoveryModal();
+        if (evt === "PASSWORD_RECOVERY") showRecoveryOnce();
       });
+      const { data } = await sb.auth.getSession();
+      session = data ? data.session : null;
+      await fetchProfile();
+      // Backup for the same case: if the page address carried the reset marker
+      // and we're signed in, show the new-password screen even if the event
+      // was somehow missed.
+      if (arrivedFromRecovery && session) showRecoveryOnce();
     }catch(e){ sb = null; session = null; }
     readyResolve();
     emit();
@@ -137,16 +159,17 @@ window.NRA_AUTH = (function(){
     }
     if (session){
       const name = (profile && profile.display_name) || session.user.email;
-      const notify = profile ? profile.notify_replies !== false : true;
+      // NOTE: the "email me when someone replies" checkbox now lives next to the
+      // Post question button on askaroamer.html (wired via NRA_AUTH.setNotify /
+      // NRA_AUTH.notifyReplies). It is intentionally no longer in this widget.
       el.innerHTML = `<div class="nra-acct">
         <div class="who-row"><span class="av">${esc(initials(name))}</span>
           <span class="nm">${esc(name)}<span class="em">${esc(session.user.email||"")}</span></span></div>
-        <label class="nra-check"><input type="checkbox" id="nra-notify" ${notify?"checked":""}>
-          <span>Email me when someone replies to my questions</span></label>
-        <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-signout">Sign out</button></div>
+        <div class="nra-row-btns">
+          <a class="nra-btn" href="profile.html" id="nra-edit-profile">Edit profile</a>
+          <button class="nra-btn ghost" id="nra-signout">Sign out</button>
+        </div>
       </div>`;
-      const box = el.querySelector("#nra-notify");
-      if (box) box.addEventListener("change", () => setNotify(box.checked));
       el.querySelector("#nra-signout").addEventListener("click", signOut);
     } else {
       el.innerHTML = `<div class="nra-acct"><strong>Join the community</strong>
@@ -254,7 +277,7 @@ window.NRA_AUTH = (function(){
         try{
           if (signupMode){
             const dn = bg.querySelector("#nra-dn").value.trim();
-            const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] } } });
+            const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] }, emailRedirectTo: pageUrl() } });
             if (error) throw error;
             msg("Account created! Check your email to confirm, then sign in.");
           } else {
@@ -366,9 +389,34 @@ window.NRA_AUTH = (function(){
   }
 
   async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; emit(); }
+  /* Save the reply-notification preference on the user's profile.
+     Returns true on success, false if not signed in or the update failed —
+     so callers (e.g. the checkbox on askaroamer.html) can revert on failure. */
   async function setNotify(on){
-    if (!sb || !session) return;
-    try{ await sb.from("profiles").update({ notify_replies: !!on }).eq("id", session.user.id); if (profile) profile.notify_replies = !!on; }catch(e){}
+    if (!sb || !session) return false;
+    try{
+      const { error } = await sb.from("profiles").update({ notify_replies: !!on }).eq("id", session.user.id);
+      if (error) return false;
+      if (profile) profile.notify_replies = !!on;
+      return true;
+    }catch(e){ return false; }
+  }
+
+  /* Save profile fields (display name, bio, home city/country, travel style, socials).
+     Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
+  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url"];
+  async function updateProfile(fields){
+    if (!sb || !session) return { ok:false, error:"You need to be signed in." };
+    const patch = {};
+    PROFILE_FIELDS.forEach(k => { if (Object.prototype.hasOwnProperty.call(fields, k)) patch[k] = fields[k]; });
+    if (!Object.keys(patch).length) return { ok:true };
+    try{
+      const { error } = await sb.from("profiles").update(patch).eq("id", session.user.id);
+      if (error) return { ok:false, error:error.message || "Couldn't save your profile." };
+      profile = Object.assign({}, profile, patch);
+      emit();
+      return { ok:true };
+    }catch(e){ return { ok:false, error:"Couldn't reach the server — try again." }; }
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
@@ -380,6 +428,10 @@ window.NRA_AUTH = (function(){
     client: () => sb,
     user: () => session ? session.user : null,
     displayName: () => (profile && profile.display_name) || (session ? session.user.email : ""),
+    // Current "email me when someone replies" preference (defaults to on when signed in).
+    notifyReplies: () => profile ? profile.notify_replies !== false : true,
+    profile: () => profile,
+    updateProfile,
     onChange,
     signOut,
     setNotify,

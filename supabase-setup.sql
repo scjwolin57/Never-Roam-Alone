@@ -11,6 +11,14 @@ create table public.profiles (
   email text,
   display_name text,
   notify_replies boolean not null default true,
+  bio text,
+  home_city text,
+  home_country text,
+  travel_style text,     -- e.g. Budget / Mid-range / Luxury
+  travel_company text,   -- e.g. Solo / Couple / Group / Family
+  website text,
+  instagram text,
+  avatar_url text,       -- reserved for a future uploaded photo (unused for now)
   created_at timestamptz not null default now()
 );
 alter table public.profiles enable row level security;
