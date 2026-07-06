@@ -43,6 +43,7 @@ window.NRA_TRANSPORT = (function(){
     "Iran":"eurasia","Iraq":"eurasia","United Arab Emirates":"eurasia","Saudi Arabia":"eurasia","Qatar":"eurasia",
     "Oman":"eurasia","Kuwait":"eurasia","Bahrain":"eurasia","Jordan":"eurasia","Israel":"eurasia","Lebanon":"eurasia",
     "Kazakhstan":"eurasia","Uzbekistan":"eurasia","Georgia":"eurasia","Armenia":"eurasia","Azerbaijan":"eurasia",
+    "UAE":"eurasia","Estonia":"eurasia","Latvia":"eurasia","Lithuania":"eurasia",
     // North & Central America
     "United States":"n-america","Canada":"n-america","Mexico":"n-america","Guatemala":"n-america",
     "Belize":"n-america","Honduras":"n-america","El Salvador":"n-america","Nicaragua":"n-america",
