@@ -446,7 +446,229 @@ const CITIES = [
    langs:[{l:"Spanish",p:88},{l:"Mayan",p:8},{l:"English",p:4}]},
   {city:"Marrakech",country:"Morocco",visitors:3.0,pop:"1.1M",lat:31.6295,lng:-7.9811,tagline:"A maze of souks, spice, and rooftop sunsets.",
    temps:{q1:63,q2:84,q3:100,q4:73},
-   langs:[{l:"Darija",p:65},{l:"Tamazight",p:30},{l:"French",p:20}]}
+   langs:[{l:"Darija",p:65},{l:"Tamazight",p:30},{l:"French",p:20}]},
+  {city:"Madrid",country:"Spain",visitors:7.0,pop:"3.3M",lat:40.4168,lng:-3.7038,tagline:"Golden light, late nights, and endless plazas",est:true,
+   temps:{q1:55,q2:74,q3:86,q4:58},
+   langs:[{l:"Spanish",p:98},{l:"English",p:27}]},
+  {city:"Taipei",country:"Taiwan",visitors:7.0,pop:"2.6M",lat:25.033,lng:121.565,tagline:"Neon night markets beneath misty green mountains",est:true,
+   temps:{q1:67,q2:83,q3:91,q4:76},
+   langs:[{l:"Mandarin",p:96},{l:"Taiwanese Hokkien",p:65},{l:"English",p:15}]},
+  {city:"Berlin",country:"Germany",visitors:6.0,pop:"3.7M",lat:52.52,lng:13.405,tagline:"Techno, history, and reinvention on every corner",est:true,
+   temps:{q1:42,q2:65,q3:72,q4:47},
+   langs:[{l:"German",p:95},{l:"English",p:56},{l:"Turkish",p:10}]},
+  {city:"Melbourne",country:"Australia",visitors:3.4,pop:"5.2M",lat:-37.8136,lng:144.963,tagline:"Laneway coffee, street art, and easy cool",est:true,
+   temps:{q1:78,q2:62,q3:59,q4:72},
+   langs:[{l:"English",p:90},{l:"Mandarin",p:4},{l:"Greek",p:2}]},
+  {city:"Munich",country:"Germany",visitors:4.1,pop:"1.5M",lat:48.1351,lng:11.582,tagline:"Beer gardens, baroque spires, and Alpine air",
+   temps:{q1:43,q2:65,q3:73,q4:47},
+   langs:[{l:"German",p:95},{l:"English",p:50},{l:"Turkish",p:6}]},
+  {city:"Las Vegas",country:"United States",visitors:5.5,pop:"660K",lat:36.1699,lng:-115.14,tagline:"Desert neon where the night never sleeps",est:true,
+   temps:{q1:64,q2:90,q3:100,q4:69},
+   langs:[{l:"English",p:80},{l:"Spanish",p:30},{l:"Tagalog",p:5}]},
+  {city:"Florence",country:"Italy",visitors:5.1,pop:"360K",lat:43.7696,lng:11.2558,tagline:"Renaissance beauty carved in stone and light",
+   temps:{q1:55,q2:75,q3:86,q4:59},
+   langs:[{l:"Italian",p:97},{l:"English",p:30}]},
+  {city:"Dublin",country:"Ireland",visitors:5.5,pop:"1.2M",lat:53.3498,lng:-6.2603,tagline:"Literary pubs and warm rain-soaked charm",est:true,
+   temps:{q1:48,q2:60,q3:66,q4:52},
+   langs:[{l:"English",p:98},{l:"Irish",p:40},{l:"Polish",p:3}]},
+  {city:"Kyoto",country:"Japan",visitors:8.0,pop:"1.5M",lat:35.0116,lng:135.768,tagline:"Temples, geisha lanes, and quiet raked gardens",est:true,
+   temps:{q1:52,q2:76,q3:89,q4:62},
+   langs:[{l:"Japanese",p:99},{l:"English",p:15}]},
+  {city:"Lisbon",country:"Portugal",visitors:4.5,pop:"550K",lat:38.7223,lng:-9.1393,tagline:"Tiled hills, fado, and the shimmering Tagus",est:true,
+   temps:{q1:61,q2:72,q3:81,q4:64},
+   langs:[{l:"Portuguese",p:96},{l:"English",p:27},{l:"Spanish",p:10}]},
+  {city:"Venice",country:"Italy",visitors:5.5,pop:"260K",lat:45.4408,lng:12.3155,tagline:"Canals, palazzos, and light on the water",
+   temps:{q1:51,q2:72,q3:80,q4:55},
+   langs:[{l:"Italian",p:96},{l:"English",p:30}]},
+  {city:"Athens",country:"Greece",visitors:6.5,pop:"3.1M",lat:37.9838,lng:23.7275,tagline:"Ancient marble beneath the Mediterranean sun",est:true,
+   temps:{q1:57,q2:77,q3:89,q4:65},
+   langs:[{l:"Greek",p:99},{l:"English",p:35}]},
+  {city:"Orlando",country:"United States",visitors:5.5,pop:"310K",lat:28.5383,lng:-81.3792,tagline:"Theme-park magic under endless Florida sun",
+   temps:{q1:75,q2:88,q3:91,q4:79},
+   langs:[{l:"English",p:72},{l:"Spanish",p:25},{l:"Haitian Creole",p:2}]},
+  {city:"Toronto",country:"Canada",visitors:4.0,pop:"2.8M",lat:43.6532,lng:-79.3832,tagline:"Lakeside towers and the world in one city",est:true,
+   temps:{q1:34,q2:64,q3:77,q4:46},
+   langs:[{l:"English",p:82},{l:"Mandarin",p:6},{l:"Cantonese",p:5}]},
+  {city:"Miami",country:"United States",visitors:7.0,pop:"440K",lat:25.7617,lng:-80.1918,tagline:"Art deco, ocean breeze, and Latin rhythm",est:true,
+   temps:{q1:78,q2:86,q3:90,q4:81},
+   langs:[{l:"Spanish",p:65},{l:"English",p:55},{l:"Haitian Creole",p:6}]},
+  {city:"San Francisco",country:"United States",visitors:2.6,pop:"810K",lat:37.7749,lng:-122.419,tagline:"Fog-wrapped hills, tech dreams, Golden Gate.",est:true,
+   temps:{q1:60,q2:64,q3:68,q4:63},
+   langs:[{l:"English",p:88},{l:"Spanish",p:20},{l:"Chinese",p:12}]},
+  {city:"Shanghai",country:"China",visitors:6.7,pop:"24.9M",lat:31.2304,lng:121.474,tagline:"Neon skyline where East meets futuristic ambition.",
+   temps:{q1:51,q2:75,q3:87,q4:63},
+   langs:[{l:"Mandarin",p:95},{l:"Shanghainese",p:40},{l:"English",p:8}]},
+  {city:"Frankfurt am Main",country:"Germany",visitors:3.5,pop:"770K",lat:50.1109,lng:8.6821,tagline:"Germany's skyline of finance and old charm.",est:true,
+   temps:{q1:45,q2:67,q3:74,q4:48},
+   langs:[{l:"German",p:88},{l:"English",p:30},{l:"Turkish",p:7}]},
+  {city:"Copenhagen",country:"Denmark",visitors:3.0,pop:"660K",lat:55.6761,lng:12.5683,tagline:"Cycling, design, and cozy Nordic hygge.",est:true,
+   temps:{q1:39,q2:59,q3:68,q4:46},
+   langs:[{l:"Danish",p:90},{l:"English",p:65},{l:"German",p:10}]},
+  {city:"Zurich",country:"Switzerland",visitors:2.0,pop:"440K",lat:47.3769,lng:8.5417,tagline:"Alpine elegance, banking, pristine lakeside living.",est:true,
+   temps:{q1:43,q2:66,q3:74,q4:47},
+   langs:[{l:"German",p:82},{l:"English",p:25},{l:"Italian",p:6}]},
+  {city:"Washington, D.C.",country:"United States",visitors:1.8,pop:"670K",lat:38.9072,lng:-77.0369,tagline:"Monuments, marble, and the pulse of power.",est:true,
+   temps:{q1:49,q2:76,q3:85,q4:58},
+   langs:[{l:"English",p:84},{l:"Spanish",p:9},{l:"French",p:3}]},
+  {city:"Pattaya-Chonburi",country:"Thailand",visitors:7.0,pop:"120K",lat:12.9236,lng:100.882,tagline:"Beaches, nightlife, and endless tropical energy.",est:true,
+   temps:{q1:89,q2:92,q3:90,q4:88},
+   langs:[{l:"Thai",p:90},{l:"English",p:12},{l:"Chinese",p:5}]},
+  {city:"Vancouver",country:"Canada",visitors:3.5,pop:"675K",lat:49.2827,lng:-123.121,tagline:"Mountains meet ocean in glassy Pacific splendor.",est:true,
+   temps:{q1:48,q2:63,q3:71,q4:50},
+   langs:[{l:"English",p:84},{l:"Chinese",p:18},{l:"Punjabi",p:6}]},
+  {city:"Stockholm",country:"Sweden",visitors:2.5,pop:"980K",lat:59.3293,lng:18.0686,tagline:"Fourteen islands of Scandinavian style and water.",est:true,
+   temps:{q1:32,q2:57,q3:66,q4:40},
+   langs:[{l:"Swedish",p:90},{l:"English",p:70},{l:"Finnish",p:4}]},
+  {city:"Mexico City",country:"Mexico",visitors:10.5,pop:"21.8M",lat:19.4326,lng:-99.1332,tagline:"Ancient Aztec roots beneath vibrant sprawling metropolis.",est:true,
+   temps:{q1:73,q2:78,q3:74,q4:71},
+   langs:[{l:"Spanish",p:98},{l:"English",p:10},{l:"Nahuatl",p:2}]},
+  {city:"Oslo",country:"Norway",visitors:1.5,pop:"700K",lat:59.9139,lng:10.7522,tagline:"Fjords, forests, and sleek Nordic modernity.",est:true,
+   temps:{q1:34,q2:59,q3:66,q4:39},
+   langs:[{l:"Norwegian",p:88},{l:"English",p:65},{l:"Swedish",p:3}]},
+  {city:"São Paulo",country:"Brazil",visitors:2.0,pop:"12.3M",lat:-23.5558,lng:-46.6396,tagline:"Brazil's boundless concrete jungle that never sleeps.",est:true,
+   temps:{q1:82,q2:75,q3:75,q4:79},
+   langs:[{l:"Portuguese",p:98},{l:"English",p:8},{l:"Spanish",p:4}]},
+  {city:"Helsinki",country:"Finland",visitors:1.5,pop:"660K",lat:60.1699,lng:24.9384,tagline:"Baltic design capital of light and calm.",est:true,
+   temps:{q1:29,q2:54,q3:64,q4:38},
+   langs:[{l:"Finnish",p:80},{l:"English",p:60},{l:"Swedish",p:6}]},
+  {city:"Brussels",country:"Belgium",visitors:3.5,pop:"1.2M",lat:50.8503,lng:4.3517,tagline:"Waffles, art nouveau, and Europe's beating heart.",est:true,
+   temps:{q1:46,q2:64,q3:71,q4:50},
+   langs:[{l:"French",p:78},{l:"Dutch",p:15},{l:"English",p:30}]},
+  {city:"Budapest",country:"Hungary",visitors:4.0,pop:"1.7M",lat:47.4979,lng:19.0402,tagline:"Thermal baths on the majestic blue Danube.",est:true,
+   temps:{q1:41,q2:70,q3:79,q4:48},
+   langs:[{l:"Hungarian",p:95},{l:"English",p:25},{l:"German",p:12}]},
+  {city:"Guangzhou",country:"China",visitors:6.0,pop:"15.3M",lat:23.1291,lng:113.264,tagline:"Cantonese trade hub of dim sum and towers.",est:true,
+   temps:{q1:67,q2:84,q3:91,q4:76},
+   langs:[{l:"Mandarin",p:90},{l:"Cantonese",p:55},{l:"English",p:8}]},
+  {city:"Nice",country:"France",visitors:2.5,pop:"343K",lat:43.7031,lng:7.2661,tagline:"Sun-drenched jewel of the French Riviera.",est:true,
+   temps:{q1:56,q2:70,q3:81,q4:62},
+   langs:[{l:"French",p:95},{l:"English",p:20},{l:"Italian",p:8}]},
+  {city:"Palma de Mallorca",country:"Spain",visitors:9.0,pop:"420K",lat:39.5696,lng:2.6502,tagline:"Mediterranean island capital of light and cathedrals.",est:true,
+   temps:{q1:61,q2:73,q3:84,q4:67},
+   langs:[{l:"Spanish",p:95},{l:"Catalan",p:60},{l:"English",p:25}]},
+  {city:"Honolulu",country:"United States",visitors:2.0,pop:"350K",lat:21.3069,lng:-157.858,tagline:"Pacific paradise of surf and aloha spirit.",est:true,
+   temps:{q1:80,q2:84,q3:89,q4:84},
+   langs:[{l:"English",p:90},{l:"Tagalog",p:6},{l:"Japanese",p:5}]},
+  {city:"Beijing",country:"China",visitors:3.5,pop:"21.9M",lat:39.9042,lng:116.407,tagline:"Imperial capital where dynasties meet modern China.",est:true,
+   temps:{q1:44,q2:78,q3:84,q4:52},
+   langs:[{l:"Mandarin",p:98},{l:"English",p:10}]},
+  {city:"Warsaw",country:"Poland",visitors:3.0,pop:"1.86M",lat:52.2297,lng:21.0122,tagline:"Phoenix city rebuilt with Polish resilience.",est:true,
+   temps:{q1:36,q2:64,q3:71,q4:44},
+   langs:[{l:"Polish",p:97},{l:"English",p:30},{l:"Ukrainian",p:10}]},
+  {city:"Seville",country:"Spain",visitors:3.0,pop:"684K",lat:37.3891,lng:-5.9845,tagline:"Andalusian soul of flamenco and orange blossom.",est:true,
+   temps:{q1:65,q2:82,q3:95,q4:70},
+   langs:[{l:"Spanish",p:98},{l:"English",p:20}]},
+  {city:"Valencia",country:"Spain",visitors:2.2,pop:"800K",lat:39.4699,lng:-0.3763,tagline:"Sunlit coast, paella, and futuristic architecture.",est:true,
+   temps:{q1:63,q2:76,q3:86,q4:68},
+   langs:[{l:"Spanish",p:95},{l:"Valencian",p:50},{l:"English",p:20}]},
+  {city:"Shenzhen",country:"China",visitors:10.0,pop:"17.6M",lat:22.5431,lng:114.058,tagline:"China's futuristic tech boomtown by the sea.",est:true,
+   temps:{q1:67,q2:84,q3:90,q4:77},
+   langs:[{l:"Mandarin",p:95},{l:"Cantonese",p:40},{l:"English",p:10}]},
+  {city:"Doha",country:"Qatar",visitors:5.0,pop:"2.4M",lat:25.2854,lng:51.531,tagline:"Gleaming desert metropolis on the Gulf.",
+   temps:{q1:76,q2:99,q3:105,q4:85},
+   langs:[{l:"Arabic",p:55},{l:"English",p:45},{l:"Hindi",p:25}]},
+  {city:"Abu Dhabi",country:"UAE",visitors:5.0,pop:"1.5M",lat:24.4539,lng:54.3773,tagline:"Grand mosques and oil-rich Gulf splendor.",
+   temps:{q1:79,q2:99,q3:105,q4:87},
+   langs:[{l:"Arabic",p:50},{l:"English",p:45},{l:"Hindi",p:30}]},
+  {city:"Fukuoka",country:"Japan",visitors:3.0,pop:"1.6M",lat:33.5904,lng:130.402,tagline:"Japan's gateway to ramen and island warmth.",est:true,
+   temps:{q1:54,q2:75,q3:87,q4:64},
+   langs:[{l:"Japanese",p:98},{l:"English",p:8},{l:"Korean",p:5}]},
+  {city:"Sapporo",country:"Japan",visitors:2.0,pop:"1.97M",lat:43.0618,lng:141.355,tagline:"Snowy northern city of beer and festivals.",est:true,
+   temps:{q1:34,q2:62,q3:76,q4:47},
+   langs:[{l:"Japanese",p:99},{l:"English",p:6}]},
+  {city:"Busan",country:"South Korea",visitors:3.0,pop:"3.3M",lat:35.1796,lng:129.076,tagline:"Korea's coastal city of beaches and seafood.",
+   temps:{q1:50,q2:70,q3:82,q4:61},
+   langs:[{l:"Korean",p:98},{l:"English",p:8}]},
+  {city:"Edinburgh",country:"United Kingdom",visitors:2.5,pop:"530K",lat:55.9533,lng:-3.1883,tagline:"Scotland's storied capital of castles and festivals.",est:true,
+   temps:{q1:46,q2:58,q3:64,q4:50},
+   langs:[{l:"English",p:95},{l:"Scots",p:30},{l:"Gaelic",p:1}]},
+  {city:"Montreal",country:"Canada",visitors:3.0,pop:"1.8M",lat:45.5019,lng:-73.5674,tagline:"Joie de vivre where Europe meets North America.",est:true,
+   temps:{q1:27,q2:63,q3:75,q4:42},
+   langs:[{l:"French",p:65},{l:"English",p:30},{l:"Spanish",p:3}]},
+  {city:"Bologna",country:"Italy",visitors:1.5,pop:"390K",lat:44.4949,lng:11.3426,tagline:"Medieval towers, porticoes, and legendary cuisine.",est:true,
+   temps:{q1:50,q2:73,q3:84,q4:55},
+   langs:[{l:"Italian",p:95},{l:"English",p:3}]},
+  {city:"Rhodes",country:"Greece",visitors:2.5,pop:"50K",lat:36.4349,lng:28.2176,tagline:"Medieval knights' city on a sun-soaked isle.",est:true,
+   temps:{q1:60,q2:76,q3:86,q4:69},
+   langs:[{l:"Greek",p:90},{l:"English",p:6}]},
+  {city:"Verona",country:"Italy",visitors:3.0,pop:"257K",lat:45.4384,lng:10.9916,tagline:"Romeo and Juliet's romantic Roman city.",est:true,
+   temps:{q1:51,q2:73,q3:83,q4:55},
+   langs:[{l:"Italian",p:95},{l:"English",p:3}]},
+  {city:"Delhi",country:"India",visitors:3.0,pop:"33M",lat:28.6139,lng:77.209,tagline:"Ancient empires and chaos in India's capital.",est:true,
+   temps:{q1:77,q2:101,q3:94,q4:83},
+   langs:[{l:"Hindi",p:80},{l:"English",p:10},{l:"Punjabi",p:7}]},
+  {city:"Porto",country:"Portugal",visitors:3.5,pop:"1.7M",lat:41.1579,lng:-8.6291,tagline:"Port wine, azulejos, and riverside romance.",est:true,
+   temps:{q1:59,q2:68,q3:77,q4:63},
+   langs:[{l:"Portuguese",p:95},{l:"English",p:4}]},
+  {city:"Ho Chi Minh City",country:"Vietnam",visitors:6.0,pop:"9.3M",lat:10.7769,lng:106.701,tagline:"Frenetic energy, street food, and wartime history.",est:true,
+   temps:{q1:92,q2:93,q3:89,q4:89},
+   langs:[{l:"Vietnamese",p:95},{l:"English",p:4}]},
+  {city:"Buenos Aires",country:"Argentina",visitors:3.0,pop:"3.1M",lat:-34.6037,lng:-58.3816,tagline:"Tango, steak, and grand European boulevards.",est:true,
+   temps:{q1:82,q2:64,q3:61,q4:76},
+   langs:[{l:"Spanish",p:97},{l:"English",p:2}]},
+  {city:"Marne-la-Vallée",country:"France",visitors:15.8,pop:"330K",lat:48.8674,lng:2.7836,tagline:"The magic of Disneyland east of Paris.",est:true,
+   temps:{q1:49,q2:67,q3:75,q4:52},
+   langs:[{l:"French",p:92},{l:"English",p:5}]},
+  {city:"Kraków",country:"Poland",visitors:2.3,pop:"800K",lat:50.0647,lng:19.945,tagline:"Poland's regal heart of history and legend.",
+   temps:{q1:38,q2:65,q3:72,q4:44},
+   langs:[{l:"Polish",p:96},{l:"English",p:3}]},
+  {city:"Heraklion",country:"Greece",visitors:3.5,pop:"180K",lat:35.3387,lng:25.1442,tagline:"Gateway to Crete and ancient Minoan Knossos.",est:true,
+   temps:{q1:62,q2:77,q3:86,q4:69},
+   langs:[{l:"Greek",p:94},{l:"English",p:4}]},
+  {city:"Johor Bahru",country:"Malaysia",visitors:16.0,pop:"1.7M",lat:1.4927,lng:103.741,tagline:"Malaysia's vibrant southern gateway to Singapore.",est:true,
+   temps:{q1:89,q2:91,q3:90,q4:89},
+   langs:[{l:"Malay",p:45},{l:"Chinese",p:40},{l:"Tamil",p:8}]},
+  {city:"Hanoi",country:"Vietnam",visitors:6.3,pop:"8.5M",lat:21.0278,lng:105.834,tagline:"Ancient temples and buzzing motorbike-filled boulevards.",est:true,
+   temps:{q1:71,q2:88,q3:91,q4:77},
+   langs:[{l:"Vietnamese",p:97},{l:"English",p:3}]},
+  {city:"Tel Aviv",country:"Israel",visitors:1.0,pop:"475K",lat:32.0853,lng:34.7818,tagline:"Mediterranean beaches, nightlife, and startup energy.",est:true,
+   temps:{q1:65,q2:78,q3:85,q4:73},
+   langs:[{l:"Hebrew",p:80},{l:"Arabic",p:10},{l:"English",p:6}]},
+  {city:"Sharjah",country:"UAE",visitors:1.6,pop:"1.8M",lat:25.3463,lng:55.4209,tagline:"The UAE's cultural and heritage capital.",
+   temps:{q1:80,q2:99,q3:105,q4:87},
+   langs:[{l:"Arabic",p:45},{l:"Urdu",p:30},{l:"English",p:15}]},
+  {city:"Thessaloniki",country:"Greece",visitors:2.5,pop:"1M",lat:40.6401,lng:22.9444,tagline:"Byzantine seafront city of warm hospitality",est:true,
+   temps:{q1:52,q2:75,q3:87,q4:60},
+   langs:[{l:"Greek",p:99},{l:"English",p:45}]},
+  {city:"Lima",country:"Peru",visitors:2.5,pop:"10.9M",lat:-12.0464,lng:-77.0428,tagline:"Coastal capital of ceviche and colonial grandeur",est:true,
+   temps:{q1:80,q2:71,q3:66,q4:71},
+   langs:[{l:"Spanish",p:85},{l:"Quechua",p:10},{l:"English",p:12}]},
+  {city:"Medina",country:"Saudi Arabia",visitors:9.0,pop:"1.5M",lat:24.4672,lng:39.6142,tagline:"Islam's radiant second holiest city",est:true,
+   temps:{q1:81,q2:102,q3:109,q4:89},
+   langs:[{l:"Arabic",p:95},{l:"English",p:20}]},
+  {city:"Tbilisi",country:"Georgia",visitors:2.5,pop:"1.2M",lat:41.7151,lng:44.8271,tagline:"Sulfur baths and cobbled old-town charm",est:true,
+   temps:{q1:51,q2:76,q3:87,q4:57},
+   langs:[{l:"Georgian",p:85},{l:"Russian",p:25},{l:"English",p:15}]},
+  {city:"Riyadh",country:"Saudi Arabia",visitors:5.0,pop:"7.7M",lat:24.7136,lng:46.6753,tagline:"Desert capital reinventing itself skyward",est:true,
+   temps:{q1:74,q2:101,q3:109,q4:84},
+   langs:[{l:"Arabic",p:93},{l:"English",p:25}]},
+  {city:"Tallinn",country:"Estonia",visitors:1.9,pop:"460K",lat:59.437,lng:24.7536,tagline:"Fairytale medieval towers meet Baltic tech",est:true,
+   temps:{q1:32,q2:59,q3:68,q4:40},
+   langs:[{l:"Estonian",p:85},{l:"Russian",p:30},{l:"English",p:40}]},
+  {city:"Mecca",country:"Saudi Arabia",visitors:18.7,pop:"2M",lat:21.4225,lng:39.8262,tagline:"Islam's holiest city, heart of Hajj",
+   temps:{q1:91,q2:107,q3:111,q4:97},
+   langs:[{l:"Arabic",p:95},{l:"English",p:20}]},
+  {city:"Denpasar",country:"Indonesia",visitors:6.3,pop:"725K",lat:-8.6705,lng:115.213,tagline:"Island of temples, surf, and rice terraces",est:true,
+   temps:{q1:88,q2:88,q3:88,q4:88},
+   langs:[{l:"Balinese",p:75},{l:"Indonesian",p:95},{l:"English",p:25}]},
+  {city:"Punta Cana",country:"Dominican Republic",visitors:4.5,pop:"100K",lat:18.5601,lng:-68.3725,tagline:"All-inclusive beaches on the Caribbean coast",est:true,
+   temps:{q1:84,q2:88,q3:89,q4:86},
+   langs:[{l:"Spanish",p:95},{l:"English",p:25}]},
+  {city:"Santiago",country:"Chile",visitors:2.5,pop:"7M",lat:-33.4489,lng:-70.6693,tagline:"Andes-backed metropolis of wine and culture",est:true,
+   temps:{q1:82,q2:66,q3:62,q4:78},
+   langs:[{l:"Spanish",p:98},{l:"English",p:15}]},
+  {city:"Vilnius",country:"Lithuania",visitors:1.2,pop:"580K",lat:54.6872,lng:25.2797,tagline:"Baroque old town wrapped in green hills",est:true,
+   temps:{q1:32,q2:64,q3:70,q4:40},
+   langs:[{l:"Lithuanian",p:85},{l:"Russian",p:12},{l:"Polish",p:6}]},
+  {city:"Jerusalem",country:"Israel",visitors:2.0,pop:"980K",lat:31.7683,lng:35.2137,tagline:"Sacred city holy to three faiths",est:true,
+   temps:{q1:57,q2:76,q3:84,q4:68},
+   langs:[{l:"Hebrew",p:85},{l:"Arabic",p:37},{l:"English",p:40}]},
+  {city:"Zhuhai",country:"China",visitors:1.5,pop:"2.4M",lat:22.2707,lng:113.577,tagline:"Seaside gateway to Macau and gardens",est:true,
+   temps:{q1:67,q2:83,q3:90,q4:76},
+   langs:[{l:"Mandarin",p:90},{l:"Cantonese",p:40},{l:"English",p:10}]},
+  {city:"Cairo",country:"Egypt",visitors:9.0,pop:"22M",lat:30.0444,lng:31.2357,tagline:"Ancient pyramids beside a teeming megacity",est:true,
+   temps:{q1:70,q2:91,q3:95,q4:77},
+   langs:[{l:"Arabic",p:95},{l:"English",p:35}]},
 ];
 
 /* Returns a CSS color for a given °F temperature */
@@ -484,7 +706,8 @@ const CITY_CUR = {
   "Tokyo":"JPY","Antalya":"TRY","Seoul":"KRW","Osaka":"JPY","Rome":"EUR",
   "Phuket":"THB","Barcelona":"EUR","Amsterdam":"EUR","Milan":"EUR","Vienna":"EUR",
   "Prague":"CZK","Los Angeles":"USD","Sydney":"AUD","Cape Town":"ZAR",
-  "Rio de Janeiro":"BRL","Cancún":"MXN","Marrakech":"MAD"
+  "Rio de Janeiro":"BRL","Cancún":"MXN","Marrakech":"MAD",
+  "Madrid":"EUR","Taipei":"TWD","Berlin":"EUR","Melbourne":"AUD","Munich":"EUR","Las Vegas":"USD","Florence":"EUR","Dublin":"EUR","Kyoto":"JPY","Lisbon":"EUR","Venice":"EUR","Athens":"EUR","Orlando":"USD","Toronto":"CAD","Miami":"USD","San Francisco":"USD","Shanghai":"CNY","Frankfurt am Main":"EUR","Copenhagen":"DKK","Zurich":"CHF","Washington, D.C.":"USD","Pattaya-Chonburi":"THB","Vancouver":"CAD","Stockholm":"SEK","Mexico City":"MXN","Oslo":"NOK","São Paulo":"BRL","Helsinki":"EUR","Brussels":"EUR","Budapest":"HUF","Guangzhou":"CNY","Nice":"EUR","Palma de Mallorca":"EUR","Honolulu":"USD","Beijing":"CNY","Warsaw":"PLN","Seville":"EUR","Valencia":"EUR","Shenzhen":"CNY","Doha":"QAR","Abu Dhabi":"AED","Fukuoka":"JPY","Sapporo":"JPY","Busan":"KRW","Edinburgh":"GBP","Montreal":"CAD","Bologna":"EUR","Rhodes":"EUR","Verona":"EUR","Delhi":"INR","Porto":"EUR","Ho Chi Minh City":"VND","Buenos Aires":"ARS","Marne-la-Vallée":"EUR","Kraków":"PLN","Heraklion":"EUR","Johor Bahru":"MYR","Hanoi":"VND","Tel Aviv":"ILS","Sharjah":"AED","Thessaloniki":"EUR","Lima":"PEN","Medina":"SAR","Tbilisi":"GEL","Riyadh":"SAR","Tallinn":"EUR","Mecca":"SAR","Denpasar":"IDR","Punta Cana":"DOP","Santiago":"CLP","Vilnius":"EUR","Jerusalem":"ILS","Zhuhai":"CNY","Cairo":"EGP"
 };
 
 /* Approx. % of businesses that accept credit/debit cards (rough estimates) */
@@ -520,7 +743,8 @@ const CITY_COST = {
   "Prague":{hotel:90,meal:15,taxi:12},    "Los Angeles":{hotel:200,meal:30,taxi:25},
   "Sydney":{hotel:150,meal:28,taxi:22},   "Cape Town":{hotel:90,meal:15,taxi:12},
   "Rio de Janeiro":{hotel:80,meal:15,taxi:10},"Cancún":{hotel:120,meal:20,taxi:12},
-  "Marrakech":{hotel:70,meal:12,taxi:6}
+  "Marrakech":{hotel:70,meal:12,taxi:6},
+  "Madrid":{hotel:130,meal:20,taxi:25},"Taipei":{hotel:90,meal:12,taxi:15},"Berlin":{hotel:110,meal:18,taxi:25},"Melbourne":{hotel:130,meal:22,taxi:22},"Munich":{hotel:140,meal:20,taxi:28},"Las Vegas":{hotel:120,meal:25,taxi:30},"Florence":{hotel:130,meal:25,taxi:25},"Dublin":{hotel:160,meal:25,taxi:30},"Kyoto":{hotel:120,meal:18,taxi:25},"Lisbon":{hotel:120,meal:18,taxi:20},"Venice":{hotel:160,meal:28,taxi:35},"Athens":{hotel:110,meal:18,taxi:20},"Orlando":{hotel:120,meal:22,taxi:28},"Toronto":{hotel:150,meal:22,taxi:28},"Miami":{hotel:180,meal:30,taxi:30},"San Francisco":{hotel:230,meal:30,taxi:30},"Shanghai":{hotel:90,meal:15,taxi:12},"Frankfurt am Main":{hotel:140,meal:22,taxi:30},"Copenhagen":{hotel:180,meal:30,taxi:35},"Zurich":{hotel:250,meal:40,taxi:40},"Washington, D.C.":{hotel:200,meal:28,taxi:28},"Pattaya-Chonburi":{hotel:45,meal:8,taxi:10},"Vancouver":{hotel:180,meal:25,taxi:28},"Stockholm":{hotel:160,meal:28,taxi:40},"Mexico City":{hotel:90,meal:15,taxi:12},"Oslo":{hotel:190,meal:35,taxi:45},"São Paulo":{hotel:80,meal:15,taxi:15},"Helsinki":{hotel:150,meal:28,taxi:35},"Brussels":{hotel:130,meal:25,taxi:25},"Budapest":{hotel:90,meal:18,taxi:15},"Guangzhou":{hotel:70,meal:12,taxi:8},"Nice":{hotel:150,meal:30,taxi:30},"Palma de Mallorca":{hotel:130,meal:25,taxi:20},"Honolulu":{hotel:250,meal:30,taxi:30},"Beijing":{hotel:80,meal:12,taxi:8},"Warsaw":{hotel:80,meal:15,taxi:15},"Seville":{hotel:110,meal:20,taxi:18},"Valencia":{hotel:100,meal:18,taxi:18},"Shenzhen":{hotel:75,meal:12,taxi:8},"Doha":{hotel:150,meal:30,taxi:15},"Abu Dhabi":{hotel:140,meal:30,taxi:15},"Fukuoka":{hotel:90,meal:15,taxi:20},"Sapporo":{hotel:85,meal:15,taxi:18},"Busan":{hotel:80,meal:15,taxi:12},"Edinburgh":{hotel:160,meal:25,taxi:20},"Montreal":{hotel:180,meal:30,taxi:25},"Bologna":{hotel:130,meal:28,taxi:25},"Rhodes":{hotel:110,meal:25,taxi:20},"Verona":{hotel:130,meal:28,taxi:25},"Delhi":{hotel:70,meal:12,taxi:8},"Porto":{hotel:120,meal:22,taxi:15},"Ho Chi Minh City":{hotel:55,meal:8,taxi:8},"Buenos Aires":{hotel:90,meal:20,taxi:12},"Marne-la-Vallée":{hotel:200,meal:30,taxi:30},"Kraków":{hotel:80,meal:15,taxi:12},"Heraklion":{hotel:100,meal:22,taxi:18},"Johor Bahru":{hotel:55,meal:8,taxi:8},"Hanoi":{hotel:55,meal:8,taxi:8},"Tel Aviv":{hotel:220,meal:35,taxi:25},"Sharjah":{hotel:90,meal:18,taxi:12},"Thessaloniki":{hotel:90,meal:18,taxi:15},"Lima":{hotel:80,meal:15,taxi:10},"Medina":{hotel:90,meal:12,taxi:10},"Tbilisi":{hotel:70,meal:12,taxi:8},"Riyadh":{hotel:110,meal:20,taxi:12},"Tallinn":{hotel:100,meal:18,taxi:15},"Mecca":{hotel:120,meal:12,taxi:10},"Denpasar":{hotel:60,meal:12,taxi:12},"Punta Cana":{hotel:150,meal:25,taxi:20},"Santiago":{hotel:90,meal:18,taxi:12},"Vilnius":{hotel:90,meal:16,taxi:12},"Jerusalem":{hotel:130,meal:25,taxi:15},"Zhuhai":{hotel:70,meal:15,taxi:10},"Cairo":{hotel:70,meal:12,taxi:8}
 };
 
 /* Budget (b) and high-end (h) nightly hotel averages in USD */
@@ -531,7 +755,8 @@ const CITY_HOTEL = {
   "Seoul":{b:40,h:250}, "Osaka":{b:40,h:240}, "Rome":{b:60,h:330}, "Phuket":{b:22,h:200},
   "Barcelona":{b:55,h:300}, "Amsterdam":{b:80,h:380}, "Milan":{b:65,h:330}, "Vienna":{b:60,h:300},
   "Prague":{b:40,h:230}, "Los Angeles":{b:100,h:450}, "Sydney":{b:75,h:350}, "Cape Town":{b:40,h:250},
-  "Rio de Janeiro":{b:35,h:220}, "Cancún":{b:55,h:350}, "Marrakech":{b:30,h:250}
+  "Rio de Janeiro":{b:35,h:220}, "Cancún":{b:55,h:350}, "Marrakech":{b:30,h:250},
+  "Madrid":{b:70,h:300},"Taipei":{b:45,h:220},"Berlin":{b:60,h:260},"Melbourne":{b:75,h:300},"Munich":{b:75,h:320},"Las Vegas":{b:45,h:300},"Florence":{b:70,h:320},"Dublin":{b:90,h:350},"Kyoto":{b:60,h:300},"Lisbon":{b:65,h:280},"Venice":{b:90,h:400},"Athens":{b:60,h:280},"Orlando":{b:60,h:280},"Toronto":{b:80,h:320},"Miami":{b:90,h:400},"San Francisco":{b:130,h:500},"Shanghai":{b:40,h:300},"Frankfurt am Main":{b:80,h:350},"Copenhagen":{b:100,h:400},"Zurich":{b:140,h:550},"Washington, D.C.":{b:110,h:450},"Pattaya-Chonburi":{b:20,h:180},"Vancouver":{b:100,h:400},"Stockholm":{b:90,h:380},"Mexico City":{b:40,h:300},"Oslo":{b:110,h:420},"São Paulo":{b:40,h:280},"Helsinki":{b:90,h:350},"Brussels":{b:80,h:320},"Budapest":{b:45,h:280},"Guangzhou":{b:30,h:200},"Nice":{b:80,h:400},"Palma de Mallorca":{b:70,h:350},"Honolulu":{b:150,h:550},"Beijing":{b:35,h:250},"Warsaw":{b:40,h:200},"Seville":{b:55,h:280},"Valencia":{b:50,h:260},"Shenzhen":{b:30,h:220},"Doha":{b:80,h:400},"Abu Dhabi":{b:75,h:400},"Fukuoka":{b:45,h:250},"Sapporo":{b:40,h:240},"Busan":{b:40,h:220},"Edinburgh":{b:80,h:400},"Montreal":{b:90,h:400},"Bologna":{b:70,h:300},"Rhodes":{b:55,h:280},"Verona":{b:70,h:320},"Delhi":{b:25,h:250},"Porto":{b:60,h:300},"Ho Chi Minh City":{b:20,h:200},"Buenos Aires":{b:40,h:250},"Marne-la-Vallée":{b:110,h:500},"Kraków":{b:40,h:220},"Heraklion":{b:50,h:250},"Johor Bahru":{b:25,h:180},"Hanoi":{b:18,h:200},"Tel Aviv":{b:110,h:500},"Sharjah":{b:45,h:250},"Thessaloniki":{b:45,h:180},"Lima":{b:35,h:160},"Medina":{b:40,h:200},"Tbilisi":{b:30,h:150},"Riyadh":{b:50,h:250},"Tallinn":{b:45,h:190},"Mecca":{b:45,h:300},"Denpasar":{b:25,h:180},"Punta Cana":{b:60,h:350},"Santiago":{b:40,h:190},"Vilnius":{b:40,h:170},"Jerusalem":{b:60,h:280},"Zhuhai":{b:35,h:160},"Cairo":{b:30,h:180}
 };
 
 /* Ride-sharing / e-hailing apps available in each city (empty = taxis only) */
@@ -948,7 +1173,8 @@ const CURRENCIES = {
   ZAR:{s:"R",n:"South African Rand"}, BRL:{s:"R$",n:"Brazilian Real"}, MXN:{s:"Mex$",n:"Mexican Peso"},
   INR:{s:"₹",n:"Indian Rupee"}, IDR:{s:"Rp",n:"Indonesian Rupiah"}, PHP:{s:"₱",n:"Philippine Peso"},
   VND:{s:"₫",n:"Vietnamese Dong"}, NZD:{s:"NZ$",n:"New Zealand Dollar"}, SEK:{s:"kr",n:"Swedish Krona"},
-  NOK:{s:"kr",n:"Norwegian Krone"}, DKK:{s:"kr",n:"Danish Krone"}, PLN:{s:"zł",n:"Polish Złoty"}
+  NOK:{s:"kr",n:"Norwegian Krone"}, DKK:{s:"kr",n:"Danish Krone"}, PLN:{s:"zł",n:"Polish Złoty"},
+  TWD:{s:"NT$",n:"New Taiwan Dollar"}, QAR:{s:"QR",n:"Qatari Riyal"}, HUF:{s:"Ft",n:"Hungarian Forint"}, PEN:{s:"S/",n:"Peruvian Sol"}, SAR:{s:"SR",n:"Saudi Riyal"}, GEL:{s:"₾",n:"Georgian Lari"}, DOP:{s:"RD$",n:"Dominican Peso"}, CLP:{s:"CLP$",n:"Chilean Peso"}, EGP:{s:"E£",n:"Egyptian Pound"}, ARS:{s:"AR$",n:"Argentine Peso"}, ILS:{s:"₪",n:"Israeli Shekel"}
 };
 
 /* Fallback exchange rates: units of currency per 1 USD (approximate).
@@ -957,7 +1183,8 @@ let RATES = {
   USD:1, EUR:0.92, GBP:0.79, JPY:150, CNY:7.2, AUD:1.52, CAD:1.36, CHF:0.88,
   HKD:7.8, SGD:1.34, THB:35, MYR:4.6, KRW:1350, TRY:34, AED:3.67, MAD:9.9,
   MOP:8.05, CZK:23, ZAR:18.5, BRL:5.2, MXN:18, INR:83, IDR:15800, PHP:57,
-  VND:25000, NZD:1.65, SEK:10.6, NOK:10.8, DKK:6.9, PLN:4.0
+  VND:25000, NZD:1.65, SEK:10.6, NOK:10.8, DKK:6.9, PLN:4.0,
+  TWD:32, QAR:3.64, HUF:360, PEN:3.75, SAR:3.75, GEL:2.7, DOP:60, CLP:950, EGP:49, ARS:1150, ILS:3.7
 };
 let ratesLive = false;
 
@@ -970,7 +1197,7 @@ function convert(amount, from, to) {
 /* Format a converted number sensibly (no decimals for big-unit currencies) */
 function fmtMoney(x, code) {
   if (x === null || !isFinite(x)) return "—";
-  const big = ["JPY","KRW","IDR","VND","HUF"].includes(code);
+  const big = ["JPY","KRW","IDR","VND","HUF","CLP","ARS"].includes(code);
   if (big) return x.toLocaleString(undefined, {maximumFractionDigits:0});
   if (x !== 0 && Math.abs(x) < 0.01)  // tiny values: show real precision, not "0.00"
     return x.toLocaleString(undefined, {minimumFractionDigits:4, maximumFractionDigits:6});
@@ -1233,7 +1460,7 @@ if(!c){
         <h1>${c.city}</h1>
         <div class="country">${c.country}</div>
         <p class="tagline">${c.tagline}</p>
-        <div class="chip"><b>${num}M</b><span>annual visitors</span></div>
+        <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual visitors${c.est?' \u00b7 est.':''}</span></div>
       </div>
     </div>
 
@@ -1306,13 +1533,13 @@ if(!c){
 
     <section style="padding-top:0">
       <h2 class="sec-head">Getting around ${c.city}</h2>
-      <div id="transport-cards" class="transport-grid"></div>
+      ${CITY_TRANSPORT[c.city] ? '<div id="transport-cards" class="transport-grid"></div>' : `<p class="hood-intro">Detailed getting-around info for ${c.city} is coming soon.</p>`}
     </section>
 
     <section style="padding-top:0">
       <h2 class="sec-head">Neighborhood guide &mdash; ${c.city}</h2>
-      <p class="hood-intro">Placeholder — an overview of ${c.city}'s neighborhoods will go here, helping you choose the right base for your trip.</p>
-      <div class="hoods">${hoodsHTML}</div>
+      ${hoods.length ? `<p class="hood-intro">Placeholder — an overview of ${c.city}'s neighborhoods will go here, helping you choose the right base for your trip.</p>
+      <div class="hoods">${hoodsHTML}</div>` : `<p class="hood-intro">Neighborhood guides for ${c.city} are coming soon.</p>`}
     </section>
 
     <section style="padding-top:0">
