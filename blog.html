@@ -257,11 +257,6 @@
    POST DATA now lives in posts.js — the single source of truth.
    Add a post there and it appears here (and everywhere) automatically.
 ------------------------------------------------------------------ */
-const POSTS = window.NRA_POSTS_UTIL.byNewest().map((p, i) => Object.assign({}, p, {
-  dateIndex: i,                                        // 0 = newest
-  dateLabel: window.NRA_POSTS_UTIL.shortDate(p.date)   // e.g. "June 2026"
-}));
-
 const tilesContainer = document.getElementById("tiles");
 const searchInput    = document.getElementById("blog-search");
 const clearBtn       = document.querySelector(".search-clear");
@@ -269,26 +264,41 @@ const sortSelect     = document.getElementById("sort-select");
 const noResults      = document.getElementById("no-results");
 const noResultsTerm  = document.getElementById("no-results-term");
 
-/* Build one DOM node per post; store the post reference on the element */
-const tileEls = POSTS.map(p => {
-  const el = document.createElement("a");
-  el.className  = "tile";
-  el.href       = `post.html?post=${encodeURIComponent(p.slug)}`;
-  el.dataset.title = p.title.toLowerCase();
-  el._post      = p;          // private ref for sorting
-  el.innerHTML  = `
-    <div class="photo" style="background-image:url('https://picsum.photos/seed/${p.seed}-nra/600/400')">
-      <span class="tag">${p.tag}</span>
-    </div>
-    <div class="body">
-      <div class="date">${p.dateLabel}</div>
-      <h3>${p.title}</h3>
-      <p>${p.excerpt || ""}</p>
-      <span class="readmore">Read story &rarr;</span>
-    </div>`;
-  tilesContainer.appendChild(el);
-  return el;
-});
+/* Build one DOM node per post; store the post reference on the element.
+   Wrapped in a function so the grid can rebuild itself once articles
+   written in the online editor arrive (see blog-remote.js). */
+let tileEls = [];
+function tilePhoto(p){
+  return window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(p, 600, 400)
+       : `https://picsum.photos/seed/${p.seed}-nra/600/400`;
+}
+function buildTiles(){
+  const POSTS = window.NRA_POSTS_UTIL.byNewest().map((p, i) => Object.assign({}, p, {
+    dateIndex: i,                                        // 0 = newest
+    dateLabel: window.NRA_POSTS_UTIL.shortDate(p.date)   // e.g. "June 2026"
+  }));
+  tilesContainer.innerHTML = "";
+  tileEls = POSTS.map(p => {
+    const el = document.createElement("a");
+    el.className  = "tile";
+    el.href       = `post.html?post=${encodeURIComponent(p.slug)}`;
+    el.dataset.title = p.title.toLowerCase();
+    el._post      = p;          // private ref for sorting
+    el.innerHTML  = `
+      <div class="photo" style="background-image:url('${tilePhoto(p)}')">
+        <span class="tag">${p.tag}</span>
+      </div>
+      <div class="body">
+        <div class="date">${p.dateLabel}</div>
+        <h3>${p.title}</h3>
+        <p>${p.excerpt || ""}</p>
+        <span class="readmore">Read story &rarr;</span>
+      </div>`;
+    tilesContainer.appendChild(el);
+    return el;
+  });
+}
+buildTiles();
 
 /* ------------------------------------------------------------------
    Core render: apply sort first, then push matching tiles to front
@@ -338,8 +348,12 @@ clearBtn.addEventListener("click", () => {
 
 /* Initial render */
 render();
+
+/* Redraw when database articles arrive (blog-remote.js calls this) */
+window.NRA_BLOG_REFRESH = function(){ buildTiles(); render(); };
 </script>
 <script src="nra-config.js"></script>
+<script src="blog-remote.js"></script>
 <script src="auth.js"></script>
 <script src="mailing-list.js"></script>
 <script src="nav.js"></script>

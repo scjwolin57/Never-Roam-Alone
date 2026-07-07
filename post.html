@@ -52,6 +52,14 @@
   .back{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:12px 22px;border-radius:30px;transition:background .2s}
   .back:hover{background:var(--teal)}
 
+  /* Blocks written with the online editor */
+  .post-break{text-align:center;color:var(--coral);opacity:.7;font-size:1.05rem;margin:30px 0;letter-spacing:.4em}
+  figure.post-img{margin:30px 0}
+  figure.post-img img{width:100%;border-radius:14px;display:block;box-shadow:var(--shadow)}
+  figure.post-img figcaption{font-size:.84rem;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  figure.post-img .ph-credit{margin-left:auto;font-style:italic}
+  figure.post-img .ph-credit a{text-decoration:underline}
+
   .soon{text-align:center;max-width:620px;margin:0 auto;padding:110px 22px}
   .soon h1{font-size:2.3rem;margin-bottom:10px}
   .soon p{color:var(--muted);font-size:1.1rem}
@@ -95,7 +103,6 @@
 
 const params = new URLSearchParams(location.search);
 const slug = (params.get("post")||"").toLowerCase();
-const post = window.NRA_POSTS_UTIL.bySlug(slug);
 const content = document.getElementById("content");
 
 /* Byline: site default, or the tagged trusted traveler (posts.js authorId)
@@ -121,38 +128,55 @@ function render(b){
   if(b[0]==="lead")  return `<p class="lead">${b[1]}</p>`;
   if(b[0]==="h2")    return `<h2>${b[1]}</h2>`;
   if(b[0]==="quote") return `<blockquote class="pullquote">${b[1]}</blockquote>`;
+  if(b[0]==="br")    return `<div class="post-break" aria-hidden="true">&#10022;</div>`;
+  if(b[0]==="img"){
+    const im = b[1] || {};
+    const cap = im.caption ? `<span data-no-i18n>${escT(im.caption)}</span>` : "";
+    const cred = im.credit ? `<span class="ph-credit" data-no-i18n>Photo: ${im.creditLink ? `<a href="${escT(im.creditLink)}" target="_blank" rel="noopener">${escT(im.credit)}</a>` : escT(im.credit)}</span>` : "";
+    return `<figure class="post-img"><img src="${escT(im.url||"")}" alt="${escT(im.alt||im.caption||"")}" loading="lazy">${(cap||cred) ? `<figcaption>${cap}${cred}</figcaption>` : ""}</figure>`;
+  }
   return `<p>${b[1]}</p>`;
 }
 
-if(post){
-  document.title = `${post.title} — Never Roam Alone`;
-  const words = post.body.reduce((n,b)=>n + b[1].split(/\s+/).length, 0);
-  const mins = Math.max(1, Math.round(words/200));
-  const hero = `https://picsum.photos/seed/${post.seed}-hero/1600/900`;
-  content.innerHTML = `
-    <div class="hero" style="background-image:url('${hero}')">
-      <div class="hero-inner">
-        <span class="tag">${post.tag}</span>
-        <h1>${post.title}</h1>
-        <div class="meta">${window.NRA_POSTS_UTIL.longDate(post.date)} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
+function showPost(){
+  const post = window.NRA_POSTS_UTIL.bySlug(slug);
+  if(post){
+    document.title = `${post.title} — Never Roam Alone`;
+    const words = post.body.reduce((n,b)=> n + (typeof b[1]==="string" ? b[1].split(/\s+/).length : 0), 0);
+    const mins = Math.max(1, Math.round(words/200));
+    const hero = window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(post, 1600, 900)
+               : `https://picsum.photos/seed/${post.seed}-hero/1600/900`;
+    content.innerHTML = `
+      <div class="hero" style="background-image:url('${hero}')">
+        <div class="hero-inner">
+          <span class="tag">${post.tag}</span>
+          <h1>${post.title}</h1>
+          <div class="meta">${window.NRA_POSTS_UTIL.longDate(post.date)} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
+        </div>
       </div>
-    </div>
-    <article class="post i18n-ml">
-      <div class="byline">${bylineHTML(post)}</div>
-      ${post.body.map(render).join("\n")}
-    </article>
-    <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
-} else {
-  document.title = "Coming soon — Never Roam Alone";
-  content.innerHTML = `
-    <div class="soon">
-      <h1>This story is still being written</h1>
-      <p>That post hasn't been published yet — check back soon, or explore the ones that are ready.</p>
-      <p style="margin-top:26px"><a class="back" href="blog.html">&larr; Back to all stories</a></p>
-    </div>`;
+      <article class="post i18n-ml">
+        <div class="byline">${bylineHTML(post)}</div>
+        ${post.body.map(render).join("\n")}
+      </article>
+      <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
+  } else {
+    document.title = "Coming soon — Never Roam Alone";
+    content.innerHTML = `
+      <div class="soon">
+        <h1>This story is still being written</h1>
+        <p>That post hasn't been published yet — check back soon, or explore the ones that are ready.</p>
+        <p style="margin-top:26px"><a class="back" href="blog.html">&larr; Back to all stories</a></p>
+      </div>`;
+  }
 }
+showPost();
+
+/* If this article was written in the online editor, it arrives a moment
+   after page load (blog-remote.js) — redraw so the page shows it. */
+window.NRA_BLOG_REFRESH = showPost;
 </script>
 <script src="nra-config.js"></script>
+<script src="blog-remote.js"></script>
 <script src="auth.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>

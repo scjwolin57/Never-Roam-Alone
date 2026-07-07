@@ -494,23 +494,29 @@ map.on("load", () => {
    Kept in its own script block so it always runs, even if the
    map library fails to load (e.g. offline). */
 (function(){
-  const wrap = document.getElementById("latest-tiles");
-  if(!wrap || !window.NRA_POSTS_UTIL) return;
-  wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => `
-    <a class="tile" href="post.html?post=${encodeURIComponent(p.slug)}">
-      <div class="photo" style="background-image:url('https://picsum.photos/seed/${p.seed}-nra/600/400')">
-        <span class="tag">${p.tag}</span>
-      </div>
-      <div class="body">
-        <div class="date">${window.NRA_POSTS_UTIL.shortDate(p.date)}</div>
-        <h3>${p.title}</h3>
-        <p>${p.excerpt}</p>
-        <span class="readmore">Read story &rarr;</span>
-      </div>
-    </a>`).join("");
+  function renderLatest(){
+    const wrap = document.getElementById("latest-tiles");
+    if(!wrap || !window.NRA_POSTS_UTIL) return;
+    wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => `
+      <a class="tile" href="post.html?post=${encodeURIComponent(p.slug)}">
+        <div class="photo" style="background-image:url('${window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(p,600,400) : `https://picsum.photos/seed/${p.seed}-nra/600/400`}')">
+          <span class="tag">${p.tag}</span>
+        </div>
+        <div class="body">
+          <div class="date">${window.NRA_POSTS_UTIL.shortDate(p.date)}</div>
+          <h3>${p.title}</h3>
+          <p>${p.excerpt}</p>
+          <span class="readmore">Read story &rarr;</span>
+        </div>
+      </a>`).join("");
+  }
+  renderLatest();
+  /* Redraw when articles written in the online editor arrive (blog-remote.js) */
+  window.NRA_BLOG_REFRESH = renderLatest;
 })();
 </script>
 <script src="nra-config.js"></script>
+<script src="blog-remote.js"></script>
 <script src="auth.js"></script>
 <script src="mailing-list.js"></script>
 <script src="nav.js"></script>
