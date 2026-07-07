@@ -228,6 +228,18 @@
         <strong id="cityCount">101</strong> featured destinations.</p>
       <div class="field-grid">
         <div class="field-full">
+          <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
+          <div class="autocomplete">
+            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
+            <ul id="finderOriginList" class="ac-list" hidden></ul>
+          </div>
+          <label class="check-row" id="regionalRow">
+            <input type="checkbox" id="includeRegional" />
+            <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
+          </label>
+          <p class="origin-status" id="originStatus"></p>
+        </div>
+        <div class="field-full">
           <label class="field" for="continent">Where in the world?</label>
           <div class="select-wrap">
             <select id="continent">
@@ -267,18 +279,7 @@
               <option value="Boat">Boat</option>
             </select>
           </div>
-        </div>
-        <div class="field-full">
-          <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
-          <div class="autocomplete">
-            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
-            <ul id="finderOriginList" class="ac-list" hidden></ul>
-          </div>
-          <label class="check-row" id="regionalRow">
-            <input type="checkbox" id="includeRegional" />
-            <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
-          </label>
-          <p class="origin-status" id="originStatus"></p>
+          <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
         </div>
         <div>
           <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
@@ -815,9 +816,50 @@ function finderCardHTML(r, rank, actLabel, budget){
     </article>`;
 }
 
+/* ---- gray out travel modes that can't work from this origin ----------
+   Once an origin is set, each "Get there by" option is only offered if
+   at least one destination (within the chosen continent) is physically
+   reachable that way — e.g. an ocean in between removes car, bus and
+   train. Impossible options turn gray and can't be picked; if the
+   current pick becomes impossible it falls back to "Any way that
+   works".                                                             */
+const modeNote = document.getElementById("modeNote");
+function updateModeAvailability(){
+  const geo  = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
+  const cont = continentEl.value;
+  const opts = [...travelByEl.options].filter(o => o.value);
+  if(!geo){
+    opts.forEach(o => { o.disabled = false; });
+    modeNote.hidden = true;
+    return;
+  }
+  const avail = { plane:false, train:false, bus:false, car:false, boat:false };
+  for(const c of CITIES){
+    if(cont && continentFor(c) !== cont) continue;
+    if(c.city.toLowerCase() === (geo.city||"").toLowerCase()) continue;
+    NRA_TRANSPORT.compareModes(geo, c, { looseBoat:true }).modes
+      .forEach(m => { avail[m.mode] = true; });
+    if(avail.plane && avail.train && avail.bus && avail.car && avail.boat) break;
+  }
+  let anyDisabled = false;
+  opts.forEach(o => {
+    o.disabled = !avail[UI_MODE_KEY[o.value]];
+    if(o.disabled) anyDisabled = true;
+  });
+  if(travelByEl.value && !avail[UI_MODE_KEY[travelByEl.value]]){
+    travelByEl.value = "";               // current pick became impossible
+    updateOriginModeUI();
+  }
+  modeNote.textContent = anyDisabled
+    ? "Grayed-out options can't reach " + (cont ? CONTINENT_LABEL[cont] : "any destination") + " from your starting point (e.g. water in the way)."
+    : "";
+  modeNote.hidden = !anyDisabled;
+}
+
 let finderShowAll = false;
 function renderFinder(){
   if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
+  updateModeAvailability();
   const act    = activityEl.value;
   const cont   = continentEl.value;
   const mode   = travelByEl.value;
