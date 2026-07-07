@@ -219,3 +219,11 @@ All API keys live **only** in Netlify environment variables — never in browser
 - [x] **profile.html** — "My trips" section below the profile form with Upcoming/Past trip buttons linking to itinerary.html.
 - [x] **`itinerary-setup.sql` (new)** — run once in Supabase SQL Editor: creates `itinerary_items` with owner-only row-level security.
 - [ ] TODO to go live: set `GUIDE_REQUEST_EMAIL` in Netlify env vars (scope "All scopes") + run `itinerary-setup.sql` in Supabase.
+
+## Recently Completed (July 7, 2026) — Master City List + Visitor Score
+- [x] **`world-cities.js` (new)** — master database of **6,218 cities**: every city worldwide with population ≥100k, every national capital, every city ≥20k with its own commercial airport (IATA + scheduled service, city-name match or ≤10 km), plus tourism-index cities. Compact array format with `NRA_WC_GET(i)` helper and a country-name lookup. NOT yet wired into any page (Jeff wants to refine first).
+- [x] **Visitor Score (0.0–1.0)** on every city: 40% aviation hub (OpenTravelData flight-traffic PageRank of the busiest airport serving the city, log-scaled), 40% tourism indexes (1.0 if on Euromonitor Top 100 — the site's 101 featured — or Mastercard GDCI Top 20 2019: adds Palma de Mallorca + Denpasar/Bali), 20% OSM POI density — **POI part pending**: OpenStreetMap's servers are blocked in Claude's sandbox, so scores currently blend 50/50 aviation/index.
+- [x] **`poi-density.mjs` (new)** — run `node poi-density.mjs` in the project folder on the Mac (needs internet, ~1–2 hrs, resumes if interrupted) to count hotels/hostels/attractions per city via Overpass and recompute all scores at the full 40/40/20. Then ask Claude to refresh the spreadsheet.
+- [x] **`world-cities-master.xlsx` / `.csv` (new)** — the same list for review: sortable columns incl. qualification reason, airports, score components; Visitor Score is a live Excel formula with editable weights on the About sheet.
+- [x] **`world-cities-data.json` (new)** — full data (source of truth for regenerating the other files).
+- Sources: GeoNames (cities/populations/capitals), OurAirports (airports, July 2026), OpenTravelData (traffic ranks, July 2026), Mastercard GDCI 2019 report.
