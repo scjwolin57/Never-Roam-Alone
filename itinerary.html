@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>My Trips — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --green:#185e3f;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  nav.links a.active{color:var(--teal);border-color:var(--coral)}
+
+  /* ---------- Page hero ---------- */
+  .page-hero{
+    background:linear-gradient(135deg, #0a5c64 0%, #185e3f 100%);
+    color:#fff;text-align:center;padding:56px 22px 48px;
+  }
+  .page-hero .kicker{
+    color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;
+    letter-spacing:.22em;font-size:.74rem;margin:0 0 12px;
+  }
+  .page-hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 10px;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;font-size:1.02rem}
+
+  /* ---------- Trip type toggle ---------- */
+  .trip-toggle{display:flex;justify-content:center;gap:10px;margin-top:22px}
+  .trip-toggle button{
+    border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff;
+    font-weight:700;font-size:.9rem;font-family:inherit;padding:9px 22px;border-radius:24px;cursor:pointer;transition:.2s;
+  }
+  .trip-toggle button.active{background:#fff;color:var(--green);border-color:#fff}
+  .trip-toggle button:hover:not(.active){border-color:#fff}
+
+  /* ---------- Card ---------- */
+  .wrap{max-width:720px;margin:-28px auto 60px;padding:0 22px}
+  .card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:30px 28px}
+
+  .save-note{font-size:.82rem;color:var(--muted);margin:0 0 18px}
+  .save-note button{border:none;background:none;color:var(--teal);font-weight:700;cursor:pointer;text-decoration:underline;font-size:.82rem;padding:0}
+
+  /* ---------- Search row ---------- */
+  .search-row{position:relative;display:flex;gap:10px}
+  .search-row input{
+    flex:1;padding:12px 14px;border:2px solid rgba(14,124,134,.22);border-radius:14px;
+    background:#fff;font-size:1rem;color:var(--ink);font-family:inherit;outline:none;transition:.15s;
+  }
+  .search-row input:focus{border-color:var(--teal);box-shadow:0 4px 16px rgba(14,124,134,.14)}
+  .add-btn{
+    width:48px;height:48px;flex-shrink:0;border:none;border-radius:50%;cursor:pointer;
+    background:var(--green);color:#fff;font-size:1.6rem;line-height:1;font-weight:700;
+    display:flex;align-items:center;justify-content:center;transition:background .2s, transform .15s;
+  }
+  .add-btn:hover{background:var(--teal)}
+  .add-btn:active{transform:translateY(1px)}
+
+  /* ---------- Autocomplete dropdown ---------- */
+  .suggest{
+    position:absolute;top:calc(100% + 6px);left:0;right:58px;z-index:30;
+    background:#fff;border-radius:14px;box-shadow:0 16px 40px rgba(20,40,50,.22);
+    overflow:hidden;display:none;max-height:320px;overflow-y:auto;
+  }
+  .suggest.open{display:block}
+  .suggest .opt{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    width:100%;text-align:left;border:none;background:none;cursor:pointer;
+    padding:11px 14px;font-size:.95rem;font-family:inherit;color:var(--ink);
+  }
+  .suggest .opt:hover, .suggest .opt.hl{background:rgba(14,124,134,.08)}
+  .suggest .opt .country{color:var(--muted);font-size:.8rem}
+  .chip{flex-shrink:0;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:10px;padding:3px 9px}
+  .chip.guide{background:rgba(24,94,63,.12);color:var(--green)}
+  .chip.noguide{background:rgba(179,74,58,.1);color:#b34a3a}
+
+  /* ---------- Itinerary list ---------- */
+  .list{margin-top:22px}
+  .stop{
+    display:flex;align-items:center;gap:14px;
+    padding:13px 6px;border-bottom:1px solid rgba(14,124,134,.12);
+  }
+  .stop:last-child{border-bottom:none}
+  .stop .num{
+    width:30px;height:30px;flex-shrink:0;border-radius:50%;
+    background:rgba(24,94,63,.1);color:var(--green);font-weight:800;font-size:.82rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .stop .info{flex:1;min-width:0}
+  .stop .place{font-weight:700;font-size:1.02rem}
+  a.place-link{color:var(--green);border-bottom:2px solid transparent;transition:.15s}
+  a.place-link:hover{color:var(--teal);border-color:var(--coral)}
+  a.place-link .arrow{font-size:.85em}
+  .stop .where{display:block;color:var(--muted);font-size:.8rem}
+  .req-btn{
+    border:2px solid rgba(179,74,58,.4);background:none;color:#b34a3a;cursor:pointer;
+    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
+  }
+  .req-btn:hover:not(:disabled){background:#b34a3a;color:#fff}
+  .req-btn:disabled{opacity:.65;cursor:default;border-color:rgba(24,94,63,.35);color:var(--green)}
+  .rm-btn{
+    border:none;background:none;color:var(--muted);cursor:pointer;font-size:1.15rem;line-height:1;
+    padding:6px 8px;border-radius:8px;flex-shrink:0;
+  }
+  .rm-btn:hover{color:#b34a3a;background:rgba(179,74,58,.08)}
+
+  .empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
+  .status-msg{font-size:.86rem;font-weight:600;margin:14px 0 0;min-height:1.2em}
+  .status-msg.ok{color:var(--teal)}
+  .status-msg.err{color:#b34a3a}
+
+  .back-row{margin-top:22px}
+  .btn.ghost{background:transparent;color:var(--muted);text-decoration:underline;padding:10px 6px;border:none;cursor:pointer;font-weight:700;font-size:.95rem;font-family:inherit}
+
+  /* ---------- Footer ---------- */
+  footer{background:linear-gradient(135deg,#0a5c64,#185e3f);color:#fff;text-align:center;padding:40px 22px;margin-top:40px}
+  footer .brand{justify-content:center;color:#fff}
+  footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
+  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
+
+  @media (max-width:560px){
+    .stop{flex-wrap:wrap}
+    .suggest{right:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<!-- ===== Page hero ===== -->
+<div class="page-hero">
+  <p class="kicker">Trip planner</p>
+  <h1 id="hero-title">Upcoming Trips</h1>
+  <p id="hero-sub">Build your route — add the cities and places you're planning to roam.</p>
+  <div class="trip-toggle" role="tablist">
+    <button type="button" id="tab-upcoming" data-type="upcoming">Upcoming trips</button>
+    <button type="button" id="tab-past" data-type="past">Past trips</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <p class="save-note" id="save-note"></p>
+
+    <div class="search-row">
+      <input type="text" id="place-input" placeholder="Search a city or place… e.g. Lisbon" autocomplete="off" />
+      <button class="add-btn" id="add-btn" title="Add to itinerary" aria-label="Add to itinerary">+</button>
+      <div class="suggest" id="suggest"></div>
+    </div>
+
+    <div class="list" id="list"></div>
+    <p class="empty" id="empty" style="display:none"></p>
+    <p class="status-msg" id="status"></p>
+
+    <div class="back-row">
+      <a class="btn ghost" href="profile.html">&larr; Back to your profile</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <small>Prototype · plan your roams, one stop at a time</small>
+</footer>
+
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="destinations.js"></script>
+<script src="upcoming-cities.js"></script>
+<script>
+/* ==================================================================
+   ITINERARY PAGE — past & upcoming trip lists.
+   • ?type=past or ?type=upcoming picks which list you're editing
+   • Search suggests the featured cities (they link to their city
+     guide page); anything else can be added as free text, with a
+     "Request guide" button that emails the site owner.
+   • Signed in  → saves to your account (Supabase "itinerary_items";
+                  run itinerary-setup.sql once to create it)
+   • Signed out → saves in this browser (localStorage)
+================================================================== */
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  /* ---- which list are we on? ---- */
+  let type = new URLSearchParams(location.search).get("type") === "past" ? "past" : "upcoming";
+
+  /* ---- featured cities (these have guide pages) ---- */
+  const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
+  const UPCOMING = (window.NRA_UPCOMING || []).map(d => ({city:d.city, country:d.country}));
+  const guideOf = name => FEATURED.find(f => f.city.toLowerCase() === String(name||"").trim().toLowerCase()) || null;
+
+  /* ---- local (browser) storage ---- */
+  const LS_KEY = "nra_itinerary_v1";
+  function lsAll(){
+    try{ const d = JSON.parse(localStorage.getItem(LS_KEY)); return (d && typeof d === "object") ? d : {past:[],upcoming:[]}; }
+    catch(e){ return {past:[],upcoming:[]}; }
+  }
+  function lsSave(d){ try{ localStorage.setItem(LS_KEY, JSON.stringify(d)); }catch(e){} }
+
+  /* ---- remember which guide requests were already sent ---- */
+  const REQ_KEY = "nra_guide_requests_v1";
+  function requested(place){ try{ return !!(JSON.parse(localStorage.getItem(REQ_KEY))||{})[place.toLowerCase()]; }catch(e){ return false; } }
+  function markRequested(place){
+    try{ const d = JSON.parse(localStorage.getItem(REQ_KEY)) || {}; d[place.toLowerCase()] = true; localStorage.setItem(REQ_KEY, JSON.stringify(d)); }catch(e){}
+  }
+
+  /* ---- storage layer: account when signed in, browser otherwise ---- */
+  function signedIn(){ return !!(window.NRA_AUTH && NRA_AUTH.enabled && NRA_AUTH.user()); }
+
+  async function loadItems(){
+    if (signedIn()){
+      const sb = NRA_AUTH.client();
+      const { data, error } = await sb.from("itinerary_items")
+        .select("id,place,country").eq("trip_type", type).order("created_at");
+      if (error) throw new Error("cloud");
+      return data || [];
+    }
+    return lsAll()[type].map((it, i) => ({ id:"local-"+i, place:it.place, country:it.country||"" }));
+  }
+  async function addItem(place, country){
+    if (signedIn()){
+      const sb = NRA_AUTH.client();
+      const { error } = await sb.from("itinerary_items")
+        .insert({ user_id: NRA_AUTH.user().id, trip_type: type, place, country: country||"" });
+      if (error) throw new Error("cloud");
+      return;
+    }
+    const d = lsAll(); d[type].push({place, country:country||""}); lsSave(d);
+  }
+  async function removeItem(id){
+    if (signedIn()){
+      const sb = NRA_AUTH.client();
+      const { error } = await sb.from("itinerary_items").delete().eq("id", id);
+      if (error) throw new Error("cloud");
+      return;
+    }
+    const idx = parseInt(String(id).replace("local-",""), 10);
+    const d = lsAll(); d[type].splice(idx, 1); lsSave(d);
+  }
+
+  /* ---- messages ---- */
+  const status = (text, kind) => { const m = $("status"); m.textContent = text || ""; m.className = "status-msg" + (kind ? " "+kind : ""); };
+
+  /* ---- header + toggle ---- */
+  function paintHeader(){
+    $("hero-title").textContent = type === "past" ? "Past Trips" : "Upcoming Trips";
+    $("hero-sub").textContent = type === "past"
+      ? "Everywhere you've already roamed — keep the memories on the map."
+      : "Build your route — add the cities and places you're planning to roam.";
+    $("tab-upcoming").classList.toggle("active", type === "upcoming");
+    $("tab-past").classList.toggle("active", type === "past");
+    document.title = (type === "past" ? "Past Trips" : "Upcoming Trips") + " — Never Roam Alone";
+  }
+  document.querySelectorAll(".trip-toggle button").forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.type === type) return;
+    type = b.dataset.type;
+    history.replaceState(null, "", "itinerary.html?type=" + type);
+    paintHeader(); status(""); render();
+  }));
+
+  function paintSaveNote(){
+    const el = $("save-note");
+    if (signedIn()){
+      el.innerHTML = "Saved to your account — your trips follow you on any device.";
+    } else if (window.NRA_AUTH && NRA_AUTH.enabled){
+      el.innerHTML = 'Saved in this browser only. <button type="button" id="note-signin">Sign in</button> to keep your trips on all your devices.';
+      const btn = $("note-signin"); if (btn) btn.addEventListener("click", () => NRA_AUTH.openModal());
+    } else {
+      el.innerHTML = "Saved in this browser.";
+    }
+  }
+
+  /* ---- render the list ---- */
+  async function render(){
+    paintSaveNote();
+    const listEl = $("list"), emptyEl = $("empty");
+    let items;
+    try{ items = await loadItems(); }
+    catch(e){
+      listEl.innerHTML = "";
+      emptyEl.style.display = "none";
+      status("Couldn't load your saved trips — if you're the site owner, make sure itinerary-setup.sql has been run in Supabase.", "err");
+      return;
+    }
+    listEl.innerHTML = "";
+    if (!items.length){
+      emptyEl.style.display = "";
+      emptyEl.textContent = type === "past"
+        ? "No past trips yet — search above to add the places you've been."
+        : "Nothing planned yet — search above to add your first stop.";
+      return;
+    }
+    emptyEl.style.display = "none";
+    items.forEach((it, i) => {
+      const g = guideOf(it.place);
+      const row = document.createElement("div");
+      row.className = "stop";
+      const where = esc(it.country || (g && g.country) || "");
+      const nameHtml = g
+        ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)} <span class="arrow">&rarr;</span></a>`
+        : esc(it.place);
+      row.innerHTML = `
+        <span class="num">${i+1}</span>
+        <span class="info"><span class="place">${nameHtml}</span>
+          <span class="where">${where}${g ? (where ? " · " : "") + "City guide available" : ""}</span></span>
+        ${g ? "" : (requested(it.place)
+            ? `<button class="req-btn" disabled>Guide requested ✓</button>`
+            : `<button class="req-btn" data-req="${esc(it.place)}" data-ctry="${esc(it.country||"")}">Request city guide</button>`)}
+        <button class="rm-btn" data-rm="${esc(String(it.id))}" title="Remove" aria-label="Remove ${esc(it.place)}">✕</button>`;
+      listEl.appendChild(row);
+    });
+
+    /* remove buttons */
+    listEl.querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", async () => {
+      b.disabled = true;
+      try{ await removeItem(b.dataset.rm); status(""); render(); }
+      catch(e){ b.disabled = false; status("Couldn't remove that — try again.", "err"); }
+    }));
+
+    /* request-guide buttons */
+    listEl.querySelectorAll("[data-req]").forEach(b => b.addEventListener("click", async () => {
+      const place = b.dataset.req;
+      b.disabled = true; const orig = b.textContent; b.textContent = "Requesting…";
+      try{
+        const user = signedIn() ? NRA_AUTH.user() : null;
+        const res = await fetch("/.netlify/functions/request-guide", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            place,
+            country: b.dataset.ctry || "",
+            tripType: type,
+            requesterName: (window.NRA_AUTH && NRA_AUTH.displayName && NRA_AUTH.displayName()) || "",
+            requesterEmail: (user && user.email) || ""
+          })
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok || !body.sent) throw new Error(body.error || "send failed");
+        markRequested(place);
+        b.textContent = "Guide requested ✓";
+        status(`Request sent! We'll work on a guide for ${place}.`, "ok");
+      }catch(e){
+        b.disabled = false; b.textContent = orig;
+        status("Couldn't send the request — please try again in a moment.", "err");
+      }
+    }));
+  }
+
+  /* ---- autocomplete ---- */
+  const input = $("place-input"), sug = $("suggest");
+  let hlIndex = -1;
+  function closeSug(){ sug.classList.remove("open"); sug.innerHTML = ""; hlIndex = -1; }
+  function openSug(q){
+    const needle = q.trim().toLowerCase();
+    if (!needle){ closeSug(); return; }
+    const feat = FEATURED.filter(f => f.city.toLowerCase().includes(needle) || f.country.toLowerCase().includes(needle)).slice(0, 6);
+    const soon = UPCOMING.filter(f => f.city.toLowerCase().includes(needle) || f.country.toLowerCase().includes(needle)).slice(0, Math.max(0, 6 - feat.length));
+    let html = "";
+    feat.forEach(f => {
+      html += `<button type="button" class="opt" data-city="${esc(f.city)}" data-ctry="${esc(f.country)}">
+        <span>${esc(f.city)} <span class="country">· ${esc(f.country)}</span></span><span class="chip guide">Guide</span></button>`;
+    });
+    soon.forEach(f => {
+      html += `<button type="button" class="opt" data-city="${esc(f.city)}" data-ctry="${esc(f.country)}">
+        <span>${esc(f.city)} <span class="country">· ${esc(f.country)}</span></span><span class="chip noguide">No guide yet</span></button>`;
+    });
+    const exact = feat.some(f => f.city.toLowerCase() === needle) || soon.some(f => f.city.toLowerCase() === needle);
+    if (!exact){
+      html += `<button type="button" class="opt" data-city="${esc(q.trim())}" data-ctry="">
+        <span>Add &ldquo;${esc(q.trim())}&rdquo;</span><span class="chip noguide">No guide yet</span></button>`;
+    }
+    sug.innerHTML = html;
+    sug.classList.add("open"); hlIndex = -1;
+    sug.querySelectorAll(".opt").forEach(o => o.addEventListener("click", () => {
+      doAdd(o.dataset.city, o.dataset.ctry);
+    }));
+  }
+  input.addEventListener("input", () => openSug(input.value));
+  input.addEventListener("keydown", (e) => {
+    const opts = Array.from(sug.querySelectorAll(".opt"));
+    if (e.key === "ArrowDown" && opts.length){ e.preventDefault(); hlIndex = (hlIndex+1) % opts.length; opts.forEach((o,i)=>o.classList.toggle("hl", i===hlIndex)); }
+    else if (e.key === "ArrowUp" && opts.length){ e.preventDefault(); hlIndex = (hlIndex-1+opts.length) % opts.length; opts.forEach((o,i)=>o.classList.toggle("hl", i===hlIndex)); }
+    else if (e.key === "Enter"){
+      e.preventDefault();
+      if (hlIndex >= 0 && opts[hlIndex]) doAdd(opts[hlIndex].dataset.city, opts[hlIndex].dataset.ctry);
+      else addFromInput();
+    }
+    else if (e.key === "Escape") closeSug();
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".search-row")) closeSug(); });
+
+  /* ---- adding ---- */
+  async function doAdd(place, country){
+    place = String(place||"").trim();
+    if (!place){ status("Type a city or place first.", "err"); return; }
+    const g = guideOf(place);
+    if (g){ place = g.city; country = g.country; }  // tidy capitalization for featured cities
+    let items;
+    try{ items = await loadItems(); }catch(e){ items = []; }
+    if (items.some(it => it.place.toLowerCase() === place.toLowerCase())){
+      status(`${place} is already on this list.`, "err"); closeSug(); return;
+    }
+    try{
+      await addItem(place, country);
+      input.value = ""; closeSug();
+      status(`${place} added!`, "ok");
+      render();
+    }catch(e){
+      status("Couldn't save that — if you're the site owner, make sure itinerary-setup.sql has been run in Supabase.", "err");
+    }
+  }
+  function addFromInput(){
+    const raw = input.value.trim();
+    if (!raw) return;
+    // allow "City, Country" typed by hand
+    const parts = raw.split(",");
+    const cityPart = parts[0].trim();
+    const match = FEATURED.find(f => f.city.toLowerCase() === cityPart.toLowerCase())
+               || UPCOMING.find(f => f.city.toLowerCase() === cityPart.toLowerCase());
+    if (match) doAdd(match.city, match.country);
+    else doAdd(cityPart, parts.slice(1).join(",").trim());
+  }
+  $("add-btn").addEventListener("click", addFromInput);
+
+  /* ---- boot ---- */
+  (async function init(){
+    paintHeader();
+    if (window.NRA_AUTH){ await NRA_AUTH.ready(); NRA_AUTH.onChange(() => render()); }
+    render();
+  })();
+})();
+</script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

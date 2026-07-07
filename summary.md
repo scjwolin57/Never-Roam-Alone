@@ -210,3 +210,12 @@ All API keys live **only** in Netlify environment variables — never in browser
 - ✅ `MYMEMORY_EMAIL` — optional Netlify env var for higher rate limit
 - ✅ No API keys in any `.html`, `.js`, or committed files
 - ✅ `.env.example` documents required vars without real values
+
+---
+
+## Recently Completed (July 7, 2026) — Trip Planner
+- [x] **`itinerary.html` (new)** — Past & Upcoming trip lists (`?type=past` / `?type=upcoming`, toggle in the hero). Search bar + plus button; autocomplete suggests the 101 featured cities (marked "Guide", tidy capitalization, link to their city page) and coming-soon cities from `upcoming-cities.js` (marked "No guide yet"); anything else can be added as free text. Duplicate guard per list. Saves to Supabase (`itinerary_items` table) when signed in, localStorage (`nra_itinerary_v1`) otherwise.
+- [x] **"Request city guide" button** on itinerary items without a guide → POSTs to new Netlify function `request-guide.js`, which emails the site owner via Resend (`GUIDE_REQUEST_EMAIL` env var). Sent requests are remembered in localStorage (`nra_guide_requests_v1`) so the button shows "Guide requested ✓".
+- [x] **profile.html** — "My trips" section below the profile form with Upcoming/Past trip buttons linking to itinerary.html.
+- [x] **`itinerary-setup.sql` (new)** — run once in Supabase SQL Editor: creates `itinerary_items` with owner-only row-level security.
+- [ ] TODO to go live: set `GUIDE_REQUEST_EMAIL` in Netlify env vars (scope "All scopes") + run `itinerary-setup.sql` in Supabase.

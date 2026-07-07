@@ -2529,16 +2529,8 @@ if(!c){
         </div>
         <div class="net-stats">
           <div class="ns">
-            <div class="k">Mobile &middot; avg download</div>
-            <div class="ns-v">${net.m} Mbps</div>
-          </div>
-          <div class="ns">
             <div class="k">Wi-Fi &middot; broadband</div>
             <div class="ns-v">${net.w} Mbps</div>
-          </div>
-          <div class="ns">
-            <div class="k">Tourist SIM &middot; per GB</div>
-            <div class="ns-v">${fmtGB(net.gb, code)}</div>
           </div>
           <div class="ns">
             <div class="k">Free public Wi-Fi</div>
@@ -2549,6 +2541,14 @@ if(!c){
             <div class="k">Airport Wi-Fi</div>
             <div class="ns-v" style="color:#1d9a6c">Free</div>
             <div class="ns-note">${NET_AP_NOTES[net.ap]}</div>
+          </div>
+          <div class="ns">
+            <div class="k">Mobile &middot; avg download</div>
+            <div class="ns-v">${net.m} Mbps</div>
+          </div>
+          <div class="ns">
+            <div class="k">Tourist SIM &middot; per GB</div>
+            <div class="ns-v">${fmtGB(net.gb, code)}</div>
           </div>
         </div>
         <div class="net-ops-row">
