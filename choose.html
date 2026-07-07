@@ -255,6 +255,21 @@
           </div>
         </div>
         <div>
+          <label class="field" for="travelBy">Get there by</label>
+          <div class="select-wrap">
+            <select id="travelBy">
+              <option value="cheapest" selected>Cheapest way to get there</option>
+              <option value="fastest">Fastest way to get there</option>
+              <option value="Plane">Plane</option>
+              <option value="Train">Train</option>
+              <option value="Bus">Bus</option>
+              <option value="Car">Car</option>
+              <option value="Boat">Boat</option>
+            </select>
+          </div>
+          <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
+        </div>
+        <div>
           <label class="field" for="activity">I love…</label>
           <div class="select-wrap">
             <select id="activity">
@@ -266,20 +281,6 @@
               <option value="Nature">Nature</option>
             </select>
           </div>
-        </div>
-        <div>
-          <label class="field" for="travelBy">Get there by</label>
-          <div class="select-wrap">
-            <select id="travelBy">
-              <option value="" selected>Any way that works</option>
-              <option value="Plane">Plane</option>
-              <option value="Train">Train</option>
-              <option value="Bus">Bus</option>
-              <option value="Car">Car</option>
-              <option value="Boat">Boat</option>
-            </select>
-          </div>
-          <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
         </div>
         <div>
           <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
@@ -827,7 +828,7 @@ const modeNote = document.getElementById("modeNote");
 function updateModeAvailability(){
   const geo  = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
   const cont = continentEl.value;
-  const opts = [...travelByEl.options].filter(o => o.value);
+  const opts = [...travelByEl.options].filter(o => UI_MODE_KEY[o.value]);   // cheapest/fastest never gray
   if(!geo){
     opts.forEach(o => { o.disabled = false; });
     modeNote.hidden = true;
@@ -846,8 +847,8 @@ function updateModeAvailability(){
     o.disabled = !avail[UI_MODE_KEY[o.value]];
     if(o.disabled) anyDisabled = true;
   });
-  if(travelByEl.value && !avail[UI_MODE_KEY[travelByEl.value]]){
-    travelByEl.value = "";               // current pick became impossible
+  if(UI_MODE_KEY[travelByEl.value] && !avail[UI_MODE_KEY[travelByEl.value]]){
+    travelByEl.value = "cheapest";       // current pick became impossible
     updateOriginModeUI();
   }
   modeNote.textContent = anyDisabled
@@ -901,7 +902,9 @@ function renderFinder(){
         }
       });
       cmp.modes.sort((a,b)=> a.cost - b.cost);
-      m = mode ? cmp.modes.find(x=>x.mode===UI_MODE_KEY[mode]) : cmp.modes[0];
+      if(UI_MODE_KEY[mode])          m = cmp.modes.find(x=>x.mode===UI_MODE_KEY[mode]);
+      else if(mode === "fastest")    m = cmp.modes.reduce((a,b)=> (!a || b.timeH < a.timeH) ? b : a, null);
+      else                           m = cmp.modes[0];   // cheapest (list is cost-sorted)
       if(!m){ hiddenMode++; return; }
     }
     const vi = pass ? visaInfoFor(pass, c) : null;
@@ -953,8 +956,9 @@ function renderFinder(){
   if(act) bits.push(`${act.replace("&amp;","&")} lovers`);
   if(budget) bits.push(`${fmtMoney(budget)} for ${nights} night${nights>1?"s":""}`);
   else if(nightsIn) bits.push(`${nightsIn} night${nightsIn>1?"s":""}`);
-  if(geo) bits.push(`from ${geo.city}${mode ? " by "+mode.toLowerCase() : ""}`);
-  else if(mode) bits.push(`by ${mode.toLowerCase()}`);
+  if(geo) bits.push(`from ${geo.city}${UI_MODE_KEY[mode] ? " by "+mode.toLowerCase()
+                     : mode==="fastest" ? ", fastest way there" : ", cheapest way there"}`);
+  else if(UI_MODE_KEY[mode]) bits.push(`by ${mode.toLowerCase()}`);
   if(pass) bits.push(`${pass} passport`);
   const head = bits.length
     ? `<h2>Your matches — ${bits.join(" · ")}</h2>`
@@ -962,7 +966,7 @@ function renderFinder(){
 
   const hiddenBits = [];
   if(hiddenBudget) hiddenBits.push(`${hiddenBudget} over budget`);
-  if(hiddenMode)   hiddenBits.push(`${hiddenMode} not workable by ${mode ? mode.toLowerCase() : "any mode"}`);
+  if(hiddenMode)   hiddenBits.push(`${hiddenMode} not workable by ${UI_MODE_KEY[mode] ? mode.toLowerCase() : "any mode"}`);
   if(hiddenEntry)  hiddenBits.push(`${hiddenEntry} with no admission on your passport`);
   const subBits = [];
   subBits.push(`Showing <strong>${rows.length}</strong> of ${CITIES.length} destinations` +
