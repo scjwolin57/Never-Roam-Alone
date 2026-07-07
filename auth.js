@@ -231,6 +231,7 @@ window.NRA_AUTH = (function(){
           <div class="nra-field"><label>Password</label><input type="password" id="nra-pw" autocomplete="current-password"></div>
           <div class="nra-field" id="nra-pw2-wrap" style="display:none"><label>Confirm password</label><input type="password" id="nra-pw2" autocomplete="new-password"></div>
           <div class="nra-field" id="nra-name-wrap" style="display:none"><label>Display name</label><input type="text" id="nra-dn" maxlength="40" placeholder="How you'll appear on posts"></div>
+          <label class="nra-check" id="nra-mailing-wrap" style="display:none"><input type="checkbox" id="nra-mailing"> <span>Email me travel tips &amp; new city guides. No spam — unsubscribe anytime.</span></label>
           <div class="nra-row-btns">
             <button class="nra-btn" id="nra-do-signin">Sign in</button>
             <button class="nra-btn ghost" id="nra-toggle-signup">New here? Create account</button>
@@ -284,6 +285,7 @@ window.NRA_AUTH = (function(){
     bg.querySelector("#nra-toggle-signup").addEventListener("click", () => {
       signupMode = !signupMode;
       bg.querySelector("#nra-name-wrap").style.display = signupMode ? "" : "none";
+      bg.querySelector("#nra-mailing-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-pw2-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-forgot").style.display = signupMode ? "none" : "";
       bg.querySelector("#nra-do-signin").textContent = signupMode ? "Create account" : "Sign in";
@@ -310,6 +312,10 @@ window.NRA_AUTH = (function(){
             const dn = bg.querySelector("#nra-dn").value.trim();
             const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] }, emailRedirectTo: pageUrl() } });
             if (error) throw error;
+            // If they ticked the mailing-list box, add them to the list too.
+            if (bg.querySelector("#nra-mailing") && bg.querySelector("#nra-mailing").checked){
+              subscribeMailing(email, "signup");
+            }
             msg("Account created! Check your email to confirm, then sign in.");
           } else {
             const { error } = await sb.auth.signInWithPassword({ email, password: pw });
@@ -420,6 +426,57 @@ window.NRA_AUTH = (function(){
   }
 
   async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; emit(); }
+
+  /* ---------------- mailing list ----------------
+     The list lives in the "mailing_list" table (see mailing-list-setup.sql).
+     Anyone can add an email; a signed-in person can see/remove only their own.
+     Used by: the signup checkbox above, the profile page toggle, and the
+     signup forms on the site (mailing-list.js). */
+  function sendConfirmation(email){
+    // Best-effort: the address is already saved, so a failed email is harmless.
+    try{
+      fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      }).catch(() => {});
+    }catch(e){ /* ignore */ }
+  }
+  async function subscribeMailing(email, source){
+    email = String(email || "").trim().toLowerCase();
+    if (!isValidEmail(email)) return { ok:false, error:"That email address doesn't look right — double check it." };
+    if (!sb) return { ok:false, error:"Sign-ups aren't switched on yet." };
+    const row = { email, source: source || "site" };
+    if (session) row.user_id = session.user.id;
+    try{
+      const { error } = await sb.from("mailing_list").insert(row);
+      if (error){
+        // 23505 = already on the list — treat as success so we never scare a
+        // returning subscriber with an error.
+        if (error.code === "23505" || /duplicate|already|unique/i.test(error.message || ""))
+          return { ok:true, already:true };
+        return { ok:false, error: error.message || "Couldn't sign you up — please try again." };
+      }
+      sendConfirmation(email);
+      return { ok:true };
+    }catch(e){ return { ok:false, error:"Couldn't reach the server — please try again." }; }
+  }
+  // Is the signed-in person on the list? false if not signed in / not subscribed.
+  async function mailingStatus(){
+    if (!sb || !session) return false;
+    try{
+      const { data } = await sb.from("mailing_list").select("id").eq("user_id", session.user.id).limit(1);
+      return !!(data && data.length);
+    }catch(e){ return false; }
+  }
+  async function unsubscribeMailing(){
+    if (!sb || !session) return { ok:false, error:"You need to be signed in." };
+    try{
+      const { error } = await sb.from("mailing_list").delete().eq("user_id", session.user.id);
+      if (error) return { ok:false, error: error.message };
+      return { ok:true };
+    }catch(e){ return { ok:false, error:"Couldn't reach the server — please try again." }; }
+  }
   /* Save the reply-notification preference on the user's profile.
      Returns true on success, false if not signed in or the update failed —
      so callers (e.g. the checkbox on askaroamer.html) can revert on failure. */
@@ -466,6 +523,9 @@ window.NRA_AUTH = (function(){
     onChange,
     signOut,
     setNotify,
+    subscribeMailing,
+    mailingStatus,
+    unsubscribeMailing,
     openModal,
     renderNavWidget
   };

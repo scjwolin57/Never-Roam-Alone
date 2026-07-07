@@ -94,6 +94,8 @@
   .field textarea{min-height:96px;resize:vertical}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .charcount{float:right;font-size:.72rem;color:var(--muted);font-weight:400}
+  .check-row{display:flex;align-items:flex-start;gap:10px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);font-size:.95rem;cursor:pointer;margin-bottom:0}
+  .check-row input{width:auto;margin-top:4px;accent-color:var(--green);flex-shrink:0}
 
   .actions{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
 
@@ -248,6 +250,15 @@
         </div>
       </div>
 
+      <div class="field">
+        <label>Mailing list</label>
+        <label class="check-row">
+          <input type="checkbox" id="p-mailing" />
+          <span>Email me travel tips &amp; new city guides. No spam — unsubscribe anytime.</span>
+        </label>
+        <span class="save-msg" id="mailing-msg" style="display:block;font-size:.82rem;margin-top:6px"></span>
+      </div>
+
       <div class="actions">
         <button class="btn" type="submit" id="save-btn">Save profile</button>
         <a class="btn ghost" href="askaroamer.html">Back to Ask A Roamer</a>
@@ -383,7 +394,7 @@
   function render(){
     const auth = window.NRA_AUTH;
     if (!auth || !auth.enabled){ show("guest"); return; }
-    if (auth.user()){ show("in"); fillForm(); }
+    if (auth.user()){ show("in"); fillForm(); refreshMailing(); }
     else { show("out"); }
   }
 
@@ -429,6 +440,34 @@
   });
 
   $("gate-signin").addEventListener("click", () => { if (window.NRA_AUTH) NRA_AUTH.openModal(); });
+
+  /* ---- mailing list opt-in (its own list; saves the moment you toggle it) ---- */
+  const mmsg = (text, kind) => { const m = $("mailing-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
+  async function refreshMailing(){
+    const auth = window.NRA_AUTH;
+    const box = $("p-mailing");
+    mmsg("");
+    if (!auth || !auth.user() || !auth.mailingStatus){ box.checked = false; return; }
+    box.disabled = true;
+    try { box.checked = await auth.mailingStatus(); } catch(e){ box.checked = false; }
+    box.disabled = false;
+  }
+  $("p-mailing").addEventListener("change", async () => {
+    const auth = window.NRA_AUTH;
+    const box = $("p-mailing");
+    if (!auth || !auth.user()){ box.checked = false; mmsg("Sign in first to manage your subscription.", "err"); return; }
+    const want = box.checked;
+    box.disabled = true; mmsg("Saving…");
+    const email = (auth.user() && auth.user().email) || "";
+    const res = want ? await auth.subscribeMailing(email, "profile") : await auth.unsubscribeMailing();
+    box.disabled = false;
+    if (res && res.ok){
+      mmsg(want ? "You're on the list — check your inbox for a confirmation." : "You've been removed from the list.", "ok");
+    } else {
+      box.checked = !want;  // revert on failure
+      mmsg((res && res.error) || "Couldn't save — please try again.", "err");
+    }
+  });
 
   /* ---- delete account (two-step confirm; permanent) ---- */
   const dmsg = (text, kind) => { const m = $("del-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
