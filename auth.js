@@ -34,7 +34,7 @@ window.NRA_AUTH = (function(){
   }
 
   function onChange(cb){ listeners.push(cb); }
-  function emit(){ listeners.forEach(cb => { try{ cb(session, profile); }catch(e){} }); renderWidget(); }
+  function emit(){ listeners.forEach(cb => { try{ cb(session, profile); }catch(e){} }); renderWidget(); renderNavWidget(); }
 
   /* ---- load the Supabase browser library from its CDN (only if configured) ---- */
   function loadLib(){
@@ -60,7 +60,7 @@ window.NRA_AUTH = (function(){
   }
 
   async function init(){
-    if (!enabled){ readyResolve(); renderWidget(); return; }
+    if (!enabled){ readyResolve(); renderWidget(); renderNavWidget(); return; }
     // Safety net: never let the rest of the page wait forever on us. If anything
     // below stalls, release ready() after a few seconds so the forum still loads.
     const readyTimer = setTimeout(readyResolve, 6000);
@@ -121,7 +121,12 @@ window.NRA_AUTH = (function(){
   .nra-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid rgba(24,94,63,.25);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:4px}
   .nra-google:hover{border-color:#185e3f}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
-  .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}`;
+  .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
+  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none}
+  .nra-nav-avatar:hover{background:#0e7c86}
+  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nra-nav-signin:hover{background:#0e7c86}
+  .nra-nav-signin svg{width:17px;height:17px}`;
 
   function ensureCSS(){
     if (document.getElementById("nra-auth-css")) return;
@@ -185,6 +190,24 @@ window.NRA_AUTH = (function(){
         <div style="margin-top:10px"><button class="nra-btn" id="nra-signin">Sign in / Create profile</button></div>
       </div>`;
       el.querySelector("#nra-signin").addEventListener("click", openModal);
+    }
+  }
+
+  /* ---- Compact nav-bar version: sign-in button, or initials circle → profile.html.
+     Lives in the shared header (see nav.js), so it shows up on every page. ---- */
+  function renderNavWidget(){
+    const el = document.getElementById("nra-nav-account");
+    if (!el) return;
+    ensureCSS();
+    if (!enabled){ el.innerHTML = ""; return; } // guest mode: nothing to sign into, keep the nav clean
+    if (session){
+      const name = (profile && profile.display_name) || session.user.email;
+      el.innerHTML = `<a class="nra-nav-avatar" href="profile.html" title="${esc(name)} — your profile">${esc(initials(name))}</a>`;
+    } else {
+      el.innerHTML = `<button class="nra-nav-signin" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
+        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-6.5 8-6.5s8 2.1 8 6.5"></path></svg></button>`;
+      el.querySelector("#nra-nav-signin-btn").addEventListener("click", openModal);
     }
   }
 
@@ -443,6 +466,7 @@ window.NRA_AUTH = (function(){
     onChange,
     signOut,
     setNotify,
-    openModal
+    openModal,
+    renderNavWidget
   };
 })();

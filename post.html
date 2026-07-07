@@ -19,7 +19,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -57,7 +57,7 @@
   .soon p{color:var(--muted);font-size:1.1rem}
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:46px}
-  footer .brand{justify-content:center;color:#e97451;font-size:1.6rem}
+  footer .brand{justify-content:center;color:#c35237;font-size:1.6rem}
   @media(max-width:820px){nav.links{display:none}}
 </style>
 </head>
@@ -66,20 +66,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
-          <circle cx="60" cy="60" r="53"/>
-          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
-          <path d="M22,86 Q60,74 98,86"/>
-        </g>
-        <g fill="#185e3f">
-          <circle cx="50" cy="62" r="5.2"/>
-          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
-          <circle cx="70" cy="62" r="5.2"/>
-          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
-          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
-        </g>
-      </svg>
+      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -140,6 +127,8 @@ if(post){
     </div>`;
 }
 </script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
