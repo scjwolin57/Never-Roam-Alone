@@ -567,18 +567,29 @@ function airportItems(query){
   const items = [], seenCity = new Set();
   for(const a of picks){
     const key = (a.city||a.name)+"|"+a.country;
-    // If this city has several airports (that pass the filter), offer "All airports" first
     const cityAll = CITY_AIRPORTS ? (CITY_AIRPORTS[key]||[]).filter(showAirport) : [];
-    if(!seenCity.has(key) && cityAll.length > 1){
+    if(!seenCity.has(key)){
       seenCity.add(key);
-      const all = cityAll.slice(0,6);
-      const codes = all.map(x=>x.code);
+      const base = cityAll.length ? cityAll : [a];
+      // The city itself is always pickable (typing "Miami" offers Miami the
+      // city AND the MIA airport code)
       items.push({
-        label:`${a.city}, ${a.country} — All airports`, sub:codes.join(" · "), code:"ALL",
-        value:`${a.city} (all airports)`,
-        origin:{city:a.city, name:"All "+a.city+" airports", code:codes.join(","), country:a.country,
-                lat: all.reduce((s,x)=>s+x.lat,0)/all.length, lng: all.reduce((s,x)=>s+x.lng,0)/all.length}
+        label:`📍 ${a.city||a.name}, ${a.country}`, sub:"City", code:"",
+        value:`${a.city||a.name}`,
+        origin:{city:a.city||a.name, name:(a.city||a.name)+" (city)", code:"", country:a.country,
+                lat: base.reduce((s,x)=>s+x.lat,0)/base.length, lng: base.reduce((s,x)=>s+x.lng,0)/base.length}
       });
+      // If this city has several airports (that pass the filter), offer "All airports" too
+      if(cityAll.length > 1){
+        const all = cityAll.slice(0,6);
+        const codes = all.map(x=>x.code);
+        items.push({
+          label:`${a.city}, ${a.country} — All airports`, sub:codes.join(" · "), code:"ALL",
+          value:`${a.city} (all airports)`,
+          origin:{city:a.city, name:"All "+a.city+" airports", code:codes.join(","), country:a.country,
+                  lat: all.reduce((s,x)=>s+x.lat,0)/all.length, lng: all.reduce((s,x)=>s+x.lng,0)/all.length}
+        });
+      }
     }
     items.push({
       label:`${a.city||a.name}, ${a.country}`,
@@ -587,7 +598,7 @@ function airportItems(query){
       origin:{city:a.city||a.name, name:a.name, code:a.code, country:a.country, lat:a.lat, lng:a.lng}
     });
   }
-  return items.slice(0,9);
+  return items.slice(0,10);
 }
 
 /* autocomplete wiring */
