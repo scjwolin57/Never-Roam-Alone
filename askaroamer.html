@@ -179,6 +179,21 @@
     font-weight:700;font-size:.82rem;color:#fff;font-family:-apple-system,sans-serif;
   }
   .qmeta .who{font-weight:700;color:var(--ink);font-size:.86rem}
+  /* initials that belong to a public profile become a link with a "View profile" popup */
+  a.avatar-link{position:relative;display:inline-flex;cursor:pointer}
+  a.avatar-link .av-pop{
+    position:absolute;left:50%;bottom:calc(100% + 8px);
+    transform:translateX(-50%) translateY(3px);
+    background:#1d2a32;color:#fff;font-size:.72rem;font-weight:700;
+    padding:5px 11px;border-radius:8px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:opacity .15s, transform .15s;z-index:30;
+  }
+  a.avatar-link .av-pop::after{
+    content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
+    border:5px solid transparent;border-top-color:#1d2a32;
+  }
+  a.avatar-link:hover .av-pop, a.avatar-link:focus-visible .av-pop{opacity:1;transform:translateX(-50%) translateY(0)}
+  a.avatar-link:hover .avatar{box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--teal)}
   .qmeta .loc{background:rgba(14,124,134,.1);color:var(--teal-dark);font-weight:700;
     padding:2px 9px;border-radius:14px;font-size:.72rem;cursor:pointer}
   .qmeta .loc:hover{background:rgba(14,124,134,.2)}
@@ -568,10 +583,10 @@ function makeRemoteStore(sb){
   const VOTES_KEY = "nra_forum_votes_remote_v1";
   const readVotes = () => { try{ return JSON.parse(localStorage.getItem(VOTES_KEY)) || {}; }catch(e){ return {}; } };
   const writeVotes = v => { try{ localStorage.setItem(VOTES_KEY, JSON.stringify(v)); }catch(e){} };
-  const mapReply = r => ({ id:r.id, name:r.name, body:r.body, likes:r.likes, dislikes:r.dislikes, created:Date.parse(r.created_at) });
+  const mapReply = r => ({ id:r.id, name:r.name, body:r.body, likes:r.likes, dislikes:r.dislikes, created:Date.parse(r.created_at), uid:r.user_id||null });
   const mapQ = q => ({
     id:q.id, name:q.name, city:q.city, title:q.title, body:q.body,
-    likes:q.likes, dislikes:q.dislikes, created:Date.parse(q.created_at),
+    likes:q.likes, dislikes:q.dislikes, created:Date.parse(q.created_at), uid:q.user_id||null,
     replies:(q.replies||[]).map(mapReply).sort((a,b)=>a.created-b.created)
   });
   async function rpcVote(kind, id, key, dir){
@@ -594,7 +609,7 @@ function makeRemoteStore(sb){
   return {
     async list(){
       const { data, error } = await sb.from("questions")
-        .select("id,name,city,title,body,likes,dislikes,created_at,replies(id,name,body,likes,dislikes,created_at)")
+        .select("id,name,city,title,body,likes,dislikes,created_at,user_id,replies(id,name,body,likes,dislikes,created_at,user_id)")
         .order("created_at", { ascending:false });
       if (error) throw error;
       return (data||[]).map(mapQ);
@@ -643,6 +658,24 @@ const askForm    = document.getElementById("ask-form");
 let QUESTIONS = [];
 let activeCat = GENERAL;
 let VOTES = {};   // this browser's own up/down votes, keyed by reply id
+let REMOTE_SB = null;          // set when the shared community store is active
+let PUBLIC_IDS = new Set();    // posters who turned on "public profile" — their initials link out
+
+/* Look up which of the posters on screen have a public profile page.
+   Only those get the "View profile" popup; everyone else looks unchanged. */
+async function refreshPublicIds(){
+  if (!REMOTE_SB) return;
+  const ids = new Set();
+  QUESTIONS.forEach(q => {
+    if (q.uid) ids.add(q.uid);
+    (q.replies||[]).forEach(r => { if (r.uid) ids.add(r.uid); });
+  });
+  if (!ids.size){ PUBLIC_IDS = new Set(); return; }
+  try{
+    const { data } = await REMOTE_SB.from("public_profiles").select("id").in("id", Array.from(ids));
+    PUBLIC_IDS = new Set((data||[]).map(x => x.id));
+  }catch(e){ /* lookup failing just means no popups — never break the forum */ }
+}
 
 const ICON_UP   = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>`;
 const ICON_DOWN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>`;
@@ -659,7 +692,14 @@ function timeAgo(ts){
   const d=Math.floor(h/24); if(d<30) return d+(d===1?" day ago":" days ago");
   const mo=Math.floor(d/30); return mo+(mo===1?" month ago":" months ago");
 }
-function avatarHTML(name,big){ const c=avatarColor(name); return `<span class="avatar" style="background:${c}${big?'':';width:24px;height:24px;font-size:.7rem'}">${esc(initials(name))}</span>`; }
+function avatarHTML(name,big,uid){
+  const c=avatarColor(name);
+  const av = `<span class="avatar" style="background:${c}${big?'':';width:24px;height:24px;font-size:.7rem'}">${esc(initials(name))}</span>`;
+  if (uid && PUBLIC_IDS.has(uid)){
+    return `<a class="avatar-link" href="roamer.html?id=${encodeURIComponent(uid)}" aria-label="View ${esc(name)}'s profile">${av}<span class="av-pop" data-no-i18n>View profile</span></a>`;
+  }
+  return av;
+}
 
 /* ---- sidebar + composer category options ---- */
 function countFor(cat){ return QUESTIONS.filter(q => q.city === cat).length; }
@@ -700,7 +740,7 @@ function voteRowHTML(key, likes, dislikes, attrs, inline){
 function replyHTML(r){
   return `
     <div class="reply">
-      ${avatarHTML(r.name,false)}
+      ${avatarHTML(r.name,false,r.uid)}
       <div class="rbody">
         <div class="rhead"><span class="who">${esc(r.name)}</span> · <span>${timeAgo(r.created)}</span></div>
         <p class="rtext">${esc(r.body)}</p>
@@ -714,7 +754,7 @@ function questionHTML(q){
   return `
     <article class="qcard" data-id="${q.id}" data-search="${esc((q.title+" "+q.body).toLowerCase())}">
       <div class="qmeta">
-        ${avatarHTML(q.name,true)}
+        ${avatarHTML(q.name,true,q.uid)}
         <span class="who">${esc(q.name)}</span>
         <span class="loc" data-cat="${esc(q.city)}">${esc(q.city)}</span>
         <span>· ${timeAgo(q.created)}</span>
@@ -855,6 +895,7 @@ threadsEl.addEventListener("submit", async (e)=>{
   if (!body) return;
   await ForumStore.addReply(id,{name,body});
   QUESTIONS = await ForumStore.list();
+  await refreshPublicIds();
   renderSidebar();
   applyView();
   const card = threadsEl.querySelector(`.qcard[data-id="${id}"]`);
@@ -876,6 +917,7 @@ askForm.addEventListener("submit", async (e)=>{
   askForm.reset();
   syncNotifyUI();   // reset() unchecks the box visually — restore it from the saved preference
   QUESTIONS = await ForumStore.list();
+  await refreshPublicIds();
   sortEl.value = "newest";
   // jump to the category the question was filed under so the user sees it
   activeCat = city;
@@ -942,6 +984,7 @@ function syncNotifyUI(){
       try{
         QUESTIONS = await remote.list();      // proves the database answers
         ForumStore = remote;
+        REMOTE_SB = sb;
         const foot = document.querySelector("footer small");
         if (foot) foot.textContent = "Community Q&A · posts are shared with all Roamers";
       }catch(e){ /* database unreachable — stay in guest mode */ }
@@ -950,6 +993,7 @@ function syncNotifyUI(){
   }
   QUESTIONS = await ForumStore.list();
   VOTES = ForumStore.votes();
+  await refreshPublicIds();
   renderSidebar();
   renderCitySelect();
   applyView();

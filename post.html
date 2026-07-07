@@ -98,6 +98,25 @@ const slug = (params.get("post")||"").toLowerCase();
 const post = window.NRA_POSTS_UTIL.bySlug(slug);
 const content = document.getElementById("content");
 
+/* Byline: site default, or the tagged trusted traveler (posts.js authorId)
+   with their initials and a link to their public profile page. */
+function escT(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function bylineHTML(post){
+  if (post.authorId){
+    const name = post.authorName || "A trusted traveler";
+    const parts = name.trim().split(/\s+/);
+    const init = ((parts[0]||"?")[0] + (parts.length>1 ? parts[parts.length-1][0] : "")).toUpperCase();
+    const colors = ["#185e3f","#0e7c86","#b4552d","#7a5195","#2f6690","#bc5090"];
+    let h = 0; for (let i=0;i<name.length;i++) h = (h*31 + name.charCodeAt(i)) >>> 0;
+    return `<a href="roamer.html?id=${encodeURIComponent(post.authorId)}" style="display:flex;align-items:center;gap:12px" title="View ${escT(name)}'s profile">
+      <div class="avatar" style="background:${colors[h%colors.length]};display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">${escT(init)}</div>
+      <div class="who">${escT(name)}<small>Trusted traveler · view profile</small></div>
+    </a>`;
+  }
+  return `<div class="avatar" style="background-image:url('pyramids-web.jpg')"></div>
+      <div class="who">Jeff<small>Never Roam Alone</small></div>`;
+}
+
 function render(b){
   if(b[0]==="lead")  return `<p class="lead">${b[1]}</p>`;
   if(b[0]==="h2")    return `<h2>${b[1]}</h2>`;
@@ -119,10 +138,7 @@ if(post){
       </div>
     </div>
     <article class="post i18n-ml">
-      <div class="byline">
-        <div class="avatar" style="background-image:url('pyramids-web.jpg')"></div>
-        <div class="who">Jeff<small>Never Roam Alone</small></div>
-      </div>
+      <div class="byline">${bylineHTML(post)}</div>
       ${post.body.map(render).join("\n")}
     </article>
     <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;

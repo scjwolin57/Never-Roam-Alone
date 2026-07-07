@@ -53,7 +53,7 @@ window.NRA_AUTH = (function(){
     if (!sb || !session) { profile = null; return; }
     try{
       const { data } = await sb.from("profiles")
-        .select("display_name,email,notify_replies,bio,home_city,home_country,travel_style,travel_company,website,instagram,avatar_url")
+        .select("display_name,email,notify_replies,bio,home_city,home_country,travel_style,travel_company,website,instagram,avatar_url,is_public")
         .eq("id", session.user.id).single();
       profile = data || null;
     }catch(e){ profile = null; }
@@ -492,7 +492,7 @@ window.NRA_AUTH = (function(){
 
   /* Save profile fields (display name, bio, home city/country, travel style, socials).
      Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
-  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url"];
+  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url","is_public"];
   async function updateProfile(fields){
     if (!sb || !session) return { ok:false, error:"You need to be signed in." };
     const patch = {};

@@ -251,6 +251,17 @@
       </div>
 
       <div class="field">
+        <label>Public profile</label>
+        <label class="check-row">
+          <input type="checkbox" id="p-public" />
+          <span>Show my profile on a public page. Other Roamers can see your name, bio, home city, travel style, and social links — <strong>never your email</strong>. Saves with the button below.</span>
+        </label>
+        <span class="save-msg" id="public-link-row" style="display:none;font-size:.82rem;margin-top:6px">
+          <a href="#" id="p-public-link" style="color:var(--teal);text-decoration:underline;font-weight:600">See your public page &rarr;</a>
+        </span>
+      </div>
+
+      <div class="field">
         <label>Mailing list</label>
         <label class="check-row">
           <input type="checkbox" id="p-mailing" />
@@ -384,6 +395,8 @@
     $("p-company").value   = p.travel_company || "";
     $("p-website").value   = p.website || "";
     $("p-instagram").value = p.instagram || "";
+    $("p-public").checked  = !!p.is_public;
+    syncPublicLink();
     $("who-name").textContent  = name || "Roamer";
     $("who-email").textContent = (user && user.email) || "";
     $("bio-count").textContent = ($("p-bio").value.length) + "/300";
@@ -406,6 +419,16 @@
   });
   $("p-bio").addEventListener("input", () => { $("bio-count").textContent = $("p-bio").value.length + "/300"; });
 
+  /* ---- "see your public page" link appears when the box is ticked ---- */
+  function syncPublicLink(){
+    const auth = window.NRA_AUTH;
+    const user = auth && auth.user();
+    const on = $("p-public").checked && user;
+    $("public-link-row").style.display = on ? "" : "none";
+    if (user) $("p-public-link").href = "roamer.html?id=" + encodeURIComponent(user.id);
+  }
+  $("p-public").addEventListener("change", syncPublicLink);
+
   /* ---- tidy up socials a little so they save clean ---- */
   function cleanWebsite(v){ v = (v||"").trim(); return v; }
   function cleanInsta(v){ v = (v||"").trim().replace(/^@+/, ""); return v ? "@"+v : ""; }
@@ -425,7 +448,8 @@
       travel_style: $("p-style").value,
       travel_company: $("p-company").value,
       website: cleanWebsite($("p-website").value),
-      instagram: cleanInsta($("p-instagram").value)
+      instagram: cleanInsta($("p-instagram").value),
+      is_public: $("p-public").checked
     };
     const btn = $("save-btn");
     btn.disabled = true; const original = btn.textContent; btn.textContent = "Saving…"; msg("");
