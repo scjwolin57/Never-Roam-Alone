@@ -227,6 +227,21 @@
       <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
         <strong id="cityCount">101</strong> featured destinations.</p>
       <div class="field-grid">
+        <div class="field-full">
+          <label class="field" for="continent">Where in the world?</label>
+          <div class="select-wrap">
+            <select id="continent">
+              <option value="" selected>I'm open to anywhere</option>
+              <option value="africa">Africa</option>
+              <option value="antarctica">Antarctica</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="n-america">North America</option>
+              <option value="oceania">Oceania / Australia</option>
+              <option value="s-america">South America</option>
+            </select>
+          </div>
+        </div>
         <div>
           <label class="field" for="activity">I love…</label>
           <div class="select-wrap">
@@ -253,6 +268,18 @@
             </select>
           </div>
         </div>
+        <div class="field-full">
+          <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
+          <div class="autocomplete">
+            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
+            <ul id="finderOriginList" class="ac-list" hidden></ul>
+          </div>
+          <label class="check-row" id="regionalRow">
+            <input type="checkbox" id="includeRegional" />
+            <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
+          </label>
+          <p class="origin-status" id="originStatus"></p>
+        </div>
         <div>
           <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
           <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
@@ -260,18 +287,6 @@
         <div>
           <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
           <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
-        </div>
-        <div class="field-full">
-          <label class="field" for="finderOrigin">Traveling from <span class="label-hint">(adds travel cost &amp; time to the math)</span></label>
-          <div class="autocomplete">
-            <input type="text" id="finderOrigin" class="origin-input" placeholder="Start typing your home city or airport…" autocomplete="off" />
-            <ul id="finderOriginList" class="ac-list" hidden></ul>
-          </div>
-          <label class="check-row">
-            <input type="checkbox" id="includeRegional" />
-            <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
-          </label>
-          <p class="origin-status" id="originStatus"></p>
         </div>
         <div>
           <label class="field" for="finderPassport">My passport <span class="label-hint">(shows visa needs)</span></label>
@@ -356,6 +371,24 @@
 const CITIES = window.NRA_DESTINATIONS;
 document.getElementById("cityCount").textContent = CITIES.length;
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+/* ---- continents (for the "Where in the world?" filter) ---- */
+const CONTINENT_LABEL = { africa:"Africa", antarctica:"Antarctica", asia:"Asia", europe:"Europe",
+                          "n-america":"North America", oceania:"Oceania / Australia", "s-america":"South America" };
+const COUNTRY_CONTINENT = {
+  "Egypt":"africa","Morocco":"africa","South Africa":"africa",
+  "China":"asia","China (SAR)":"asia","Georgia":"asia","India":"asia","Indonesia":"asia","Israel":"asia",
+  "Japan":"asia","Malaysia":"asia","Qatar":"asia","Saudi Arabia":"asia","Singapore":"asia","South Korea":"asia",
+  "Taiwan":"asia","Thailand":"asia","Türkiye":"asia","UAE":"asia","Vietnam":"asia",
+  "Austria":"europe","Belgium":"europe","Czechia":"europe","Denmark":"europe","Estonia":"europe","Finland":"europe",
+  "France":"europe","Germany":"europe","Greece":"europe","Hungary":"europe","Ireland":"europe","Italy":"europe",
+  "Lithuania":"europe","Netherlands":"europe","Norway":"europe","Poland":"europe","Portugal":"europe",
+  "Spain":"europe","Sweden":"europe","Switzerland":"europe","United Kingdom":"europe",
+  "Canada":"n-america","Dominican Republic":"n-america","Mexico":"n-america","United States":"n-america",
+  "Argentina":"s-america","Brazil":"s-america","Chile":"s-america","Peru":"s-america",
+  "Australia":"oceania","New Zealand":"oceania","Fiji":"oceania"
+};
+const continentFor = c => COUNTRY_CONTINENT[c.country] || null;
 
 /* ============================================================
    ACTIVITY RANKINGS — live venue counts from OpenStreetMap
@@ -575,10 +608,100 @@ function selectOrigin(it){
   renderFinder();
   saveState();
 }
-finderOriginInput.addEventListener("focus", ()=>{ if(!AIRPORTS && !airportsLoading) loadAirports(); });
+/* ---- mode-aware origin search ----------------------------------------
+   What "Traveling from" suggests depends on "Get there by":
+     Any / Plane -> airports (city name or airport code, list above)
+     Train       -> major train stations   (live OpenStreetMap search)
+     Bus         -> major bus stations     (live OpenStreetMap search)
+     Car         -> your home city         (live OpenStreetMap search)
+     Boat        -> passenger ports & ferry terminals (OpenStreetMap)
+   The OpenStreetMap searches use the free Photon geocoder.          */
+const regionalRow = document.getElementById("regionalRow");
+const originHint  = document.getElementById("originHint");
+const PHOTON_URL  = "https://photon.komoot.io/api/";
+const ORIGIN_MODE = {
+  airport:{ tags:null, icon:"✈",
+            ph:"Type your home city or airport code…",
+            hint:"(city or airport code — adds travel cost & time to the math)", status:"" },
+  station:{ tags:["railway:station"], icon:"🚆",
+            ph:"Type your city to find major train stations…",
+            hint:"(pick your departure train station)",
+            status:"We'll suggest real train stations as you type (OpenStreetMap)." },
+  bus:    { tags:["amenity:bus_station"], icon:"🚌",
+            ph:"Type your city to find major bus stations…",
+            hint:"(pick your departure bus station)",
+            status:"We'll suggest real bus stations as you type (OpenStreetMap)." },
+  city:   { tags:["place:city","place:town","place:village"], icon:"📍",
+            ph:"Type your home city…",
+            hint:"(driving costs are estimated from your city)",
+            status:"" },
+  port:   { tags:["amenity:ferry_terminal"], icon:"⛴",
+            ph:"Type your city to find passenger ports…",
+            hint:"(pick your departure port or ferry terminal)",
+            status:"We'll suggest passenger ports & ferry terminals as you type (OpenStreetMap)." }
+};
+function originKind(){
+  const m = travelByEl.value;
+  return m==="Train" ? "station" : m==="Bus" ? "bus" : m==="Car" ? "city" : m==="Boat" ? "port" : "airport";
+}
+function updateOriginModeUI(){
+  const cfg = ORIGIN_MODE[originKind()];
+  finderOriginInput.placeholder = cfg.ph;
+  originHint.textContent = cfg.hint;
+  regionalRow.hidden = !!cfg.tags;                 // regional-airports box only makes sense for flights
+  renderAcList([]);
+  if(cfg.tags) setAirportStatus(cfg.status);
+  else setAirportStatus(AIRPORTS ? AIRPORTS.length + " commercial airports loaded — start typing." : "");
+}
+
+let photonTimer = null, photonSeq = 0;
+function photonSearch(q, kind){
+  const seq = ++photonSeq;
+  const cfg = ORIGIN_MODE[kind];
+  const url = PHOTON_URL + "?lang=en&limit=10&q=" + encodeURIComponent(q) +
+              cfg.tags.map(t => "&osm_tag=" + encodeURIComponent(t)).join("");
+  fetch(url)
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      if(seq !== photonSeq || originKind() !== kind) return;   // stale response
+      const seen = new Set();
+      const items = (data.features || []).map(f => {
+        const p = f.properties || {}, g = (f.geometry || {}).coordinates || [];
+        if(!p.name || g.length < 2) return null;
+        const place = [p.city && p.city !== p.name ? p.city : "", p.state || "", p.country || ""]
+                      .filter(Boolean).join(", ");
+        const key = p.name + "|" + place;
+        if(seen.has(key)) return null;
+        seen.add(key);
+        return {
+          label: cfg.icon + " " + p.name, sub: place, code: "",
+          value: p.name + (p.city && p.city !== p.name ? ", " + p.city : ""),
+          origin:{ city: p.city || p.name, name: p.name, code: "", country: p.country || "",
+                   lat: g[1], lng: g[0] }
+        };
+      }).filter(Boolean).slice(0,9);
+      renderAcList(items);
+      if(!items.length) setAirportStatus("No matches yet — try just the city name.");
+      else setAirportStatus(ORIGIN_MODE[kind].status);
+    })
+    .catch(() => {
+      if(seq === photonSeq)
+        setAirportStatus("Couldn't search places right now (you may be offline, or the page is open as a local file). It works once the site is hosted.");
+    });
+}
+
+finderOriginInput.addEventListener("focus", ()=>{ if(originKind()==="airport" && !AIRPORTS && !airportsLoading) loadAirports(); });
 finderOriginInput.addEventListener("input", ()=>{
   finderOrigin = null;
-  renderAcList(airportItems(finderOriginInput.value));
+  const kind = originKind();
+  if(kind === "airport"){
+    renderAcList(airportItems(finderOriginInput.value));
+  } else {
+    clearTimeout(photonTimer);
+    const q = finderOriginInput.value.trim();
+    if(q.length < 2) renderAcList([]);
+    else photonTimer = setTimeout(()=> photonSearch(q, kind), 300);
+  }
   if(!finderOriginInput.value.trim()){ renderFinder(); }   // cleared -> plain results
   saveState();
 });
@@ -603,6 +726,7 @@ regionalBox.addEventListener("change", ()=>{
    stack into one ranked list. Estimates are always labeled.
    ============================================================ */
 const finderResults   = document.getElementById("finderResults");
+const continentEl     = document.getElementById("continent");
 const activityEl      = document.getElementById("activity");
 const travelByEl      = document.getElementById("travelBy");
 const totalBudgetEl   = document.getElementById("totalBudget");
@@ -695,6 +819,7 @@ let finderShowAll = false;
 function renderFinder(){
   if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
   const act    = activityEl.value;
+  const cont   = continentEl.value;
   const mode   = travelByEl.value;
   const budget = Math.max(0, parseFloat(totalBudgetEl.value) || 0);
   const nightsIn = Math.max(0, parseInt(nightsEl.value, 10) || 0);
@@ -722,6 +847,7 @@ function renderFinder(){
   const rows = [];
   let hiddenBudget = 0, hiddenMode = 0, hiddenEntry = 0;
   CITIES.forEach((c,i)=>{
+    if(cont && continentFor(c) !== cont) return;                               // continent filter
     if(geo && c.city.toLowerCase() === (geo.city||"").toLowerCase()) return;   // not your own city
     let cmp = null, m = null;
     if(geo){
@@ -781,6 +907,7 @@ function renderFinder(){
 
   /* heading */
   const bits = [];
+  if(cont) bits.push(`in ${CONTINENT_LABEL[cont]}`);
   if(act) bits.push(`${act.replace("&amp;","&")} lovers`);
   if(budget) bits.push(`${fmtMoney(budget)} for ${nights} night${nights>1?"s":""}`);
   else if(nightsIn) bits.push(`${nightsIn} night${nightsIn>1?"s":""}`);
@@ -805,7 +932,11 @@ function renderFinder(){
   if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a 7-night trip — set your trip length to sharpen the math.`);
 
   if(!rows.length){
-    finderResults.innerHTML = head + `<p class="empty">Nothing fits all of that yet — try raising the budget, adding nights, or loosening the travel mode.</p>`;
+    const contMsg = cont === "antarctica"
+      ? `We don't feature any Antarctic destinations (yet!) — pick another continent or "I'm open to anywhere".`
+      : cont ? `Nothing in ${CONTINENT_LABEL[cont]} fits all of that yet — try "I'm open to anywhere" or loosen the other filters.`
+             : `Nothing fits all of that yet — try raising the budget, adding nights, or loosening the travel mode.`;
+    finderResults.innerHTML = head + `<p class="empty">${contMsg}</p>`;
     return;
   }
 
@@ -839,8 +970,9 @@ function renderFinder(){
 
 /* wiring: selects re-render instantly, number inputs are debounced */
 let numTimer = null;
-[activityEl, travelByEl, sortByEl].forEach(el =>
+[continentEl, activityEl, travelByEl, sortByEl].forEach(el =>
   el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
+travelByEl.addEventListener("change", updateOriginModeUI);
 [totalBudgetEl, nightsEl].forEach(el =>
   el.addEventListener("input", ()=>{
     clearTimeout(numTimer);
@@ -1205,6 +1337,7 @@ function saveState(){
   try{
     localStorage.setItem(STORE_KEY, JSON.stringify({
       tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "finder",
+      continent: continentEl.value,
       activity: activityEl.value,
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
@@ -1222,6 +1355,7 @@ function saveState(){
 function loadState(){
   let s; try{ s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); }catch(e){ s = null; }
   if(!s) return;
+  if(s.continent) continentEl.value = s.continent;
   if(s.activity) activityEl.value = s.activity;
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
@@ -1242,6 +1376,7 @@ function loadState(){
   }
 }
 loadState();
+updateOriginModeUI();
 renderFinder();
 renderBucket();
 </script>
