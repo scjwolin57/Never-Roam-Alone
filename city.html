@@ -145,15 +145,24 @@
   .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(24,94,63,.08);
     border:1px solid rgba(24,94,63,.18);border-radius:20px;padding:3px 10px}
   .rides-none{font-size:.8rem;color:var(--muted)}
-  /* 5-up cost cards row */
-  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-  @media(max-width:1000px){.cost-cards-grid{grid-template-columns:repeat(3,1fr)}}
-  /* Connectivity card */
-  .net-ops{margin-top:10px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
-  .esim-link{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08);
-    font-size:.85rem;font-weight:700;color:var(--green);text-decoration:none;
-    display:inline-flex;align-items:center;gap:5px}
-  .esim-link:hover{text-decoration:underline}
+  /* 4-up cost cards row */
+  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  /* Connectivity banner — full-width card above the cost cards */
+  .net-banner{grid-column:1/-1;display:flex;flex-direction:column}
+  .net-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .net-head .cost-icon{margin-bottom:0}
+  .net-est{color:var(--muted);font-size:.72rem;font-style:italic}
+  .esim-btn{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
+    padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap}
+  .esim-btn:hover{background:#134d33}
+  .net-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:16px}
+  .ns{min-width:0}
+  .ns-v{font-family:Georgia,serif;font-weight:700;font-size:1.25rem;margin-top:3px}
+  .ns-note{color:var(--muted);font-size:.76rem;margin-top:3px;line-height:1.35}
+  .net-ops-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+    margin-top:16px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .net-ops-row .rides-k{margin-bottom:0}
+  @media(max-width:1000px){.net-stats{grid-template-columns:repeat(3,1fr)}}
   .drinks-list{display:flex;flex-direction:column;gap:10px;margin-top:8px}
   .drink-row{display:flex;align-items:baseline;justify-content:space-between;gap:8px;
     font-size:.9rem;border-bottom:1px solid rgba(0,0,0,.06);padding-bottom:9px}
@@ -289,6 +298,7 @@
     .tiles{grid-template-columns:1fr}
     .cur-grid{grid-template-columns:1fr}
     .cost-cards-grid{grid-template-columns:repeat(2,1fr)}
+    .net-stats{grid-template-columns:repeat(2,1fr)}
   }
   @media(max-width:520px){
     /* Full-width layout with tighter padding */
@@ -304,6 +314,7 @@
     .temp-rows{grid-template-columns:1fr}
     .temp-row:nth-child(2n){padding-left:0;border-left:none}
     .cost-cards-grid{grid-template-columns:1fr}
+    .net-stats{grid-template-columns:1fr}
     .transport-grid{grid-template-columns:1fr}
 
     /* Cards — let them breathe edge to edge */
@@ -2004,59 +2015,86 @@ const CITY_AIRPORT = {
 /* Connectivity per city — mobile & Wi-Fi avg download speeds (Mbps),
    major cellular operators, and typical tourist SIM data price per GB (USD).
    Country-level estimates compiled July 2026 from published averages. */
+/* Connectivity per city — mobile & Wi-Fi avg download speeds (Mbps), major
+   cellular operators, typical tourist SIM price per GB (USD), free public
+   Wi-Fi rating (fw: wide/mod/ltd, fwn: note number below) and main-airport
+   free Wi-Fi (ap: note number below). Country-level estimates, July 2026. */
 const CITY_NET = {
- "Hong Kong":{m:80,w:280,ops:["CSL","3 HK","SmarTone"],gb:1.50}, "Bangkok":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60},
- "London":{m:55,w:115,ops:["EE","O2","Vodafone","Three"],gb:0.80}, "Macau":{m:90,w:200,ops:["CTM","3 Macau","China Telecom"],gb:2.00},
- "Singapore":{m:95,w:290,ops:["Singtel","StarHub","M1"],gb:1.20}, "Paris":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50},
- "Dubai":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50}, "New York":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00},
- "Kuala Lumpur":{m:65,w:110,ops:["Maxis","CelcomDigi","U Mobile"],gb:0.40}, "Istanbul":{m:55,w:60,ops:["Turkcell","Vodafone","Türk Telekom"],gb:1.20},
- "Tokyo":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50}, "Antalya":{m:55,w:60,ops:["Turkcell","Vodafone","Türk Telekom"],gb:1.20},
- "Seoul":{m:140,w:150,ops:["SK Telecom","KT","LG U+"],gb:3.00}, "Osaka":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50},
- "Rome":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30}, "Phuket":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60},
- "Barcelona":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60}, "Amsterdam":{m:110,w:200,ops:["KPN","Vodafone","Odido"],gb:1.50},
- "Milan":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30}, "Vienna":{m:70,w:90,ops:["A1","Magenta","Drei"],gb:0.70},
- "Prague":{m:60,w:80,ops:["O2","T-Mobile","Vodafone"],gb:2.00}, "Los Angeles":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00},
- "Sydney":{m:90,w:60,ops:["Telstra","Optus","Vodafone"],gb:0.80}, "Cape Town":{m:45,w:50,ops:["Vodacom","MTN","Cell C"],gb:1.50},
- "Rio de Janeiro":{m:55,w:130,ops:["Vivo","Claro","TIM"],gb:0.60}, "Cancún":{m:40,w:75,ops:["Telcel","AT&T","Movistar"],gb:1.50},
- "Marrakech":{m:40,w:25,ops:["Maroc Telecom","Orange","inwi"],gb:1.00}, "Madrid":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60},
- "Taipei":{m:90,w:160,ops:["Chunghwa","Taiwan Mobile","FarEasTone"],gb:1.50}, "Berlin":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50},
- "Melbourne":{m:90,w:60,ops:["Telstra","Optus","Vodafone"],gb:0.80}, "Munich":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50},
- "Las Vegas":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00}, "Florence":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30},
- "Dublin":{m:55,w:110,ops:["Vodafone","Three","eir"],gb:1.00}, "Kyoto":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50},
- "Lisbon":{m:90,w:170,ops:["MEO","NOS","Vodafone"],gb:1.00}, "Venice":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30},
- "Athens":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80}, "Orlando":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00},
- "Toronto":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00}, "Miami":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00},
- "San Francisco":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00}, "Shanghai":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00},
- "Frankfurt am Main":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50}, "Copenhagen":{m:120,w:200,ops:["YouSee","Telia","Telenor","3"],gb:0.60},
- "Zurich":{m:90,w:250,ops:["Swisscom","Sunrise","Salt"],gb:2.50}, "Washington, D.C.":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00},
- "Pattaya-Chonburi":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60}, "Vancouver":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00},
- "Stockholm":{m:90,w:180,ops:["Telia","Tele2","Telenor","3"],gb:0.80}, "Mexico City":{m:40,w:75,ops:["Telcel","AT&T","Movistar"],gb:1.50},
- "Oslo":{m:130,w:180,ops:["Telenor","Telia","Ice"],gb:1.50}, "São Paulo":{m:55,w:130,ops:["Vivo","Claro","TIM"],gb:0.60},
- "Helsinki":{m:90,w:120,ops:["Elisa","DNA","Telia"],gb:0.40}, "Brussels":{m:75,w:100,ops:["Proximus","Orange","BASE"],gb:2.00},
- "Budapest":{m:60,w:150,ops:["Yettel","Magyar Telekom","One"],gb:1.50}, "Guangzhou":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00},
- "Nice":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50}, "Palma de Mallorca":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60},
- "Honolulu":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00}, "Beijing":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00},
- "Warsaw":{m:55,w:130,ops:["Orange","Play","Plus","T-Mobile"],gb:0.60}, "Seville":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60},
- "Valencia":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60}, "Shenzhen":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00},
- "Doha":{m:250,w:130,ops:["Ooredoo","Vodafone"],gb:3.00}, "Abu Dhabi":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50},
- "Fukuoka":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50}, "Sapporo":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50},
- "Busan":{m:140,w:150,ops:["SK Telecom","KT","LG U+"],gb:3.00}, "Edinburgh":{m:55,w:115,ops:["EE","O2","Vodafone","Three"],gb:0.80},
- "Montreal":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00}, "Bologna":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30},
- "Rhodes":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80}, "Verona":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30},
- "Delhi":{m:100,w:60,ops:["Jio","Airtel","Vi"],gb:0.15}, "Porto":{m:90,w:170,ops:["MEO","NOS","Vodafone"],gb:1.00},
- "Ho Chi Minh City":{m:50,w:100,ops:["Viettel","Vinaphone","MobiFone"],gb:0.25}, "Buenos Aires":{m:35,w:90,ops:["Personal","Claro","Movistar"],gb:0.40},
- "Marne-la-Vallée":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50}, "Kraków":{m:55,w:130,ops:["Orange","Play","Plus","T-Mobile"],gb:0.60},
- "Heraklion":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80}, "Johor Bahru":{m:65,w:110,ops:["Maxis","CelcomDigi","U Mobile"],gb:0.40},
- "Hanoi":{m:50,w:100,ops:["Viettel","Vinaphone","MobiFone"],gb:0.25}, "Tel Aviv":{m:40,w:130,ops:["Cellcom","Partner","Pelephone"],gb:0.30},
- "Sharjah":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50}, "Thessaloniki":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80},
- "Lima":{m:30,w:90,ops:["Claro","Movistar","Entel","Bitel"],gb:0.80}, "Medina":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00},
- "Tbilisi":{m:40,w:30,ops:["Magti","Silknet","Cellfie"],gb:0.80}, "Riyadh":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00},
- "Tallinn":{m:70,w:90,ops:["Telia","Elisa","Tele2"],gb:0.80}, "Mecca":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00},
- "Denpasar":{m:25,w:30,ops:["Telkomsel","XL Axiata","Indosat"],gb:0.40}, "Punta Cana":{m:35,w:45,ops:["Claro","Altice","Viva"],gb:1.50},
- "Santiago":{m:25,w:260,ops:["Entel","Movistar","Claro","WOM"],gb:0.50}, "Vilnius":{m:80,w:130,ops:["Telia","Bitė","Tele2"],gb:0.70},
- "Jerusalem":{m:40,w:130,ops:["Cellcom","Partner","Pelephone"],gb:0.30}, "Zhuhai":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00},
- "Cairo":{m:25,w:70,ops:["Vodafone","Orange","WE"],gb:0.50}
+ "Hong Kong":{m:80,w:280,ops:["CSL","3 HK","SmarTone"],gb:1.50,fw:"wide",fwn:1,ap:1}, "Bangkok":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "London":{m:55,w:115,ops:["EE","O2","Vodafone","Three"],gb:0.80,fw:"mod",fwn:2,ap:1}, "Macau":{m:90,w:200,ops:["CTM","3 Macau","China Telecom"],gb:2.00,fw:"mod",fwn:2,ap:1},
+ "Singapore":{m:95,w:290,ops:["Singtel","StarHub","M1"],gb:1.20,fw:"wide",fwn:1,ap:1}, "Paris":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50,fw:"mod",fwn:7,ap:1},
+ "Dubai":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50,fw:"mod",fwn:2,ap:1}, "New York":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"wide",fwn:1,ap:1},
+ "Kuala Lumpur":{m:65,w:110,ops:["Maxis","CelcomDigi","U Mobile"],gb:0.40,fw:"mod",fwn:2,ap:1}, "Istanbul":{m:55,w:60,ops:["Turkcell","Vodafone","Türk Telekom"],gb:1.20,fw:"mod",fwn:2,ap:4},
+ "Tokyo":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50,fw:"mod",fwn:3,ap:1}, "Antalya":{m:55,w:60,ops:["Turkcell","Vodafone","Türk Telekom"],gb:1.20,fw:"mod",fwn:2,ap:4},
+ "Seoul":{m:140,w:150,ops:["SK Telecom","KT","LG U+"],gb:3.00,fw:"wide",fwn:1,ap:1}, "Osaka":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50,fw:"mod",fwn:3,ap:1},
+ "Rome":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1}, "Phuket":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Barcelona":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60,fw:"wide",fwn:1,ap:1}, "Amsterdam":{m:110,w:200,ops:["KPN","Vodafone","Odido"],gb:1.50,fw:"mod",fwn:2,ap:1},
+ "Milan":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1}, "Vienna":{m:70,w:90,ops:["A1","Magenta","Drei"],gb:0.70,fw:"mod",fwn:2,ap:1},
+ "Prague":{m:60,w:80,ops:["O2","T-Mobile","Vodafone"],gb:2.00,fw:"mod",fwn:2,ap:1}, "Los Angeles":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1},
+ "Sydney":{m:90,w:60,ops:["Telstra","Optus","Vodafone"],gb:0.80,fw:"mod",fwn:2,ap:1}, "Cape Town":{m:45,w:50,ops:["Vodacom","MTN","Cell C"],gb:1.50,fw:"ltd",fwn:6,ap:1},
+ "Rio de Janeiro":{m:55,w:130,ops:["Vivo","Claro","TIM"],gb:0.60,fw:"mod",fwn:7,ap:1}, "Cancún":{m:40,w:75,ops:["Telcel","AT&T","Movistar"],gb:1.50,fw:"ltd",fwn:6,ap:1},
+ "Marrakech":{m:40,w:25,ops:["Maroc Telecom","Orange","inwi"],gb:1.00,fw:"ltd",fwn:6,ap:5}, "Madrid":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Taipei":{m:90,w:160,ops:["Chunghwa","Taiwan Mobile","FarEasTone"],gb:1.50,fw:"wide",fwn:1,ap:1}, "Berlin":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50,fw:"mod",fwn:2,ap:1},
+ "Melbourne":{m:90,w:60,ops:["Telstra","Optus","Vodafone"],gb:0.80,fw:"mod",fwn:2,ap:1}, "Munich":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50,fw:"mod",fwn:2,ap:1},
+ "Las Vegas":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1}, "Florence":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1},
+ "Dublin":{m:55,w:110,ops:["Vodafone","Three","eir"],gb:1.00,fw:"mod",fwn:2,ap:1}, "Kyoto":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50,fw:"mod",fwn:3,ap:1},
+ "Lisbon":{m:90,w:170,ops:["MEO","NOS","Vodafone"],gb:1.00,fw:"mod",fwn:2,ap:1}, "Venice":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1},
+ "Athens":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80,fw:"mod",fwn:2,ap:1}, "Orlando":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1},
+ "Toronto":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00,fw:"mod",fwn:2,ap:1}, "Miami":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1},
+ "San Francisco":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1}, "Shanghai":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00,fw:"ltd",fwn:5,ap:2},
+ "Frankfurt am Main":{m:65,w:95,ops:["Deutsche Telekom","Vodafone","O2"],gb:1.50,fw:"mod",fwn:2,ap:1}, "Copenhagen":{m:120,w:200,ops:["YouSee","Telia","Telenor","3"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Zurich":{m:90,w:250,ops:["Swisscom","Sunrise","Salt"],gb:2.50,fw:"mod",fwn:2,ap:1}, "Washington, D.C.":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1},
+ "Pattaya-Chonburi":{m:60,w:230,ops:["AIS","TrueMove H","NT"],gb:0.60,fw:"mod",fwn:2,ap:1}, "Vancouver":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00,fw:"mod",fwn:2,ap:1},
+ "Stockholm":{m:90,w:180,ops:["Telia","Tele2","Telenor","3"],gb:0.80,fw:"mod",fwn:2,ap:1}, "Mexico City":{m:40,w:75,ops:["Telcel","AT&T","Movistar"],gb:1.50,fw:"wide",fwn:1,ap:1},
+ "Oslo":{m:130,w:180,ops:["Telenor","Telia","Ice"],gb:1.50,fw:"mod",fwn:2,ap:1}, "São Paulo":{m:55,w:130,ops:["Vivo","Claro","TIM"],gb:0.60,fw:"mod",fwn:7,ap:1},
+ "Helsinki":{m:90,w:120,ops:["Elisa","DNA","Telia"],gb:0.40,fw:"wide",fwn:8,ap:1}, "Brussels":{m:75,w:100,ops:["Proximus","Orange","BASE"],gb:2.00,fw:"mod",fwn:2,ap:1},
+ "Budapest":{m:60,w:150,ops:["Yettel","Magyar Telekom","One"],gb:1.50,fw:"mod",fwn:2,ap:1}, "Guangzhou":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00,fw:"ltd",fwn:5,ap:2},
+ "Nice":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50,fw:"mod",fwn:7,ap:1}, "Palma de Mallorca":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Honolulu":{m:110,w:230,ops:["Verizon","AT&T","T-Mobile"],gb:3.00,fw:"mod",fwn:2,ap:1}, "Beijing":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00,fw:"ltd",fwn:5,ap:2},
+ "Warsaw":{m:55,w:130,ops:["Orange","Play","Plus","T-Mobile"],gb:0.60,fw:"mod",fwn:2,ap:1}, "Seville":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Valencia":{m:60,w:190,ops:["Movistar","Vodafone","Orange"],gb:0.60,fw:"mod",fwn:2,ap:1}, "Shenzhen":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00,fw:"ltd",fwn:5,ap:2},
+ "Doha":{m:250,w:130,ops:["Ooredoo","Vodafone"],gb:3.00,fw:"mod",fwn:2,ap:1}, "Abu Dhabi":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50,fw:"mod",fwn:2,ap:1},
+ "Fukuoka":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50,fw:"mod",fwn:3,ap:1}, "Sapporo":{m:50,w:190,ops:["NTT Docomo","au (KDDI)","SoftBank"],gb:2.50,fw:"mod",fwn:3,ap:1},
+ "Busan":{m:140,w:150,ops:["SK Telecom","KT","LG U+"],gb:3.00,fw:"wide",fwn:1,ap:1}, "Edinburgh":{m:55,w:115,ops:["EE","O2","Vodafone","Three"],gb:0.80,fw:"mod",fwn:2,ap:1},
+ "Montreal":{m:90,w:180,ops:["Rogers","Bell","Telus"],gb:4.00,fw:"mod",fwn:2,ap:1}, "Bologna":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1},
+ "Rhodes":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80,fw:"mod",fwn:2,ap:1}, "Verona":{m:55,w:90,ops:["TIM","Vodafone","WindTre","Iliad"],gb:0.30,fw:"mod",fwn:2,ap:1},
+ "Delhi":{m:100,w:60,ops:["Jio","Airtel","Vi"],gb:0.15,fw:"ltd",fwn:5,ap:3}, "Porto":{m:90,w:170,ops:["MEO","NOS","Vodafone"],gb:1.00,fw:"mod",fwn:2,ap:1},
+ "Ho Chi Minh City":{m:50,w:100,ops:["Viettel","Vinaphone","MobiFone"],gb:0.25,fw:"wide",fwn:4,ap:1}, "Buenos Aires":{m:35,w:90,ops:["Personal","Claro","Movistar"],gb:0.40,fw:"wide",fwn:1,ap:1},
+ "Marne-la-Vallée":{m:85,w:250,ops:["Orange","SFR","Bouygues","Free"],gb:0.50,fw:"mod",fwn:2,ap:1}, "Kraków":{m:55,w:130,ops:["Orange","Play","Plus","T-Mobile"],gb:0.60,fw:"mod",fwn:2,ap:1},
+ "Heraklion":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80,fw:"mod",fwn:2,ap:1}, "Johor Bahru":{m:65,w:110,ops:["Maxis","CelcomDigi","U Mobile"],gb:0.40,fw:"mod",fwn:2,ap:1},
+ "Hanoi":{m:50,w:100,ops:["Viettel","Vinaphone","MobiFone"],gb:0.25,fw:"wide",fwn:4,ap:1}, "Tel Aviv":{m:40,w:130,ops:["Cellcom","Partner","Pelephone"],gb:0.30,fw:"wide",fwn:1,ap:1},
+ "Sharjah":{m:310,w:250,ops:["e& (Etisalat)","du"],gb:3.50,fw:"mod",fwn:2,ap:1}, "Thessaloniki":{m:80,w:45,ops:["Cosmote","Vodafone","Nova"],gb:1.80,fw:"mod",fwn:2,ap:1},
+ "Lima":{m:30,w:90,ops:["Claro","Movistar","Entel","Bitel"],gb:0.80,fw:"ltd",fwn:6,ap:1}, "Medina":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00,fw:"mod",fwn:2,ap:1},
+ "Tbilisi":{m:40,w:30,ops:["Magti","Silknet","Cellfie"],gb:0.80,fw:"mod",fwn:7,ap:1}, "Riyadh":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00,fw:"mod",fwn:2,ap:1},
+ "Tallinn":{m:70,w:90,ops:["Telia","Elisa","Tele2"],gb:0.80,fw:"wide",fwn:8,ap:1}, "Mecca":{m:150,w:100,ops:["STC","Mobily","Zain"],gb:2.00,fw:"mod",fwn:2,ap:1},
+ "Denpasar":{m:25,w:30,ops:["Telkomsel","XL Axiata","Indosat"],gb:0.40,fw:"wide",fwn:4,ap:1}, "Punta Cana":{m:35,w:45,ops:["Claro","Altice","Viva"],gb:1.50,fw:"ltd",fwn:6,ap:5},
+ "Santiago":{m:25,w:260,ops:["Entel","Movistar","Claro","WOM"],gb:0.50,fw:"mod",fwn:2,ap:1}, "Vilnius":{m:80,w:130,ops:["Telia","Bitė","Tele2"],gb:0.70,fw:"wide",fwn:8,ap:1},
+ "Jerusalem":{m:40,w:130,ops:["Cellcom","Partner","Pelephone"],gb:0.30,fw:"mod",fwn:2,ap:1}, "Zhuhai":{m:140,w:220,ops:["China Mobile","China Unicom","China Telecom"],gb:1.00,fw:"ltd",fwn:5,ap:2},
+ "Cairo":{m:25,w:70,ops:["Vodafone","Orange","WE"],gb:0.50,fw:"ltd",fwn:6,ap:7}
 };
+
+/* Free public Wi-Fi notes (fwn above picks one) */
+const NET_FW_NOTES = {
+  1:"Citywide free hotspot network, plus caf\u00e9s & metro",
+  2:"Most caf\u00e9s, malls & libraries offer free Wi-Fi",
+  3:"Caf\u00e9s & convenience stores; stations covered, streets patchy",
+  4:"Nearly every caf\u00e9 & restaurant has free Wi-Fi",
+  5:"Common in malls & caf\u00e9s, but sign-in usually needs a local number",
+  6:"Mainly hotels, malls & tourist-area caf\u00e9s",
+  7:"Free hotspots in parks & squares, plus most caf\u00e9s",
+  8:"Excellent free Wi-Fi culture \u2014 caf\u00e9s, transit & public spaces"
+};
+/* Airport free Wi-Fi notes (ap above picks one) — all listed airports offer it free */
+const NET_AP_NOTES = {
+  1:"unlimited", 2:"passport kiosk or local number", 3:"local-number OTP (visitor help desk)",
+  4:"passport kiosk sign-in", 5:"time-limited sessions", 6:"short sessions with ads", 7:"registration required"
+};
+/* Free-Wi-Fi rating word + colour per level */
+function fwInfo(l) {
+  if (l === "wide") return {c:"#1d9a6c", w:"Widespread"};
+  if (l === "ltd")  return {c:"#ef6f53", w:"Limited"};
+  return {c:"#e0a800", w:"Moderate"};
+}
 
 /* Per-city "Buy eSIM" links — paste each city's purchase URL between the
    quotes as they become ready. Cities left blank show a placeholder link. */
@@ -2474,23 +2512,49 @@ if(!c){
             <div class="drink-row"><span class="dr-k">Water &middot; bottle</span><span class="dr-v">${fmtPrice(drinks.water, code)}</span></div>
           </div>
           <div class="drinks-foot">average prices per drink</div>
-        </div>`}
-        ${net == null ? "" : `
-        <div class="fact cost-card">
+        </div>`}`;
+  }
+
+  /* Build the full-width Connectivity banner (shown above the cost cards);
+     the per-GB SIM price converts into currency `code` */
+  function buildNetCard(code) {
+    if (net == null) return "";
+    const fwLvl = fwInfo(net.fw);
+    return `
+        <div class="net-head">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.net}</span>
           <div class="k">Connectivity</div>
-          <div class="drinks-list">
-            <div class="drink-row"><span class="dr-k">Mobile &middot; avg download</span><span class="dr-v">${net.m} Mbps</span></div>
-            <div class="drink-row"><span class="dr-k">Wi-Fi &middot; broadband</span><span class="dr-v">${net.w} Mbps</span></div>
-            <div class="drink-row"><span class="dr-k">Tourist SIM &middot; per GB</span><span class="dr-v">${fmtGB(net.gb, code)}</span></div>
+          <span class="net-est">country averages &middot; estimates</span>
+          <a class="esim-btn" href="${esimUrl || '#'}"${esimUrl ? ' target="_blank" rel="noopener"' : ' title="eSIM store link coming soon"'}>Buy an eSIM &rarr;</a>
+        </div>
+        <div class="net-stats">
+          <div class="ns">
+            <div class="k">Mobile &middot; avg download</div>
+            <div class="ns-v">${net.m} Mbps</div>
           </div>
-          <div class="net-ops">
-            <span class="rides-k">Mobile operators</span>
-            <div class="rides-list">${net.ops.map(o => `<span class="ride-chip">${o}</span>`).join('')}</div>
+          <div class="ns">
+            <div class="k">Wi-Fi &middot; broadband</div>
+            <div class="ns-v">${net.w} Mbps</div>
           </div>
-          <div class="drinks-foot">country averages &middot; estimates</div>
-          <a class="esim-link" href="${esimUrl || '#'}"${esimUrl ? ' target="_blank" rel="noopener"' : ' title="eSIM store link coming soon"'}>Buy an eSIM &rarr;</a>
-        </div>`}`;
+          <div class="ns">
+            <div class="k">Tourist SIM &middot; per GB</div>
+            <div class="ns-v">${fmtGB(net.gb, code)}</div>
+          </div>
+          <div class="ns">
+            <div class="k">Free public Wi-Fi</div>
+            <div class="ns-v" style="color:${fwLvl.c}">${fwLvl.w}</div>
+            <div class="ns-note">${NET_FW_NOTES[net.fwn]}</div>
+          </div>
+          <div class="ns">
+            <div class="k">Airport Wi-Fi</div>
+            <div class="ns-v" style="color:#1d9a6c">Free</div>
+            <div class="ns-note">${NET_AP_NOTES[net.ap]}</div>
+          </div>
+        </div>
+        <div class="net-ops-row">
+          <span class="rides-k">Mobile operators</span>
+          <div class="rides-list" data-no-i18n>${net.ops.map(o => `<span class="ride-chip">${o}</span>`).join('')}</div>
+        </div>`;
   }
 
   /* Build the transportation cards; car rental price uses currency `code` */
@@ -2599,6 +2663,7 @@ if(!c){
             </div>
           </div>
         </div>
+        <div id="net-card" class="fact net-banner"></div>
         <div id="cost-cards" class="cost-cards-grid"></div>
       </div>
     </section>
@@ -2713,6 +2778,8 @@ if(!c){
   function renderCosts() {
     const el = document.getElementById("cost-cards");
     if (el) el.innerHTML = buildCostCards(compareCode);
+    const nel = document.getElementById("net-card");
+    if (nel) { nel.innerHTML = buildNetCard(compareCode); nel.hidden = (net == null); }
     const tel = document.getElementById("transport-cards");
     if (tel) tel.innerHTML = buildTransport(compareCode);
   }

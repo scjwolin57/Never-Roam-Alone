@@ -180,7 +180,30 @@
     "Tourist SIM · per GB": { es: "SIM turística · por GB", fr: "SIM touriste · par Go", it: "SIM turistica · per GB", zh: "游客SIM卡 · 每GB" },
     "Mobile operators": { es: "Operadores móviles", fr: "Opérateurs mobiles", it: "Operatori mobili", zh: "移动运营商" },
     "country averages · estimates": { es: "promedios del país · estimaciones", fr: "moyennes nationales · estimations", it: "medie nazionali · stime", zh: "全国平均 · 估算值" },
-    "Buy an eSIM →": { es: "Comprar eSIM →", fr: "Acheter une eSIM →", it: "Acquista una eSIM →", zh: "购买eSIM →" }
+    "Buy an eSIM →": { es: "Comprar eSIM →", fr: "Acheter une eSIM →", it: "Acquista una eSIM →", zh: "购买eSIM →" },
+
+    /* Connectivity banner — free Wi-Fi + airport Wi-Fi stats */
+    "Free public Wi-Fi": { es: "Wi-Fi público gratis", fr: "Wi-Fi public gratuit", it: "Wi-Fi pubblico gratuito", zh: "免费公共Wi-Fi" },
+    "Airport Wi-Fi": { es: "Wi-Fi en el aeropuerto", fr: "Wi-Fi à l'aéroport", it: "Wi-Fi in aeroporto", zh: "机场Wi-Fi" },
+    "Widespread": { es: "Muy extendido", fr: "Très répandu", it: "Molto diffuso", zh: "覆盖广泛" },
+    "Moderate": { es: "Moderado", fr: "Modéré", it: "Moderato", zh: "中等" },
+    "Limited": { es: "Limitado", fr: "Limité", it: "Limitato", zh: "有限" },
+    "Free": { es: "Gratis", fr: "Gratuit", it: "Gratuito", zh: "免费" },
+    "Citywide free hotspot network, plus cafés & metro": { es: "Red de puntos gratis en toda la ciudad, más cafés y metro", fr: "Réseau de bornes gratuites dans toute la ville, plus cafés et métro", it: "Rete di hotspot gratuiti in tutta la città, più caffè e metro", zh: "全市免费热点网络，咖啡馆和地铁也有" },
+    "Most cafés, malls & libraries offer free Wi-Fi": { es: "La mayoría de cafés, centros comerciales y bibliotecas ofrecen Wi-Fi gratis", fr: "La plupart des cafés, centres commerciaux et bibliothèques offrent le Wi-Fi gratuit", it: "La maggior parte di caffè, centri commerciali e biblioteche offre Wi-Fi gratuito", zh: "大多数咖啡馆、商场和图书馆提供免费Wi-Fi" },
+    "Cafés & convenience stores; stations covered, streets patchy": { es: "Cafés y tiendas de conveniencia; estaciones cubiertas, calles irregulares", fr: "Cafés et supérettes ; gares couvertes, rues inégales", it: "Caffè e minimarket; stazioni coperte, copertura in strada a macchie", zh: "咖啡馆和便利店有；车站覆盖，街头零散" },
+    "Nearly every café & restaurant has free Wi-Fi": { es: "Casi todos los cafés y restaurantes tienen Wi-Fi gratis", fr: "Presque tous les cafés et restaurants ont le Wi-Fi gratuit", it: "Quasi tutti i caffè e ristoranti hanno Wi-Fi gratuito", zh: "几乎每家咖啡馆和餐厅都有免费Wi-Fi" },
+    "Common in malls & cafés, but sign-in usually needs a local number": { es: "Común en centros comerciales y cafés, pero registrarse suele requerir un número local", fr: "Courant dans les centres commerciaux et cafés, mais l'inscription exige souvent un numéro local", it: "Comune in centri commerciali e caffè, ma l'accesso richiede spesso un numero locale", zh: "商场和咖啡馆常见，但登录通常需要本地手机号" },
+    "Mainly hotels, malls & tourist-area cafés": { es: "Principalmente hoteles, centros comerciales y cafés de zonas turísticas", fr: "Surtout hôtels, centres commerciaux et cafés touristiques", it: "Soprattutto hotel, centri commerciali e caffè delle zone turistiche", zh: "主要在酒店、商场和游客区咖啡馆" },
+    "Free hotspots in parks & squares, plus most cafés": { es: "Puntos gratis en parques y plazas, más la mayoría de cafés", fr: "Bornes gratuites dans les parcs et places, plus la plupart des cafés", it: "Hotspot gratuiti in parchi e piazze, più la maggior parte dei caffè", zh: "公园和广场有免费热点，多数咖啡馆也有" },
+    "Excellent free Wi-Fi culture — cafés, transit & public spaces": { es: "Excelente cultura de Wi-Fi gratis: cafés, transporte y espacios públicos", fr: "Excellente culture du Wi-Fi gratuit : cafés, transports et espaces publics", it: "Ottima cultura del Wi-Fi gratuito: caffè, trasporti e spazi pubblici", zh: "免费Wi-Fi文化极佳——咖啡馆、交通和公共场所" },
+    "unlimited": { es: "ilimitado", fr: "illimité", it: "illimitato", zh: "不限时" },
+    "passport kiosk or local number": { es: "quiosco con pasaporte o número local", fr: "borne passeport ou numéro local", it: "chiosco passaporto o numero locale", zh: "护照终端机或本地号码" },
+    "local-number OTP (visitor help desk)": { es: "OTP con número local (mostrador para visitantes)", fr: "OTP par numéro local (comptoir visiteurs)", it: "OTP con numero locale (banco assistenza visitatori)", zh: "本地号码验证码（设游客服务台）" },
+    "passport kiosk sign-in": { es: "registro con pasaporte en quiosco", fr: "inscription par borne passeport", it: "accesso con chiosco passaporto", zh: "护照终端机登录" },
+    "time-limited sessions": { es: "sesiones con límite de tiempo", fr: "sessions à durée limitée", it: "sessioni a tempo limitato", zh: "限时使用" },
+    "short sessions with ads": { es: "sesiones cortas con anuncios", fr: "sessions courtes avec publicités", it: "sessioni brevi con pubblicità", zh: "短时段，含广告" },
+    "registration required": { es: "requiere registro", fr: "inscription requise", it: "registrazione richiesta", zh: "需注册" }
   };
 
   /* ---- Storage ---- */
