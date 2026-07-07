@@ -148,7 +148,39 @@
     "just now": { es: "ahora mismo", fr: "à l'instant", it: "proprio ora", zh: "刚刚" },
     "Newest first": { es: "Más recientes primero", fr: "Plus récentes d'abord", it: "Più recenti prima", zh: "最新优先" },
     "Most replies": { es: "Más respuestas", fr: "Plus de réponses", it: "Più risposte", zh: "回复最多" },
-    "Unanswered": { es: "Sin responder", fr: "Sans réponse", it: "Senza risposta", zh: "未回答" }
+    "Unanswered": { es: "Sin responder", fr: "Sans réponse", it: "Senza risposta", zh: "未回答" },
+
+    /* City page — cost cards (Hotel / Meal / Taxi / Drinks / Connectivity) */
+    "Hotel · per night": { es: "Hotel · por noche", fr: "Hôtel · par nuit", it: "Hotel · a notte", zh: "酒店 · 每晚" },
+    "mid-range · avg,": { es: "gama media · prom.,", fr: "milieu de gamme · moy.,", it: "fascia media · media,", zh: "中档 · 均价," },
+    "Budget": { es: "Económico", fr: "Économique", it: "Economico", zh: "经济型" },
+    "High-end": { es: "Alta gama", fr: "Haut de gamme", it: "Fascia alta", zh: "高端" },
+    "Meal · per person": { es: "Comida · por persona", fr: "Repas · par personne", it: "Pasto · a persona", zh: "餐食 · 每人" },
+    "sit-down restaurant ·": { es: "restaurante con servicio ·", fr: "restaurant à table ·", it: "ristorante al tavolo ·", zh: "堂食餐厅 ·" },
+    "Tipping": { es: "Propina", fr: "Pourboire", it: "Mancia", zh: "小费" },
+    "expected": { es: "esperada", fr: "attendu", it: "attesa", zh: "需要给" },
+    "customary": { es: "habitual", fr: "d'usage", it: "consueta", zh: "常见" },
+    "optional": { es: "opcional", fr: "facultatif", it: "facoltativa", zh: "可给可不给" },
+    "service included": { es: "servicio incluido", fr: "service compris", it: "servizio incluso", zh: "已含服务费" },
+    "not customary": { es: "no habitual", fr: "pas d'usage", it: "non consueta", zh: "不流行" },
+    "Taxi / Uber · 10 km": { es: "Taxi / Uber · 10 km", fr: "Taxi / Uber · 10 km", it: "Taxi / Uber · 10 km", zh: "出租车 / 优步 · 10公里" },
+    "typical fare ·": { es: "tarifa típica ·", fr: "tarif typique ·", it: "tariffa tipica ·", zh: "常见车费 ·" },
+    "Ride-share apps": { es: "Apps de transporte", fr: "Applis VTC", it: "App di ride-sharing", zh: "网约车应用" },
+    "Local taxis — no major apps": { es: "Taxis locales — sin apps principales", fr: "Taxis locaux — pas d'applis majeures", it: "Taxi locali — nessuna app principale", zh: "本地出租车 — 无主流应用" },
+    "Drinks": { es: "Bebidas", fr: "Boissons", it: "Bevande", zh: "饮品" },
+    "Coffee · takeaway": { es: "Café · para llevar", fr: "Café · à emporter", it: "Caffè · da asporto", zh: "咖啡 · 外带" },
+    "Beer · 0.5L": { es: "Cerveza · 0,5L", fr: "Bière · 0,5L", it: "Birra · 0,5L", zh: "啤酒 · 0.5升" },
+    "Water · bottle": { es: "Agua · botella", fr: "Eau · bouteille", it: "Acqua · bottiglia", zh: "瓶装水" },
+    "Public alcohol not allowed": { es: "Alcohol no permitido en público", fr: "Alcool interdit en public", it: "Alcol vietato in pubblico", zh: "公共场所禁止饮酒" },
+    "Public alcohol restricted": { es: "Alcohol restringido en público", fr: "Alcool restreint en public", it: "Alcol limitato in pubblico", zh: "公共场所限制饮酒" },
+    "average prices per drink": { es: "precios promedio por bebida", fr: "prix moyens par boisson", it: "prezzi medi per bevanda", zh: "每杯平均价格" },
+    "Connectivity": { es: "Conectividad", fr: "Connectivité", it: "Connettività", zh: "网络连接" },
+    "Mobile · avg download": { es: "Móvil · descarga prom.", fr: "Mobile · débit moyen", it: "Mobile · download medio", zh: "移动网络 · 平均下载" },
+    "Wi-Fi · broadband": { es: "Wi-Fi · banda ancha", fr: "Wi-Fi · haut débit", it: "Wi-Fi · banda larga", zh: "Wi-Fi · 宽带" },
+    "Tourist SIM · per GB": { es: "SIM turística · por GB", fr: "SIM touriste · par Go", it: "SIM turistica · per GB", zh: "游客SIM卡 · 每GB" },
+    "Mobile operators": { es: "Operadores móviles", fr: "Opérateurs mobiles", it: "Operatori mobili", zh: "移动运营商" },
+    "country averages · estimates": { es: "promedios del país · estimaciones", fr: "moyennes nationales · estimations", it: "medie nazionali · stime", zh: "全国平均 · 估算值" },
+    "Buy an eSIM →": { es: "Comprar eSIM →", fr: "Acheter une eSIM →", it: "Acquista una eSIM →", zh: "购买eSIM →" }
   };
 
   /* ---- Storage ---- */
