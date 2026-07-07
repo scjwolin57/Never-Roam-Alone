@@ -21,7 +21,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -81,7 +81,7 @@
   .no-results{display:none;text-align:center;padding:60px 22px;color:var(--muted);font-size:1.1rem;grid-column:1/-1}
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:0}
-  footer .brand{justify-content:center;color:#e97451}
+  footer .brand{justify-content:center;color:#c35237}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -98,20 +98,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
-          <circle cx="60" cy="60" r="53"/>
-          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
-          <path d="M22,86 Q60,74 98,86"/>
-        </g>
-        <g fill="#185e3f">
-          <circle cx="50" cy="62" r="5.2"/>
-          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
-          <circle cx="70" cy="62" r="5.2"/>
-          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
-          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
-        </g>
-      </svg>
+      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -150,6 +137,8 @@
 <footer>
   <div class="brand" style="font-size:1.6rem"><span>Never Roam Alone</span></div>
   <div class="foot-links">
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
   </div>
@@ -183,7 +172,81 @@ const CITIES = [
   {city:"Cape Town",country:"South Africa",visitors:1.7,tagline:"Where a flat-topped mountain meets two oceans.",cost:{hotel:90,meal:15,taxi:12}},
   {city:"Rio de Janeiro",country:"Brazil",visitors:2.3,tagline:"Mountains, beaches, and rhythm in the air.",cost:{hotel:80,meal:15,taxi:10}},
   {city:"Cancún",country:"Mexico",visitors:6.1,tagline:"Caribbean blue with Maya ruins next door.",cost:{hotel:120,meal:20,taxi:12}},
-  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets.",cost:{hotel:70,meal:12,taxi:6}}
+  {city:"Marrakech",country:"Morocco",visitors:3.0,tagline:"A maze of souks, spice, and rooftop sunsets.",cost:{hotel:70,meal:12,taxi:6}},
+  {city:"Madrid",country:"Spain",visitors:7.0,tagline:"Golden light, late nights, and endless plazas",cost:{hotel:130,meal:20,taxi:25},est:true},
+  {city:"Taipei",country:"Taiwan",visitors:7.0,tagline:"Neon night markets beneath misty green mountains",cost:{hotel:90,meal:12,taxi:15},est:true},
+  {city:"Berlin",country:"Germany",visitors:6.0,tagline:"Techno, history, and reinvention on every corner",cost:{hotel:110,meal:18,taxi:25},est:true},
+  {city:"Melbourne",country:"Australia",visitors:3.4,tagline:"Laneway coffee, street art, and easy cool",cost:{hotel:130,meal:22,taxi:22},est:true},
+  {city:"Munich",country:"Germany",visitors:4.1,tagline:"Beer gardens, baroque spires, and Alpine air",cost:{hotel:140,meal:20,taxi:28}},
+  {city:"Las Vegas",country:"United States",visitors:5.5,tagline:"Desert neon where the night never sleeps",cost:{hotel:120,meal:25,taxi:30},est:true},
+  {city:"Florence",country:"Italy",visitors:5.1,tagline:"Renaissance beauty carved in stone and light",cost:{hotel:130,meal:25,taxi:25}},
+  {city:"Dublin",country:"Ireland",visitors:5.5,tagline:"Literary pubs and warm rain-soaked charm",cost:{hotel:160,meal:25,taxi:30},est:true},
+  {city:"Kyoto",country:"Japan",visitors:8.0,tagline:"Temples, geisha lanes, and quiet raked gardens",cost:{hotel:120,meal:18,taxi:25},est:true},
+  {city:"Lisbon",country:"Portugal",visitors:4.5,tagline:"Tiled hills, fado, and the shimmering Tagus",cost:{hotel:120,meal:18,taxi:20},est:true},
+  {city:"Venice",country:"Italy",visitors:5.5,tagline:"Canals, palazzos, and light on the water",cost:{hotel:160,meal:28,taxi:35}},
+  {city:"Athens",country:"Greece",visitors:6.5,tagline:"Ancient marble beneath the Mediterranean sun",cost:{hotel:110,meal:18,taxi:20},est:true},
+  {city:"Orlando",country:"United States",visitors:5.5,tagline:"Theme-park magic under endless Florida sun",cost:{hotel:120,meal:22,taxi:28}},
+  {city:"Toronto",country:"Canada",visitors:4.0,tagline:"Lakeside towers and the world in one city",cost:{hotel:150,meal:22,taxi:28},est:true},
+  {city:"Miami",country:"United States",visitors:7.0,tagline:"Art deco, ocean breeze, and Latin rhythm",cost:{hotel:180,meal:30,taxi:30},est:true},
+  {city:"San Francisco",country:"United States",visitors:2.6,tagline:"Fog-wrapped hills, tech dreams, Golden Gate.",cost:{hotel:230,meal:30,taxi:30},est:true},
+  {city:"Shanghai",country:"China",visitors:6.7,tagline:"Neon skyline where East meets futuristic ambition.",cost:{hotel:90,meal:15,taxi:12}},
+  {city:"Frankfurt am Main",country:"Germany",visitors:3.5,tagline:"Germany's skyline of finance and old charm.",cost:{hotel:140,meal:22,taxi:30},est:true},
+  {city:"Copenhagen",country:"Denmark",visitors:3.0,tagline:"Cycling, design, and cozy Nordic hygge.",cost:{hotel:180,meal:30,taxi:35},est:true},
+  {city:"Zurich",country:"Switzerland",visitors:2.0,tagline:"Alpine elegance, banking, pristine lakeside living.",cost:{hotel:250,meal:40,taxi:40},est:true},
+  {city:"Washington, D.C.",country:"United States",visitors:1.8,tagline:"Monuments, marble, and the pulse of power.",cost:{hotel:200,meal:28,taxi:28},est:true},
+  {city:"Pattaya-Chonburi",country:"Thailand",visitors:7.0,tagline:"Beaches, nightlife, and endless tropical energy.",cost:{hotel:45,meal:8,taxi:10},est:true},
+  {city:"Vancouver",country:"Canada",visitors:3.5,tagline:"Mountains meet ocean in glassy Pacific splendor.",cost:{hotel:180,meal:25,taxi:28},est:true},
+  {city:"Stockholm",country:"Sweden",visitors:2.5,tagline:"Fourteen islands of Scandinavian style and water.",cost:{hotel:160,meal:28,taxi:40},est:true},
+  {city:"Mexico City",country:"Mexico",visitors:10.5,tagline:"Ancient Aztec roots beneath vibrant sprawling metropolis.",cost:{hotel:90,meal:15,taxi:12},est:true},
+  {city:"Oslo",country:"Norway",visitors:1.5,tagline:"Fjords, forests, and sleek Nordic modernity.",cost:{hotel:190,meal:35,taxi:45},est:true},
+  {city:"São Paulo",country:"Brazil",visitors:2.0,tagline:"Brazil's boundless concrete jungle that never sleeps.",cost:{hotel:80,meal:15,taxi:15},est:true},
+  {city:"Helsinki",country:"Finland",visitors:1.5,tagline:"Baltic design capital of light and calm.",cost:{hotel:150,meal:28,taxi:35},est:true},
+  {city:"Brussels",country:"Belgium",visitors:3.5,tagline:"Waffles, art nouveau, and Europe's beating heart.",cost:{hotel:130,meal:25,taxi:25},est:true},
+  {city:"Budapest",country:"Hungary",visitors:4.0,tagline:"Thermal baths on the majestic blue Danube.",cost:{hotel:90,meal:18,taxi:15},est:true},
+  {city:"Guangzhou",country:"China",visitors:6.0,tagline:"Cantonese trade hub of dim sum and towers.",cost:{hotel:70,meal:12,taxi:8},est:true},
+  {city:"Nice",country:"France",visitors:2.5,tagline:"Sun-drenched jewel of the French Riviera.",cost:{hotel:150,meal:30,taxi:30},est:true},
+  {city:"Palma de Mallorca",country:"Spain",visitors:9.0,tagline:"Mediterranean island capital of light and cathedrals.",cost:{hotel:130,meal:25,taxi:20},est:true},
+  {city:"Honolulu",country:"United States",visitors:2.0,tagline:"Pacific paradise of surf and aloha spirit.",cost:{hotel:250,meal:30,taxi:30},est:true},
+  {city:"Beijing",country:"China",visitors:3.5,tagline:"Imperial capital where dynasties meet modern China.",cost:{hotel:80,meal:12,taxi:8},est:true},
+  {city:"Warsaw",country:"Poland",visitors:3.0,tagline:"Phoenix city rebuilt with Polish resilience.",cost:{hotel:80,meal:15,taxi:15},est:true},
+  {city:"Seville",country:"Spain",visitors:3.0,tagline:"Andalusian soul of flamenco and orange blossom.",cost:{hotel:110,meal:20,taxi:18},est:true},
+  {city:"Valencia",country:"Spain",visitors:2.2,tagline:"Sunlit coast, paella, and futuristic architecture.",cost:{hotel:100,meal:18,taxi:18},est:true},
+  {city:"Shenzhen",country:"China",visitors:10.0,tagline:"China's futuristic tech boomtown by the sea.",cost:{hotel:75,meal:12,taxi:8},est:true},
+  {city:"Doha",country:"Qatar",visitors:5.0,tagline:"Gleaming desert metropolis on the Gulf.",cost:{hotel:150,meal:30,taxi:15}},
+  {city:"Abu Dhabi",country:"UAE",visitors:5.0,tagline:"Grand mosques and oil-rich Gulf splendor.",cost:{hotel:140,meal:30,taxi:15}},
+  {city:"Fukuoka",country:"Japan",visitors:3.0,tagline:"Japan's gateway to ramen and island warmth.",cost:{hotel:90,meal:15,taxi:20},est:true},
+  {city:"Sapporo",country:"Japan",visitors:2.0,tagline:"Snowy northern city of beer and festivals.",cost:{hotel:85,meal:15,taxi:18},est:true},
+  {city:"Busan",country:"South Korea",visitors:3.0,tagline:"Korea's coastal city of beaches and seafood.",cost:{hotel:80,meal:15,taxi:12}},
+  {city:"Edinburgh",country:"United Kingdom",visitors:2.5,tagline:"Scotland's storied capital of castles and festivals.",cost:{hotel:160,meal:25,taxi:20},est:true},
+  {city:"Montreal",country:"Canada",visitors:3.0,tagline:"Joie de vivre where Europe meets North America.",cost:{hotel:180,meal:30,taxi:25},est:true},
+  {city:"Bologna",country:"Italy",visitors:1.5,tagline:"Medieval towers, porticoes, and legendary cuisine.",cost:{hotel:130,meal:28,taxi:25},est:true},
+  {city:"Rhodes",country:"Greece",visitors:2.5,tagline:"Medieval knights' city on a sun-soaked isle.",cost:{hotel:110,meal:25,taxi:20},est:true},
+  {city:"Verona",country:"Italy",visitors:3.0,tagline:"Romeo and Juliet's romantic Roman city.",cost:{hotel:130,meal:28,taxi:25},est:true},
+  {city:"Delhi",country:"India",visitors:3.0,tagline:"Ancient empires and chaos in India's capital.",cost:{hotel:70,meal:12,taxi:8},est:true},
+  {city:"Porto",country:"Portugal",visitors:3.5,tagline:"Port wine, azulejos, and riverside romance.",cost:{hotel:120,meal:22,taxi:15},est:true},
+  {city:"Ho Chi Minh City",country:"Vietnam",visitors:6.0,tagline:"Frenetic energy, street food, and wartime history.",cost:{hotel:55,meal:8,taxi:8},est:true},
+  {city:"Buenos Aires",country:"Argentina",visitors:3.0,tagline:"Tango, steak, and grand European boulevards.",cost:{hotel:90,meal:20,taxi:12},est:true},
+  {city:"Marne-la-Vallée",country:"France",visitors:15.8,tagline:"The magic of Disneyland east of Paris.",cost:{hotel:200,meal:30,taxi:30},est:true},
+  {city:"Kraków",country:"Poland",visitors:2.3,tagline:"Poland's regal heart of history and legend.",cost:{hotel:80,meal:15,taxi:12}},
+  {city:"Heraklion",country:"Greece",visitors:3.5,tagline:"Gateway to Crete and ancient Minoan Knossos.",cost:{hotel:100,meal:22,taxi:18},est:true},
+  {city:"Johor Bahru",country:"Malaysia",visitors:16.0,tagline:"Malaysia's vibrant southern gateway to Singapore.",cost:{hotel:55,meal:8,taxi:8},est:true},
+  {city:"Hanoi",country:"Vietnam",visitors:6.3,tagline:"Ancient temples and buzzing motorbike-filled boulevards.",cost:{hotel:55,meal:8,taxi:8},est:true},
+  {city:"Tel Aviv",country:"Israel",visitors:1.0,tagline:"Mediterranean beaches, nightlife, and startup energy.",cost:{hotel:220,meal:35,taxi:25},est:true},
+  {city:"Sharjah",country:"UAE",visitors:1.6,tagline:"The UAE's cultural and heritage capital.",cost:{hotel:90,meal:18,taxi:12}},
+  {city:"Thessaloniki",country:"Greece",visitors:2.5,tagline:"Byzantine seafront city of warm hospitality",cost:{hotel:90,meal:18,taxi:15},est:true},
+  {city:"Lima",country:"Peru",visitors:2.5,tagline:"Coastal capital of ceviche and colonial grandeur",cost:{hotel:80,meal:15,taxi:10},est:true},
+  {city:"Medina",country:"Saudi Arabia",visitors:9.0,tagline:"Islam's radiant second holiest city",cost:{hotel:90,meal:12,taxi:10},est:true},
+  {city:"Tbilisi",country:"Georgia",visitors:2.5,tagline:"Sulfur baths and cobbled old-town charm",cost:{hotel:70,meal:12,taxi:8},est:true},
+  {city:"Riyadh",country:"Saudi Arabia",visitors:5.0,tagline:"Desert capital reinventing itself skyward",cost:{hotel:110,meal:20,taxi:12},est:true},
+  {city:"Tallinn",country:"Estonia",visitors:1.9,tagline:"Fairytale medieval towers meet Baltic tech",cost:{hotel:100,meal:18,taxi:15},est:true},
+  {city:"Mecca",country:"Saudi Arabia",visitors:18.7,tagline:"Islam's holiest city, heart of Hajj",cost:{hotel:120,meal:12,taxi:10}},
+  {city:"Denpasar",country:"Indonesia",visitors:6.3,tagline:"Island of temples, surf, and rice terraces",cost:{hotel:60,meal:12,taxi:12},est:true},
+  {city:"Punta Cana",country:"Dominican Republic",visitors:4.5,tagline:"All-inclusive beaches on the Caribbean coast",cost:{hotel:150,meal:25,taxi:20},est:true},
+  {city:"Santiago",country:"Chile",visitors:2.5,tagline:"Andes-backed metropolis of wine and culture",cost:{hotel:90,meal:18,taxi:12},est:true},
+  {city:"Vilnius",country:"Lithuania",visitors:1.2,tagline:"Baroque old town wrapped in green hills",cost:{hotel:90,meal:16,taxi:12},est:true},
+  {city:"Jerusalem",country:"Israel",visitors:2.0,tagline:"Sacred city holy to three faiths",cost:{hotel:130,meal:25,taxi:15},est:true},
+  {city:"Zhuhai",country:"China",visitors:1.5,tagline:"Seaside gateway to Macau and gardens",cost:{hotel:70,meal:15,taxi:10},est:true},
+  {city:"Cairo",country:"Egypt",visitors:9.0,tagline:"Ancient pyramids beside a teeming megacity",cost:{hotel:70,meal:12,taxi:8},est:true},
 ];
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
@@ -208,7 +271,7 @@ function buildCards(list) {
     card.href = `city.html?city=${encodeURIComponent(c.city)}&from=guides`;
     card.innerHTML = `
       <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-hero/600/400')">
-        <div class="visitors-chip"><b>${num}M</b> visitors/yr</div>
+        <div class="visitors-chip"><b>${c.est?'~':''}${num}M</b> visitors/yr</div>
       </div>
       <div class="body">
         <div class="country-label">${c.country}</div>
@@ -263,6 +326,8 @@ applyFilters();
 document.getElementById("city-search").addEventListener("input", applyFilters);
 document.getElementById("city-sort").addEventListener("change", applyFilters);
 </script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

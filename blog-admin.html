@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Manage Posts — Never Roam Alone</title>
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<style>
+  :root{
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
+    --teal-dark:#0a5c64;--coral:#ef6f53;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,124,134,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  @media(max-width:880px){nav.links{display:none}}
+
+  .page-hero{background:linear-gradient(135deg,#0a5c64 0%,#185e3f 100%);color:#fff;text-align:center;padding:46px 22px 38px}
+  .page-hero .kicker{color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;margin:0 0 10px}
+  .page-hero h1{font-size:clamp(1.8rem,4.5vw,2.7rem);margin:0;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:10px auto 0;font-size:.98rem}
+
+  main{max-width:900px;margin:0 auto;padding:34px 22px 70px}
+
+  .gate{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:44px 26px;text-align:center;color:var(--muted)}
+  .gate h2{margin:0 0 8px;color:var(--ink)}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.86rem;border:none;border-radius:24px;padding:10px 20px;cursor:pointer;font-family:inherit;transition:background .2s}
+  .btn:hover{background:var(--teal)}
+  .btn.small{font-size:.78rem;padding:7px 14px}
+  .btn.ghost{background:none;color:var(--muted);text-decoration:underline;font-weight:600}
+  .btn.coral{background:var(--coral)} .btn.coral:hover{background:#d85a3f}
+  .btn.danger{background:none;border:2px solid #b34a3a;color:#b34a3a;padding:5px 12px}
+  .btn.danger:hover{background:#b34a3a;color:#fff}
+  .btn:disabled{opacity:.55;cursor:default}
+
+  .topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+  .topbar h2{margin:0;font-size:1.3rem;flex:1}
+  .admin-msg{font-size:.86rem;color:var(--teal);margin:0 0 14px;min-height:1.2em}
+  .admin-msg.err{color:#b34a3a;font-weight:600}
+
+  .plist{display:flex;flex-direction:column;gap:12px;margin-bottom:34px}
+  .prow{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .prow .thumb{width:86px;height:58px;border-radius:8px;background:var(--sand) center/cover no-repeat;flex-shrink:0}
+  .prow .info{flex:1;min-width:180px}
+  .prow .title{font-weight:700;line-height:1.3}
+  .prow .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .chip{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
+    padding:3px 10px;border-radius:14px;vertical-align:middle;margin-left:8px}
+  .chip.live{background:rgba(24,94,63,.12);color:var(--green)}
+  .chip.draft{background:rgba(239,111,83,.14);color:#c05135}
+  .chip.builtin{background:rgba(14,124,134,.12);color:var(--teal)}
+  .prow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .empty{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:26px;text-align:center;color:var(--muted)}
+  .sect-note{font-size:.86rem;color:var(--muted);margin:-8px 0 14px}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:30px 22px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="kicker" data-no-i18n>Admin</p>
+  <h1 data-no-i18n>Manage Posts</h1>
+  <p data-no-i18n>Create, edit, publish, or delete blog articles.</p>
+</div>
+
+<main data-no-i18n>
+  <div id="gate" class="gate"><h2>Loading…</h2><p>Checking your account.</p></div>
+
+  <div id="panel" style="display:none">
+    <div class="topbar">
+      <h2>Your articles</h2>
+      <a class="btn coral" href="blog-editor.html">+ New article</a>
+    </div>
+    <p class="admin-msg" id="admin-msg"></p>
+    <div class="plist" id="db-list"></div>
+
+    <div class="topbar"><h2>Built-in articles (posts.js)</h2></div>
+    <p class="sect-note">These six live in the <b>posts.js</b> file. To change one from here, click <b>Edit a copy</b> — it opens in the editor, and publishing the copy replaces the original everywhere on the site.</p>
+    <div class="plist" id="local-list"></div>
+  </div>
+</main>
+
+<footer>
+  <div>Never Roam Alone — post management (admin only)</div>
+</footer>
+
+<script src="posts.js"></script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+<script>
+/* =====================================================================
+   MANAGE POSTS — admin only. Lists every article in the Supabase
+   blog_posts table (drafts included) with edit / publish / delete,
+   plus the built-in posts.js articles with an "edit a copy" path.
+   ===================================================================== */
+(function(){
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const gate = $("gate"), panel = $("panel");
+  let sb = null, rows = [];
+
+  function showGate(title, text, withSignIn){
+    panel.style.display = "none";
+    gate.style.display = "";
+    gate.innerHTML = `<h2>${esc(title)}</h2><p>${esc(text)}</p>` +
+      (withSignIn ? `<p style="margin-top:18px"><button class="btn" id="gate-signin" type="button">Sign in</button></p>` : "");
+    const b = $("gate-signin");
+    if (b) b.onclick = () => window.NRA_AUTH.openModal();
+  }
+  function setMsg(text, isErr){
+    const m = $("admin-msg");
+    m.textContent = text || "";
+    m.className = "admin-msg" + (isErr ? " err" : "");
+  }
+  function photoOf(p){
+    if (p.cover && p.cover.url) return p.cover.url;
+    return "https://picsum.photos/seed/" + encodeURIComponent(p.seed || p.slug) + "-nra/300/200";
+  }
+
+  async function checkAccess(){
+    if (!window.NRA_AUTH || !window.NRA_AUTH.enabled){
+      showGate("Accounts aren't set up", "This page needs the site's Supabase connection (nra-config.js)."); return;
+    }
+    await window.NRA_AUTH.ready();
+    sb = window.NRA_AUTH.client();
+    if (!sb || !window.NRA_AUTH.user()){
+      showGate("Sign in to manage posts", "This page is for the site owner. Sign in with your admin account to continue.", true);
+      return;
+    }
+    let isAdmin = false;
+    try{
+      const { data, error } = await sb.rpc("is_blog_admin");
+      isAdmin = !error && data === true;
+    }catch(e){}
+    if (!isAdmin){
+      showGate("Not authorized", "This account isn't on the blog admin list. (If this is your admin account, make sure blog-setup.sql has been run in Supabase.)");
+      return;
+    }
+    gate.style.display = "none";
+    panel.style.display = "";
+    renderLocal();
+    await loadRows();
+  }
+
+  /* ---------- database articles ---------- */
+  async function loadRows(){
+    setMsg("Loading articles…");
+    const { data, error } = await sb.from("blog_posts")
+      .select("id,slug,title,tag,date,seed,cover,excerpt,published,updated_at")
+      .order("date", { ascending: false });
+    if (error){
+      setMsg("Couldn't load articles: " + (error.message || "unknown error") + " — has blog-setup.sql been run in Supabase?", true);
+      $("db-list").innerHTML = "";
+      return;
+    }
+    rows = data || [];
+    setMsg("");
+    renderRows();
+  }
+
+  function renderRows(){
+    const wrap = $("db-list");
+    if (!rows.length){
+      wrap.innerHTML = `<div class="empty">No articles written in the editor yet.<br>Click <b>+ New article</b> to write your first one.</div>`;
+      return;
+    }
+    wrap.innerHTML = rows.map(p => `
+      <div class="prow" data-id="${p.id}">
+        <div class="thumb" style="background-image:url('${esc(photoOf(p))}')"></div>
+        <div class="info">
+          <div class="title">${esc(p.title)}
+            <span class="chip ${p.published ? "live" : "draft"}">${p.published ? "Published" : "Draft"}</span>
+          </div>
+          <div class="sub">${esc(p.date || "")}${p.tag ? " · " + esc(p.tag) : ""} · post.html?post=${esc(p.slug)}</div>
+        </div>
+        <div class="acts">
+          ${p.published ? `<a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>` : ""}
+          <a class="btn small" href="blog-editor.html?id=${encodeURIComponent(p.id)}">Edit</a>
+          <button class="btn small ghost" data-act="toggle" type="button">${p.published ? "Unpublish" : "Publish"}</button>
+          <button class="btn small danger" data-act="del" type="button">Delete</button>
+        </div>
+      </div>`).join("");
+  }
+
+  $("db-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const rowEl = btn.closest(".prow");
+    const id = rowEl.dataset.id;
+    const p = rows.find(r => r.id === id);
+    if (!p) return;
+
+    if (btn.dataset.act === "toggle"){
+      btn.disabled = true;
+      const { error } = await sb.from("blog_posts").update({ published: !p.published }).eq("id", id);
+      if (error){ setMsg("Couldn't update: " + error.message, true); btn.disabled = false; return; }
+      setMsg(p.published ? `"${p.title}" is now a draft (hidden from the site).` : `"${p.title}" is now live.`);
+      await loadRows();
+    }
+
+    if (btn.dataset.act === "del"){
+      /* two-step confirm, same pattern as the profile Danger Zone */
+      if (btn.dataset.armed !== "1"){
+        btn.dataset.armed = "1";
+        btn.textContent = "Really delete?";
+        setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = "Delete"; } }, 4000);
+        return;
+      }
+      btn.disabled = true;
+      const { error } = await sb.from("blog_posts").delete().eq("id", id);
+      if (error){ setMsg("Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setMsg(`Deleted "${p.title}".` + (window.NRA_POSTS_UTIL && window.NRA_POSTS_UTIL.bySlug(p.slug) ? " The built-in posts.js version shows again." : ""));
+      await loadRows();
+    }
+  });
+
+  /* ---------- built-in posts.js articles ---------- */
+  function renderLocal(){
+    const list = (window.NRA_POSTS_UTIL ? window.NRA_POSTS_UTIL.byNewest() : []);
+    $("local-list").innerHTML = list.map(p => `
+      <div class="prow">
+        <div class="thumb" style="background-image:url('https://picsum.photos/seed/${esc(p.seed)}-nra/300/200')"></div>
+        <div class="info">
+          <div class="title">${esc(p.title)}<span class="chip builtin">posts.js</span></div>
+          <div class="sub">${esc(p.date)} · ${esc(p.tag || "")}</div>
+        </div>
+        <div class="acts">
+          <a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>
+          <a class="btn small" href="blog-editor.html?copy=${encodeURIComponent(p.slug)}">Edit a copy</a>
+        </div>
+      </div>`).join("");
+  }
+
+  if (window.NRA_AUTH) window.NRA_AUTH.onChange(() => {
+    if (panel.style.display === "none") checkAccess();
+  });
+
+  checkAccess();
+})();
+</script>
+</body>
+</html>

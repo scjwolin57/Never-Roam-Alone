@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Article Editor — Never Roam Alone</title>
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<style>
+  :root{
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
+    --teal-dark:#0a5c64;--coral:#ef6f53;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(14,124,134,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  @media(max-width:880px){nav.links{display:none}}
+
+  .page-hero{background:linear-gradient(135deg,#0a5c64 0%,#185e3f 100%);color:#fff;text-align:center;padding:46px 22px 38px}
+  .page-hero .kicker{color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;margin:0 0 10px}
+  .page-hero h1{font-size:clamp(1.8rem,4.5vw,2.7rem);margin:0;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:10px auto 0;font-size:.98rem}
+
+  main{max-width:900px;margin:0 auto;padding:34px 22px 90px}
+
+  /* ---------- gate states ---------- */
+  .gate{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:44px 26px;text-align:center;color:var(--muted)}
+  .gate h2{margin:0 0 8px;color:var(--ink)}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.9rem;border:none;border-radius:24px;padding:11px 22px;cursor:pointer;font-family:inherit;transition:background .2s}
+  .btn:hover{background:var(--teal)}
+  .btn.ghost{background:none;color:var(--muted);text-decoration:underline;font-weight:600}
+  .btn.coral{background:var(--coral)} .btn.coral:hover{background:#d85a3f}
+  .btn:disabled{opacity:.55;cursor:default}
+
+  /* ---------- editor card ---------- */
+  .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:24px;margin-bottom:22px}
+  .card h2{margin:0 0 16px;font-size:1.25rem}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:5px}
+  .field input,.field textarea,.field select{width:100%;font-size:.95rem;font-family:inherit;color:var(--ink);
+    background:var(--sand);border:2px solid rgba(24,94,63,.22);border-radius:10px;padding:10px 12px}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:64px}
+  .hint{font-size:.76rem;color:var(--muted);margin-top:4px}
+
+  /* cover picker */
+  .cover-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .cover-thumb{width:150px;height:96px;border-radius:10px;background:var(--sand) center/cover no-repeat;border:2px solid rgba(24,94,63,.22);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem;text-align:center;padding:4px}
+  .cover-credit{font-size:.74rem;color:var(--muted);max-width:220px}
+
+  /* ---------- block builder ---------- */
+  .blocks{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+  .blk{background:#fbf8f1;border:2px solid rgba(24,94,63,.15);border-radius:12px;padding:12px 14px}
+  .blk-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+  .blk-type{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)}
+  .blk-tools{margin-left:auto;display:flex;gap:4px}
+  .blk-tools button{background:none;border:1px solid rgba(24,94,63,.25);border-radius:8px;width:30px;height:28px;cursor:pointer;
+    color:var(--muted);font-size:.85rem;line-height:1;transition:.15s}
+  .blk-tools button:hover{color:var(--ink);border-color:var(--green);background:#fff}
+  .blk-tools button.del:hover{color:#fff;background:var(--coral);border-color:var(--coral)}
+  .blk textarea,.blk input[type=text]{width:100%;font-size:.95rem;font-family:inherit;color:var(--ink);
+    background:#fff;border:2px solid rgba(24,94,63,.18);border-radius:8px;padding:9px 11px}
+  .blk textarea{resize:vertical;min-height:58px}
+  .blk textarea:focus,.blk input:focus{outline:none;border-color:var(--green)}
+  .blk.blk-br{display:flex;align-items:center;gap:10px;color:var(--coral);font-weight:700;letter-spacing:.3em}
+  .blk.blk-br .blk-tools{letter-spacing:normal}
+  .blk-img-row{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+  .blk-img-thumb{width:170px;height:105px;border-radius:8px;background:var(--sand) center/cover no-repeat;flex-shrink:0;
+    border:2px solid rgba(24,94,63,.18);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.72rem}
+  .blk-img-main{flex:1;min-width:200px}
+  .blk-img-main .mini-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:8px 0 4px}
+  .blk-credit{font-size:.74rem;color:var(--muted);margin-top:6px}
+
+  /* insert toolbar */
+  .insert-bar{display:flex;flex-wrap:wrap;gap:8px}
+  .insert-bar button{background:#fff;border:2px dashed rgba(24,94,63,.35);border-radius:22px;color:var(--green);
+    font-weight:700;font-size:.82rem;padding:8px 15px;cursor:pointer;font-family:inherit;transition:.15s}
+  .insert-bar button:hover{border-style:solid;background:rgba(24,94,63,.06)}
+
+  /* ---------- save bar ---------- */
+  .save-bar{position:sticky;bottom:0;z-index:40;background:rgba(246,241,231,.95);backdrop-filter:blur(8px);
+    border-top:1px solid rgba(14,124,134,.2);margin:0 -22px;padding:12px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .save-msg{font-size:.84rem;color:var(--teal);flex:1;min-width:140px}
+  .save-msg.err{color:#b34a3a;font-weight:600}
+
+  /* ---------- image picker modal ---------- */
+  .pick-bg{position:fixed;inset:0;background:rgba(20,40,50,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+  .pick{background:#fff;border-radius:18px;max-width:640px;width:100%;padding:22px;box-shadow:0 24px 70px rgba(0,0,0,.35);max-height:90vh;overflow:auto}
+  .pick h3{margin:0 0 14px;font-size:1.3rem}
+  .pick-tabs{display:flex;gap:6px;margin-bottom:14px}
+  .pick-tab{flex:1;border:2px solid rgba(24,94,63,.22);background:#fff;border-radius:10px;padding:9px 4px;font-size:.82rem;font-weight:700;cursor:pointer;color:var(--ink);font-family:inherit}
+  .pick-tab.active{border-color:var(--green);background:rgba(24,94,63,.07)}
+  .pick-search{display:flex;gap:8px;margin-bottom:12px}
+  .pick-search input{flex:1;font-size:.95rem;font-family:inherit;background:var(--sand);border:2px solid rgba(24,94,63,.22);border-radius:10px;padding:10px 12px}
+  .pick-search input:focus{outline:none;border-color:var(--green)}
+  .pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+  .pick-ph{border:3px solid transparent;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;padding:0;background:none}
+  .pick-ph:hover{border-color:var(--teal)}
+  .pick-ph img{width:100%;height:105px;object-fit:cover;display:block}
+  .pick-ph .cr{position:absolute;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);color:#fff;font-size:.64rem;padding:2px 6px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left}
+  .pick-msg{font-size:.86rem;color:var(--muted);padding:8px 0}
+  .pick-msg.err{color:#b34a3a}
+  .pick-file{border:2px dashed rgba(24,94,63,.35);border-radius:12px;padding:26px;text-align:center;color:var(--muted);font-size:.9rem}
+  .pick-file input{display:none}
+  .pick-foot{display:flex;justify-content:flex-end;margin-top:14px}
+
+  /* ---------- preview ---------- */
+  .preview{background:var(--card);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px;display:none}
+  .pv-hero{position:relative;min-height:230px;display:flex;align-items:flex-end;background-size:cover;background-position:center;color:#fff}
+  .pv-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,25,.1),rgba(10,30,25,.78))}
+  .pv-hero-inner{position:relative;z-index:2;padding:26px 26px 22px}
+  .pv-hero .tag{display:inline-block;background:var(--coral);color:#fff;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 11px;border-radius:20px;margin-bottom:10px}
+  .pv-hero h1{font-size:clamp(1.5rem,4vw,2.3rem);margin:0;line-height:1.1}
+  .pv-hero .meta{margin-top:8px;font-size:.85rem;opacity:.95}
+  .pv-body{max-width:640px;margin:0 auto;padding:28px 22px 34px;line-height:1.7}
+  .pv-body p{font-size:1.05rem;margin:0 0 20px}
+  .pv-body p.lead{font-size:1.2rem}
+  .pv-body h2{font-size:1.4rem;margin:30px 0 12px}
+  .pv-body .pullquote{border-left:3px solid var(--coral);padding:6px 0 6px 18px;margin:26px 0;font-family:Georgia,serif;font-style:italic;font-size:1.15rem;color:var(--teal)}
+  .pv-body .post-break{text-align:center;color:var(--coral);opacity:.7;margin:26px 0;letter-spacing:.4em}
+  .pv-body figure{margin:26px 0}
+  .pv-body figure img{width:100%;border-radius:12px;display:block}
+  .pv-body figcaption{font-size:.8rem;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:30px 22px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="kicker" data-no-i18n>Admin</p>
+  <h1 data-no-i18n>Article Editor</h1>
+  <p data-no-i18n>Build a story from headers, paragraphs, quotes, line breaks, and photos — then publish it to the blog.</p>
+</div>
+
+<main data-no-i18n>
+  <div id="gate" class="gate"><h2>Loading…</h2><p>Checking your account.</p></div>
+
+  <div id="editor" style="display:none">
+
+    <!-- ===== Article details ===== -->
+    <div class="card">
+      <h2>Article details</h2>
+      <div class="field">
+        <label for="f-title">Title</label>
+        <input id="f-title" type="text" placeholder="e.g. A Weekend Above the Clouds in Cusco" maxlength="120">
+      </div>
+      <div class="grid3">
+        <div class="field">
+          <label for="f-slug">Web address ending (slug)</label>
+          <input id="f-slug" type="text" placeholder="a-weekend-in-cusco" maxlength="80">
+          <div class="hint">Lowercase letters, numbers and dashes. The article lives at post.html?post=<b>this</b></div>
+        </div>
+        <div class="field">
+          <label for="f-tag">Tag (photo label)</label>
+          <input id="f-tag" type="text" placeholder="Peru" maxlength="30">
+        </div>
+        <div class="field">
+          <label for="f-date">Publish date</label>
+          <input id="f-date" type="date">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="f-location">Location line</label>
+          <input id="f-location" type="text" placeholder="Cusco, Peru" maxlength="80">
+        </div>
+        <div class="field">
+          <label for="f-seed">Placeholder-photo word (optional)</label>
+          <input id="f-seed" type="text" placeholder="cusco" maxlength="40">
+          <div class="hint">Only used if no cover photo is chosen.</div>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-excerpt">Teaser sentence (shown on the blog tiles)</label>
+        <textarea id="f-excerpt" maxlength="200" placeholder="One line that makes someone want to read the story."></textarea>
+      </div>
+      <div class="field">
+        <label>Cover photo</label>
+        <div class="cover-row">
+          <div class="cover-thumb" id="cover-thumb">No cover yet</div>
+          <button class="btn" id="cover-pick" type="button">Choose cover photo</button>
+          <button class="btn ghost" id="cover-clear" type="button" style="display:none">Remove</button>
+          <div class="cover-credit" id="cover-credit"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Article body builder ===== -->
+    <div class="card">
+      <h2>Article body</h2>
+      <div class="blocks" id="blocks"></div>
+      <div class="insert-bar" id="insert-bar">
+        <button type="button" data-add="h2">+ Header</button>
+        <button type="button" data-add="p">+ Paragraph</button>
+        <button type="button" data-add="lead">+ Lead paragraph</button>
+        <button type="button" data-add="quote">+ Pull-quote</button>
+        <button type="button" data-add="br">+ Line break</button>
+        <button type="button" data-add="img">+ Photo</button>
+      </div>
+      <div class="hint" style="margin-top:10px">Tip: start with one <b>Lead paragraph</b> — it renders larger, like the opening of the existing stories. Use the ↑ ↓ arrows on each piece to reorder.</div>
+    </div>
+
+    <!-- ===== Byline (optional) ===== -->
+    <div class="card">
+      <h2>Byline (optional)</h2>
+      <div class="grid2">
+        <div class="field">
+          <label for="f-authorname">Author name</label>
+          <input id="f-authorname" type="text" placeholder="Leave empty for the default Jeff byline" maxlength="60">
+        </div>
+        <div class="field">
+          <label for="f-authorid">Trusted traveler account ID</label>
+          <input id="f-authorid" type="text" placeholder="long code from roamer.html?id=…" maxlength="60">
+          <div class="hint">Fill both to credit a community member and link their public profile.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Live preview ===== -->
+    <div class="preview" id="preview">
+      <div class="pv-hero" id="pv-hero"><div class="pv-hero-inner">
+        <span class="tag" id="pv-tag"></span>
+        <h1 id="pv-title"></h1>
+        <div class="meta" id="pv-meta"></div>
+      </div></div>
+      <div class="pv-body" id="pv-body"></div>
+    </div>
+
+    <!-- ===== Save bar ===== -->
+    <div class="save-bar">
+      <a class="btn ghost" href="blog-admin.html">&larr; Manage posts</a>
+      <span class="save-msg" id="save-msg"></span>
+      <button class="btn ghost" id="btn-preview" type="button">Preview</button>
+      <button class="btn" id="btn-draft" type="button">Save draft</button>
+      <button class="btn coral" id="btn-publish" type="button">Publish</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div>Never Roam Alone — article editor (admin only)</div>
+</footer>
+
+<!-- ===== Image picker modal (shared by cover + photo blocks) ===== -->
+<div class="pick-bg" id="pick-bg" style="display:none">
+  <div class="pick">
+    <h3>Pick a photo</h3>
+    <div class="pick-tabs">
+      <button class="pick-tab active" id="tab-search" type="button">Search free photos</button>
+      <button class="pick-tab" id="tab-upload" type="button">Upload my own</button>
+    </div>
+    <div id="pick-search-pane">
+      <div class="pick-search">
+        <input id="pick-q" type="text" placeholder="e.g. Cusco plaza sunrise">
+        <button class="btn" id="pick-go" type="button">Search</button>
+      </div>
+      <div class="pick-msg" id="pick-msg">Photos come from Unsplash (free, with photographer credit).</div>
+      <div class="pick-grid" id="pick-grid"></div>
+    </div>
+    <div id="pick-upload-pane" style="display:none">
+      <label class="pick-file" id="pick-file-label">
+        <div><b>Click to choose a photo</b> from your computer</div>
+        <div style="font-size:.78rem;margin-top:6px">JPG, PNG or WebP · up to 8 MB · it uploads to your site's photo storage</div>
+        <input id="pick-file" type="file" accept="image/jpeg,image/png,image/webp">
+      </label>
+      <div class="pick-msg" id="upload-msg"></div>
+    </div>
+    <div class="pick-foot"><button class="btn ghost" id="pick-close" type="button">Cancel</button></div>
+  </div>
+</div>
+
+<script src="posts.js"></script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+<script>
+/* =====================================================================
+   ARTICLE EDITOR — admin only.
+   Articles are saved to the Supabase blog_posts table (see
+   blog-setup.sql). Published ones appear across the site via
+   blog-remote.js. Open with:
+     blog-editor.html              → new article
+     blog-editor.html?id=<uuid>    → edit an existing database article
+     blog-editor.html?copy=<slug>  → start from a posts.js article
+   ===================================================================== */
+(function(){
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const gate = $("gate"), editor = $("editor");
+  let sb = null;
+
+  /* ------------ editor state ------------ */
+  let postId = null;              // uuid once saved
+  let published = false;
+  let cover = null;               // {url, credit, creditLink}
+  let blocks = [];                // [{type:"p"|"lead"|"h2"|"quote"|"br"|"img", text, img:{url,caption,credit,creditLink}}]
+  let slugTouched = false;
+  let dirty = false;
+  let likes = 0, views = 0;       // kept from the loaded row; not edited here
+
+  function markDirty(){ dirty = true; }
+  window.addEventListener("beforeunload", e => { if (dirty){ e.preventDefault(); e.returnValue = ""; } });
+
+  /* ------------ gate: sign-in + admin check ------------ */
+  function showGate(title, text, withSignIn){
+    editor.style.display = "none";
+    gate.style.display = "";
+    gate.innerHTML = `<h2>${esc(title)}</h2><p>${esc(text)}</p>` +
+      (withSignIn ? `<p style="margin-top:18px"><button class="btn" id="gate-signin" type="button">Sign in</button></p>` : "");
+    const b = $("gate-signin");
+    if (b) b.onclick = () => window.NRA_AUTH.openModal();
+  }
+
+  async function checkAccess(){
+    if (!window.NRA_AUTH || !window.NRA_AUTH.enabled){
+      showGate("Accounts aren't set up", "This page needs the site's Supabase connection (nra-config.js)."); return;
+    }
+    await window.NRA_AUTH.ready();
+    sb = window.NRA_AUTH.client();
+    if (!sb || !window.NRA_AUTH.user()){
+      showGate("Sign in to write articles", "This page is for the site owner. Sign in with your admin account to continue.", true);
+      return;
+    }
+    let isAdmin = false;
+    try{
+      const { data, error } = await sb.rpc("is_blog_admin");
+      isAdmin = !error && data === true;
+    }catch(e){}
+    if (!isAdmin){
+      showGate("Not authorized", "This account isn't on the blog admin list. (If this is your admin account, make sure blog-setup.sql has been run in Supabase.)");
+      return;
+    }
+    gate.style.display = "none";
+    editor.style.display = "";
+    await loadInitial();
+  }
+
+  /* ------------ load: new / edit / copy ------------ */
+  const params = new URLSearchParams(location.search);
+
+  async function loadInitial(){
+    $("f-date").value = new Date().toISOString().slice(0,10);
+    const id = params.get("id");
+    const copySlug = (params.get("copy")||"").toLowerCase();
+
+    if (id){
+      const { data, error } = await sb.from("blog_posts").select("*").eq("id", id).single();
+      if (error || !data){ showGate("Article not found", "That article may have been deleted. Head back to Manage posts."); return; }
+      postId = data.id; published = !!data.published; likes = data.likes||0; views = data.views||0;
+      $("f-title").value = data.title || "";
+      $("f-slug").value = data.slug || ""; slugTouched = true;
+      $("f-tag").value = data.tag || "";
+      $("f-date").value = data.date || "";
+      $("f-location").value = data.location || "";
+      $("f-seed").value = data.seed || "";
+      $("f-excerpt").value = data.excerpt || "";
+      $("f-authorname").value = data.author_name || "";
+      $("f-authorid").value = data.author_id || "";
+      cover = data.cover || null;
+      blocks = (Array.isArray(data.body) ? data.body : []).map(fromStored);
+    } else if (copySlug && window.NRA_POSTS_UTIL){
+      const p = window.NRA_POSTS_UTIL.bySlug(copySlug);
+      if (p){
+        $("f-title").value = p.title; $("f-slug").value = p.slug; slugTouched = true;
+        $("f-tag").value = p.tag || ""; $("f-date").value = p.date || "";
+        $("f-location").value = p.location || ""; $("f-seed").value = p.seed || "";
+        $("f-excerpt").value = p.excerpt || "";
+        $("f-authorname").value = p.authorName || ""; $("f-authorid").value = p.authorId || "";
+        likes = p.likes||0; views = p.views||0;
+        blocks = (p.body||[]).map(fromStored);
+        setMsg("Editing a copy of a built-in article. Publishing it replaces the original everywhere.", false);
+      }
+    }
+    if (!blocks.length) blocks = [{type:"lead", text:""}];
+    renderCover();
+    renderBlocks();
+    updateButtons();
+  }
+
+  /* stored form ["p","text"] / ["img",{...}] / ["br"]  <->  editor form */
+  function fromStored(b){
+    if (!Array.isArray(b)) return {type:"p", text:""};
+    if (b[0]==="img") return {type:"img", img: Object.assign({url:"",caption:"",credit:null,creditLink:null}, b[1]||{})};
+    if (b[0]==="br")  return {type:"br"};
+    return {type: b[0]||"p", text: b[1]||""};
+  }
+  function toStored(b){
+    if (b.type==="img") return ["img", {url:b.img.url, caption:b.img.caption||"", alt:b.img.caption||"", credit:b.img.credit||null, creditLink:b.img.creditLink||null}];
+    if (b.type==="br")  return ["br"];
+    return [b.type, b.text||""];
+  }
+
+  /* ------------ details form wiring ------------ */
+  const slugify = s => s.toLowerCase().replace(/['’]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,80);
+  $("f-title").addEventListener("input", () => {
+    if (!slugTouched) $("f-slug").value = slugify($("f-title").value);
+    markDirty();
+  });
+  $("f-slug").addEventListener("input", () => { slugTouched = true; markDirty(); });
+  $("f-slug").addEventListener("blur",  () => { $("f-slug").value = slugify($("f-slug").value); });
+  ["f-tag","f-date","f-location","f-seed","f-excerpt","f-authorname","f-authorid"].forEach(id =>
+    $(id).addEventListener("input", markDirty));
+
+  /* ------------ cover picker ------------ */
+  function renderCover(){
+    const t = $("cover-thumb");
+    if (cover && cover.url){
+      t.style.backgroundImage = `url('${cover.url}')`; t.textContent = "";
+      $("cover-clear").style.display = "";
+      $("cover-credit").textContent = cover.credit ? ("Photo: " + cover.credit) : "";
+    } else {
+      t.style.backgroundImage = "none"; t.textContent = "No cover yet";
+      $("cover-clear").style.display = "none";
+      $("cover-credit").textContent = "";
+    }
+  }
+  $("cover-pick").onclick = () => openPicker(sel => { cover = sel; renderCover(); markDirty(); });
+  $("cover-clear").onclick = () => { cover = null; renderCover(); markDirty(); };
+
+  /* ------------ block builder ------------ */
+  const TYPE_LABEL = {p:"Paragraph", lead:"Lead paragraph", h2:"Header", quote:"Pull-quote", br:"Line break", img:"Photo"};
+
+  function renderBlocks(){
+    const wrap = $("blocks");
+    wrap.innerHTML = "";
+    blocks.forEach((b, i) => {
+      const el = document.createElement("div");
+      el.className = "blk" + (b.type==="br" ? " blk-br" : "");
+      const tools = `
+        <div class="blk-tools">
+          <button type="button" title="Move up" data-act="up" data-i="${i}">&uarr;</button>
+          <button type="button" title="Move down" data-act="down" data-i="${i}">&darr;</button>
+          <button type="button" class="del" title="Remove" data-act="del" data-i="${i}">&#x2715;</button>
+        </div>`;
+      if (b.type==="br"){
+        el.innerHTML = `<span>&#10022; &#10022; &#10022;</span><span style="font-size:.72rem;color:var(--muted);font-weight:400;letter-spacing:0">section break</span>${tools}`;
+      } else if (b.type==="img"){
+        el.innerHTML = `
+          <div class="blk-head"><span class="blk-type">Photo</span>${tools}</div>
+          <div class="blk-img-row">
+            <div class="blk-img-thumb" data-thumb="${i}">${b.img.url ? "" : "No photo yet"}</div>
+            <div class="blk-img-main">
+              <button class="btn" type="button" data-act="pickimg" data-i="${i}">${b.img.url ? "Change photo" : "Choose photo"}</button>
+              <div class="mini-label">Caption (optional)</div>
+              <input type="text" data-cap="${i}" maxlength="140" placeholder="A line under the photo" value="${esc(b.img.caption||"")}">
+              <div class="blk-credit" data-credit="${i}">${b.img.credit ? "Photo: " + esc(b.img.credit) : ""}</div>
+            </div>
+          </div>`;
+      } else {
+        const tag = (b.type==="h2")
+          ? `<input type="text" data-text="${i}" maxlength="90" placeholder="Section header" value="${esc(b.text||"")}">`
+          : `<textarea data-text="${i}" placeholder="${b.type==="quote" ? "A short line worth pulling out of the story…" : "Write here…"}">${esc(b.text||"")}</textarea>`;
+        el.innerHTML = `<div class="blk-head"><span class="blk-type">${TYPE_LABEL[b.type]||b.type}</span>${tools}</div>${tag}`;
+      }
+      wrap.appendChild(el);
+      const th = el.querySelector(`[data-thumb="${i}"]`);
+      if (th && b.img && b.img.url) th.style.backgroundImage = `url('${b.img.url}')`;
+    });
+  }
+
+  /* typing goes straight into state (no re-render, so focus is kept) */
+  $("blocks").addEventListener("input", e => {
+    const t = e.target;
+    if (t.dataset.text != null) blocks[+t.dataset.text].text = t.value;
+    if (t.dataset.cap  != null) blocks[+t.dataset.cap].img.caption = t.value;
+    markDirty();
+  });
+
+  /* block buttons (move / delete / change photo) */
+  $("blocks").addEventListener("click", e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const i = +btn.dataset.i, act = btn.dataset.act;
+    if (act==="del"){
+      blocks.splice(i,1);
+    } else if (act==="up" && i>0){
+      [blocks[i-1], blocks[i]] = [blocks[i], blocks[i-1]];
+    } else if (act==="down" && i<blocks.length-1){
+      [blocks[i+1], blocks[i]] = [blocks[i], blocks[i+1]];
+    } else if (act==="pickimg"){
+      openPicker(sel => {
+        blocks[i].img.url = sel.url; blocks[i].img.credit = sel.credit||null; blocks[i].img.creditLink = sel.creditLink||null;
+        renderBlocks(); markDirty();
+      });
+      return;
+    } else return;
+    renderBlocks(); markDirty();
+  });
+
+  /* insert toolbar */
+  $("insert-bar").addEventListener("click", e => {
+    const btn = e.target.closest("button[data-add]");
+    if (!btn) return;
+    const type = btn.dataset.add;
+    const blk = (type==="img") ? {type:"img", img:{url:"",caption:"",credit:null,creditLink:null}}
+              : (type==="br")  ? {type:"br"}
+              : {type, text:""};
+    blocks.push(blk);
+    renderBlocks(); markDirty();
+    if (type==="img"){
+      openPicker(sel => {
+        const b = blocks[blocks.length-1];
+        b.img.url = sel.url; b.img.credit = sel.credit||null; b.img.creditLink = sel.creditLink||null;
+        renderBlocks();
+      });
+    } else {
+      const inputs = $("blocks").querySelectorAll("[data-text]");
+      const last = inputs[inputs.length-1];
+      if (last) last.focus();
+    }
+  });
+
+  /* ------------ image picker modal ------------ */
+  let pickCb = null;
+  function openPicker(cb){
+    pickCb = cb;
+    $("pick-bg").style.display = "flex";
+    $("pick-grid").innerHTML = "";
+    $("pick-msg").className = "pick-msg";
+    $("pick-msg").textContent = "Photos come from Unsplash (free, with photographer credit).";
+    $("upload-msg").textContent = "";
+    $("pick-q").value = "";
+    setTab("search");
+    setTimeout(() => $("pick-q").focus(), 50);
+  }
+  function closePicker(){ $("pick-bg").style.display = "none"; pickCb = null; }
+  $("pick-close").onclick = closePicker;
+  $("pick-bg").addEventListener("click", e => { if (e.target === $("pick-bg")) closePicker(); });
+
+  function setTab(which){
+    $("tab-search").classList.toggle("active", which==="search");
+    $("tab-upload").classList.toggle("active", which==="upload");
+    $("pick-search-pane").style.display = which==="search" ? "" : "none";
+    $("pick-upload-pane").style.display = which==="upload" ? "" : "none";
+  }
+  $("tab-search").onclick = () => setTab("search");
+  $("tab-upload").onclick = () => setTab("upload");
+
+  async function doSearch(){
+    const q = $("pick-q").value.trim();
+    if (!q) return;
+    const msg = $("pick-msg"), grid = $("pick-grid");
+    msg.className = "pick-msg"; msg.textContent = "Searching…"; grid.innerHTML = "";
+    try{
+      const r = await fetch("/.netlify/functions/image?q=" + encodeURIComponent(q) + "&count=8");
+      const d = await r.json();
+      if (!r.ok) throw new Error(d.error || "search failed");
+      const results = d.results || [];
+      if (!results.length){ msg.textContent = "No photos found — try different words."; return; }
+      msg.textContent = "Click a photo to use it.";
+      results.forEach(ph => {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "pick-ph";
+        b.innerHTML = `<img src="${esc(ph.thumb||ph.url)}" alt=""><span class="cr">${esc(ph.credit||"Unsplash")}</span>`;
+        b.onclick = () => { const cb = pickCb; closePicker(); if (cb) cb({url:ph.url, credit:ph.credit, creditLink:ph.creditLink}); };
+        grid.appendChild(b);
+      });
+    }catch(e){
+      msg.className = "pick-msg err";
+      msg.textContent = "Couldn't search photos right now. (On the live site this uses the Unsplash key; it doesn't work when previewing locally.)";
+    }
+  }
+  $("pick-go").onclick = doSearch;
+  $("pick-q").addEventListener("keydown", e => { if (e.key==="Enter"){ e.preventDefault(); doSearch(); } });
+
+  $("pick-file").addEventListener("change", async e => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    const msg = $("upload-msg");
+    if (file.size > 8*1024*1024){ msg.className="pick-msg err"; msg.textContent = "That photo is over 8 MB — please use a smaller one."; return; }
+    msg.className = "pick-msg"; msg.textContent = "Uploading…";
+    try{
+      const clean = file.name.toLowerCase().replace(/[^a-z0-9.]+/g,"-").slice(-60);
+      const path = "up-" + Date.now() + "-" + clean;
+      const { error } = await sb.storage.from("blog-images").upload(path, file, { cacheControl: "31536000", upsert: false });
+      if (error) throw error;
+      const { data } = sb.storage.from("blog-images").getPublicUrl(path);
+      const cb = pickCb; closePicker();
+      if (cb) cb({url: data.publicUrl, credit: null, creditLink: null});
+    }catch(err){
+      msg.className = "pick-msg err";
+      msg.textContent = "Upload failed: " + (err.message || "unknown error") + " (Has blog-setup.sql been run in Supabase?)";
+    }
+  });
+
+  /* ------------ preview ------------ */
+  function pvBlock(b){
+    if (b.type==="lead")  return `<p class="lead">${esc(b.text)}</p>`;
+    if (b.type==="h2")    return `<h2>${esc(b.text)}</h2>`;
+    if (b.type==="quote") return `<blockquote class="pullquote">${esc(b.text)}</blockquote>`;
+    if (b.type==="br")    return `<div class="post-break">&#10022;</div>`;
+    if (b.type==="img")   return b.img.url
+      ? `<figure><img src="${esc(b.img.url)}" alt="${esc(b.img.caption||"")}">${(b.img.caption||b.img.credit)?`<figcaption><span>${esc(b.img.caption||"")}</span>${b.img.credit?`<span><i>Photo: ${esc(b.img.credit)}</i></span>`:""}</figcaption>`:""}</figure>`
+      : "";
+    return `<p>${esc(b.text)}</p>`;
+  }
+  $("btn-preview").onclick = () => {
+    const pv = $("preview");
+    if (pv.style.display === "block"){ pv.style.display = "none"; $("btn-preview").textContent = "Preview"; return; }
+    const seed = $("f-seed").value.trim() || $("f-slug").value.trim() || "travel";
+    const hero = (cover && cover.url) ? cover.url : `https://picsum.photos/seed/${encodeURIComponent(seed)}-hero/1600/900`;
+    $("pv-hero").style.backgroundImage = `url('${hero}')`;
+    $("pv-tag").textContent = $("f-tag").value.trim() || "Story";
+    $("pv-title").textContent = $("f-title").value.trim() || "Untitled article";
+    const words = blocks.reduce((n,b)=> n + (b.text ? b.text.split(/\s+/).length : 0), 0);
+    $("pv-meta").textContent = ($("f-date").value || "") + "  ·  " + ($("f-location").value.trim()||"") + "  ·  " + Math.max(1,Math.round(words/200)) + " min read";
+    $("pv-body").innerHTML = blocks.map(pvBlock).join("\n");
+    pv.style.display = "block";
+    $("btn-preview").textContent = "Hide preview";
+    pv.scrollIntoView({behavior:"smooth"});
+  };
+
+  /* ------------ save / publish ------------ */
+  function setMsg(text, isErr){
+    const m = $("save-msg");
+    m.textContent = text || "";
+    m.className = "save-msg" + (isErr ? " err" : "");
+  }
+  function updateButtons(){
+    $("btn-publish").textContent = published ? "Save & keep published" : "Publish";
+    $("btn-draft").textContent   = published ? "Unpublish (back to draft)" : "Save draft";
+  }
+
+  function collect(){
+    const title = $("f-title").value.trim();
+    const slug  = slugify($("f-slug").value);
+    $("f-slug").value = slug;
+    if (!title) return { err: "Give the article a title first." };
+    if (!slug)  return { err: "The web address ending (slug) can't be empty." };
+    if (!$("f-date").value) return { err: "Pick a publish date." };
+    const body = blocks.filter(b => b.type==="br" || b.type==="img" ? (b.type==="br" || b.img.url) : (b.text||"").trim()).map(toStored);
+    if (!body.length) return { err: "The article body is empty — add at least one paragraph." };
+    const authorId = $("f-authorid").value.trim();
+    return { row: {
+      slug, title,
+      tag: $("f-tag").value.trim() || null,
+      location: $("f-location").value.trim() || null,
+      date: $("f-date").value,
+      seed: $("f-seed").value.trim() || slug,
+      cover: cover,
+      excerpt: $("f-excerpt").value.trim() || null,
+      body,
+      likes, views,
+      author_id: authorId || null,
+      author_name: $("f-authorname").value.trim() || null
+    }};
+  }
+
+  async function save(publishState){
+    const c = collect();
+    if (c.err){ setMsg(c.err, true); return; }
+    const row = c.row;
+    row.published = publishState;
+    setMsg("Saving…");
+    try{
+      /* slug must be unique among database articles */
+      let q = sb.from("blog_posts").select("id").eq("slug", row.slug);
+      if (postId) q = q.neq("id", postId);
+      const { data: clash } = await q;
+      if (clash && clash.length){ setMsg("Another database article already uses that web address — change the slug.", true); return; }
+
+      if (postId){
+        const { error } = await sb.from("blog_posts").update(row).eq("id", postId);
+        if (error) throw error;
+      } else {
+        const { data, error } = await sb.from("blog_posts").insert(row).select("id").single();
+        if (error) throw error;
+        postId = data.id;
+        history.replaceState(null, "", "blog-editor.html?id=" + postId);
+      }
+      published = publishState;
+      dirty = false;
+      updateButtons();
+      const replacing = window.NRA_POSTS_UTIL && window.NRA_POSTS_UTIL.bySlug(row.slug);
+      setMsg(publishState
+        ? ("Published! It's live on the blog." + (replacing ? " (It replaces the built-in article with the same address.)" : ""))
+        : "Saved as a draft — only you can see it.");
+    }catch(err){
+      setMsg("Couldn't save: " + (err.message || "unknown error"), true);
+    }
+  }
+
+  $("btn-publish").onclick = () => save(true);
+  $("btn-draft").onclick   = () => save(false);   // also acts as "unpublish" when already published
+
+  /* re-check access if the user signs in/out via the modal */
+  if (window.NRA_AUTH) window.NRA_AUTH.onChange(() => {
+    if (editor.style.display === "none") checkAccess();
+  });
+
+  checkAccess();
+})();
+</script>
+</body>
+</html>

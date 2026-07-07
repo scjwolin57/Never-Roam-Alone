@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Roamer Profile — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --green:#185e3f;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  nav.links a.active{color:var(--teal);border-color:var(--coral)}
+
+  /* ---------- Page hero ---------- */
+  .page-hero{
+    background:linear-gradient(135deg, #0a5c64 0%, #185e3f 100%);
+    color:#fff;text-align:center;padding:56px 22px 48px;
+  }
+  .page-hero .kicker{
+    color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;
+    letter-spacing:.22em;font-size:.74rem;margin:0 0 12px;
+  }
+  .page-hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 10px;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:0 auto;font-size:1.02rem}
+
+  /* ---------- Profile card ---------- */
+  .wrap{max-width:720px;margin:-28px auto 60px;padding:0 22px}
+  .card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:30px 28px}
+  .card + .card{margin-top:20px}
+
+  .avatar-row{display:flex;align-items:center;gap:18px;margin-bottom:14px}
+  .avatar{
+    width:88px;height:88px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:2rem;letter-spacing:.5px;
+    box-shadow:0 6px 18px rgba(20,40,50,.18);
+  }
+  .avatar-meta .whoname{font-size:1.6rem;font-family:Georgia,serif;margin:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .avatar-meta .since{color:var(--muted);font-size:.88rem}
+  .tt-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(24,94,63,.1);color:var(--green);
+    font-family:-apple-system,sans-serif;font-weight:700;font-size:.72rem;
+    text-transform:uppercase;letter-spacing:.08em;
+    padding:4px 12px;border-radius:14px;
+  }
+
+  .bio{margin:4px 0 18px;color:var(--ink);font-size:1.02rem;white-space:pre-wrap}
+
+  .fact-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 20px}
+  .chip{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(14,124,134,.08);border:1px solid rgba(14,124,134,.18);
+    color:var(--teal-dark);font-weight:600;font-size:.86rem;
+    padding:7px 14px;border-radius:20px;
+  }
+  .chip .lbl{font-weight:400;color:var(--muted)}
+
+  .socials{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 6px}
+  a.social-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    border:2px solid rgba(14,124,134,.25);border-radius:22px;
+    padding:9px 18px;font-weight:700;font-size:.88rem;color:var(--teal-dark);
+    transition:.2s;background:#fff;
+  }
+  a.social-btn:hover{border-color:var(--teal);box-shadow:0 4px 14px rgba(14,124,134,.16);transform:translateY(-1px)}
+  a.social-btn svg{width:16px;height:16px;flex-shrink:0}
+
+  /* ---------- Articles ---------- */
+  .articles-zone{margin-top:26px;padding-top:20px;border-top:1px solid rgba(14,124,134,.18)}
+  .articles-zone h3{margin:0 0 4px;font-size:1.1rem}
+  .articles-zone .sub{color:var(--muted);font-size:.88rem;margin:0 0 14px}
+  a.art-card{
+    display:block;background:#fff;border:2px solid rgba(14,124,134,.18);
+    border-radius:14px;padding:14px 18px;transition:.2s;
+  }
+  a.art-card + a.art-card{margin-top:10px}
+  a.art-card:hover{border-color:var(--teal);box-shadow:0 6px 18px rgba(14,124,134,.14);transform:translateY(-1px)}
+  .art-card .at{font-weight:700;font-size:1rem;line-height:1.35}
+  .art-card .am{color:var(--muted);font-size:.8rem;margin-top:2px}
+  .art-card .ax{color:var(--muted);font-size:.88rem;margin-top:6px}
+
+  /* Empty / private / loading states */
+  .gate{text-align:center;padding:26px 6px}
+  .gate h2{margin:0 0 8px}
+  .gate p{color:var(--muted);margin:0 auto 18px;max-width:440px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
+    background:var(--green);color:#fff;font-weight:700;font-size:.95rem;font-family:inherit;
+    padding:12px 24px;border-radius:26px;transition:background .2s, transform .15s;
+  }
+  .btn:hover{background:var(--teal)}
+
+  /* ---------- Footer ---------- */
+  footer{background:linear-gradient(135deg,#0a5c64,#185e3f);color:#fff;text-align:center;padding:40px 22px}
+  footer .brand{justify-content:center;color:#fff}
+  footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
+  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
+
+  @media (max-width:560px){
+    .avatar-row{flex-direction:column;text-align:center}
+    .avatar-meta .whoname{justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<!-- ===== Page hero ===== -->
+<div class="page-hero">
+  <p class="kicker">Meet a Roamer</p>
+  <h1 id="hero-title">Roamer Profile</h1>
+  <p>A fellow traveler from the Never Roam Alone community.</p>
+</div>
+
+<div class="wrap">
+  <!-- Loading -->
+  <div class="card" id="loading-card">
+    <div class="gate"><p>Loading profile…</p></div>
+  </div>
+
+  <!-- The profile itself -->
+  <div class="card" id="profile-card" style="display:none">
+    <div class="avatar-row">
+      <div class="avatar" id="r-avatar">?</div>
+      <div class="avatar-meta">
+        <p class="whoname"><span id="r-name">Roamer</span><span class="tt-badge" id="r-badge" style="display:none">&#9998; Trusted traveler</span></p>
+        <span class="since" id="r-since"></span>
+      </div>
+    </div>
+
+    <p class="bio" id="r-bio" style="display:none"></p>
+
+    <div class="fact-chips" id="r-chips"></div>
+
+    <div class="socials" id="r-socials"></div>
+
+    <div class="articles-zone" id="r-articles" style="display:none">
+      <h3>Articles</h3>
+      <p class="sub">Stories this Roamer has contributed as a trusted traveler.</p>
+      <div id="r-articles-list"></div>
+    </div>
+  </div>
+
+  <!-- Private / not found -->
+  <div class="card" id="missing-card" style="display:none">
+    <div class="gate">
+      <h2>This profile isn't available</h2>
+      <p>It's either set to private or doesn't exist. Every Roamer chooses whether their profile is public.</p>
+      <a class="btn" href="askaroamer.html">Back to Ask A Roamer</a>
+    </div>
+  </div>
+
+  <!-- Guest mode (accounts not connected) -->
+  <div class="card" id="guest-card" style="display:none">
+    <div class="gate">
+      <h2>Profiles are almost ready</h2>
+      <p>Accounts aren't switched on yet, so there are no public profiles to show right now.</p>
+      <a class="btn" href="askaroamer.html">Back to Ask A Roamer</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <small>Prototype · Roamers choose what's shown here</small>
+</footer>
+
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="posts.js"></script>
+<script>
+/* ==================================================================
+   ROAMER.HTML — public profile page.
+   Shows a community member's profile at roamer.html?id=<their-id>,
+   but ONLY if they've turned on "public profile" on their own
+   profile page. Reads through the public_profiles view, which never
+   contains emails or private settings (see public-profile-setup.sql).
+================================================================== */
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  /* initials + stable color — same look as the avatars everywhere else */
+  const AV_COLORS = ["#185e3f","#0e7c86","#b4552d","#7a5195","#2f6690","#bc5090"];
+  function initials(n){
+    const p = String(n||"?").trim().split(/\s+/);
+    return ((p[0]||"?")[0] + (p.length>1 ? p[p.length-1][0] : "")).toUpperCase();
+  }
+  function colorFor(n){
+    const s = String(n||"?");
+    let h = 0; for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) >>> 0;
+    return AV_COLORS[h % AV_COLORS.length];
+  }
+
+  function show(which){
+    ["loading-card","profile-card","missing-card","guest-card"].forEach(id => {
+      $(id).style.display = (id === which) ? "" : "none";
+    });
+  }
+
+  /* make a typed-in website safe & clickable: add https:// if missing */
+  function siteUrl(v){
+    v = String(v||"").trim();
+    if (!v) return "";
+    if (!/^https?:\/\//i.test(v)) v = "https://" + v;
+    return v;
+  }
+
+  const ICON_GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+  const ICON_IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>';
+
+  function chip(label, value){
+    return '<span class="chip"><span class="lbl">' + esc(label) + '</span> ' + esc(value) + '</span>';
+  }
+
+  function render(p, articles){
+    const name = p.display_name || "Roamer";
+    document.title = name + " — Never Roam Alone";
+    $("hero-title").textContent = name;
+    $("r-name").textContent = name;
+    const av = $("r-avatar");
+    av.textContent = initials(name);
+    av.style.background = colorFor(name);
+
+    if (p.created_at){
+      const d = new Date(p.created_at);
+      if (!isNaN(d)) $("r-since").textContent = "Roamer since " + d.toLocaleDateString("en-US", { year:"numeric", month:"long" });
+    }
+
+    if (p.bio){ $("r-bio").textContent = p.bio; $("r-bio").style.display = ""; }
+
+    let chips = "";
+    const home = [p.home_city, p.home_country].filter(Boolean).join(", ");
+    if (home) chips += chip("Home:", home);
+    if (p.travel_style) chips += chip("Travel style:", p.travel_style);
+    if (p.travel_company) chips += chip("Travels:", p.travel_company);
+    $("r-chips").innerHTML = chips;
+    if (!chips) $("r-chips").style.display = "none";
+
+    let socials = "";
+    const site = siteUrl(p.website);
+    if (site) socials += '<a class="social-btn" href="' + esc(site) + '" target="_blank" rel="noopener nofollow">' + ICON_GLOBE + esc(String(p.website).trim()) + '</a>';
+    const handle = String(p.instagram||"").trim().replace(/^@+/, "");
+    if (handle) socials += '<a class="social-btn" href="https://instagram.com/' + esc(encodeURIComponent(handle)) + '" target="_blank" rel="noopener nofollow">' + ICON_IG + '@' + esc(handle) + '</a>';
+    $("r-socials").innerHTML = socials;
+    if (!socials) $("r-socials").style.display = "none";
+
+    if (articles.length){
+      $("r-badge").style.display = "";
+      $("r-articles").style.display = "";
+      $("r-articles-list").innerHTML = articles.map(a =>
+        '<a class="art-card" href="post.html?post=' + esc(a.slug) + '">' +
+          '<div class="at">' + esc(a.title) + '</div>' +
+          '<div class="am">' + esc(window.NRA_POSTS_UTIL.longDate(a.date)) + ' · ' + esc(a.location || a.tag || "") + '</div>' +
+          (a.excerpt ? '<div class="ax">' + esc(a.excerpt) + '</div>' : '') +
+        '</a>'
+      ).join("");
+    }
+
+    show("profile-card");
+  }
+
+  (async function init(){
+    const id = new URLSearchParams(location.search).get("id") || "";
+    if (!window.NRA_AUTH){ show("guest-card"); return; }
+    await NRA_AUTH.ready();
+    const sb = NRA_AUTH.enabled && NRA_AUTH.client();
+    if (!sb){ show("guest-card"); return; }
+    if (!id){ show("missing-card"); return; }
+    try{
+      const { data, error } = await sb.from("public_profiles").select("*").eq("id", id).maybeSingle();
+      if (error) throw error;
+      if (!data){ show("missing-card"); return; }
+      /* articles this Roamer contributed (tagged by hand in posts.js) */
+      const articles = (window.NRA_POSTS || []).filter(a => a.authorId === id)
+        .slice().sort((a,b) => b.date.localeCompare(a.date));
+      render(data, articles);
+    }catch(e){ show("missing-card"); }
+  })();
+})();
+</script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

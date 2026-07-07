@@ -210,3 +210,29 @@ All API keys live **only** in Netlify environment variables — never in browser
 - ✅ `MYMEMORY_EMAIL` — optional Netlify env var for higher rate limit
 - ✅ No API keys in any `.html`, `.js`, or committed files
 - ✅ `.env.example` documents required vars without real values
+
+---
+
+## Recently Completed (July 7, 2026) — Trip Planner
+- [x] **`itinerary.html` (new)** — Past & Upcoming trip lists (`?type=past` / `?type=upcoming`, toggle in the hero). Search bar + plus button; autocomplete suggests the 101 featured cities (marked "Guide", tidy capitalization, link to their city page) and coming-soon cities from `upcoming-cities.js` (marked "No guide yet"); anything else can be added as free text. Duplicate guard per list. Saves to Supabase (`itinerary_items` table) when signed in, localStorage (`nra_itinerary_v1`) otherwise.
+- [x] **"Request city guide" button** on itinerary items without a guide → POSTs to new Netlify function `request-guide.js`, which emails the site owner via Resend (`GUIDE_REQUEST_EMAIL` env var). Sent requests are remembered in localStorage (`nra_guide_requests_v1`) so the button shows "Guide requested ✓".
+- [x] **profile.html** — "My trips" section below the profile form with Upcoming/Past trip buttons linking to itinerary.html.
+- [x] **`itinerary-setup.sql` (new)** — run once in Supabase SQL Editor: creates `itinerary_items` with owner-only row-level security.
+- [ ] TODO to go live: set `GUIDE_REQUEST_EMAIL` in Netlify env vars (scope "All scopes") + run `itinerary-setup.sql` in Supabase.
+
+## Recently Completed (July 7, 2026) — Master City List + Visitor Score
+- [x] **`world-cities.js` (new)** — master database of **6,218 cities**: every city worldwide with population ≥100k, every national capital, every city ≥20k with its own commercial airport (IATA + scheduled service, city-name match or ≤10 km), plus tourism-index cities. Compact array format with `NRA_WC_GET(i)` helper and a country-name lookup. NOT yet wired into any page (Jeff wants to refine first).
+- [x] **Visitor Score (0.0–1.0)** on every city: 40% aviation hub (OpenTravelData flight-traffic PageRank of the busiest airport serving the city, log-scaled), 40% tourism indexes (1.0 if on Euromonitor Top 100 — the site's 101 featured — or Mastercard GDCI Top 20 2019: adds Palma de Mallorca + Denpasar/Bali), 20% OSM POI density — **POI part pending**: OpenStreetMap's servers are blocked in Claude's sandbox, so scores currently blend 50/50 aviation/index.
+- [x] **`poi-density.mjs` (new)** — run `node poi-density.mjs` in the project folder on the Mac (needs internet, ~1–2 hrs, resumes if interrupted) to count hotels/hostels/attractions per city via Overpass and recompute all scores at the full 40/40/20. Then ask Claude to refresh the spreadsheet.
+- [x] **`world-cities-master.xlsx` / `.csv` (new)** — the same list for review: sortable columns incl. qualification reason, airports, score components; Visitor Score is a live Excel formula with editable weights on the About sheet.
+- [x] **`world-cities-data.json` (new)** — full data (source of truth for regenerating the other files).
+- Sources: GeoNames (cities/populations/capitals), OurAirports (airports, July 2026), OpenTravelData (traffic ranks, July 2026), Mastercard GDCI 2019 report.
+
+## Recently Completed (July 7, 2026) — Blog Editor + Post Management
+- [x] **`blog-editor.html` (new, admin only)** — build an article from insert elements: Header, Paragraph, Lead paragraph, Pull-quote, Line break (section divider), and Photo. Photos come from an image picker with two tabs: Unsplash search (via the existing image function, now supporting multiple results) or upload-your-own (stored in Supabase's `blog-images` bucket). Each piece can be reordered (↑ ↓) or removed. Includes cover-photo picker, auto-generated slug, live preview, Save draft / Publish, and an optional trusted-traveler byline.
+- [x] **`blog-admin.html` (new, admin only)** — lists every editor-written article (drafts included) with View / Edit / Publish–Unpublish / Delete (two-step confirm). The six built-in posts.js articles are listed too with an **Edit a copy** button — publishing the copy replaces the original everywhere (same slug wins).
+- [x] **`blog-remote.js` (new)** — fetches published database articles and merges them into `window.NRA_POSTS`, so they appear on the home page, blog page, and post pages automatically. If Supabase is unreachable, posts.js articles still show.
+- [x] **`blog-setup.sql` (new)** — run once in Supabase SQL Editor: creates the `blog_admins` list (starts with Jeff's email), the `blog_posts` table (public read of published, admin-only writes), and the public `blog-images` storage bucket.
+- [x] **post.html** — now renders two new block types written by the editor: `["img", {url, caption, credit}]` (framed photo with caption + photographer credit) and `["br"]` (decorative section break). Hero/tile photos use the chosen cover when present.
+- [x] Access: only accounts in `blog_admins` can open the editor/manage pages (checked via an `is_blog_admin()` database function). Neither page is in the site menu — bookmark **blog-admin.html**.
+- [ ] TODO to go live: run `blog-setup.sql` in Supabase, then git push + redeploy (netlify.toml CSP now allows Supabase-hosted images).
