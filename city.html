@@ -52,6 +52,30 @@
   .chip b{font-size:1.35rem}
   .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
 
+  /* How long to stay — sits directly under the hero banner */
+  .stay-section{max-width:var(--maxw);margin:0 auto;padding:40px 22px 8px}
+  .stay-head{text-align:center;margin-bottom:26px}
+  .stay-head h2{font-size:clamp(1.5rem,3.4vw,2rem);color:var(--green);margin:0}
+  .stay-sub{color:var(--muted);font-size:.98rem;margin:8px auto 0;max-width:560px}
+  .stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .stay-card{position:relative;background:var(--card);border:1px solid #e7e0d2;
+    border-top:4px solid var(--teal);border-radius:16px;padding:20px 18px 22px;
+    box-shadow:var(--shadow);text-align:center;transition:transform .18s,box-shadow .18s}
+  .stay-card:nth-child(1){border-top-color:#8bbf9f}
+  .stay-card:nth-child(2){border-top-color:var(--teal)}
+  .stay-card:nth-child(3){border-top-color:var(--green)}
+  .stay-card:nth-child(4){border-top-color:var(--coral)}
+  .stay-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,40,50,.16)}
+  .stay-tier{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .stay-icon{font-size:1.7rem;line-height:1;margin:8px 0 6px}
+  .stay-days{font-size:1rem;color:var(--ink);margin-bottom:6px}
+  .stay-days b{font-size:1.7rem;color:var(--green);font-weight:800}
+  .stay-days span{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .stay-label{font-weight:700;font-size:1.02rem;color:var(--ink);margin-bottom:6px}
+  .stay-blurb{font-size:.85rem;color:var(--muted);line-height:1.45}
+  @media(max-width:820px){.stay-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:460px){.stay-grid{grid-template-columns:1fr}}
+
   section{max-width:var(--maxw);margin:0 auto;padding:54px 22px}
   .lead{font-size:1.15rem;color:var(--ink);max-width:760px}
   .muted{color:var(--muted)}
@@ -1160,6 +1184,84 @@ const CITY_STAY = {
   "Rio de Janeiro":4,"Cancún":6,"Marrakech":4,
   "Madrid":3.5, "Taipei":4.5, "Berlin":2.5, "Melbourne":8, "Munich":2.5, "Las Vegas":3.4, "Florence":2.5, "Dublin":3.5, "Kyoto":2.5, "Lisbon":3, "Venice":2, "Athens":3, "Orlando":6, "Toronto":4, "Miami":5.5, "San Francisco":4, "Shanghai":3, "Frankfurt am Main":2, "Copenhagen":3, "Zurich":2, "Washington, D.C.":3, "Pattaya-Chonburi":5, "Vancouver":4, "Stockholm":3, "Mexico City":4, "Oslo":3, "São Paulo":3, "Helsinki":2, "Brussels":2, "Budapest":3, "Guangzhou":3, "Nice":5, "Palma de Mallorca":7, "Honolulu":8, "Beijing":4, "Warsaw":3, "Seville":3, "Valencia":4, "Shenzhen":3, "Doha":3, "Abu Dhabi":4, "Fukuoka":3, "Sapporo":4, "Busan":3, "Edinburgh":4, "Montreal":3, "Bologna":2, "Rhodes":7, "Verona":2, "Delhi":3, "Porto":3, "Ho Chi Minh City":3, "Buenos Aires":4, "Marne-la-Vallée":2, "Kraków":3, "Heraklion":7, "Johor Bahru":2, "Hanoi":3, "Tel Aviv":4, "Sharjah":2, "Thessaloniki":3, "Lima":4, "Medina":4, "Tbilisi":4, "Riyadh":3, "Tallinn":2, "Mecca":5, "Denpasar":8, "Punta Cana":7, "Santiago":4, "Vilnius":3, "Jerusalem":4, "Zhuhai":2, "Cairo":4
 };
+
+/* Recommended length of stay, in days, per tier:
+   [ scratch the surface, leisurely explore, deeper dive, live like a local ]
+   Each tier is a [low, high] day range. */
+const CITY_VISIT = {
+  "Hong Kong":[[2,3],[4,5],[6,8],[14,21]], "Bangkok":[[2,3],[4,5],[6,8],[14,30]], "London":[[3,4],[5,7],[8,12],[21,30]],
+  "Macau":[[1,1],[2,2],[3,4],[7,14]], "Singapore":[[2,3],[3,5],[6,8],[14,21]], "Paris":[[3,4],[5,7],[8,12],[21,30]],
+  "Dubai":[[2,3],[4,5],[6,8],[14,21]], "New York":[[3,4],[5,7],[8,12],[21,30]], "Kuala Lumpur":[[2,2],[3,4],[5,7],[14,21]],
+  "Istanbul":[[3,4],[5,6],[7,10],[21,30]], "Tokyo":[[3,4],[5,7],[8,12],[21,30]], "Antalya":[[2,3],[4,5],[6,8],[14,21]],
+  "Seoul":[[3,4],[5,6],[7,10],[21,30]], "Osaka":[[2,2],[3,4],[5,7],[14,21]], "Rome":[[2,3],[4,5],[6,8],[14,30]],
+  "Phuket":[[3,3],[4,6],[7,10],[14,30]], "Barcelona":[[2,3],[4,5],[6,8],[14,21]], "Amsterdam":[[2,2],[3,4],[5,7],[14,21]],
+  "Milan":[[1,2],[3,4],[5,6],[12,21]], "Vienna":[[2,3],[3,5],[6,8],[14,21]], "Prague":[[2,3],[4,5],[6,8],[14,30]],
+  "Los Angeles":[[3,4],[5,7],[8,12],[21,30]], "Sydney":[[3,4],[5,7],[8,12],[21,30]], "Cape Town":[[3,4],[5,7],[8,12],[21,30]],
+  "Rio de Janeiro":[[3,4],[5,7],[8,11],[18,30]], "Cancún":[[2,3],[4,6],[7,10],[14,30]], "Marrakech":[[2,3],[3,4],[5,7],[14,21]],
+  "Madrid":[[2,3],[4,5],[6,9],[18,30]], "Taipei":[[2,3],[4,5],[6,9],[18,30]], "Berlin":[[3,4],[5,7],[8,12],[21,30]],
+  "Melbourne":[[2,3],[4,6],[7,10],[18,30]], "Munich":[[2,2],[3,4],[5,7],[14,28]], "Las Vegas":[[2,2],[3,4],[5,6],[10,14]],
+  "Florence":[[1,2],[3,3],[4,6],[10,21]], "Dublin":[[2,2],[3,4],[5,6],[14,21]], "Kyoto":[[2,3],[4,5],[6,9],[18,30]],
+  "Lisbon":[[2,3],[4,5],[6,8],[18,30]], "Venice":[[1,1],[2,2],[3,4],[7,14]], "Athens":[[2,2],[3,4],[5,7],[14,28]],
+  "Orlando":[[3,4],[5,7],[7,10],[14,21]], "Toronto":[[2,3],[4,5],[6,8],[14,30]], "Miami":[[2,3],[4,5],[6,8],[14,30]],
+  "San Francisco":[[2,3],[4,5],[6,8],[14,30]], "Shanghai":[[3,4],[5,7],[8,12],[21,35]], "Frankfurt am Main":[[1,1],[2,2],[3,4],[10,21]],
+  "Copenhagen":[[2,2],[3,4],[5,6],[14,21]], "Zurich":[[1,2],[2,3],[4,5],[10,21]], "Washington, D.C.":[[2,3],[4,5],[6,8],[14,30]],
+  "Pattaya-Chonburi":[[2,3],[4,5],[6,8],[14,30]], "Vancouver":[[2,3],[4,5],[6,8],[14,30]], "Stockholm":[[2,3],[4,5],[6,7],[14,21]],
+  "Mexico City":[[3,4],[5,6],[7,10],[21,35]], "Oslo":[[1,2],[2,3],[4,5],[10,21]], "São Paulo":[[2,3],[4,5],[6,8],[14,30]],
+  "Helsinki":[[1,2],[2,3],[4,5],[10,21]], "Brussels":[[1,2],[2,3],[4,5],[10,21]], "Budapest":[[2,3],[3,4],[5,7],[14,21]],
+  "Guangzhou":[[2,3],[4,5],[6,8],[14,30]], "Nice":[[1,2],[3,4],[5,7],[14,30]], "Palma de Mallorca":[[2,3],[4,5],[6,8],[14,30]],
+  "Honolulu":[[2,3],[4,5],[6,8],[14,21]], "Beijing":[[3,4],[5,7],[8,12],[21,30]], "Warsaw":[[1,2],[3,4],[5,6],[14,21]],
+  "Seville":[[2,2],[3,4],[5,6],[12,18]], "Valencia":[[2,2],[3,4],[5,7],[14,21]], "Shenzhen":[[1,2],[3,4],[5,7],[14,21]],
+  "Doha":[[1,2],[2,3],[4,5],[10,14]], "Abu Dhabi":[[2,2],[3,4],[5,6],[12,18]], "Fukuoka":[[1,2],[2,3],[4,5],[12,18]],
+  "Sapporo":[[2,2],[3,4],[5,7],[14,21]], "Busan":[[2,2],[3,4],[5,6],[14,21]], "Edinburgh":[[2,2],[3,4],[5,6],[12,18]],
+  "Montreal":[[2,3],[4,5],[6,8],[14,21]], "Bologna":[[1,2],[2,3],[4,5],[10,14]], "Rhodes":[[2,3],[4,5],[6,8],[14,21]],
+  "Verona":[[1,1],[2,2],[3,4],[7,14]], "Delhi":[[2,3],[4,5],[6,8],[18,30]], "Porto":[[2,2],[3,4],[5,6],[12,18]],
+  "Ho Chi Minh City":[[2,3],[3,4],[5,7],[14,21]], "Buenos Aires":[[3,4],[5,7],[8,10],[21,30]], "Marne-la-Vallée":[[1,1],[2,3],[4,5],[10,14]],
+  "Kraków":[[2,2],[3,4],[5,7],[14,21]], "Heraklion":[[1,2],[2,3],[4,6],[10,14]], "Johor Bahru":[[1,1],[2,3],[3,5],[10,14]],
+  "Hanoi":[[2,3],[3,5],[6,8],[14,30]], "Tel Aviv":[[2,3],[3,5],[6,8],[14,30]], "Sharjah":[[1,2],[2,3],[4,5],[10,14]],
+  "Thessaloniki":[[2,2],[3,4],[5,7],[14,21]], "Lima":[[2,3],[3,5],[6,8],[14,30]], "Medina":[[2,3],[3,4],[5,7],[8,12]],
+  "Tbilisi":[[2,3],[3,4],[5,7],[14,30]], "Riyadh":[[2,3],[3,5],[5,7],[14,30]], "Tallinn":[[1,2],[2,3],[4,5],[10,14]],
+  "Mecca":[[3,4],[5,7],[8,12],[14,21]], "Denpasar":[[1,2],[3,5],[7,10],[21,30]], "Punta Cana":[[3,4],[5,7],[8,10],[14,21]],
+  "Santiago":[[2,3],[3,5],[6,8],[14,30]], "Vilnius":[[1,2],[2,3],[4,5],[10,14]], "Jerusalem":[[2,3],[3,5],[6,8],[14,30]],
+  "Zhuhai":[[1,2],[2,3],[4,5],[10,14]], "Cairo":[[2,3],[3,5],[6,9],[14,30]]
+};
+
+/* Fixed tier metadata for the "How long to stay" section (same for every city). */
+const VISIT_TIERS = [
+  { icon:"\u{1F4CD}", label:"Scratch the surface", blurb:"Hit the iconic, must-see sights and headline landmarks." },
+  { icon:"\u{1F9ED}", label:"Leisurely explore",   blurb:"See the highlights at an unhurried pace, with room to wander." },
+  { icon:"\u{1F52D}", label:"Deeper dive",         blurb:"Time for hidden gems, local neighborhoods, and day trips." },
+  { icon:"\u{1F3E1}", label:"Live like a local",   blurb:"Settle in and soak up everyday life at your own rhythm." }
+];
+function visitRangeText(r){
+  const [lo,hi] = r;
+  const n = lo === hi ? String(lo) : lo + "–" + hi;
+  const unit = (lo === hi && lo === 1) ? "day" : "days";
+  return { n, unit };
+}
+function buildVisitSection(cityName){
+  const tiers = CITY_VISIT[cityName];
+  if (!tiers) return "";
+  const cards = tiers.map((r,i)=>{
+    const t = VISIT_TIERS[i];
+    const { n, unit } = visitRangeText(r);
+    return `
+      <div class="stay-card">
+        <div class="stay-tier">Tier ${i+1}</div>
+        <div class="stay-icon" aria-hidden="true">${t.icon}</div>
+        <div class="stay-days"><b>${n}</b> <span>${unit}</span></div>
+        <div class="stay-label">${t.label}</div>
+        <div class="stay-blurb">${t.blurb}</div>
+      </div>`;
+  }).join("");
+  return `
+    <section class="stay-section" aria-label="How long to stay">
+      <div class="stay-head">
+        <h2>How long should you stay?</h2>
+        <p class="stay-sub">From a quick highlights run to living like a local — pick the pace that fits your trip.</p>
+      </div>
+      <div class="stay-grid">${cards}</div>
+    </section>`;
+}
 
 /* Walkability score (0–100, Walk Score style) */
 const CITY_WALK = {
@@ -2639,6 +2741,8 @@ if(!c){
         <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual visitors${c.est?' \u00b7 est.':''}</span></div>
       </div>
     </div>
+
+    ${buildVisitSection(c.city)}
 
     <section class="i18n-ml">
       <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
