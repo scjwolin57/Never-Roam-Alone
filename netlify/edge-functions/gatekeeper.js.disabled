@@ -58,13 +58,13 @@ export default async (request, context) => {
 
   // No pass: serve the coming-soon page, but keep whatever URL the visitor
   // actually typed (so it works the same for every page, not just the
-  // homepage).
-  const comingSoon = await fetch(new URL("/coming-soon.html", url.origin));
-  const body = await comingSoon.text();
-  return new Response(body, {
-    status: 200,
-    headers: { "content-type": "text/html; charset=utf-8" },
-  });
+  // homepage). Netlify edge functions aren't meant to fetch() their own
+  // site to pull in another page's content — that pattern is unsupported
+  // and was causing "edge function invocation failed" errors on every
+  // request. The supported way to show different content at the same URL
+  // is to return a rewrite (a URL object), which Netlify resolves
+  // internally without an extra network round trip.
+  return new URL("/coming-soon.html", url.origin);
 };
 
 export const config = { path: "/*" };
