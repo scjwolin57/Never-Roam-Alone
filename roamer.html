@@ -109,6 +109,30 @@
   a.social-btn:hover{border-color:var(--teal);box-shadow:0 4px 14px rgba(14,124,134,.16);transform:translateY(-1px)}
   a.social-btn svg{width:16px;height:16px;flex-shrink:0}
 
+  /* ---------- Travel favorites ---------- */
+  .favs{display:flex;flex-direction:column;gap:10px;margin:16px 0 4px}
+  .fav-row{display:flex;gap:12px;align-items:flex-start;background:rgba(14,124,134,.05);border:1px solid rgba(14,124,134,.14);border-radius:12px;padding:10px 14px}
+  .fav-row .fi{font-size:1.1rem;flex-shrink:0;line-height:1.4}
+  .fav-row .fl{display:block;font-weight:700;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  .fav-row .fv{font-weight:600}
+
+  /* ---------- Stories ---------- */
+  .story-zone{margin-top:24px;padding-top:18px;border-top:1px solid rgba(14,124,134,.18)}
+  .story-zone h3{margin:0 0 8px;font-size:1.08rem}
+  .story-zone p{margin:0;white-space:pre-wrap}
+
+  /* ---------- Photo gallery + lightbox ---------- */
+  .g-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:12px}
+  figure.g-cell{margin:0;cursor:zoom-in;border-radius:12px;overflow:hidden;background:#fff;border:2px solid rgba(14,124,134,.15);transition:border-color .2s, box-shadow .2s}
+  figure.g-cell:hover{border-color:var(--teal);box-shadow:0 6px 18px rgba(14,124,134,.16)}
+  .g-cell img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+  .g-cell .g-tag{font-size:.78rem;color:var(--muted);padding:7px 10px}
+  .lightbox{position:fixed;inset:0;background:rgba(15,30,38,.88);z-index:300;display:none;align-items:center;justify-content:center;flex-direction:column;padding:26px;cursor:zoom-out}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:min(92vw,1000px);max-height:76vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lightbox .lb-tag{color:#fff;margin:14px 0 0;font-size:.95rem;text-align:center;max-width:82vw}
+  .lightbox .lb-x{position:absolute;top:16px;right:22px;background:none;border:none;color:#fff;font-size:1.9rem;cursor:pointer;line-height:1}
+
   /* ---------- Articles ---------- */
   .articles-zone{margin-top:26px;padding-top:20px;border-top:1px solid rgba(14,124,134,.18)}
   .articles-zone h3{margin:0 0 4px;font-size:1.1rem}
@@ -190,6 +214,15 @@
 
     <div class="socials" id="r-socials"></div>
 
+    <div class="favs" id="r-favs" style="display:none"></div>
+
+    <div id="r-stories"></div>
+
+    <div class="story-zone" id="r-gallery" style="display:none">
+      <h3>Favorite travel photos</h3>
+      <div class="g-grid" id="r-gallery-grid"></div>
+    </div>
+
     <div class="articles-zone" id="r-articles" style="display:none">
       <h3>Articles</h3>
       <p class="sub">Stories this Roamer has contributed as a trusted traveler.</p>
@@ -214,6 +247,13 @@
       <a class="btn" href="askaroamer.html">Back to Ask A Roamer</a>
     </div>
   </div>
+</div>
+
+<!-- click-to-enlarge photo viewer -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+  <button class="lb-x" aria-label="Close">&times;</button>
+  <img id="lb-img" alt="" />
+  <p class="lb-tag" id="lb-tag" data-no-i18n></p>
 </div>
 
 <footer>
@@ -270,6 +310,26 @@
 
   const ICON_GLOBE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
   const ICON_IG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>';
+  const ICON_FB = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.6c-.3-.04-1.3-.13-2.45-.13-2.4 0-4.05 1.47-4.05 4.17v2.26H7.5V14h2.7v8h3.3z"/></svg>';
+  const ICON_X  = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.7 21h-6.1l-4.8-6.3L5.3 21h-3l7-8.1L2.5 3h6.2l4.3 5.7L17.5 3zm-1.1 16.2h1.7L7.6 4.7H5.8l10.6 14.5z"/></svg>';
+  const ICON_TK = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.4 2.1 1.8 3.6 3.9 3.9v3.1c-1.5 0-2.8-.5-3.9-1.3v6.7c0 3.5-2.8 6.1-6.2 5.6-2.4-.3-4.4-2.3-4.8-4.7-.5-3.4 2.1-6.3 5.4-6.3.3 0 .7 0 1 .1v3.2c-.3-.1-.7-.2-1-.2-1.5 0-2.7 1.3-2.5 2.8.1 1.1 1 2 2.1 2.2 1.5.2 2.8-.9 2.8-2.4V3h3.2z"/></svg>';
+  const ICON_YT = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.4 2.4 0 0 0-1.7-1.7C18.3 5 12 5 12 5s-6.3 0-7.9.5A2.4 2.4 0 0 0 2.4 7.2 25 25 0 0 0 2 12a25 25 0 0 0 .4 4.8 2.4 2.4 0 0 0 1.7 1.7C5.7 19 12 19 12 19s6.3 0 7.9-.5a2.4 2.4 0 0 0 1.7-1.7A25 25 0 0 0 22 12a25 25 0 0 0-.4-4.8zM10 15.2V8.8L15.5 12z"/></svg>';
+
+  /* Turn whatever someone typed (handle, username, or full link) into a safe URL */
+  function handleOf(v){ return String(v||"").trim().replace(/^@+/, "").split(/[/?#\s]/)[0]; }
+  function socialUrl(kind, v){
+    v = String(v||"").trim();
+    if (!v) return "";
+    if (/^https?:\/\//i.test(v)) return v;                       // they pasted a full link
+    if (/\./.test(v) && /(facebook|fb|youtube|youtu|tiktok|x|twitter)\./i.test(v)) return "https://" + v; // pasted a link without https
+    const h = handleOf(v);
+    if (!h) return "";
+    if (kind === "fb") return "https://facebook.com/" + encodeURIComponent(h);
+    if (kind === "x")  return "https://x.com/" + encodeURIComponent(h);
+    if (kind === "tk") return "https://www.tiktok.com/@" + encodeURIComponent(h);
+    if (kind === "yt") return "https://youtube.com/@" + encodeURIComponent(h);
+    return "";
+  }
 
   function chip(label, value){
     return '<span class="chip"><span class="lbl">' + esc(label) + '</span> ' + esc(value) + '</span>';
@@ -296,6 +356,7 @@
     if (home) chips += chip("Home:", home);
     if (p.travel_style) chips += chip("Travel style:", p.travel_style);
     if (p.travel_company) chips += chip("Travels:", p.travel_company);
+    if (p.age) chips += chip("Age:", p.age);
     $("r-chips").innerHTML = chips;
     if (!chips) $("r-chips").style.display = "none";
 
@@ -304,8 +365,60 @@
     if (site) socials += '<a class="social-btn" href="' + esc(site) + '" target="_blank" rel="noopener nofollow">' + ICON_GLOBE + esc(String(p.website).trim()) + '</a>';
     const handle = String(p.instagram||"").trim().replace(/^@+/, "");
     if (handle) socials += '<a class="social-btn" href="https://instagram.com/' + esc(encodeURIComponent(handle)) + '" target="_blank" rel="noopener nofollow">' + ICON_IG + '@' + esc(handle) + '</a>';
+    const MORE_SOCIALS = [
+      ["fb", p.facebook, ICON_FB, "Facebook"],
+      ["x",  p.twitter,  ICON_X,  handleOf(p.twitter) ? "@" + handleOf(p.twitter) : "X"],
+      ["tk", p.tiktok,   ICON_TK, handleOf(p.tiktok) ? "@" + handleOf(p.tiktok) : "TikTok"],
+      ["yt", p.youtube,  ICON_YT, "YouTube"]
+    ];
+    MORE_SOCIALS.forEach(([kind, val, icon, label]) => {
+      const url = socialUrl(kind, val);
+      if (url) socials += '<a class="social-btn" href="' + esc(url) + '" target="_blank" rel="noopener nofollow">' + icon + esc(label) + '</a>';
+    });
     $("r-socials").innerHTML = socials;
     if (!socials) $("r-socials").style.display = "none";
+
+    /* ---- travel favorites ---- */
+    const FAVS = [
+      ["\u{1F3C6}", "Favorite destination", p.fav_destination],
+      ["\u{1F6AB}", "Wouldn't go back to", p.no_return_destination],
+      ["\u{1F31F}", "On the bucket list", p.bucket_list_destination]
+    ];
+    const favRows = FAVS.filter(f => f[2]).map(f =>
+      '<div class="fav-row"><span class="fi">' + f[0] + '</span><span><span class="fl">' + esc(f[1]) + '</span><span class="fv">' + esc(f[2]) + '</span></span></div>'
+    ).join("");
+    if (favRows){ $("r-favs").innerHTML = favRows; $("r-favs").style.display = ""; }
+
+    /* ---- stories ---- */
+    const STORIES = [
+      ["Best travel story", p.best_story],
+      ["Weirdest or scariest travel moment", p.scary_story],
+      ["More about this Roamer", p.extra_details]
+    ];
+    $("r-stories").innerHTML = STORIES.filter(x => x[1]).map(x =>
+      '<div class="story-zone"><h3>' + esc(x[0]) + '</h3><p>' + esc(x[1]) + '</p></div>'
+    ).join("");
+
+    /* ---- photo gallery (click to enlarge) ---- */
+    const photos = (Array.isArray(p.travel_photos) ? p.travel_photos : []).filter(x => x && x.url);
+    if (photos.length){
+      $("r-gallery").style.display = "";
+      $("r-gallery-grid").innerHTML = photos.map((ph, i) =>
+        '<figure class="g-cell" data-i="' + i + '"><img src="' + esc(ph.url) + '" alt="' + esc(ph.tagline || "Travel photo") + '" loading="lazy" />' +
+        (ph.tagline ? '<figcaption class="g-tag" data-no-i18n>' + esc(ph.tagline) + '</figcaption>' : '') +
+        '</figure>'
+      ).join("");
+      $("r-gallery-grid").addEventListener("click", (e) => {
+        const cell = e.target.closest(".g-cell");
+        if (!cell) return;
+        const ph = photos[Number(cell.dataset.i)];
+        if (!ph) return;
+        $("lb-img").src = ph.url;
+        $("lb-img").alt = ph.tagline || "Travel photo";
+        $("lb-tag").textContent = ph.tagline || "";
+        $("lightbox").classList.add("open");
+      });
+    }
 
     if (articles.length){
       $("r-badge").style.display = "";
@@ -321,6 +434,10 @@
 
     show("profile-card");
   }
+
+  /* close the photo viewer by clicking anywhere or pressing Esc */
+  $("lightbox").addEventListener("click", () => $("lightbox").classList.remove("open"));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("lightbox").classList.remove("open"); });
 
   (async function init(){
     const id = new URLSearchParams(location.search).get("id") || "";
