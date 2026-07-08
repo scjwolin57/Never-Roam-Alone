@@ -19,7 +19,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -33,7 +33,7 @@
   .intro h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0 10px}
   .intro p{color:var(--muted);font-size:1.08rem;margin:0}
 
-  .chooser{max-width:560px;margin:30px auto 0;padding:0 22px}
+  .chooser{max-width:760px;margin:30px auto 0;padding:0 22px}
   .chooser .panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px 28px}
   .chooser .panel + .panel{margin-top:20px}
 
@@ -48,13 +48,16 @@
   .switch-btn.active .box{background:var(--green)}
   .switch-btn.active .box::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
     border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-  label.field{display:block;font-family:Georgia,serif;font-size:1.25rem;margin-bottom:12px}
+  label.field{display:block;font-family:Georgia,serif;font-size:1.15rem;margin-bottom:10px}
   .field-note{color:var(--muted);font-size:.95rem;margin:-4px 0 16px}
-  .label-hint{display:inline-block;margin-top:4px;font-family:-apple-system,sans-serif;font-size:.85rem;font-weight:400;color:var(--muted)}
+  .label-hint{display:inline-block;font-family:-apple-system,sans-serif;font-size:.82rem;font-weight:400;color:var(--muted)}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
+  .field-full{grid-column:1 / -1}
+  @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
   .autocomplete{position:relative}
-  .origin-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
+  .origin-input,.num-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
     border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
-  .origin-input:focus{outline:none;border-color:var(--green)}
+  .origin-input:focus,.num-input:focus{outline:none;border-color:var(--green)}
   .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;background:#fff;
     border:1px solid rgba(24,94,63,.2);border-radius:12px;box-shadow:var(--shadow);max-height:290px;overflow:auto}
   .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
@@ -63,71 +66,16 @@
   .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
   .ac-code{font-weight:800;color:var(--green);font-size:.9rem;flex-shrink:0;letter-spacing:.04em}
   .origin-status{font-size:.82rem;color:var(--muted);margin-top:10px}
-  .stops-group{display:flex;flex-direction:column;gap:10px}
-  .stops-group .switch-btn{width:100%}
-  .date-input{font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
-    border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:14px 16px;transition:border-color .2s}
-  .date-input:focus{outline:none;border-color:var(--green)}
-  .cal-wrap{position:relative;max-width:360px}
-  .date-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;font-size:1.05rem;font-family:inherit;
-    color:var(--ink);background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 16px;cursor:pointer;transition:border-color .2s}
-  .date-trigger:hover{border-color:var(--green)}
-  .date-trigger .cal-ico{color:var(--green);font-size:.8rem}
-  .cal-popup{position:absolute;z-index:40;top:calc(100% + 8px);left:0;width:360px;max-width:92vw;background:#fff;
-    border-radius:18px;box-shadow:0 18px 50px rgba(20,40,50,.28);padding:18px;border:1px solid rgba(24,94,63,.15)}
-  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-  .cal-title{font-family:Georgia,serif;font-weight:700;font-size:1.3rem;color:var(--green)}
-  .cal-nav{width:40px;height:40px;border-radius:11px;border:none;background:rgba(24,94,63,.08);color:var(--green);
-    font-size:1.3rem;line-height:1;cursor:pointer;transition:.15s}
-  .cal-nav:hover:not(:disabled){background:rgba(24,94,63,.2)}
-  .cal-nav:disabled{opacity:.3;cursor:default}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-  .cal-dow{text-align:center;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding:6px 0}
-  .cal-day{height:44px;display:flex;align-items:center;justify-content:center;border-radius:11px;font-size:1rem;cursor:pointer;transition:.12s}
-  .cal-day:hover:not(.disabled):not(.empty){background:rgba(24,94,63,.14)}
-  .cal-day.disabled{color:#c4ccce;cursor:default}
-  .cal-day.empty{cursor:default}
-  .cal-day.today{box-shadow:inset 0 0 0 2px var(--coral)}
-  .cal-day.selected{background:var(--green);color:#fff;font-weight:700}
-  .cal-foot{display:flex;justify-content:flex-end;margin-top:12px}
-  .cal-clear{background:none;border:none;color:var(--muted);font-size:.86rem;cursor:pointer;font-weight:600}
-  .cal-clear:hover{color:var(--green)}
-  .date-row{display:flex;gap:16px;flex-wrap:wrap}
-  .date-col{flex:1 1 200px;min-width:0}
-  .date-cap{display:block;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px}
-  .check-row{display:flex;align-items:center;gap:10px;margin-top:16px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.95rem}
+  .check-row{display:flex;align-items:center;gap:10px;margin-top:12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.9rem}
   .check-row input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
-  .check-row[hidden]{display:none}
-  .flights-head{text-align:center;font-size:1.5rem;margin:0 0 18px;color:var(--green)}
-  .flight-price{font-weight:800;color:var(--green);font-size:.92rem;white-space:nowrap}
   .show-more{background:var(--green);color:#fff;font-weight:700;font-size:.9rem;border:none;border-radius:24px;padding:11px 24px;cursor:pointer;transition:background .2s}
   .show-more:hover{background:var(--teal)}
-  /* Flight/destination cards: 3-column grid, taller so the landmark photo shows well */
-  #flightGrid{grid-template-columns:repeat(3,1fr)}
-  #flightGrid .flight-card{min-height:140px}
-  @media(max-width:900px){#flightGrid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:600px){#flightGrid{grid-template-columns:1fr}}
-  /* Destination/flight rows with a landmark photo behind the text */
-  .flight-card{position:relative;overflow:hidden;min-height:88px;color:#fff;border:none;
-    background-color:#2c3e36;background-size:contain;background-repeat:no-repeat;background-position:center}
-  .flight-card::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,rgba(12,28,23,.82) 0%,rgba(12,28,23,.5) 55%,rgba(12,28,23,.68) 100%)}
-  .flight-card > *{position:relative;z-index:1}
-  .flight-card .dest{font-weight:700;text-shadow:0 1px 6px rgba(0,0,0,.45)}
-  .flight-card .ac-name{color:rgba(255,255,255,.88)}
-  .flight-card .flight-price{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.45)}
-  .photo-credit{position:absolute;right:9px;bottom:5px;z-index:2;font-size:.6rem;line-height:1.2;
-    color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.7)}
-  .photo-credit a{color:inherit;text-decoration:underline}
-  .photo-credit a:hover{color:#fff}
-  .visa-row.train-pick{cursor:pointer;transition:background .15s}
-  .visa-row.train-pick:hover{background:rgba(24,94,63,.06)}
   .select-wrap{position:relative}
-  select#priority,select#budget,select#travelmode{
+  .select-wrap select{
     width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
     background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;
     transition:border-color .2s}
-  select#priority:focus,select#budget:focus,select#travelmode:focus{outline:none;border-color:var(--green)}
+  .select-wrap select:focus{outline:none;border-color:var(--green)}
   .select-wrap::after{content:"";position:absolute;right:18px;top:50%;width:10px;height:10px;
     border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
     transform:translateY(-70%) rotate(45deg);pointer-events:none}
@@ -139,7 +87,7 @@
   .card{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
     display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
   .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
-  .card .photo{height:170px;background-size:cover;background-position:center;position:relative}
+  .card .photo{height:170px;background-size:cover;background-position:center;position:relative;background-color:#2c3e36}
   .card .visit{position:absolute;top:12px;right:12px;background:rgba(24,94,63,.92);color:#fff;
     font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:20px}
   .card .rank-chip{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;
@@ -147,10 +95,23 @@
   .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
   .card .country{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
   .card h3{font-size:1.2rem;margin:6px 0 8px}
-  .card p{color:var(--muted);font-size:.92rem;margin:0 0 16px;flex:1}
+  .card p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
   .card .go{align-self:flex-start;background:var(--coral);color:#fff;font-weight:700;font-size:.82rem;
-    padding:8px 16px;border-radius:22px;transition:background .2s}
+    padding:8px 16px;border-radius:22px;transition:background .2s;margin-top:auto}
   .card .go:hover{background:var(--green)}
+  .card .links-row{display:flex;gap:10px;align-items:center;margin-top:auto;flex-wrap:wrap}
+  .card .links-row .go{margin-top:0}
+  .flights-link{font-size:.8rem;font-weight:700;color:var(--teal)}
+  .flights-link:hover{text-decoration:underline}
+
+  /* "Why this matched" block on finder cards */
+  .why{margin:0 0 14px;padding:10px 12px;background:rgba(24,94,63,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
+  .why .w{display:flex;gap:7px;padding:2px 0;align-items:baseline}
+  .why .w .tick{color:var(--green);font-weight:800;flex-shrink:0}
+  .why .w .warn{color:#b34a3a;font-weight:800;flex-shrink:0}
+  .why .w strong{color:var(--green)}
+  .live-tag{font-style:normal;background:#1f8f4e;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
+  .est-tag{font-style:normal;background:#cf8a2c;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
 
   .empty{text-align:center;color:var(--muted);padding:30px 22px 10px;font-size:1.02rem}
 
@@ -159,14 +120,17 @@
   .visa-title{font-size:1.7rem;margin:0 0 8px;color:var(--green)}
   .visa-sub{font-family:Georgia,serif;font-weight:400;font-size:1.12rem;color:var(--ink);margin:0 0 18px}
   .visa .select-wrap{max-width:400px;margin:0 auto}
-  select#passport{width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
-    background:var(--sand);border:2px solid rgba(24,94,63,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;transition:border-color .2s}
-  select#passport:focus{outline:none;border-color:var(--green)}
   .visa-status{margin:16px 0 0;font-size:.85rem;color:var(--muted)}
   .visa-status a{color:var(--teal);font-weight:600}
   .visa-results{max-width:var(--maxw);margin:24px auto 0;padding:0 22px}
   .visa-summary{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:18px}
   .chip2{font-size:.78rem;font-weight:700;padding:6px 12px;border-radius:20px;color:#fff}
+  .visa-summary .chip2{cursor:pointer;border:2px solid transparent;transition:transform .12s,box-shadow .12s,opacity .12s}
+  .visa-summary .chip2:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(0,0,0,.18)}
+  .visa-summary.has-active .chip2{opacity:.45}
+  .visa-summary .chip2.active{opacity:1;border-color:rgba(0,0,0,.35);box-shadow:0 3px 10px rgba(0,0,0,.22)}
+  .visa-filter-hint{font-size:.78rem;color:var(--muted);text-align:center;margin:0 auto 14px}
+  .visa-filter-hint button{background:none;border:none;color:var(--teal);font-weight:700;cursor:pointer;font-size:.78rem;padding:0;text-decoration:underline}
   .visa-filter{display:block;width:100%;max-width:380px;margin:0 auto 22px;font-size:1rem;font-family:inherit;
     padding:12px 16px;border:2px solid rgba(24,94,63,.25);border-radius:12px;background:#fff}
   .visa-filter:focus{outline:none;border-color:var(--green)}
@@ -180,21 +144,35 @@
   .verify:hover{text-decoration:underline}
   .visa-disclaimer{font-size:.78rem;color:var(--muted);margin:24px auto 0;text-align:center;max-width:700px}
   .visa-disclaimer a{color:var(--teal);font-weight:600}
-  /* "Ways to get there" block on budget cards */
-  .ways{margin:-6px 0 14px;padding:10px 12px;background:rgba(24,94,63,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
-  .ways .way{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:2px 0}
-  .ways .way.best{color:var(--green);font-weight:700}
-  .ways .way-dist{margin-top:4px;font-size:.72rem;color:var(--muted)}
-  .live-tag{font-style:normal;background:#1f8f4e;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
-  .est-tag{font-style:normal;background:#cf8a2c;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
   .b-free{background:#1f8f4e}.b-voa{background:#0e7c86}.b-eta{background:#3b6fb0}
   .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#5b6b75}
 
-  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
-  footer .brand{justify-content:center;color:#e97451;font-size:1.6rem}
+  /* Bucket List */
+  .bl-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:var(--maxw);margin:26px auto 0;padding:0 22px}
+  .bl-chip{background:#fff;border:2px solid rgba(24,94,63,.22);border-radius:22px;padding:8px 16px;cursor:pointer;
+    font-weight:700;font-size:.85rem;color:var(--muted);transition:.15s}
+  .bl-chip:hover{border-color:var(--green);color:var(--green)}
+  .bl-chip.active{background:var(--green);border-color:var(--green);color:#fff}
+  .bl-search{display:block;width:100%;max-width:380px;margin:18px auto 0;font-size:1rem;font-family:inherit;
+    padding:12px 16px;border:2px solid rgba(24,94,63,.25);border-radius:12px;background:#fff}
+  .bl-search:focus{outline:none;border-color:var(--green)}
+  .bl-meta{margin:4px 0 12px;font-size:.78rem;color:var(--muted)}
+  .bl-meta .src{color:var(--teal);font-weight:600}
+  .type-ancient{background:#b3823a}.type-nature{background:#1f8f4e}.type-architecture{background:#3b6fb0}.type-sacred{background:#7c5cb0}
+  .photo-credit{position:absolute;right:9px;bottom:5px;z-index:2;font-size:.6rem;line-height:1.2;
+    color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.7)}
+  .photo-credit a{color:inherit;text-decoration:underline}
+  .photo-credit a:hover{color:#fff}
 
-  @media(max-width:820px){nav.links{display:none}.grid{grid-template-columns:1fr}}
-  @media(max-width:640px){
+  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer .brand{justify-content:center;color:#c35237;font-size:1.6rem}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+
+  @media(max-width:820px){nav.links{display:none}.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:600px){
+    .grid{grid-template-columns:1fr}
     .tool-switch{flex-direction:column;align-items:stretch}
     .tool-switch .switch-btn{flex:none;justify-content:flex-start}
   }
@@ -205,20 +183,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
-          <circle cx="60" cy="60" r="53"/>
-          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
-          <path d="M22,86 Q60,74 98,86"/>
-        </g>
-        <g fill="#185e3f">
-          <circle cx="50" cy="62" r="5.2"/>
-          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
-          <circle cx="70" cy="62" r="5.2"/>
-          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
-          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
-        </g>
-      </svg>
+      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -232,16 +197,12 @@
 
 <div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
   <label class="switch-btn">
-    <input type="radio" name="tool" value="activities" checked>
-    <span class="box"></span><span>Favorite Travel Activities</span>
+    <input type="radio" name="tool" value="finder" checked>
+    <span class="box"></span><span>Find My Destination</span>
   </label>
   <label class="switch-btn">
-    <input type="radio" name="tool" value="budget">
-    <span class="box"></span><span>Travel Budget</span>
-  </label>
-  <label class="switch-btn">
-    <input type="radio" name="tool" value="travelmode">
-    <span class="box"></span><span>Mode of Travel</span>
+    <input type="radio" name="tool" value="bucket">
+    <span class="box"></span><span>Bucket List</span>
   </label>
   <label class="switch-btn">
     <input type="radio" name="tool" value="visa">
@@ -249,150 +210,121 @@
   </label>
 </div>
 
-<div class="tool-section" data-tool="activities">
+<!-- ================= FIND MY DESTINATION ================= -->
+<div class="tool-section" data-tool="finder">
   <div class="chooser">
     <div class="panel">
-      <label class="field" for="priority">Favorite Travel Activities</label>
-      <p class="field-note">Tell us what matters most on a trip and we'll point you toward the cities you'll love.</p>
-      <div class="select-wrap">
-        <select id="priority">
-          <option value="" selected disabled>Select an activity…</option>
-          <option value="Nightlife">Nightlife</option>
-          <option value="Restaurants">Restaurants</option>
-          <option value="Museums &amp; Culture">Museums &amp; Culture</option>
-          <option value="Architecture">Architecture</option>
-          <option value="Nature">Nature</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="results" id="results">
-    <p class="empty">Pick an activity above to see matching destinations.</p>
-  </div>
-</div>
-
-<div class="tool-section" data-tool="budget" hidden>
-  <div class="chooser">
-    <div class="panel">
-      <label class="field" for="budget">Travel Budget</label>
-      <p class="field-note">Let us help you curate the best trip based off your travel budget.</p>
-      <div class="select-wrap">
-        <select id="budget">
-          <option value="" selected disabled>Select your budget…</option>
-          <option value="shoestring">Can't afford much right now but I want to go somewhere</option>
-          <option value="low">I have a bit to spend but I'm still keeping it low</option>
-          <option value="flexible">I'm open to a flexible budget depending on the itinerary</option>
-          <option value="comfortable">I have a good bit of money set aside for this trip</option>
-          <option value="luxury">Money is no object, I want the best</option>
-        </select>
-      </div>
-    </div>
-  </div>
-  <div class="chooser">
-    <div class="panel">
-      <label class="field" for="budgetOrigin">Traveling from
-        <span class="label-hint">(optional — we'll find the cheapest way to get to each place)</span>
-      </label>
-      <div class="autocomplete">
-        <input type="text" id="budgetOrigin" class="origin-input" placeholder="Start typing your home city or airport…" autocomplete="off" />
-        <ul id="budgetOriginList" class="ac-list" hidden></ul>
-      </div>
-      <label class="check-row" style="margin-top:10px">
-        <input type="checkbox" id="includeRegionalBudget" />
-        <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
-      </label>
-      <p class="origin-status" id="budgetOriginStatus"></p>
-    </div>
-  </div>
-  <div class="results" id="budgetResults">
-    <p class="empty">Pick a budget above to see destinations that fit it.</p>
-  </div>
-</div>
-
-<div class="tool-section" data-tool="travelmode" hidden>
-  <div class="chooser">
-    <div class="panel">
-      <label class="field" for="travelmode">Mode of Travel</label>
-      <p class="field-note">I prefer to travel by:</p>
-      <div class="select-wrap">
-        <select id="travelmode">
-          <option value="" selected disabled>Select a mode…</option>
-          <option value="Plane">Plane</option>
-          <option value="Train">Train</option>
-          <option value="Boat">Boat</option>
-          <option value="Bus">Bus</option>
-          <option value="Car">Car</option>
-          <option value="Any">Any</option>
-        </select>
-      </div>
-
-      <div id="originWrap" class="origin-wrap" hidden>
-        <label class="field" for="originInput" id="originLabel" style="margin-top:22px">Origin city or airport code</label>
-        <div class="autocomplete">
-          <input type="text" id="originInput" class="origin-input" placeholder="Start typing a city or airport code…" autocomplete="off" />
-          <ul id="originList" class="ac-list" hidden></ul>
-        </div>
-        <label class="check-row" id="regionalRow" hidden style="margin-top:10px">
-          <input type="checkbox" id="includeRegional" />
-          <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
-        </label>
-        <p class="origin-status" id="originStatus"></p>
-
-        <div id="departWrap" class="depart-wrap">
-          <label class="field" style="margin-top:22px">When are you traveling?</label>
-          <div class="date-row">
-            <div class="date-col">
-              <span class="date-cap">Departure</span>
-              <div class="cal-wrap">
-                <button type="button" id="dateTrigger" class="date-trigger"><span id="dateTriggerText">Select a date</span><span class="cal-ico">▾</span></button>
-                <div id="calPopup" class="cal-popup" hidden></div>
-                <input type="date" id="departDate" hidden />
-              </div>
-            </div>
-            <div class="date-col" id="returnCol" hidden>
-              <span class="date-cap">Return</span>
-              <div class="cal-wrap">
-                <button type="button" id="returnTrigger" class="date-trigger"><span id="returnTriggerText">Select a date</span><span class="cal-ico">▾</span></button>
-                <div id="returnPopup" class="cal-popup" hidden></div>
-                <input type="date" id="returnDate" hidden />
-              </div>
-            </div>
+      <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
+        <strong id="cityCount">101</strong> featured destinations.</p>
+      <div class="field-grid">
+        <div class="field-full">
+          <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
+          <div class="autocomplete">
+            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
+            <ul id="finderOriginList" class="ac-list" hidden></ul>
           </div>
-          <label class="check-row"><input type="checkbox" id="roundTrip" /> <span>Add return travel (round trip)</span></label>
+          <label class="check-row" id="regionalRow">
+            <input type="checkbox" id="includeRegional" />
+            <span>Include regional airports <span class="label-hint">(smaller airports with commercial service)</span></span>
+          </label>
+          <p class="origin-status" id="originStatus"></p>
         </div>
-      </div>
-
-      <div id="planeWrap" hidden>
-        <label class="field" style="margin-top:22px">Flight stops</label>
-        <div class="stops-group" role="radiogroup" aria-label="Flight stops preference">
-          <label class="switch-btn"><input type="radio" name="stops" value="direct"><span class="box"></span><span>I only want a direct flight</span></label>
-          <label class="switch-btn"><input type="radio" name="stops" value="one"><span class="box"></span><span>I'm fine with one stop</span></label>
-          <label class="switch-btn"><input type="radio" name="stops" value="multi"><span class="box"></span><span>Multiple stops are ok</span></label>
+        <div class="field-full">
+          <label class="field" for="continent">Where in the world?</label>
+          <div class="select-wrap">
+            <select id="continent">
+              <option value="" selected>I'm open to anywhere</option>
+              <option value="africa">Africa</option>
+              <option value="antarctica">Antarctica</option>
+              <option value="asia">Asia</option>
+              <option value="europe">Europe</option>
+              <option value="n-america">North America</option>
+              <option value="oceania">Oceania / Australia</option>
+              <option value="s-america">South America</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="field" for="travelBy">Get there by</label>
+          <div class="select-wrap">
+            <select id="travelBy">
+              <option value="cheapest" selected>Cheapest way to get there</option>
+              <option value="fastest">Fastest way to get there</option>
+              <option value="Plane">Plane</option>
+              <option value="Train">Train</option>
+              <option value="Bus">Bus</option>
+              <option value="Car">Car</option>
+              <option value="Boat">Boat</option>
+            </select>
+          </div>
+          <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
+        </div>
+        <div>
+          <label class="field" for="activity">I love…</label>
+          <div class="select-wrap">
+            <select id="activity">
+              <option value="" selected>Anything — surprise me</option>
+              <option value="Nightlife">Nightlife</option>
+              <option value="Restaurants">Restaurants</option>
+              <option value="Museums &amp; Culture">Museums &amp; Culture</option>
+              <option value="Architecture">Architecture</option>
+              <option value="Nature">Nature</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
+          <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
+        </div>
+        <div>
+          <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
+          <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
+        </div>
+        <div>
+          <label class="field" for="finderPassport">My passport <span class="label-hint">(shows visa needs)</span></label>
+          <div class="select-wrap">
+            <select id="finderPassport">
+              <option value="" selected>Not now</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="field" for="sortBy">Sort results by</label>
+          <div class="select-wrap">
+            <select id="sortBy">
+              <option value="match" selected>Best match</option>
+              <option value="cost">Lowest total cost</option>
+              <option value="popular">Most visited</option>
+              <option value="near">Closest to me</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div id="flightResults" class="visa-results" hidden>
-    <h2 class="flights-head" id="flightsHead"></h2>
-    <div class="visa-summary" id="flightSummary"></div>
-    <div class="visa-grid" id="flightGrid"></div>
-    <p class="visa-disclaimer">These are illustrative sample flights for the prototype — not real schedules, prices, or availability. Live flight search will be powered by a flights API (e.g. Amadeus or Duffel) in the production build.</p>
-  </div>
-
-  <div id="trainResults" class="visa-results" hidden>
-    <h2 class="flights-head" id="trainHead"></h2>
-    <div class="visa-grid" id="trainGrid"></div>
-    <p class="visa-disclaimer">Major stations are a curated starter list — easy to expand later. Pick one to set it as your origin.</p>
-  </div>
-
-  <div id="groundResults" class="visa-results" hidden>
-    <h2 class="flights-head" id="groundHead"></h2>
-    <div class="visa-grid" id="groundGrid"></div>
-    <p class="visa-disclaimer" id="groundNote"></p>
+  <div class="results" id="finderResults">
+    <p class="empty">Loading destinations…</p>
   </div>
 </div>
 
+<!-- ================= BUCKET LIST ================= -->
+<div class="tool-section" data-tool="bucket" hidden>
+  <div class="intro" style="padding-top:10px">
+    <p>The 100 most iconic places on Earth — ranked by how often they appear across
+    New7Wonders, UNESCO, Lonely Planet, TripAdvisor and National Geographic.</p>
+  </div>
+  <div class="bl-chips" id="blChips">
+    <button type="button" class="bl-chip active" data-type="">All 100</button>
+    <button type="button" class="bl-chip" data-type="ancient">🏛 Ancient wonders</button>
+    <button type="button" class="bl-chip" data-type="nature">🏞 Natural wonders</button>
+    <button type="button" class="bl-chip" data-type="architecture">🌉 Architecture &amp; icons</button>
+    <button type="button" class="bl-chip" data-type="sacred">🕌 Sacred &amp; cultural</button>
+  </div>
+  <input type="text" id="blSearch" class="bl-search" placeholder="Search places or countries…" />
+  <div class="results" id="bucketResults"></div>
+</div>
+
+<!-- ================= VISA CHECK ================= -->
 <div class="tool-section" data-tool="visa" hidden>
 <section class="visa">
   <div class="visa-panel">
@@ -408,6 +340,7 @@
 
   <div id="visaResults" class="visa-results" hidden>
     <div class="visa-summary" id="visaSummary"></div>
+    <p class="visa-filter-hint" id="visaFilterHint" hidden></p>
     <input type="text" id="visaFilter" class="visa-filter" placeholder="Filter destinations…" />
     <div class="visa-grid" id="visaGrid"></div>
     <p class="visa-disclaimer">Indicative guidance from the open <a href="https://github.com/ilyankou/passport-index-dataset" target="_blank" rel="noopener">Passport Index dataset</a>. Visa rules change frequently — always confirm with the destination's official embassy or e-visa service before you book. Use “Verify” on any row to double-check.</p>
@@ -415,31 +348,56 @@
 </section>
 </div>
 
+<!-- ===== Email signup ===== -->
+<section style="max-width:1180px;margin:0 auto;padding:48px 22px">
+  <div data-nra-signup data-source="finder"></div>
+</section>
+
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
 </footer>
 
 <script src="iso-countries.js"></script>
 <script src="destinations.js"></script>
 <script src="transport.js"></script>
+<script src="bucketlist.js"></script>
 <script>
-/* Destination data (costs, coordinates, regions) lives in destinations.js —
-   shared by every tool on this page. */
+/* ============================================================
+   SHARED
+   ============================================================ */
 const CITIES = window.NRA_DESTINATIONS;
+document.getElementById("cityCount").textContent = CITIES.length;
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 
-/* Fallback picks if the live OpenStreetMap ranking can't load (offline etc.) */
-const PRIORITIES = {
-  "Nightlife":          ["Bangkok","Hong Kong","New York","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
-  "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore"],
-  "Museums & Culture":  ["Paris","London","Rome","Vienna","Istanbul","New York"],
-  "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul"],
-  "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya"]
+/* ---- continents (for the "Where in the world?" filter) ---- */
+const CONTINENT_LABEL = { africa:"Africa", antarctica:"Antarctica", asia:"Asia", europe:"Europe",
+                          "n-america":"North America", oceania:"Oceania / Australia", "s-america":"South America" };
+const COUNTRY_CONTINENT = {
+  "Egypt":"africa","Morocco":"africa","South Africa":"africa",
+  "China":"asia","China (SAR)":"asia","Georgia":"asia","India":"asia","Indonesia":"asia","Israel":"asia",
+  "Japan":"asia","Malaysia":"asia","Qatar":"asia","Saudi Arabia":"asia","Singapore":"asia","South Korea":"asia",
+  "Taiwan":"asia","Thailand":"asia","Türkiye":"asia","UAE":"asia","Vietnam":"asia",
+  "Austria":"europe","Belgium":"europe","Czechia":"europe","Denmark":"europe","Estonia":"europe","Finland":"europe",
+  "France":"europe","Germany":"europe","Greece":"europe","Hungary":"europe","Ireland":"europe","Italy":"europe",
+  "Lithuania":"europe","Netherlands":"europe","Norway":"europe","Poland":"europe","Portugal":"europe",
+  "Spain":"europe","Sweden":"europe","Switzerland":"europe","United Kingdom":"europe",
+  "Canada":"n-america","Dominican Republic":"n-america","Mexico":"n-america","United States":"n-america",
+  "Argentina":"s-america","Brazil":"s-america","Chile":"s-america","Peru":"s-america",
+  "Australia":"oceania","New Zealand":"oceania","Fiji":"oceania"
 };
+const continentFor = c => COUNTRY_CONTINENT[c.country] || null;
 
-/* ---- Live activity rankings from OpenStreetMap (Overpass API) ----
-   For the chosen activity we count real mapped venues within 10 km of
-   each city's center, then rank the cities by that count. Results are
-   cached in the browser for 30 days to keep load off the free service. */
+/* ============================================================
+   ACTIVITY RANKINGS — live venue counts from OpenStreetMap
+   (Overpass API). For the chosen activity we count real mapped
+   venues within 10 km of each city's center. Cached 30 days.
+   ============================================================ */
 const ACTIVITY_OSM = {
   "Nightlife":         { sel:'node["amenity"~"^(bar|pub|nightclub)$"]',        label:"bars, pubs & nightclubs" },
   "Restaurants":       { sel:'node["amenity"="restaurant"]',                    label:"restaurants" },
@@ -450,7 +408,16 @@ const ACTIVITY_OSM = {
 const OSM_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
 const ACT_CACHE_DAYS = 30;
 
-function activityCacheKey(act){ return "nra_actcounts_v1_" + act; }
+/* Fallback picks if the live OpenStreetMap ranking can't load (offline etc.) */
+const PRIORITIES = {
+  "Nightlife":          ["Bangkok","Las Vegas","Berlin","New York","Hong Kong","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
+  "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore","San Francisco","Mexico City","Lima"],
+  "Museums & Culture":  ["Paris","London","Rome","Vienna","Istanbul","New York","Washington, D.C.","Berlin","Athens","Florence","Cairo","Mexico City"],
+  "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul","Florence","Venice","Beijing","Kyoto"],
+  "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya","Vancouver","Honolulu","Denpasar","Sapporo"]
+};
+
+function activityCacheKey(act){ return "nra_actcounts_v2_" + act; }
 
 async function fetchActivityCounts(act){
   // cached?
@@ -462,7 +429,7 @@ async function fetchActivityCounts(act){
   }catch(e){}
   // one query counts venues around every city (results come back in order)
   const sel = ACTIVITY_OSM[act].sel;
-  let q = "[out:json][timeout:20];";
+  let q = "[out:json][timeout:25];";
   CITIES.forEach(c => { q += `${sel}(around:10000,${c.lat},${c.lng});out count;`; });
   let lastErr;
   for(const ep of OSM_ENDPOINTS){
@@ -470,7 +437,7 @@ async function fetchActivityCounts(act){
     // let a slow one leave the visitor staring at "Counting…" forever. Give
     // each mirror 9 seconds, then move on to the next one / the fallback.
     const ctl = ("AbortController" in window) ? new AbortController() : null;
-    const timer = ctl ? setTimeout(() => ctl.abort(), 7000) : null;
+    const timer = ctl ? setTimeout(() => ctl.abort(), 9000) : null;
     try{
       const r = await fetch(ep, { method:"POST", body:"data="+encodeURIComponent(q),
                                   headers:{ "Content-Type":"application/x-www-form-urlencoded" },
@@ -488,354 +455,21 @@ async function fetchActivityCounts(act){
   }
   throw lastErr || new Error("overpass unavailable");
 }
-
-const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const results = document.getElementById("results");
-
-const priorityEl = document.getElementById("priority");
-const budgetEl = document.getElementById("budget");
-const BUDGET_NOTE = {
-  shoestring:"on a shoestring",
-  low:"keeping it low",
-  flexible:"with a flexible budget",
-  comfortable:"with room to spend",
-  luxury:"going all out"
-};
-
-function activityCardHTML(c, rank, count, label){
-  const sg = slug(c.city);
-  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
-  const why = (count != null)
-    ? `<strong style="color:var(--green)">${count.toLocaleString()}</strong> ${label} <span style="font-size:.85em">within 10&nbsp;km of the center (OpenStreetMap)</span><br>`
-    : "";
-  const rankChip = (rank != null) ? `<span class="rank-chip">#${rank}</span>` : "";
-  return `
-    <article class="card">
-      <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
-        ${rankChip}<span class="visit">${num}M / yr</span>
-      </div>
-      <div class="body">
-        <div class="country">${c.country}</div>
-        <h3>${c.city}</h3>
-        <p>${why}${c.tagline}</p>
-        <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
-      </div>
-    </article>`;
-}
-
-let actRenderSeq = 0;   // guards against out-of-order async renders
-async function renderPicks(){
-  const pri = priorityEl.value;
-  if(!pri) return;
-  const seq = ++actRenderSeq;
-  const label = (ACTIVITY_OSM[pri] || {}).label || pri.toLowerCase();
-  const budChip = budgetEl.value
-    ? `<span class="chip2 b-voa" style="vertical-align:middle;margin-left:10px">${BUDGET_NOTE[budgetEl.value]}</span>`
-    : "";
-  const head = `<h2>Top cities for ${pri.replace("&amp;","&")} lovers${budChip}</h2>`;
-
-  results.innerHTML = head + `<p class="sub" id="actLoadingMsg">Counting real ${label} on OpenStreetMap…</p>`;
-  results.scrollIntoView({behavior:"smooth", block:"start"});
-  // Reassure the visitor if this is taking a while — the timeout below still
-  // guarantees a result (live or fallback) well before this ever shows.
-  const slowTimer = setTimeout(() => {
-    const el = document.getElementById("actLoadingMsg");
-    if(el) el.textContent = "Still checking a couple of map data sources — almost there…";
-  }, 4000);
-
-  try{
-    const counts = await fetchActivityCounts(pri);
-    clearTimeout(slowTimer);
-    if(seq !== actRenderSeq) return;   // user changed selection meanwhile
-    const ranked = CITIES.map((c,i) => ({c, n:counts[i]}))
-                         .sort((a,b) => b.n - a.n)
-                         .slice(0, 9);
-    results.innerHTML = head + `
-      <p class="sub">Ranked by the number of ${label} mapped within 10 km of each city center — live data from <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a>.</p>
-      <div class="grid">${ranked.map((r,i) => activityCardHTML(r.c, i+1, r.n, label)).join("")}</div>
-      <p class="visa-disclaimer">Counts come from community-mapped OpenStreetMap data and refresh at most every ${ACT_CACHE_DAYS} days on your device. Mapping density varies by city, so treat close rankings as ties.</p>`;
-  }catch(e){
-    clearTimeout(slowTimer);
-    if(seq !== actRenderSeq) return;
-    const names = PRIORITIES[pri] || [];
-    const picks = names.map(n => CITIES.find(c => c.city === n)).filter(Boolean);
-    if(!picks.length){ results.innerHTML = head + `<p class="empty">No matches yet for that pick.</p>`; return; }
-    results.innerHTML = head + `
-      <p class="sub">Editor's picks — the live OpenStreetMap ranking didn't answer in time (you may be offline, or the free map data service is busy right now). Try again in a moment, or check back once the site is hosted.</p>
-      <div class="grid">${picks.map(c => activityCardHTML(c, null, null, label)).join("")}</div>`;
-  }
-}
-
-priorityEl.addEventListener("change", () => { renderPicks(); saveState(); });
-budgetEl.addEventListener("change", () => { renderBudget(true); saveState(); });
-
-/* ---- Travel Budget tool: real destinations filtered + sorted by tier ----
-   Daily costs are estimates (see destinations.js) and are labeled as such. */
-const budgetResults = document.getElementById("budgetResults");
-
-const BUDGET_TIERS = {
-  shoestring: {
-    costKey:"budget", filter:c => c.dailyCost.budget <= 45,
-    sort:(a,b)=> a.dailyCost.budget - b.dailyCost.budget,
-    title:"Where a little money goes a long way",
-    sub:"Sorted cheapest first — estimated daily costs on a backpacker budget (hostels, street food, public transit).",
-    styleNote:"backpacker style"
-  },
-  low: {
-    costKey:"budget", filter:c => c.dailyCost.budget <= 70,
-    sort:(a,b)=> a.dailyCost.budget - b.dailyCost.budget,
-    title:"Affordable trips that still feel like a splurge",
-    sub:"Sorted cheapest first — estimated daily costs on a budget style (guesthouses, casual eats, transit).",
-    styleNote:"budget style"
-  },
-  flexible: {
-    costKey:"mid", filter:c => c.dailyCost.mid >= 90 && c.dailyCost.mid <= 200,
-    sort:(a,b)=> b.visitors - a.visitors,
-    title:"Crowd favorites for a flexible budget",
-    sub:"Sorted by popularity (annual visitors) — estimated daily costs at a mid-range style (3-star hotels, restaurants).",
-    styleNote:"mid-range style"
-  },
-  comfortable: {
-    costKey:"mid", filter:c => c.dailyCost.mid >= 150 && c.dailyCost.mid <= 300,
-    sort:(a,b)=> b.visitors - a.visitors,
-    title:"Popular destinations worth the spend",
-    sub:"Sorted by popularity (annual visitors) — estimated daily costs at a comfortable mid-range style.",
-    styleNote:"mid-range style"
-  },
-  luxury: {
-    costKey:"luxury", filter:c => c.dailyCost.luxury >= 450,
-    sort:(a,b)=> b.dailyCost.luxury - a.dailyCost.luxury,
-    title:"The world's great luxury playgrounds",
-    sub:"Sorted most premium first — estimated daily costs in high-end style (5-star hotels, fine dining, private transport).",
-    styleNote:"luxury style"
-  }
-};
-
-/* Optional origin for the Budget tool — enables "cheapest way there" */
-let budgetOrigin = null;
-const budgetOriginInput = document.getElementById("budgetOrigin");
-const budgetOriginList  = document.getElementById("budgetOriginList");
-
-const MODE_NAMES = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
-
-function waysHTML(c){
-  if(!(budgetOrigin && budgetOrigin.lat != null)) return "";
-  const cmp = NRA_TRANSPORT.compareModes(budgetOrigin, c);
-  if(!cmp.modes.length) return "";
-  // Swap in a live flight price when the flight service has answered
-  cmp.modes.forEach(m => {
-    if(m.mode === "plane"){
-      const live = NRA_TRANSPORT.flightPriceFor(c.city);
-      if(live != null){ m.cost = live; m.live = true; }
-    }
-  });
-  cmp.modes.sort((a,b)=> a.cost - b.cost);
-  const line = (m, best) => `
-    <div class="way${best ? " best" : ""}" data-mode="${m.mode}">
-      <span>${m.icon} ${MODE_NAMES[m.mode]}${best ? " — cheapest way there" : ""}</span>
-      <span>${m.live ? "$"+m.cost+' <em class="live-tag">live</em>' : "≈ $"+m.cost+' <em class="est-tag">est.</em>'}
-        · ~<span class="way-time">${NRA_TRANSPORT.fmtH(m.timeH)}</span>${m.note ? " · "+m.note : ""}</span>
-    </div>`;
-  return `<div class="ways" data-ways="${c.city.replace(/"/g,'&quot;')}">
-    ${line(cmp.modes[0], true)}
-    ${cmp.modes.slice(1,3).map(m => line(m, false)).join("")}
-    <div class="way-dist">${cmp.km.toLocaleString()} km from ${budgetOrigin.city}</div>
-  </div>`;
-}
-
-function budgetCardHTML(c, costKey, styleNote){
-  const sg = slug(c.city);
-  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
-  const cost = c.dailyCost[costKey];
-  return `
-    <article class="card">
-      <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
-        <span class="visit">${num}M / yr</span>
-      </div>
-      <div class="body">
-        <div class="country">${c.country}</div>
-        <h3>${c.city}</h3>
-        <p><strong style="color:var(--green)">≈ $${cost}/day</strong> <span style="font-size:.8em">(est., ${styleNote})</span><br>${c.tagline}</p>
-        ${waysHTML(c)}
-        <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
-      </div>
-    </article>`;
-}
-
-function renderBudget(scroll){
-  const tierKey = budgetEl.value;
-  if(!tierKey){ budgetResults.innerHTML = `<p class="empty">Pick a budget above to see destinations that fit it.</p>`; return; }
-  const tier = BUDGET_TIERS[tierKey];
-  const picks = CITIES.filter(tier.filter).sort(tier.sort);
-  if(!picks.length){
-    budgetResults.innerHTML = `<p class="empty">No destinations match that budget yet — try the next tier up or down.</p>`;
-    return;
-  }
-  const originNote = (budgetOrigin && budgetOrigin.lat != null)
-    ? ` Travel prices marked <em>est.</em> are estimates (car = average rental + fuel; train/bus/boat = typical fares by distance); flight prices marked <em>live</em> come from a real search. Modes that aren't physically possible are left out.`
-    : "";
-  budgetResults.innerHTML = `
-    <h2>${tier.title}</h2>
-    <p class="sub">${tier.sub}</p>
-    <div class="grid">${picks.map(c => budgetCardHTML(c, tier.costKey, tier.styleNote)).join("")}</div>
-    <p class="visa-disclaimer">Daily costs are estimates per person, compiled ${window.NRA_COSTS_VERIFIED} from published traveler averages (e.g. BudgetYourTrip). Your real spend depends on season, exchange rates, and travel style.${originNote}</p>`;
-  if(scroll) budgetResults.scrollIntoView({behavior:"smooth", block:"start"});
-
-  /* Live upgrades (deployed site): real flight prices, then real train routes */
-  if(budgetOrigin && budgetOrigin.lat != null){
-    // Fetch live flight prices ONCE per origin, then re-render with them
-    if(budgetOrigin.code && flightsFetchedFor !== budgetOrigin.code){
-      flightsFetchedFor = budgetOrigin.code;
-      NRA_TRANSPORT.liveFlightPrices(budgetOrigin.code).then(p => { if(p) renderBudget(false); });
-    }
-    // Real scheduled train/bus durations for the first 6 cards (prototype: Transitous)
-    picks.slice(0,6).forEach(c => {
-      const el = budgetResults.querySelector(`[data-ways="${CSS.escape(c.city)}"] .way[data-mode="train"] .way-time`) ||
-                 budgetResults.querySelector(`[data-ways="${CSS.escape(c.city)}"] .way[data-mode="bus"] .way-time`);
-      if(!el || el.parentElement.querySelector(".live-tag")) return;
-      NRA_TRANSPORT.transitousCheck(budgetOrigin, c).then(res => {
-        if(res && res.timeH && !el.parentElement.querySelector(".live-tag")){
-          el.textContent = NRA_TRANSPORT.fmtH(res.timeH);
-          el.insertAdjacentHTML("afterend", ' <em class="live-tag">real route</em>');
-        }
-      });
-    });
-  }
-}
-let flightsFetchedFor = null;
-
-/* Budget origin autocomplete (same data as the Mode of Travel tool) */
-let bAcItems = [], bAcIndex = -1;
-function bRenderList(items){
-  bAcItems = items; bAcIndex = -1;
-  if(!items.length){ budgetOriginList.hidden = true; budgetOriginList.innerHTML = ""; return; }
-  budgetOriginList.innerHTML = items.map((it,i)=>
-    `<li data-i="${i}"><span class="ac-city">${it.label}${it.sub?`<span class="ac-name">${it.sub}</span>`:""}</span>` +
-    `${it.code?`<span class="ac-code">${it.code}</span>`:""}</li>`).join("");
-  budgetOriginList.hidden = false;
-}
-function bSelect(it){
-  if(!it) return;
-  budgetOriginInput.value = it.value;
-  const o = it.origin || {};
-  budgetOrigin = { city:o.city, code:o.code||"", country:o.country||"", lat:o.lat, lng:o.lng,
-                   region: NRA_TRANSPORT.regionFor(o.country||"") };
-  budgetOriginList.hidden = true;
-  renderBudget(false);
-  saveState();
-}
-budgetOriginInput.addEventListener("focus", ()=>{ if(!AIRPORTS && !airportsLoading) loadAirports(); });
-budgetOriginInput.addEventListener("input", ()=>{
-  budgetOrigin = null;
-  bRenderList(airportItems(budgetOriginInput.value));
-  if(!budgetOriginInput.value.trim()) renderBudget(false);   // cleared -> plain results
-  saveState();
-});
-budgetOriginList.addEventListener("click",(e)=>{ const li=e.target.closest("li"); if(li) bSelect(bAcItems[+li.dataset.i]); });
-budgetOriginInput.addEventListener("keydown",(e)=>{
-  if(budgetOriginList.hidden) return;
-  if(e.key==="ArrowDown"){ bAcIndex=Math.min(bAcIndex+1,bAcItems.length-1); e.preventDefault(); }
-  else if(e.key==="ArrowUp"){ bAcIndex=Math.max(bAcIndex-1,0); e.preventDefault(); }
-  else if(e.key==="Enter"){ if(bAcIndex>=0){ bSelect(bAcItems[bAcIndex]); e.preventDefault(); } return; }
-  else if(e.key==="Escape"){ budgetOriginList.hidden=true; return; }
-  else return;
-  [...budgetOriginList.children].forEach((li,i)=>li.classList.toggle("active", i===bAcIndex));
-});
-document.addEventListener("click",(e)=>{ if(!budgetOriginInput.parentElement.contains(e.target)) budgetOriginList.hidden=true; });
-
-/* ---- "Include regional airports" checkboxes (one shared preference) ---- */
-const regionalBoxes = [document.getElementById("includeRegional"), document.getElementById("includeRegionalBudget")].filter(Boolean);
-function setRegionalPref(on, skipSave){
-  regionalPref = !!on;
-  regionalBoxes.forEach(b => { b.checked = regionalPref; });
-  // refresh whichever suggestion list is open
-  if(!originList.hidden) runSearch();
-  if(!budgetOriginList.hidden) bRenderList(airportItems(budgetOriginInput.value));
-  if(!skipSave) saveState();
-}
-regionalBoxes.forEach(b => b.addEventListener("change", () => setRegionalPref(b.checked)));
-
-/* ---- Tool switcher: show only the dropdown selected by the radio buttons ---- */
-const toolSections = document.querySelectorAll(".tool-section");
-const switchBtns = document.querySelectorAll(".switch-btn");
-function showTool(val){
-  toolSections.forEach(s => { s.hidden = (s.dataset.tool !== val); });
-  switchBtns.forEach(b => b.classList.toggle("active", b.querySelector("input").value === val));
-  // Note: tool state is intentionally preserved when switching radios.
-}
-document.querySelectorAll('input[name="tool"]').forEach(r => {
-  r.addEventListener("change", () => { showTool(r.value); saveState(); });
-});
-showTool("activities");
-
-/* ---- Mode of Travel: airport / city autocomplete shown when "Plane" is picked ---- */
-const travelmodeEl = document.getElementById("travelmode");
-const originWrap   = document.getElementById("originWrap");
-const originInput  = document.getElementById("originInput");
-const originList   = document.getElementById("originList");
+/* ============================================================
+   ORIGIN AUTOCOMPLETE — airports come from the open OurAirports
+   dataset (commercial airports only: "large" always, "medium"
+   regional when the checkbox is ticked). Falls back to the
+   OpenFlights list if OurAirports can't be reached.
+   ============================================================ */
+const finderOriginInput = document.getElementById("finderOrigin");
+const finderOriginList  = document.getElementById("finderOriginList");
 const originStatus = document.getElementById("originStatus");
-const planeWrap = document.getElementById("planeWrap");
-const originLabel = document.getElementById("originLabel");
-let AIRPORTS = null, airportsLoading = false, CITY_LIST = null;
+let AIRPORTS = null, airportsLoading = false, CITY_LIST = null, CITY_AIRPORTS = null;
+let regionalPref = false;
+const regionalBox = document.getElementById("includeRegional");
 
-const ORIGIN_LABELS = {
-  Plane: ["Origin city or airport code",  "Start typing a city or airport code…"],
-  Train: ["Origin city or train station", "Start typing a city or train station…", "(station names will autopopulate)"],
-  Boat:  ["Origin city or port",          "Start typing a city or port…"],
-  Bus:   ["Origin city or bus station",   "Start typing a city or bus station…"],
-  Car:   ["Origin city",                  "Start typing a city…"],
-  Any:   ["Origin city",                  "Start typing a city…"]
-};
+function setAirportStatus(html){ originStatus.innerHTML = html; }
 
-function applyModeUI(mode){
-  originWrap.hidden = !mode;                 // origin city shows for every mode
-  planeWrap.hidden = mode !== "Plane";       // stops + date are flight-only
-  const rr = document.getElementById("regionalRow");
-  if(rr) rr.hidden = mode !== "Plane";       // regional-airports checkbox is flight-only
-  if(mode){
-    const L = ORIGIN_LABELS[mode] || ["Origin city", "Start typing a city…"];
-    if(originLabel) originLabel.innerHTML = L[0] + (L[2] ? `<br><span class="label-hint">${L[2]}</span>` : "");
-    originInput.placeholder = L[1];
-    if(!AIRPORTS && !airportsLoading) loadAirports();
-  }
-}
-travelmodeEl.addEventListener("change", () => {
-  const mode = travelmodeEl.value;
-  originInput.value = "";                     // clear origin when the mode changes
-  selectedOrigin = null;
-  originList.hidden = true;
-  if(typeof flightResults !== "undefined" && flightResults) flightResults.hidden = true;
-  if(typeof trainResults !== "undefined" && trainResults) trainResults.hidden = true;
-  if(typeof groundResults !== "undefined" && groundResults) groundResults.hidden = true;
-  applyModeUI(mode);
-  saveState();
-});
-
-function resetTravelMode(){
-  travelmodeEl.value = "";
-  originWrap.hidden = true;
-  planeWrap.hidden = true;
-  if(flightResults) flightResults.hidden = true;
-  if(trainResults) trainResults.hidden = true;
-  if(groundResults) groundResults.hidden = true;
-  originInput.value = "";
-  selectedOrigin = null;
-  document.querySelectorAll('input[name="stops"]').forEach(r => r.checked = false);
-  document.querySelectorAll(".stops-group .switch-btn").forEach(b => b.classList.remove("active"));
-  departCal.reset(); returnCal.reset(); roundTrip.checked = false; returnCol.hidden = true;
-}
-
-function setAirportStatus(html){
-  originStatus.innerHTML = html;
-  const b = document.getElementById("budgetOriginStatus");
-  if(b) b.innerHTML = html;
-}
-/* Airports come from the open OurAirports dataset, which labels each
-   airport's size and whether it has scheduled commercial service.
-   We keep ONLY commercial airports: "large" (international) always,
-   "medium" (regional) when the checkbox is ticked. Private airfields
-   are excluded entirely. Falls back to the OpenFlights list (no size
-   info) if OurAirports can't be reached. */
 function loadAirports(){
   airportsLoading = true;
   setAirportStatus("Loading airport list…");
@@ -851,7 +485,7 @@ function loadAirports(){
       fetch("https://cdn.jsdelivr.net/gh/jpatokal/openflights@master/data/airports.dat")
         .then(r => { if(!r.ok) throw new Error(r.status); return r.text(); })
         .then(text => { AIRPORTS = parseAirports(text); buildCityList(); setAirportStatus(AIRPORTS.length + " places loaded — start typing."); })
-        .catch(() => { setAirportStatus("Couldn't load the airport list (you may be offline, or the page is open as a local file). It loads automatically once the site is hosted; meanwhile you can type your city or code manually."); })
+        .catch(() => { setAirportStatus("Couldn't load the airport list (you may be offline, or the page is open as a local file). It loads automatically once the site is hosted; meanwhile you can type your city manually."); })
     );
 }
 
@@ -905,43 +539,6 @@ function parseAirports(text){
   return arr;
 }
 
-/* Curated major train stations by city (used in Train mode) */
-const TRAIN_STATIONS = {
-  "London": ["St Pancras International","King's Cross","Paddington","Victoria","Waterloo","Euston","Liverpool Street"],
-  "Paris": ["Gare du Nord","Gare de Lyon","Gare Saint-Lazare","Gare de l'Est","Gare Montparnasse","Gare d'Austerlitz"],
-  "New York": ["Grand Central Terminal","Penn Station","Moynihan Train Hall"],
-  "Tokyo": ["Tokyo Station","Shinjuku Station","Shibuya Station","Ueno Station","Shinagawa Station"],
-  "Berlin": ["Berlin Hauptbahnhof","Berlin Ostbahnhof","Berlin Gesundbrunnen","Berlin Südkreuz"],
-  "Rome": ["Roma Termini","Roma Tiburtina"],
-  "Madrid": ["Madrid Atocha","Madrid Chamartín"],
-  "Barcelona": ["Barcelona Sants","Estació de França"],
-  "Amsterdam": ["Amsterdam Centraal","Amsterdam Zuid"],
-  "Milan": ["Milano Centrale","Milano Porta Garibaldi"],
-  "Munich": ["München Hauptbahnhof","München Ost"],
-  "Frankfurt": ["Frankfurt Hauptbahnhof","Frankfurt Süd"],
-  "Vienna": ["Wien Hauptbahnhof","Wien Meidling"],
-  "Prague": ["Praha hlavní nádraží","Praha-Holešovice"],
-  "Brussels": ["Bruxelles-Midi / Brussel-Zuid","Bruxelles-Central","Bruxelles-Nord"],
-  "Zurich": ["Zürich Hauptbahnhof","Zürich Oerlikon"],
-  "Geneva": ["Genève-Cornavin"],
-  "Lisbon": ["Lisboa Santa Apolónia","Lisboa Oriente","Lisboa Rossio"],
-  "Edinburgh": ["Edinburgh Waverley","Edinburgh Haymarket"],
-  "Manchester": ["Manchester Piccadilly","Manchester Victoria"],
-  "Chicago": ["Chicago Union Station"],
-  "Washington": ["Washington Union Station"],
-  "Boston": ["South Station","North Station"],
-  "Toronto": ["Toronto Union Station"],
-  "Seoul": ["Seoul Station","Yongsan Station"],
-  "Osaka": ["Shin-Osaka Station","Osaka Station"],
-  "Kyoto": ["Kyoto Station"],
-  "Shanghai": ["Shanghai Hongqiao","Shanghai Railway Station","Shanghai South"],
-  "Beijing": ["Beijing South","Beijing Railway Station","Beijing West"],
-  "Mumbai": ["Chhatrapati Shivaji Maharaj Terminus","Mumbai Central"],
-  "Delhi": ["New Delhi Railway Station","Hazrat Nizamuddin"]
-};
-const TRAIN_CITIES = Object.keys(TRAIN_STATIONS).sort((a,b)=>a.localeCompare(b));
-
-let CITY_AIRPORTS = null;   // "city|country" -> all airports in that city
 function buildCityList(){
   if(!AIRPORTS) return;
   const seen=new Set(), list=[]; CITY_AIRPORTS = {};
@@ -955,9 +552,6 @@ function buildCityList(){
   CITY_LIST=list;
 }
 
-/* Build suggestion items per travel mode */
-/* Regional airports are hidden unless the user opts in (checkbox) */
-let regionalPref = false;
 const showAirport = a => regionalPref || a.cls !== "regional";
 
 function airportItems(query){
@@ -974,506 +568,487 @@ function airportItems(query){
   const items = [], seenCity = new Set();
   for(const a of picks){
     const key = (a.city||a.name)+"|"+a.country;
-    // If this city has several airports (that pass the filter), offer "All airports" first
     const cityAll = CITY_AIRPORTS ? (CITY_AIRPORTS[key]||[]).filter(showAirport) : [];
-    if(!seenCity.has(key) && cityAll.length > 1){
+    if(!seenCity.has(key)){
       seenCity.add(key);
-      const all = cityAll.slice(0,6);                     // search up to 6 airports at once
-      const codes = all.map(x=>x.code);
+      const base = cityAll.length ? cityAll : [a];
+      // The city itself is always pickable (typing "Miami" offers Miami the
+      // city AND the MIA airport code)
       items.push({
-        label:`${a.city}, ${a.country} — All airports`, sub:codes.join(" · "), code:"ALL", type:"final",
-        value:`${a.city} (all airports)`,
-        origin:{city:a.city, name:"All "+a.city+" airports", code:codes.join(","), country:a.country,
-                lat: all.reduce((s,x)=>s+x.lat,0)/all.length, lng: all.reduce((s,x)=>s+x.lng,0)/all.length}
+        label:`📍 ${a.city||a.name}, ${a.country}`, sub:"City", code:"",
+        value:`${a.city||a.name}`,
+        origin:{city:a.city||a.name, name:(a.city||a.name)+" (city)", code:"", country:a.country,
+                lat: base.reduce((s,x)=>s+x.lat,0)/base.length, lng: base.reduce((s,x)=>s+x.lng,0)/base.length}
       });
+      // If this city has several airports (that pass the filter), offer "All airports" too
+      if(cityAll.length > 1){
+        const all = cityAll.slice(0,6);
+        const codes = all.map(x=>x.code);
+        items.push({
+          label:`${a.city}, ${a.country} — All airports`, sub:codes.join(" · "), code:"ALL",
+          value:`${a.city} (all airports)`,
+          origin:{city:a.city, name:"All "+a.city+" airports", code:codes.join(","), country:a.country,
+                  lat: all.reduce((s,x)=>s+x.lat,0)/all.length, lng: all.reduce((s,x)=>s+x.lng,0)/all.length}
+        });
+      }
     }
     items.push({
       label:`${a.city||a.name}, ${a.country}`,
-      sub:a.name + (a.cls==="regional" ? " · regional" : ""), code:a.code, type:"final",
+      sub:a.name + (a.cls==="regional" ? " · regional" : ""), code:a.code,
       value:`${a.city||a.name} (${a.code})`,
       origin:{city:a.city||a.name, name:a.name, code:a.code, country:a.country, lat:a.lat, lng:a.lng}
     });
   }
-  return items.slice(0,9);
-}
-function cityItems(query){
-  const q=query.trim().toLowerCase(); if(q.length<2 || !CITY_LIST) return [];
-  const starts=[], contains=[];
-  for(const c of CITY_LIST){
-    const city=c.city.toLowerCase();
-    if(city.startsWith(q)) starts.push(c);
-    else if(city.includes(q)) contains.push(c);
-    if(starts.length>=12) break;
-  }
-  return starts.concat(contains).slice(0,8).map(c=>({
-    label:`${c.city}, ${c.country}`, sub:"", code:"", type:"final", value:c.city,
-    origin:{city:c.city, code:"", country:c.country, lat:c.lat, lng:c.lng}
-  }));
-}
-function trainCityItems(query){
-  const q=query.trim().toLowerCase();
-  return TRAIN_CITIES.filter(c=>c.toLowerCase().includes(q)).slice(0,8).map(c=>({
-    label:c, sub:`${TRAIN_STATIONS[c].length} major stations`, code:"", type:"train-city", city:c
-  }));
-}
-function trainStationItems(city){
-  return TRAIN_STATIONS[city].map(s=>({
-    label:s, sub:city, code:"", type:"final", value:`${s}, ${city}`, origin:{city, code:""}
-  }));
+  return items.slice(0,10);
 }
 
+/* autocomplete wiring */
 let acItems=[], acIndex=-1;
-function renderList(items){
+function renderAcList(items){
   acItems=items; acIndex=-1;
-  if(!items.length){ originList.hidden=true; originList.innerHTML=""; return; }
-  originList.innerHTML = items.map((it,i)=>
+  if(!items.length){ finderOriginList.hidden=true; finderOriginList.innerHTML=""; return; }
+  finderOriginList.innerHTML = items.map((it,i)=>
     `<li data-i="${i}"><span class="ac-city">${it.label}${it.sub?`<span class="ac-name">${it.sub}</span>`:""}</span>` +
     `${it.code?`<span class="ac-code">${it.code}</span>`:""}</li>`).join("");
-  originList.hidden=false;
+  finderOriginList.hidden=false;
 }
-function selectItem(it){
+function selectOrigin(it){
   if(!it) return;
-  if(it.type==="train-city"){              // show the city's stations as a results panel
-    originInput.value = it.city;
-    originList.hidden = true;
-    renderTrainResults(it.city);
-    return;
-  }
-  originInput.value = it.value;
-  selectedOrigin = it.origin || null;
-  originList.hidden = true;
-  if(travelmodeEl.value==="Plane") maybeRenderFlights();
-  else renderGroundResults();
+  finderOriginInput.value = it.value;
+  const o = it.origin || {};
+  finderOrigin = { city:o.city, code:o.code||"", country:o.country||"", lat:o.lat, lng:o.lng,
+                   region: NRA_TRANSPORT.regionFor(o.country||"") };
+  finderOriginList.hidden = true;
+  renderFinder();
   saveState();
 }
-function runSearch(){
-  const mode = travelmodeEl.value;
-  const q = originInput.value;
-  if(mode==="Plane")      renderList(airportItems(q));
-  else if(mode==="Train") renderList(trainCityItems(q));
-  else                    renderList(cityItems(q));
+/* ---- mode-aware origin search ----------------------------------------
+   What "Traveling from" suggests depends on "Get there by":
+     Any / Plane -> airports (city name or airport code, list above)
+     Train       -> major train stations   (live OpenStreetMap search)
+     Bus         -> major bus stations     (live OpenStreetMap search)
+     Car         -> your home city         (live OpenStreetMap search)
+     Boat        -> passenger ports & ferry terminals (OpenStreetMap)
+   The OpenStreetMap searches use the free Photon geocoder.          */
+const regionalRow = document.getElementById("regionalRow");
+const originHint  = document.getElementById("originHint");
+const PHOTON_URL  = "https://photon.komoot.io/api/";
+const ORIGIN_MODE = {
+  airport:{ tags:null, icon:"✈",
+            ph:"Type your home city or airport code…",
+            hint:"(city or airport code — adds travel cost & time to the math)", status:"" },
+  station:{ tags:["railway:station"], icon:"🚆",
+            ph:"Type your city to find major train stations…",
+            hint:"(pick your departure train station)",
+            status:"We'll suggest real train stations as you type (OpenStreetMap)." },
+  bus:    { tags:["amenity:bus_station"], icon:"🚌",
+            ph:"Type your city to find major bus stations…",
+            hint:"(pick your departure bus station)",
+            status:"We'll suggest real bus stations as you type (OpenStreetMap)." },
+  city:   { tags:["place:city","place:town","place:village"], icon:"📍",
+            ph:"Type your home city…",
+            hint:"(driving costs are estimated from your city)",
+            status:"" },
+  port:   { tags:["amenity:ferry_terminal"], icon:"⛴",
+            ph:"Type your city to find passenger ports…",
+            hint:"(pick your departure port or ferry terminal)",
+            status:"We'll suggest passenger ports & ferry terminals as you type (OpenStreetMap)." }
+};
+function originKind(){
+  const m = travelByEl.value;
+  return m==="Train" ? "station" : m==="Bus" ? "bus" : m==="Car" ? "city" : m==="Boat" ? "port" : "airport";
+}
+function updateOriginModeUI(){
+  const cfg = ORIGIN_MODE[originKind()];
+  finderOriginInput.placeholder = cfg.ph;
+  originHint.textContent = cfg.hint;
+  regionalRow.hidden = !!cfg.tags;                 // regional-airports box only makes sense for flights
+  renderAcList([]);
+  if(cfg.tags) setAirportStatus(cfg.status);
+  else setAirportStatus(AIRPORTS ? AIRPORTS.length + " commercial airports loaded — start typing." : "");
 }
 
-originInput.addEventListener("input", ()=>{ selectedOrigin=null; if(flightResults) flightResults.hidden=true; if(trainResults) trainResults.hidden=true; if(groundResults) groundResults.hidden=true; runSearch(); saveState(); });
-originInput.addEventListener("focus", ()=>{ if(travelmodeEl.value==="Train" && !originInput.value.trim()) renderList(trainCityItems("")); });
-originList.addEventListener("click", (e)=>{ const li=e.target.closest("li"); if(li) selectItem(acItems[+li.dataset.i]); });
-originInput.addEventListener("keydown", (e)=>{
-  if(originList.hidden) return;
-  if(e.key==="ArrowDown"){ acIndex=Math.min(acIndex+1, acItems.length-1); e.preventDefault(); }
-  else if(e.key==="ArrowUp"){ acIndex=Math.max(acIndex-1, 0); e.preventDefault(); }
-  else if(e.key==="Enter"){ if(acIndex>=0){ selectItem(acItems[acIndex]); e.preventDefault(); } return; }
-  else if(e.key==="Escape"){ originList.hidden=true; return; }
+let photonTimer = null, photonSeq = 0;
+function photonSearch(q, kind){
+  const seq = ++photonSeq;
+  const cfg = ORIGIN_MODE[kind];
+  const url = PHOTON_URL + "?lang=en&limit=10&q=" + encodeURIComponent(q) +
+              cfg.tags.map(t => "&osm_tag=" + encodeURIComponent(t)).join("");
+  fetch(url)
+    .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => {
+      if(seq !== photonSeq || originKind() !== kind) return;   // stale response
+      const seen = new Set();
+      const items = (data.features || []).map(f => {
+        const p = f.properties || {}, g = (f.geometry || {}).coordinates || [];
+        if(!p.name || g.length < 2) return null;
+        const place = [p.city && p.city !== p.name ? p.city : "", p.state || "", p.country || ""]
+                      .filter(Boolean).join(", ");
+        const key = p.name + "|" + place;
+        if(seen.has(key)) return null;
+        seen.add(key);
+        return {
+          label: cfg.icon + " " + p.name, sub: place, code: "",
+          value: p.name + (p.city && p.city !== p.name ? ", " + p.city : ""),
+          origin:{ city: p.city || p.name, name: p.name, code: "", country: p.country || "",
+                   lat: g[1], lng: g[0] }
+        };
+      }).filter(Boolean).slice(0,9);
+      renderAcList(items);
+      if(!items.length) setAirportStatus("No matches yet — try just the city name.");
+      else setAirportStatus(ORIGIN_MODE[kind].status);
+    })
+    .catch(() => {
+      if(seq === photonSeq)
+        setAirportStatus("Couldn't search places right now (you may be offline, or the page is open as a local file). It works once the site is hosted.");
+    });
+}
+
+finderOriginInput.addEventListener("focus", ()=>{ if(originKind()==="airport" && !AIRPORTS && !airportsLoading) loadAirports(); });
+finderOriginInput.addEventListener("input", ()=>{
+  finderOrigin = null;
+  const kind = originKind();
+  if(kind === "airport"){
+    renderAcList(airportItems(finderOriginInput.value));
+  } else {
+    clearTimeout(photonTimer);
+    const q = finderOriginInput.value.trim();
+    if(q.length < 2) renderAcList([]);
+    else photonTimer = setTimeout(()=> photonSearch(q, kind), 300);
+  }
+  if(!finderOriginInput.value.trim()){ renderFinder(); }   // cleared -> plain results
+  saveState();
+});
+finderOriginList.addEventListener("click",(e)=>{ const li=e.target.closest("li"); if(li) selectOrigin(acItems[+li.dataset.i]); });
+finderOriginInput.addEventListener("keydown",(e)=>{
+  if(finderOriginList.hidden) return;
+  if(e.key==="ArrowDown"){ acIndex=Math.min(acIndex+1,acItems.length-1); e.preventDefault(); }
+  else if(e.key==="ArrowUp"){ acIndex=Math.max(acIndex-1,0); e.preventDefault(); }
+  else if(e.key==="Enter"){ if(acIndex>=0){ selectOrigin(acItems[acIndex]); e.preventDefault(); } return; }
+  else if(e.key==="Escape"){ finderOriginList.hidden=true; return; }
   else return;
-  [...originList.children].forEach((li,i)=>li.classList.toggle("active", i===acIndex));
+  [...finderOriginList.children].forEach((li,i)=>li.classList.toggle("active", i===acIndex));
 });
-document.addEventListener("click", (e)=>{ if(!originWrap.contains(e.target)) originList.hidden=true; });
+document.addEventListener("click",(e)=>{ if(!finderOriginInput.parentElement.contains(e.target)) finderOriginList.hidden=true; });
+regionalBox.addEventListener("change", ()=>{
+  regionalPref = regionalBox.checked;
+  if(!finderOriginList.hidden) renderAcList(airportItems(finderOriginInput.value));
+  saveState();
+});
+/* ============================================================
+   FIND MY DESTINATION — every filter is optional and they all
+   stack into one ranked list. Estimates are always labeled.
+   ============================================================ */
+const finderResults   = document.getElementById("finderResults");
+const continentEl     = document.getElementById("continent");
+const activityEl      = document.getElementById("activity");
+const travelByEl      = document.getElementById("travelBy");
+const totalBudgetEl   = document.getElementById("totalBudget");
+const nightsEl        = document.getElementById("nights");
+const sortByEl        = document.getElementById("sortBy");
+const finderPassportEl= document.getElementById("finderPassport");
+let finderOrigin = null;
 
-/* ---- Flight stops radios -> reveal a departure-date calendar ---- */
-const departWrap = document.getElementById("departWrap");
-const departDate = document.getElementById("departDate");
-if(departDate){ departDate.min = new Date().toISOString().split("T")[0]; }
-document.querySelectorAll('input[name="stops"]').forEach(r => {
-  r.addEventListener("change", ()=>{
-    document.querySelectorAll(".stops-group .switch-btn").forEach(b =>
-      b.classList.toggle("active", b.querySelector("input").checked));
-    maybeRenderFlights();
-    saveState();
+const MODE_NAMES  = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
+const UI_MODE_KEY = { Plane:"plane", Train:"train", Bus:"bus", Car:"car", Boat:"boat" };
+const STYLE_LABEL = { budget:"backpacker style", mid:"mid-range style", luxury:"high-end style" };
+
+/* activity counts state */
+let actCounts=null, actCountsFor=null, actPending=null, actFailed={};
+function kickActivityFetch(act){
+  if(actPending === act || actCountsFor === act || actFailed[act]) return;
+  actPending = act;
+  fetchActivityCounts(act)
+    .then(counts => { actCounts=counts; actCountsFor=act; })
+    .catch(() => { actFailed[act]=true; })
+    .then(() => { if(actPending===act) actPending=null; if(activityEl.value===act) renderFinder(); });
+}
+
+/* live flight prices (one request per origin, covers many cities) */
+let flightsFetchedFor = null;
+function kickLiveFlights(geo){
+  const code = (geo.code||"").split(",")[0];
+  if(!code || code==="ALL" || flightsFetchedFor === code) return;
+  flightsFetchedFor = code;
+  NRA_TRANSPORT.liveFlightPrices(code).then(p => { if(p) renderFinder(); });
+}
+
+const fmtMoney = n => "$" + Math.round(n).toLocaleString();
+const visitorsChip = c => {
+  const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
+  return (c.est ? "~" : "") + num + "M / yr";
+};
+function gFlightsLink(geo, c){
+  const code = (geo.code||"").split(",")[0];
+  const from = (code && code!=="ALL") ? code : geo.city;
+  return "https://www.google.com/travel/flights?q=" +
+    encodeURIComponent(`Flights from ${from} to ${c.city}`);
+}
+
+function finderCardHTML(r, rank, actLabel, budget){
+  const c = r.c, sg = slug(c.city);
+  const why = [];
+  if(r.count != null){
+    why.push(`<div class="w"><span class="tick">✓</span><span><strong>${r.count.toLocaleString()}</strong> ${actLabel} within 10 km of the center (OpenStreetMap)</span></div>`);
+  } else if(r.fallbackPick){
+    why.push(`<div class="w"><span class="tick">✓</span><span>Editor's pick for ${r.fallbackPick}</span></div>`);
+  }
+  if(r.fitTotal != null){
+    const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(r.m.cost*2)} round-trip ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ' <em class="est-tag">est.</em>'} + ` : "";
+    const fitBit = budget
+      ? ` — fits your ${fmtMoney(budget)}`
+      : "";
+    why.push(`<div class="w"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/day (${STYLE_LABEL[r.fitStyle]}, est.)${fitBit}</span></div>`);
+  }
+  if(r.m && r.fitTotal == null){
+    why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ${MODE_NAMES[r.m.mode]} · ${r.m.live ? "" : "≈ "}${fmtMoney(r.m.cost)}${r.m.live ? ' <em class="live-tag">live</em>' : ' <em class="est-tag">est.</em>'} each way · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span> · ${r.cmp.km.toLocaleString()} km${r.m.note ? " · "+r.m.note : ""}</span></div>`);
+  } else if(r.m){
+    why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span> by ${MODE_NAMES[r.m.mode].toLowerCase()} · ${r.cmp.km.toLocaleString()} km away${r.m.note ? " · "+r.m.note : ""}</span></div>`);
+  }
+  if(r.vi){
+    const warn = (r.vi.cat==="req" || r.vi.cat==="no");
+    why.push(`<div class="w"><span class="${warn?"warn":"tick"}">${warn?"!":"✓"}</span><span><span class="badge ${r.vi.cls}">${r.vi.label}</span> for your passport</span></div>`);
+  }
+  const flightsLink = (finderOrigin && r.m && r.m.mode==="plane")
+    ? `<a class="flights-link" href="${gFlightsLink(finderOrigin, c)}" target="_blank" rel="noopener">Check real flights ↗</a>` : "";
+  return `
+    <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
+      <div class="photo" style="background-image:url('https://picsum.photos/seed/${sg}-pick/600/400')">
+        <span class="rank-chip">#${rank}</span><span class="visit">${visitorsChip(c)}</span>
+      </div>
+      <div class="body">
+        <div class="country">${c.country}</div>
+        <h3>${c.city}</h3>
+        <p>${c.tagline}</p>
+        ${why.length ? `<div class="why">${why.join("")}</div>` : ""}
+        <div class="links-row">
+          <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+          ${flightsLink}
+        </div>
+      </div>
+    </article>`;
+}
+
+/* ---- gray out travel modes that can't work from this origin ----------
+   Once an origin is set, each "Get there by" option is only offered if
+   at least one destination (within the chosen continent) is physically
+   reachable that way — e.g. an ocean in between removes car, bus and
+   train. Impossible options turn gray and can't be picked; if the
+   current pick becomes impossible it falls back to "Any way that
+   works".                                                             */
+const modeNote = document.getElementById("modeNote");
+function updateModeAvailability(){
+  const geo  = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
+  const cont = continentEl.value;
+  const opts = [...travelByEl.options].filter(o => UI_MODE_KEY[o.value]);   // cheapest/fastest never gray
+  if(!geo){
+    opts.forEach(o => { o.disabled = false; });
+    modeNote.hidden = true;
+    return;
+  }
+  const avail = { plane:false, train:false, bus:false, car:false, boat:false };
+  for(const c of CITIES){
+    if(cont && continentFor(c) !== cont) continue;
+    if(c.city.toLowerCase() === (geo.city||"").toLowerCase()) continue;
+    NRA_TRANSPORT.compareModes(geo, c, { looseBoat:true }).modes
+      .forEach(m => { avail[m.mode] = true; });
+    if(avail.plane && avail.train && avail.bus && avail.car && avail.boat) break;
+  }
+  let anyDisabled = false;
+  opts.forEach(o => {
+    o.disabled = !avail[UI_MODE_KEY[o.value]];
+    if(o.disabled) anyDisabled = true;
   });
-});
-
-/* ---- Sample flight results (prototype): once date is set, list flights filtered by stops ---- */
-let selectedOrigin = null;
-const flightResults = document.getElementById("flightResults");
-const flightGrid    = document.getElementById("flightGrid");
-const flightSummary = document.getElementById("flightSummary");
-const flightsHead   = document.getElementById("flightsHead");
-
-const DESTS = [
-  {city:"London",code:"LHR"},{city:"Paris",code:"CDG"},{city:"New York",code:"JFK"},
-  {city:"Tokyo",code:"HND"},{city:"Dubai",code:"DXB"},{city:"Singapore",code:"SIN"},
-  {city:"Hong Kong",code:"HKG"},{city:"Los Angeles",code:"LAX"},{city:"Frankfurt",code:"FRA"},
-  {city:"Amsterdam",code:"AMS"},{city:"Sydney",code:"SYD"},{city:"Istanbul",code:"IST"},
-  {city:"Bangkok",code:"BKK"},{city:"Toronto",code:"YYZ"},{city:"Madrid",code:"MAD"},
-  {city:"Rome",code:"FCO"},{city:"Seoul",code:"ICN"},{city:"São Paulo",code:"GRU"},
-  {city:"Mexico City",code:"MEX"},{city:"Doha",code:"DOH"},{city:"Barcelona",code:"BCN"},
-  {city:"Munich",code:"MUC"},{city:"Chicago",code:"ORD"},{city:"San Francisco",code:"SFO"},
-  {city:"Delhi",code:"DEL"},{city:"Cape Town",code:"CPT"},{city:"Lisbon",code:"LIS"},{city:"Vienna",code:"VIE"}
-];
-const AIRLINES = ["Skyway Air","Atlas Airlines","Meridian","Blue Horizon","Aurora Jet","TransGlobal","Northwind","Cirrus Air"];
-
-function hashStr(s){ let h=1779033703 ^ s.length; for(let i=0;i<s.length;i++){ h=Math.imul(h ^ s.charCodeAt(i),3432918353); h=h<<13 | h>>>19; } return (h ^= h>>>16)>>>0; }
-function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a ^ a>>>15, 1|a); t=t+Math.imul(t ^ t>>>7, 61|t) ^ t; return ((t ^ t>>>14)>>>0)/4294967296; }; }
-function fmtTime(h,m){ const hh=((h%24)+24)%24; const ap=hh<12?"AM":"PM"; let h12=hh%12; if(h12===0)h12=12; return `${h12}:${String(m).padStart(2,"0")} ${ap}`; }
-function fmtDur(h){ const hh=Math.floor(h); const mm=Math.round((h-hh)*60); return `${hh}h ${mm}m`; }
-
-const STOPS_PARAM = { direct:"1", one:"2", multi:"0" }; // SerpApi stops codes
-
-// City-landmark photos come from Unsplash via the /image proxy (key stays server-side).
-const IMG_CACHE = {};
-const UTM = "?utm_source=never_roam_alone&utm_medium=referral";
-function applyCardImage(card, d){
-  if(!d || !d.url) return;                     // leaves the dark fallback panel
-  card.style.backgroundImage = `url('${d.url}')`;
-  if(d.credit){
-    const prof = (d.creditLink || "https://unsplash.com/") + UTM;
-    const cred = document.createElement("span");
-    cred.className = "photo-credit";
-    cred.innerHTML = `Photo: <a href="${prof}" target="_blank" rel="noopener">${d.credit}</a> / ` +
-                     `<a href="https://unsplash.com/${UTM}" target="_blank" rel="noopener">Unsplash</a>`;
-    card.appendChild(cred);
+  if(UI_MODE_KEY[travelByEl.value] && !avail[UI_MODE_KEY[travelByEl.value]]){
+    travelByEl.value = "cheapest";       // current pick became impossible
+    updateOriginModeUI();
   }
-}
-async function loadCardImages(){ return loadCardImagesIn(flightGrid); }
-async function loadCardImagesIn(grid){
-  const cards = [...grid.querySelectorAll(".flight-card[data-city]")];
-  for(const card of cards){
-    const city = card.dataset.city;
-    if(!city) continue;
-    if(IMG_CACHE[city] !== undefined){ applyCardImage(card, IMG_CACHE[city]); continue; }
-    try{
-      const r = await fetch(`/.netlify/functions/image?q=${encodeURIComponent(city + " landmark")}`);
-      if(!r.ok) throw new Error(r.status);
-      const d = await r.json();
-      IMG_CACHE[city] = (d && d.url) ? d : null;
-      applyCardImage(card, IMG_CACHE[city]);
-    }catch(e){ IMG_CACHE[city] = null; }
-  }
-}
-function maybeRenderFlights(){
-  const pref = (document.querySelector('input[name="stops"]:checked')||{}).value;
-  if(!(selectedOrigin && pref && departDate.value)) return;
-  const wantRound = roundTrip && roundTrip.checked;
-  const retDate = wantRound ? returnDate.value : "";
-  if(wantRound && !retDate) return;                         // round trip needs a return date
-  if(selectedOrigin.code){
-    fetchExplore(selectedOrigin, departDate.value, pref, retDate);   // live Google Travel Explore
-  } else {
-    renderFlights(selectedOrigin, pref, departDate.value);  // sample fallback (no airport code)
-  }
+  modeNote.textContent = anyDisabled
+    ? "Grayed-out options can't reach " + (cont ? CONTINENT_LABEL[cont] : "any destination") + " from your starting point (e.g. water in the way)."
+    : "";
+  modeNote.hidden = !anyDisabled;
 }
 
-async function fetchExplore(origin, date, pref, retDate){
-  flightsHead.textContent = `Exploring destinations from ${origin.code}…`;
-  flightSummary.innerHTML = "";
-  flightGrid.innerHTML = `<p class="empty">Loading live destinations…</p>`;
-  flightResults.hidden = false;
-  const params = { departure_id:origin.code, outbound_date:date, stops:STOPS_PARAM[pref]||"0", currency:"USD" };
-  if(retDate){ params.type = "1"; params.return_date = retDate; }   // round trip
-  const qs = new URLSearchParams(params);
-  try{
-    const r = await fetch(`/.netlify/functions/flights?${qs.toString()}`);
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const data = await r.json();
-    if(data.error) throw new Error(data.error);
-    renderExplore(data, origin, date);
-  }catch(e){
-    renderFlights(origin, pref, date);   // graceful fallback to sample flights
+let finderShowAll = false;
+function renderFinder(){
+  if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
+  updateModeAvailability();
+  const act    = activityEl.value;
+  const cont   = continentEl.value;
+  const mode   = travelByEl.value;
+  const budget = Math.max(0, parseFloat(totalBudgetEl.value) || 0);
+  const nightsIn = Math.max(0, parseInt(nightsEl.value, 10) || 0);
+  const pass   = finderPassportEl.value;
+  let sortBy   = sortByEl.value;
+  const geo    = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
+
+  /* activity counts: use cache, or kick off a fetch and re-render when it lands */
+  let counts = null, actLoading = false, actLabel = "";
+  if(act){
+    actLabel = (ACTIVITY_OSM[act]||{}).label || act.toLowerCase();
+    if(actCountsFor === act && actCounts) counts = actCounts;
+    else if(!actFailed[act]){ kickActivityFetch(act); actLoading = true; }
   }
-}
+  const fallbackNames = (act && actFailed[act]) ? (PRIORITIES[act]||[]) : [];
 
-function renderExplore(data, origin, date){
-  const list = (data.destinations || []).slice();
-  const prettyDate = new Date(date+"T00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"});
-  flightsHead.textContent = `Destinations from ${origin.code} · ${prettyDate}`;
-  if(!list.length){
-    flightSummary.innerHTML = "";
-    flightGrid.innerHTML = `<p class="empty">No destinations returned for that date — try another date or allow more stops.</p>`;
-    flightResults.hidden = false; return;
-  }
-  const counts = {0:0,1:0,2:0};
-  list.forEach(d => counts[Math.min(d.number_of_stops||0,2)]++);
-  const chips = [];
-  if(counts[0]) chips.push(`<span class="chip2 b-free">${counts[0]} <span>direct</span></span>`);
-  if(counts[1]) chips.push(`<span class="chip2 b-voa">${counts[1]} <span>one-stop</span></span>`);
-  if(counts[2]) chips.push(`<span class="chip2 b-evisa">${counts[2]} <span>multi-stop</span></span>`);
-  flightSummary.innerHTML = chips.join("");
-  list.sort((a,b)=> (a.flight_price!=null?a.flight_price:Infinity) - (b.flight_price!=null?b.flight_price:Infinity)); // cheapest first
-  const rows = list.map(d=>{
-    const stops = d.number_of_stops || 0;
-    const [cls,label] = stops===0 ? ["b-free","Direct"] : stops===1 ? ["b-voa","1 stop"] : ["b-evisa", stops+" stops"];
-    const code = (d.destination_airport && d.destination_airport.code) ? ` (${d.destination_airport.code})` : "";
-    const dur = d.flight_duration ? `${Math.floor(d.flight_duration/60)}h ${d.flight_duration%60}m` : "";
-    const price = (d.flight_price!=null) ? `$${d.flight_price}` : "";
-    const sub = [d.airline, dur].filter(Boolean).join(" · ");
-    return `<div class="visa-row flight-card" data-city="${(d.name||'').replace(/"/g,'&quot;')}">
-      <span class="dest">${d.name||"Destination"}${code}<span class="ac-name">${sub}</span></span>
-      <span class="right"><span class="badge ${cls}">${label}</span><span class="flight-price">${price}</span></span>
-    </div>`;
-  });
-  paintFlightGrid(rows);
-  flightResults.hidden = false;
-  flightResults.scrollIntoView({behavior:"smooth", block:"nearest"});
-}
+  if(geo) kickLiveFlights(geo);
 
-// Show the first 6 destination cards; reveal the rest behind a "Show more" button.
-function paintFlightGrid(rows){
-  const old = document.getElementById("flightMore");
-  if(old) old.remove();
-  flightGrid.innerHTML = rows.slice(0, 6).join("");
-  if(rows.length > 6){
-    const wrap = document.createElement("div");
-    wrap.id = "flightMore";
-    wrap.style.gridColumn = "1 / -1";
-    wrap.style.textAlign = "center";
-    wrap.style.marginTop = "6px";
-    wrap.innerHTML = '<button type="button" class="show-more">Show more (' + (rows.length - 6) + ')</button>';
-    flightGrid.appendChild(wrap);
-    wrap.querySelector("button").addEventListener("click", function(){
-      flightGrid.innerHTML = rows.join("");
-      loadCardImages();
-      if(window.NRA_i18n) window.NRA_i18n.apply();
-    });
-  }
-  loadCardImages();
-}
+  const nights = nightsIn || ((budget || geo) ? 7 : 0);   // default a week when math is wanted
+  const nightsAssumed = !nightsIn && nights ? true : false;
 
-function renderFlights(origin, pref, date){
-  const maxStops = pref==="direct" ? 0 : pref==="one" ? 1 : 9;
-  const flights = DESTS.filter(d => d.code !== origin.code).map(d => {
-    const rng = mulberry32(hashStr(origin.code + d.code + date));
-    const r = rng();
-    const stops = r<0.5 ? 0 : r<0.8 ? 1 : (r<0.95 ? 2 : 3);
-    const depHour = 5 + Math.floor(rng()*17);
-    const depMin = [0,10,15,30,40,45,55][Math.floor(rng()*7)];
-    const durH = (1.5 + rng()*13) + stops*1.4;
-    const airline = AIRLINES[Math.floor(rng()*AIRLINES.length)];
-    const price = Math.round((140 + rng()*820) + (stops===0?120:stops===1?40:0));
-    const arrTotal = depHour*60 + depMin + Math.round(durH*60);
-    return { d, stops, depHour, depMin, durH, airline, price,
-             arrH: Math.floor(arrTotal/60), arrM: arrTotal%60, plus: Math.floor(arrTotal/1440) };
-  }).filter(f => f.stops <= maxStops)
-    .sort((a,b) => a.price - b.price);   // cheapest first
-
-  const badge = s => s===0 ? ["b-free","Direct"] : s===1 ? ["b-voa","1 stop"] : s===2 ? ["b-evisa","2 stops"] : ["b-req", s+" stops"];
-  const counts = {0:0,1:0,2:0};
-  flights.forEach(f => counts[Math.min(f.stops,2)]++);
-  const chips = [];
-  if(counts[0]) chips.push(`<span class="chip2 b-free">${counts[0]} <span>direct</span></span>`);
-  if(counts[1]) chips.push(`<span class="chip2 b-voa">${counts[1]} <span>one-stop</span></span>`);
-  if(counts[2]) chips.push(`<span class="chip2 b-evisa">${counts[2]} <span>multi-stop</span></span>`);
-
-  const prettyDate = new Date(date + "T00:00").toLocaleDateString(undefined,{weekday:"short",month:"short",day:"numeric",year:"numeric"});
-  flightsHead.textContent = `Flights from ${origin.city||origin.name} (${origin.code}) · ${prettyDate}`;
-  flightSummary.innerHTML = chips.join("");
-
-  if(!flights.length){
-    const old = document.getElementById("flightMore"); if(old) old.remove();
-    flightGrid.innerHTML = `<p class="empty">No direct flights found for that date — try allowing a stop.</p>`;
-  } else {
-    const rows = flights.map(f => {
-      const [cls,label] = badge(f.stops);
-      const arr = fmtTime(f.arrH, f.arrM) + (f.plus ? ` +${f.plus}` : "");
-      return `<div class="visa-row flight-card" data-city="${(f.d.city||'').replace(/"/g,'&quot;')}">
-        <span class="dest">${f.d.city} (${f.d.code})<span class="ac-name">${f.airline} · ${fmtTime(f.depHour,f.depMin)} – ${arr} · ${fmtDur(f.durH)}</span></span>
-        <span class="right"><span class="badge ${cls}">${label}</span><span class="flight-price">$${f.price}</span></span>
-      </div>`;
-    });
-    paintFlightGrid(rows);
-  }
-
-  flightResults.hidden = false;
-  flightResults.scrollIntoView({behavior:"smooth", block:"nearest"});
-}
-
-/* ---- Custom calendar widget (larger, styled) — reusable for departure & return ---- */
-const calToday = new Date(); calToday.setHours(0,0,0,0);
-const CAL_MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-const CAL_DOW = ["Su","Mo","Tu","We","Th","Fr","Sa"];
-const pad2 = n => String(n).padStart(2,"0");
-const calISO = d => `${d.getFullYear()}-${pad2(d.getMonth()+1)}-${pad2(d.getDate())}`;
-const calPretty = d => d.toLocaleDateString(undefined,{weekday:"short",month:"long",day:"numeric",year:"numeric"});
-
-function makeCalendar(o){
-  let vy = calToday.getFullYear(), vm = calToday.getMonth(), sel = null;
-  const minD = () => (o.minDate ? o.minDate() : calToday);
-  function build(){
-    const min = minD();
-    const startDow = new Date(vy, vm, 1).getDay();
-    const days = new Date(vy, vm+1, 0).getDate();
-    const canPrev = (vy>min.getFullYear()) || (vy===min.getFullYear() && vm>min.getMonth());
-    let cells = "";
-    for(let i=0;i<startDow;i++) cells += `<div class="cal-day empty"></div>`;
-    for(let d=1; d<=days; d++){
-      const dd = new Date(vy, vm, d);
-      const past = dd < min;
-      const cls = ["cal-day"];
-      if(past) cls.push("disabled");
-      if(dd.getTime()===calToday.getTime()) cls.push("today");
-      if(sel && dd.getTime()===sel.getTime()) cls.push("selected");
-      cells += `<div class="${cls.join(" ")}" ${past?"":`data-d="${d}"`}>${d}</div>`;
-    }
-    o.popup.innerHTML =
-      `<div class="cal-head">
-         <button type="button" class="cal-nav cal-prev" ${canPrev?"":"disabled"}>&lsaquo;</button>
-         <div class="cal-title">${CAL_MONTHS[vm]} ${vy}</div>
-         <button type="button" class="cal-nav cal-next">&rsaquo;</button>
-       </div>
-       <div class="cal-grid">${CAL_DOW.map(d=>`<div class="cal-dow">${d}</div>`).join("")}${cells}</div>
-       <div class="cal-foot"><button type="button" class="cal-clear">Clear</button></div>`;
-  }
-  function reset(){ sel=null; o.input.value=""; o.triggerText.textContent="Select a date"; o.popup.hidden=true; vy=calToday.getFullYear(); vm=calToday.getMonth(); }
-  function setValue(iso){ if(!iso){ reset(); return; } sel=new Date(iso+"T00:00"); sel.setHours(0,0,0,0); o.input.value=iso; o.triggerText.textContent=calPretty(sel); vy=sel.getFullYear(); vm=sel.getMonth(); }
-  o.trigger.addEventListener("click",(e)=>{ e.stopPropagation(); if(o.popup.hidden){ build(); o.popup.hidden=false; } else o.popup.hidden=true; });
-  o.popup.addEventListener("click",(e)=>{
-    e.stopPropagation();
-    if(e.target.closest(".cal-prev")){ if(vm===0){vm=11;vy--;}else vm--; build(); return; }
-    if(e.target.closest(".cal-next")){ if(vm===11){vm=0;vy++;}else vm++; build(); return; }
-    if(e.target.closest(".cal-clear")){ reset(); o.onPick && o.onPick(""); return; }
-    const cell = e.target.closest("[data-d]");
-    if(cell){ sel=new Date(vy,vm,+cell.dataset.d); o.input.value=calISO(sel); o.triggerText.textContent=calPretty(sel); o.popup.hidden=true; o.onPick && o.onPick(o.input.value); }
-  });
-  document.addEventListener("click",(e)=>{ if(!o.popup.contains(e.target) && !o.trigger.contains(e.target)) o.popup.hidden=true; });
-  return { reset, setValue, getValue:()=>o.input.value };
-}
-
-const returnDate = document.getElementById("returnDate");
-const roundTrip = document.getElementById("roundTrip");
-const returnCol = document.getElementById("returnCol");
-
-const departCal = makeCalendar({
-  trigger: document.getElementById("dateTrigger"),
-  triggerText: document.getElementById("dateTriggerText"),
-  popup: document.getElementById("calPopup"),
-  input: departDate,
-  minDate: () => calToday,
-  onPick: (val) => {
-    const rv = returnCal.getValue();
-    if(rv && val && new Date(rv) < new Date(val)) returnCal.reset();   // keep return on/after departure
-    maybeRenderFlights(); saveState();
-  }
-});
-const returnCal = makeCalendar({
-  trigger: document.getElementById("returnTrigger"),
-  triggerText: document.getElementById("returnTriggerText"),
-  popup: document.getElementById("returnPopup"),
-  input: returnDate,
-  minDate: () => departDate.value ? new Date(departDate.value+"T00:00") : calToday,
-  onPick: () => { maybeRenderFlights(); saveState(); }
-});
-
-roundTrip.addEventListener("change", () => {
-  returnCol.hidden = !roundTrip.checked;
-  if(!roundTrip.checked) returnCal.reset();
-  maybeRenderFlights(); saveState();
-});
-
-/* ---- Ground-mode destination results (Train / Bus / Boat / Car / Any) ----
-   Which of the featured cities can you actually reach from the origin by
-   the chosen mode? Nearest first. Costs are estimates (labeled); train/bus
-   travel times get upgraded to real scheduled routes when Transitous
-   (prototype service) answers. */
-const groundResults = document.getElementById("groundResults");
-const groundHead = document.getElementById("groundHead");
-const groundGrid = document.getElementById("groundGrid");
-const groundNote = document.getElementById("groundNote");
-
-const GROUND_MODE_KEY = { Train:"train", Bus:"bus", Boat:"boat", Car:"car", Any:null };
-const GROUND_BADGE = { train:"b-voa", bus:"b-eta", car:"b-evisa", boat:"b-free", plane:"b-req" };
-const GROUND_NAME = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
-
-/* Fill in coordinates/region for an origin that only has a city name
-   (e.g. one picked from the train-station list). */
-function resolveOriginGeo(origin){
-  if(origin.lat != null && origin.lng != null){
-    if(!origin.region) origin.region = NRA_TRANSPORT.regionFor(origin.country || "");
-    return origin;
-  }
-  const inSet = CITIES.find(c => c.city.toLowerCase() === (origin.city||"").toLowerCase());
-  if(inSet) return { ...origin, lat:inSet.lat, lng:inSet.lng, country:inSet.country, region:inSet.region };
-  if(CITY_LIST){
-    const inList = CITY_LIST.find(c => c.city.toLowerCase() === (origin.city||"").toLowerCase());
-    if(inList) return { ...origin, lat:inList.lat, lng:inList.lng, country:inList.country,
-                        region: NRA_TRANSPORT.regionFor(inList.country || "") };
-  }
-  return null;
-}
-
-function renderGroundResults(){
-  const uiMode = travelmodeEl.value;
-  if(!(uiMode in GROUND_MODE_KEY)) return;
-  const modeKey = GROUND_MODE_KEY[uiMode];
-  const geo = selectedOrigin ? resolveOriginGeo(selectedOrigin) : null;
-  if(!geo){ groundResults.hidden = true; return; }
+  let maxCount = 1;
+  if(counts) maxCount = Math.max(1, ...counts);
 
   const rows = [];
-  for(const c of CITIES){
-    if(c.city.toLowerCase() === (geo.city||"").toLowerCase()) continue;    // not your own city
-    const cmp = NRA_TRANSPORT.compareModes(geo, c, { looseBoat: uiMode === "Boat" });
-    let m;
-    if(modeKey){ m = cmp.modes.find(x => x.mode === modeKey); }
-    else { m = cmp.modes[0]; }                                             // "Any" = cheapest workable
-    if(!m) continue;
-    rows.push({ c, m, km:cmp.km });
-  }
-  rows.sort((a,b) => a.km - b.km);                                         // nearest first
+  let hiddenBudget = 0, hiddenMode = 0, hiddenEntry = 0;
+  CITIES.forEach((c,i)=>{
+    if(cont && continentFor(c) !== cont) return;                               // continent filter
+    if(geo && c.city.toLowerCase() === (geo.city||"").toLowerCase()) return;   // not your own city
+    let cmp = null, m = null;
+    if(geo){
+      cmp = NRA_TRANSPORT.compareModes(geo, c, { looseBoat: mode==="Boat" });
+      cmp.modes.forEach(x=>{
+        if(x.mode==="plane"){
+          const lp = NRA_TRANSPORT.flightPriceFor(c.city);
+          if(lp != null){ x.cost = lp; x.live = true; }
+        }
+      });
+      cmp.modes.sort((a,b)=> a.cost - b.cost);
+      if(UI_MODE_KEY[mode])          m = cmp.modes.find(x=>x.mode===UI_MODE_KEY[mode]);
+      else if(mode === "fastest")    m = cmp.modes.reduce((a,b)=> (!a || b.timeH < a.timeH) ? b : a, null);
+      else                           m = cmp.modes[0];   // cheapest (list is cost-sorted)
+      if(!m){ hiddenMode++; return; }
+    }
+    const vi = pass ? visaInfoFor(pass, c) : null;
+    if(vi && vi.cat === "no"){ hiddenEntry++; return; }   // no admission — don't recommend
 
-  const modeLabel = uiMode === "Any" ? "any mode" : uiMode.toLowerCase();
-  groundHead.textContent = `Where you can go from ${geo.city} by ${modeLabel}`;
+    /* budget math: round-trip travel + nights × daily cost, best style that fits */
+    const rt = m ? m.cost*2 : 0;
+    let fitStyle = null, fitTotal = null;
+    if(nights){
+      if(budget){
+        for(const st of ["luxury","mid","budget"]){
+          const t = rt + nights*c.dailyCost[st];
+          if(t <= budget){ fitStyle = st; fitTotal = t; break; }
+        }
+        if(!fitStyle){ hiddenBudget++; return; }
+      } else {
+        fitStyle = "mid"; fitTotal = rt + nights*c.dailyCost.mid;
+      }
+    }
+
+    /* score */
+    let score = (c.visitors/27)*8;                                   // popularity baseline
+    if(counts) score += (counts[i]/maxCount)*30;                     // live activity ranking
+    const fbIdx = fallbackNames.indexOf(c.city);
+    if(fbIdx >= 0) score += (fallbackNames.length - fbIdx)*3;        // editor's-pick fallback
+    if(budget && fitStyle){
+      score += fitStyle==="luxury" ? 22 : fitStyle==="mid" ? 18 : 12;
+      score += Math.max(0,(budget - fitTotal)/budget)*4;             // headroom tiebreak
+    }
+    if(vi) score += vi.cat==="free" ? 12 : vi.cat==="voa" ? 9 : vi.cat==="eta" ? 8 : vi.cat==="evisa" ? 5 : 0;
+    if(cmp) score += Math.max(0, 1 - cmp.km/20000)*8;                // closer is easier
+
+    rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights,
+                count: counts ? counts[i] : null,
+                fallbackPick: fbIdx >= 0 ? act : null, score });
+  });
+
+  /* sort */
+  if(sortBy === "near" && !geo) sortBy = "match";
+  const totalFor = r => r.fitTotal != null ? r.fitTotal : (r.m ? r.m.cost*2 : 0) + 7*r.c.dailyCost.mid;
+  if(sortBy === "cost")         rows.sort((a,b)=> totalFor(a)-totalFor(b));
+  else if(sortBy === "popular") rows.sort((a,b)=> b.c.visitors-a.c.visitors);
+  else if(sortBy === "near")    rows.sort((a,b)=> a.cmp.km-b.cmp.km);
+  else                          rows.sort((a,b)=> b.score-a.score);
+
+  /* heading */
+  const bits = [];
+  if(cont) bits.push(`in ${CONTINENT_LABEL[cont]}`);
+  if(act) bits.push(`${act.replace("&amp;","&")} lovers`);
+  if(budget) bits.push(`${fmtMoney(budget)} for ${nights} night${nights>1?"s":""}`);
+  else if(nightsIn) bits.push(`${nightsIn} night${nightsIn>1?"s":""}`);
+  if(geo) bits.push(`from ${geo.city}${UI_MODE_KEY[mode] ? " by "+mode.toLowerCase()
+                     : mode==="fastest" ? ", fastest way there" : ", cheapest way there"}`);
+  else if(UI_MODE_KEY[mode]) bits.push(`by ${mode.toLowerCase()}`);
+  if(pass) bits.push(`${pass} passport`);
+  const head = bits.length
+    ? `<h2>Your matches — ${bits.join(" · ")}</h2>`
+    : `<h2>All ${CITIES.length} featured destinations</h2>`;
+
+  const hiddenBits = [];
+  if(hiddenBudget) hiddenBits.push(`${hiddenBudget} over budget`);
+  if(hiddenMode)   hiddenBits.push(`${hiddenMode} not workable by ${UI_MODE_KEY[mode] ? mode.toLowerCase() : "any mode"}`);
+  if(hiddenEntry)  hiddenBits.push(`${hiddenEntry} with no admission on your passport`);
+  const subBits = [];
+  subBits.push(`Showing <strong>${rows.length}</strong> of ${CITIES.length} destinations` +
+               (hiddenBits.length ? ` — ${hiddenBits.join(", ")} hidden` : "") + ".");
+  if(actLoading) subBits.push(`Counting real ${actLabel} on OpenStreetMap — results will sharpen in a moment…`);
+  else if(act && actFailed[act]) subBits.push(`Live ${actLabel} counts couldn't load right now — using editor's picks for ${act.replace("&amp;","&")}.`);
+  else if(counts) subBits.push(`Activity ranking uses live <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a> venue counts.`);
+  if(budget && !geo) subBits.push(`Tip: add where you're traveling from and the math will include getting there.`);
+  if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a 7-night trip — set your trip length to sharpen the math.`);
 
   if(!rows.length){
-    groundGrid.innerHTML = `<p class="empty">No featured cities are reachable from ${geo.city} by ${modeLabel} yet — more destinations are on the way. Try another mode of travel in the meantime.</p>`;
-    groundNote.textContent = "";
-    groundResults.hidden = false;
-    groundResults.scrollIntoView({behavior:"smooth", block:"nearest"});
+    const contMsg = cont === "antarctica"
+      ? `We don't feature any Antarctic destinations (yet!) — pick another continent or "I'm open to anywhere".`
+      : cont ? `Nothing in ${CONTINENT_LABEL[cont]} fits all of that yet — try "I'm open to anywhere" or loosen the other filters.`
+             : `Nothing fits all of that yet — try raising the budget, adding nights, or loosening the travel mode.`;
+    finderResults.innerHTML = head + `<p class="empty">${contMsg}</p>`;
     return;
   }
 
-  groundGrid.innerHTML = rows.map(r => `
-    <div class="visa-row flight-card" data-city="${r.c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m.mode}">
-      <span class="dest">${r.c.city} · ${r.c.country}
-        <span class="ac-name">≈ $${r.m.cost} <em class="est-tag">est.</em> · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span> · ${r.km.toLocaleString()} km${r.m.note ? " · " + r.m.note : ""}</span>
-      </span>
-      <span class="right">
-        <span class="badge ${GROUND_BADGE[r.m.mode] || "b-voa"}">${r.m.icon} ${GROUND_NAME[r.m.mode]}</span>
-        <a class="verify" href="city.html?city=${encodeURIComponent(r.c.city)}">Explore &rsaquo;</a>
-      </span>
-    </div>`).join("");
-  groundNote.innerHTML = `Prices are estimates (car = average rental + fuel; train/bus/boat = typical fares for the distance)` +
-    (uiMode === "Boat" || rows.some(r => r.m.mode === "boat") ? `; boat rows apply only if a ferry actually runs the route` : "") +
-    `. Travel times marked <em class="live-tag">real route</em> come from live timetable data. Modes that aren't physically possible are excluded.`;
-  groundResults.hidden = false;
-  groundResults.scrollIntoView({behavior:"smooth", block:"nearest"});
-  loadCardImagesIn(groundGrid);
+  const LIMIT = 12;
+  const shown = finderShowAll ? rows : rows.slice(0, LIMIT);
+  finderResults.innerHTML = head +
+    `<p class="sub">${subBits.join(" ")}</p>` +
+    `<div class="grid">${shown.map((r,idx)=> finderCardHTML(r, idx+1, actLabel, budget)).join("")}</div>` +
+    (rows.length > LIMIT && !finderShowAll
+      ? `<div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="finderMore">Show ${rows.length - LIMIT} more</button></div>`
+      : "") +
+    `<p class="visa-disclaimer">Daily costs are estimates per person, compiled ${window.NRA_COSTS_VERIFIED} from published traveler averages (e.g. BudgetYourTrip). Travel prices marked <em>est.</em> are estimates (car = average rental + fuel; train/bus/boat = typical fares by distance); flight prices marked <em>live</em> come from a real search. Round-trip travel is estimated as 2× one-way. Your real spend depends on season, exchange rates, and travel style.</p>`;
+  const moreBtn = document.getElementById("finderMore");
+  if(moreBtn) moreBtn.addEventListener("click", ()=>{ finderShowAll = true; renderFinder(); });
 
-  /* upgrade the nearest 6 train/bus rows to real scheduled durations */
-  rows.slice(0,6).forEach(r => {
-    if(r.m.mode !== "train" && r.m.mode !== "bus") return;
-    const el = groundGrid.querySelector(`[data-city="${CSS.escape(r.c.city)}"] .way-time`);
-    if(!el) return;
-    NRA_TRANSPORT.transitousCheck(geo, r.c).then(res => {
-      if(res && res.timeH && !el.parentElement.querySelector(".live-tag")){
-        el.textContent = NRA_TRANSPORT.fmtH(res.timeH);
-        el.insertAdjacentHTML("afterend", ' <em class="live-tag">real route</em>');
-      }
+  /* upgrade the first few train/bus travel times to real scheduled routes (prototype: Transitous) */
+  if(geo){
+    shown.slice(0,6).forEach(r=>{
+      if(!r.m || (r.m.mode!=="train" && r.m.mode!=="bus")) return;
+      const el = finderResults.querySelector(`[data-city="${CSS.escape(r.c.city)}"] .way-time`);
+      if(!el) return;
+      NRA_TRANSPORT.transitousCheck(geo, r.c).then(res=>{
+        if(res && res.timeH && !el.parentElement.querySelector(".live-tag")){
+          el.textContent = NRA_TRANSPORT.fmtH(res.timeH);
+          el.insertAdjacentHTML("afterend", ' <em class="live-tag">real route</em>');
+        }
+      });
     });
-  });
+  }
 }
 
-/* ---- Train station results: shown after picking a city in Train mode ---- */
-const trainResults = document.getElementById("trainResults");
-const trainHead = document.getElementById("trainHead");
-const trainGrid = document.getElementById("trainGrid");
-function renderTrainResults(city){
-  const stations = TRAIN_STATIONS[city] || [];
-  trainHead.textContent = `Major train stations in ${city}`;
-  trainGrid.innerHTML = stations.map(s =>
-    `<div class="visa-row train-pick" data-station="${s.replace(/"/g,'&quot;')}" data-city="${city.replace(/"/g,'&quot;')}">
-       <span class="dest">${s}<span class="ac-name">${city}</span></span>
-       <span class="right"><span class="badge b-voa">Station</span></span>
-     </div>`).join("");
-  trainResults.hidden = false;
-  trainResults.scrollIntoView({behavior:"smooth", block:"nearest"});
-}
-trainGrid.addEventListener("click", (e)=>{
-  const row = e.target.closest(".train-pick"); if(!row) return;
-  originInput.value = `${row.dataset.station}, ${row.dataset.city}`;
-  selectedOrigin = { city:row.dataset.city, code:"" };
-  trainResults.hidden = true;
-  renderGroundResults();     // picking a station sets the origin — show destinations
-  saveState();
+/* wiring: selects re-render instantly, number inputs are debounced */
+let numTimer = null;
+[continentEl, activityEl, travelByEl, sortByEl].forEach(el =>
+  el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
+travelByEl.addEventListener("change", updateOriginModeUI);
+[totalBudgetEl, nightsEl].forEach(el =>
+  el.addEventListener("input", ()=>{
+    clearTimeout(numTimer);
+    numTimer = setTimeout(()=>{ finderShowAll=false; renderFinder(); saveState(); }, 400);
+  }));
+finderPassportEl.addEventListener("change", ()=>{
+  finderShowAll=false;
+  /* keep the visa tab in sync */
+  if(finderPassportEl.value && passport.value !== finderPassportEl.value){
+    passport.value = finderPassportEl.value;
+    if(DATA && DATA.get(finderPassportEl.value)){ activeCat=null; render(finderPassportEl.value); }
+  }
+  renderFinder(); saveState();
 });
-
-/* ---- Visa Free Travel: populate the passport-country dropdown ---- */
+/* ============================================================
+   VISA DATA — live lookup against the open Passport Index
+   dataset. Powers both the visa tab and the finder's badges.
+   ============================================================ */
 const COUNTRIES = [
   "Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia",
   "Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan",
@@ -1500,21 +1075,29 @@ const COUNTRIES = [
 ];
 const passport = document.getElementById("passport");
 let pendingPassport = null;
-COUNTRIES.forEach(name=>{
-  const o = document.createElement("option");
-  o.value = name; o.textContent = name;
-  passport.appendChild(o);
-});
+function fillPassportSelects(names){
+  const keepV = passport.value, keepF = finderPassportEl.value;
+  passport.innerHTML = '<option value="" selected disabled>Select your country…</option>';
+  finderPassportEl.innerHTML = '<option value="" selected>Not now</option>';
+  names.forEach(n=>{
+    const o = document.createElement("option"); o.value=n; o.textContent=n; passport.appendChild(o);
+    const o2 = document.createElement("option"); o2.value=n; o2.textContent=n; finderPassportEl.appendChild(o2);
+  });
+  if(names.includes(keepV)) passport.value = keepV;
+  if(names.includes(keepF)) finderPassportEl.value = keepF;
+}
+fillPassportSelects(COUNTRIES);
 
-/* ---- Visa Free Travel: live lookup against the open Passport Index dataset ---- */
 const PI_URL = "https://cdn.jsdelivr.net/gh/ilyankou/passport-index-dataset@master/passport-index-tidy.csv";
 const visaStatus  = document.getElementById("visaStatus");
 const visaResults = document.getElementById("visaResults");
 const visaSummary = document.getElementById("visaSummary");
 const visaGrid    = document.getElementById("visaGrid");
 const visaFilter  = document.getElementById("visaFilter");
+const visaFilterHint = document.getElementById("visaFilterHint");
 
 let DATA = null; // Map(passport -> Array<[destination, requirement]>)
+let activeCat = null;
 
 function classify(reqRaw){
   const r = String(reqRaw).trim().toLowerCase();
@@ -1551,6 +1134,32 @@ function parseCSV(text){
   return { map, passports:[...passports].sort((a,b)=>a.localeCompare(b)) };
 }
 
+/* --- lookup used by the finder: our city-country names -> dataset names --- */
+const DEST_ALIAS = { "UAE":"United Arab Emirates", "Türkiye":"Turkey" };
+function destNameFor(c){
+  if(c.country === "China (SAR)") return c.city === "Macau" ? "Macao" : c.city;   // Hong Kong / Macao are listed separately
+  return DEST_ALIAS[c.country] || c.country;
+}
+let visaIdxCache = {};
+function visaInfoFor(p, c){
+  if(!DATA || !DATA.get(p)) return null;
+  if(!visaIdxCache[p]){
+    const idx = {};
+    (DATA.get(p)||[]).forEach(([d,req]) => { idx[d.toLowerCase()] = classify(req); });
+    visaIdxCache[p] = idx;
+  }
+  const name = destNameFor(c).toLowerCase();
+  if(name === p.toLowerCase()) return {cat:"free", label:"Home country", cls:"b-free", rank:0};
+  let info = visaIdxCache[p][name];
+  if(info === undefined){
+    const keys = Object.keys(visaIdxCache[p]);
+    const stub = name.slice(0,6);
+    const k = keys.find(x => x.startsWith(stub)) || keys.find(x => name.startsWith(x.slice(0,6)));
+    info = k ? visaIdxCache[p][k] : null;
+  }
+  return info || null;
+}
+
 function itemsFor(p){
   const rows = DATA.get(p) || [];
   return rows.map(([d,req]) => ({ d, info: classify(req) }))
@@ -1568,10 +1177,29 @@ function rowHTML(p, x){
 
 function renderGrid(p, items){
   const f = visaFilter.value.trim().toLowerCase();
-  const shown = f ? items.filter(x => x.d.toLowerCase().includes(f)) : items;
+  let shown = activeCat ? items.filter(x => x.info.cat === activeCat) : items;
+  if(f) shown = shown.filter(x => x.d.toLowerCase().includes(f));
   visaGrid.innerHTML = shown.length
     ? shown.map(x => rowHTML(p, x)).join("")
     : '<p class="empty">No destinations match that filter.</p>';
+}
+
+const VISA_ORDER = [["free","b-free","visa-free"],["voa","b-voa","on arrival"],["eta","b-eta","eTA"],
+               ["evisa","b-evisa","eVisa"],["req","b-req","visa required"],["no","b-no","no admission"]];
+const VISA_LABELS = Object.fromEntries(VISA_ORDER.map(o => [o[0], o[2]]));
+
+function updateBubbleState(){
+  visaSummary.classList.toggle("has-active", !!activeCat);
+  visaSummary.querySelectorAll(".chip2").forEach(c =>
+    c.classList.toggle("active", c.dataset.cat === activeCat));
+  if(activeCat){
+    visaFilterHint.innerHTML = 'Showing only <strong>' + VISA_LABELS[activeCat] +
+      '</strong> countries. <button type="button" id="visaClearFilter">Show all</button>';
+    visaFilterHint.hidden = false;
+  } else {
+    visaFilterHint.hidden = true;
+    visaFilterHint.textContent = "";
+  }
 }
 
 function render(p){
@@ -1579,17 +1207,43 @@ function render(p){
   const items = itemsFor(p);
   const counts = {};
   items.forEach(x => counts[x.info.cat] = (counts[x.info.cat]||0) + 1);
-  const order = [["free","b-free","visa-free"],["voa","b-voa","on arrival"],["eta","b-eta","eTA"],
-                 ["evisa","b-evisa","eVisa"],["req","b-req","visa required"],["no","b-no","no admission"]];
-  visaSummary.innerHTML = order.filter(o => counts[o[0]])
-    .map(o => '<span class="chip2 ' + o[1] + '">' + counts[o[0]] + ' <span>' + o[2] + '</span></span>').join("");
+  if(!counts[activeCat]) activeCat = null;
+  visaSummary.innerHTML = VISA_ORDER.filter(o => counts[o[0]])
+    .map(o => '<span class="chip2 ' + o[1] + '" data-cat="' + o[0] + '" role="button" tabindex="0" ' +
+      'title="Click to show only these countries">' + counts[o[0]] + ' <span>' + o[2] + '</span></span>').join("");
   visaFilter.value = "";
+  updateBubbleState();
   renderGrid(p, items);
   visaResults.hidden = false;
-  visaResults.scrollIntoView({behavior:"smooth", block:"nearest"});
 }
 
-passport.addEventListener("change", e => { render(e.target.value); saveState(); });
+function toggleCat(cat){
+  const p = passport.value;
+  if(!DATA || !DATA.get(p)) return;
+  activeCat = (activeCat === cat) ? null : cat;
+  updateBubbleState();
+  renderGrid(p, itemsFor(p));
+}
+
+visaSummary.addEventListener("click", e => {
+  const chip = e.target.closest(".chip2");
+  if(chip && chip.dataset.cat) toggleCat(chip.dataset.cat);
+});
+visaSummary.addEventListener("keydown", e => {
+  if(e.key !== "Enter" && e.key !== " ") return;
+  const chip = e.target.closest(".chip2");
+  if(chip && chip.dataset.cat){ e.preventDefault(); toggleCat(chip.dataset.cat); }
+});
+visaFilterHint.addEventListener("click", e => {
+  if(e.target.id === "visaClearFilter"){ activeCat = null; updateBubbleState(); renderGrid(passport.value, itemsFor(passport.value)); }
+});
+
+passport.addEventListener("change", e => {
+  activeCat = null; render(e.target.value);
+  /* keep the finder in sync */
+  if(finderPassportEl.value !== e.target.value){ finderPassportEl.value = e.target.value; renderFinder(); }
+  saveState();
+});
 visaFilter.addEventListener("input", () => {
   const p = passport.value;
   if(DATA && DATA.get(p)) renderGrid(p, itemsFor(p));
@@ -1600,82 +1254,168 @@ fetch(PI_URL)
   .then(text => {
     const parsed = parseCSV(text);
     DATA = parsed.map;
-    // Repopulate the dropdown from the dataset so names always match the lookup
-    const keep = passport.value;
-    passport.innerHTML = '<option value="" selected disabled>Select your country…</option>';
-    parsed.passports.forEach(n => {
-      const o = document.createElement("option"); o.value = n; o.textContent = n; passport.appendChild(o);
-    });
-    const want = pendingPassport || keep;
-    if(parsed.passports.includes(want)){ passport.value = want; render(want); }
+    visaIdxCache = {};
+    const keepP = pendingPassport || passport.value;
+    const keepF = finderPassportEl.value || keepP;
+    fillPassportSelects(parsed.passports);
+    if(parsed.passports.includes(keepP)){ passport.value = keepP; render(keepP); }
+    if(keepF && parsed.passports.includes(keepF)){ finderPassportEl.value = keepF; }
     pendingPassport = null;
     visaStatus.textContent = "Pick your passport to see entry requirements for every country.";
+    renderFinder();   // badges can appear now
   })
   .catch(() => {
     visaStatus.innerHTML = "Live visa data couldn't load (you may be offline, or the page is open from a local file). " +
       "Once the site is hosted online this loads automatically — meanwhile you can check an official source like " +
       "<a href='https://www.iatatravelcentre.com/' target='_blank' rel='noopener'>IATA Travel Centre</a>.";
   });
+/* ============================================================
+   BUCKET LIST — the world's 100 most iconic places, ranked by
+   how many major published lists feature them (data in
+   bucketlist.js). Landmark photos come from Unsplash via the
+   /image proxy; a placeholder shows until it answers.
+   ============================================================ */
+const BUCKET = window.NRA_BUCKET || [];
+const bucketResults = document.getElementById("bucketResults");
+const blChips  = document.getElementById("blChips");
+const blSearch = document.getElementById("blSearch");
+const BL_TYPE = {
+  ancient:      ["type-ancient","Ancient wonder"],
+  nature:       ["type-nature","Natural wonder"],
+  architecture: ["type-architecture","Architecture & icons"],
+  sacred:       ["type-sacred","Sacred & cultural"]
+};
+let blType = "", blShown = 12;
+const CITY_SET = new Set(CITIES.map(c=>c.city));
 
-/* ---- Persist the whole form across page reloads (graceful if storage is blocked) ---- */
-const STORE_KEY = "nra_choose_state_v1";
+/* Bucket List photos are local files (images/bucketlist/) baked straight
+   into each card's background-image in bucketCardHTML — no live fetch,
+   so they always load correctly. Each card shows a Wikimedia Commons
+   credit link (b.page) via the .photo-credit span. */
+
+function bucketCardHTML(b, rank){
+  const [tCls, tLabel] = BL_TYPE[b.type] || ["b-no", b.type];
+  const srcs = b.sources || [];
+  const sg = slug(b.name);
+  const mapUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(b.name + ", " + b.country);
+  const cityLink = (b.city && CITY_SET.has(b.city))
+    ? `<a class="go" href="city.html?city=${encodeURIComponent(b.city)}">Explore ${b.city} &rarr;</a>` : "";
+  return `
+    <article class="card">
+      <div class="photo" style="background-image:url('${b.img}')">
+        <span class="rank-chip">#${rank}</span>
+        <span class="visit badge ${tCls}" style="background:none;padding:0"><span class="badge ${tCls}">${tLabel}</span></span>
+        <span class="photo-credit">Photo: <a href="${b.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+      </div>
+      <div class="body">
+        <div class="country">${b.country}</div>
+        <h3>${b.name}</h3>
+        <p>${b.blurb}${b.best ? `<br><span class="label-hint">Best time: ${b.best}</span>` : ""}</p>
+        <p class="bl-meta">On <strong>${srcs.length} of 5</strong> major lists${srcs.length ? ` — <span class="src">${srcs.join(", ")}</span>` : ""}</p>
+        <div class="links-row">
+          ${cityLink}
+          <a class="flights-link" href="${mapUrl}" target="_blank" rel="noopener">View on map ↗</a>
+        </div>
+      </div>
+    </article>`;
+}
+
+function renderBucket(){
+  if(!BUCKET.length){ bucketResults.innerHTML = `<p class="empty">The bucket list couldn't load.</p>`; return; }
+  const f = blSearch.value.trim().toLowerCase();
+  const withRank = BUCKET.map((b,i)=>({b, rank:i+1}));
+  let list = blType ? withRank.filter(x=>x.b.type===blType) : withRank;
+  if(f) list = list.filter(x => x.b.name.toLowerCase().includes(f) || x.b.country.toLowerCase().includes(f) || (x.b.city||"").toLowerCase().includes(f));
+  if(!list.length){ bucketResults.innerHTML = `<p class="empty">No places match that search.</p>`; return; }
+  const shown = list.slice(0, blShown);
+  bucketResults.innerHTML =
+    `<p class="sub">Showing <strong>${shown.length}</strong> of ${list.length}${blType || f ? " matching" : ""} places — ranked most iconic first.</p>` +
+    `<div class="grid">${shown.map(x => bucketCardHTML(x.b, x.rank)).join("")}</div>` +
+    (list.length > blShown
+      ? `<div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="blMore">Show ${Math.min(12, list.length - blShown)} more</button></div>`
+      : "") +
+    `<p class="visa-disclaimer">Rankings reflect how often each place appears across New7Wonders, the UNESCO World Heritage List, Lonely Planet's Ultimate Travel List, TripAdvisor Travelers' Choice and National Geographic — close ranks are effectively ties. Always check current opening rules before planning around one place.</p>`;
+  const more = document.getElementById("blMore");
+  if(more) more.addEventListener("click", ()=>{ blShown += 12; renderBucket(); });
+}
+
+blChips.addEventListener("click", e=>{
+  const chip = e.target.closest(".bl-chip"); if(!chip) return;
+  blType = chip.dataset.type;
+  blShown = 12;
+  [...blChips.children].forEach(c => c.classList.toggle("active", c === chip));
+  renderBucket();
+  saveState();
+});
+blSearch.addEventListener("input", ()=>{ blShown = 12; renderBucket(); });
+/* ============================================================
+   TOOL SWITCHER + saved state (graceful if storage is blocked)
+   ============================================================ */
+const toolSections = document.querySelectorAll(".tool-section");
+const switchBtns = document.querySelectorAll(".switch-btn");
+function showTool(val){
+  toolSections.forEach(s => { s.hidden = (s.dataset.tool !== val); });
+  switchBtns.forEach(b => {
+    const inp = b.querySelector('input[name="tool"]');
+    if(inp) b.classList.toggle("active", inp.value === val);
+  });
+}
+document.querySelectorAll('input[name="tool"]').forEach(r => {
+  r.addEventListener("change", () => { showTool(r.value); saveState(); });
+});
+showTool("finder");
+
+const STORE_KEY = "nra_choose_state_v2";
 function saveState(){
   try{
     localStorage.setItem(STORE_KEY, JSON.stringify({
-      tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "activities",
-      priority: priorityEl.value,
-      budget: budgetEl.value,
-      budgetOriginText: budgetOriginInput.value,
-      budgetOrigin: budgetOrigin,
+      tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "finder",
+      continent: continentEl.value,
+      activity: activityEl.value,
+      travelBy: travelByEl.value,
+      totalBudget: totalBudgetEl.value,
+      nights: nightsEl.value,
+      originText: finderOriginInput.value,
+      origin: finderOrigin,
       regional: regionalPref,
-      travelmode: travelmodeEl.value,
-      originText: originInput.value,
-      origin: selectedOrigin,
-      depart: departDate.value,
-      round: roundTrip.checked,
-      returnDate: returnDate.value,
-      stops: (document.querySelector('input[name="stops"]:checked')||{}).value || "",
-      passport: passport.value
+      sortBy: sortByEl.value,
+      passport: passport.value || finderPassportEl.value,
+      finderPassport: finderPassportEl.value,
+      bucketType: blType
     }));
   }catch(e){}
 }
 function loadState(){
   let s; try{ s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); }catch(e){ s = null; }
   if(!s) return;
-
-  if(s.priority) priorityEl.value = s.priority;
-  if(s.budget) budgetEl.value = s.budget;
-  if(s.budgetOriginText) budgetOriginInput.value = s.budgetOriginText;
-  if(s.budgetOrigin) budgetOrigin = s.budgetOrigin;
-  if(s.regional) setRegionalPref(true, true);
-  if(s.priority) renderPicks();
-  if(s.budget) renderBudget(false);
-
-  if(s.travelmode){
-    travelmodeEl.value = s.travelmode;
-    applyModeUI(s.travelmode);
-    if(s.originText) originInput.value = s.originText;
-    selectedOrigin = s.origin || null;
-    if(s.stops){
-      const r = document.querySelector(`input[name="stops"][value="${s.stops}"]`);
-      if(r){ r.checked = true; document.querySelectorAll(".stops-group .switch-btn").forEach(b => b.classList.toggle("active", b.querySelector("input").checked)); }
-    }
-    if(s.depart) departCal.setValue(s.depart);
-    if(s.round){ roundTrip.checked = true; returnCol.hidden = false; if(s.returnDate) returnCal.setValue(s.returnDate); }
-    if(s.travelmode === "Plane") maybeRenderFlights();
-    else if(selectedOrigin) renderGroundResults();
+  if(s.continent) continentEl.value = s.continent;
+  if(s.activity) activityEl.value = s.activity;
+  if(s.travelBy) travelByEl.value = s.travelBy;
+  if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
+  if(s.nights) nightsEl.value = s.nights;
+  if(s.originText) finderOriginInput.value = s.originText;
+  if(s.origin) finderOrigin = s.origin;
+  if(s.regional){ regionalPref = true; regionalBox.checked = true; }
+  if(s.sortBy) sortByEl.value = s.sortBy;
+  if(s.finderPassport) finderPassportEl.value = s.finderPassport;
+  if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
+  if(s.bucketType){
+    blType = s.bucketType;
+    [...blChips.children].forEach(c => c.classList.toggle("active", c.dataset.type === blType));
   }
-
-  if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; if(DATA && DATA.get(s.passport)) render(s.passport); }
-
   if(s.tool){
     const tr = document.querySelector(`input[name="tool"][value="${s.tool}"]`);
-    if(tr) tr.checked = true;
-    showTool(s.tool);
+    if(tr){ tr.checked = true; showTool(s.tool); }
   }
 }
 loadState();
+updateOriginModeUI();
+renderFinder();
+renderBucket();
 </script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="mailing-list.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

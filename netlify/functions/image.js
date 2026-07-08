@@ -6,10 +6,17 @@
 //
 // Endpoint (once deployed): /.netlify/functions/image?q=Shibuya+Crossing+Tokyo
 // Returns the most-downloaded landscape photo matching the query.
+//
+// Add &count=8 (2-12) to get a LIST of matches instead — used by the
+// blog editor's image picker so you can choose between several photos.
+// Response then looks like: { results: [ {url, thumb, credit, ...}, ... ] }
 
 exports.handler = async (event) => {
   const q = ((event.queryStringParameters && event.queryStringParameters.q) || "").trim();
   if (!q) return json(400, { error: "Provide a q (search query)." });
+
+  const countRaw = parseInt((event.queryStringParameters && event.queryStringParameters.count) || "", 10);
+  const count = Number.isFinite(countRaw) ? Math.min(12, Math.max(2, countRaw)) : 0;
 
   const key = process.env.UNSPLASH_ACCESS_KEY;
   if (!key) return json(500, { error: "Server is not configured: UNSPLASH_ACCESS_KEY is missing." });
@@ -19,7 +26,7 @@ exports.handler = async (event) => {
   url.searchParams.set("orientation", "landscape");
   url.searchParams.set("order_by", "downloads");
   url.searchParams.set("content_filter", "high");
-  url.searchParams.set("per_page", "1");
+  url.searchParams.set("per_page", String(count || 1));
 
   try {
     const resp = await fetch(url.toString(), {
@@ -28,6 +35,19 @@ exports.handler = async (event) => {
     if (!resp.ok) return json(502, { error: "Unsplash returned " + resp.status });
 
     const d = await resp.json();
+
+    // List mode (image picker): return every match.
+    if (count) {
+      const results = (d.results || []).map(p => ({
+        url: p.urls.regular || p.urls.small,
+        thumb: p.urls.small || p.urls.thumb,
+        credit: p.user ? p.user.name : null,
+        creditLink: p.user && p.user.links ? p.user.links.html : null,
+        link: p.links ? p.links.html : null
+      }));
+      return json(200, { results }, { "Cache-Control": "public, max-age=86400" });
+    }
+
     const photo = d.results && d.results[0];
     if (!photo) return json(404, { error: "No photos found for: " + q });
 

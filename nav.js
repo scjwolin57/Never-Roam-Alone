@@ -57,6 +57,13 @@
       "header.nav.nra-nav-open .nra-burger .bars::before{top:0;transform:rotate(45deg)}" +
       "header.nav.nra-nav-open .nra-burger .bars::after{top:0;transform:rotate(-45deg)}" +
 
+      // Account slot (filled in by auth.js, when loaded) — sits between the
+      // language selector and the hamburger, in that flex order.
+      ".nra-nav-acct{order:90;margin-left:16px;display:flex;align-items:center;min-height:34px}" +
+      "@media(max-width:600px){.nra-nav-acct{margin-left:10px}}" +
+      // Very narrow phones: the language selector, sign-in button and burger
+      // all have to fit on one line — tighten the gaps so nothing overflows.
+      "@media(max-width:420px){.nra-nav-acct{margin-left:6px}.nra-burger{margin-left:6px}}" +
       "@media(max-width:" + BREAKPOINT + "px){" +
         // Show the button and let the panel anchor to the bar
         ".nra-burger{display:inline-flex}" +
@@ -84,6 +91,24 @@
     header.classList.remove("nra-nav-open");
     var btn = header.querySelector(".nra-burger");
     if (btn) btn.setAttribute("aria-expanded", "false");
+  }
+
+  /* ---- Reserve a slot for the sign-in button / profile circle (auth.js fills
+     it in if it's loaded on this page; otherwise it just stays empty). ---- */
+  function buildAccountSlot() {
+    var host = document.querySelector("header.nav .nav-inner");
+    if (!host || host.querySelector("#nra-nav-account")) return;
+    var slot = document.createElement("div");
+    slot.id = "nra-nav-account";
+    slot.className = "nra-nav-acct";
+    slot.setAttribute("data-no-i18n", "");
+    host.appendChild(slot);
+    // In case auth.js already finished its startup before this slot existed,
+    // ask it to draw into the slot right away instead of waiting for its
+    // next sign-in/sign-out event.
+    if (window.NRA_AUTH && typeof window.NRA_AUTH.renderNavWidget === "function") {
+      window.NRA_AUTH.renderNavWidget();
+    }
   }
 
   /* ---- Build + wire the hamburger button (one per page) ---- */
@@ -143,6 +168,7 @@
     for (var i = 0; i < slots.length; i++) slots[i].innerHTML = html;
 
     injectMenuStyles();
+    buildAccountSlot();
     buildBurger();
 
     // If the translator has already initialised, re-run it so the freshly

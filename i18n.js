@@ -148,7 +148,62 @@
     "just now": { es: "ahora mismo", fr: "à l'instant", it: "proprio ora", zh: "刚刚" },
     "Newest first": { es: "Más recientes primero", fr: "Plus récentes d'abord", it: "Più recenti prima", zh: "最新优先" },
     "Most replies": { es: "Más respuestas", fr: "Plus de réponses", it: "Più risposte", zh: "回复最多" },
-    "Unanswered": { es: "Sin responder", fr: "Sans réponse", it: "Senza risposta", zh: "未回答" }
+    "Unanswered": { es: "Sin responder", fr: "Sans réponse", it: "Senza risposta", zh: "未回答" },
+
+    /* City page — cost cards (Hotel / Meal / Taxi / Drinks / Connectivity) */
+    "Hotel · per night": { es: "Hotel · por noche", fr: "Hôtel · par nuit", it: "Hotel · a notte", zh: "酒店 · 每晚" },
+    "mid-range · avg,": { es: "gama media · prom.,", fr: "milieu de gamme · moy.,", it: "fascia media · media,", zh: "中档 · 均价," },
+    "Budget": { es: "Económico", fr: "Économique", it: "Economico", zh: "经济型" },
+    "High-end": { es: "Alta gama", fr: "Haut de gamme", it: "Fascia alta", zh: "高端" },
+    "Meal · per person": { es: "Comida · por persona", fr: "Repas · par personne", it: "Pasto · a persona", zh: "餐食 · 每人" },
+    "sit-down restaurant ·": { es: "restaurante con servicio ·", fr: "restaurant à table ·", it: "ristorante al tavolo ·", zh: "堂食餐厅 ·" },
+    "Tipping": { es: "Propina", fr: "Pourboire", it: "Mancia", zh: "小费" },
+    "expected": { es: "esperada", fr: "attendu", it: "attesa", zh: "需要给" },
+    "customary": { es: "habitual", fr: "d'usage", it: "consueta", zh: "常见" },
+    "optional": { es: "opcional", fr: "facultatif", it: "facoltativa", zh: "可给可不给" },
+    "service included": { es: "servicio incluido", fr: "service compris", it: "servizio incluso", zh: "已含服务费" },
+    "not customary": { es: "no habitual", fr: "pas d'usage", it: "non consueta", zh: "不流行" },
+    "Taxi / Uber · 10 km": { es: "Taxi / Uber · 10 km", fr: "Taxi / Uber · 10 km", it: "Taxi / Uber · 10 km", zh: "出租车 / 优步 · 10公里" },
+    "typical fare ·": { es: "tarifa típica ·", fr: "tarif typique ·", it: "tariffa tipica ·", zh: "常见车费 ·" },
+    "Ride-share apps": { es: "Apps de transporte", fr: "Applis VTC", it: "App di ride-sharing", zh: "网约车应用" },
+    "Local taxis — no major apps": { es: "Taxis locales — sin apps principales", fr: "Taxis locaux — pas d'applis majeures", it: "Taxi locali — nessuna app principale", zh: "本地出租车 — 无主流应用" },
+    "Drinks": { es: "Bebidas", fr: "Boissons", it: "Bevande", zh: "饮品" },
+    "Coffee · takeaway": { es: "Café · para llevar", fr: "Café · à emporter", it: "Caffè · da asporto", zh: "咖啡 · 外带" },
+    "Beer · 0.5L": { es: "Cerveza · 0,5L", fr: "Bière · 0,5L", it: "Birra · 0,5L", zh: "啤酒 · 0.5升" },
+    "Water · bottle": { es: "Agua · botella", fr: "Eau · bouteille", it: "Acqua · bottiglia", zh: "瓶装水" },
+    "Public alcohol not allowed": { es: "Alcohol no permitido en público", fr: "Alcool interdit en public", it: "Alcol vietato in pubblico", zh: "公共场所禁止饮酒" },
+    "Public alcohol restricted": { es: "Alcohol restringido en público", fr: "Alcool restreint en public", it: "Alcol limitato in pubblico", zh: "公共场所限制饮酒" },
+    "average prices per drink": { es: "precios promedio por bebida", fr: "prix moyens par boisson", it: "prezzi medi per bevanda", zh: "每杯平均价格" },
+    "Connectivity": { es: "Conectividad", fr: "Connectivité", it: "Connettività", zh: "网络连接" },
+    "Mobile · avg download": { es: "Móvil · descarga prom.", fr: "Mobile · débit moyen", it: "Mobile · download medio", zh: "移动网络 · 平均下载" },
+    "Wi-Fi · broadband": { es: "Wi-Fi · banda ancha", fr: "Wi-Fi · haut débit", it: "Wi-Fi · banda larga", zh: "Wi-Fi · 宽带" },
+    "Tourist SIM · per GB": { es: "SIM turística · por GB", fr: "SIM touriste · par Go", it: "SIM turistica · per GB", zh: "游客SIM卡 · 每GB" },
+    "Mobile operators": { es: "Operadores móviles", fr: "Opérateurs mobiles", it: "Operatori mobili", zh: "移动运营商" },
+    "country averages · estimates": { es: "promedios del país · estimaciones", fr: "moyennes nationales · estimations", it: "medie nazionali · stime", zh: "全国平均 · 估算值" },
+    "Buy an eSIM →": { es: "Comprar eSIM →", fr: "Acheter une eSIM →", it: "Acquista una eSIM →", zh: "购买eSIM →" },
+
+    /* Connectivity banner — free Wi-Fi + airport Wi-Fi stats */
+    "Free public Wi-Fi": { es: "Wi-Fi público gratis", fr: "Wi-Fi public gratuit", it: "Wi-Fi pubblico gratuito", zh: "免费公共Wi-Fi" },
+    "Airport Wi-Fi": { es: "Wi-Fi en el aeropuerto", fr: "Wi-Fi à l'aéroport", it: "Wi-Fi in aeroporto", zh: "机场Wi-Fi" },
+    "Widespread": { es: "Muy extendido", fr: "Très répandu", it: "Molto diffuso", zh: "覆盖广泛" },
+    "Moderate": { es: "Moderado", fr: "Modéré", it: "Moderato", zh: "中等" },
+    "Limited": { es: "Limitado", fr: "Limité", it: "Limitato", zh: "有限" },
+    "Free": { es: "Gratis", fr: "Gratuit", it: "Gratuito", zh: "免费" },
+    "Citywide free hotspot network, plus cafés & metro": { es: "Red de puntos gratis en toda la ciudad, más cafés y metro", fr: "Réseau de bornes gratuites dans toute la ville, plus cafés et métro", it: "Rete di hotspot gratuiti in tutta la città, più caffè e metro", zh: "全市免费热点网络，咖啡馆和地铁也有" },
+    "Most cafés, malls & libraries offer free Wi-Fi": { es: "La mayoría de cafés, centros comerciales y bibliotecas ofrecen Wi-Fi gratis", fr: "La plupart des cafés, centres commerciaux et bibliothèques offrent le Wi-Fi gratuit", it: "La maggior parte di caffè, centri commerciali e biblioteche offre Wi-Fi gratuito", zh: "大多数咖啡馆、商场和图书馆提供免费Wi-Fi" },
+    "Cafés & convenience stores; stations covered, streets patchy": { es: "Cafés y tiendas de conveniencia; estaciones cubiertas, calles irregulares", fr: "Cafés et supérettes ; gares couvertes, rues inégales", it: "Caffè e minimarket; stazioni coperte, copertura in strada a macchie", zh: "咖啡馆和便利店有；车站覆盖，街头零散" },
+    "Nearly every café & restaurant has free Wi-Fi": { es: "Casi todos los cafés y restaurantes tienen Wi-Fi gratis", fr: "Presque tous les cafés et restaurants ont le Wi-Fi gratuit", it: "Quasi tutti i caffè e ristoranti hanno Wi-Fi gratuito", zh: "几乎每家咖啡馆和餐厅都有免费Wi-Fi" },
+    "Common in malls & cafés, but sign-in usually needs a local number": { es: "Común en centros comerciales y cafés, pero registrarse suele requerir un número local", fr: "Courant dans les centres commerciaux et cafés, mais l'inscription exige souvent un numéro local", it: "Comune in centri commerciali e caffè, ma l'accesso richiede spesso un numero locale", zh: "商场和咖啡馆常见，但登录通常需要本地手机号" },
+    "Mainly hotels, malls & tourist-area cafés": { es: "Principalmente hoteles, centros comerciales y cafés de zonas turísticas", fr: "Surtout hôtels, centres commerciaux et cafés touristiques", it: "Soprattutto hotel, centri commerciali e caffè delle zone turistiche", zh: "主要在酒店、商场和游客区咖啡馆" },
+    "Free hotspots in parks & squares, plus most cafés": { es: "Puntos gratis en parques y plazas, más la mayoría de cafés", fr: "Bornes gratuites dans les parcs et places, plus la plupart des cafés", it: "Hotspot gratuiti in parchi e piazze, più la maggior parte dei caffè", zh: "公园和广场有免费热点，多数咖啡馆也有" },
+    "Excellent free Wi-Fi culture — cafés, transit & public spaces": { es: "Excelente cultura de Wi-Fi gratis: cafés, transporte y espacios públicos", fr: "Excellente culture du Wi-Fi gratuit : cafés, transports et espaces publics", it: "Ottima cultura del Wi-Fi gratuito: caffè, trasporti e spazi pubblici", zh: "免费Wi-Fi文化极佳——咖啡馆、交通和公共场所" },
+    "unlimited": { es: "ilimitado", fr: "illimité", it: "illimitato", zh: "不限时" },
+    "passport kiosk or local number": { es: "quiosco con pasaporte o número local", fr: "borne passeport ou numéro local", it: "chiosco passaporto o numero locale", zh: "护照终端机或本地号码" },
+    "local-number OTP (visitor help desk)": { es: "OTP con número local (mostrador para visitantes)", fr: "OTP par numéro local (comptoir visiteurs)", it: "OTP con numero locale (banco assistenza visitatori)", zh: "本地号码验证码（设游客服务台）" },
+    "passport kiosk sign-in": { es: "registro con pasaporte en quiosco", fr: "inscription par borne passeport", it: "accesso con chiosco passaporto", zh: "护照终端机登录" },
+    "time-limited sessions": { es: "sesiones con límite de tiempo", fr: "sessions à durée limitée", it: "sessioni a tempo limitato", zh: "限时使用" },
+    "short sessions with ads": { es: "sesiones cortas con anuncios", fr: "sessions courtes avec publicités", it: "sessioni brevi con pubblicità", zh: "短时段，含广告" },
+    "registration required": { es: "requiere registro", fr: "inscription requise", it: "registrazione richiesta", zh: "需注册" }
   };
 
   /* ---- Storage ---- */
@@ -252,7 +307,8 @@
       "padding:7px 30px 7px 14px;cursor:pointer;background-image:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='%230e7c86' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>\");" +
       "background-repeat:no-repeat;background-position:right 12px center}" +
       ".nra-lang select:focus{outline:none;border-color:#185e3f}" +
-      "@media(max-width:820px){.nra-lang{margin-left:12px}}";
+      "@media(max-width:820px){.nra-lang{margin-left:12px}}" +
+      "@media(max-width:420px){.nra-lang{margin-left:6px}.nra-lang select{padding:7px 24px 7px 10px;font-size:.82rem}}";
     var s = document.createElement("style");
     s.textContent = css;
     document.head.appendChild(s);

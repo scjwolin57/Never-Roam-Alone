@@ -19,7 +19,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -52,12 +52,23 @@
   .back{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:12px 22px;border-radius:30px;transition:background .2s}
   .back:hover{background:var(--teal)}
 
+  /* Blocks written with the online editor */
+  .post-break{text-align:center;color:var(--coral);opacity:.7;font-size:1.05rem;margin:30px 0;letter-spacing:.4em}
+  figure.post-img{margin:30px 0}
+  figure.post-img img{width:100%;border-radius:14px;display:block;box-shadow:var(--shadow)}
+  figure.post-img figcaption{font-size:.84rem;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  figure.post-img .ph-credit{margin-left:auto;font-style:italic}
+  figure.post-img .ph-credit a{text-decoration:underline}
+
   .soon{text-align:center;max-width:620px;margin:0 auto;padding:110px 22px}
   .soon h1{font-size:2.3rem;margin-bottom:10px}
   .soon p{color:var(--muted);font-size:1.1rem}
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:46px}
-  footer .brand{justify-content:center;color:#e97451;font-size:1.6rem}
+  footer .brand{justify-content:center;color:#c35237;font-size:1.6rem}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
   @media(max-width:820px){nav.links{display:none}}
 </style>
 </head>
@@ -66,20 +77,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 120 120" width="44" height="44" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
-          <circle cx="60" cy="60" r="53"/>
-          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
-          <path d="M22,86 Q60,74 98,86"/>
-        </g>
-        <g fill="#185e3f">
-          <circle cx="50" cy="62" r="5.2"/>
-          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
-          <circle cx="70" cy="62" r="5.2"/>
-          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
-          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
-        </g>
-      </svg>
+      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -90,6 +88,12 @@
 
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
 </footer>
 
 <script src="posts.js"></script>
@@ -99,47 +103,81 @@
 
 const params = new URLSearchParams(location.search);
 const slug = (params.get("post")||"").toLowerCase();
-const post = window.NRA_POSTS_UTIL.bySlug(slug);
 const content = document.getElementById("content");
+
+/* Byline: site default, or the tagged trusted traveler (posts.js authorId)
+   with their initials and a link to their public profile page. */
+function escT(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function bylineHTML(post){
+  if (post.authorId){
+    const name = post.authorName || "A trusted traveler";
+    const parts = name.trim().split(/\s+/);
+    const init = ((parts[0]||"?")[0] + (parts.length>1 ? parts[parts.length-1][0] : "")).toUpperCase();
+    const colors = ["#185e3f","#0e7c86","#b4552d","#7a5195","#2f6690","#bc5090"];
+    let h = 0; for (let i=0;i<name.length;i++) h = (h*31 + name.charCodeAt(i)) >>> 0;
+    return `<a href="roamer.html?id=${encodeURIComponent(post.authorId)}" style="display:flex;align-items:center;gap:12px" title="View ${escT(name)}'s profile">
+      <div class="avatar" style="background:${colors[h%colors.length]};display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">${escT(init)}</div>
+      <div class="who">${escT(name)}<small>Trusted traveler · view profile</small></div>
+    </a>`;
+  }
+  return `<div class="avatar" style="background-image:url('pyramids-web.jpg')"></div>
+      <div class="who">Jeff<small>Never Roam Alone</small></div>`;
+}
 
 function render(b){
   if(b[0]==="lead")  return `<p class="lead">${b[1]}</p>`;
   if(b[0]==="h2")    return `<h2>${b[1]}</h2>`;
   if(b[0]==="quote") return `<blockquote class="pullquote">${b[1]}</blockquote>`;
+  if(b[0]==="br")    return `<div class="post-break" aria-hidden="true">&#10022;</div>`;
+  if(b[0]==="img"){
+    const im = b[1] || {};
+    const cap = im.caption ? `<span data-no-i18n>${escT(im.caption)}</span>` : "";
+    const cred = im.credit ? `<span class="ph-credit" data-no-i18n>Photo: ${im.creditLink ? `<a href="${escT(im.creditLink)}" target="_blank" rel="noopener">${escT(im.credit)}</a>` : escT(im.credit)}</span>` : "";
+    return `<figure class="post-img"><img src="${escT(im.url||"")}" alt="${escT(im.alt||im.caption||"")}" loading="lazy">${(cap||cred) ? `<figcaption>${cap}${cred}</figcaption>` : ""}</figure>`;
+  }
   return `<p>${b[1]}</p>`;
 }
 
-if(post){
-  document.title = `${post.title} — Never Roam Alone`;
-  const words = post.body.reduce((n,b)=>n + b[1].split(/\s+/).length, 0);
-  const mins = Math.max(1, Math.round(words/200));
-  const hero = `https://picsum.photos/seed/${post.seed}-hero/1600/900`;
-  content.innerHTML = `
-    <div class="hero" style="background-image:url('${hero}')">
-      <div class="hero-inner">
-        <span class="tag">${post.tag}</span>
-        <h1>${post.title}</h1>
-        <div class="meta">${window.NRA_POSTS_UTIL.longDate(post.date)} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
+function showPost(){
+  const post = window.NRA_POSTS_UTIL.bySlug(slug);
+  if(post){
+    document.title = `${post.title} — Never Roam Alone`;
+    const words = post.body.reduce((n,b)=> n + (typeof b[1]==="string" ? b[1].split(/\s+/).length : 0), 0);
+    const mins = Math.max(1, Math.round(words/200));
+    const hero = window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(post, 1600, 900)
+               : `https://picsum.photos/seed/${post.seed}-hero/1600/900`;
+    content.innerHTML = `
+      <div class="hero" style="background-image:url('${hero}')">
+        <div class="hero-inner">
+          <span class="tag">${post.tag}</span>
+          <h1>${post.title}</h1>
+          <div class="meta">${window.NRA_POSTS_UTIL.longDate(post.date)} &nbsp;·&nbsp; ${post.location} &nbsp;·&nbsp; ${mins} min read</div>
+        </div>
       </div>
-    </div>
-    <article class="post i18n-ml">
-      <div class="byline">
-        <div class="avatar" style="background-image:url('pyramids-web.jpg')"></div>
-        <div class="who">Jeff<small>Never Roam Alone</small></div>
-      </div>
-      ${post.body.map(render).join("\n")}
-    </article>
-    <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
-} else {
-  document.title = "Coming soon — Never Roam Alone";
-  content.innerHTML = `
-    <div class="soon">
-      <h1>This story is still being written</h1>
-      <p>That post hasn't been published yet — check back soon, or explore the ones that are ready.</p>
-      <p style="margin-top:26px"><a class="back" href="blog.html">&larr; Back to all stories</a></p>
-    </div>`;
+      <article class="post i18n-ml">
+        <div class="byline">${bylineHTML(post)}</div>
+        ${post.body.map(render).join("\n")}
+      </article>
+      <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
+  } else {
+    document.title = "Coming soon — Never Roam Alone";
+    content.innerHTML = `
+      <div class="soon">
+        <h1>This story is still being written</h1>
+        <p>That post hasn't been published yet — check back soon, or explore the ones that are ready.</p>
+        <p style="margin-top:26px"><a class="back" href="blog.html">&larr; Back to all stories</a></p>
+      </div>`;
+  }
 }
+showPost();
+
+/* If this article was written in the online editor, it arrives a moment
+   after page load (blog-remote.js) — redraw so the page shows it. */
+window.NRA_BLOG_REFRESH = showPost;
 </script>
+<script src="nra-config.js"></script>
+<script src="blog-remote.js"></script>
+<script src="auth.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

@@ -43,7 +43,7 @@
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#e97451}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
   .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -162,7 +162,7 @@
   .no-results strong{color:var(--ink)}
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
-  footer .brand{justify-content:center;color:#e97451}
+  footer .brand{justify-content:center;color:#c35237}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -186,20 +186,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <svg class="logo" viewBox="0 0 120 120" width="46" height="46" aria-label="Never Roam Alone logo" xmlns="http://www.w3.org/2000/svg">
-        <g fill="none" stroke="#185e3f" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round">
-          <circle cx="60" cy="60" r="53"/>
-          <polyline points="26,63 44,34 54,47 67,28 79,45 94,63"/>
-          <path d="M22,86 Q60,74 98,86"/>
-        </g>
-        <g fill="#185e3f">
-          <circle cx="50" cy="62" r="5.2"/>
-          <path d="M43.4,72.5 Q43.4,69 47,69 L53,69 Q56.6,69 56.6,72.5 L55,84 L51.2,84 L50.3,76 L49.7,76 L48.8,84 L45,84 Z"/>
-          <circle cx="70" cy="62" r="5.2"/>
-          <path d="M63.4,72.5 Q63.4,69 67,69 L73,69 Q76.6,69 76.6,72.5 L75,84 L71.2,84 L70.3,76 L69.7,76 L68.8,84 L65,84 Z"/>
-          <path d="M58.4,84 C56,90 63,93 60.5,98 C58.6,101.8 53,103 50,106 L70,106 C66.5,103 62.8,101.5 64.2,97.5 C65.4,93.5 63,90 61.6,84 Z"/>
-        </g>
-      </svg>
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -248,9 +235,16 @@
   <div class="tiles" id="tiles"></div>
 </section>
 
+<!-- ===== Email signup ===== -->
+<section class="block">
+  <div data-nra-signup data-source="blog"></div>
+</section>
+
 <footer>
   <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
   <div class="foot-links">
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
   </div>
@@ -263,11 +257,6 @@
    POST DATA now lives in posts.js — the single source of truth.
    Add a post there and it appears here (and everywhere) automatically.
 ------------------------------------------------------------------ */
-const POSTS = window.NRA_POSTS_UTIL.byNewest().map((p, i) => Object.assign({}, p, {
-  dateIndex: i,                                        // 0 = newest
-  dateLabel: window.NRA_POSTS_UTIL.shortDate(p.date)   // e.g. "June 2026"
-}));
-
 const tilesContainer = document.getElementById("tiles");
 const searchInput    = document.getElementById("blog-search");
 const clearBtn       = document.querySelector(".search-clear");
@@ -275,26 +264,41 @@ const sortSelect     = document.getElementById("sort-select");
 const noResults      = document.getElementById("no-results");
 const noResultsTerm  = document.getElementById("no-results-term");
 
-/* Build one DOM node per post; store the post reference on the element */
-const tileEls = POSTS.map(p => {
-  const el = document.createElement("a");
-  el.className  = "tile";
-  el.href       = `post.html?post=${encodeURIComponent(p.slug)}`;
-  el.dataset.title = p.title.toLowerCase();
-  el._post      = p;          // private ref for sorting
-  el.innerHTML  = `
-    <div class="photo" style="background-image:url('https://picsum.photos/seed/${p.seed}-nra/600/400')">
-      <span class="tag">${p.tag}</span>
-    </div>
-    <div class="body">
-      <div class="date">${p.dateLabel}</div>
-      <h3>${p.title}</h3>
-      <p>${p.excerpt || ""}</p>
-      <span class="readmore">Read story &rarr;</span>
-    </div>`;
-  tilesContainer.appendChild(el);
-  return el;
-});
+/* Build one DOM node per post; store the post reference on the element.
+   Wrapped in a function so the grid can rebuild itself once articles
+   written in the online editor arrive (see blog-remote.js). */
+let tileEls = [];
+function tilePhoto(p){
+  return window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(p, 600, 400)
+       : `https://picsum.photos/seed/${p.seed}-nra/600/400`;
+}
+function buildTiles(){
+  const POSTS = window.NRA_POSTS_UTIL.byNewest().map((p, i) => Object.assign({}, p, {
+    dateIndex: i,                                        // 0 = newest
+    dateLabel: window.NRA_POSTS_UTIL.shortDate(p.date)   // e.g. "June 2026"
+  }));
+  tilesContainer.innerHTML = "";
+  tileEls = POSTS.map(p => {
+    const el = document.createElement("a");
+    el.className  = "tile";
+    el.href       = `post.html?post=${encodeURIComponent(p.slug)}`;
+    el.dataset.title = p.title.toLowerCase();
+    el._post      = p;          // private ref for sorting
+    el.innerHTML  = `
+      <div class="photo" style="background-image:url('${tilePhoto(p)}')">
+        <span class="tag">${p.tag}</span>
+      </div>
+      <div class="body">
+        <div class="date">${p.dateLabel}</div>
+        <h3>${p.title}</h3>
+        <p>${p.excerpt || ""}</p>
+        <span class="readmore">Read story &rarr;</span>
+      </div>`;
+    tilesContainer.appendChild(el);
+    return el;
+  });
+}
+buildTiles();
 
 /* ------------------------------------------------------------------
    Core render: apply sort first, then push matching tiles to front
@@ -344,7 +348,14 @@ clearBtn.addEventListener("click", () => {
 
 /* Initial render */
 render();
+
+/* Redraw when database articles arrive (blog-remote.js calls this) */
+window.NRA_BLOG_REFRESH = function(){ buildTiles(); render(); };
 </script>
+<script src="nra-config.js"></script>
+<script src="blog-remote.js"></script>
+<script src="auth.js"></script>
+<script src="mailing-list.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

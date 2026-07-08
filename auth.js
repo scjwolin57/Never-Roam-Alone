@@ -34,7 +34,7 @@ window.NRA_AUTH = (function(){
   }
 
   function onChange(cb){ listeners.push(cb); }
-  function emit(){ listeners.forEach(cb => { try{ cb(session, profile); }catch(e){} }); renderWidget(); }
+  function emit(){ listeners.forEach(cb => { try{ cb(session, profile); }catch(e){} }); renderWidget(); renderNavWidget(); }
 
   /* ---- load the Supabase browser library from its CDN (only if configured) ---- */
   function loadLib(){
@@ -53,14 +53,14 @@ window.NRA_AUTH = (function(){
     if (!sb || !session) { profile = null; return; }
     try{
       const { data } = await sb.from("profiles")
-        .select("display_name,email,notify_replies,bio,home_city,home_country,travel_style,travel_company,website,instagram,avatar_url")
+        .select("*")   /* own row only (database rules); "*" so new profile columns are picked up automatically */
         .eq("id", session.user.id).single();
       profile = data || null;
     }catch(e){ profile = null; }
   }
 
   async function init(){
-    if (!enabled){ readyResolve(); renderWidget(); return; }
+    if (!enabled){ readyResolve(); renderWidget(); renderNavWidget(); return; }
     // Safety net: never let the rest of the page wait forever on us. If anything
     // below stalls, release ready() after a few seconds so the forum still loads.
     const readyTimer = setTimeout(readyResolve, 6000);
@@ -121,7 +121,12 @@ window.NRA_AUTH = (function(){
   .nra-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid rgba(24,94,63,.25);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:4px}
   .nra-google:hover{border-color:#185e3f}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
-  .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}`;
+  .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
+  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none}
+  .nra-nav-avatar:hover{background:#0e7c86}
+  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nra-nav-signin:hover{background:#0e7c86}
+  .nra-nav-signin svg{width:17px;height:17px}`;
 
   function ensureCSS(){
     if (document.getElementById("nra-auth-css")) return;
@@ -188,6 +193,24 @@ window.NRA_AUTH = (function(){
     }
   }
 
+  /* ---- Compact nav-bar version: sign-in button, or initials circle → profile.html.
+     Lives in the shared header (see nav.js), so it shows up on every page. ---- */
+  function renderNavWidget(){
+    const el = document.getElementById("nra-nav-account");
+    if (!el) return;
+    ensureCSS();
+    if (!enabled){ el.innerHTML = ""; return; } // guest mode: nothing to sign into, keep the nav clean
+    if (session){
+      const name = (profile && profile.display_name) || session.user.email;
+      el.innerHTML = `<a class="nra-nav-avatar" href="profile.html" title="${esc(name)} — your profile">${esc(initials(name))}</a>`;
+    } else {
+      el.innerHTML = `<button class="nra-nav-signin" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
+        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-6.5 8-6.5s8 2.1 8 6.5"></path></svg></button>`;
+      el.querySelector("#nra-nav-signin-btn").addEventListener("click", openModal);
+    }
+  }
+
   function openModal(){
     ensureCSS();
     closeModal();
@@ -208,6 +231,7 @@ window.NRA_AUTH = (function(){
           <div class="nra-field"><label>Password</label><input type="password" id="nra-pw" autocomplete="current-password"></div>
           <div class="nra-field" id="nra-pw2-wrap" style="display:none"><label>Confirm password</label><input type="password" id="nra-pw2" autocomplete="new-password"></div>
           <div class="nra-field" id="nra-name-wrap" style="display:none"><label>Display name</label><input type="text" id="nra-dn" maxlength="40" placeholder="How you'll appear on posts"></div>
+          <label class="nra-check" id="nra-mailing-wrap" style="display:none"><input type="checkbox" id="nra-mailing"> <span>Email me travel tips &amp; new city guides. No spam — unsubscribe anytime.</span></label>
           <div class="nra-row-btns">
             <button class="nra-btn" id="nra-do-signin">Sign in</button>
             <button class="nra-btn ghost" id="nra-toggle-signup">New here? Create account</button>
@@ -261,6 +285,7 @@ window.NRA_AUTH = (function(){
     bg.querySelector("#nra-toggle-signup").addEventListener("click", () => {
       signupMode = !signupMode;
       bg.querySelector("#nra-name-wrap").style.display = signupMode ? "" : "none";
+      bg.querySelector("#nra-mailing-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-pw2-wrap").style.display = signupMode ? "" : "none";
       bg.querySelector("#nra-forgot").style.display = signupMode ? "none" : "";
       bg.querySelector("#nra-do-signin").textContent = signupMode ? "Create account" : "Sign in";
@@ -287,6 +312,10 @@ window.NRA_AUTH = (function(){
             const dn = bg.querySelector("#nra-dn").value.trim();
             const { error } = await sb.auth.signUp({ email, password: pw, options:{ data:{ full_name: dn || email.split("@")[0] }, emailRedirectTo: pageUrl() } });
             if (error) throw error;
+            // If they ticked the mailing-list box, add them to the list too.
+            if (bg.querySelector("#nra-mailing") && bg.querySelector("#nra-mailing").checked){
+              subscribeMailing(email, "signup");
+            }
             msg("Account created! Check your email to confirm, then sign in.");
           } else {
             const { error } = await sb.auth.signInWithPassword({ email, password: pw });
@@ -397,6 +426,57 @@ window.NRA_AUTH = (function(){
   }
 
   async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; emit(); }
+
+  /* ---------------- mailing list ----------------
+     The list lives in the "mailing_list" table (see mailing-list-setup.sql).
+     Anyone can add an email; a signed-in person can see/remove only their own.
+     Used by: the signup checkbox above, the profile page toggle, and the
+     signup forms on the site (mailing-list.js). */
+  function sendConfirmation(email){
+    // Best-effort: the address is already saved, so a failed email is harmless.
+    try{
+      fetch("/.netlify/functions/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email })
+      }).catch(() => {});
+    }catch(e){ /* ignore */ }
+  }
+  async function subscribeMailing(email, source){
+    email = String(email || "").trim().toLowerCase();
+    if (!isValidEmail(email)) return { ok:false, error:"That email address doesn't look right — double check it." };
+    if (!sb) return { ok:false, error:"Sign-ups aren't switched on yet." };
+    const row = { email, source: source || "site" };
+    if (session) row.user_id = session.user.id;
+    try{
+      const { error } = await sb.from("mailing_list").insert(row);
+      if (error){
+        // 23505 = already on the list — treat as success so we never scare a
+        // returning subscriber with an error.
+        if (error.code === "23505" || /duplicate|already|unique/i.test(error.message || ""))
+          return { ok:true, already:true };
+        return { ok:false, error: error.message || "Couldn't sign you up — please try again." };
+      }
+      sendConfirmation(email);
+      return { ok:true };
+    }catch(e){ return { ok:false, error:"Couldn't reach the server — please try again." }; }
+  }
+  // Is the signed-in person on the list? false if not signed in / not subscribed.
+  async function mailingStatus(){
+    if (!sb || !session) return false;
+    try{
+      const { data } = await sb.from("mailing_list").select("id").eq("user_id", session.user.id).limit(1);
+      return !!(data && data.length);
+    }catch(e){ return false; }
+  }
+  async function unsubscribeMailing(){
+    if (!sb || !session) return { ok:false, error:"You need to be signed in." };
+    try{
+      const { error } = await sb.from("mailing_list").delete().eq("user_id", session.user.id);
+      if (error) return { ok:false, error: error.message };
+      return { ok:true };
+    }catch(e){ return { ok:false, error:"Couldn't reach the server — please try again." }; }
+  }
   /* Save the reply-notification preference on the user's profile.
      Returns true on success, false if not signed in or the update failed —
      so callers (e.g. the checkbox on askaroamer.html) can revert on failure. */
@@ -412,7 +492,9 @@ window.NRA_AUTH = (function(){
 
   /* Save profile fields (display name, bio, home city/country, travel style, socials).
      Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
-  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url"];
+  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url","is_public",
+    "age","fav_destination","no_return_destination","bucket_list_destination","best_story","scary_story","extra_details",
+    "facebook","twitter","tiktok","youtube","travel_photos","cover_url"];
   async function updateProfile(fields){
     if (!sb || !session) return { ok:false, error:"You need to be signed in." };
     const patch = {};
@@ -443,6 +525,10 @@ window.NRA_AUTH = (function(){
     onChange,
     signOut,
     setNotify,
-    openModal
+    subscribeMailing,
+    mailingStatus,
+    unsubscribeMailing,
+    openModal,
+    renderNavWidget
   };
 })();

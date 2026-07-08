@@ -15,6 +15,16 @@
      seed     – word used to pick the placeholder photo
      excerpt  – one-sentence teaser shown on the tiles
      likes / views – engagement numbers (placeholder until real data)
+     authorId   – OPTIONAL: credits the article to a community member
+                  ("trusted traveler"). Paste their account ID here and
+                  the article appears on their public profile page, and
+                  the article's byline links back to that profile.
+                  WHERE TO FIND THE ID: it's the long code at the end of
+                  their public page address, e.g.
+                  roamer.html?id=THIS-LONG-CODE (they can send you the
+                  link from "See your public page" on their profile).
+     authorName – OPTIONAL: the name to show in the article byline
+                  (defaults to "Jeff" when left out)
      body     – the article, as a list of blocks:
                 ["lead", ...]  large opening paragraph
                 ["p", ...]     normal paragraph
@@ -32,6 +42,9 @@ window.NRA_POSTS = [
     seed: "kyoto",
     excerpt: "Temple bells, a tiny noodle counter, and the lantern-lit alley I never meant to find.",
     likes: 312, views: 8400,
+    // To credit a trusted traveler, un-comment and fill these two lines:
+    // authorId: "paste-their-account-id-here",
+    // authorName: "Their Name",
     body: [
       ["lead","I came to Kyoto with a list of temples and left with a map of noodle counters, hidden shrines, and the particular quiet of a lane at dawn."],
       ["p","The famous sights earn their fame, and you should see them. But Kyoto rewards the wanderer more than the checklist. On my second morning I gave up on the plan, picked a direction, and started walking."],
