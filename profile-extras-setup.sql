@@ -21,6 +21,7 @@
 
 -- 1 + 2. New profile columns (all optional)
 alter table public.profiles
+  add column if not exists cover_url               text,   -- custom profile banner photo
   add column if not exists age                     text,
   add column if not exists fav_destination         text,
   add column if not exists no_return_destination   text,
@@ -64,7 +65,12 @@ create policy "delete own travel photos only" on storage.objects
 
 -- 4. Refresh the public window with the new fields (still no email,
 --    still only rows where the person turned "public profile" on).
-create or replace view public.public_profiles as
+--    We rebuild it from scratch: a view stores no data — it's just a
+--    saved way of looking at the profiles table — so dropping and
+--    recreating it is harmless, and it sidesteps the database rule
+--    that view columns can only be added at the end.
+drop view if exists public.public_profiles;
+create view public.public_profiles as
   select id,
          display_name,
          bio,
@@ -75,6 +81,7 @@ create or replace view public.public_profiles as
          website,
          instagram,
          avatar_url,
+         cover_url,
          created_at,
          age,
          fav_destination,
