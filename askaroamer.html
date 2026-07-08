@@ -660,9 +660,11 @@ let activeCat = GENERAL;
 let VOTES = {};   // this browser's own up/down votes, keyed by reply id
 let REMOTE_SB = null;          // set when the shared community store is active
 let PUBLIC_IDS = new Set();    // posters who turned on "public profile" — their initials link out
+let PUBLIC_AV = {};            // public poster id → uploaded profile photo (if they added one)
 
 /* Look up which of the posters on screen have a public profile page.
-   Only those get the "View profile" popup; everyone else looks unchanged. */
+   Only those get the "View profile" popup (and their profile photo, if
+   they uploaded one); everyone else looks unchanged. */
 async function refreshPublicIds(){
   if (!REMOTE_SB) return;
   const ids = new Set();
@@ -670,10 +672,12 @@ async function refreshPublicIds(){
     if (q.uid) ids.add(q.uid);
     (q.replies||[]).forEach(r => { if (r.uid) ids.add(r.uid); });
   });
-  if (!ids.size){ PUBLIC_IDS = new Set(); return; }
+  if (!ids.size){ PUBLIC_IDS = new Set(); PUBLIC_AV = {}; return; }
   try{
-    const { data } = await REMOTE_SB.from("public_profiles").select("id").in("id", Array.from(ids));
+    const { data } = await REMOTE_SB.from("public_profiles").select("id,avatar_url").in("id", Array.from(ids));
     PUBLIC_IDS = new Set((data||[]).map(x => x.id));
+    PUBLIC_AV = {};
+    (data||[]).forEach(x => { if (x.avatar_url) PUBLIC_AV[x.id] = x.avatar_url; });
   }catch(e){ /* lookup failing just means no popups — never break the forum */ }
 }
 
@@ -693,8 +697,11 @@ function timeAgo(ts){
   const mo=Math.floor(d/30); return mo+(mo===1?" month ago":" months ago");
 }
 function avatarHTML(name,big,uid){
-  const c=avatarColor(name);
-  const av = `<span class="avatar" style="background:${c}${big?'':';width:24px;height:24px;font-size:.7rem'}">${esc(initials(name))}</span>`;
+  const size = big ? '' : ';width:24px;height:24px;font-size:.7rem';
+  const photo = uid && PUBLIC_AV[uid];
+  const av = photo
+    ? `<span class="avatar" style="background:url('${esc(photo)}') center/cover no-repeat${size}" role="img" aria-label="${esc(name)}"></span>`
+    : `<span class="avatar" style="background:${avatarColor(name)}${size}">${esc(initials(name))}</span>`;
   if (uid && PUBLIC_IDS.has(uid)){
     return `<a class="avatar-link" href="roamer.html?id=${encodeURIComponent(uid)}" aria-label="View ${esc(name)}'s profile">${av}<span class="av-pop" data-no-i18n>View profile</span></a>`;
   }

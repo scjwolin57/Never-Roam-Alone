@@ -81,6 +81,21 @@
   .avatar-meta .whoname{font-size:1.5rem;font-family:Georgia,serif;margin:0}
   .avatar-meta .whoemail{color:var(--muted);font-size:.9rem}
   .avatar-hint{font-size:.76rem;color:var(--muted);margin:6px 0 0}
+  .avatar.has-photo{background-size:cover;background-position:center}
+  .cover-strip{
+    height:92px;border-radius:14px;margin-bottom:18px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(420px 190px at 82% 0%, rgba(239,111,83,.35), transparent 70%),
+      radial-gradient(520px 240px at 12% 110%, rgba(255,255,255,.14), transparent 65%),
+      linear-gradient(120deg, #0a5c64 0%, #0e7c86 45%, #185e3f 100%);
+    background-size:cover;background-position:center;
+  }
+  .cover-strip .cover-btns{position:absolute;right:10px;bottom:10px;display:flex;gap:8px}
+  .cover-strip .cover-btns .btn{padding:6px 14px;font-size:.78rem;background:rgba(20,40,50,.55)}
+  .cover-strip .cover-btns .btn:hover{background:rgba(20,40,50,.8)}
+  .cover-label{position:absolute;left:12px;top:10px;color:rgba(255,255,255,.85);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .avatar-btns{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+  .btn.small{padding:8px 16px;font-size:.82rem}
 
   .field{margin-top:16px}
   .field label{display:block;font-weight:700;font-size:.78rem;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
@@ -154,6 +169,14 @@
   .save-msg.ok{color:var(--teal)}
   .save-msg.err{color:#b34a3a}
 
+  /* ---------- Back link (sits on the hero gradient) ---------- */
+  a.back-link{
+    display:inline-flex;align-items:center;gap:7px;
+    font-weight:700;font-size:.9rem;color:rgba(255,255,255,.85);
+    margin:0 0 14px;transition:color .2s;
+  }
+  a.back-link:hover{color:#fff}
+
   /* Signed-out / guest states */
   .gate{text-align:center;padding:18px 6px}
   .gate h2{margin:0 0 8px}
@@ -194,14 +217,33 @@
 </div>
 
 <div class="wrap">
+  <a class="back-link" href="index.html" id="back-link">&larr; Back</a>
+
   <!-- Signed-in editor (hidden until we know who's here) -->
   <div class="card" id="profile-card" style="display:none">
+    <!-- profile banner: shows on the public page behind the profile pic -->
+    <div class="cover-strip" id="cover-strip">
+      <span class="cover-label">Profile banner</span>
+      <div class="cover-btns">
+        <button class="btn" type="button" id="cover-upload">Upload banner</button>
+        <button class="btn" type="button" id="cover-remove" style="display:none">Remove</button>
+      </div>
+    </div>
+    <span class="save-msg" id="cover-msg" style="display:block;margin:-10px 0 12px"></span>
+    <input type="file" id="cover-file" accept="image/*" style="display:none" />
+
     <div class="avatar-row">
       <div class="avatar" id="avatar">?</div>
       <div class="avatar-meta">
         <p class="whoname" id="who-name">Roamer</p>
         <span class="whoemail" id="who-email"></span>
-        <p class="avatar-hint">Your picture is your initials for now — photo uploads are coming soon.</p>
+        <p class="avatar-hint">Add a photo if you like — otherwise your initials are your picture.</p>
+        <div class="avatar-btns">
+          <button class="btn small" type="button" id="avatar-upload">Upload photo</button>
+          <button class="btn small ghost" type="button" id="avatar-remove" style="display:none">Remove photo</button>
+          <span class="save-msg" id="avatar-msg"></span>
+        </div>
+        <input type="file" id="avatar-file" accept="image/*" style="display:none" />
       </div>
     </div>
 
@@ -257,39 +299,6 @@
 
       <div class="row2">
         <div class="field">
-          <label for="p-website">Website <span class="sub">(optional)</span></label>
-          <input type="text" id="p-website" maxlength="120" placeholder="yourblog.com" />
-        </div>
-        <div class="field">
-          <label for="p-instagram">Instagram <span class="sub">(optional)</span></label>
-          <input type="text" id="p-instagram" maxlength="40" placeholder="@yourhandle" />
-        </div>
-      </div>
-
-      <div class="row2">
-        <div class="field">
-          <label for="p-facebook">Facebook <span class="sub">(optional)</span></label>
-          <input type="text" id="p-facebook" maxlength="120" placeholder="facebook.com/you or your username" />
-        </div>
-        <div class="field">
-          <label for="p-twitter">X (Twitter) <span class="sub">(optional)</span></label>
-          <input type="text" id="p-twitter" maxlength="40" placeholder="@yourhandle" />
-        </div>
-      </div>
-
-      <div class="row2">
-        <div class="field">
-          <label for="p-tiktok">TikTok <span class="sub">(optional)</span></label>
-          <input type="text" id="p-tiktok" maxlength="40" placeholder="@yourhandle" />
-        </div>
-        <div class="field">
-          <label for="p-youtube">YouTube <span class="sub">(optional)</span></label>
-          <input type="text" id="p-youtube" maxlength="120" placeholder="@yourchannel or channel link" />
-        </div>
-      </div>
-
-      <div class="row2">
-        <div class="field">
           <label for="p-age-sel">Age <span class="sub">(optional)</span></label>
           <select id="p-age-sel">
             <option value="">Prefer not to say</option>
@@ -339,6 +348,52 @@
         <textarea id="p-extra" maxlength="600" placeholder="Languages you speak, how you like to meet people on the road&hellip;"></textarea>
       </div>
 
+      <div class="row2">
+        <div class="field">
+          <label for="p-website">Website <span class="sub">(optional)</span></label>
+          <input type="text" id="p-website" maxlength="120" placeholder="yourblog.com" />
+        </div>
+        <div class="field">
+          <label for="p-instagram">Instagram <span class="sub">(optional)</span></label>
+          <input type="text" id="p-instagram" maxlength="40" placeholder="@yourhandle" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-facebook">Facebook <span class="sub">(optional)</span></label>
+          <input type="text" id="p-facebook" maxlength="120" placeholder="facebook.com/you or your username" />
+        </div>
+        <div class="field">
+          <label for="p-twitter">X (Twitter) <span class="sub">(optional)</span></label>
+          <input type="text" id="p-twitter" maxlength="40" placeholder="@yourhandle" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-tiktok">TikTok <span class="sub">(optional)</span></label>
+          <input type="text" id="p-tiktok" maxlength="40" placeholder="@yourhandle" />
+        </div>
+        <div class="field">
+          <label for="p-youtube">YouTube <span class="sub">(optional)</span></label>
+          <input type="text" id="p-youtube" maxlength="120" placeholder="@yourchannel or channel link" />
+        </div>
+      </div>
+
+    <!-- Favorite travel photos: up to 10, saved the moment they're added -->
+      <div class="photos-zone">
+        <h3>Favorite travel photos</h3>
+        <p>Show off up to <strong>10</strong> favorite shots, each with a short tagline. Photos save the moment you add them, and taglines save as you finish typing. They appear on your public profile page (if your profile is public).</p>
+        <div class="photo-grid" id="photo-grid"></div>
+        <div class="actions" style="margin-top:14px">
+          <button class="btn" type="button" id="photo-add">Add photos</button>
+          <span class="save-msg" id="photo-count"></span>
+          <span class="save-msg" id="photo-msg"></span>
+        </div>
+        <input type="file" id="photo-file" accept="image/*" multiple style="display:none" />
+      </div>
+
       <div class="field">
         <label>Public profile</label>
         <label class="check-row">
@@ -365,19 +420,6 @@
         <span class="save-msg" id="save-msg"></span>
       </div>
     </form>
-
-    <!-- Favorite travel photos: up to 10, saved the moment they're added -->
-    <div class="photos-zone">
-      <h3>Favorite travel photos</h3>
-      <p>Show off up to <strong>10</strong> favorite shots, each with a short tagline. Photos save the moment you add them, and taglines save as you finish typing. They appear on your public profile page (if your profile is public).</p>
-      <div class="photo-grid" id="photo-grid"></div>
-      <div class="actions" style="margin-top:14px">
-        <button class="btn" type="button" id="photo-add">Add photos</button>
-        <span class="save-msg" id="photo-count"></span>
-        <span class="save-msg" id="photo-msg"></span>
-      </div>
-      <input type="file" id="photo-file" accept="image/*" multiple style="display:none" />
-    </div>
 
     <!-- My trips: past & upcoming itineraries (itinerary.html) -->
     <div class="trips-zone">
@@ -468,10 +510,20 @@
     let h = 0; for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) >>> 0;
     return AV_COLORS[h % AV_COLORS.length];
   }
+  let AV_URL = "";   // the saved profile photo (empty = show initials)
   function paintAvatar(name){
     const av = $("avatar");
-    av.textContent = initials(name);
-    av.style.background = colorFor(name);
+    if (AV_URL){
+      av.textContent = "";
+      av.classList.add("has-photo");
+      av.style.background = "url(" + JSON.stringify(AV_URL) + ") center/cover no-repeat";
+    } else {
+      av.classList.remove("has-photo");
+      av.textContent = initials(name);
+      av.style.background = colorFor(name);
+    }
+    const rm = $("avatar-remove");
+    if (rm) rm.style.display = AV_URL ? "" : "none";
   }
 
   function show(which){
@@ -511,20 +563,39 @@
     ["story","scary","extra"].forEach(k => syncCount(k));
     PHOTOS = Array.isArray(p.travel_photos) ? p.travel_photos.slice() : [];
     renderPhotos();
+    AV_URL = p.avatar_url || "";
+    COVER_URL = p.cover_url || "";
+    paintCover();
     $("p-public").checked  = !!p.is_public;
     syncPublicLink();
+    savedSnapshot = formSnapshot();   // form now matches what's saved
     $("who-name").textContent  = name || "Roamer";
     $("who-email").textContent = (user && user.email) || "";
     $("bio-count").textContent = ($("p-bio").value.length) + "/300";
     paintAvatar(name);
   }
 
-  /* ---- decide which state to show ---- */
+  /* ---- decide which state to show ----
+     IMPORTANT: only fill the form when the page first shows it or when a
+     DIFFERENT person signs in. The sign-in session quietly renews itself
+     in the background every so often, and re-filling the form on those
+     events was wiping people's unsaved typing (bug found 2026-07-08). */
+  let filledFor = null;   // account id the form is currently filled for
   function render(){
     const auth = window.NRA_AUTH;
     if (!auth || !auth.enabled){ show("guest"); return; }
-    if (auth.user()){ show("in"); fillForm(); refreshMailing(); }
-    else { show("out"); }
+    const user = auth.user();
+    if (user){
+      show("in");
+      if (filledFor !== user.id){
+        filledFor = user.id;
+        fillForm();
+        refreshMailing();
+      }
+    } else {
+      filledFor = null;   // signed out — next sign-in gets a fresh fill
+      show("out");
+    }
   }
 
   /* ---- live updates as they type the name ---- */
@@ -556,6 +627,27 @@
   $("p-age-sel").addEventListener("change", () => {
     $("p-age-txt-wrap").style.display = ($("p-age-sel").value === "__custom") ? "" : "none";
     if ($("p-age-sel").value === "__custom") $("p-age-txt").focus();
+  });
+
+  /* ---- warn before leaving with unsaved changes ----
+     Photos, taglines and the mailing switch save instantly, so only the
+     form fields (saved by the Save button) count as "unsaved". The
+     browser shows its own generic "leave site?" popup — sites can't
+     customize that text. */
+  const SNAP_FIELDS = ["p-name","p-bio","p-city","p-country","p-style","p-company",
+    "p-website","p-instagram","p-facebook","p-twitter","p-tiktok","p-youtube",
+    "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra"];
+  function formSnapshot(){
+    return SNAP_FIELDS.map(id => $(id).value).join("\u0001") + "\u0001" + $("p-public").checked;
+  }
+  let savedSnapshot = "";
+  window.addEventListener("beforeunload", (e) => {
+    const auth = window.NRA_AUTH;
+    if (!auth || !auth.user()) return;                          // nothing editable
+    if ($("profile-card").style.display === "none") return;     // form not on screen
+    if (formSnapshot() === savedSnapshot) return;               // nothing unsaved
+    e.preventDefault();
+    e.returnValue = "";   // asks the browser to show its "unsaved changes" popup
   });
 
   /* ---- "see your public page" link appears when the box is ticked ---- */
@@ -671,11 +763,11 @@
 
   /* shrink big photos right in the browser before upload (longest side
      1600px, saved as JPEG) so uploads are quick and storage stays small */
-  async function shrinkImage(file){
+  async function shrinkImage(file, maxpx){
     let bmp;
     try { bmp = await createImageBitmap(file); }
     catch(e){ throw new Error("That photo format isn't supported — try a JPG or PNG."); }
-    const MAXPX = 1600;
+    const MAXPX = maxpx || 1600;
     const sc = Math.min(1, MAXPX / Math.max(bmp.width, bmp.height));
     const c = document.createElement("canvas");
     c.width  = Math.max(1, Math.round(bmp.width  * sc));
@@ -739,6 +831,12 @@
     await savePhotos();
   });
 
+  /* pressing Enter in a tagline box saves it (blur) instead of submitting the whole form
+     — needed now that the photos section lives inside the form */
+  $("photo-grid").addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && e.target.closest(".ph-tag")){ e.preventDefault(); e.target.blur(); }
+  });
+
   /* tagline edits save when you click/tab away from the box */
   $("photo-grid").addEventListener("change", async (e) => {
     const tag = e.target.closest(".ph-tag");
@@ -747,6 +845,109 @@
     if (!PHOTOS[i]) return;
     PHOTOS[i].tagline = tag.value.trim().slice(0, 80);
     if (await savePhotos()) pmsg("Tagline saved.", "ok");
+  });
+
+  /* ---- profile picture: upload / remove (saves instantly) ---- */
+  const amsg = (text, kind) => { const m = $("avatar-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
+  function storagePathOf(url){
+    // our photos live at …/travel-photos/<account-id>/<file> — return that tail, or null if it's not ours
+    const m = String(url||"").match(/\/travel-photos\/(.+)$/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+  $("avatar-upload").addEventListener("click", () => $("avatar-file").click());
+  $("avatar-file").addEventListener("change", async () => {
+    const auth = window.NRA_AUTH, sb = auth && auth.client(), user = auth && auth.user();
+    const file = ($("avatar-file").files || [])[0];
+    $("avatar-file").value = "";
+    if (!sb || !user || !file) return;
+    const btn = $("avatar-upload");
+    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading\u2026"; amsg("");
+    try{
+      const blob = await shrinkImage(file, 512);
+      const path = user.id + "/avatar-" + Date.now() + ".jpg";
+      const { error } = await sb.storage.from("travel-photos").upload(path, blob, { contentType: "image/jpeg" });
+      if (error) throw new Error(error.message || "Upload failed");
+      const url = sb.storage.from("travel-photos").getPublicUrl(path).data.publicUrl;
+      const oldPath = storagePathOf(AV_URL);
+      const res = await auth.updateProfile({ avatar_url: url });
+      if (!(res && res.ok)) throw new Error((res && res.error) || "Couldn't save your photo.");
+      if (oldPath){ try{ await sb.storage.from("travel-photos").remove([oldPath]); }catch(e){} }
+      AV_URL = url;
+      paintAvatar($("p-name").value.trim() || $("who-name").textContent);
+      amsg("Photo saved!", "ok");
+    }catch(e){
+      const raw = (e && e.message) || "Upload failed";
+      amsg(raw + (/bucket/i.test(raw) ? " — make sure profile-extras-setup.sql has been run." : ""), "err");
+    }
+    btn.disabled = false; btn.textContent = orig;
+  });
+  $("avatar-remove").addEventListener("click", async () => {
+    const auth = window.NRA_AUTH, sb = auth && auth.client();
+    if (!sb || !auth.user() || !AV_URL) return;
+    const btn = $("avatar-remove");
+    btn.disabled = true; amsg("");
+    const oldPath = storagePathOf(AV_URL);
+    const res = await auth.updateProfile({ avatar_url: "" });
+    if (res && res.ok){
+      if (oldPath){ try{ await sb.storage.from("travel-photos").remove([oldPath]); }catch(e){} }
+      AV_URL = "";
+      paintAvatar($("p-name").value.trim() || $("who-name").textContent);
+      amsg("Back to your initials.", "ok");
+    } else {
+      amsg((res && res.error) || "Couldn't remove the photo — try again.", "err");
+    }
+    btn.disabled = false;
+  });
+
+  /* ---- profile banner: upload / remove (saves instantly) ---- */
+  let COVER_URL = "";
+  const cmsg = (text, kind) => { const m = $("cover-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
+  function paintCover(){
+    const el = $("cover-strip");
+    if (COVER_URL) el.style.backgroundImage = "url(" + JSON.stringify(COVER_URL) + ")";
+    else el.style.backgroundImage = "";
+    $("cover-remove").style.display = COVER_URL ? "" : "none";
+  }
+  $("cover-upload").addEventListener("click", () => $("cover-file").click());
+  $("cover-file").addEventListener("change", async () => {
+    const auth = window.NRA_AUTH, sb = auth && auth.client(), user = auth && auth.user();
+    const file = ($("cover-file").files || [])[0];
+    $("cover-file").value = "";
+    if (!sb || !user || !file) return;
+    const btn = $("cover-upload");
+    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading\u2026"; cmsg("");
+    try{
+      const blob = await shrinkImage(file, 1600);
+      const path = user.id + "/cover-" + Date.now() + ".jpg";
+      const { error } = await sb.storage.from("travel-photos").upload(path, blob, { contentType: "image/jpeg" });
+      if (error) throw new Error(error.message || "Upload failed");
+      const url = sb.storage.from("travel-photos").getPublicUrl(path).data.publicUrl;
+      const oldPath = storagePathOf(COVER_URL);
+      const res = await auth.updateProfile({ cover_url: url });
+      if (!(res && res.ok)) throw new Error((res && res.error) || "Couldn't save your banner.");
+      if (oldPath){ try{ await sb.storage.from("travel-photos").remove([oldPath]); }catch(e){} }
+      COVER_URL = url;
+      paintCover();
+      cmsg("Banner saved!", "ok");
+    }catch(e){
+      const raw = (e && e.message) || "Upload failed";
+      cmsg(raw + (/bucket/i.test(raw) ? " — make sure profile-extras-setup.sql has been run." : ""), "err");
+    }
+    btn.disabled = false; btn.textContent = orig;
+  });
+  $("cover-remove").addEventListener("click", async () => {
+    const auth = window.NRA_AUTH, sb = auth && auth.client();
+    if (!sb || !auth.user() || !COVER_URL) return;
+    const oldPath = storagePathOf(COVER_URL);
+    const res = await auth.updateProfile({ cover_url: "" });
+    if (res && res.ok){
+      if (oldPath){ try{ await sb.storage.from("travel-photos").remove([oldPath]); }catch(e){} }
+      COVER_URL = "";
+      paintCover();
+      cmsg("Back to the standard banner.", "ok");
+    } else {
+      cmsg((res && res.error) || "Couldn't remove the banner — try again.", "err");
+    }
   });
 
   /* ---- delete account (two-step confirm; permanent) ---- */
@@ -784,6 +985,15 @@
       dmsg((e && e.message) || "Couldn't delete the account — try again.", "err");
       btn.disabled = false; btn.textContent = original;
     }
+  });
+
+  /* ---- back link: return to the page you came from (home if opened directly) ---- */
+  $("back-link").addEventListener("click", (e) => {
+    // go back only if they actually came from a page on this site;
+    // otherwise the link just goes home
+    let cameFromSite = false;
+    try{ cameFromSite = !!document.referrer && new URL(document.referrer).origin === location.origin; }catch(err){}
+    if (cameFromSite && history.length > 1){ e.preventDefault(); history.back(); }
   });
 
   /* ---- boot ---- */
