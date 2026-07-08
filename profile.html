@@ -119,6 +119,22 @@
   .trip-btn .t{font-weight:700;font-size:.98rem;line-height:1.3}
   .trip-btn .t small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
 
+  /* ---------- Favorite travel photos ---------- */
+  .photos-zone{margin-top:34px;padding-top:22px;border-top:1px solid rgba(14,124,134,.18)}
+  .photos-zone h3{margin:0 0 6px;font-size:1.05rem}
+  .photos-zone p{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+  .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+  .photo-cell{position:relative;background:#fff;border:2px solid rgba(14,124,134,.18);border-radius:14px;padding:8px;display:flex;flex-direction:column;gap:8px}
+  .photo-cell img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:9px;display:block}
+  .photo-cell .ph-tag{width:100%;padding:7px 9px;border:1.5px solid rgba(14,124,134,.22);border-radius:9px;font-size:.8rem;font-family:inherit;outline:none}
+  .photo-cell .ph-tag:focus{border-color:var(--teal)}
+  .photo-cell .ph-del{
+    position:absolute;top:14px;right:14px;width:26px;height:26px;border:none;border-radius:50%;
+    background:rgba(29,42,50,.75);color:#fff;font-size:1rem;line-height:1;cursor:pointer;
+  }
+  .photo-cell .ph-del:hover{background:#b34a3a}
+  .photo-cell.uploading{opacity:.55}
+
   .danger-zone{margin-top:34px;padding-top:22px;border-top:1px solid rgba(179,74,58,.25)}
   .danger-zone h3{margin:0 0 6px;color:#b34a3a;font-size:1.05rem}
   .danger-zone p{color:var(--muted);font-size:.9rem;margin:0 0 12px}
@@ -250,6 +266,79 @@
         </div>
       </div>
 
+      <div class="row2">
+        <div class="field">
+          <label for="p-facebook">Facebook <span class="sub">(optional)</span></label>
+          <input type="text" id="p-facebook" maxlength="120" placeholder="facebook.com/you or your username" />
+        </div>
+        <div class="field">
+          <label for="p-twitter">X (Twitter) <span class="sub">(optional)</span></label>
+          <input type="text" id="p-twitter" maxlength="40" placeholder="@yourhandle" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-tiktok">TikTok <span class="sub">(optional)</span></label>
+          <input type="text" id="p-tiktok" maxlength="40" placeholder="@yourhandle" />
+        </div>
+        <div class="field">
+          <label for="p-youtube">YouTube <span class="sub">(optional)</span></label>
+          <input type="text" id="p-youtube" maxlength="120" placeholder="@yourchannel or channel link" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-age-sel">Age <span class="sub">(optional)</span></label>
+          <select id="p-age-sel">
+            <option value="">Prefer not to say</option>
+            <option>18&ndash;24</option>
+            <option>25&ndash;34</option>
+            <option>35&ndash;44</option>
+            <option>45&ndash;54</option>
+            <option>55&ndash;64</option>
+            <option>65+</option>
+            <option value="__custom">Write my own&hellip;</option>
+          </select>
+        </div>
+        <div class="field" id="p-age-txt-wrap" style="display:none">
+          <label for="p-age-txt">In your own words</label>
+          <input type="text" id="p-age-txt" maxlength="30" placeholder="e.g. thirty-something" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-fav">Favorite destination <span class="sub">(optional)</span></label>
+          <input type="text" id="p-fav" maxlength="80" placeholder="The place you can't stop recommending" />
+        </div>
+        <div class="field">
+          <label for="p-noreturn">Wouldn't go back to <span class="sub">(optional)</span></label>
+          <input type="text" id="p-noreturn" maxlength="80" placeholder="Once was enough&hellip;" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="p-bucket">On my bucket list <span class="sub">(optional)</span></label>
+        <input type="text" id="p-bucket" maxlength="80" placeholder="The dream destination you haven't reached yet" />
+      </div>
+
+      <div class="field">
+        <label for="p-story">Best travel story <span class="sub">(optional)</span> <span class="charcount" id="story-count">0/1500</span></label>
+        <textarea id="p-story" maxlength="1500" placeholder="The story you always end up telling&hellip;"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="p-scary">Weirdest or scariest travel moment <span class="sub">(optional)</span> <span class="charcount" id="scary-count">0/1500</span></label>
+        <textarea id="p-scary" maxlength="1500" placeholder="The moment that still gives you chills (or a good laugh)&hellip;"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="p-extra">Anything else people should know about you <span class="sub">(optional)</span> <span class="charcount" id="extra-count">0/600</span></label>
+        <textarea id="p-extra" maxlength="600" placeholder="Languages you speak, how you like to meet people on the road&hellip;"></textarea>
+      </div>
+
       <div class="field">
         <label>Public profile</label>
         <label class="check-row">
@@ -276,6 +365,19 @@
         <span class="save-msg" id="save-msg"></span>
       </div>
     </form>
+
+    <!-- Favorite travel photos: up to 10, saved the moment they're added -->
+    <div class="photos-zone">
+      <h3>Favorite travel photos</h3>
+      <p>Show off up to <strong>10</strong> favorite shots, each with a short tagline. Photos save the moment you add them, and taglines save as you finish typing. They appear on your public profile page (if your profile is public).</p>
+      <div class="photo-grid" id="photo-grid"></div>
+      <div class="actions" style="margin-top:14px">
+        <button class="btn" type="button" id="photo-add">Add photos</button>
+        <span class="save-msg" id="photo-count"></span>
+        <span class="save-msg" id="photo-msg"></span>
+      </div>
+      <input type="file" id="photo-file" accept="image/*" multiple style="display:none" />
+    </div>
 
     <!-- My trips: past & upcoming itineraries (itinerary.html) -->
     <div class="trips-zone">
@@ -395,6 +497,20 @@
     $("p-company").value   = p.travel_company || "";
     $("p-website").value   = p.website || "";
     $("p-instagram").value = p.instagram || "";
+    $("p-facebook").value  = p.facebook || "";
+    $("p-twitter").value   = p.twitter || "";
+    $("p-tiktok").value    = p.tiktok || "";
+    $("p-youtube").value   = p.youtube || "";
+    $("p-fav").value       = p.fav_destination || "";
+    $("p-noreturn").value  = p.no_return_destination || "";
+    $("p-bucket").value    = p.bucket_list_destination || "";
+    $("p-story").value     = p.best_story || "";
+    $("p-scary").value     = p.scary_story || "";
+    $("p-extra").value     = p.extra_details || "";
+    setAgeUI(p.age || "");
+    ["story","scary","extra"].forEach(k => syncCount(k));
+    PHOTOS = Array.isArray(p.travel_photos) ? p.travel_photos.slice() : [];
+    renderPhotos();
     $("p-public").checked  = !!p.is_public;
     syncPublicLink();
     $("who-name").textContent  = name || "Roamer";
@@ -419,6 +535,29 @@
   });
   $("p-bio").addEventListener("input", () => { $("bio-count").textContent = $("p-bio").value.length + "/300"; });
 
+  /* ---- live character counters for the long boxes ---- */
+  const COUNT_MAX = { story: 1500, scary: 1500, extra: 600 };
+  function syncCount(k){ $(k + "-count").textContent = $("p-" + k).value.length + "/" + COUNT_MAX[k]; }
+  ["story","scary","extra"].forEach(k => $("p-" + k).addEventListener("input", () => syncCount(k)));
+
+  /* ---- age: pick a range from the list, or choose "Write my own…" ---- */
+  const AGE_RANGES = ["18–24","25–34","35–44","45–54","55–64","65+"];
+  function setAgeUI(v){
+    if (!v){ $("p-age-sel").value = ""; }
+    else if (AGE_RANGES.indexOf(v) !== -1){ $("p-age-sel").value = v; }
+    else { $("p-age-sel").value = "__custom"; $("p-age-txt").value = v; }
+    $("p-age-txt-wrap").style.display = ($("p-age-sel").value === "__custom") ? "" : "none";
+  }
+  function ageValue(){
+    const sel = $("p-age-sel").value;
+    if (sel === "__custom") return $("p-age-txt").value.trim();
+    return sel;
+  }
+  $("p-age-sel").addEventListener("change", () => {
+    $("p-age-txt-wrap").style.display = ($("p-age-sel").value === "__custom") ? "" : "none";
+    if ($("p-age-sel").value === "__custom") $("p-age-txt").focus();
+  });
+
   /* ---- "see your public page" link appears when the box is ticked ---- */
   function syncPublicLink(){
     const auth = window.NRA_AUTH;
@@ -432,6 +571,7 @@
   /* ---- tidy up socials a little so they save clean ---- */
   function cleanWebsite(v){ v = (v||"").trim(); return v; }
   function cleanInsta(v){ v = (v||"").trim().replace(/^@+/, ""); return v ? "@"+v : ""; }
+  const cleanHandle = cleanInsta;   // X (Twitter) and TikTok handles tidy up the same way
 
   /* ---- save ---- */
   $("profile-form").addEventListener("submit", async (e) => {
@@ -449,6 +589,17 @@
       travel_company: $("p-company").value,
       website: cleanWebsite($("p-website").value),
       instagram: cleanInsta($("p-instagram").value),
+      facebook: $("p-facebook").value.trim(),
+      twitter: cleanHandle($("p-twitter").value),
+      tiktok: cleanHandle($("p-tiktok").value),
+      youtube: $("p-youtube").value.trim(),
+      age: ageValue(),
+      fav_destination: $("p-fav").value.trim(),
+      no_return_destination: $("p-noreturn").value.trim(),
+      bucket_list_destination: $("p-bucket").value.trim(),
+      best_story: $("p-story").value.trim(),
+      scary_story: $("p-scary").value.trim(),
+      extra_details: $("p-extra").value.trim(),
       is_public: $("p-public").checked
     };
     const btn = $("save-btn");
@@ -491,6 +642,111 @@
       box.checked = !want;  // revert on failure
       mmsg((res && res.error) || "Couldn't save — please try again.", "err");
     }
+  });
+
+  /* ---- favorite travel photos (max 10; saved the moment they change) ---- */
+  const MAX_PHOTOS = 10;
+  let PHOTOS = [];   // [{path, url, tagline}] — mirrors profiles.travel_photos
+  const escA = v => String(v||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const pmsg = (text, kind) => { const m = $("photo-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
+
+  function renderPhotos(){
+    const grid = $("photo-grid");
+    grid.innerHTML = PHOTOS.map((ph, i) => `
+      <div class="photo-cell" data-i="${i}">
+        <img src="${escA(ph.url)}" alt="${escA(ph.tagline || "Travel photo")}" loading="lazy" />
+        <button class="ph-del" type="button" title="Remove photo" aria-label="Remove photo">&times;</button>
+        <input class="ph-tag" maxlength="80" placeholder="Add a tagline&hellip;" value="${escA(ph.tagline || "")}" data-no-i18n />
+      </div>`).join("");
+    $("photo-count").textContent = PHOTOS.length + "/" + MAX_PHOTOS + " photos";
+    $("photo-add").style.display = PHOTOS.length >= MAX_PHOTOS ? "none" : "";
+  }
+
+  async function savePhotos(){
+    const auth = window.NRA_AUTH;
+    const res = await auth.updateProfile({ travel_photos: PHOTOS });
+    if (!(res && res.ok)) pmsg((res && res.error) || "Couldn't save your photos — try again.", "err");
+    return !!(res && res.ok);
+  }
+
+  /* shrink big photos right in the browser before upload (longest side
+     1600px, saved as JPEG) so uploads are quick and storage stays small */
+  async function shrinkImage(file){
+    let bmp;
+    try { bmp = await createImageBitmap(file); }
+    catch(e){ throw new Error("That photo format isn't supported — try a JPG or PNG."); }
+    const MAXPX = 1600;
+    const sc = Math.min(1, MAXPX / Math.max(bmp.width, bmp.height));
+    const c = document.createElement("canvas");
+    c.width  = Math.max(1, Math.round(bmp.width  * sc));
+    c.height = Math.max(1, Math.round(bmp.height * sc));
+    c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+    return await new Promise((res, rej) => c.toBlob(b => b ? res(b) : rej(new Error("Couldn't process that photo.")), "image/jpeg", 0.85));
+  }
+
+  $("photo-add").addEventListener("click", () => $("photo-file").click());
+
+  $("photo-file").addEventListener("change", async () => {
+    const auth = window.NRA_AUTH;
+    const sb = auth && auth.client();
+    const user = auth && auth.user();
+    const files = Array.from($("photo-file").files || []);
+    $("photo-file").value = "";
+    if (!sb || !user || !files.length) return;
+    const room = MAX_PHOTOS - PHOTOS.length;
+    if (room <= 0) return;
+    if (files.length > room) pmsg("Only room for " + room + " more photo" + (room === 1 ? "" : "s") + " — the extras were skipped.", "err");
+    else pmsg("");
+    const btn = $("photo-add");
+    const total = Math.min(files.length, room);
+    btn.disabled = true; const orig = btn.textContent;
+    let added = 0;
+    for (let i = 0; i < total; i++){
+      btn.textContent = "Uploading " + (i + 1) + "/" + total + "\u2026";
+      try{
+        const blob = await shrinkImage(files[i]);
+        const path = user.id + "/" + Date.now() + "-" + Math.random().toString(36).slice(2, 7) + ".jpg";
+        const { error } = await sb.storage.from("travel-photos").upload(path, blob, { contentType: "image/jpeg" });
+        if (error) throw new Error(error.message || "Upload failed");
+        const url = sb.storage.from("travel-photos").getPublicUrl(path).data.publicUrl;
+        PHOTOS.push({ path, url, tagline: "" });
+        added++;
+        renderPhotos();
+      }catch(e){
+        const raw = (e && e.message) || "Upload failed";
+        pmsg(raw + (/bucket/i.test(raw) ? " — make sure profile-extras-setup.sql has been run." : ""), "err");
+        break;
+      }
+    }
+    if (added) await savePhotos();
+    btn.textContent = orig; btn.disabled = false;
+    renderPhotos();
+  });
+
+  /* remove a photo (from storage + the saved list) */
+  $("photo-grid").addEventListener("click", async (e) => {
+    const del = e.target.closest(".ph-del");
+    if (!del) return;
+    const cell = del.closest(".photo-cell");
+    const i = Number(cell.dataset.i);
+    const ph = PHOTOS[i];
+    if (!ph) return;
+    const auth = window.NRA_AUTH, sb = auth && auth.client();
+    cell.classList.add("uploading");
+    try{ if (sb && ph.path) await sb.storage.from("travel-photos").remove([ph.path]); }catch(e){ /* photo may already be gone — fine */ }
+    PHOTOS.splice(i, 1);
+    renderPhotos();
+    await savePhotos();
+  });
+
+  /* tagline edits save when you click/tab away from the box */
+  $("photo-grid").addEventListener("change", async (e) => {
+    const tag = e.target.closest(".ph-tag");
+    if (!tag) return;
+    const i = Number(tag.closest(".photo-cell").dataset.i);
+    if (!PHOTOS[i]) return;
+    PHOTOS[i].tagline = tag.value.trim().slice(0, 80);
+    if (await savePhotos()) pmsg("Tagline saved.", "ok");
   });
 
   /* ---- delete account (two-step confirm; permanent) ---- */
