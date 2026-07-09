@@ -203,7 +203,67 @@
     "passport kiosk sign-in": { es: "registro con pasaporte en quiosco", fr: "inscription par borne passeport", it: "accesso con chiosco passaporto", zh: "护照终端机登录" },
     "time-limited sessions": { es: "sesiones con límite de tiempo", fr: "sessions à durée limitée", it: "sessioni a tempo limitato", zh: "限时使用" },
     "short sessions with ads": { es: "sesiones cortas con anuncios", fr: "sessions courtes avec publicités", it: "sessioni brevi con pubblicità", zh: "短时段，含广告" },
-    "registration required": { es: "requiere registro", fr: "inscription requise", it: "registrazione richiesta", zh: "需注册" }
+    "registration required": { es: "requiere registro", fr: "inscription requise", it: "registrazione richiesta", zh: "需注册" },
+
+    /* Getting Around The City — transit card (city.html) */
+    "Getting around the city": { es: "Cómo moverse por la ciudad", fr: "Se déplacer dans la ville", it: "Come muoversi in città", zh: "城市交通出行" },
+    "Public transit": { es: "Transporte público", fr: "Transports en commun", it: "Trasporto pubblico", zh: "公共交通" },
+    "How to pay": { es: "Cómo pagar", fr: "Comment payer", it: "Come pagare", zh: "如何付款" },
+    "Operating hours": { es: "Horario de servicio", fr: "Heures de service", it: "Orari di servizio", zh: "运营时间" },
+    "Transit map →": { es: "Mapa de transporte →", fr: "Plan du réseau →", it: "Mappa dei trasporti →", zh: "交通线路图 →" },
+    "No transit map": { es: "Sin mapa de transporte", fr: "Pas de plan disponible", it: "Nessuna mappa disponibile", zh: "暂无线路图" },
+    "Getting around:": { es: "Cómo moverse:", fr: "Se déplacer :", it: "Come muoversi:", zh: "出行方式：" },
+
+    /* Coming-soon map bubbles (index.html) */
+    "City guide coming soon": { es: "Guía de la ciudad próximamente", fr: "Guide de la ville à venir", it: "Guida della città in arrivo", zh: "城市指南即将推出" },
+    "Guide coming soon": { es: "Guía próximamente", fr: "Guide à venir", it: "Guida in arrivo", zh: "指南即将推出" },
+
+    /* Mailing list (mailing-list.js) */
+    "Get travel tips in your inbox": { es: "Recibe consejos de viaje en tu correo", fr: "Recevez des conseils de voyage par e-mail", it: "Ricevi consigli di viaggio via e-mail", zh: "把旅行小贴士发到你的邮箱" },
+    "New city guides, honest travel tips, and stories from the road — straight to your inbox. No spam, unsubscribe anytime.": { es: "Nuevas guías de ciudades, consejos de viaje honestos e historias del camino, directamente a tu correo. Sin spam, cancela cuando quieras.", fr: "De nouveaux guides de villes, des conseils de voyage honnêtes et des récits de la route, directement dans votre boîte mail. Pas de spam, désabonnement à tout moment.", it: "Nuove guide di città, consigli di viaggio onesti e storie dalla strada, direttamente nella tua casella di posta. Niente spam, disiscriviti quando vuoi.", zh: "全新城市指南、真诚的旅行建议和路上的故事，直接送到你的邮箱。绝无垃圾邮件，随时可退订。" },
+    "Subscribe": { es: "Suscribirse", fr: "S'abonner", it: "Iscriviti", zh: "订阅" },
+    "We'll only use your email to send you Never Roam Alone updates.": { es: "Solo usaremos tu correo para enviarte novedades de Never Roam Alone.", fr: "Nous n'utiliserons votre e-mail que pour vous envoyer les actualités de Never Roam Alone.", it: "Useremo la tua e-mail solo per inviarti gli aggiornamenti di Never Roam Alone.", zh: "我们只会用你的邮箱向你发送 Never Roam Alone 的更新。" },
+    "Email address": { es: "Correo electrónico", fr: "Adresse e-mail", it: "Indirizzo e-mail", zh: "电子邮箱" },
+    "Subscribing…": { es: "Suscribiendo…", fr: "Inscription…", it: "Iscrizione…", zh: "正在订阅…" },
+    "You're in! Check your inbox for a confirmation.": { es: "¡Listo! Revisa tu correo para confirmar.", fr: "C'est fait ! Vérifiez votre boîte mail pour confirmer.", it: "Fatto! Controlla la tua casella per la conferma.", zh: "订阅成功！请查收邮箱中的确认邮件。" },
+    "You're already on the list — thanks for the love!": { es: "Ya estás en la lista, ¡gracias por el cariño!", fr: "Vous êtes déjà inscrit — merci pour votre soutien !", it: "Sei già nella lista — grazie dell'affetto!", zh: "你已经在名单上啦 — 谢谢支持！" },
+    "That email address doesn't look right — double check it.": { es: "Ese correo no parece correcto, verifícalo.", fr: "Cette adresse e-mail semble incorrecte — vérifiez-la.", it: "Quell'indirizzo e-mail non sembra corretto — controllalo.", zh: "这个邮箱地址似乎有误 — 请再检查一下。" },
+    "Enter your email address.": { es: "Introduce tu correo electrónico.", fr: "Saisissez votre adresse e-mail.", it: "Inserisci il tuo indirizzo e-mail.", zh: "请输入你的电子邮箱。" },
+    "Couldn't sign you up — please try again.": { es: "No pudimos suscribirte, inténtalo de nuevo.", fr: "Inscription impossible — veuillez réessayer.", it: "Non è stato possibile iscriverti — riprova.", zh: "订阅失败 — 请重试。" },
+    "Sign-ups aren't available right now — please try again later.": { es: "Las suscripciones no están disponibles ahora, inténtalo más tarde.", fr: "Les inscriptions ne sont pas disponibles pour le moment — réessayez plus tard.", it: "Le iscrizioni non sono disponibili al momento — riprova più tardi.", zh: "目前暂时无法订阅 — 请稍后再试。" },
+
+    /* Public profile pages (roamer.html) */
+    "Loading profile…": { es: "Cargando perfil…", fr: "Chargement du profil…", it: "Caricamento del profilo…", zh: "正在加载资料…" },
+    "Profiles are almost ready": { es: "Los perfiles están casi listos", fr: "Les profils sont presque prêts", it: "I profili sono quasi pronti", zh: "个人资料即将上线" },
+    "Accounts aren't switched on yet, so there are no public profiles to show right now.": { es: "Las cuentas aún no están activadas, así que no hay perfiles públicos para mostrar por ahora.", fr: "Les comptes ne sont pas encore activés, il n'y a donc aucun profil public à afficher pour le moment.", it: "Gli account non sono ancora attivi, quindi al momento non ci sono profili pubblici da mostrare.", zh: "账户功能尚未开启，因此目前没有可显示的公开资料。" },
+    "This profile isn't available": { es: "Este perfil no está disponible", fr: "Ce profil n'est pas disponible", it: "Questo profilo non è disponibile", zh: "该资料不可用" },
+    "It's either set to private or doesn't exist. Every Roamer chooses whether their profile is public.": { es: "Está configurado como privado o no existe. Cada Roamer elige si su perfil es público.", fr: "Il est privé ou n'existe pas. Chaque Roamer choisit si son profil est public.", it: "È impostato come privato o non esiste. Ogni Roamer sceglie se rendere pubblico il proprio profilo.", zh: "它可能被设为私密或并不存在。每位 Roamer 都可自行选择是否公开资料。" },
+    "Articles": { es: "Artículos", fr: "Articles", it: "Articoli", zh: "文章" },
+    "Favorite travel photos": { es: "Fotos de viaje favoritas", fr: "Photos de voyage préférées", it: "Foto di viaggio preferite", zh: "最爱的旅行照片" },
+    "Stories this Roamer has contributed as a trusted traveler.": { es: "Historias que este Roamer ha aportado como viajero de confianza.", fr: "Récits que ce Roamer a partagés en tant que voyageur de confiance.", it: "Storie che questo Roamer ha condiviso come viaggiatore di fiducia.", zh: "这位 Roamer 作为信赖旅行者贡献的故事。" },
+    "Prototype · Roamers choose what's shown here": { es: "Prototipo · Los Roamers eligen qué se muestra aquí", fr: "Prototype · Les Roamers choisissent ce qui s'affiche ici", it: "Prototipo · I Roamer scelgono cosa mostrare qui", zh: "原型 · 由 Roamer 自行决定此处显示的内容" },
+    "Back to Ask A Roamer": { es: "Volver a Pregunta a un viajero", fr: "Retour à Demandez à un voyageur", it: "Torna a Chiedi a un viaggiatore", zh: "返回 问问旅行者" },
+
+    /* Trip planner (itinerary.html) */
+    "Trip planner": { es: "Planificador de viajes", fr: "Planificateur de voyage", it: "Pianificatore di viaggi", zh: "行程规划器" },
+    "Upcoming Trips": { es: "Próximos viajes", fr: "Voyages à venir", it: "Prossimi viaggi", zh: "即将出行" },
+    "Upcoming trips": { es: "Próximos viajes", fr: "Voyages à venir", it: "Prossimi viaggi", zh: "即将出行" },
+    "Past trips": { es: "Viajes anteriores", fr: "Voyages passés", it: "Viaggi passati", zh: "过往行程" },
+    "Build your route — add the cities and places you're planning to roam.": { es: "Arma tu ruta: añade las ciudades y lugares que planeas recorrer.", fr: "Composez votre itinéraire — ajoutez les villes et lieux que vous prévoyez d'explorer.", it: "Crea il tuo itinerario: aggiungi le città e i luoghi che vuoi esplorare.", zh: "规划你的路线 — 添加你打算漫游的城市和地点。" },
+    "Prototype · plan your roams, one stop at a time": { es: "Prototipo · planifica tus viajes, parada a parada", fr: "Prototype · planifiez vos escapades, étape par étape", it: "Prototipo · pianifica i tuoi viaggi, una tappa alla volta", zh: "原型 · 一站一站地规划你的漫游" },
+    "Guide": { es: "Guía", fr: "Guide", it: "Guida", zh: "指南" },
+    "No guide yet": { es: "Aún sin guía", fr: "Pas encore de guide", it: "Ancora nessuna guida", zh: "暂无指南" },
+    "Request city guide": { es: "Solicitar guía de ciudad", fr: "Demander un guide de ville", it: "Richiedi una guida della città", zh: "申请城市指南" },
+    "Guide requested ✓": { es: "Guía solicitada ✓", fr: "Guide demandé ✓", it: "Guida richiesta ✓", zh: "已申请指南 ✓" },
+    "Search a city or place… e.g. Lisbon": { es: "Busca una ciudad o lugar… p. ej. Lisboa", fr: "Rechercher une ville ou un lieu… p. ex. Lisbonne", it: "Cerca una città o un luogo… es. Lisbona", zh: "搜索城市或地点…例如 里斯本" },
+
+    /* Shared — nav sign-in widget + footer links on recent pages */
+    "Sign in": { es: "Iniciar sesión", fr: "Se connecter", it: "Accedi", zh: "登录" },
+    "Contact": { es: "Contacto", fr: "Contact", it: "Contatti", zh: "联系我们" },
+    "Feedback": { es: "Comentarios", fr: "Commentaires", it: "Feedback", zh: "反馈" },
+    "Privacy Policy": { es: "Política de privacidad", fr: "Politique de confidentialité", it: "Informativa sulla privacy", zh: "隐私政策" },
+    "Terms of Service": { es: "Términos del servicio", fr: "Conditions d'utilisation", it: "Termini di servizio", zh: "服务条款" },
+    "Your Travel Companion": { es: "Tu compañero de viaje", fr: "Votre compagnon de voyage", it: "Il tuo compagno di viaggio", zh: "你的旅行伙伴" }
   };
 
   /* ---- Storage ---- */
