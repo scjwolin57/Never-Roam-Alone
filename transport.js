@@ -61,7 +61,22 @@ window.NRA_TRANSPORT = (function(){
     "Iceland":"iceland","Philippines":"philippines","Indonesia":"indonesia","Taiwan":"taiwan",
     "Sri Lanka":"sri-lanka","Cuba":"cuba","Dominican Republic":"hispaniola","Jamaica":"jamaica",
     "Madagascar":"madagascar","Malta":"malta","Cyprus":"cyprus","Fiji":"fiji","Maldives":"maldives",
-    "Bahamas":"bahamas","Puerto Rico":"puerto-rico"
+    "Bahamas":"bahamas","Puerto Rico":"puerto-rico",
+    // 145 cities added 2026-07-10 (guide-expansion batch)
+    "Afghanistan":"eurasia","Albania":"eurasia","Andorra":"eurasia","Angola":"africa","Antigua and Barbuda":"antigua","Barbados":"barbados",
+    "Belarus":"eurasia","Benin":"africa","Bhutan":"eurasia","Bosnia and Herzegovina":"eurasia","Brunei":"borneo","Burkina Faso":"africa",
+    "Burundi":"africa","Cabo Verde":"cabo-verde","Cameroon":"africa","Central African Republic":"africa","Chad":"africa","Comoros":"comoros",
+    "Côte d'Ivoire":"africa","Democratic Republic of the Congo":"africa","Djibouti":"africa","Dominica":"dominica-isl","Equatorial Guinea":"bioko","Eritrea":"africa",
+    "Eswatini":"africa","Federated States of Micronesia":"micronesia","Gabon":"africa","Gambia":"africa","Grenada":"grenada","Guinea":"africa",
+    "Guinea-Bissau":"africa","Guyana":"s-america","Haiti":"hispaniola","Kiribati":"kiribati","Kyrgyzstan":"eurasia","Lesotho":"africa",
+    "Liberia":"africa","Libya":"africa","Liechtenstein":"eurasia","Malawi":"africa","Mali":"africa","Marshall Islands":"marshall",
+    "Mauritania":"africa","Mauritius":"mauritius","Moldova":"eurasia","Monaco":"eurasia","Mongolia":"eurasia","Montenegro":"eurasia",
+    "Myanmar (Burma)":"eurasia","Nauru":"nauru","Niger":"africa","North Korea":"eurasia","North Macedonia":"eurasia","Palau":"palau",
+    "Papua New Guinea":"png","Republic of the Congo":"africa","Rwanda":"africa","Saint Lucia":"stlucia","Saint Vincent and the Grenadines":"stvincent","Samoa":"samoa",
+    "San Marino":"eurasia","Seychelles":"seychelles","Sierra Leone":"africa","Solomon Islands":"solomon","Somalia":"africa","South Sudan":"africa",
+    "St. Kitts and Nevis":"stkitts","Sudan":"africa","Suriname":"s-america","Syria":"eurasia","São Tomé and Príncipe":"sao-tome","Tajikistan":"eurasia",
+    "Timor-Leste":"timor","Togo":"africa","Tonga":"tonga","Trinidad and Tobago":"trinidad","Turkmenistan":"eurasia","Tuvalu":"tuvalu",
+    "Vanuatu":"vanuatu","Yemen":"eurasia",
   };
   function regionFor(country){ return COUNTRY_REGION[country] || null; }
 
@@ -99,7 +114,33 @@ window.NRA_TRANSPORT = (function(){
     "Ho Chi Minh City":33, "Buenos Aires":50, "Marne-la-Vallée":43, "Kraków":25, "Heraklion":13, "Johor Bahru":35,
     "Hanoi":38, "Tel Aviv":25, "Sharjah":20, "Thessaloniki":23, "Lima":58, "Medina":25,
     "Tbilisi":35, "Riyadh":40, "Tallinn":13, "Mecca":83, "Denpasar":38, "Punta Cana":30,
-    "Santiago":35, "Vilnius":20, "Jerusalem":50, "Zhuhai":60, "Cairo":45
+    "Santiago":35, "Vilnius":20, "Jerusalem":50, "Zhuhai":60, "Cairo":45,
+    // 145 cities added 2026-07-10
+    "Victoria Falls":22, "Lusaka":37, "Kampala":60, "Tunis":20, "Lomé":12, "Zanzibar City":17,
+    "Khartoum":12, "Juba":20, "Mogadishu":20, "Freetown":300, "Victoria":15, "Dakar":52,
+    "São Tomé":12, "Kigali":17, "Lagos":67, "Niamey":20, "Windhoek":45, "Maputo":20,
+    "Port Louis":60, "Nouakchott":35, "Bamako":30, "Lilongwe":30, "Antananarivo":35, "Tripoli":20,
+    "Monrovia":75, "Maseru":22, "Nairobi":37, "Bissau":25, "Conakry":32, "Accra":30,
+    "Banjul":40, "Libreville":27, "Addis Ababa":20, "Mbabane":60, "Asmara":12, "Malabo":17,
+    "Djibouti City":12, "Abidjan":37, "Kinshasa":60, "Brazzaville":12, "Moroni":27, "N'Djamena":15,
+    "Bangui":17, "Douala":32, "Praia":7, "Bujumbura":12, "Ouagadougou":15, "Gaborone":22,
+    "Cotonou":20, "Luanda":57, "Algiers":35, "Port Vila":12, "Funafuti":2, "Nuku'alofa":27,
+    "Honiara":25, "Apia":45, "Port Moresby":20, "Koror":25, "Auckland":32, "Yaren":2,
+    "Weno":7, "Majuro":17, "Tarawa":22, "Nadi":17, "Caracas":47, "Montevideo":30,
+    "Port of Spain":37, "Paramaribo":52, "Kingstown":27, "Castries":10, "Basseterre":9, "Asunción":22,
+    "Panama City":40, "Managua":22, "Montego Bay":12, "Port-au-Prince":27, "Georgetown":52, "Guatemala City":20,
+    "St. George's":17, "San Salvador":52, "Quito":52, "Roseau":82, "Havana":30, "San José":32,
+    "Bogotá":30, "La Paz":30, "Belize City":22, "Bridgetown":22, "Nassau":25, "St. John's":17,
+    "Sana'a":25, "Tashkent":25, "Ashgabat":20, "Dili":12, "Dushanbe":12, "Damascus":37,
+    "Colombo":52, "Manila":32, "Karachi":35, "Muscat":35, "Pyongyang":27, "Kathmandu":30,
+    "Yangon":37, "Ulaanbaatar":52, "Malé":10, "Beirut":20, "Vientiane":12, "Bishkek":35,
+    "Kuwait City":25, "Almaty":25, "Amman":40, "Baghdad":32, "Tehran":52, "Nicosia":45,
+    "Siem Reap":52, "Bandar Seri Begawan":17, "Thimphu":52, "Dhaka":40, "Manama":17, "Baku":30,
+    "Yerevan":22, "Kabul":25, "Kyiv":47, "Ljubljana":27, "Kotor":17, "Bratislava":17,
+    "Belgrade":25, "San Marino":32, "Moscow":42, "Bucharest":32, "Skopje":22, "Chișinău":25,
+    "Monaco":37, "Valletta":12, "Luxembourg City":15, "Riga":17, "Reykjavík":47, "Dubrovnik":27,
+    "Sofia":20, "Minsk":35, "Sarajevo":25, "Tirana":22, "Tegucigalpa":105, "Vaduz":90,
+    "Andorra la Vella":165,
   };
   function centerMin(p){ return (p && p.city && AIRPORT_CENTER_MIN[p.city]) || 45; }
   /* same-country check for the domestic vs international airport buffer */
