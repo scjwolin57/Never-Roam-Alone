@@ -33,7 +33,11 @@ alter table public.profiles
   add column if not exists twitter                 text,
   add column if not exists tiktok                  text,
   add column if not exists youtube                 text,
-  add column if not exists travel_photos           jsonb not null default '[]'::jsonb;
+  add column if not exists travel_photos           jsonb not null default '[]'::jsonb,
+  add column if not exists avatar_caption          text,   -- optional short caption under the profile photo
+  add column if not exists last_trip               text,   -- last place they traveled to
+  add column if not exists next_trip                text,   -- next place they plan on visiting
+  add column if not exists travel_goals             jsonb not null default '[]'::jsonb;   -- what they're hoping to get out of the site
 
 -- 3. Photo storage: public to view, but people can only manage photos
 --    inside a folder named after their own account id. Photos are
@@ -94,7 +98,11 @@ create view public.public_profiles as
          twitter,
          tiktok,
          youtube,
-         travel_photos
+         travel_photos,
+         avatar_caption,
+         last_trip,
+         next_trip,
+         travel_goals
     from public.profiles
    where is_public = true;
 

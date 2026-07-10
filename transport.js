@@ -74,6 +74,37 @@ window.NRA_TRANSPORT = (function(){
     fuelPer100Km: 8 * 1.60,  // ~8 L/100km × ~$1.60/L average
     planeBase: 60, planePerKm: 0.07
   };
+  /* Real roads and rails wind — straight-line distance underestimates
+     ground travel. Road ≈25% longer, rail ≈20% longer on average. */
+  const ROAD_F = 1.25, RAIL_F = 1.2;
+  const MOTEL_NIGHT = 70;   // modest en-route stopover, per night (est.)
+
+  /* Minutes from each featured city's main airport to its city center
+     (taken from the airport card on each city guide page). Used to make
+     flight times door-to-door. Unknown places fall back to 45 min. */
+  const AIRPORT_CENTER_MIN = {
+    "Hong Kong":40, "Bangkok":50, "London":58, "Macau":18, "Singapore":25, "Paris":53,
+    "Dubai":20, "New York":60, "Kuala Lumpur":53, "Istanbul":58, "Tokyo":38, "Antalya":20,
+    "Seoul":75, "Osaka":60, "Rome":45, "Phuket":45, "Barcelona":25, "Amsterdam":25,
+    "Milan":50, "Vienna":25, "Prague":30, "Los Angeles":45, "Sydney":25, "Cape Town":25,
+    "Rio de Janeiro":38, "Cancún":30, "Marrakech":15, "Madrid":25, "Taipei":50, "Berlin":38,
+    "Melbourne":33, "Munich":45, "Las Vegas":15, "Florence":18, "Dublin":33, "Kyoto":105,
+    "Lisbon":20, "Venice":20, "Athens":40, "Orlando":25, "Toronto":38, "Miami":18,
+    "San Francisco":30, "Shanghai":58, "Frankfurt am Main":20, "Copenhagen":20, "Zurich":20, "Washington, D.C.":20,
+    "Pattaya-Chonburi":43, "Vancouver":30, "Stockholm":43, "Mexico City":45, "Oslo":40, "São Paulo":38,
+    "Helsinki":35, "Brussels":30, "Budapest":30, "Guangzhou":50, "Nice":20, "Palma de Mallorca":20,
+    "Honolulu":25, "Beijing":50, "Warsaw":25, "Seville":20, "Valencia":23, "Shenzhen":45,
+    "Doha":20, "Abu Dhabi":35, "Fukuoka":13, "Sapporo":53, "Busan":33, "Edinburgh":28,
+    "Montreal":25, "Bologna":25, "Rhodes":25, "Verona":18, "Delhi":33, "Porto":25,
+    "Ho Chi Minh City":33, "Buenos Aires":50, "Marne-la-Vallée":43, "Kraków":25, "Heraklion":13, "Johor Bahru":35,
+    "Hanoi":38, "Tel Aviv":25, "Sharjah":20, "Thessaloniki":23, "Lima":58, "Medina":25,
+    "Tbilisi":35, "Riyadh":40, "Tallinn":13, "Mecca":83, "Denpasar":38, "Punta Cana":30,
+    "Santiago":35, "Vilnius":20, "Jerusalem":50, "Zhuhai":60, "Cairo":45
+  };
+  function centerMin(p){ return (p && p.city && AIRPORT_CENTER_MIN[p.city]) || 45; }
+  /* same-country check for the domestic vs international airport buffer */
+  const CTRY_ALIAS = { "Türkiye":"Turkey", "UAE":"United Arab Emirates", "Czech Republic":"Czechia" };
+  function sameCountry(a,b){ a=CTRY_ALIAS[a]||a; b=CTRY_ALIAS[b]||b; return !!a && !!b && a===b; }
 
   const fmtH = h => h < 1 ? Math.round(h*60) + "m" : (h >= 24 ? Math.round(h/24*10)/10 + " days" : Math.round(h*10)/10 + "h");
 
@@ -88,24 +119,31 @@ window.NRA_TRANSPORT = (function(){
     const sameLand = origin.region && dest.region && origin.region === dest.region;
     const modes = [];
 
-    // Plane — always an option between cities this far apart
+    // Plane — always an option between cities this far apart.
+    // Time is DOOR-TO-DOOR: air time + airport processing (2 h domestic,
+    // 3 h international) + the airport↔city-center transfer at both ends.
     if (km > 150){
+      const domestic = sameCountry(origin.country, dest.country);
+      const groundH  = (domestic ? 2 : 3) + (centerMin(origin) + centerMin(dest))/60;
       modes.push({ mode:"plane", icon:"✈", cost:Math.round(RATES.planeBase + km*RATES.planePerKm),
-                   live:false, timeH: km/750 + 2.5, note:"" });
+                   live:false, timeH: km/750 + groundH, door:true, note:"" });
     }
     if (sameLand && km >= 40){
-      if (km <= 3500){ // Car
-        const days = Math.max(1, Math.ceil(km/650));
+      if (km <= 3500){ // Car — time, fuel and fares use estimated ROAD distance
+        const roadKm = km * ROAD_F;
+        const days = Math.max(1, Math.ceil(roadKm/650));
+        const stops = days - 1;   // nights sleeping en route on a multi-day drive
         modes.push({ mode:"car", icon:"🚗", live:false,
-                     cost:Math.round(days*RATES.carRentalPerDay + (km/100)*RATES.fuelPer100Km),
-                     timeH: km/85, note: days > 1 ? days + "-day drive" : "" });
+                     cost:Math.round(days*RATES.carRentalPerDay + (roadKm/100)*RATES.fuelPer100Km + stops*MOTEL_NIGHT),
+                     timeH: roadKm/85,
+                     note: days > 1 ? days + "-day drive (incl. " + stops + " night" + (stops>1?"s":"") + " en route)" : "" });
       }
-      if (km <= 3200){ // Train
+      if (km <= 3200){ // Train — estimated RAIL distance
         const rate = RATES.trainPerKm[dest.region] || RATES.trainPerKm[origin.region] || RATES.trainPerKm.default;
-        modes.push({ mode:"train", icon:"🚆", live:false, cost:Math.round(Math.max(10, km*rate)), timeH: km/105, note:"" });
+        modes.push({ mode:"train", icon:"🚆", live:false, cost:Math.round(Math.max(10, km*RAIL_F*rate)), timeH: km*RAIL_F/105, note:"" });
       }
-      if (km <= 3000){ // Bus
-        modes.push({ mode:"bus", icon:"🚌", live:false, cost:Math.round(Math.max(8, km*RATES.busPerKm)), timeH: km/70, note:"" });
+      if (km <= 3000){ // Bus — estimated ROAD distance
+        modes.push({ mode:"bus", icon:"🚌", live:false, cost:Math.round(Math.max(8, km*ROAD_F*RATES.busPerKm)), timeH: km*ROAD_F/70, note:"" });
       }
     }
     // Boat — short coastal hops only (real ferry availability varies)
@@ -120,15 +158,21 @@ window.NRA_TRANSPORT = (function(){
 
   /* ---- live layer 1: real flight prices via the existing SerpApi proxy ----
      One call per origin returns prices for MANY destinations (1 credit). */
-  let flightPrices = null, flightOriginCode = null, flightPromise = null;
-  function liveFlightPrices(originCode){
+  let flightPrices = null, flightKey = null, flightPromise = null, flightRoundTrip = false;
+  function liveFlightPrices(originCode, outboundDate, returnDate){
     if (!originCode) return Promise.resolve(null);
-    if (originCode === flightOriginCode && flightPromise) return flightPromise;
-    flightOriginCode = originCode;
-    flightPromise = fetch(`/.netlify/functions/flights?departure_id=${encodeURIComponent(originCode)}`)
+    const roundTrip = !!(outboundDate && returnDate);
+    const key = originCode + "|" + (outboundDate || "") + "|" + (returnDate || "");
+    if (key === flightKey && flightPromise) return flightPromise;
+    flightKey = key;
+    let flightsUrl = `/.netlify/functions/flights?departure_id=${encodeURIComponent(originCode)}`;
+    if (outboundDate) flightsUrl += `&outbound_date=${encodeURIComponent(outboundDate)}`;
+    if (roundTrip)    flightsUrl += `&return_date=${encodeURIComponent(returnDate)}&type=1`;
+    flightPromise = fetch(flightsUrl)
       .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
       .then(data => {
         flightPrices = {};
+        flightRoundTrip = roundTrip;
         (data.destinations || []).forEach(d => {
           if (d.name && d.flight_price != null) flightPrices[d.name.toLowerCase()] = d.flight_price;
         });
@@ -140,6 +184,7 @@ window.NRA_TRANSPORT = (function(){
   function flightPriceFor(city){
     return flightPrices ? flightPrices[city.toLowerCase()] : undefined;
   }
+  function flightsAreRoundTrip(){ return flightRoundTrip; }
 
   /* ---- live layer 2 (prototype only): real train/bus route check via
      Transitous (community service, non-commercial use). Upgrades the
@@ -160,5 +205,5 @@ window.NRA_TRANSPORT = (function(){
       .catch(() => { if (t) clearTimeout(t); return null; });
   }
 
-  return { distKm, regionFor, compareModes, liveFlightPrices, flightPriceFor, transitousCheck, fmtH };
+  return { distKm, regionFor, compareModes, liveFlightPrices, flightPriceFor, flightsAreRoundTrip, transitousCheck, fmtH };
 })();

@@ -81,18 +81,24 @@
   .card + .card{margin-top:20px}
 
   .avatar-row{display:flex;align-items:center;gap:18px;margin-bottom:8px}
+  .avatar-col{display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0}
   .avatar{
     width:88px;height:88px;border-radius:50%;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;
     color:#fff;font-weight:800;font-size:2rem;letter-spacing:.5px;
     box-shadow:0 6px 18px rgba(20,40,50,.18);
   }
+  .avatar-caption-input{
+    width:104px;padding:4px 7px;border:1.5px solid rgba(14,124,134,.22);border-radius:8px;
+    font-size:.68rem;font-family:inherit;color:var(--ink);text-align:center;outline:none;
+  }
+  .avatar-caption-input:focus{border-color:var(--teal)}
   .avatar-meta .whoname{font-size:1.5rem;font-family:Georgia,serif;margin:0}
   .avatar-meta .whoemail{color:var(--muted);font-size:.9rem}
   .avatar-hint{font-size:.76rem;color:var(--muted);margin:6px 0 0}
   .avatar.has-photo{background-size:cover;background-position:center}
   .cover-strip{
-    height:92px;border-radius:14px;margin-bottom:18px;position:relative;overflow:hidden;
+    height:92px;border-radius:14px;margin-bottom:30px;position:relative;overflow:hidden;
     background:
       radial-gradient(420px 190px at 82% 0%, rgba(239,111,83,.35), transparent 70%),
       radial-gradient(520px 240px at 12% 110%, rgba(255,255,255,.14), transparent 65%),
@@ -120,6 +126,7 @@
   .charcount{float:right;font-size:.72rem;color:var(--muted);font-weight:400}
   .check-row{display:flex;align-items:flex-start;gap:10px;font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink);font-size:.95rem;cursor:pointer;margin-bottom:0}
   .check-row input{width:auto;margin-top:4px;accent-color:var(--green);flex-shrink:0}
+  .goal-checks{display:flex;flex-direction:column;gap:10px}
 
   .actions{display:flex;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
 
@@ -247,7 +254,10 @@
     </div>
 
     <div class="avatar-row">
-      <div class="avatar" id="avatar">?</div>
+      <div class="avatar-col">
+        <div class="avatar" id="avatar">?</div>
+        <input type="text" id="p-avatar-caption" class="avatar-caption-input" maxlength="40" placeholder="Describe this photo…" title="Optional caption shown under your photo (40 characters max)" />
+      </div>
       <div class="avatar-meta">
         <p class="whoname" id="who-name">Roamer</p>
         <span class="whoemail" id="who-email"></span>
@@ -300,13 +310,14 @@
           </select>
         </div>
         <div class="field">
-          <label for="p-company">Usually travel as</label>
+          <label for="p-company">I usually travel</label>
           <select id="p-company">
             <option value="">Prefer not to say</option>
             <option>Solo</option>
-            <option>Couple</option>
-            <option>Group of friends</option>
-            <option>Family</option>
+            <option>With significant other</option>
+            <option>With family</option>
+            <option>With friends</option>
+            <option>In tour groups</option>
           </select>
         </div>
       </div>
@@ -328,6 +339,27 @@
         <div class="field" id="p-age-txt-wrap" style="display:none">
           <label for="p-age-txt">In your own words</label>
           <input type="text" id="p-age-txt" maxlength="30" placeholder="e.g. thirty-something" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label for="p-last-trip">Last place I traveled to <span class="sub">(optional)</span></label>
+          <input type="text" id="p-last-trip" maxlength="80" placeholder="Where you just got back from" />
+        </div>
+        <div class="field">
+          <label for="p-next-trip">Next place I plan on visiting <span class="sub">(optional)</span></label>
+          <input type="text" id="p-next-trip" maxlength="80" placeholder="Where you're headed next" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>What are you hoping to get out of Never Roam Alone? <span class="sub">(optional, pick any that apply)</span></label>
+        <div class="goal-checks">
+          <label class="check-row"><input type="checkbox" id="p-goal-buddies"><span>Find travel buddies</span></label>
+          <label class="check-row"><input type="checkbox" id="p-goal-stories"><span>Share my stories/experiences</span></label>
+          <label class="check-row"><input type="checkbox" id="p-goal-knowledge"><span>Gain travel knowledge</span></label>
+          <label class="check-row"><input type="checkbox" id="p-goal-killing"><span>Just killing time</span></label>
         </div>
       </div>
 
@@ -513,6 +545,14 @@
 (function(){
   const $ = id => document.getElementById(id);
 
+  /* ---- "what brings you here" checkboxes: pairs checkbox id -> saved goal text ---- */
+  const GOAL_FIELDS = [
+    ["p-goal-buddies",   "Find travel buddies"],
+    ["p-goal-stories",   "Share my stories/experiences"],
+    ["p-goal-knowledge", "Gain travel knowledge"],
+    ["p-goal-killing",   "Just killing time"]
+  ];
+
   /* ---- initials + a stable color per name (matches the little avatars elsewhere) ---- */
   const AV_COLORS = ["#185e3f","#0e7c86","#b4552d","#7a5195","#2f6690","#bc5090"];
   function initials(n){
@@ -567,6 +607,11 @@
     $("p-twitter").value   = p.twitter || "";
     $("p-tiktok").value    = p.tiktok || "";
     $("p-youtube").value   = p.youtube || "";
+    $("p-avatar-caption").value = p.avatar_caption || "";
+    $("p-last-trip").value = p.last_trip || "";
+    $("p-next-trip").value = p.next_trip || "";
+    const savedGoals = Array.isArray(p.travel_goals) ? p.travel_goals : [];
+    GOAL_FIELDS.forEach(([id, val]) => { $(id).checked = savedGoals.indexOf(val) !== -1; });
     $("p-fav").value       = p.fav_destination || "";
     $("p-noreturn").value  = p.no_return_destination || "";
     $("p-bucket").value    = p.bucket_list_destination || "";
@@ -651,9 +696,10 @@
      customize that text. */
   const SNAP_FIELDS = ["p-name","p-bio","p-city","p-country","p-style","p-company",
     "p-website","p-instagram","p-facebook","p-twitter","p-tiktok","p-youtube",
-    "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra"];
+    "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra",
+    "p-avatar-caption","p-last-trip","p-next-trip"];
   function formSnapshot(){
-    return SNAP_FIELDS.map(id => $(id).value).join("\u0001") + "\u0001" + $("p-public").checked;
+    return SNAP_FIELDS.map(id => $(id).value).join("") + "" + $("p-public").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
   }
   let savedSnapshot = "";
   window.addEventListener("beforeunload", (e) => {
@@ -700,6 +746,10 @@
       twitter: cleanHandle($("p-twitter").value),
       tiktok: cleanHandle($("p-tiktok").value),
       youtube: $("p-youtube").value.trim(),
+      avatar_caption: $("p-avatar-caption").value.trim(),
+      last_trip: $("p-last-trip").value.trim(),
+      next_trip: $("p-next-trip").value.trim(),
+      travel_goals: GOAL_FIELDS.filter(([id]) => $(id).checked).map(([, val]) => val),
       age: ageValue(),
       fav_destination: $("p-fav").value.trim(),
       no_return_destination: $("p-noreturn").value.trim(),
@@ -809,7 +859,7 @@
     btn.disabled = true; const orig = btn.textContent;
     let added = 0;
     for (let i = 0; i < total; i++){
-      btn.textContent = "Uploading " + (i + 1) + "/" + total + "\u2026";
+      btn.textContent = "Uploading " + (i + 1) + "/" + total + "…";
       try{
         const blob = await shrinkImage(files[i]);
         const path = user.id + "/" + Date.now() + "-" + Math.random().toString(36).slice(2, 7) + ".jpg";
@@ -876,7 +926,7 @@
     $("avatar-file").value = "";
     if (!sb || !user || !file) return;
     const btn = $("avatar-upload");
-    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading\u2026"; amsg("");
+    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading…"; amsg("");
     try{
       const blob = await shrinkImage(file, 512);
       const path = user.id + "/avatar-" + Date.now() + ".jpg";
@@ -930,7 +980,7 @@
     $("cover-file").value = "";
     if (!sb || !user || !file) return;
     const btn = $("cover-upload");
-    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading\u2026"; cmsg("");
+    btn.disabled = true; const orig = btn.textContent; btn.textContent = "Uploading…"; cmsg("");
     try{
       const blob = await shrinkImage(file, 1600);
       const path = user.id + "/cover-" + Date.now() + ".jpg";

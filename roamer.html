@@ -89,7 +89,7 @@
       radial-gradient(520px 240px at 12% 110%, rgba(255,255,255,.14), transparent 65%),
       linear-gradient(120deg, #0a5c64 0%, #0e7c86 45%, #185e3f 100%);
   }
-  .p-head{display:flex;align-items:flex-end;gap:22px;padding:0 32px;margin-top:-56px;position:relative}
+  .p-head{display:flex;align-items:flex-end;gap:22px;padding:0 32px;margin-top:-34px;position:relative}
   .avatar{
     width:118px;height:118px;border-radius:50%;flex-shrink:0;
     display:flex;align-items:center;justify-content:center;
@@ -97,6 +97,8 @@
     border:4px solid #fff;
     box-shadow:0 10px 26px rgba(20,40,50,.24);
   }
+  .avatar-col{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .avatar-caption{margin:0;font-size:.7rem;color:var(--muted);text-align:center;max-width:118px;line-height:1.25}
   .p-id{padding-bottom:8px;min-width:0}
   .whoname{font-size:1.75rem;font-family:Georgia,serif;margin:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap;line-height:1.25}
   .age-pill{
@@ -138,13 +140,24 @@
 
   .socials{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 16px}
   a.social-btn{
-    display:inline-flex;align-items:center;gap:8px;
+    display:inline-flex;align-items:center;gap:9px;
     border:2px solid rgba(14,124,134,.25);border-radius:22px;
-    padding:9px 18px;font-weight:700;font-size:.88rem;color:var(--teal-dark);
+    padding:7px 18px 7px 7px;font-weight:700;font-size:.88rem;color:var(--teal-dark);
     transition:.2s;background:#fff;
   }
   a.social-btn:hover{border-color:var(--teal);box-shadow:0 4px 14px rgba(14,124,134,.16);transform:translateY(-1px)}
-  a.social-btn svg{width:16px;height:16px;flex-shrink:0}
+  /* icon sits in a small brand-colored circle so each platform is recognizable at a glance */
+  .social-btn .s-ico{
+    width:26px;height:26px;border-radius:50%;flex-shrink:0;color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+  .social-btn .s-ico svg{width:14px;height:14px;flex-shrink:0}
+  .s-ico.web{background:#5b6770}
+  .s-ico.ig{background:radial-gradient(circle at 30% 110%, #ffdb73 0%, #fa8f21 20%, #ee2a7b 55%, #6228d7 100%)}
+  .s-ico.fb{background:#1877f2}
+  .s-ico.x{background:#000}
+  .s-ico.tk{background:#010101}
+  .s-ico.yt{background:#ff0000}
 
   /* ---------- Travel favorites (3-up cards) ---------- */
   .favs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 4px}
@@ -229,7 +242,7 @@
   footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   @media (max-width:640px){
-    .p-head{flex-direction:column;align-items:center;text-align:center;margin-top:-62px;gap:12px}
+    .p-head{flex-direction:column;align-items:center;text-align:center;margin-top:-40px;gap:12px}
     .whoname{justify-content:center}
     .p-body{padding:14px 20px 26px}
     .favs{grid-template-columns:1fr}
@@ -264,7 +277,10 @@
     <div class="preview-note" id="preview-note" style="display:none">&#128274; Only you can see this preview — your profile is set to private. Turn on &ldquo;Public profile&rdquo; on your edit page to share it.</div>
     <div class="cover"></div>
     <div class="p-head">
-      <div class="avatar" id="r-avatar">?</div>
+      <div class="avatar-col">
+        <div class="avatar" id="r-avatar">?</div>
+        <p class="avatar-caption" id="r-avatar-caption" style="display:none"></p>
+      </div>
       <div class="p-id">
         <p class="whoname"><span id="r-name">Roamer</span><span class="age-pill" id="r-age" style="display:none"></span><span class="tt-badge" id="r-badge" style="display:none">&#9998; Trusted traveler</span></p>
         <p class="p-meta" id="r-meta"></p>
@@ -429,6 +445,7 @@
       av.textContent = initials(name);
       av.style.background = colorFor(name);
     }
+    if (p.avatar_caption){ $("r-avatar-caption").textContent = p.avatar_caption; $("r-avatar-caption").style.display = ""; }
 
     /* age sits right next to the picture and name */
     if (p.age){ $("r-age").textContent = p.age; $("r-age").style.display = ""; }
@@ -441,21 +458,24 @@
       const d = new Date(p.created_at);
       if (!isNaN(d)) metaBits.push("Roamer since " + d.toLocaleDateString("en-US", { year:"numeric", month:"long" }));
     }
-    $("r-meta").textContent = metaBits.join("  \u00B7  ");
+    $("r-meta").textContent = metaBits.join("  ·  ");
 
     if (p.bio){ $("r-bio").textContent = p.bio; $("r-bio").style.display = ""; }
 
     let chips = "";
     if (p.travel_style) chips += chip("Travel style:", p.travel_style);
-    if (p.travel_company) chips += chip("Travels:", p.travel_company);
+    if (p.travel_company) chips += chip("I usually travel:", p.travel_company);
+    if (Array.isArray(p.travel_goals)) p.travel_goals.forEach(g => { chips += '<span class="chip">' + esc(g) + '</span>'; });
     $("r-chips").innerHTML = chips;
     if (!chips) $("r-chips").style.display = "none";
 
     let socials = "";
+    const siteIco = '<span class="s-ico web">' + ICON_GLOBE + '</span>';
+    const igIco   = '<span class="s-ico ig">' + ICON_IG + '</span>';
     const site = siteUrl(p.website);
-    if (site) socials += '<a class="social-btn" href="' + esc(site) + '" target="_blank" rel="noopener nofollow">' + ICON_GLOBE + esc(String(p.website).trim()) + '</a>';
+    if (site) socials += '<a class="social-btn" href="' + esc(site) + '" target="_blank" rel="noopener nofollow">' + siteIco + esc(String(p.website).trim()) + '</a>';
     const handle = String(p.instagram||"").trim().replace(/^@+/, "");
-    if (handle) socials += '<a class="social-btn" href="https://instagram.com/' + esc(encodeURIComponent(handle)) + '" target="_blank" rel="noopener nofollow">' + ICON_IG + '@' + esc(handle) + '</a>';
+    if (handle) socials += '<a class="social-btn" href="https://instagram.com/' + esc(encodeURIComponent(handle)) + '" target="_blank" rel="noopener nofollow">' + igIco + '@' + esc(handle) + '</a>';
     const MORE_SOCIALS = [
       ["fb", p.facebook, ICON_FB, "Facebook"],
       ["x",  p.twitter,  ICON_X,  handleOf(p.twitter) ? "@" + handleOf(p.twitter) : "X"],
@@ -464,13 +484,15 @@
     ];
     MORE_SOCIALS.forEach(([kind, val, icon, label]) => {
       const url = socialUrl(kind, val);
-      if (url) socials += '<a class="social-btn" href="' + esc(url) + '" target="_blank" rel="noopener nofollow">' + icon + esc(label) + '</a>';
+      if (url) socials += '<a class="social-btn" href="' + esc(url) + '" target="_blank" rel="noopener nofollow"><span class="s-ico ' + kind + '">' + icon + '</span>' + esc(label) + '</a>';
     });
     $("r-socials").innerHTML = socials;
     if (!socials) $("r-socials").style.display = "none";
 
     /* ---- travel favorites ---- */
     const FAVS = [
+      ["\u{1F9F3}", "Last place I traveled to", p.last_trip],
+      ["✈️", "Next place I plan on visiting", p.next_trip],
       ["\u{1F3C6}", "Favorite destination", p.fav_destination],
       ["\u{1F6AB}", "Wouldn't go back to", p.no_return_destination],
       ["\u{1F31F}", "On the bucket list", p.bucket_list_destination]
@@ -484,7 +506,7 @@
     const STORIES = [
       ["\u{1F4D6}", "Best travel story", p.best_story],
       ["\u{1F631}", "Weirdest or scariest travel moment", p.scary_story],
-      ["\u2728", "More about this Roamer", p.extra_details]
+      ["✨", "More about this Roamer", p.extra_details]
     ];
     $("r-stories").innerHTML = STORIES.filter(x => x[2]).map(x =>
       '<div class="story-zone"><h3><span class="si">' + x[0] + '</span>' + esc(x[1]) + '</h3><p>' + esc(x[2]) + '</p></div>'
