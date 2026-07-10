@@ -63,11 +63,13 @@
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
   .field-full{grid-column:1 / -1}
   @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
-  .when-switch{display:flex;gap:10px;margin:2px 0 14px}
-  .when-switch .mini-radio{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.92rem;transition:.15s;position:relative}
-  .when-switch .mini-radio:hover{border-color:var(--green)}
+  .when-switch{position:relative;display:flex;margin:2px 0 14px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:999px;padding:3px}
+  .when-switch::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);background:var(--green);border-radius:999px;transition:transform .25s ease;z-index:0}
+  .when-switch.right::before{transform:translateX(100%)}
+  .when-switch .mini-radio{flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:9px 10px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.88rem;line-height:1.25;text-align:center;transition:color .25s;position:relative;z-index:1}
+  .when-switch .mini-radio:not(.active):hover{color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
-  .when-switch .mini-radio.active{border-color:var(--green);background:rgba(24,94,63,.08)}
+  .when-switch .mini-radio.active{color:#fff}
   .date-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
   .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
@@ -349,17 +351,17 @@
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
             <label class="mini-radio active">
               <input type="radio" name="whenMode" value="dates" checked>
-              <span>Specific dates</span>
+              <span>On specific dates</span>
             </label>
             <label class="mini-radio">
               <input type="radio" name="whenMode" value="length">
-              <span>Trip length</span>
+              <span>Flexible Dates/Length of Trip (in days)</span>
             </label>
           </div>
           <div class="when-switch" role="radiogroup" aria-label="One-way or round trip">
             <label class="mini-radio active">
               <input type="radio" name="wayMode" value="return" checked>
-              <span>I plan to return</span>
+              <span>I'm planning to return</span>
             </label>
             <label class="mini-radio">
               <input type="radio" name="wayMode" value="oneway">
@@ -888,6 +890,10 @@ function syncWhenUI(){
   document.querySelectorAll('.when-switch .mini-radio').forEach(l=>{
     const inp = l.querySelector("input");
     l.classList.toggle("active", !!(inp && inp.checked));
+  });
+  document.querySelectorAll('.when-switch').forEach(sw=>{
+    const radios = sw.querySelectorAll('input[type="radio"]');
+    sw.classList.toggle("right", !!(radios[1] && radios[1].checked));
   });
 }
 
