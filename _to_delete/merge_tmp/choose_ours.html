@@ -14,8 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Help Me Choose — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
-<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
   :root{
     --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
@@ -108,18 +106,6 @@
     border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
     transform:translateY(-70%) rotate(45deg);pointer-events:none}
 
-  .view-switch{max-width:360px;margin:26px auto -6px;padding:0 22px}
-  .map-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 20px}
-  #finderMap{height:540px;border-radius:16px;box-shadow:var(--shadow)}
-  @media(max-width:600px){#finderMap{height:420px}}
-  .map-pin{width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
-    font-size:.72rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff;
-    box-shadow:0 2px 8px rgba(0,0,0,.35);cursor:pointer}
-  .map-pin.small{width:13px;height:13px;background:var(--teal);border-width:2px}
-  .card-popup .maplibregl-popup-content{padding:0;border-radius:16px;overflow:hidden;width:320px;box-shadow:0 12px 32px rgba(20,40,50,.3)}
-  .card-popup .card{box-shadow:none;border-radius:0}
-  .card-popup .card:hover{transform:none;box-shadow:none}
-  .card-popup .maplibregl-popup-close-button{z-index:5;font-size:1.4rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);right:6px;top:2px}
   .results{max-width:var(--maxw);margin:0 auto;padding:36px 22px 20px}
   .results h2{text-align:center;font-size:1.5rem;margin:0 0 6px}
   .results .sub{text-align:center;color:var(--muted);margin:0 0 28px}
@@ -427,16 +413,6 @@
       </div>
     </div>
   </div>
-  <div class="view-switch when-switch" role="radiogroup" aria-label="Results view">
-    <label class="mini-radio active">
-      <input type="radio" name="viewMode" value="cards" checked>
-      <span>Cards</span>
-    </label>
-    <label class="mini-radio">
-      <input type="radio" name="viewMode" value="map">
-      <span>Map</span>
-    </label>
-  </div>
   <div class="results-bar" id="finderSortBar">
     <button type="button" id="shareBtn" class="share-btn" style="margin-right:auto">📤 <span>Share itinerary</span></button>
     <span id="shareNote" class="share-note" hidden>Link copied!</span>
@@ -452,10 +428,6 @@
   </div>
   <div class="results" id="finderResults">
     <p class="empty">Loading destinations…</p>
-  </div>
-  <div class="map-wrap" id="finderMapWrap" hidden>
-    <div id="finderMap"></div>
-    <p class="empty" id="finderMapFallback" hidden>The map couldn't load right now — switch back to Cards to keep browsing.</p>
   </div>
 </div>
 
@@ -1147,61 +1119,6 @@ function updateModeAvailability(){
 }
 
 let finderShowAll = false;
-
-/* ============================================================
-   MAP VIEW — same MapLibre + Carto basemap as the homepage map.
-   Pins = current matches (top 12 numbered coral, rest teal);
-   clicking a pin opens that city's full finder card in a popup.
-   ============================================================ */
-const finderMapWrap = document.getElementById("finderMapWrap");
-const finderMapFallback = document.getElementById("finderMapFallback");
-function isMapView(){ return (document.querySelector('input[name="viewMode"]:checked')||{}).value === "map"; }
-let fMap = null, fMarkers = [], fPopup = null;
-let lastRender = { rows: [], actLabel: "", budget: 0 };
-function initFinderMap(){
-  if(fMap || typeof maplibregl === "undefined") return;
-  fMap = new maplibregl.Map({
-    container: "finderMap",
-    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
-    center: [15, 25], zoom: 1.3, minZoom: 1, renderWorldCopies: false,
-    attributionControl: true
-  });
-  fMap.addControl(new maplibregl.NavigationControl({ showCompass:false }), "top-right");
-}
-function updateFinderMap(){
-  if(typeof maplibregl === "undefined"){
-    document.getElementById("finderMap").style.display = "none";
-    finderMapFallback.hidden = false;
-    return;
-  }
-  initFinderMap();
-  if(!fMap) return;
-  fMarkers.forEach(m => m.remove());
-  fMarkers = [];
-  if(fPopup){ fPopup.remove(); fPopup = null; }
-  const rows = lastRender.rows;
-  rows.forEach((r, idx) => {
-    const el = document.createElement("div");
-    el.className = "map-pin" + (idx < 12 ? "" : " small");
-    if(idx < 12) el.textContent = idx + 1;
-    el.title = r.c.city;
-    el.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if(fPopup) fPopup.remove();
-      fPopup = new maplibregl.Popup({ className: "card-popup", maxWidth: "340px", offset: 14 })
-        .setLngLat([r.c.lng, r.c.lat])
-        .setHTML(finderCardHTML(r, idx + 1, lastRender.actLabel, lastRender.budget))
-        .addTo(fMap);
-    });
-    fMarkers.push(new maplibregl.Marker({ element: el }).setLngLat([r.c.lng, r.c.lat]).addTo(fMap));
-  });
-  if(rows.length){
-    const b = new maplibregl.LngLatBounds();
-    rows.forEach(r => b.extend([r.c.lng, r.c.lat]));
-    fMap.fitBounds(b, { padding: 60, maxZoom: 5.5, duration: 400 });
-  }
-  setTimeout(() => fMap.resize(), 60);
-}
 function renderFinder(){
   if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
   updateModeAvailability();
@@ -1295,9 +1212,18 @@ function renderFinder(){
   else                          rows.sort((a,b)=> b.score-a.score);
 
   /* heading */
-  const anyFilter = !!(cont || act || budget || nightsIn || geo || pass);
-  const head = anyFilter
-    ? `<h2>Suggested Destinations${cont ? ` in ${CONTINENT_LABEL[cont]}` : ""}${act ? ` for ${act.replace("&amp;","&")}` : ""}</h2>`
+  const bits = [];
+  if(cont) bits.push(`in ${CONTINENT_LABEL[cont]}`);
+  if(act) bits.push(`${act.replace("&amp;","&")} lovers`);
+  if(budget) bits.push(`${fmtMoney(budget)} for ${nights} night${nights>1?"s":""}`);
+  else if(nightsIn) bits.push(`${nightsIn} night${nightsIn>1?"s":""}`);
+  if(geo) bits.push(`from ${geo.city}${UI_MODE_KEY[mode] ? " by "+mode.toLowerCase()
+                     : mode==="fastest" ? ", fastest way there" : ", cheapest way there"}`);
+  if(geo && isOneWay()) bits.push("one-way prices");
+  else if(UI_MODE_KEY[mode]) bits.push(`by ${mode.toLowerCase()}`);
+  if(pass) bits.push(`${pass} passport`);
+  const head = bits.length
+    ? `<h2>Your matches — ${bits.join(" · ")}</h2>`
     : `<h2>All ${CITIES.length} featured destinations</h2>`;
 
   const hiddenBits = [];
@@ -1311,7 +1237,6 @@ function renderFinder(){
   if(budget && !geo) subBits.push(`Tip: add where you're traveling from and the math will include getting there.`);
   if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="7" aria-label="Trip length in nights"> -night trip — change the number to sharpen the math.`);
 
-  if(!rows.length && isMapView()) finderMapWrap.hidden = true;
   if(!rows.length){
     const contMsg = cont === "antarctica"
       ? `We don't feature any Antarctic destinations (yet!) — pick another continent or "I'm open to anywhere".`
@@ -1321,14 +1246,6 @@ function renderFinder(){
     return;
   }
 
-  lastRender = { rows, actLabel, budget };
-  if(isMapView()){
-    finderMapWrap.hidden = false;
-    finderResults.innerHTML = head + `<p class="sub">${subBits.join(" ")}</p>`;
-    updateFinderMap();
-    return;
-  }
-  finderMapWrap.hidden = true;
   const LIMIT = 12;
   const shown = finderShowAll ? rows : rows.slice(0, LIMIT);
   finderResults.innerHTML = head +
@@ -1389,7 +1306,7 @@ finderResults.addEventListener("change", e=>{
 });
 
 /* "Compare all ways" expander (delegated — cards re-render often) */
-document.addEventListener("click", e=>{
+finderResults.addEventListener("click", e=>{
   const btn = e.target.closest(".cmp-toggle"); if(!btn) return;
   const panel = btn.nextElementSibling;
   if(!panel || !panel.classList.contains("cmp-modes")) return;
@@ -1412,8 +1329,6 @@ document.querySelectorAll('input[name="whenMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="wayMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
-document.querySelectorAll('input[name="viewMode"]').forEach(el =>
-  el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
 departDateEl.addEventListener("change", ()=>{ if(departDateEl.value) returnDateEl.min = departDateEl.value; finderShowAll=false; renderFinder(); saveState(); });
 returnDateEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
 if(travelMonthEl) travelMonthEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
@@ -1818,7 +1733,6 @@ function saveState(){
       origin: finderOrigin,
       regional: regionalPref,
       sortBy: sortByEl.value,
-      view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
       bucketType: blType
@@ -1843,7 +1757,6 @@ function loadState(){
   if(s.origin) finderOrigin = s.origin;
   if(s.regional){ regionalPref = true; regionalBox.checked = true; }
   if(s.sortBy) sortByEl.value = s.sortBy;
-  if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   if(s.finderPassport) finderPassportEl.value = s.finderPassport;
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
   if(s.bucketType){
@@ -1876,7 +1789,6 @@ function buildShareURL(){
          if(returnDateEl.value && !isOneWay()) p.set("rd", returnDateEl.value); }
   if(isOneWay()) p.set("ow", "1");
   if(sortByEl.value && sortByEl.value !== "match") p.set("so", sortByEl.value);
-  if(isMapView()) p.set("vw", "map");
   if(finderOrigin && finderOrigin.lat != null){
     p.set("oc", finderOrigin.city || ""); p.set("on", finderOrigin.country || "");
     if(finderOrigin.code) p.set("ok", finderOrigin.code);
@@ -1912,7 +1824,6 @@ function applyShareParams(){
   if(p.get("ow") === "1"){ const w = document.querySelector('input[name="wayMode"][value="oneway"]'); if(w) w.checked = true; }
   const so = inSet(p.get("so"), [...sortByEl.options].map(o=>o.value));
   if(so) sortByEl.value = so;
-  if(p.get("vw") === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   const la = parseFloat(p.get("la")), ln = parseFloat(p.get("ln"));
   if(p.get("oc") && la >= -90 && la <= 90 && ln >= -180 && ln <= 180){
     const oc = cleanStr(p.get("oc")), on = cleanStr(p.get("on") || "");
