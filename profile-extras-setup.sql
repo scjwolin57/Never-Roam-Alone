@@ -37,7 +37,8 @@ alter table public.profiles
   add column if not exists avatar_caption          text,   -- optional short caption under the profile photo
   add column if not exists last_trip               text,   -- last place they traveled to
   add column if not exists next_trip                text,   -- next place they plan on visiting
-  add column if not exists travel_goals             jsonb not null default '[]'::jsonb;   -- what they're hoping to get out of the site
+  add column if not exists travel_goals             jsonb not null default '[]'::jsonb,   -- what they're hoping to get out of the site
+  add column if not exists trip_duration            text;   -- typical trip length, e.g. "About a week"
 
 -- 3. Photo storage: public to view, but people can only manage photos
 --    inside a folder named after their own account id. Photos are
