@@ -14,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Help Me Choose — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <style>
   :root{
     --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
@@ -63,13 +65,11 @@
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
   .field-full{grid-column:1 / -1}
   @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
-  .when-switch{position:relative;display:flex;margin:2px 0 14px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:999px;padding:3px}
-  .when-switch::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);background:var(--green);border-radius:999px;transition:transform .25s ease;z-index:0}
-  .when-switch.right::before{transform:translateX(100%)}
-  .when-switch .mini-radio{flex:1 1 0;display:flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:9px 10px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.88rem;line-height:1.25;text-align:center;transition:color .25s;position:relative;z-index:1}
-  .when-switch .mini-radio:not(.active):hover{color:var(--green)}
+  .when-switch{display:flex;gap:10px;margin:2px 0 14px}
+  .when-switch .mini-radio{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.92rem;transition:.15s;position:relative}
+  .when-switch .mini-radio:hover{border-color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
-  .when-switch .mini-radio.active{color:#fff}
+  .when-switch .mini-radio.active{border-color:var(--green);background:rgba(24,94,63,.08)}
   .date-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
   .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
@@ -106,6 +106,18 @@
     border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
     transform:translateY(-70%) rotate(45deg);pointer-events:none}
 
+  .view-switch{max-width:360px;margin:26px auto -6px;padding:0 22px}
+  .map-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 20px}
+  #finderMap{height:540px;border-radius:16px;box-shadow:var(--shadow)}
+  @media(max-width:600px){#finderMap{height:420px}}
+  .map-pin{width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
+    font-size:.72rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.35);cursor:pointer}
+  .map-pin.small{width:13px;height:13px;background:var(--teal);border-width:2px}
+  .card-popup .maplibregl-popup-content{padding:0;border-radius:16px;overflow:hidden;width:320px;box-shadow:0 12px 32px rgba(20,40,50,.3)}
+  .card-popup .card{box-shadow:none;border-radius:0}
+  .card-popup .card:hover{transform:none;box-shadow:none}
+  .card-popup .maplibregl-popup-close-button{z-index:5;font-size:1.4rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6);right:6px;top:2px}
   .results{max-width:var(--maxw);margin:0 auto;padding:36px 22px 20px}
   .results h2{text-align:center;font-size:1.5rem;margin:0 0 6px}
   .results .sub{text-align:center;color:var(--muted);margin:0 0 28px}
@@ -351,17 +363,17 @@
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
             <label class="mini-radio active">
               <input type="radio" name="whenMode" value="dates" checked>
-              <span>On specific dates</span>
+              <span>Specific dates</span>
             </label>
             <label class="mini-radio">
               <input type="radio" name="whenMode" value="length">
-              <span>Flexible Dates/Length of Trip (in days)</span>
+              <span>Trip length</span>
             </label>
           </div>
           <div class="when-switch" role="radiogroup" aria-label="One-way or round trip">
             <label class="mini-radio active">
               <input type="radio" name="wayMode" value="return" checked>
-              <span>I'm planning to return</span>
+              <span>I plan to return</span>
             </label>
             <label class="mini-radio">
               <input type="radio" name="wayMode" value="oneway">
@@ -381,20 +393,8 @@
             </div>
           </div>
           <div id="lengthFields" hidden>
-            <div class="date-row">
-              <div>
-                <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
-                <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
-              </div>
-              <div>
-                <label class="field" for="travelMonth">Travel month <span class="label-hint">(optional)</span></label>
-                <div class="select-wrap">
-                  <select id="travelMonth">
-                    <option value="" selected>Any month</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+            <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
+            <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
             <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
           </div>
         </div>
@@ -413,6 +413,16 @@
       </div>
     </div>
   </div>
+  <div class="view-switch when-switch" role="radiogroup" aria-label="Results view">
+    <label class="mini-radio active">
+      <input type="radio" name="viewMode" value="cards" checked>
+      <span>Cards</span>
+    </label>
+    <label class="mini-radio">
+      <input type="radio" name="viewMode" value="map">
+      <span>Map</span>
+    </label>
+  </div>
   <div class="results-bar" id="finderSortBar">
     <button type="button" id="shareBtn" class="share-btn" style="margin-right:auto">📤 <span>Share itinerary</span></button>
     <span id="shareNote" class="share-note" hidden>Link copied!</span>
@@ -428,6 +438,10 @@
   </div>
   <div class="results" id="finderResults">
     <p class="empty">Loading destinations…</p>
+  </div>
+  <div class="map-wrap" id="finderMapWrap" hidden>
+    <div id="finderMap"></div>
+    <p class="empty" id="finderMapFallback" hidden>The map couldn't load right now — switch back to Cards to keep browsing.</p>
   </div>
 </div>
 
@@ -503,7 +517,6 @@
 
 <script src="iso-countries.js"></script>
 <script src="destinations.js"></script>
-<script src="city-scores.js"></script>
 <script src="city-photos.js"></script>
 <script src="city-seasons.js"></script>
 <script src="transport.js"></script>
@@ -530,58 +543,71 @@ const COUNTRY_CONTINENT = {
   "Spain":"europe","Sweden":"europe","Switzerland":"europe","United Kingdom":"europe",
   "Canada":"n-america","Dominican Republic":"n-america","Mexico":"n-america","United States":"n-america",
   "Argentina":"s-america","Brazil":"s-america","Chile":"s-america","Peru":"s-america",
-  "Australia":"oceania","New Zealand":"oceania","Fiji":"oceania",
-  // 145 cities added 2026-07-10
-  "Afghanistan":"asia","Albania":"europe","Algeria":"africa","Andorra":"europe","Angola":"africa",
-  "Antigua and Barbuda":"n-america","Armenia":"asia","Azerbaijan":"asia","Bahamas":"n-america","Bahrain":"asia",
-  "Bangladesh":"asia","Barbados":"n-america","Belarus":"europe","Belize":"n-america","Benin":"africa",
-  "Bhutan":"asia","Bolivia":"s-america","Bosnia and Herzegovina":"europe","Botswana":"africa","Brunei":"asia",
-  "Bulgaria":"europe","Burkina Faso":"africa","Burundi":"africa","Cabo Verde":"africa","Cambodia":"asia",
-  "Cameroon":"africa","Central African Republic":"africa","Chad":"africa","Colombia":"s-america","Comoros":"africa",
-  "Costa Rica":"n-america","Croatia":"europe","Cuba":"n-america","Cyprus":"europe","Côte d'Ivoire":"africa",
-  "Democratic Republic of the Congo":"africa","Djibouti":"africa","Dominica":"n-america","Ecuador":"s-america","El Salvador":"n-america",
-  "Equatorial Guinea":"africa","Eritrea":"africa","Eswatini":"africa","Ethiopia":"africa","Federated States of Micronesia":"oceania",
-  "Gabon":"africa","Gambia":"africa","Ghana":"africa","Grenada":"n-america","Guatemala":"n-america",
-  "Guinea":"africa","Guinea-Bissau":"africa","Guyana":"s-america","Haiti":"n-america","Honduras":"n-america",
-  "Iceland":"europe","Iran":"asia","Iraq":"asia","Jamaica":"n-america","Jordan":"asia",
-  "Kazakhstan":"asia","Kenya":"africa","Kiribati":"oceania","Kuwait":"asia","Kyrgyzstan":"asia",
-  "Laos":"asia","Latvia":"europe","Lebanon":"asia","Lesotho":"africa","Liberia":"africa",
-  "Libya":"africa","Liechtenstein":"europe","Luxembourg":"europe","Madagascar":"africa","Malawi":"africa",
-  "Maldives":"asia","Mali":"africa","Malta":"europe","Marshall Islands":"oceania","Mauritania":"africa",
-  "Mauritius":"africa","Moldova":"europe","Monaco":"europe","Mongolia":"asia","Montenegro":"europe",
-  "Mozambique":"africa","Myanmar (Burma)":"asia","Namibia":"africa","Nauru":"oceania","Nepal":"asia",
-  "Nicaragua":"n-america","Niger":"africa","Nigeria":"africa","North Korea":"asia","North Macedonia":"europe",
-  "Oman":"asia","Pakistan":"asia","Palau":"oceania","Panama":"n-america","Papua New Guinea":"oceania",
-  "Paraguay":"s-america","Philippines":"asia","Republic of the Congo":"africa","Romania":"europe","Russia":"europe",
-  "Rwanda":"africa","Saint Lucia":"n-america","Saint Vincent and the Grenadines":"n-america","Samoa":"oceania","San Marino":"europe",
-  "Senegal":"africa","Serbia":"europe","Seychelles":"africa","Sierra Leone":"africa","Slovakia":"europe",
-  "Slovenia":"europe","Solomon Islands":"oceania","Somalia":"africa","South Sudan":"africa","Sri Lanka":"asia",
-  "St. Kitts and Nevis":"n-america","Sudan":"africa","Suriname":"s-america","Syria":"asia","São Tomé and Príncipe":"africa",
-  "Tajikistan":"asia","Tanzania":"africa","Timor-Leste":"asia","Togo":"africa","Tonga":"oceania",
-  "Trinidad and Tobago":"n-america","Tunisia":"africa","Turkmenistan":"asia","Tuvalu":"oceania","Uganda":"africa",
-  "Ukraine":"europe","Uruguay":"s-america","Uzbekistan":"asia","Vanuatu":"oceania","Venezuela":"s-america",
-  "Yemen":"asia","Zambia":"africa","Zimbabwe":"africa",
+  "Australia":"oceania","New Zealand":"oceania","Fiji":"oceania"
 };
 const continentFor = c => COUNTRY_CONTINENT[c.country] || null;
 
 /* ============================================================
-   ACTIVITY RANKINGS — Never Roam Alone's curated city scores
-   (city-scores.js): 1-100 per category for all 246 cities,
-   anchored to published rankings (Time Out surveys, Michelin,
-   UNESCO, World Cities Culture Forum, HUGSI). Local data —
-   no network lookup needed.
+   ACTIVITY RANKINGS — live venue counts from OpenStreetMap
+   (Overpass API). For the chosen activity we count real mapped
+   venues within 10 km of each city's center. Cached 30 days.
    ============================================================ */
 const ACTIVITY_OSM = {
-  "Nightlife":         { key:"nightlife",    label:"nightlife" },
-  "Restaurants":       { key:"restaurants",  label:"restaurants" },
-  "Museums & Culture": { key:"museums",      label:"museums & culture" },
-  "Architecture":      { key:"architecture", label:"architecture" },
-  "Nature":            { key:"nature",       label:"nature" }
+  "Nightlife":         { sel:'node["amenity"~"^(bar|pub|nightclub)$"]',        label:"bars, pubs & nightclubs" },
+  "Restaurants":       { sel:'node["amenity"="restaurant"]',                    label:"restaurants" },
+  "Museums & Culture": { sel:'nwr["tourism"~"^(museum|gallery)$"]',             label:"museums & galleries" },
+  "Architecture":      { sel:'node["historic"]',                                label:"historic landmarks & monuments" },
+  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" }
 };
-function activityScores(act){
-  const key = (ACTIVITY_OSM[act]||{}).key;
-  if(!key || !window.NRA_CITY_SCORES) return null;
-  return CITIES.map(c => (NRA_CITY_SCORES[c.city] || {})[key] || 0);
+const OSM_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
+const ACT_CACHE_DAYS = 30;
+
+/* Fallback picks if the live OpenStreetMap ranking can't load (offline etc.) */
+const PRIORITIES = {
+  "Nightlife":          ["Bangkok","Las Vegas","Berlin","New York","Hong Kong","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
+  "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore","San Francisco","Mexico City","Lima"],
+  "Museums & Culture":  ["Paris","London","Rome","Vienna","Istanbul","New York","Washington, D.C.","Berlin","Athens","Florence","Cairo","Mexico City"],
+  "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul","Florence","Venice","Beijing","Kyoto"],
+  "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya","Vancouver","Honolulu","Denpasar","Sapporo"]
+};
+
+function activityCacheKey(act){ return "nra_actcounts_v2_" + act; }
+
+async function fetchActivityCounts(act){
+  // cached?
+  try{
+    const c = JSON.parse(localStorage.getItem(activityCacheKey(act)) || "null");
+    if(c && c.t && (Date.now() - c.t) < ACT_CACHE_DAYS*864e5 && Array.isArray(c.counts) && c.counts.length === CITIES.length){
+      return c.counts;
+    }
+  }catch(e){}
+  // one query counts venues around every city (results come back in order)
+  const sel = ACTIVITY_OSM[act].sel;
+  let q = "[out:json][timeout:25];";
+  CITIES.forEach(c => { q += `${sel}(around:10000,${c.lat},${c.lng});out count;`; });
+  let lastErr;
+  for(const ep of OSM_ENDPOINTS){
+    // Public Overpass mirrors are free/shared and sometimes overloaded — don't
+    // let a slow one leave the visitor staring at "Counting…" forever. Give
+    // each mirror 9 seconds, then move on to the next one / the fallback.
+    const ctl = ("AbortController" in window) ? new AbortController() : null;
+    const timer = ctl ? setTimeout(() => ctl.abort(), 9000) : null;
+    try{
+      const r = await fetch(ep, { method:"POST", body:"data="+encodeURIComponent(q),
+                                  headers:{ "Content-Type":"application/x-www-form-urlencoded" },
+                                  signal: ctl ? ctl.signal : undefined });
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      const data = await r.json();
+      const counts = (data.elements||[]).filter(e => e.type === "count")
+                     .map(e => parseInt((e.tags && (e.tags.total || e.tags.nodes)) || "0", 10) || 0);
+      if(counts.length !== CITIES.length) throw new Error("bad count data");
+      if(!counts.some(n => n > 0)) throw new Error("empty data");
+      try{ localStorage.setItem(activityCacheKey(act), JSON.stringify({t:Date.now(), counts})); }catch(e){}
+      return counts;
+    }catch(e){ lastErr = e; }
+    finally{ if(timer) clearTimeout(timer); }
+  }
+  throw lastErr || new Error("overpass unavailable");
 }
 /* ============================================================
    ORIGIN AUTOCOMPLETE — airports come from the open OurAirports
@@ -880,52 +906,12 @@ const returnDateEl    = document.getElementById("returnDate");
 const returnWrap      = document.getElementById("returnWrap");
 const datesFields     = document.getElementById("datesFields");
 const lengthFields    = document.getElementById("lengthFields");
-const travelMonthEl   = document.getElementById("travelMonth");
 let finderOrigin = null;
-
-/* fill the optional month picker with the next 12 months (labels in the site's current language) */
-(function initTravelMonth(){
-  if(!travelMonthEl) return;
-  const LOCALE = { en:"en-US", es:"es", fr:"fr", it:"it", zh:"zh-CN" };
-  const lang = (window.NRA_i18n && NRA_i18n.lang) ? NRA_i18n.lang() : "en";
-  const loc = LOCALE[lang] || "en-US";
-  const now = new Date();
-  for(let i = 0; i < 12; i++){
-    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
-    const o = document.createElement("option");
-    o.value = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
-    o.textContent = d.toLocaleDateString(loc, { month:"long", year:"numeric" });
-    travelMonthEl.appendChild(o);
-  }
-})();
 
 function whenMode(){ return (document.querySelector('input[name="whenMode"]:checked')||{}).value || "dates"; }
 function isOneWay(){ return (document.querySelector('input[name="wayMode"]:checked')||{}).value === "oneway"; }
 function departDateVal(){ return whenMode()==="dates" ? (departDateEl.value||"") : ""; }
 function returnDateVal(){ return (whenMode()==="dates" && !isOneWay()) ? (returnDateEl.value||"") : ""; }
-function travelMonthVal(){ return (whenMode()==="length" && travelMonthEl) ? (travelMonthEl.value||"") : ""; }
-/* representative dates inside the chosen month (used for live price lookups):
-   mid-month departure — or a few days out if that month is already underway —
-   returning after the chosen trip length (default 7 nights) */
-function monthSampleDates(){
-  const mv = travelMonthVal(); if(!mv) return null;
-  const y = parseInt(mv.slice(0,4),10), m = parseInt(mv.slice(5,7),10);
-  let dep = new Date(y, m - 1, 15);
-  const minDep = new Date(); minDep.setHours(0,0,0,0); minDep.setDate(minDep.getDate() + 3);
-  if(dep < minDep) dep = minDep;
-  if(dep.getFullYear() !== y || dep.getMonth() !== m - 1) return null;  // month is basically over
-  const n = Math.max(1, parseInt(nightsEl.value,10) || 7);
-  const ret = new Date(dep.getTime() + n * 864e5);
-  const iso = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
-  return { od: iso(dep), rd: iso(ret) };
-}
-/* month label for Google Flights queries, always in English (Google-safe) */
-function travelMonthLabel(){
-  const mv = travelMonthVal(); if(!mv) return "";
-  const NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-  const m = parseInt(mv.slice(5,7),10);
-  return (NAMES[m-1] || "") + " " + mv.slice(0,4);
-}
 function computedNights(){
   if(whenMode()==="length") return Math.max(0, parseInt(nightsEl.value,10)||0);
   if(isOneWay()) return 0;
@@ -943,28 +929,30 @@ function syncWhenUI(){
     const inp = l.querySelector("input");
     l.classList.toggle("active", !!(inp && inp.checked));
   });
-  document.querySelectorAll('.when-switch').forEach(sw=>{
-    const radios = sw.querySelectorAll('input[type="radio"]');
-    sw.classList.toggle("right", !!(radios[1] && radios[1].checked));
-  });
 }
 
 const MODE_NAMES  = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
 const UI_MODE_KEY = { Plane:"plane", Train:"train", Bus:"bus", Car:"car", Boat:"boat" };
 const STYLE_LABEL = { budget:"backpacker style", mid:"mid-range style", luxury:"high-end style" };
 
+/* activity counts state */
+let actCounts=null, actCountsFor=null, actPending=null, actFailed={};
+function kickActivityFetch(act){
+  if(actPending === act || actCountsFor === act || actFailed[act]) return;
+  actPending = act;
+  fetchActivityCounts(act)
+    .then(counts => { actCounts=counts; actCountsFor=act; })
+    .catch(() => { actFailed[act]=true; })
+    .then(() => { if(actPending===act) actPending=null; if(activityEl.value===act) renderFinder(); });
+}
 
 /* live flight prices (one request per origin, covers many cities) */
 let flightsFetchedFor = null;
 function kickLiveFlights(geo){
   const code = (geo.code||"").split(",")[0];
   if(!code || code==="ALL") return;
-  let od = departDateVal();
-  let rd = returnDateVal();
-  if(!od){
-    const s = monthSampleDates();               // flexible mode with a month picked
-    if(s){ od = s.od; rd = isOneWay() ? "" : s.rd; }
-  }
+  const od = departDateVal();
+  const rd = returnDateVal();
   const key = code + "|" + od + "|" + rd;
   if(flightsFetchedFor === key) return;
   flightsFetchedFor = key;
@@ -985,16 +973,14 @@ const visitorsChip = c => {
 function gFlightsLink(geo, c){
   const code = (geo.code||"").split(",")[0];
   const from = (code && code!=="ALL") ? code : geo.city;
-  let q = `Flights from ${from} to ${c.city}`;
-  const ml = travelMonthLabel();
-  if(ml) q += ` in ${ml}`;                      // month picked → Google shows that month's flights
-  return "https://www.google.com/travel/flights?q=" + encodeURIComponent(q);
+  return "https://www.google.com/travel/flights?q=" +
+    encodeURIComponent(`Flights from ${from} to ${c.city}`);
 }
 
 /* "time to visit" bubble: events/peak periods first, then weather extremes,
    then an "ideal" nod — blank when there's nothing worth saying or no date */
 function seasonPillFor(c){
-  const dd = departDateVal() || travelMonthVal(); if(!dd) return "";
+  const dd = departDateVal(); if(!dd) return "";
   const mo = parseInt(dd.slice(5,7), 10); if(!mo) return "";
   const S = (window.NRA_SEASON || {})[c.city]; if(!S) return "";
   const ev = (S.ev || []).find(e => e.m.indexOf(mo) >= 0);
@@ -1016,7 +1002,9 @@ function finderCardHTML(r, rank, actLabel, budget){
   const oneWay = isOneWay(), wayLabel = oneWay ? "one-way" : "round-trip";
   const why = [];
   if(r.count != null){
-    why.push(`<div class="w"><span class="tick">✓</span><span>Rated <strong>${r.count}</strong>/100 for ${actLabel}</span></div>`);
+    why.push(`<div class="w"><span class="tick">✓</span><span><strong>${r.count.toLocaleString()}</strong> ${actLabel} within 10 km of the center (OpenStreetMap)</span></div>`);
+  } else if(r.fallbackPick){
+    why.push(`<div class="w"><span class="tick">✓</span><span>Editor's pick for ${r.fallbackPick}</span></div>`);
   }
   if(r.fitTotal != null){
     const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))} ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ' <em class="est-tag">est.</em>'} + ` : "";
@@ -1119,6 +1107,61 @@ function updateModeAvailability(){
 }
 
 let finderShowAll = false;
+
+/* ============================================================
+   MAP VIEW — same MapLibre + Carto basemap as the homepage map.
+   Pins = current matches (top 12 numbered coral, rest teal);
+   clicking a pin opens that city's full finder card in a popup.
+   ============================================================ */
+const finderMapWrap = document.getElementById("finderMapWrap");
+const finderMapFallback = document.getElementById("finderMapFallback");
+function isMapView(){ return (document.querySelector('input[name="viewMode"]:checked')||{}).value === "map"; }
+let fMap = null, fMarkers = [], fPopup = null;
+let lastRender = { rows: [], actLabel: "", budget: 0 };
+function initFinderMap(){
+  if(fMap || typeof maplibregl === "undefined") return;
+  fMap = new maplibregl.Map({
+    container: "finderMap",
+    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+    center: [15, 25], zoom: 1.3, minZoom: 1, renderWorldCopies: false,
+    attributionControl: true
+  });
+  fMap.addControl(new maplibregl.NavigationControl({ showCompass:false }), "top-right");
+}
+function updateFinderMap(){
+  if(typeof maplibregl === "undefined"){
+    document.getElementById("finderMap").style.display = "none";
+    finderMapFallback.hidden = false;
+    return;
+  }
+  initFinderMap();
+  if(!fMap) return;
+  fMarkers.forEach(m => m.remove());
+  fMarkers = [];
+  if(fPopup){ fPopup.remove(); fPopup = null; }
+  const rows = lastRender.rows;
+  rows.forEach((r, idx) => {
+    const el = document.createElement("div");
+    el.className = "map-pin" + (idx < 12 ? "" : " small");
+    if(idx < 12) el.textContent = idx + 1;
+    el.title = r.c.city;
+    el.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if(fPopup) fPopup.remove();
+      fPopup = new maplibregl.Popup({ className: "card-popup", maxWidth: "340px", offset: 14 })
+        .setLngLat([r.c.lng, r.c.lat])
+        .setHTML(finderCardHTML(r, idx + 1, lastRender.actLabel, lastRender.budget))
+        .addTo(fMap);
+    });
+    fMarkers.push(new maplibregl.Marker({ element: el }).setLngLat([r.c.lng, r.c.lat]).addTo(fMap));
+  });
+  if(rows.length){
+    const b = new maplibregl.LngLatBounds();
+    rows.forEach(r => b.extend([r.c.lng, r.c.lat]));
+    fMap.fitBounds(b, { padding: 60, maxZoom: 5.5, duration: 400 });
+  }
+  setTimeout(() => fMap.resize(), 60);
+}
 function renderFinder(){
   if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
   updateModeAvailability();
@@ -1131,12 +1174,14 @@ function renderFinder(){
   let sortBy   = sortByEl.value;
   const geo    = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
 
-  /* activity scores: curated local data (city-scores.js) */
-  let counts = null, actLabel = "";
+  /* activity counts: use cache, or kick off a fetch and re-render when it lands */
+  let counts = null, actLoading = false, actLabel = "";
   if(act){
     actLabel = (ACTIVITY_OSM[act]||{}).label || act.toLowerCase();
-    counts = activityScores(act);
+    if(actCountsFor === act && actCounts) counts = actCounts;
+    else if(!actFailed[act]){ kickActivityFetch(act); actLoading = true; }
   }
+  const fallbackNames = (act && actFailed[act]) ? (PRIORITIES[act]||[]) : [];
 
   if(geo) kickLiveFlights(geo);
 
@@ -1191,7 +1236,9 @@ function renderFinder(){
 
     /* score */
     let score = (c.visitors/27)*8;                                   // popularity baseline
-    if(counts) score += (counts[i]/maxCount)*30;                     // curated activity score
+    if(counts) score += (counts[i]/maxCount)*30;                     // live activity ranking
+    const fbIdx = fallbackNames.indexOf(c.city);
+    if(fbIdx >= 0) score += (fallbackNames.length - fbIdx)*3;        // editor's-pick fallback
     if(budget && fitStyle){
       score += fitStyle==="luxury" ? 22 : fitStyle==="mid" ? 18 : 12;
       score += Math.max(0,(budget - fitTotal)/budget)*4;             // headroom tiebreak
@@ -1200,7 +1247,8 @@ function renderFinder(){
     if(cmp) score += Math.max(0, 1 - cmp.km/20000)*8;                // closer is easier
 
     rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights,
-                count: counts ? counts[i] : null, score });
+                count: counts ? counts[i] : null,
+                fallbackPick: fbIdx >= 0 ? act : null, score });
   });
 
   /* sort */
@@ -1212,18 +1260,9 @@ function renderFinder(){
   else                          rows.sort((a,b)=> b.score-a.score);
 
   /* heading */
-  const bits = [];
-  if(cont) bits.push(`in ${CONTINENT_LABEL[cont]}`);
-  if(act) bits.push(`${act.replace("&amp;","&")} lovers`);
-  if(budget) bits.push(`${fmtMoney(budget)} for ${nights} night${nights>1?"s":""}`);
-  else if(nightsIn) bits.push(`${nightsIn} night${nightsIn>1?"s":""}`);
-  if(geo) bits.push(`from ${geo.city}${UI_MODE_KEY[mode] ? " by "+mode.toLowerCase()
-                     : mode==="fastest" ? ", fastest way there" : ", cheapest way there"}`);
-  if(geo && isOneWay()) bits.push("one-way prices");
-  else if(UI_MODE_KEY[mode]) bits.push(`by ${mode.toLowerCase()}`);
-  if(pass) bits.push(`${pass} passport`);
-  const head = bits.length
-    ? `<h2>Your matches — ${bits.join(" · ")}</h2>`
+  const anyFilter = !!(cont || act || budget || nightsIn || geo || pass);
+  const head = anyFilter
+    ? `<h2>Suggested Destinations${cont ? ` in ${CONTINENT_LABEL[cont]}` : ""}${act ? ` for ${act.replace("&amp;","&")}` : ""}</h2>`
     : `<h2>All ${CITIES.length} featured destinations</h2>`;
 
   const hiddenBits = [];
@@ -1233,10 +1272,13 @@ function renderFinder(){
   const subBits = [];
   subBits.push(`Showing <strong>${rows.length}</strong> of ${CITIES.length} destinations` +
                (hiddenBits.length ? ` — ${hiddenBits.join(", ")} hidden` : "") + ".");
-  if(counts) subBits.push(`Activity ranking uses Never Roam Alone's curated city scores (1–100 per category).`);
+  if(actLoading) subBits.push(`Counting real ${actLabel} on OpenStreetMap — results will sharpen in a moment…`);
+  else if(act && actFailed[act]) subBits.push(`Live ${actLabel} counts couldn't load right now — using editor's picks for ${act.replace("&amp;","&")}.`);
+  else if(counts) subBits.push(`Activity ranking uses live <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a> venue counts.`);
   if(budget && !geo) subBits.push(`Tip: add where you're traveling from and the math will include getting there.`);
   if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="7" aria-label="Trip length in nights"> -night trip — change the number to sharpen the math.`);
 
+  if(!rows.length && isMapView()) finderMapWrap.hidden = true;
   if(!rows.length){
     const contMsg = cont === "antarctica"
       ? `We don't feature any Antarctic destinations (yet!) — pick another continent or "I'm open to anywhere".`
@@ -1246,6 +1288,14 @@ function renderFinder(){
     return;
   }
 
+  lastRender = { rows, actLabel, budget };
+  if(isMapView()){
+    finderMapWrap.hidden = false;
+    finderResults.innerHTML = head + `<p class="sub">${subBits.join(" ")}</p>`;
+    updateFinderMap();
+    return;
+  }
+  finderMapWrap.hidden = true;
   const LIMIT = 12;
   const shown = finderShowAll ? rows : rows.slice(0, LIMIT);
   finderResults.innerHTML = head +
@@ -1306,7 +1356,7 @@ finderResults.addEventListener("change", e=>{
 });
 
 /* "Compare all ways" expander (delegated — cards re-render often) */
-finderResults.addEventListener("click", e=>{
+document.addEventListener("click", e=>{
   const btn = e.target.closest(".cmp-toggle"); if(!btn) return;
   const panel = btn.nextElementSibling;
   if(!panel || !panel.classList.contains("cmp-modes")) return;
@@ -1329,9 +1379,10 @@ document.querySelectorAll('input[name="whenMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="wayMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
+document.querySelectorAll('input[name="viewMode"]').forEach(el =>
+  el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
 departDateEl.addEventListener("change", ()=>{ if(departDateEl.value) returnDateEl.min = departDateEl.value; finderShowAll=false; renderFinder(); saveState(); });
 returnDateEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
-if(travelMonthEl) travelMonthEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
 finderPassportEl.addEventListener("change", ()=>{
   finderShowAll=false;
   /* keep the visa tab in sync */
@@ -1724,7 +1775,6 @@ function saveState(){
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
       nights: nightsEl.value,
-      travelMonth: travelMonthEl ? travelMonthEl.value : "",
       whenMode: whenMode(),
       departDate: departDateEl.value,
       returnDate: returnDateEl.value,
@@ -1733,6 +1783,7 @@ function saveState(){
       origin: finderOrigin,
       regional: regionalPref,
       sortBy: sortByEl.value,
+      view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
       bucketType: blType
@@ -1747,8 +1798,6 @@ function loadState(){
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
   if(s.nights) nightsEl.value = s.nights;
-  if(s.travelMonth && travelMonthEl && [...travelMonthEl.options].some(o => o.value === s.travelMonth))
-    travelMonthEl.value = s.travelMonth;        // ignored if that month has already passed
   if(s.whenMode){ const wr=document.querySelector(`input[name="whenMode"][value="${s.whenMode}"]`); if(wr) wr.checked=true; }
   if(s.departDate) departDateEl.value = s.departDate;
   if(s.returnDate) returnDateEl.value = s.returnDate;
@@ -1757,6 +1806,7 @@ function loadState(){
   if(s.origin) finderOrigin = s.origin;
   if(s.regional){ regionalPref = true; regionalBox.checked = true; }
   if(s.sortBy) sortByEl.value = s.sortBy;
+  if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   if(s.finderPassport) finderPassportEl.value = s.finderPassport;
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
   if(s.bucketType){
@@ -1783,12 +1833,12 @@ function buildShareURL(){
   if(travelByEl.value && travelByEl.value !== "cheapest") p.set("tb", travelByEl.value);
   if(totalBudgetEl.value) p.set("bg", totalBudgetEl.value);
   p.set("wm", whenMode());
-  if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value);
-                             if(travelMonthEl && travelMonthEl.value) p.set("tm", travelMonthEl.value); }
+  if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value); }
   else { if(departDateEl.value) p.set("dd", departDateEl.value);
          if(returnDateEl.value && !isOneWay()) p.set("rd", returnDateEl.value); }
   if(isOneWay()) p.set("ow", "1");
   if(sortByEl.value && sortByEl.value !== "match") p.set("so", sortByEl.value);
+  if(isMapView()) p.set("vw", "map");
   if(finderOrigin && finderOrigin.lat != null){
     p.set("oc", finderOrigin.city || ""); p.set("on", finderOrigin.country || "");
     if(finderOrigin.code) p.set("ok", finderOrigin.code);
@@ -1815,15 +1865,13 @@ function applyShareParams(){
   if(wm){ const r = document.querySelector('input[name="whenMode"][value="'+wm+'"]'); if(r) r.checked = true; }
   const ni = parseInt(p.get("ni"), 10);
   if(ni >= 1 && ni <= 90) nightsEl.value = ni;
-  const tm = p.get("tm");
-  if(/^\d{4}-\d{2}$/.test(tm || "") && travelMonthEl && [...travelMonthEl.options].some(o => o.value === tm))
-    travelMonthEl.value = tm;                   // only months still in the picker are accepted
   const dateOK = v => /^\d{4}-\d{2}-\d{2}$/.test(v || "");
   if(dateOK(p.get("dd"))) departDateEl.value = p.get("dd");
   if(dateOK(p.get("rd"))) returnDateEl.value = p.get("rd");
   if(p.get("ow") === "1"){ const w = document.querySelector('input[name="wayMode"][value="oneway"]'); if(w) w.checked = true; }
   const so = inSet(p.get("so"), [...sortByEl.options].map(o=>o.value));
   if(so) sortByEl.value = so;
+  if(p.get("vw") === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   const la = parseFloat(p.get("la")), ln = parseFloat(p.get("ln"));
   if(p.get("oc") && la >= -90 && la <= 90 && ln >= -180 && ln <= 180){
     const oc = cleanStr(p.get("oc")), on = cleanStr(p.get("on") || "");
