@@ -130,6 +130,9 @@
   .bio{margin:14px 0 16px;color:var(--ink);font-size:1.02rem;white-space:pre-wrap}
 
   .fact-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+  .chip-group{margin:0 0 6px}
+  .chip-group .group-label{font-weight:700;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px}
+  body.style-centered .chip-group .group-label{text-align:center}
   .chip{
     display:inline-flex;align-items:center;gap:7px;
     background:rgba(14,124,134,.08);border:1px solid rgba(14,124,134,.18);
@@ -293,7 +296,15 @@
 
     <div class="socials" id="r-socials"></div>
 
-    <div class="fact-chips" id="r-chips"></div>
+    <div class="chip-group" id="r-prefs-group" style="display:none">
+      <div class="group-label">My typical travel preferences are:</div>
+      <div class="fact-chips" id="r-chips"></div>
+    </div>
+
+    <div class="chip-group" id="r-goals-group" style="display:none">
+      <div class="group-label">I'm looking to:</div>
+      <div class="fact-chips" id="r-goal-chips"></div>
+    </div>
 
     <div class="favs" id="r-favs" style="display:none"></div>
 
@@ -463,11 +474,16 @@
     if (p.bio){ $("r-bio").textContent = p.bio; $("r-bio").style.display = ""; }
 
     let chips = "";
-    if (p.travel_style) chips += chip("Travel style:", p.travel_style);
+    if (p.travel_style) chips += chip("Travel Budget:", p.travel_style);
     if (p.travel_company) chips += chip("I usually travel:", p.travel_company);
-    if (Array.isArray(p.travel_goals)) p.travel_goals.forEach(g => { chips += '<span class="chip">' + esc(g) + '</span>'; });
+    if (p.trip_duration) chips += chip("Trip durations:", p.trip_duration);
     $("r-chips").innerHTML = chips;
-    if (!chips) $("r-chips").style.display = "none";
+    $("r-prefs-group").style.display = chips ? "" : "none";
+
+    let goalChips = "";
+    if (Array.isArray(p.travel_goals)) p.travel_goals.forEach(g => { goalChips += '<span class="chip">' + esc(g) + '</span>'; });
+    $("r-goal-chips").innerHTML = goalChips;
+    $("r-goals-group").style.display = goalChips ? "" : "none";
 
     let socials = "";
     const siteIco = '<span class="s-ico web">' + ICON_GLOBE + '</span>';
