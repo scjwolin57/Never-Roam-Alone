@@ -381,8 +381,20 @@
             </div>
           </div>
           <div id="lengthFields" hidden>
-            <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
-            <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
+            <div class="date-row">
+              <div>
+                <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
+                <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
+              </div>
+              <div>
+                <label class="field" for="travelMonth">Travel month <span class="label-hint">(optional)</span></label>
+                <div class="select-wrap">
+                  <select id="travelMonth">
+                    <option value="" selected>Any month</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
           </div>
         </div>
@@ -868,12 +880,52 @@ const returnDateEl    = document.getElementById("returnDate");
 const returnWrap      = document.getElementById("returnWrap");
 const datesFields     = document.getElementById("datesFields");
 const lengthFields    = document.getElementById("lengthFields");
+const travelMonthEl   = document.getElementById("travelMonth");
 let finderOrigin = null;
+
+/* fill the optional month picker with the next 12 months (labels in the site's current language) */
+(function initTravelMonth(){
+  if(!travelMonthEl) return;
+  const LOCALE = { en:"en-US", es:"es", fr:"fr", it:"it", zh:"zh-CN" };
+  const lang = (window.NRA_i18n && NRA_i18n.lang) ? NRA_i18n.lang() : "en";
+  const loc = LOCALE[lang] || "en-US";
+  const now = new Date();
+  for(let i = 0; i < 12; i++){
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    const o = document.createElement("option");
+    o.value = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0");
+    o.textContent = d.toLocaleDateString(loc, { month:"long", year:"numeric" });
+    travelMonthEl.appendChild(o);
+  }
+})();
 
 function whenMode(){ return (document.querySelector('input[name="whenMode"]:checked')||{}).value || "dates"; }
 function isOneWay(){ return (document.querySelector('input[name="wayMode"]:checked')||{}).value === "oneway"; }
 function departDateVal(){ return whenMode()==="dates" ? (departDateEl.value||"") : ""; }
 function returnDateVal(){ return (whenMode()==="dates" && !isOneWay()) ? (returnDateEl.value||"") : ""; }
+function travelMonthVal(){ return (whenMode()==="length" && travelMonthEl) ? (travelMonthEl.value||"") : ""; }
+/* representative dates inside the chosen month (used for live price lookups):
+   mid-month departure — or a few days out if that month is already underway —
+   returning after the chosen trip length (default 7 nights) */
+function monthSampleDates(){
+  const mv = travelMonthVal(); if(!mv) return null;
+  const y = parseInt(mv.slice(0,4),10), m = parseInt(mv.slice(5,7),10);
+  let dep = new Date(y, m - 1, 15);
+  const minDep = new Date(); minDep.setHours(0,0,0,0); minDep.setDate(minDep.getDate() + 3);
+  if(dep < minDep) dep = minDep;
+  if(dep.getFullYear() !== y || dep.getMonth() !== m - 1) return null;  // month is basically over
+  const n = Math.max(1, parseInt(nightsEl.value,10) || 7);
+  const ret = new Date(dep.getTime() + n * 864e5);
+  const iso = d => d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  return { od: iso(dep), rd: iso(ret) };
+}
+/* month label for Google Flights queries, always in English (Google-safe) */
+function travelMonthLabel(){
+  const mv = travelMonthVal(); if(!mv) return "";
+  const NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const m = parseInt(mv.slice(5,7),10);
+  return (NAMES[m-1] || "") + " " + mv.slice(0,4);
+}
 function computedNights(){
   if(whenMode()==="length") return Math.max(0, parseInt(nightsEl.value,10)||0);
   if(isOneWay()) return 0;
@@ -907,8 +959,12 @@ let flightsFetchedFor = null;
 function kickLiveFlights(geo){
   const code = (geo.code||"").split(",")[0];
   if(!code || code==="ALL") return;
-  const od = departDateVal();
-  const rd = returnDateVal();
+  let od = departDateVal();
+  let rd = returnDateVal();
+  if(!od){
+    const s = monthSampleDates();               // flexible mode with a month picked
+    if(s){ od = s.od; rd = isOneWay() ? "" : s.rd; }
+  }
   const key = code + "|" + od + "|" + rd;
   if(flightsFetchedFor === key) return;
   flightsFetchedFor = key;
@@ -929,14 +985,16 @@ const visitorsChip = c => {
 function gFlightsLink(geo, c){
   const code = (geo.code||"").split(",")[0];
   const from = (code && code!=="ALL") ? code : geo.city;
-  return "https://www.google.com/travel/flights?q=" +
-    encodeURIComponent(`Flights from ${from} to ${c.city}`);
+  let q = `Flights from ${from} to ${c.city}`;
+  const ml = travelMonthLabel();
+  if(ml) q += ` in ${ml}`;                      // month picked → Google shows that month's flights
+  return "https://www.google.com/travel/flights?q=" + encodeURIComponent(q);
 }
 
 /* "time to visit" bubble: events/peak periods first, then weather extremes,
    then an "ideal" nod — blank when there's nothing worth saying or no date */
 function seasonPillFor(c){
-  const dd = departDateVal(); if(!dd) return "";
+  const dd = departDateVal() || travelMonthVal(); if(!dd) return "";
   const mo = parseInt(dd.slice(5,7), 10); if(!mo) return "";
   const S = (window.NRA_SEASON || {})[c.city]; if(!S) return "";
   const ev = (S.ev || []).find(e => e.m.indexOf(mo) >= 0);
@@ -1273,6 +1331,7 @@ document.querySelectorAll('input[name="wayMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 departDateEl.addEventListener("change", ()=>{ if(departDateEl.value) returnDateEl.min = departDateEl.value; finderShowAll=false; renderFinder(); saveState(); });
 returnDateEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
+if(travelMonthEl) travelMonthEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
 finderPassportEl.addEventListener("change", ()=>{
   finderShowAll=false;
   /* keep the visa tab in sync */
@@ -1665,6 +1724,7 @@ function saveState(){
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
       nights: nightsEl.value,
+      travelMonth: travelMonthEl ? travelMonthEl.value : "",
       whenMode: whenMode(),
       departDate: departDateEl.value,
       returnDate: returnDateEl.value,
@@ -1687,6 +1747,8 @@ function loadState(){
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
   if(s.nights) nightsEl.value = s.nights;
+  if(s.travelMonth && travelMonthEl && [...travelMonthEl.options].some(o => o.value === s.travelMonth))
+    travelMonthEl.value = s.travelMonth;        // ignored if that month has already passed
   if(s.whenMode){ const wr=document.querySelector(`input[name="whenMode"][value="${s.whenMode}"]`); if(wr) wr.checked=true; }
   if(s.departDate) departDateEl.value = s.departDate;
   if(s.returnDate) returnDateEl.value = s.returnDate;
@@ -1721,7 +1783,8 @@ function buildShareURL(){
   if(travelByEl.value && travelByEl.value !== "cheapest") p.set("tb", travelByEl.value);
   if(totalBudgetEl.value) p.set("bg", totalBudgetEl.value);
   p.set("wm", whenMode());
-  if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value); }
+  if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value);
+                             if(travelMonthEl && travelMonthEl.value) p.set("tm", travelMonthEl.value); }
   else { if(departDateEl.value) p.set("dd", departDateEl.value);
          if(returnDateEl.value && !isOneWay()) p.set("rd", returnDateEl.value); }
   if(isOneWay()) p.set("ow", "1");
@@ -1752,6 +1815,9 @@ function applyShareParams(){
   if(wm){ const r = document.querySelector('input[name="whenMode"][value="'+wm+'"]'); if(r) r.checked = true; }
   const ni = parseInt(p.get("ni"), 10);
   if(ni >= 1 && ni <= 90) nightsEl.value = ni;
+  const tm = p.get("tm");
+  if(/^\d{4}-\d{2}$/.test(tm || "") && travelMonthEl && [...travelMonthEl.options].some(o => o.value === tm))
+    travelMonthEl.value = tm;                   // only months still in the picker are accepted
   const dateOK = v => /^\d{4}-\d{2}-\d{2}$/.test(v || "");
   if(dateOK(p.get("dd"))) departDateEl.value = p.get("dd");
   if(dateOK(p.get("rd"))) returnDateEl.value = p.get("rd");
