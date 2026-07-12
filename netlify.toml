@@ -37,6 +37,9 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    # >>> PRE-LAUNCH: keeps the whole site out of Google until launch day.
+    # >>> DELETE the next line when officially launching!
+    X-Robots-Tag = "noindex"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
