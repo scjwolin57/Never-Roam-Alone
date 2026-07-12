@@ -282,6 +282,30 @@
   .air-link{color:var(--green);font-weight:700}
   .air-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
+  /* Train / bus / ferry route modal content */
+  .rt-intro{margin:0 0 14px;font-size:.95rem;color:var(--ink)}
+  .rt-sec-k{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);
+    font-weight:700;margin:20px 0 8px}
+  .rt-rows{display:flex;flex-direction:column;gap:8px}
+  .rt-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:11px 14px;
+    background:var(--sand);border-radius:12px}
+  .rt-to{font-weight:700;font-size:.92rem;color:var(--ink)}
+  .rt-time{font-size:.78rem;color:var(--muted);white-space:nowrap}
+  .rt-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .rt-night{background:#2b3a67;color:#ffd97a}
+  .rt-season{background:#e7e0d2;color:#7a6a45}
+  .rt-op{margin-left:auto;color:var(--green);font-weight:700;font-size:.86rem;
+    text-decoration:none;white-space:nowrap}
+  .rt-op:hover{text-decoration:underline}
+  .rt-search{display:flex;align-items:center;gap:10px;padding:12px 14px;margin-top:4px;
+    background:#fff;border:2px solid var(--green);border-radius:12px;color:var(--green);
+    text-decoration:none;font-weight:700;font-size:.92rem;transition:background .2s,color .2s}
+  .rt-search:hover{background:var(--green);color:#fff}
+  .rt-search .rt-go{margin-left:auto}
+  .rt-note{margin-top:16px;font-size:.85rem;line-height:1.5;color:var(--muted)}
+  .rt-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
+    border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   /* ATM & cash finder button + modal */
   .atm-btn{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:2px;
     padding:10px 16px;border:2px solid var(--green);background:#fff;color:var(--green);
@@ -486,6 +510,7 @@
 
 <script src="city-photos.js"></script>
 <script src="hood-photos.js"></script>
+<script src="city-routes.js"></script>
 <script>
 /* Starter city dataset (shared with the map; will be unified into one source
    when we move to the production build). visitors = approx. annual international
@@ -2671,6 +2696,15 @@ const TRANSPORT_ICONS = {
   car:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13"/><rect x="3" y="13" width="18" height="5" rx="1.5"/><circle cx="7.5" cy="18" r="1.2"/><circle cx="16.5" cy="18" r="1.2"/></svg>`
 };
 
+/* Long-distance route detail per city — powers the "more info" popups on the
+   Train / Bus / Ferry transport cards. Per city:
+     train: { intl:[{to, op, url, night?, time?}], dom:{op, url}|null, note }
+     bus:   { intl:[{to, op, url}], note }
+     ferry: { intl:[{to, op, url, seasonal?}], note }
+   intl = DIRECT international services only; url = official operator site.
+   Verified July 2026. Cities not yet researched simply show the placeholder. */
+const CITY_ROUTES = window.NRA_ROUTES || {};
+
 /* Primary airport detail per city. km = distance to city center; costs in USD.
    ride.avail = "yes" | "limited" | "no". transit: {m: option, c: USD cost}. */
 const CITY_AIRPORT = {
@@ -3844,12 +3878,69 @@ if(!c){
       <p class="atm-foot">Bank and card fees change often and vary by your own card, so exact numbers aren't listed here — the tips above save the most money.</p>`;
   }
 
+  /* ---------- Train / bus / ferry "more info" modals (data: CITY_ROUTES) ---------- */
+  const NIGHT_BADGE  = `<span class="rt-badge rt-night">\u{1F319} Night train</span>`;
+  const SEASON_BADGE = `<span class="rt-badge rt-season">Seasonal</span>`;
+
+  /* One sand-colored row per direct route: destination · badges · time · operator link */
+  function routeRows(list, isTrain) {
+    return `<div class="rt-rows" data-no-i18n>${list.map(r => `
+      <div class="rt-row">
+        <span class="rt-to">${r.to}</span>
+        ${isTrain && r.night ? NIGHT_BADGE : ""}
+        ${r.seasonal ? SEASON_BADGE : ""}
+        ${r.time ? `<span class="rt-time">${r.time}</span>` : ""}
+        ${r.url ? `<a class="rt-op" href="${r.url}" target="_blank" rel="noopener">${r.op} &rarr;</a>` : `<span class="rt-op">${r.op}</span>`}
+      </div>`).join("")}</div>`;
+  }
+
+  function buildTrainModal() {
+    const d = CITY_ROUTES[c.city] && CITY_ROUTES[c.city].train;
+    if (!d) return `<p class="modal-placeholder">More information about trains in ${c.city} is coming soon.</p>`;
+    const intl = d.intl && d.intl.length
+      ? `<div class="rt-sec-k">Direct international trains</div>${routeRows(d.intl, true)}`
+      : "";
+    const dom = d.dom
+      ? `<div class="rt-sec-k">Domestic trains</div>
+         <a class="rt-search" href="${d.dom.url}" target="_blank" rel="noopener" data-no-i18n>
+           <span>Search domestic trains &middot; ${d.dom.op}</span><span class="rt-go">&rarr;</span></a>`
+      : "";
+    return `${intl}${dom}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+      <p class="rt-foot">Direct routes only &middot; times are approximate &middot; links open the official operator's site.</p>`;
+  }
+
+  function buildBusModal() {
+    const d = CITY_ROUTES[c.city] && CITY_ROUTES[c.city].bus;
+    if (!d) return `<p class="modal-placeholder">More information about buses in ${c.city} is coming soon.</p>`;
+    const intl = d.intl && d.intl.length
+      ? `<div class="rt-sec-k">International coach routes</div>${routeRows(d.intl, false)}`
+      : "";
+    return `${intl}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+      <p class="rt-foot">Routes change seasonally &middot; book on the operator's official site.</p>`;
+  }
+
+  function buildFerryModal() {
+    const d = CITY_ROUTES[c.city] && CITY_ROUTES[c.city].ferry;
+    if (!d) return `<p class="modal-placeholder">More information about ferries in ${c.city} is coming soon.</p>`;
+    const intl = d.intl && d.intl.length
+      ? `<div class="rt-sec-k">International ferry routes</div>${routeRows(d.intl, false)}`
+      : "";
+    return `${intl}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+      <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
+  }
+
   function openModal(title) {
     modalTitle.textContent = `${title} — ${c.city}`;
     if (title === "Major airports" && CITY_AIRPORT[c.city]) {
       modalBody.innerHTML = buildAirportModal(compareCode);
     } else if (title === "ATM & cash finder") {
       modalBody.innerHTML = buildAtmModal();
+    } else if (title === "Major train stations" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].train) {
+      modalBody.innerHTML = buildTrainModal();
+    } else if (title === "Major bus stations" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].bus) {
+      modalBody.innerHTML = buildBusModal();
+    } else if (title === "Ferry / boat ports" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].ferry) {
+      modalBody.innerHTML = buildFerryModal();
     } else {
       // Placeholder content — detailed info to be filled in later.
       modalBody.innerHTML = `<p class="modal-placeholder">More information about ${title.toLowerCase()} in ${c.city} is coming soon.</p>`;

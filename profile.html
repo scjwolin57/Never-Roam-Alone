@@ -621,10 +621,10 @@
   const msg = (text, kind) => { const m = $("save-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
 
   /* ---- fill the form from the current profile ---- */
-  function fillForm(){
+  function fillForm(pOverride){
     const auth = window.NRA_AUTH;
     const user = auth.user();
-    const p = (auth.profile && auth.profile()) || {};
+    const p = pOverride || (auth.profile && auth.profile()) || {};
     const name = p.display_name || (user && user.email ? user.email.split("@")[0] : "");
     $("p-name").value      = p.display_name || "";
     $("p-email").value     = (user && user.email) || "";
@@ -677,29 +677,47 @@
      events was wiping people's unsaved typing (bug found 2026-07-08). */
   let filledFor = null;        // account id the form is currently filled for
   let filledWithData = false;  // true once we've filled from a real (loaded) profile, not an empty one
-  function render(){
+  let healing = false;         // guards the direct profile re-fetch below
+  async function render(){
     const auth = window.NRA_AUTH;
     if (!auth || !auth.enabled){ show("guest"); return; }
     const user = auth.user();
-    if (user){
-      show("in");
-      const p = (auth.profile && auth.profile()) || null;
-      const hasData = !!p;
-      // Fill for a new person, OR when the real profile finally arrives after we
-      // had to paint an empty form first. That empty-first case happens on
-      // back-navigation: the sign-in session is restored a moment before the
-      // profile finishes loading. Once we've filled from real data we stop, so a
-      // background token renewal can't wipe someone's unsaved typing (07-08 fix).
-      if (filledFor !== user.id || (!filledWithData && hasData)){
-        filledFor = user.id;
-        filledWithData = hasData;
-        fillForm();
-        refreshMailing();
-      }
-    } else {
-      filledFor = null;   // signed out — next sign-in gets a fresh fill
+    if (!user){
+      filledFor = null;          // signed out — next sign-in gets a fresh fill
       filledWithData = false;
       show("out");
+      return;
+    }
+    show("in");
+    let p = (auth.profile && auth.profile()) || null;
+
+    // Self-heal: on some back-navigations the session comes back but the profile
+    // object is still null (its first fetch was interrupted, or the access token
+    // was mid-refresh). Instead of leaving the form blank, fetch our own row
+    // directly. Guarded so overlapping renders don't fetch twice.
+    if (!p && !filledWithData && !healing){
+      healing = true;
+      try {
+        const sb = auth.client && auth.client();
+        if (sb){
+          const { data } = await sb.from("profiles").select("*").eq("id", user.id).maybeSingle();
+          if (data) p = data;
+        }
+      } catch(e){ /* leave p null; a later auth event may still refill */ }
+      healing = false;
+      // someone may have signed out / switched accounts while we awaited
+      if (!auth.user() || auth.user().id !== user.id) return;
+    }
+
+    const hasData = !!p;
+    // Fill for a new person, OR when real data finally arrives after we had to
+    // paint an empty form first. Once filled from real data we stop, so a
+    // background token renewal can't wipe someone's unsaved typing (07-08 fix).
+    if (filledFor !== user.id || (!filledWithData && hasData)){
+      filledFor = user.id;
+      filledWithData = hasData;
+      fillForm(p);
+      refreshMailing();
     }
   }
 
@@ -1110,6 +1128,10 @@
   });
 
   /* ---- boot ---- */
+  // If the browser restores this page from its back/forward cache, re-sync the
+  // form with the current sign-in (fills it back in if it returned blank).
+  window.addEventListener("pageshow", (e) => { if (e.persisted) render(); });
+
   (async function init(){
     if (!window.NRA_AUTH){ show("guest"); return; }
     await NRA_AUTH.ready();
