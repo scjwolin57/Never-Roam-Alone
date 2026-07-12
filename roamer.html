@@ -12,7 +12,6 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Meet a fellow Roamer — member profiles from the Never Roam Alone solo travel community.">
 <title>Roamer Profile — Never Roam Alone</title>
 
 <!-- Amatic SC (logo font) -->
@@ -118,6 +117,24 @@
   }
   .p-body{padding:18px 32px 32px}
 
+  /* ---------- Share button (top-right, across from the name/photo) ---------- */
+  .p-actions{margin-left:auto;padding-bottom:8px;position:relative;display:flex;align-items:center}
+  .share-btn{
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    border:2px solid rgba(14,124,134,.25);border-radius:22px;background:#fff;
+    padding:9px 18px;font-weight:700;font-size:.88rem;font-family:inherit;color:var(--teal-dark);
+    transition:.2s;
+  }
+  .share-btn:hover{border-color:var(--teal);box-shadow:0 4px 14px rgba(14,124,134,.16);transform:translateY(-1px)}
+  .share-btn svg{width:16px;height:16px;flex-shrink:0}
+  .copied-note{
+    position:absolute;top:-38px;right:0;
+    background:var(--ink);color:#fff;font-size:.78rem;font-weight:600;
+    padding:6px 12px;border-radius:10px;white-space:nowrap;
+    opacity:0;transform:translateY(4px);transition:opacity .18s, transform .18s;pointer-events:none;
+  }
+  .copied-note.show{opacity:1;transform:translateY(0)}
+
   /* centered style: no cover, everything stacked in the middle */
   body.style-centered .cover{display:none}
   body.style-centered .p-head{flex-direction:column;align-items:center;text-align:center;margin-top:0;padding-top:36px}
@@ -127,13 +144,13 @@
   body.style-centered .p-body .socials{justify-content:center}
   body.style-centered .p-body .fact-chips{justify-content:center}
   body.style-centered .bio{text-align:center;max-width:560px;margin-left:auto;margin-right:auto}
+  body.style-centered .p-actions{margin-left:0;padding-bottom:0;justify-content:center}
+  body.style-centered .copied-note{right:auto;left:50%;transform:translate(-50%,4px)}
+  body.style-centered .copied-note.show{transform:translate(-50%,0)}
 
   .bio{margin:14px 0 16px;color:var(--ink);font-size:1.02rem;white-space:pre-wrap}
 
   .fact-chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
-  .chip-group{margin:0 0 6px}
-  .chip-group .group-label{font-weight:700;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0 0 8px}
-  body.style-centered .chip-group .group-label{text-align:center}
   .chip{
     display:inline-flex;align-items:center;gap:7px;
     background:rgba(14,124,134,.08);border:1px solid rgba(14,124,134,.18);
@@ -247,6 +264,9 @@
 
   @media (max-width:640px){
     .p-head{flex-direction:column;align-items:center;text-align:center;margin-top:-40px;gap:12px}
+    .p-actions{margin-left:0;padding-bottom:0;justify-content:center}
+    .copied-note{right:auto;left:50%;transform:translate(-50%,4px)}
+    .copied-note.show{transform:translate(-50%,0)}
     .whoname{justify-content:center}
     .p-body{padding:14px 20px 26px}
     .favs{grid-template-columns:1fr}
@@ -289,6 +309,12 @@
         <p class="whoname"><span id="r-name">Roamer</span><span class="age-pill" id="r-age" style="display:none"></span><span class="tt-badge" id="r-badge" style="display:none">&#9998; Trusted traveler</span></p>
         <p class="p-meta" id="r-meta"></p>
       </div>
+      <div class="p-actions" id="r-actions">
+        <span class="copied-note" id="r-copied">Link copied!</span>
+        <button class="share-btn" type="button" id="r-share" title="Share this profile">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share
+        </button>
+      </div>
     </div>
 
     <div class="p-body">
@@ -297,15 +323,7 @@
 
     <div class="socials" id="r-socials"></div>
 
-    <div class="chip-group" id="r-prefs-group" style="display:none">
-      <div class="group-label">My typical travel preferences are:</div>
-      <div class="fact-chips" id="r-chips"></div>
-    </div>
-
-    <div class="chip-group" id="r-goals-group" style="display:none">
-      <div class="group-label">I'm looking to:</div>
-      <div class="fact-chips" id="r-goal-chips"></div>
-    </div>
+    <div class="fact-chips" id="r-chips"></div>
 
     <div class="favs" id="r-favs" style="display:none"></div>
 
@@ -375,6 +393,7 @@
 ================================================================== */
 (function(){
   const $ = id => document.getElementById(id);
+  let previewMode = false;   // true when the owner is previewing their own private page
 
   /* Two header looks: "banner" (cover + overlapping pic) or "centered".
      The default is set here; add ?style=centered / ?style=banner to the
@@ -475,16 +494,11 @@
     if (p.bio){ $("r-bio").textContent = p.bio; $("r-bio").style.display = ""; }
 
     let chips = "";
-    if (p.travel_style) chips += chip("Travel Budget:", p.travel_style);
+    if (p.travel_style) chips += chip("Travel style:", p.travel_style);
     if (p.travel_company) chips += chip("I usually travel:", p.travel_company);
-    if (p.trip_duration) chips += chip("Trip durations:", p.trip_duration);
+    if (Array.isArray(p.travel_goals)) p.travel_goals.forEach(g => { chips += '<span class="chip">' + esc(g) + '</span>'; });
     $("r-chips").innerHTML = chips;
-    $("r-prefs-group").style.display = chips ? "" : "none";
-
-    let goalChips = "";
-    if (Array.isArray(p.travel_goals)) p.travel_goals.forEach(g => { goalChips += '<span class="chip">' + esc(g) + '</span>'; });
-    $("r-goal-chips").innerHTML = goalChips;
-    $("r-goals-group").style.display = goalChips ? "" : "none";
+    if (!chips) $("r-chips").style.display = "none";
 
     let socials = "";
     const siteIco = '<span class="s-ico web">' + ICON_GLOBE + '</span>';
@@ -550,6 +564,9 @@
       });
     }
 
+    /* a private preview link wouldn't open for anyone else, so hide Share there */
+    $("r-actions").style.display = previewMode ? "none" : "";
+
     if (articles.length){
       $("r-badge").style.display = "";
       $("r-articles").style.display = "";
@@ -574,6 +591,38 @@
     if (cameFromSite && history.length > 1){ e.preventDefault(); history.back(); }
   });
 
+  /* ---- Share this profile ----
+     Phones: opens the built-in share menu (messages, WhatsApp, email…).
+     Computers: copies the profile link and briefly shows "Link copied!". */
+  let copiedTimer = null;
+  function flashCopied(){
+    const note = $("r-copied");
+    note.classList.add("show");
+    clearTimeout(copiedTimer);
+    copiedTimer = setTimeout(() => note.classList.remove("show"), 1800);
+  }
+  $("r-share").addEventListener("click", async () => {
+    const pid = new URLSearchParams(location.search).get("id") || "";
+    const shareUrl = location.origin + location.pathname + (pid ? "?id=" + encodeURIComponent(pid) : "");
+    const who = ($("r-name").textContent || "this Roamer").trim();
+    if (navigator.share){
+      try{ await navigator.share({ title: who + " — Never Roam Alone", text: "Check out " + who + "'s Roamer profile", url: shareUrl }); }
+      catch(e){ /* they closed the share sheet — nothing to do */ }
+      return;
+    }
+    try{
+      await navigator.clipboard.writeText(shareUrl);
+      flashCopied();
+    }catch(e){
+      /* older browsers: temporary text box + copy command */
+      const t = document.createElement("textarea");
+      t.value = shareUrl; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.focus(); t.select();
+      try{ document.execCommand("copy"); flashCopied(); }catch(_){ prompt("Copy this link:", shareUrl); }
+      document.body.removeChild(t);
+    }
+  });
+
   /* close the photo viewer by clicking anywhere or pressing Esc */
   $("lightbox").addEventListener("click", () => $("lightbox").classList.remove("open"));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("lightbox").classList.remove("open"); });
@@ -596,6 +645,7 @@
         const mine = me && me.id === id && NRA_AUTH.profile && NRA_AUTH.profile();
         if (mine){
           document.getElementById("preview-note").style.display = "";
+          previewMode = true;
           row = mine;
         } else {
           show("missing-card"); return;

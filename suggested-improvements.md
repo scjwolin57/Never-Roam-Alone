@@ -79,6 +79,30 @@
 - Re-run Pexels/Pixabay search every few months — both sites add photos constantly (keys are saved).
 - Still placeholder: story-card images on city pages; blog post photos on the homepage.
 
+## 🚀 Post-launch SEO & growth (added July 12, 2026)
+
+*Foundation already done: sitemap.xml, robots.txt, meta descriptions on every page, admin pages hidden from Google. Site is noindexed until launch day (one marked line in netlify.toml). Launch day = delete that line, push, set up Google Search Console, submit sitemap.*
+
+**24. Per-city titles & descriptions (M)** ⭐ *biggest ranking win* — today every city guide shows Google the same generic title. A small Netlify edge function stamps "Tokyo Solo Travel Guide" (plus matching description and photo) into each page before it's sent. Solves item 21 (per-city link previews) at the same time. Same fix applies to blog posts.
+
+**25. Canonical tags (S)** — one line per page telling Google each page's official address, so share links with extra URL bits don't count as duplicate pages.
+
+**26. Structured data (S/M)** — hidden labels (schema.org) telling Google "this is a travel guide about Tokyo" / "this is a blog post." Can earn richer search listings; part of item 22.
+
+**27. Page-speed pass (M)** — city.html is over half a megabyte of code before photos. Move shared styles/data into cached files, serve WebP images. Test with PageSpeed Insights; speed is a ranking factor.
+
+**28. Bing Webmaster Tools (S)** — 10-minute sibling of Search Console; covers Bing, DuckDuckGo, and AI search tools that use Bing's index.
+
+**29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working.
+
+**30. Alt text audit (S)** — descriptive captions on photos for image search + accessibility; part of item 22.
+
+**31. Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.
+
+**32. Backlinks — the real ranking fuel (ongoing)** — Google ranks sites other sites link to. Share guides on r/solotravel and travel forums (genuinely, not spammy), get listed in travel directories, offer guest posts. Items 12 (city vs city) and 13 (seasonal collections) create pages people naturally link to.
+
+**33. Monthly Search Console check-in (S, recurring)** — once indexed: fix crawl errors, see which searches bring people in, sharpen titles on pages that show up but don't get clicked.
+
 ---
 
 *Suggested order if you want a default path: 5 (arrival cheat-sheets) → 2+3 (accounts worth having) → 4 (monthly seasonal page) → 1 (buddy matching, the big swing).*

