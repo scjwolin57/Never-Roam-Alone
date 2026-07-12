@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /blog-admin.html
+Disallow: /blog-editor.html
+Disallow: /profile.html
+
+Sitemap: https://neverroamalone.com/sitemap.xml
