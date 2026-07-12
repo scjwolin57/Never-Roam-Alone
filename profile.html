@@ -717,7 +717,7 @@
   const SNAP_FIELDS = ["p-name","p-bio","p-city","p-country","p-style","p-company",
     "p-website","p-instagram","p-facebook","p-twitter","p-tiktok","p-youtube",
     "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra",
-    "p-avatar-caption","p-last-trip","p-next-trip"];
+    "p-avatar-caption","p-last-trip","p-next-trip","p-duration"];
   function formSnapshot(){
     return SNAP_FIELDS.map(id => $(id).value).join("") + "" + $("p-public").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
   }
