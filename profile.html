@@ -1130,7 +1130,17 @@
   /* ---- boot ---- */
   // If the browser restores this page from its back/forward cache, re-sync the
   // form with the current sign-in (fills it back in if it returned blank).
-  window.addEventListener("pageshow", (e) => { if (e.persisted) render(); });
+  // Browsers (Safari especially) can restore this page from their back/forward
+  // cache with the form frozen blank. If we return and the form is empty while
+  // someone is signed in, force a fresh fill; otherwise just re-sync (the guard
+  // leaves a good or half-edited form untouched, so nobody loses typing).
+  function resyncAfterRestore(){
+    const auth = window.NRA_AUTH;
+    if (auth && auth.user() && !$("p-name").value){ filledFor = null; filledWithData = false; }
+    render();
+  }
+  window.addEventListener("pageshow", (e) => { if (e.persisted) resyncAfterRestore(); });
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") resyncAfterRestore(); });
 
   (async function init(){
     if (!window.NRA_AUTH){ show("guest"); return; }
