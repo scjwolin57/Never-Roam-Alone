@@ -117,8 +117,16 @@
   }
   .p-body{padding:18px 32px 32px}
 
-  /* ---------- Share button (top-right, across from the name/photo) ---------- */
-  .p-actions{margin-left:auto;padding-bottom:8px;position:relative;display:flex;align-items:center}
+  /* ---------- Share + Message buttons (top-right, across from the name/photo) ---------- */
+  .p-actions{margin-left:auto;padding-bottom:8px;position:relative;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .msg-btn{
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    border:2px solid var(--green);border-radius:22px;background:var(--green);
+    padding:9px 18px;font-weight:700;font-size:.88rem;font-family:inherit;color:#fff;
+    transition:.2s;
+  }
+  .msg-btn:hover{background:var(--teal);border-color:var(--teal);box-shadow:0 4px 14px rgba(14,124,134,.22);transform:translateY(-1px)}
+  .msg-btn svg{width:16px;height:16px;flex-shrink:0}
   .share-btn{
     display:inline-flex;align-items:center;gap:8px;cursor:pointer;
     border:2px solid rgba(14,124,134,.25);border-radius:22px;background:#fff;
@@ -314,6 +322,9 @@
       </div>
       <div class="p-actions" id="r-actions">
         <span class="copied-note" id="r-copied">Link copied!</span>
+        <a class="msg-btn" id="r-message" href="#" style="display:none" title="Send a private message">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Message
+        </a>
         <button class="share-btn" type="button" id="r-share" title="Share this profile">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share
         </button>
@@ -577,6 +588,18 @@
         $("lb-img").alt = ph.tagline || "Travel photo";
         $("lb-tag").textContent = ph.tagline || "";
         $("lightbox").classList.add("open");
+      });
+    }
+
+    /* Message button: shown unless this Roamer switched private messages
+       off, or you're looking at your own profile. Signed-out visitors get
+       the sign-in window first. */
+    const me = NRA_AUTH.user();
+    if (p.allow_messages !== false && !(me && me.id === p.id) && !previewMode){
+      $("r-message").href = "messages.html?to=" + encodeURIComponent(p.id);
+      $("r-message").style.display = "";
+      $("r-message").addEventListener("click", (e) => {
+        if (!NRA_AUTH.user()){ e.preventDefault(); NRA_AUTH.openModal(); }
       });
     }
 

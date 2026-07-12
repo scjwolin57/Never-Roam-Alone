@@ -253,8 +253,9 @@
     <input type="file" id="cover-file" accept="image/*" style="display:none" />
 
     <!-- jump to your page as visitors see it (private = a preview only you can see) -->
-    <div style="margin:0 0 20px">
+    <div style="margin:0 0 20px;display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn small" id="view-profile-btn" href="roamer.html">View my profile &rarr;</a>
+      <a class="btn small" href="messages.html">&#9993; My messages</a>
     </div>
 
     <div class="avatar-row">
@@ -470,6 +471,18 @@
       </div>
 
       <div class="field">
+        <label>Private messages</label>
+        <label class="check-row">
+          <input type="checkbox" id="p-msgs" />
+          <span>Let other Roamers send me private messages. Conversations live on your <a href="messages.html" style="color:var(--teal);text-decoration:underline;font-weight:600">Messages page</a> — your email is never shared. Untick this and new messages stop instantly. Saves with the button below.</span>
+        </label>
+        <label class="check-row" style="margin-top:10px">
+          <input type="checkbox" id="p-msg-email" />
+          <span>Email me about new messages — at most <strong>one email per sender per day</strong> (a first message, or one after a day of quiet). Untick this to only see messages on the site.</span>
+        </label>
+      </div>
+
+      <div class="field">
         <label>Mailing list</label>
         <label class="check-row">
           <input type="checkbox" id="p-mailing" />
@@ -647,6 +660,8 @@
     COVER_URL = p.cover_url || "";
     paintCover();
     $("p-public").checked  = !!p.is_public;
+    $("p-msgs").checked    = p.allow_messages !== false;        // both switches are ON unless
+    $("p-msg-email").checked = p.allow_message_emails !== false; // they were turned off
     syncPublicLink();
     savedSnapshot = formSnapshot();   // form now matches what's saved
     $("who-name").textContent  = name || "Roamer";
@@ -660,20 +675,30 @@
      DIFFERENT person signs in. The sign-in session quietly renews itself
      in the background every so often, and re-filling the form on those
      events was wiping people's unsaved typing (bug found 2026-07-08). */
-  let filledFor = null;   // account id the form is currently filled for
+  let filledFor = null;        // account id the form is currently filled for
+  let filledWithData = false;  // true once we've filled from a real (loaded) profile, not an empty one
   function render(){
     const auth = window.NRA_AUTH;
     if (!auth || !auth.enabled){ show("guest"); return; }
     const user = auth.user();
     if (user){
       show("in");
-      if (filledFor !== user.id){
+      const p = (auth.profile && auth.profile()) || null;
+      const hasData = !!p;
+      // Fill for a new person, OR when the real profile finally arrives after we
+      // had to paint an empty form first. That empty-first case happens on
+      // back-navigation: the sign-in session is restored a moment before the
+      // profile finishes loading. Once we've filled from real data we stop, so a
+      // background token renewal can't wipe someone's unsaved typing (07-08 fix).
+      if (filledFor !== user.id || (!filledWithData && hasData)){
         filledFor = user.id;
+        filledWithData = hasData;
         fillForm();
         refreshMailing();
       }
     } else {
       filledFor = null;   // signed out — next sign-in gets a fresh fill
+      filledWithData = false;
       show("out");
     }
   }
@@ -719,7 +744,7 @@
     "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra",
     "p-avatar-caption","p-last-trip","p-next-trip","p-duration"];
   function formSnapshot(){
-    return SNAP_FIELDS.map(id => $(id).value).join("") + "" + $("p-public").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
+    return SNAP_FIELDS.map(id => $(id).value).join("") + "" + $("p-public").checked + $("p-msgs").checked + $("p-msg-email").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
   }
   let savedSnapshot = "";
   window.addEventListener("beforeunload", (e) => {
@@ -778,7 +803,9 @@
       best_story: $("p-story").value.trim(),
       scary_story: $("p-scary").value.trim(),
       extra_details: $("p-extra").value.trim(),
-      is_public: $("p-public").checked
+      is_public: $("p-public").checked,
+      allow_messages: $("p-msgs").checked,
+      allow_message_emails: $("p-msg-email").checked
     };
     const btn = $("save-btn");
     btn.disabled = true; const original = btn.textContent; btn.textContent = "Saving…"; msg("");
