@@ -44,12 +44,12 @@
       // Hamburger button — hidden on wide screens, pushed to the far right
       // (order:99) so it always sits to the RIGHT of the language selector.
       ".nra-burger{order:99;margin-left:14px;display:none;width:42px;height:42px;" +
-        "flex-shrink:0;align-items:center;justify-content:center;background:rgba(24,94,63,.06);" +
-        "border:1.5px solid rgba(24,94,63,.2);border-radius:12px;cursor:pointer;padding:0}" +
-      ".nra-burger:focus{outline:none;border-color:#185e3f}" +
-      ".nra-burger .bars{position:relative;display:block;width:20px;height:2px;background:#185e3f;transition:.2s}" +
+        "flex-shrink:0;align-items:center;justify-content:center;background:rgba(85,107,47,.06);" +
+        "border:1.5px solid rgba(85,107,47,.2);border-radius:12px;cursor:pointer;padding:0}" +
+      ".nra-burger:focus{outline:none;border-color:#556B2F}" +
+      ".nra-burger .bars{position:relative;display:block;width:20px;height:2px;background:#556B2F;transition:.2s}" +
       ".nra-burger .bars::before,.nra-burger .bars::after{content:'';position:absolute;left:0;width:20px;height:2px;" +
-        "background:#185e3f;transition:.2s}" +
+        "background:#556B2F;transition:.2s}" +
       ".nra-burger .bars::before{top:-6px}" +
       ".nra-burger .bars::after{top:6px}" +
       // Open state: morph the three bars into an X
@@ -73,13 +73,13 @@
         // Opened: render the links as a tidy drop-down panel under the bar
         "header.nav.nra-nav-open nav.links[data-site-nav]{display:flex;flex-direction:column;" +
           "align-items:stretch;position:absolute;top:100%;right:14px;margin-top:10px;background:#fff;" +
-          "border:1px solid rgba(14,124,134,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);" +
+          "border:1px solid rgba(85,107,47,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);" +
           "padding:8px;min-width:210px;z-index:60}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a{margin:0;padding:11px 14px;border-radius:8px;" +
           "border-bottom:none;font-size:1rem}" +
-        "header.nav.nra-nav-open nav.links[data-site-nav] a:hover{background:rgba(24,94,63,.06);" +
-          "color:#0e7c86;border-color:transparent}" +
-        "header.nav.nra-nav-open nav.links[data-site-nav] a.active{color:#0e7c86}" +
+        "header.nav.nra-nav-open nav.links[data-site-nav] a:hover{background:rgba(192,64,32,.08);" +
+          "color:#C04020;border-color:transparent}" +
+        "header.nav.nra-nav-open nav.links[data-site-nav] a.active{color:#556B2F}" +
       "}";
     var s = document.createElement("style");
     s.id = "nra-nav-style";
