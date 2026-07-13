@@ -159,6 +159,21 @@
   .card .go:hover{background:var(--green)}
   .card .links-row{display:flex;gap:10px;align-items:center;margin-top:auto;flex-wrap:wrap}
   .card .links-row .go{margin-top:0}
+  .fav-heart{
+    margin-left:auto;border:2px solid rgba(239,111,83,.35);background:none;color:var(--coral);
+    width:38px;height:38px;border-radius:50%;font-size:1.15rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;
+  }
+  .fav-heart:hover{background:rgba(239,111,83,.1)}
+  .fav-heart.active{background:var(--coral);color:#fff;border-color:var(--coral)}
+  .fav-heart[disabled]{opacity:.6;cursor:default}
+  .bucket-visited-btn{
+    border:2px solid rgba(24,94,63,.35);background:none;color:var(--green);font-weight:700;font-size:.78rem;
+    font-family:inherit;padding:8px 13px;border-radius:18px;cursor:pointer;transition:.2s;
+  }
+  .bucket-visited-btn:hover{background:rgba(24,94,63,.08)}
+  .bucket-visited-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+  .bucket-visited-btn[disabled]{opacity:.6;cursor:default}
   .flights-link{font-size:.8rem;font-weight:700;color:var(--teal)}
   .flights-link:hover{text-decoration:underline}
 
@@ -523,6 +538,7 @@
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
   <div class="foot-links">
+    <a href="best-time-to-visit.html">Where to Go This Month</a>
     <a href="contact.html">Contact</a>
     <a href="feedback.html">Feedback</a>
     <a href="community.html">Community Contributions</a>
@@ -1094,6 +1110,7 @@ function finderCardHTML(r, rank, actLabel, budget){
         <div class="links-row">
           <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
           ${flightsLink}
+          <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>
         </div>
       </div>
     </article>`;
@@ -1696,6 +1713,7 @@ function bucketCardHTML(b, rank){
         <div class="links-row">
           ${cityLink}
           <button type="button" class="how-pill" data-bl="${rank-1}"><span aria-hidden="true">📍</span><span>How to get here</span></button>
+          <button type="button" class="bucket-visited-btn" data-bucket-name="${b.name.replace(/"/g,'&quot;')}" title="Mark as visited">✓ Been there</button>
         </div>
       </div>
     </article>`;
@@ -1948,9 +1966,56 @@ syncWhenUI();
 updateOriginModeUI();
 renderFinder();
 renderBucket();
+
+/* ---- Favorites hearts (finder result cards + map-pin popups share the
+   same finderCardHTML markup, so one paint/click handler covers both) ---- */
+function paintFavHearts(){
+  if(!window.NRA_FAV) return;
+  document.querySelectorAll(".fav-heart[data-fav-city]").forEach(btn => {
+    const active = NRA_FAV.has(btn.dataset.favCity);
+    btn.classList.toggle("active", active);
+    btn.textContent = active ? "♥" : "♡";
+    btn.title = active ? "Remove from Favorites" : "Save to Favorites";
+  });
+}
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".fav-heart[data-fav-city]");
+  if(!btn || !window.NRA_FAV) return;
+  btn.disabled = true;
+  NRA_FAV.toggle(btn.dataset.favCity, btn.dataset.favCountry)
+    .then(paintFavHearts)
+    .finally(() => { btn.disabled = false; });
+});
+
+/* ---- Bucket List "Been there" buttons (checked off toward the
+   Bucket List progress bar on profile.html) ---- */
+function paintBucketButtons(){
+  if(!window.NRA_VISITED) return;
+  document.querySelectorAll(".bucket-visited-btn[data-bucket-name]").forEach(btn => {
+    const active = NRA_VISITED.hasBucket(btn.dataset.bucketName);
+    btn.classList.toggle("active", active);
+    btn.textContent = active ? "✓ Visited" : "✓ Been there";
+    btn.title = active ? "Remove from your Bucket List progress" : "Mark as visited";
+  });
+}
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".bucket-visited-btn[data-bucket-name]");
+  if(!btn || !window.NRA_VISITED) return;
+  btn.disabled = true;
+  NRA_VISITED.toggleBucket(btn.dataset.bucketName)
+    .then(paintBucketButtons)
+    .finally(() => { btn.disabled = false; });
+});
+
 </script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="favorites.js"></script>
+<script src="visited.js"></script>
+<script>
+NRA_FAV.onChange(paintFavHearts); NRA_FAV.ready().then(paintFavHearts);
+NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketButtons);
+</script>
 <script src="mailing-list.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>

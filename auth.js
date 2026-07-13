@@ -494,7 +494,8 @@ window.NRA_AUTH = (function(){
      Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
   const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url","is_public",
     "age","fav_destination","no_return_destination","bucket_list_destination","best_story","scary_story","extra_details",
-    "facebook","twitter","tiktok","youtube","travel_photos","cover_url","avatar_caption","last_trip","next_trip","travel_goals","trip_duration","allow_messages","allow_message_emails"];
+    "facebook","twitter","tiktok","youtube","travel_photos","cover_url","avatar_caption","last_trip","next_trip","travel_goals","trip_duration","allow_messages","allow_message_emails",
+    "visited_places","visited_bucket"];
   async function updateProfile(fields){
     if (!sb || !session) return { ok:false, error:"You need to be signed in." };
     const patch = {};

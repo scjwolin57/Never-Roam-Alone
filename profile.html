@@ -17,6 +17,7 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 
 <style>
   :root{
@@ -137,6 +138,26 @@
   .trips-zone{margin-top:34px;padding-top:22px;border-top:1px solid rgba(14,124,134,.18)}
   .trips-zone h3{margin:0 0 6px;font-size:1.05rem}
   .trips-zone p{color:var(--muted);font-size:.9rem;margin:0 0 14px}
+
+  .travel-map-zone{margin-top:34px;padding-top:22px;border-top:1px solid rgba(14,124,134,.18)}
+  .travel-map-zone h3{margin:0 0 6px;font-size:1.05rem}
+  .travel-map-zone p{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+  .map-progress{font-weight:700;color:var(--green)!important;font-size:.92rem!important}
+  .travel-map{height:340px;border-radius:16px;overflow:hidden;background:#eef3f0;margin-bottom:12px}
+  .map-fallback{text-align:center;padding:14px}
+  .map-add-row{display:flex;gap:8px;margin-bottom:10px}
+  .map-add-row input{flex:1;padding:10px 12px;border:2px solid rgba(14,124,134,.22);border-radius:12px;font-size:.92rem;font-family:inherit;outline:none}
+  .map-add-row input:focus{border-color:var(--teal)}
+  .map-custom-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+  .map-custom-chip{display:flex;align-items:center;gap:6px;background:rgba(24,94,63,.09);color:var(--green);border-radius:20px;padding:6px 8px 6px 14px;font-size:.85rem;font-weight:600}
+  .map-custom-chip button{border:none;background:none;color:var(--green);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px}
+  .map-pin-visited{cursor:pointer}
+  .bucket-progress-row{margin-top:18px}
+  .bucket-progress-text{font-size:.9rem;color:var(--ink);margin-bottom:6px}
+  .bucket-progress-text strong{color:var(--coral)}
+  .bucket-link{margin-left:8px;color:var(--teal);font-weight:700;font-size:.85rem}
+  .bucket-bar{height:10px;border-radius:6px;background:rgba(14,124,134,.14);overflow:hidden}
+  .bucket-bar-fill{height:100%;background:var(--coral);width:0%;transition:width .3s}
   .trip-btns{display:flex;gap:12px;flex-wrap:wrap}
   a.trip-btn{
     flex:1;min-width:200px;display:flex;align-items:center;gap:12px;
@@ -150,6 +171,7 @@
   }
   .trip-btn.upcoming .ico{background:rgba(24,94,63,.12)}
   .trip-btn.past .ico{background:rgba(14,124,134,.12)}
+  .trip-btn.favorite .ico{background:rgba(239,111,83,.14)}
   .trip-btn .t{font-weight:700;font-size:.98rem;line-height:1.3}
   .trip-btn .t small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
 
@@ -511,6 +533,35 @@
           <span class="ico">📸</span>
           <span class="t">Past trips<small>Everywhere you've roamed</small></span>
         </a>
+        <a class="trip-btn favorite" href="itinerary.html?type=favorite">
+          <span class="ico">♥</span>
+          <span class="t">Favorites<small>Cities you've hearted</small></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Personal Travel Map: "been there" toggle on every map pin, plus
+         a free-text box for places that aren't on the map, plus a
+         Bucket List progress bar (see visited.js) -->
+    <div class="travel-map-zone">
+      <h3>Personal travel map</h3>
+      <p>Tap a pin for every place you've been — it lights up on your map. Typed a place that isn't a pin? Add it below.</p>
+      <p class="map-progress" id="map-progress"></p>
+      <div id="travel-map" class="travel-map"></div>
+      <p class="map-fallback" id="map-fallback" hidden>Map couldn't load — you can still add places by name below.</p>
+
+      <form class="map-add-row" id="map-add-form">
+        <input type="text" id="map-add-input" placeholder="Add a place not on the map…" autocomplete="off" maxlength="80" />
+        <button type="submit" class="btn small">Add</button>
+      </form>
+      <div class="map-custom-list" id="map-custom-list"></div>
+
+      <div class="bucket-progress-row">
+        <div class="bucket-progress-text">
+          <strong id="bucket-count">0/100</strong> Bucket List landmarks visited
+          <a href="choose.html" class="bucket-link">Check off landmarks &rarr;</a>
+        </div>
+        <div class="bucket-bar"><div class="bucket-bar-fill" id="bucket-bar-fill"></div></div>
       </div>
     </div>
 
@@ -563,8 +614,13 @@
   <small>Prototype · your profile is stored with your account</small>
 </footer>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="destinations.js"></script>
+<script src="upcoming-cities.js"></script>
+<script src="bucketlist.js"></script>
+<script src="visited.js"></script>
 <script>
 /* ==================================================================
    PROFILE PAGE
@@ -1147,6 +1203,125 @@
     await NRA_AUTH.ready();
     render();
     NRA_AUTH.onChange(render);   // re-render when someone signs in/out or the profile updates
+  })();
+})();
+
+/* ==================================================================
+   PERSONAL TRAVEL MAP + BUCKET LIST PROGRESS (visited.js backs both)
+   • Every featured (101) and coming-soon (up to 145) city is a pin;
+     tap a pin to mark it "been there" — it switches color.
+   • A text box below lets you add a place that isn't a pin at all.
+   • The Bucket List bar reads how many of the 100 landmarks
+     (window.NRA_BUCKET, checked off on choose.html) you've visited.
+================================================================== */
+(function(){
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const norm = s => String(s||"").trim().toLowerCase();
+
+  const PINS = [
+    ...((window.NRA_DESTINATIONS||[]).map(c => ({city:c.city, country:c.country, lat:c.lat, lng:c.lng}))),
+    ...((window.NRA_UPCOMING||[]).map(c => ({city:c.city, country:c.country, lat:c.lat, lng:c.lng})))
+  ];
+
+  let map = null, mapLoaded = false;
+
+  function pinsGeojson(){
+    return {
+      type:"FeatureCollection",
+      features: PINS.map(p => ({
+        type:"Feature",
+        properties:{ city:p.city, country:p.country, visited: window.NRA_VISITED ? NRA_VISITED.hasPlace(p.city) : false },
+        geometry:{ type:"Point", coordinates:[p.lng, p.lat] }
+      }))
+    };
+  }
+
+  function initMap(){
+    if (typeof maplibregl === "undefined"){ $("map-fallback").hidden = false; return; }
+    map = new maplibregl.Map({
+      container:"travel-map",
+      style:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+      center:[10, 25], zoom:0.7, minZoom:0.6, renderWorldCopies:false, attributionControl:false
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass:false }), "top-right");
+    map.on("error", () => { $("map-fallback").hidden = false; });
+    map.on("load", () => {
+      mapLoaded = true;
+      map.addSource("profile-pins", { type:"geojson", data: pinsGeojson() });
+      map.addLayer({
+        id:"profile-pin-dots", type:"circle", source:"profile-pins",
+        paint:{
+          "circle-radius":5,
+          "circle-color":["case",["get","visited"],"#185e3f","#b7c2bd"],
+          "circle-opacity":["case",["get","visited"],0.9,0.55],
+          "circle-stroke-color":["case",["get","visited"],"#185e3f","#8a978f"],
+          "circle-stroke-width":1.4
+        }
+      });
+      map.getCanvas().style.cursor = "pointer";
+      map.on("click", "profile-pin-dots", async (e) => {
+        const f = e.features && e.features[0];
+        if (!f || !window.NRA_VISITED) return;
+        await NRA_VISITED.togglePlace(f.properties.city);
+        refreshMap();
+        renderCustom();
+        renderProgress();
+      });
+      map.on("mouseenter", "profile-pin-dots", (e) => {
+        const f = e.features && e.features[0]; if (!f) return;
+        map.getCanvas().title = f.properties.city + (NRA_VISITED.hasPlace(f.properties.city) ? " — been there! tap to unmark" : " — tap to mark as visited");
+      });
+    });
+  }
+
+  function refreshMap(){
+    if (!map || !mapLoaded) return;
+    const src = map.getSource("profile-pins");
+    if (src) src.setData(pinsGeojson());
+  }
+
+  function renderProgress(){
+    if (!window.NRA_VISITED) return;
+    const total = NRA_VISITED.places().length;
+    $("map-progress").textContent = total ? `🌍 ${total} place${total===1?"":"s"} visited` : "🌍 No places marked yet — tap a pin on the map, or add one below.";
+    const bucketTotal = (window.NRA_BUCKET||[]).length || 100;
+    const bucketCount = NRA_VISITED.bucket().length;
+    $("bucket-count").textContent = `${bucketCount}/${bucketTotal}`;
+    $("bucket-bar-fill").style.width = Math.min(100, Math.round((bucketCount/bucketTotal)*100)) + "%";
+  }
+
+  function renderCustom(){
+    if (!window.NRA_VISITED) return;
+    const pinNames = new Set(PINS.map(p => norm(p.city)));
+    const custom = NRA_VISITED.places().filter(p => !pinNames.has(norm(p)));
+    const list = $("map-custom-list");
+    list.innerHTML = custom.map(p => `
+      <span class="map-custom-chip">${esc(p)}<button type="button" data-rm-place="${esc(p)}" title="Remove" aria-label="Remove ${esc(p)}">✕</button></span>
+    `).join("");
+    list.querySelectorAll("[data-rm-place]").forEach(b => b.addEventListener("click", async () => {
+      await NRA_VISITED.togglePlace(b.dataset.rmPlace);
+      renderCustom(); renderProgress();
+    }));
+  }
+
+  $("map-add-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const input = $("map-add-input");
+    const val = input.value.trim();
+    if (!val || !window.NRA_VISITED) return;
+    await NRA_VISITED.togglePlace(val);
+    input.value = "";
+    refreshMap(); renderCustom(); renderProgress();
+  });
+
+  (async function initTravelMap(){
+    initMap();
+    if (window.NRA_VISITED){
+      await NRA_VISITED.ready();
+      NRA_VISITED.onChange(() => { refreshMap(); renderCustom(); renderProgress(); });
+    }
+    renderProgress(); renderCustom();
   })();
 })();
 </script>

@@ -198,6 +198,7 @@
   <div class="trip-toggle" role="tablist">
     <button type="button" id="tab-upcoming" data-type="upcoming">Upcoming trips</button>
     <button type="button" id="tab-past" data-type="past">Past trips</button>
+    <button type="button" id="tab-favorite" data-type="favorite">♥ Favorites</button>
   </div>
 </div>
 
@@ -253,7 +254,9 @@
   const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
   /* ---- which list are we on? ---- */
-  let type = new URLSearchParams(location.search).get("type") === "past" ? "past" : "upcoming";
+  const TYPES = ["past","upcoming","favorite"];
+  const typeParam = new URLSearchParams(location.search).get("type");
+  let type = TYPES.includes(typeParam) ? typeParam : "upcoming";
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -263,8 +266,13 @@
   /* ---- local (browser) storage ---- */
   const LS_KEY = "nra_itinerary_v1";
   function lsAll(){
-    try{ const d = JSON.parse(localStorage.getItem(LS_KEY)); return (d && typeof d === "object") ? d : {past:[],upcoming:[]}; }
-    catch(e){ return {past:[],upcoming:[]}; }
+    try{
+      const d = JSON.parse(localStorage.getItem(LS_KEY));
+      const out = (d && typeof d === "object") ? d : {};
+      TYPES.forEach(t => { if(!Array.isArray(out[t])) out[t] = []; });
+      return out;
+    }
+    catch(e){ return {past:[],upcoming:[],favorite:[]}; }
   }
   function lsSave(d){ try{ localStorage.setItem(LS_KEY, JSON.stringify(d)); }catch(e){} }
 
@@ -313,14 +321,19 @@
   const status = (text, kind) => { const m = $("status"); m.textContent = text || ""; m.className = "status-msg" + (kind ? " "+kind : ""); };
 
   /* ---- header + toggle ---- */
+  const TITLES = { past: "Past Trips", upcoming: "Upcoming Trips", favorite: "Favorites" };
+  const SUBS = {
+    past: "Everywhere you've already roamed — keep the memories on the map.",
+    upcoming: "Build your route — add the cities and places you're planning to roam.",
+    favorite: "Places you've hearted from the Destination Finder — dream list, no dates required."
+  };
   function paintHeader(){
-    $("hero-title").textContent = type === "past" ? "Past Trips" : "Upcoming Trips";
-    $("hero-sub").textContent = type === "past"
-      ? "Everywhere you've already roamed — keep the memories on the map."
-      : "Build your route — add the cities and places you're planning to roam.";
+    $("hero-title").textContent = TITLES[type];
+    $("hero-sub").textContent = SUBS[type];
     $("tab-upcoming").classList.toggle("active", type === "upcoming");
     $("tab-past").classList.toggle("active", type === "past");
-    document.title = (type === "past" ? "Past Trips" : "Upcoming Trips") + " — Never Roam Alone";
+    $("tab-favorite").classList.toggle("active", type === "favorite");
+    document.title = TITLES[type] + " — Never Roam Alone";
   }
   document.querySelectorAll(".trip-toggle button").forEach(b => b.addEventListener("click", () => {
     if (b.dataset.type === type) return;
@@ -358,6 +371,8 @@
       emptyEl.style.display = "";
       emptyEl.textContent = type === "past"
         ? "No past trips yet — search above to add the places you've been."
+        : type === "favorite"
+        ? "No favorites yet — heart a city on the Destination Finder, or search above to add one."
         : "Nothing planned yet — search above to add your first stop.";
       return;
     }
