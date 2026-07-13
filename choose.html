@@ -80,11 +80,13 @@
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
   .field-full{grid-column:1 / -1}
   @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
-  .when-switch{display:flex;gap:10px;margin:2px 0 14px}
-  .when-switch .mini-radio{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.92rem;transition:.15s;position:relative}
-  .when-switch .mini-radio:hover{border-color:var(--green)}
+  .when-switch{position:relative;display:flex;gap:0;margin:2px 0 14px;background:var(--sand);border:2px solid rgba(24,94,63,.18);border-radius:12px;padding:3px}
+  .when-switch::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);background:var(--green);border-radius:9px;transition:transform .22s ease;z-index:0}
+  .when-switch.right::before{transform:translateX(100%)}
+  .when-switch .mini-radio{flex:1;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:none;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.92rem;transition:color .22s}
+  .when-switch .mini-radio:not(.active):hover{color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
-  .when-switch .mini-radio.active{border-color:var(--green);background:rgba(24,94,63,.08)}
+  .when-switch .mini-radio.active{color:#fff}
   .date-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
   .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
@@ -121,7 +123,7 @@
     border-right:2.5px solid var(--green);border-bottom:2.5px solid var(--green);
     transform:translateY(-70%) rotate(45deg);pointer-events:none}
 
-  .view-switch{max-width:360px;margin:26px auto -6px;padding:0 22px}
+  .view-switch{width:min(360px,calc(100% - 40px));margin:26px auto -6px}
   .map-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 20px}
   #finderMap{height:540px;border-radius:16px;box-shadow:var(--shadow)}
   @media(max-width:600px){#finderMap{height:420px}}
@@ -977,6 +979,10 @@ function syncWhenUI(){
   document.querySelectorAll('.when-switch .mini-radio').forEach(l=>{
     const inp = l.querySelector("input");
     l.classList.toggle("active", !!(inp && inp.checked));
+  });
+  document.querySelectorAll('.when-switch').forEach(sw=>{
+    const ins = sw.querySelectorAll('input');
+    sw.classList.toggle('right', !!(ins[1] && ins[1].checked));
   });
 }
 

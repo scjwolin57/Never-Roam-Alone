@@ -122,11 +122,16 @@ window.NRA_AUTH = (function(){
   .nra-google:hover{border-color:#185e3f}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
   .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
-  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none}
+  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
   .nra-nav-avatar:hover{background:#0e7c86}
   .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
   .nra-nav-signin:hover{background:#0e7c86}
-  .nra-nav-signin svg{width:17px;height:17px}`;
+  .nra-nav-signin svg{width:17px;height:17px}
+  .nra-nav-wrap{position:relative}
+  .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid rgba(14,124,134,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);padding:8px;min-width:190px;z-index:60}
+  .nra-nav-menu a,.nra-nav-menu button{display:block;width:100%;box-sizing:border-box;text-align:left;padding:10px 12px;border-radius:8px;border:none;background:none;font-size:.9rem;font-weight:600;color:#1d2a32;text-decoration:none;cursor:pointer;font-family:inherit}
+  .nra-nav-menu a:hover,.nra-nav-menu button:hover{background:rgba(24,94,63,.07);color:#0e7c86}
+  .nra-nav-menu .nra-nav-menu-sep{height:1px;background:rgba(20,40,50,.1);margin:6px 4px}`;
 
   function ensureCSS(){
     if (document.getElementById("nra-auth-css")) return;
@@ -202,7 +207,41 @@ window.NRA_AUTH = (function(){
     if (!enabled){ el.innerHTML = ""; return; } // guest mode: nothing to sign into, keep the nav clean
     if (session){
       const name = (profile && profile.display_name) || session.user.email;
-      el.innerHTML = `<a class="nra-nav-avatar" href="profile.html" title="${esc(name)} — your profile">${esc(initials(name))}</a>`;
+      const uid = encodeURIComponent(session.user.id);
+      el.innerHTML = `<div class="nra-nav-wrap">
+        <button class="nra-nav-avatar" id="nra-nav-avatar-btn" aria-haspopup="true" aria-expanded="false" title="${esc(name)} — account menu">${esc(initials(name))}</button>
+        <div class="nra-nav-menu" id="nra-nav-menu" hidden>
+          <a href="profile.html">Edit profile</a>
+          <a href="roamer.html?id=${uid}">View profile</a>
+          <a href="messages.html">Messages</a>
+          <a href="itinerary.html">Trips</a>
+          <div class="nra-nav-menu-sep"></div>
+          <button type="button" id="nra-nav-signout-btn">Sign out</button>
+        </div>
+      </div>`;
+      const wrap = el.querySelector(".nra-nav-wrap");
+      const btn = el.querySelector("#nra-nav-avatar-btn");
+      const menu = el.querySelector("#nra-nav-menu");
+      function closeNavMenu(){
+        menu.hidden = true;
+        btn.setAttribute("aria-expanded", "false");
+      }
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const open = menu.hidden;
+        menu.hidden = !open;
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      document.addEventListener("click", function (e) {
+        if (!wrap.contains(e.target)) closeNavMenu();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeNavMenu();
+      });
+      el.querySelector("#nra-nav-signout-btn").addEventListener("click", function () {
+        closeNavMenu();
+        signOut();
+      });
     } else {
       el.innerHTML = `<button class="nra-nav-signin" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +

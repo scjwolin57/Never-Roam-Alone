@@ -63,6 +63,8 @@
   .avoid-chip a{color:var(--green);font-weight:700}
 
   .empty{color:var(--muted);text-align:center;padding:20px}
+  .show-more{border:2px solid rgba(24,94,63,.35);background:none;color:var(--green);font-weight:700;font-size:.86rem;font-family:inherit;padding:10px 22px;border-radius:22px;cursor:pointer;transition:.2s}
+  .show-more:hover{background:rgba(24,94,63,.08)}
   .cta-strip{margin-top:50px;text-align:center;background:#fff;border-radius:20px;box-shadow:var(--shadow);padding:34px 22px}
   .cta-strip h2{margin:0 0 8px;font-size:1.4rem}
   .cta-strip p{color:var(--muted);margin:0 0 16px}
@@ -92,7 +94,7 @@
 <div class="page-hero">
   <p class="kicker">Monthly guide</p>
   <h1 id="hero-title">Where to Go in July</h1>
-  <p>Ideal-weather cities, festivals worth planning around, and a few places to hold off on — pulled straight from our 101 city guides' season data.</p>
+  <p>Ideal-weather cities, festivals worth planning around, and a few places to hold off on — pulled straight from our city guides' season data.</p>
   <div class="month-picker" id="month-picker"></div>
 </div>
 
@@ -114,6 +116,13 @@
     <h2>🥵 What to hold off on</h2>
     <p class="sub">Very hot, very cold, or deep in the rainy season this month.</p>
     <div class="avoid-list" id="avoid-list"></div>
+  </section>
+
+  <section class="block" id="more-section">
+    <h2>🗺️ More destinations</h2>
+    <p class="sub">These guides don't have month-by-month weather data yet, so we can't sort them above — but they're still worth a look.</p>
+    <div class="grid" id="more-grid"></div>
+    <div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="moreBtn"></button></div>
   </section>
 
   <div class="cta-strip">
@@ -142,9 +151,15 @@
 /* ==================================================================
    WHERE TO GO THIS MONTH — built from window.NRA_SEASON (per-quarter
    avg high temp + rainy days + notable events) and window.NRA_DESTINATIONS
-   (the 101 featured cities). No server, no build step: picks the
-   current month by default, or ?m=1-12 in the URL; the month picker
-   re-renders client-side without a reload.
+   (all featured cities — 246 as of July 2026). No server, no build
+   step: picks the current month by default, or ?m=1-12 in the URL;
+   the month picker re-renders client-side without a reload.
+
+   Not every featured city has season/weather data compiled yet (that
+   round is still in progress — see guide_expansion_145 notes), so
+   cities without it can't be sorted into Ideal/Festival/Avoid; they
+   still show up, in the "More destinations" section below, so all
+   246 cities appear on this page one way or another.
 ================================================================== */
 (function(){
   const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -180,11 +195,11 @@
     document.getElementById("page-title").textContent = "Where to Go in " + MONTHS[month-1] + " — Never Roam Alone";
 
     const q = Math.floor((month - 1) / 3);   // 0-3, matches the t[]/r[] quarter arrays
-    const ideal = [], events = [], avoid = [];
+    const ideal = [], events = [], avoid = [], noData = [];
 
     CITIES.forEach(c => {
       const S = SEASON[c.city];
-      if(!S) return;
+      if(!S){ noData.push(c); return; }
       const ev = (S.ev || []).find(e => e.m.indexOf(month) >= 0);
       if(ev) events.push({ c, label: ev.l });
       const t = S.t ? S.t[q] : null;
@@ -222,6 +237,28 @@
       avoidSection.style.display = "none";
     }
   }
+
+  /* "More destinations" — cities without season data yet, so they can't
+     be Ideal/Festival/Avoid sorted. Doesn't change with the month picker,
+     so it's rendered once with its own "show more" pagination. */
+  const moreSection = document.getElementById("more-section");
+  const moreCities = CITIES.filter(c => !SEASON[c.city]).sort((a,b) => a.city.localeCompare(b.city));
+  let moreShown = 12;
+  function renderMore(){
+    if(!moreCities.length){ moreSection.style.display = "none"; return; }
+    moreSection.style.display = "";
+    document.getElementById("more-grid").innerHTML = moreCities.slice(0, moreShown)
+      .map(c => cardHTML(c, "🗺️ Guide available", "event")).join("");
+    const btn = document.getElementById("moreBtn");
+    if(moreShown < moreCities.length){
+      btn.style.display = "";
+      btn.textContent = `Show ${Math.min(12, moreCities.length - moreShown)} more`;
+    } else {
+      btn.style.display = "none";
+    }
+  }
+  document.getElementById("moreBtn").addEventListener("click", () => { moreShown += 12; renderMore(); });
+  renderMore();
 
   const picker = document.getElementById("month-picker");
   picker.innerHTML = MONTHS.map((m,i) => `<button type="button" data-m="${i+1}">${m.slice(0,3)}</button>`).join("");
