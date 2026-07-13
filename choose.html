@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
   <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
   (function () {
       var script = document.createElement("script");
@@ -58,6 +63,11 @@
   .intro .kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem}
   .intro h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0 10px}
   .intro p{color:var(--muted);font-size:1.08rem;margin:0}
+  .intro.hero-banner{max-width:var(--maxw);background:var(--green);color:#fff;border-radius:24px;
+    padding:56px 22px;margin:20px auto 0}
+  .intro.hero-banner .kicker{color:#fff;opacity:.85}
+  .intro.hero-banner h1{color:#fff}
+  .intro.hero-banner p{color:rgba(255,255,255,.85)}
 
   .chooser{max-width:760px;margin:30px auto 0;padding:0 22px}
   .chooser .panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px 28px}
@@ -66,7 +76,7 @@
   .tool-switch{max-width:var(--maxw);margin:26px auto 4px;padding:0 22px;display:flex;flex-wrap:nowrap;gap:12px;justify-content:center}
   .tool-switch .switch-btn{flex:1;min-width:0;justify-content:center}
   .switch-btn{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid rgba(85,107,47,.22);
-    border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--ink);transition:.18s;user-select:none}
+    border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);transition:.18s;user-select:none}
   .switch-btn:hover{border-color:var(--green)}
   .switch-btn input{position:absolute;opacity:0;width:0;height:0}
   .switch-btn .box{width:18px;height:18px;border:2px solid var(--green);border-radius:3px;flex-shrink:0;position:relative;transition:.18s}
@@ -308,19 +318,19 @@
   </div>
 </header>
 
-<div class="intro">
+<div class="intro hero-banner">
   <p class="kicker">Not sure where to roam?</p>
-  <h1>Help Me Choose</h1>
+  <h1>Inspire My Next Location</h1>
 </div>
 
 <div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
   <label class="switch-btn">
     <input type="radio" name="tool" value="finder" checked>
-    <span class="box"></span><span>Find My Destination</span>
+    <span class="box"></span><span>Help Me Choose</span>
   </label>
   <label class="switch-btn">
     <input type="radio" name="tool" value="bucket">
-    <span class="box"></span><span>Bucket List</span>
+    <span class="box"></span><span>Bucket List Places</span>
   </label>
   <label class="switch-btn">
     <input type="radio" name="tool" value="visa">
