@@ -23,9 +23,9 @@
     --ink:#1d2a32;
     --muted:#5b6b75;
     --sand:#f6f1e7;
-    --teal:#0e7c86;
-    --teal-dark:#0a5c64;
-    --coral:#ef6f53;
+    --teal:#556B2F;
+    --teal-dark:#3C4B21;
+    --coral:#C04020;
     --card:#ffffff;
     --shadow:0 10px 30px rgba(20,40,50,.12);
     --maxw:1180px;
@@ -47,27 +47,27 @@
     position:sticky;top:0;z-index:50;
     background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(14,124,134,.15);
+    border-bottom:1px solid rgba(85,107,47,.15);
   }
   .nav-inner{
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
-  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(239,111,83,.2)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(192,64,32,.2)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
     margin-left:26px;font-weight:600;font-size:.95rem;color:var(--muted);
     padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
   }
-  nav.links a:hover{color:var(--teal);border-color:var(--coral)}
+  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   nav.links a.active{color:var(--teal);border-color:var(--coral)}
   .menu-toggle{display:none}
 
   /* ---------- Page hero ---------- */
   .page-hero{
-    background:linear-gradient(135deg, #0a5c64 0%, #185e3f 100%);
+    background:linear-gradient(135deg, #3C4B21 0%, #556B2F 100%);
     color:#fff;text-align:center;padding:72px 22px 56px;
   }
   .page-hero .kicker{
@@ -95,14 +95,14 @@
   }
   #blog-search{
     width:100%;padding:13px 44px 13px 46px;
-    border:2px solid rgba(14,124,134,.2);border-radius:40px;
+    border:2px solid rgba(85,107,47,.2);border-radius:40px;
     background:#fff;font-size:.97rem;color:var(--ink);
     box-shadow:0 4px 16px rgba(20,40,50,.08);
     outline:none;transition:border-color .2s, box-shadow .2s;
     font-family:inherit;
   }
   #blog-search::placeholder{color:var(--muted)}
-  #blog-search:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,124,134,.18)}
+  #blog-search:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(85,107,47,.18)}
   .search-clear{
     position:absolute;right:14px;top:50%;transform:translateY(-50%);
     background:none;border:none;cursor:pointer;padding:4px;
@@ -129,13 +129,13 @@
   #sort-select{
     appearance:none;-webkit-appearance:none;
     padding:13px 36px 13px 38px;
-    border:2px solid rgba(14,124,134,.2);border-radius:40px;
+    border:2px solid rgba(85,107,47,.2);border-radius:40px;
     background:#fff;font-size:.97rem;color:var(--ink);
     box-shadow:0 4px 16px rgba(20,40,50,.08);
     outline:none;cursor:pointer;font-family:inherit;
     transition:border-color .2s, box-shadow .2s;white-space:nowrap;
   }
-  #sort-select:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(14,124,134,.18)}
+  #sort-select:focus{border-color:var(--teal);box-shadow:0 4px 20px rgba(85,107,47,.18)}
 
   /* ---------- Blog grid ---------- */
   section.block{max-width:var(--maxw);margin:0 auto;padding:36px 22px 64px}
@@ -172,7 +172,7 @@
   .no-results strong{color:var(--ink)}
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
-  footer .brand{justify-content:center;color:#c35237}
+  footer .brand{justify-content:center;color:#C04020}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}

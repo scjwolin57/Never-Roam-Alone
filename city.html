@@ -31,8 +31,8 @@
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 <style>
   :root{
-    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#185e3f;--teal:#0e7c86;
-    --coral:#ef6f53;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
+    --coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -41,15 +41,15 @@
   a{color:inherit;text-decoration:none}
 
   header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(24,94,63,.15)}
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#c35237}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{margin-left:24px;font-weight:600;font-size:.95rem;color:var(--muted);
     padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
-  nav.links a:hover{color:var(--green);border-color:var(--coral)}
+  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
 
   /* Hero */
   .hero{position:relative;height:62vh;min-height:420px;display:flex;align-items:flex-end;
@@ -122,7 +122,7 @@
   .emrg-note{font-size:.76rem;color:var(--muted);font-style:italic}
   .embassy{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
   .embassy-k{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin-bottom:8px}
-  .embassy select{width:100%;padding:9px 10px;border:2px solid rgba(24,94,63,.2);border-radius:10px;
+  .embassy select{width:100%;padding:9px 10px;border:2px solid rgba(85,107,47,.2);border-radius:10px;
     background:#fff;font-family:inherit;font-size:.88rem;color:var(--ink);cursor:pointer}
   .embassy select:focus{outline:none;border-color:var(--green)}
   .embassy-hint{margin:10px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
@@ -188,8 +188,8 @@
   .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
   .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
-  .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(24,94,63,.08);
-    border:1px solid rgba(24,94,63,.18);border-radius:20px;padding:3px 10px}
+  .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(85,107,47,.08);
+    border:1px solid rgba(85,107,47,.18);border-radius:20px;padding:3px 10px}
   .rides-none{font-size:.8rem;color:var(--muted)}
   /* 4-up cost cards row */
   .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -200,7 +200,7 @@
   .net-est{color:var(--muted);font-size:.72rem;font-style:italic}
   .esim-btn{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
     padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap}
-  .esim-btn:hover{background:#134d33}
+  .esim-btn:hover{background:var(--coral)}
   .net-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:16px}
   .ns{min-width:0}
   .ns-v{font-family:Georgia,serif;font-weight:700;font-size:1.25rem;margin-top:3px}
@@ -249,10 +249,10 @@
   .tr-head .cost-icon{margin-bottom:0}
   .tr-map-btn{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
     padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap}
-  .tr-map-btn:hover{background:#134d33}
+  .tr-map-btn:hover{background:var(--coral)}
   .tr-sys-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
   .tr-sys-row .rides-k{margin-bottom:0}
-  .tr-chip{display:inline-flex;align-items:baseline;gap:7px;background:rgba(14,124,134,.1);color:var(--teal);
+  .tr-chip{display:inline-flex;align-items:baseline;gap:7px;background:rgba(85,107,47,.1);color:var(--teal);
     font-weight:700;font-size:.82rem;padding:5px 13px;border-radius:16px}
   .tr-chip em{font-style:normal;font-weight:600;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;opacity:.75}
   .tr-note{margin:12px 0 0;font-size:.88rem;line-height:1.55}
@@ -313,7 +313,7 @@
   .rt-search{display:flex;align-items:center;gap:10px;padding:12px 14px;margin-top:4px;
     background:#fff;border:2px solid var(--green);border-radius:12px;color:var(--green);
     text-decoration:none;font-weight:700;font-size:.92rem;transition:background .2s,color .2s}
-  .rt-search:hover{background:var(--green);color:#fff}
+  .rt-search:hover{background:var(--coral);color:#fff}
   .rt-search .rt-go{margin-left:auto}
   .rt-note{margin-top:16px;font-size:.85rem;line-height:1.5;color:var(--muted)}
   .rt-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
@@ -322,7 +322,7 @@
   .atm-btn{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:2px;
     padding:10px 16px;border:2px solid var(--green);background:#fff;color:var(--green);
     font-family:inherit;font-weight:700;font-size:.9rem;border-radius:12px;cursor:pointer;transition:background .2s,color .2s}
-  .atm-btn:hover{background:var(--green);color:#fff}
+  .atm-btn:hover{background:var(--coral);color:#fff}
   .atm-btn svg{flex-shrink:0}
   .atm-intro{margin:0 0 16px;font-size:.95rem;color:var(--ink)}
   .atm-sec-k{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);
@@ -347,7 +347,7 @@
   .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
   .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-  .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(24,94,63,.22);
+  .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(85,107,47,.22);
     border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
   .conv-field:focus-within{border-color:var(--green)}
   .conv-field input{border:none;outline:none;background:transparent;font-size:1.05rem;font-family:inherit;
@@ -360,7 +360,7 @@
   .conv-swap{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
     background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;
     transition:background .2s, transform .35s}
-  .conv-swap:hover{background:var(--teal)}
+  .conv-swap:hover{background:var(--coral)}
   .conv-swap:active{transform:rotate(180deg)}
   .conv-swap svg{display:block}
   .conv-rate{font-size:.82rem;color:var(--muted)}
@@ -399,7 +399,7 @@
 
   .back{display:inline-block;margin-top:8px;background:var(--green);color:#fff;font-weight:700;
     padding:12px 22px;border-radius:30px;transition:background .2s}
-  .back:hover{background:var(--teal)}
+  .back:hover{background:var(--coral)}
 
   /* "Back to city guides" bar just under the hero photo */
   .hero-credit{position:absolute;right:10px;bottom:7px;z-index:3;font-size:.62rem;line-height:1.2;
@@ -422,7 +422,7 @@
   .back-to-top:hover{background:rgba(26,74,58,.9)}
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
-  footer .brand{justify-content:center;color:#c35237}
+  footer .brand{justify-content:center;color:#C04020}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -1326,7 +1326,7 @@ const CITY_CARD = {
 function cardLevel(p) {
   if (p >= 85) return {c:"#1d9a6c", w:"widely accepted"};
   if (p >= 65) return {c:"#e0a800", w:"commonly accepted"};
-  return {c:"#ef6f53", w:"carry cash — limited acceptance"};
+  return {c:"#C04020", w:"carry cash — limited acceptance"};
 }
 
 /* Typical traveler costs in USD: hotel/night (mid-range), restaurant meal/person
@@ -2141,7 +2141,7 @@ const CITY_TAXI = {
 /* Colour for a taxi fare type */
 function taxiFareColor(cat) {
   if (cat === "metered") return "#1d9a6c";
-  if (cat === "fixed")   return "#0e7c86";
+  if (cat === "fixed")   return "#556B2F";
   return "#e0a800"; // unmetered / haggle
 }
 
@@ -3114,7 +3114,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#ef6f53", w:"Car-dependent"};
+  return {c:"#C04020", w:"Car-dependent"};
 }
 
 /* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
@@ -4300,8 +4300,8 @@ const CITY_LODGING = {
 };
 
 const LODGE_TIERS = [
-  {k:"High-end", c:"#185e3f"},
-  {k:"Mid-range", c:"#0e7c86"},
+  {k:"High-end", c:"#556B2F"},
+  {k:"Mid-range", c:"#556B2F"},
   {k:"Budget", c:"#c0792c"}
 ];
 
@@ -5780,7 +5780,7 @@ const NET_AP_NOTES = {
 /* Free-Wi-Fi rating word + colour per level */
 function fwInfo(l) {
   if (l === "wide") return {c:"#1d9a6c", w:"Widespread"};
-  if (l === "ltd")  return {c:"#ef6f53", w:"Limited"};
+  if (l === "ltd")  return {c:"#C04020", w:"Limited"};
   return {c:"#e0a800", w:"Moderate"};
 }
 
@@ -6216,7 +6216,7 @@ const CITY_TIP = {
 
 /* Label + color for a tipping status */
 function tipInfo(s) {
-  if (s === "expected")  return {c:"#ef6f53", w:"expected"};
+  if (s === "expected")  return {c:"#C04020", w:"expected"};
   if (s === "customary") return {c:"#e0a800", w:"customary"};
   if (s === "optional")  return {c:"#e0a800", w:"optional"};
   if (s === "included")  return {c:"#1d9a6c", w:"service included"};
