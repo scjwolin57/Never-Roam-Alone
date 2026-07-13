@@ -145,9 +145,15 @@
   .map-progress{font-weight:700;color:var(--green)!important;font-size:.92rem!important}
   .travel-map{height:340px;border-radius:16px;overflow:hidden;background:#eef3f0;margin-bottom:12px}
   .map-fallback{text-align:center;padding:14px}
-  .map-add-row{display:flex;gap:8px;margin-bottom:10px}
+  .map-add-row{display:flex;gap:8px;margin-bottom:10px;position:relative}
   .map-add-row input{flex:1;padding:10px 12px;border:2px solid rgba(14,124,134,.22);border-radius:12px;font-size:.92rem;font-family:inherit;outline:none}
   .map-add-row input:focus{border-color:var(--teal)}
+  .map-add-wrap{position:relative;flex:1}
+  .map-add-suggest{position:absolute;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid rgba(14,124,134,.22);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12);max-height:260px;overflow-y:auto;z-index:20;list-style:none;margin:0;padding:6px}
+  .map-add-suggest[hidden]{display:none}
+  .map-add-suggest li{padding:8px 10px;border-radius:8px;cursor:pointer;font-size:.9rem;display:flex;justify-content:space-between;gap:8px}
+  .map-add-suggest li .sugg-country{color:var(--muted);font-size:.82rem}
+  .map-add-suggest li:hover,.map-add-suggest li.active{background:rgba(14,124,134,.1)}
   .map-custom-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
   .map-custom-chip{display:flex;align-items:center;gap:6px;background:rgba(24,94,63,.09);color:var(--green);border-radius:20px;padding:6px 8px 6px 14px;font-size:.85rem;font-weight:600}
   .map-custom-chip button{border:none;background:none;color:var(--green);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px}
@@ -551,7 +557,10 @@
       <p class="map-fallback" id="map-fallback" hidden>Map couldn't load — you can still add places by name below.</p>
 
       <form class="map-add-row" id="map-add-form">
-        <input type="text" id="map-add-input" placeholder="Add a place not on the map…" autocomplete="off" maxlength="80" />
+        <div class="map-add-wrap">
+          <input type="text" id="map-add-input" placeholder="Add a place not on the map…" autocomplete="off" maxlength="80" />
+          <ul class="map-add-suggest" id="map-add-suggest" hidden></ul>
+        </div>
         <button type="submit" class="btn small">Add</button>
       </form>
       <div class="map-custom-list" id="map-custom-list"></div>
@@ -621,6 +630,7 @@
 <script src="upcoming-cities.js"></script>
 <script src="bucketlist.js"></script>
 <script src="visited.js"></script>
+<script src="world-cities.js"></script>
 <script>
 /* ==================================================================
    PROFILE PAGE
@@ -1304,6 +1314,81 @@
       renderCustom(); renderProgress();
     }));
   }
+
+  /* City autocomplete for the "add a place" box, powered by the 6,218-city
+     master list in world-cities.js. Typing filters by name; the dropdown
+     shows "City, Country" for clarity, but clicking a suggestion only fills
+     the box with the plain city name — matching how map pins are stored. */
+  (function initCityAutocomplete(){
+    const input = $("map-add-input");
+    const list = $("map-add-suggest");
+    const cities = window.NRA_WORLD_CITIES || [];
+    if (!input || !list || !cities.length) return;
+
+    let matches = [], activeIdx = -1;
+
+    function search(q){
+      q = norm(q);
+      if (!q) return [];
+      const starts = [], contains = [];
+      for (const row of cities){
+        const name = row[0];
+        const n = norm(name);
+        if (n.startsWith(q)) starts.push(row);
+        else if (n.includes(q)) contains.push(row);
+        if (starts.length >= 8) break;
+      }
+      const seen = new Set();
+      return [...starts, ...contains].filter(row => {
+        const key = norm(row[0]);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      }).slice(0, 8);
+    }
+
+    function render(){
+      if (!matches.length){ list.hidden = true; list.innerHTML = ""; return; }
+      list.innerHTML = matches.map((row, i) => {
+        const country = window.NRA_COUNTRY_NAMES[row[1]] || row[1];
+        return `<li data-idx="${i}" class="${i===activeIdx?"active":""}">
+          <span>${esc(row[0])}</span><span class="sugg-country">${esc(country)}</span>
+        </li>`;
+      }).join("");
+      list.hidden = false;
+      list.querySelectorAll("li").forEach(li => {
+        li.addEventListener("mousedown", (e) => {
+          e.preventDefault();
+          pick(Number(li.dataset.idx));
+        });
+      });
+    }
+
+    function pick(i){
+      const row = matches[i];
+      if (!row) return;
+      input.value = row[0];
+      matches = []; activeIdx = -1;
+      list.hidden = true; list.innerHTML = "";
+    }
+
+    input.addEventListener("input", () => {
+      matches = search(input.value);
+      activeIdx = -1;
+      render();
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (list.hidden || !matches.length) return;
+      if (e.key === "ArrowDown"){ e.preventDefault(); activeIdx = Math.min(activeIdx+1, matches.length-1); render(); }
+      else if (e.key === "ArrowUp"){ e.preventDefault(); activeIdx = Math.max(activeIdx-1, 0); render(); }
+      else if (e.key === "Enter" && activeIdx >= 0){ e.preventDefault(); pick(activeIdx); }
+      else if (e.key === "Escape"){ list.hidden = true; }
+    });
+
+    input.addEventListener("blur", () => { list.hidden = true; });
+    input.addEventListener("focus", () => { if (matches.length) list.hidden = false; });
+  })();
 
   $("map-add-form").addEventListener("submit", async (e) => {
     e.preventDefault();
