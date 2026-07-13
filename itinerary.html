@@ -181,6 +181,36 @@
   }
   .chrono-warn.show{display:block}
 
+  /* ---------- Table view ---------- */
+  .trip-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.9rem}
+  .trip-table th{
+    text-align:left;font-weight:800;color:var(--muted);font-size:.7rem;text-transform:uppercase;
+    letter-spacing:.05em;padding:9px 10px;border-bottom:2px solid rgba(14,124,134,.18);
+  }
+  .trip-table td{padding:11px 10px;border-bottom:1px solid rgba(14,124,134,.1);vertical-align:top}
+  .trip-table tr:last-child td{border-bottom:none}
+  .trip-table .tnum{color:var(--green);font-weight:800;width:34px}
+  .trip-table .tcity{font-weight:700}
+  .trip-table .tnights{text-align:center;font-weight:700;white-space:nowrap}
+  .table-empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
+
+  /* ---------- View switch (sliding toggle) ---------- */
+  .view-switch{
+    position:relative;display:flex;width:300px;max-width:100%;margin:26px auto 0;
+    background:rgba(14,124,134,.1);border-radius:24px;padding:4px;
+  }
+  .view-switch button{
+    flex:1;position:relative;z-index:2;border:none;background:none;cursor:pointer;
+    font-family:inherit;font-weight:700;font-size:.85rem;color:var(--muted);
+    padding:9px 12px;border-radius:20px;transition:color .2s;
+  }
+  .view-switch button.active{color:#fff}
+  .view-switch .knob{
+    position:absolute;z-index:1;top:4px;left:4px;bottom:4px;width:calc(50% - 4px);
+    background:var(--green);border-radius:20px;transition:transform .25s ease;
+  }
+  .view-switch.table .knob{transform:translateX(100%)}
+
   .empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
   .status-msg{font-size:.86rem;font-weight:600;margin:14px 0 0;min-height:1.2em}
   .status-msg.ok{color:var(--teal)}
@@ -240,8 +270,15 @@
 
     <div class="list" id="list"></div>
     <p class="chrono-warn" id="chrono-warn">⚠️ Heads up — your stops aren't in date order. Drag them to match your dates, or leave it if that's on purpose.</p>
+    <div class="table-view" id="table-view" style="display:none"></div>
     <p class="empty" id="empty" style="display:none"></p>
     <p class="status-msg" id="status"></p>
+
+    <div class="view-switch" id="view-switch" style="display:none" role="tablist" aria-label="Switch itinerary view">
+      <button type="button" data-view="edit" class="active">Edit itinerary</button>
+      <button type="button" data-view="table">View table</button>
+      <span class="knob" aria-hidden="true"></span>
+    </div>
 
     <div class="back-row">
       <a class="btn ghost" href="profile.html">&larr; Back to your profile</a>
@@ -285,6 +322,7 @@
   const TYPES = ["past","upcoming","favorite"];
   const typeParam = new URLSearchParams(location.search).get("type");
   let type = TYPES.includes(typeParam) ? typeParam : "upcoming";
+  let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past/upcoming only
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -418,12 +456,14 @@
   /* ---- render the list ---- */
   async function render(){
     paintSaveNote();
+    paintViewToggle();
     const listEl = $("list"), emptyEl = $("empty");
     let items;
     try{ items = await loadItems(); }
     catch(e){
       listEl.innerHTML = "";
       emptyEl.style.display = "none";
+      renderTable([]); applyView();
       status("Couldn't load your saved trips — if you're the site owner, make sure itinerary-setup.sql has been run in Supabase.", "err");
       return;
     }
@@ -435,6 +475,7 @@
         : type === "favorite"
         ? "No favorites yet — heart a city on the Destination Finder, or search above to add one."
         : "Nothing planned yet — search above to add your first stop.";
+      renderTable([]); applyView();
       return;
     }
     emptyEl.style.display = "none";
@@ -452,10 +493,10 @@
         <span class="num">${i+1}</span>
         <span class="info"><span class="place">${nameHtml}</span>
           <span class="where">${where}${g ? (where ? " · " : "") + "City guide available" : ""}</span>
-          <span class="dates">
+          ${type === "favorite" ? "" : `<span class="dates">
             <label>Arrive <input type="date" data-arrive value="${esc(it.arrive||"")}"></label>
             <label>Depart <input type="date" data-depart value="${esc(it.depart||"")}" min="${esc(it.arrive||"")}"></label>
-          </span></span>
+          </span>`}</span>
         ${g ? "" : (requested(it.place)
             ? `<button class="req-btn" disabled>Guide requested ✓</button>`
             : `<button class="req-btn" data-req="${esc(it.place)}" data-ctry="${esc(it.country||"")}">Request city guide</button>`)}
@@ -517,6 +558,71 @@
         status("Couldn't send the request — please try again in a moment.", "err");
       }
     }));
+
+    renderTable(items);
+    applyView();
+  }
+
+  /* ---- read-only table view (past & upcoming) ---- */
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function fmtDate(s){
+    if (!s) return "";
+    const p = s.split("-");
+    if (p.length !== 3) return s;
+    return MONTHS[(+p[1]) - 1] + " " + (+p[2]) + ", " + p[0];
+  }
+  function dateRange(a, dep){
+    if (a && dep) return fmtDate(a) + " – " + fmtDate(dep);
+    if (a) return fmtDate(a);
+    if (dep) return "until " + fmtDate(dep);
+    return "—";
+  }
+  function nights(a, dep){
+    if (!a || !dep) return "—";
+    const n = Math.round((Date.parse(dep + "T00:00:00") - Date.parse(a + "T00:00:00")) / 86400000);
+    return (isNaN(n) || n < 0) ? "—" : String(n);
+  }
+  function renderTable(items){
+    const el = $("table-view");
+    if (!items.length){
+      el.innerHTML = `<p class="table-empty">Nothing to show yet — switch to “Edit itinerary” to add stops.</p>`;
+      return;
+    }
+    let rows = "";
+    items.forEach((it, i) => {
+      const g = guideOf(it.place);
+      const country = esc(it.country || (g && g.country) || "");
+      const nameHtml = g
+        ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)}</a>`
+        : esc(it.place);
+      rows += `<tr>
+        <td class="tnum">${i+1}</td>
+        <td class="tcity">${nameHtml}</td>
+        <td>${country || "—"}</td>
+        <td>${esc(dateRange(it.arrive, it.depart))}</td>
+        <td class="tnights">${esc(nights(it.arrive, it.depart))}</td>
+      </tr>`;
+    });
+    el.innerHTML = `<table class="trip-table">
+      <thead><tr><th>#</th><th>City</th><th>Country</th><th>Dates</th><th>Nights</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+  }
+
+  /* ---- show/hide the Edit/Table toggle and swap the two views ---- */
+  function paintViewToggle(){
+    const sw = $("view-switch");
+    const canToggle = (type !== "favorite");     // favorites have no dates → no table
+    sw.style.display = canToggle ? "" : "none";
+    if (!canToggle) view = "edit";
+    sw.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.view === view));
+    sw.classList.toggle("table", view === "table");
+  }
+  function applyView(){
+    const showTable = (view === "table") && (type !== "favorite");
+    $("list").style.display = showTable ? "none" : "";
+    $("table-view").style.display = showTable ? "" : "none";
+    if (showTable){ $("empty").style.display = "none"; $("chrono-warn").style.display = "none"; }
+    else { $("chrono-warn").style.display = ""; }   // let its .show class decide
   }
 
   /* ---- warn when stops aren't in date order (drag order still wins) ---- */
@@ -661,6 +767,13 @@
     else doAdd(cityPart, parts.slice(1).join(",").trim());
   }
   $("add-btn").addEventListener("click", addFromInput);
+
+  /* ---- Edit / Table view switch ---- */
+  $("view-switch").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.view === view) return;
+    view = b.dataset.view;
+    render();   // reloads so the table always reflects the latest dates
+  }));
 
   /* ---- boot ---- */
   (async function init(){

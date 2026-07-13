@@ -510,7 +510,6 @@ const CITIES = [
   {city:"Medina", country:"Saudi Arabia", lng:39.6142, lat:24.4672, visitors:9.0, est:true},
   {city:"Tbilisi", country:"Georgia", lng:44.8271, lat:41.7151, visitors:2.5, est:true},
   {city:"Riyadh", country:"Saudi Arabia", lng:46.6753, lat:24.7136, visitors:5.0, est:true},
-  {city:"Jeddah", country:"Saudi Arabia", lng:39.1925, lat:21.4858, visitors:9.0, est:true},
   {city:"Tallinn", country:"Estonia", lng:24.7536, lat:59.437, visitors:1.9, est:true},
   {city:"Mecca", country:"Saudi Arabia", lng:39.8262, lat:21.4225, visitors:18.7},
   {city:"Denpasar", country:"Indonesia", lng:115.213, lat:-8.6705, visitors:6.3, est:true},

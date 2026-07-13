@@ -413,7 +413,6 @@ const CITIES = [
   {city:"Medina",country:"Saudi Arabia",visitors:9.0,tagline:"Islam's radiant second holiest city",cost:{hotel:90,meal:12,taxi:10},est:true},
   {city:"Tbilisi",country:"Georgia",visitors:2.5,tagline:"Sulfur baths and cobbled old-town charm",cost:{hotel:70,meal:12,taxi:8},est:true},
   {city:"Riyadh",country:"Saudi Arabia",visitors:5.0,tagline:"Desert capital reinventing itself skyward",cost:{hotel:110,meal:20,taxi:12},est:true},
-  {city:"Jeddah",country:"Saudi Arabia",visitors:9.0,tagline:"Red Sea gateway to Mecca and the historic Hejaz",cost:{hotel:100,meal:18,taxi:11},est:true},
   {city:"Tallinn",country:"Estonia",visitors:1.9,tagline:"Fairytale medieval towers meet Baltic tech",cost:{hotel:100,meal:18,taxi:15},est:true},
   {city:"Mecca",country:"Saudi Arabia",visitors:18.7,tagline:"Islam's holiest city, heart of Hajj",cost:{hotel:120,meal:12,taxi:10}},
   {city:"Denpasar",country:"Indonesia",visitors:6.3,tagline:"Island of temples, surf, and rice terraces",cost:{hotel:60,meal:12,taxi:12},est:true},

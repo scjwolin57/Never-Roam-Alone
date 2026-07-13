@@ -90,6 +90,7 @@ window.NRA_CITY_PHOTO = {
   "Riga": { img:"images/cities/riga.jpg", page:"https://commons.wikimedia.org/wiki/File:Riga_(33844464828).jpg" },
   "Rio de Janeiro": { img:"images/cities/rio-de-janeiro.jpg", page:"https://commons.wikimedia.org/wiki/File:Cidade_Maravilhosa.jpg" },
   "Riyadh": { img:"images/cities/riyadh.jpg", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline.jpg" },
+  "Jeddah": { img:"images/cities/jeddah.jpg", page:"https://commons.wikimedia.org/wiki/File:Jeddah_skyline_February_2020.jpg" },
   "Rome": { img:"images/cities/rome.jpg", page:"https://commons.wikimedia.org/wiki/File:Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg" },
   "San Francisco": { img:"images/cities/san-francisco.jpg", page:"https://commons.wikimedia.org/wiki/File:San_Francisco_Downtown_Aerial%2C_August_2025.jpg" },
   "San Marino": { img:"images/cities/san-marino.jpg", page:"https://commons.wikimedia.org/wiki/File:Basilica_del_Santo_Marino%2C_San_Marino%2C_2022-09-20%2C_DD_11.jpg" },

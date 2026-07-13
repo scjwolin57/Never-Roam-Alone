@@ -567,6 +567,13 @@ window.NRA_HOOD_PHOTO = {
     "Al Nakheel": { img:"images/hoods/riyadh--al-nakheel.jpg", page:"https://commons.wikimedia.org/wiki/File:Nakheel-Mall3.jpg" },
     "King Abdullah Financial District": { img:"images/hoods/riyadh--king-abdullah-financial-district.jpg", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline_showing_the_King_Abdullah_Financial_District_(KAFD)_and_the_famous_Kingdom_Tower_.jpg" }
   },
+  "Jeddah": {
+    "Al-Balad": { img:"images/hoods/jeddah--al-balad.jpg", page:"https://commons.wikimedia.org/wiki/File:Bait_Al_Balad,_Jeddah_1.jpg" },
+    "Ash Shati": { img:"images/hoods/jeddah--ash-shati.jpg", page:"https://commons.wikimedia.org/wiki/File:Al-Rahmah_Mosque_2.jpg" },
+    "Al Hamra": { img:"images/hoods/jeddah--al-hamra.jpg", page:"https://commons.wikimedia.org/wiki/File:King_Fahd%27s_Fountain_Jeddah_Fountain_(5129797428).jpg" },
+    "Al Rawdah": { img:"images/hoods/jeddah--al-rawdah.jpg", page:"https://commons.wikimedia.org/wiki/File:Al-Rawdah,_Jeddah_Saudi_Arabia_-_panoramio.jpg" },
+    "Al Andalus": { img:"images/hoods/jeddah--al-andalus.jpg", page:"https://commons.wikimedia.org/wiki/File:Red_Sea_Mall_1_Jeddah.jpg" }
+  },
   "Rome": {
     "Monti": { img:"images/hoods/rome--monti.jpg", page:"https://commons.wikimedia.org/wiki/File:Rome_via_dei_fori_imperiali_20050922.jpg" },
     "Trastevere": { img:"images/hoods/rome--trastevere.jpg", page:"https://commons.wikimedia.org/wiki/File:Santa_Maria_in_Trastevere_fountain.jpg" },
