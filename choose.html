@@ -167,9 +167,10 @@
   .card h3{font-size:1.2rem;margin:6px 0 8px}
   .card p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
   .card .go{align-self:flex-start;background:var(--green);color:#fff;font-weight:700;font-size:.82rem;
-    padding:8px 16px;border-radius:22px;transition:background .2s;margin-top:auto}
+    padding:8px 16px;border-radius:22px;transition:background .2s;margin-top:auto;
+    width:100%;box-sizing:border-box;text-align:center}
   .card .go:hover{background:var(--coral)}
-  .card .links-row{display:flex;gap:10px;align-items:center;margin-top:auto;flex-wrap:wrap}
+  .card .links-row{display:flex;flex-direction:column;gap:8px;margin-top:auto}
   .card .links-row .go{margin-top:0}
   .card .country-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
   .fav-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
@@ -189,9 +190,9 @@
   .bucket-visited-btn:hover{background:rgba(85,107,47,.08)}
   .bucket-visited-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
   .bucket-visited-btn[disabled]{opacity:.6;cursor:default}
-  .flights-link{display:inline-block;font-size:.8rem;font-weight:700;color:#fff;
+  .flights-link{display:block;width:100%;box-sizing:border-box;text-align:center;font-size:.8rem;font-weight:700;color:#fff;
     background:rgba(192,64,32,.5);padding:8px 16px;border-radius:22px;transition:background .2s}
-  .flights-link:hover{background:rgba(192,64,32,.7);text-decoration:none}
+  .flights-link:hover{background:var(--green);text-decoration:none}
 
   /* "Why this matched" block on finder cards */
   .why{margin:0 0 14px;padding:10px 12px;background:rgba(85,107,47,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
