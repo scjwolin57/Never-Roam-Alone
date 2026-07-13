@@ -1,10 +1,10 @@
 /* =====================================================================
    AUTH.JS — optional accounts for Never Roam Alone (Supabase).
 
-   Three ways to sign in, all landing in the same profile:
+   Ways to sign in, all landing in the same profile:
      • email + password
      • magic link (we email you a sign-in link — no password)
-     • Google
+     • Google or Facebook (one "Social" tab, two branded buttons)
 
    Also handles: create account (with confirm-password), forgot password
    (dedicated email-only view) → reset screen, and resend-confirmation.
@@ -118,8 +118,12 @@ window.NRA_AUTH = (function(){
   .nra-field input:focus{outline:none;border-color:#556B2F}
   .nra-msg{font-size:.82rem;margin:10px 0 0;color:#556B2F}
   .nra-msg.err{color:#b34a3a}
-  .nra-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid rgba(85,107,47,.25);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:4px}
-  .nra-google:hover{border-color:#556B2F}
+  .nra-social{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid transparent;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:10px}
+  .nra-social:first-of-type{margin-top:0}
+  .nra-social.google{border-color:rgba(85,107,47,.25);background:#fff;color:#1d2a32}
+  .nra-social.google:hover{border-color:#556B2F}
+  .nra-social.facebook{background:#1877F2;color:#fff}
+  .nra-social.facebook:hover{background:#145dbf}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
   .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
   .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
@@ -262,7 +266,7 @@ window.NRA_AUTH = (function(){
       <div class="nra-tabs">
         <button class="nra-tab active" data-tab="password">Password</button>
         <button class="nra-tab" data-tab="magic">Email me a link</button>
-        <button class="nra-tab" data-tab="google">Google</button>
+        <button class="nra-tab" data-tab="social">Social</button>
       </div>
       <div data-pane="password">
         <div id="nra-pw-view">
@@ -291,12 +295,16 @@ window.NRA_AUTH = (function(){
         <button class="nra-btn" id="nra-do-magic">Email me a sign-in link</button>
         <p class="nra-note">No password needed — we'll send a link that signs you in with one click.</p>
       </div>
-      <div data-pane="google" style="display:none">
-        <button class="nra-google" id="nra-do-google">
+      <div data-pane="social" style="display:none">
+        <button class="nra-social google" id="nra-do-google">
           <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.1H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 13 4 4 13 4 24s9 20 20 20 20-9 20-20c0-1.3-.1-2.6-.4-3.9z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3l5.7-5.7C34.3 6.1 29.4 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.1H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C41 35.4 44 30.2 44 24c0-1.3-.1-2.6-.4-3.9z"/></svg>
           Sign in with Google
         </button>
-        <p class="nra-note">Uses your Google account — nothing extra to remember.</p>
+        <button class="nra-social facebook" id="nra-do-facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.51 1.49-3.9 3.77-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.78l-.44 2.91h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+          Sign in with Facebook
+        </button>
+        <p class="nra-note">Uses your account on that service — nothing extra to remember.</p>
       </div>
       <p class="nra-msg" id="nra-msg" style="display:none"></p>
       <div class="nra-row-btns"><button class="nra-btn ghost" id="nra-resend" style="display:none">Resend confirmation email</button></div>
@@ -418,11 +426,15 @@ window.NRA_AUTH = (function(){
         }catch(e){ msg(friendlyAuthError(e, false), true); }
       });
     });
-    bg.querySelector("#nra-do-google").addEventListener("click", async () => {
-      try{
-        const { error } = await sb.auth.signInWithOAuth({ provider:"google", options:{ redirectTo: pageUrl() } });
-        if (error) throw error;
-      }catch(e){ msg(friendlyAuthError(e, false), true); }
+    /* Google and Facebook both go through the same Supabase OAuth call —
+       only the provider name changes. */
+    ["google","facebook"].forEach(provider => {
+      bg.querySelector(`#nra-do-${provider}`).addEventListener("click", async () => {
+        try{
+          const { error } = await sb.auth.signInWithOAuth({ provider, options:{ redirectTo: pageUrl() } });
+          if (error) throw error;
+        }catch(e){ msg(friendlyAuthError(e, false), true); }
+      });
     });
   }
   function closeModal(){ const m = document.getElementById("nra-modal-bg"); if (m) m.remove(); }

@@ -26,6 +26,11 @@ own browser). Nothing breaks either way.
    follow the "Setup" link there. It walks you through creating a free
    Google credential (about 10 clicks in Google Cloud Console); you copy a
    Client ID + Secret back into Supabase and hit Save.
+5b. **Facebook button** (free): left menu → **Authentication** →
+   **Sign In / Up** → **Facebook** → follow the "Setup" link there. It
+   walks you through creating a free Facebook App at
+   developers.facebook.com (a few clicks — App Type "Consumer"); you copy
+   an App ID + App Secret back into Supabase and hit Save.
 6. Also in **Authentication → URL Configuration**, set the **Site URL** to
    your Netlify address (e.g. `https://YOURSITE.netlify.app`) so magic
    links send people back to the right place.
