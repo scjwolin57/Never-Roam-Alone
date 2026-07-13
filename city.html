@@ -231,6 +231,18 @@
   .tcard-list li{font-size:.88rem;font-family:Georgia,serif;padding-left:14px;position:relative;line-height:1.3}
   .tcard-list li::before{content:"";position:absolute;left:0;top:.52em;width:5px;height:5px;border-radius:50%;background:var(--coral)}
   .tcard-none{font-size:.85rem;color:var(--muted);font-style:italic;margin:0}
+  /* Day trips section */
+  .daytrip-sub{font-size:.9rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin:26px 0 12px}
+  .daytrip-sub:first-of-type{margin-top:6px}
+  .daytrip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .dtcard{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+  .dtcard-name{font-weight:700;font-size:.98rem;margin:0 0 2px}
+  .dtcard-name a{color:inherit;text-decoration:none}
+  .dtcard-name a:hover{color:var(--green);text-decoration:underline}
+  .dtcard-country{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+  .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
+  .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
+
   /* Public transit banner — full-width card below the transport cards */
   .transit-banner{margin-top:18px}
   .tr-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -511,6 +523,7 @@
 <script src="city-photos.js"></script>
 <script src="hood-photos.js"></script>
 <script src="city-routes.js"></script>
+<script src="day-trips.js"></script>
 <script>
 /* Starter city dataset (shared with the map; will be unified into one source
    when we move to the production build). visitors = approx. annual international
@@ -6794,6 +6807,27 @@ if(!c){
          + carCard;
   }
 
+  /* ---------- Day trips section ---------- */
+  function dtCardHTML(t){
+    const link = t.featured
+      ? `<a href="city.html?city=${encodeURIComponent(t.name)}">${t.name}</a>`
+      : t.name;
+    const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
+    return `
+        <div class="dtcard">
+          <div class="dtcard-name">${link}</div>
+          <div class="dtcard-country">${t.country}</div>
+          <p class="dtcard-blurb">${t.blurb}</p>
+          ${more}
+        </div>`;
+  }
+  const dt = (window.NRA_DAYTRIPS || {})[c.city];
+  const dayTripsHTML = !dt || (!dt.half.length && !dt.full.length) ? "" : `
+      ${dt.half.length ? `<div class="daytrip-sub">Half day &middot; 2 hours or less one way</div>
+      <div class="daytrip-grid">${dt.half.map(dtCardHTML).join("")}</div>` : ""}
+      ${dt.full.length ? `<div class="daytrip-sub">Full day &middot; over 2 hours one way</div>
+      <div class="daytrip-grid">${dt.full.map(dtCardHTML).join("")}</div>` : ""}`;
+
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       ${heroPh ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
@@ -6892,6 +6926,11 @@ if(!c){
       <h2 class="sec-head">Neighborhood guide &mdash; ${c.city}</h2>
       ${hoods.length ? `<p class="hood-intro">A quick look at ${c.city}'s most distinctive neighborhoods — the character of each and who it suits — to help you choose the right base for your trip. Lodging picks are well-known local options — check current availability before booking.</p>
       <div class="hoods">${hoodsHTML}</div>` : `<p class="hood-intro">Neighborhood guides for ${c.city} are coming soon.</p>`}
+    </section>
+
+    <section style="padding-top:0">
+      <h2 class="sec-head">Day trips from ${c.city}</h2>
+      ${dayTripsHTML ? dayTripsHTML : `<p class="hood-intro">Day trip picks for ${c.city} are coming soon.</p>`}
     </section>
 
     <section style="padding-top:0">
