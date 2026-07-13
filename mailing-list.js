@@ -20,21 +20,21 @@
   const CSS = `
   .nra-ml{max-width:640px;margin:0 auto;background:#fff;border-radius:20px;
     box-shadow:0 10px 30px rgba(20,40,50,.12);padding:32px 28px;text-align:center}
-  .nra-ml .ml-kicker{color:#0e7c86;font-weight:700;text-transform:uppercase;
+  .nra-ml .ml-kicker{color:#556B2F;font-weight:700;text-transform:uppercase;
     letter-spacing:.18em;font-size:.72rem;margin:0 0 8px}
   .nra-ml h2{font-family:Georgia,serif;font-size:1.6rem;margin:0 0 8px;color:#1d2a32}
   .nra-ml p.ml-sub{color:#5b6b75;margin:0 auto 20px;max-width:460px;font-size:1rem}
   .nra-ml form{display:flex;gap:10px;max-width:460px;margin:0 auto;flex-wrap:wrap;justify-content:center}
   .nra-ml input[type=email]{flex:1;min-width:220px;box-sizing:border-box;font-size:1rem;
-    font-family:inherit;background:#f6f1e7;border:2px solid rgba(24,94,63,.25);
+    font-family:inherit;background:#f6f1e7;border:2px solid rgba(85,107,47,.25);
     border-radius:26px;padding:13px 18px;color:#1d2a32;outline:none;transition:.15s}
-  .nra-ml input[type=email]:focus{border-color:#185e3f;box-shadow:0 4px 16px rgba(24,94,63,.14)}
-  .nra-ml button{border:none;cursor:pointer;background:#185e3f;color:#fff;font-weight:700;
+  .nra-ml input[type=email]:focus{border-color:#556B2F;box-shadow:0 4px 16px rgba(85,107,47,.14)}
+  .nra-ml button{border:none;cursor:pointer;background:#556B2F;color:#fff;font-weight:700;
     font-size:1rem;font-family:inherit;padding:13px 28px;border-radius:26px;transition:background .2s}
-  .nra-ml button:hover{background:#0e7c86}
+  .nra-ml button:hover{background:#C04020}
   .nra-ml button:disabled{opacity:.6;cursor:default}
   .nra-ml .ml-msg{font-size:.9rem;font-weight:600;margin:14px 0 0;min-height:1.1em}
-  .nra-ml .ml-msg.ok{color:#0e7c86}
+  .nra-ml .ml-msg.ok{color:#556B2F}
   .nra-ml .ml-msg.err{color:#b34a3a}
   .nra-ml .ml-fine{font-size:.75rem;color:#8a9aa3;margin:12px 0 0}
   @media(max-width:520px){.nra-ml{padding:26px 18px}.nra-ml input[type=email]{min-width:0;width:100%}.nra-ml button{width:100%}}

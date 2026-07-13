@@ -76,7 +76,7 @@
           "border:1px solid rgba(85,107,47,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);" +
           "padding:8px;min-width:210px;z-index:60}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a{margin:0;padding:11px 14px;border-radius:8px;" +
-          "border-bottom:none;font-size:1rem}" +
+          "border-bottom:none;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a:hover{background:rgba(192,64,32,.08);" +
           "color:#C04020;border-color:transparent}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a.active{color:#556B2F}" +

@@ -450,10 +450,10 @@
   function injectStyles() {
     var css = ".nra-lang{margin-left:22px;display:flex;align-items:center}" +
       ".nra-lang select{appearance:none;-webkit-appearance:none;font-family:inherit;font-weight:600;font-size:.9rem;" +
-      "color:#5b6b75;background:rgba(24,94,63,.06);border:1.5px solid rgba(24,94,63,.2);border-radius:20px;" +
-      "padding:7px 30px 7px 14px;cursor:pointer;background-image:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='%230e7c86' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>\");" +
+      "color:#5b6b75;background:rgba(85,107,47,.06);border:1.5px solid rgba(85,107,47,.2);border-radius:20px;" +
+      "padding:7px 30px 7px 14px;cursor:pointer;background-image:url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='%23556B2F' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>\");" +
       "background-repeat:no-repeat;background-position:right 12px center}" +
-      ".nra-lang select:focus{outline:none;border-color:#185e3f}" +
+      ".nra-lang select:focus{outline:none;border-color:#556B2F}" +
       "@media(max-width:820px){.nra-lang{margin-left:12px}}" +
       "@media(max-width:420px){.nra-lang{margin-left:6px}.nra-lang select{padding:7px 24px 7px 10px;font-size:.82rem}}";
     var s = document.createElement("style");

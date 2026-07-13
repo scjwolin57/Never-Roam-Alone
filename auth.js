@@ -96,41 +96,41 @@ window.NRA_AUTH = (function(){
   const CSS = `
   .nra-acct{font-size:.9rem}
   .nra-acct .who-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-  .nra-acct .av{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+  .nra-acct .av{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
   .nra-acct .nm{font-weight:700}
   .nra-acct .em{display:block;font-size:.74rem;color:#5b6b75;font-weight:400;max-width:170px;overflow:hidden;text-overflow:ellipsis}
-  .nra-btn{display:inline-block;background:#185e3f;color:#fff;font-weight:700;font-size:.85rem;border:none;border-radius:22px;padding:9px 18px;cursor:pointer}
-  .nra-btn:hover{background:#0e7c86}
+  .nra-btn{display:inline-block;background:#556B2F;color:#fff;font-weight:700;font-size:.85rem;border:none;border-radius:22px;padding:9px 18px;cursor:pointer}
+  .nra-btn:hover{background:#C04020}
   .nra-btn.ghost{background:none;color:#5b6b75;font-weight:600;text-decoration:underline;padding:6px 4px}
   .nra-note{font-size:.78rem;color:#5b6b75;margin:8px 0 0}
   .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#1d2a32;margin-top:10px;cursor:pointer}
-  .nra-check input{margin-top:2px;accent-color:#185e3f}
+  .nra-check input{margin-top:2px;accent-color:#556B2F}
   .nra-modal-bg{position:fixed;inset:0;background:rgba(20,40,50,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
   .nra-modal{background:#fff;border-radius:18px;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 24px 70px rgba(0,0,0,.35);max-height:92vh;overflow:auto}
   .nra-modal h3{font-family:Georgia,serif;margin:0 0 4px;font-size:1.35rem}
   .nra-modal .sub{color:#5b6b75;font-size:.86rem;margin:0 0 16px}
   .nra-tabs{display:flex;gap:6px;margin-bottom:16px}
-  .nra-tab{flex:1;border:2px solid rgba(24,94,63,.22);background:#fff;border-radius:10px;padding:8px 4px;font-size:.78rem;font-weight:700;cursor:pointer;color:#1d2a32}
-  .nra-tab.active{border-color:#185e3f;background:rgba(24,94,63,.07)}
+  .nra-tab{flex:1;border:2px solid rgba(85,107,47,.22);background:#fff;border-radius:10px;padding:8px 4px;font-size:.78rem;font-weight:700;cursor:pointer;color:#1d2a32}
+  .nra-tab.active{border-color:#556B2F;background:rgba(85,107,47,.07)}
   .nra-field{margin-bottom:12px}
   .nra-field label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#5b6b75;margin-bottom:5px}
-  .nra-field input{width:100%;box-sizing:border-box;font-size:.95rem;font-family:inherit;background:#f6f1e7;border:2px solid rgba(24,94,63,.25);border-radius:10px;padding:11px 12px}
-  .nra-field input:focus{outline:none;border-color:#185e3f}
-  .nra-msg{font-size:.82rem;margin:10px 0 0;color:#0e7c86}
+  .nra-field input{width:100%;box-sizing:border-box;font-size:.95rem;font-family:inherit;background:#f6f1e7;border:2px solid rgba(85,107,47,.25);border-radius:10px;padding:11px 12px}
+  .nra-field input:focus{outline:none;border-color:#556B2F}
+  .nra-msg{font-size:.82rem;margin:10px 0 0;color:#556B2F}
   .nra-msg.err{color:#b34a3a}
-  .nra-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid rgba(24,94,63,.25);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:4px}
-  .nra-google:hover{border-color:#185e3f}
+  .nra-google{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid rgba(85,107,47,.25);background:#fff;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:4px}
+  .nra-google:hover{border-color:#556B2F}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
   .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
-  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
-  .nra-nav-avatar:hover{background:#0e7c86}
-  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#185e3f;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .nra-nav-signin:hover{background:#0e7c86}
+  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
+  .nra-nav-avatar:hover{background:#C04020}
+  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nra-nav-signin:hover{background:#C04020}
   .nra-nav-signin svg{width:17px;height:17px}
   .nra-nav-wrap{position:relative}
-  .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid rgba(14,124,134,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);padding:8px;min-width:190px;z-index:60}
+  .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid rgba(85,107,47,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);padding:8px;min-width:190px;z-index:60}
   .nra-nav-menu a,.nra-nav-menu button{display:block;width:100%;box-sizing:border-box;text-align:left;padding:10px 12px;border-radius:8px;border:none;background:none;font-size:.9rem;font-weight:600;color:#1d2a32;text-decoration:none;cursor:pointer;font-family:inherit}
-  .nra-nav-menu a:hover,.nra-nav-menu button:hover{background:rgba(24,94,63,.07);color:#0e7c86}
+  .nra-nav-menu a:hover,.nra-nav-menu button:hover{background:rgba(192,64,32,.08);color:#C04020}
   .nra-nav-menu .nra-nav-menu-sep{height:1px;background:rgba(20,40,50,.1);margin:6px 4px}`;
 
   function ensureCSS(){
