@@ -63,8 +63,8 @@
   .intro .kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem}
   .intro h1{font-size:clamp(2rem,5vw,3rem);margin:8px 0 10px}
   .intro p{color:var(--muted);font-size:1.08rem;margin:0}
-  .intro.hero-banner{max-width:var(--maxw);background:var(--green);color:#fff;border-radius:24px;
-    padding:56px 22px;margin:20px auto 0}
+  .intro.hero-banner{max-width:none;width:100%;background:var(--green);color:#fff;border-radius:0;
+    padding:56px 22px;margin:0}
   .intro.hero-banner .kicker{color:#fff;opacity:.85}
   .intro.hero-banner h1{color:#fff}
   .intro.hero-banner p{color:rgba(255,255,255,.85)}
@@ -171,9 +171,12 @@
   .card .go:hover{background:var(--coral)}
   .card .links-row{display:flex;gap:10px;align-items:center;margin-top:auto;flex-wrap:wrap}
   .card .links-row .go{margin-top:0}
+  .card .country-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+  .fav-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
+  .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
   .fav-heart{
-    margin-left:auto;border:2px solid rgba(192,64,32,.35);background:none;color:var(--coral);
-    width:38px;height:38px;border-radius:50%;font-size:1.15rem;line-height:1;cursor:pointer;
+    border:2px solid rgba(192,64,32,.35);background:none;color:var(--coral);
+    width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;
   }
   .fav-heart:hover{background:rgba(192,64,32,.1)}
@@ -192,6 +195,7 @@
   /* "Why this matched" block on finder cards */
   .why{margin:0 0 14px;padding:10px 12px;background:rgba(85,107,47,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
   .why .w{display:flex;gap:7px;padding:2px 0;align-items:baseline}
+  .why .w.cost-highlight{background:#fff4c2;padding:6px 8px;border-radius:8px;margin:2px 0}
   .why .w .tick{color:var(--green);font-weight:800;flex-shrink:0}
   .why .w .warn{color:#b34a3a;font-weight:800;flex-shrink:0}
   .why .w strong{color:var(--green)}
@@ -409,7 +413,7 @@
             </label>
             <label class="mini-radio">
               <input type="radio" name="whenMode" value="length">
-              <span>Trip length</span>
+              <span>Flexible/Trip Length (In Nights)</span>
             </label>
           </div>
           <div class="when-switch" role="radiogroup" aria-label="One-way or round trip">
@@ -438,6 +442,17 @@
             <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
             <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
             <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
+          </div>
+        </div>
+        <div>
+          <label class="field" for="travelStyle">Travel budget style</label>
+          <div class="select-wrap">
+            <select id="travelStyle">
+              <option value="" selected>Whatever fits my budget</option>
+              <option value="budget">Backpacker style</option>
+              <option value="mid">Mid-range style</option>
+              <option value="luxury">High-end style</option>
+            </select>
           </div>
         </div>
         <div>
@@ -959,6 +974,7 @@ const continentEl     = document.getElementById("continent");
 const activityEl      = document.getElementById("activity");
 const travelByEl      = document.getElementById("travelBy");
 const totalBudgetEl   = document.getElementById("totalBudget");
+const travelStyleEl   = document.getElementById("travelStyle");
 const nightsEl        = document.getElementById("nights");
 const sortByEl        = document.getElementById("sortBy");
 const finderPassportEl= document.getElementById("finderPassport");
@@ -1072,14 +1088,14 @@ function finderCardHTML(r, rank, actLabel, budget){
     why.push(`<div class="w"><span class="tick">✓</span><span>Editor's pick for ${r.fallbackPick}</span></div>`);
   }
   if(r.fitTotal != null){
-    const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))} ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ' <em class="est-tag">est.</em>'} + ` : "";
+    const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))} ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ''} + ` : "";
     const fitBit = budget
       ? ` — fits your ${fmtMoney(budget)}`
       : "";
-    why.push(`<div class="w"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/day (${STYLE_LABEL[r.fitStyle]}, est.)${fitBit}</span></div>`);
+    why.push(`<div class="w cost-highlight"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/day (${STYLE_LABEL[r.fitStyle]})${fitBit}</span></div>`);
   }
   if(r.m && r.fitTotal == null){
-    why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ${MODE_NAMES[r.m.mode]} · ${r.m.live ? "" : "≈ "}${fmtMoney(r.m.cost)}${r.m.live ? ' <em class="live-tag">live</em>' : ' <em class="est-tag">est.</em>'} ${oneWay ? "one-way" : "each way"} · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span>${r.m.door ? " door-to-door" : ""} · ${r.cmp.km.toLocaleString()} km${r.m.note ? " · "+r.m.note : ""}</span></div>`);
+    why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ${MODE_NAMES[r.m.mode]} · ${r.m.live ? "" : "≈ "}${fmtMoney(r.m.cost)}${r.m.live ? ' <em class="live-tag">live</em>' : ''} ${oneWay ? "one-way" : "each way"} · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span>${r.m.door ? " door-to-door" : ""} · ${r.cmp.km.toLocaleString()} km${r.m.note ? " · "+r.m.note : ""}</span></div>`);
   } else if(r.m){
     why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span>${r.m.door ? " door-to-door" : ""} by ${MODE_NAMES[r.m.mode].toLowerCase()} · ${r.cmp.km.toLocaleString()} km away${r.m.note ? " · "+r.m.note : ""}</span></div>`);
   }
@@ -1087,7 +1103,7 @@ function finderCardHTML(r, rank, actLabel, budget){
   if(r.m && r.m.mode==="plane" && r.cmp){
     const tr = r.cmp.modes.find(x=>x.mode==="train");
     if(tr && tr.timeH <= r.m.timeH){
-      why.push(`<div class="w train-alert"><span class="tick">🚆</span><span><strong>Train may be the better option</strong> — ~<span class="ta-train-time">${NRA_TRANSPORT.fmtH(tr.timeH)}</span> by train vs ~${NRA_TRANSPORT.fmtH(r.m.timeH)} door-to-door flying (train ≈${fmtMoney(tripCost(tr))} ${wayLabel}, est.)</span></div>`);
+      why.push(`<div class="w train-alert"><span class="tick">🚆</span><span><strong>Train may be the better option</strong> — ~<span class="ta-train-time">${NRA_TRANSPORT.fmtH(tr.timeH)}</span> by train vs ~${NRA_TRANSPORT.fmtH(r.m.timeH)} door-to-door flying (train ≈${fmtMoney(tripCost(tr))} ${wayLabel})</span></div>`);
     }
   }
   if(oneWay && r.m && r.m.mode==="car"){
@@ -1101,7 +1117,7 @@ function finderCardHTML(r, rank, actLabel, budget){
     why.push(`<div class="w"><span class="${warn?"warn":"tick"}">${warn?"!":"✓"}</span><span><span class="badge ${r.vi.cls}">${r.vi.label}</span> for your passport</span></div>`);
   }
   const flightsLink = (finderOrigin && r.m && r.m.mode==="plane")
-    ? `<a class="flights-link" href="${gFlightsLink(finderOrigin, c)}" target="_blank" rel="noopener">Check real flights ↗</a>` : "";
+    ? `<a class="flights-link" href="${gFlightsLink(finderOrigin, c)}" target="_blank" rel="noopener">Check Flights</a>` : "";
   return `
     <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
       <div class="photo" data-bg="${ph ? ph.img : `https://picsum.photos/seed/${sg}-pick/600/400`}">
@@ -1109,7 +1125,13 @@ function finderCardHTML(r, rank, actLabel, budget){
         ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
       </div>
       <div class="body">
-        <div class="country">${c.country}${seasonPillFor(c)}</div>
+        <div class="country-row">
+          <div class="country">${c.country}${seasonPillFor(c)}</div>
+          <div class="fav-wrap">
+            <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>
+            <span class="fav-label">Favorite</span>
+          </div>
+        </div>
         <h3>${c.city}</h3>
         <p>${c.tagline}</p>
         ${why.length ? `<div class="why">${why.join("")}</div>` : ""}
@@ -1126,7 +1148,6 @@ function finderCardHTML(r, rank, actLabel, budget){
         <div class="links-row">
           <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
           ${flightsLink}
-          <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>
         </div>
       </div>
     </article>`;
@@ -1289,8 +1310,13 @@ function renderFinder(){
     /* budget math: round-trip travel + nights × daily cost, best style that fits */
     const trav = m ? tripCost(m) : 0;
     let fitStyle = null, fitTotal = null;
+    const styleChoice = travelStyleEl.value;
     if(nights){
-      if(budget){
+      if(styleChoice){
+        fitTotal = trav + nights*c.dailyCost[styleChoice];
+        if(budget && fitTotal > budget){ hiddenBudget++; return; }
+        fitStyle = styleChoice;
+      } else if(budget){
         for(const st of ["luxury","mid","budget"]){
           const t = trav + nights*c.dailyCost[st];
           if(t <= budget){ fitStyle = st; fitTotal = t; break; }
@@ -1339,8 +1365,8 @@ function renderFinder(){
   const subBits = [];
   subBits.push(`Showing <strong>${rows.length}</strong> of ${CITIES.length} destinations` +
                (hiddenBits.length ? ` — ${hiddenBits.join(", ")} hidden` : "") + ".");
+  subBits.push(`Costs are estimates and should be used as reference only.`);
   if(actLoading) subBits.push(`Counting real ${actLabel} on OpenStreetMap — results will sharpen in a moment…`);
-  else if(act && actFailed[act]) subBits.push(`Live ${actLabel} counts couldn't load right now — using editor's picks for ${act.replace("&amp;","&")}.`);
   else if(counts) subBits.push(`Activity ranking uses live <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a> venue counts.`);
   if(budget && !geo) subBits.push(`Tip: add where you're traveling from and the math will include getting there.`);
   if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="7" aria-label="Trip length in nights"> -night trip — change the number to sharpen the math.`);
@@ -1435,7 +1461,7 @@ document.addEventListener("click", e=>{
 
 /* wiring: selects re-render instantly, number inputs are debounced */
 let numTimer = null;
-[continentEl, activityEl, travelByEl, sortByEl].forEach(el =>
+[continentEl, activityEl, travelByEl, sortByEl, travelStyleEl].forEach(el =>
   el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
 travelByEl.addEventListener("change", updateOriginModeUI);
 [totalBudgetEl, nightsEl].forEach(el =>
@@ -1844,6 +1870,7 @@ function saveState(){
       activity: activityEl.value,
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
+      travelStyle: travelStyleEl.value,
       nights: nightsEl.value,
       whenMode: whenMode(),
       departDate: departDateEl.value,
@@ -1867,6 +1894,7 @@ function loadState(){
   if(s.activity) activityEl.value = s.activity;
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
+  if(s.travelStyle) travelStyleEl.value = s.travelStyle;
   if(s.nights) nightsEl.value = s.nights;
   if(s.whenMode){ const wr=document.querySelector(`input[name="whenMode"][value="${s.whenMode}"]`); if(wr) wr.checked=true; }
   if(s.departDate) departDateEl.value = s.departDate;
@@ -1902,6 +1930,7 @@ function buildShareURL(){
   if(activityEl.value) p.set("ac", activityEl.value);
   if(travelByEl.value && travelByEl.value !== "cheapest") p.set("tb", travelByEl.value);
   if(totalBudgetEl.value) p.set("bg", totalBudgetEl.value);
+  if(travelStyleEl.value) p.set("sy", travelStyleEl.value);
   p.set("wm", whenMode());
   if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value); }
   else { if(departDateEl.value) p.set("dd", departDateEl.value);
@@ -1931,6 +1960,8 @@ function applyShareParams(){
   if(tb) travelByEl.value = tb;
   const bg = parseFloat(p.get("bg"));
   if(bg > 0 && bg < 1e7) totalBudgetEl.value = Math.round(bg);
+  const sy = inSet(p.get("sy"), ["budget","mid","luxury"]);
+  if(sy) travelStyleEl.value = sy;
   const wm = inSet(p.get("wm"), ["dates","length"]);
   if(wm){ const r = document.querySelector('input[name="whenMode"][value="'+wm+'"]'); if(r) r.checked = true; }
   const ni = parseInt(p.get("ni"), 10);

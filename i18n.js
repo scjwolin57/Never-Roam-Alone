@@ -125,7 +125,7 @@
     "Return": { es: "Regreso", fr: "Retour", it: "Ritorno", zh: "返回" },
     "Specific dates": { es: "Fechas concretas", fr: "Dates précises", it: "Date precise", zh: "具体日期" },
     "On specific dates": { es: "En fechas concretas", fr: "À des dates précises", it: "In date precise", zh: "按具体日期" },
-    "Trip length": { es: "Duración del viaje", fr: "Durée du voyage", it: "Durata del viaggio", zh: "旅行时长" },
+    "Flexible/Trip Length (In Nights)": { es: "Duración del viaje", fr: "Durée du voyage", it: "Durata del viaggio", zh: "旅行时长" },
     "Flexible Dates/Length of Trip (in days)": { es: "Fechas flexibles / duración del viaje (en días)", fr: "Dates flexibles / durée du voyage (en jours)", it: "Date flessibili / durata del viaggio (in giorni)", zh: "灵活日期/旅行时长（天）" },
     "Travel month": { es: "Mes de viaje", fr: "Mois du voyage", it: "Mese del viaggio", zh: "出行月份" },
     "Any month": { es: "Cualquier mes", fr: "N'importe quel mois", it: "Qualsiasi mese", zh: "任意月份" },
