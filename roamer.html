@@ -21,6 +21,7 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 
 <style>
   :root{
@@ -245,6 +246,15 @@
   .art-card .am{color:var(--muted);font-size:.8rem;margin-top:2px}
   .art-card .ax{color:var(--muted);font-size:.88rem;margin-top:6px}
 
+  /* ---------- Personal Travels (read-only map + landmarks) ---------- */
+  .travelmap-zone{margin-top:26px;padding-top:20px;border-top:1px solid rgba(85,107,47,.15)}
+  .travelmap-zone h3{margin:0 0 6px;font-size:1.15rem;display:flex;align-items:center;gap:9px}
+  .travelmap-stats{color:var(--muted);font-size:.9rem;margin:0 0 14px;display:flex;flex-wrap:wrap;gap:18px}
+  .travelmap-stats span{display:inline-flex;align-items:center;gap:6px}
+  .r-travel-map{height:300px;border-radius:16px;overflow:hidden;background:#eef3f0;margin-bottom:14px}
+  .travelmap-sub{font-weight:700;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:16px 0 8px}
+  .travelmap-chips{display:flex;flex-wrap:wrap;gap:8px}
+
   /* ---------- Private-preview notice ---------- */
   .preview-note{
     background:#fdf3d8;color:#7a5b16;font-weight:600;font-size:.88rem;
@@ -367,6 +377,16 @@
       <div id="r-articles-list"></div>
     </div>
 
+    <!-- Personal Travel Map (read-only): only the places/landmarks this
+         Roamer has marked "been there" — see visited.js / travel-map-setup.sql -->
+    <div class="travelmap-zone" id="r-travelmap" style="display:none">
+      <h3>&#127757; <span id="r-travelmap-name"></span>'s Travels</h3>
+      <p class="travelmap-stats" id="r-travelmap-stats"></p>
+      <div id="r-travel-map" class="r-travel-map"></div>
+      <p class="map-fallback" id="r-travelmap-fallback" hidden>Map couldn't load — see the list below.</p>
+      <div id="r-travelmap-landmarks"></div>
+    </div>
+
     </div><!-- /.p-body -->
   </div>
 
@@ -407,9 +427,13 @@
   <small>Prototype · Roamers choose what's shown here</small>
 </footer>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
 <script src="posts.js"></script>
+<script src="destinations.js"></script>
+<script src="upcoming-cities.js"></script>
+<script src="bucketlist.js"></script>
 <script>
 /* ==================================================================
    ROAMER.HTML — public profile page.
@@ -623,7 +647,91 @@
       ).join("");
     }
 
+    renderTravels(p, name);
+
     show("profile-card");
+  }
+
+  /* ---- Personal Travels (read-only): visited places on a small map,
+     plus any bucket-list landmarks marked "been there". Hidden entirely
+     if this Roamer hasn't marked anything visited yet. ---- */
+  function renderTravels(p, name){
+    const places = Array.isArray(p.visited_places) ? p.visited_places.filter(Boolean) : [];
+    const bucketNames = Array.isArray(p.visited_bucket) ? p.visited_bucket.filter(Boolean) : [];
+    if (!places.length && !bucketNames.length) return;
+
+    $("r-travelmap").style.display = "";
+    $("r-travelmap-name").textContent = name;
+
+    const bucketTotal = (window.NRA_BUCKET || []).length || 100;
+    $("r-travelmap-stats").innerHTML =
+      '<span>&#127757; ' + places.length + ' place' + (places.length === 1 ? "" : "s") + ' visited</span>' +
+      '<span>&#127963;&#65039; ' + bucketNames.length + '/' + bucketTotal + ' bucket list landmarks seen</span>';
+
+    /* pins = every featured/coming-soon city that matches a visited place */
+    const norm = s => String(s || "").trim().toLowerCase();
+    const PINS = [
+      ...((window.NRA_DESTINATIONS || []).map(c => ({ city: c.city, country: c.country, lat: c.lat, lng: c.lng }))),
+      ...((window.NRA_UPCOMING || []).map(c => ({ city: c.city, country: c.country, lat: c.lat, lng: c.lng })))
+    ];
+    const visitedSet = new Set(places.map(norm));
+    const visitedPins = PINS.filter(pin => visitedSet.has(norm(pin.city)));
+
+    if (visitedPins.length && typeof maplibregl !== "undefined"){
+      const map = new maplibregl.Map({
+        container: "r-travel-map",
+        style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
+        center: [visitedPins[0].lng, visitedPins[0].lat], zoom: 1, minZoom: 0.6,
+        renderWorldCopies: false, attributionControl: false, interactive: true
+      });
+      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+      map.on("error", () => { $("r-travelmap-fallback").hidden = false; $("r-travel-map").style.display = "none"; });
+      map.on("load", () => {
+        map.addSource("visited-pins", {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: visitedPins.map(pin => ({
+              type: "Feature",
+              properties: { city: pin.city, country: pin.country },
+              geometry: { type: "Point", coordinates: [pin.lng, pin.lat] }
+            }))
+          }
+        });
+        map.addLayer({
+          id: "visited-pin-dots", type: "circle", source: "visited-pins",
+          paint: {
+            "circle-radius": 5.5, "circle-color": "#556B2F", "circle-opacity": 0.9,
+            "circle-stroke-color": "#556B2F", "circle-stroke-width": 1.4
+          }
+        });
+        if (visitedPins.length > 1){
+          const bounds = new maplibregl.LngLatBounds();
+          visitedPins.forEach(pin => bounds.extend([pin.lng, pin.lat]));
+          map.fitBounds(bounds, { padding: 50, maxZoom: 5.5 });
+        }
+        const popup = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 10 });
+        map.on("mouseenter", "visited-pin-dots", (e) => {
+          map.getCanvas().style.cursor = "pointer";
+          const f = e.features && e.features[0]; if (!f) return;
+          popup.setLngLat(f.geometry.coordinates).setText(f.properties.city).addTo(map);
+        });
+        map.on("mouseleave", "visited-pin-dots", () => { map.getCanvas().style.cursor = ""; popup.remove(); });
+      });
+    } else {
+      $("r-travel-map").style.display = "none";
+      if (places.length) $("r-travelmap-fallback").hidden = false;
+    }
+
+    /* bucket-list landmarks visited, shown as name chips (matched against
+       NRA_BUCKET for a clean display name; falls back to the raw saved name) */
+    if (bucketNames.length){
+      const byName = new Map((window.NRA_BUCKET || []).map(b => [norm(b.name), b.name]));
+      const chips = bucketNames.map(b => byName.get(norm(b)) || b)
+        .map(n => '<span class="chip">&#127963;&#65039; ' + esc(n) + '</span>').join("");
+      $("r-travelmap-landmarks").innerHTML =
+        '<div class="travelmap-sub">Bucket list landmarks visited</div><div class="travelmap-chips">' + chips + '</div>';
+    }
   }
 
   /* back link: return to the page you came from (home if opened directly) */
