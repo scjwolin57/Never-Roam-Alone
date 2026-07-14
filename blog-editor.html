@@ -55,6 +55,8 @@
   .btn:hover{background:var(--coral)}
   .btn.ghost{background:none;color:var(--muted);text-decoration:underline;font-weight:600}
   .btn.coral{background:var(--green)} .btn.coral:hover{background:var(--coral)}
+  .btn.danger{background:none;border:2px solid #b34a3a;color:#b34a3a;padding:9px 20px}
+  .btn.danger:hover{background:#b34a3a;color:#fff}
   .btn:disabled{opacity:.55;cursor:default}
 
   /* ---------- editor card ---------- */
@@ -270,6 +272,7 @@
     <!-- ===== Save bar ===== -->
     <div class="save-bar">
       <a class="btn ghost" href="blog-admin.html">&larr; Manage posts</a>
+      <button class="btn danger" id="btn-delete" type="button" style="display:none">Delete article</button>
       <span class="save-msg" id="save-msg"></span>
       <button class="btn ghost" id="btn-preview" type="button">Preview</button>
       <button class="btn" id="btn-draft" type="button">Save draft</button>
@@ -417,7 +420,26 @@
     renderCover();
     renderBlocks();
     updateButtons();
+    $("btn-delete").style.display = postId ? "" : "none";
   }
+
+  /* ------------ delete (only once the article has been saved) ------------ */
+  $("btn-delete").addEventListener("click", async () => {
+    const btn = $("btn-delete");
+    if (!postId) return;
+    /* two-step confirm, same pattern as Manage posts */
+    if (btn.dataset.armed !== "1"){
+      btn.dataset.armed = "1";
+      btn.textContent = "Really delete?";
+      setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = "Delete article"; } }, 4000);
+      return;
+    }
+    btn.disabled = true;
+    const { error } = await sb.from("blog_posts").delete().eq("id", postId);
+    if (error){ setMsg("Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+    dirty = false;
+    location.href = "blog-admin.html";
+  });
 
   /* stored form ["p","text"] / ["img",{...}] / ["br"]  <->  editor form */
   function fromStored(b){

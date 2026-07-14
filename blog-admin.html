@@ -79,6 +79,18 @@
   .empty{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:26px;text-align:center;color:var(--muted)}
   .sect-note{font-size:.86rem;color:var(--muted);margin:-8px 0 14px}
 
+  /* ---------- forum moderation ---------- */
+  .qadmin{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;margin-bottom:12px}
+  .qadmin .qhead{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .qadmin .qhead .info{flex:1;min-width:180px}
+  .qadmin .title{font-weight:700;line-height:1.3}
+  .qadmin .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .radmin{display:flex;gap:10px;align-items:flex-start;padding:9px 0 0 18px;margin-top:9px;border-top:1px solid rgba(20,40,50,.08)}
+  .radmin:first-of-type{margin-top:12px}
+  .radmin .rinfo{flex:1;min-width:120px}
+  .radmin .rname{font-weight:700;font-size:.84rem}
+  .radmin .rbody{font-size:.86rem;color:var(--ink);margin-top:2px;white-space:pre-wrap}
+
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:30px 22px}
 </style>
 </head>
@@ -114,6 +126,11 @@
     <div class="topbar"><h2>Built-in articles (posts.js)</h2></div>
     <p class="sect-note">These six live in the <b>posts.js</b> file. To change one from here, click <b>Edit a copy</b> — it opens in the editor, and publishing the copy replaces the original everywhere on the site.</p>
     <div class="plist" id="local-list"></div>
+
+    <div class="topbar"><h2>Ask a Roamer — questions &amp; replies</h2></div>
+    <p class="sect-note">Delete a whole question (and every reply on it) or just a single reply.</p>
+    <p class="admin-msg" id="forum-msg"></p>
+    <div id="forum-list"></div>
   </div>
 </main>
 
@@ -179,6 +196,7 @@
     panel.style.display = "";
     renderLocal();
     await loadRows();
+    await loadForum();
   }
 
   /* ---------- database articles ---------- */
@@ -269,6 +287,87 @@
         </div>
       </div>`).join("");
   }
+
+  /* ---------- Ask a Roamer: questions + replies moderation ---------- */
+  let forumRows = [];
+  function setForumMsg(text, isErr){
+    const m = $("forum-msg");
+    m.textContent = text || "";
+    m.className = "admin-msg" + (isErr ? " err" : "");
+  }
+
+  async function loadForum(){
+    setForumMsg("Loading forum…");
+    const { data, error } = await sb.from("questions")
+      .select("id,name,city,title,body,created_at,replies(id,name,body,created_at)")
+      .order("created_at", { ascending: false });
+    if (error){
+      setForumMsg("Couldn't load the forum: " + (error.message || "unknown error"), true);
+      $("forum-list").innerHTML = "";
+      return;
+    }
+    forumRows = (data || []).map(q => ({ ...q, replies: (q.replies||[]).sort((a,b)=> new Date(a.created_at)-new Date(b.created_at)) }));
+    setForumMsg("");
+    renderForum();
+  }
+
+  function renderForum(){
+    const wrap = $("forum-list");
+    if (!forumRows.length){
+      wrap.innerHTML = `<div class="empty">No questions posted yet.</div>`;
+      return;
+    }
+    wrap.innerHTML = forumRows.map(q => `
+      <div class="qadmin" data-qid="${q.id}">
+        <div class="qhead">
+          <div class="info">
+            <div class="title">${esc(q.title)}</div>
+            <div class="sub">${esc(q.name)} · ${esc(q.city)} · ${new Date(q.created_at).toLocaleDateString()} · ${q.replies.length} ${q.replies.length===1?"reply":"replies"}</div>
+          </div>
+          <button class="btn small danger" data-act="delq" type="button">Delete question</button>
+        </div>
+        ${q.replies.map(r => `
+          <div class="radmin" data-rid="${r.id}">
+            <div class="rinfo">
+              <div class="rname">${esc(r.name)} <span class="sub" style="display:inline">· ${new Date(r.created_at).toLocaleDateString()}</span></div>
+              <div class="rbody">${esc(r.body)}</div>
+            </div>
+            <button class="btn small danger" data-act="delr" type="button">Delete reply</button>
+          </div>`).join("")}
+      </div>`).join("");
+  }
+
+  $("forum-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+
+    /* two-step confirm, same pattern used for post deletion above */
+    if (btn.dataset.armed !== "1"){
+      btn.dataset.armed = "1";
+      const original = btn.textContent;
+      btn.dataset.original = original;
+      btn.textContent = "Really delete?";
+      setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = btn.dataset.original; } }, 4000);
+      return;
+    }
+
+    btn.disabled = true;
+    if (btn.dataset.act === "delq"){
+      const qEl = btn.closest(".qadmin");
+      const qid = qEl.dataset.qid;
+      const { error } = await sb.from("questions").delete().eq("id", qid);
+      if (error){ setForumMsg("Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setForumMsg("Question deleted.");
+      await loadForum();
+    } else if (btn.dataset.act === "delr"){
+      const rEl = btn.closest(".radmin");
+      const rid = rEl.dataset.rid;
+      const { error } = await sb.from("replies").delete().eq("id", rid);
+      if (error){ setForumMsg("Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setForumMsg("Reply deleted.");
+      await loadForum();
+    }
+  });
 
   if (window.NRA_AUTH) window.NRA_AUTH.onChange(() => {
     if (panel.style.display === "none") checkAccess();
