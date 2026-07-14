@@ -41,7 +41,6 @@
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="posts.js"></script>
-<script src="upcoming-cities.js"></script>
 
 <style>
   :root{
@@ -119,6 +118,8 @@
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
   .legend-bubble{display:inline-block;border-radius:50%;background:rgba(192,64,32,.55);border:1.5px solid var(--coral)}
   .legend-bubble.purple{background:rgba(126,87,194,.55);border-color:#7e57c2}
+  .legend-bubble.pink{background:rgba(244,143,177,.55);border-color:#f48fb1}
+  .legend-bubble.yellow{background:rgba(255,224,130,.55);border-color:#ffe082}
   .map-note{max-width:var(--maxw);margin:0 auto;padding:6px 22px 0;color:var(--muted);font-size:.78rem;text-align:center}
 
   /* Tooltip / popup */
@@ -215,10 +216,10 @@
   <div id="map"></div>
   <div class="map-legend">
     <b>Annual international visitors</b>
-    <div class="legend-row"><span class="legend-bubble" style="width:10px;height:10px"></span> ~5 million</div>
-    <div class="legend-row"><span class="legend-bubble" style="width:18px;height:18px"></span> ~12 million</div>
+    <div class="legend-row"><span class="legend-bubble purple" style="width:10px;height:10px"></span> 1 million +</div>
+    <div class="legend-row"><span class="legend-bubble pink" style="width:14px;height:14px"></span> 5 million +</div>
+    <div class="legend-row"><span class="legend-bubble yellow" style="width:20px;height:20px"></span> 12 million +</div>
     <div class="legend-row"><span class="legend-bubble" style="width:28px;height:28px"></span> 20 million +</div>
-    <div class="legend-row"><span class="legend-bubble purple" style="width:10px;height:10px"></span> Guide coming soon</div>
     <div class="legend-row" style="margin-top:8px" id="legend-hint">Hover a bubble for details</div>
   </div>
   <button id="legend-toggle" class="legend-toggle" aria-label="Show the map key">⊕ Key</button>
@@ -550,46 +551,32 @@ map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right
 map.on("load", () => {
   map.addSource("cities", { type:"geojson", data:geojson });
 
-  // Upcoming destinations (one per country not yet featured) — small purple bubbles
-  const upcoming = (window.NRA_UPCOMING || []);
-  map.addSource("upcoming", { type:"geojson", data:{
-    type:"FeatureCollection",
-    features: upcoming.map(c => ({
-      type:"Feature",
-      properties:{ city:c.city, country:c.country },
-      geometry:{ type:"Point", coordinates:[c.lng, c.lat] }
-    }))
-  }});
-  map.addLayer({
-    id:"upcoming-bubbles",
-    type:"circle",
-    source:"upcoming",
-    paint:{
-      "circle-radius":5,
-      "circle-color":"#7e57c2",
-      "circle-opacity":0.55,
-      "circle-stroke-color":"#7e57c2",
-      "circle-stroke-width":1.5,
-      "circle-stroke-opacity":0.95
-    }
-  });
+  // Bubble color/size tiers by annual international visitors (millions):
+  // 1M+ small purple, 5M+ slightly larger pink, 12M+ slightly larger yellow,
+  // 20M+ same size/color the map has always used (coral, scaling on up).
+  const bubbleColor = ["step", ["get","visitors"],
+    "#7e57c2",
+    5, "#f48fb1",
+    12, "#ffe082",
+    20, "#C04020"
+  ];
+  const bubbleRadius = ["step", ["get","visitors"],
+    6,
+    5, 10,
+    12, 16,
+    20, ["interpolate",["linear"],["get","visitors"], 20,22, 27,28]
+  ];
 
-  // Bubble layer — radius scales with visitor count
+  // Bubble layer — radius/color scale with visitor count
   map.addLayer({
     id:"city-bubbles",
     type:"circle",
     source:"cities",
     paint:{
-      "circle-radius":[
-        "interpolate",["linear"],["get","visitors"],
-        1, 5,
-        10, 13,
-        20, 22,
-        27, 28
-      ],
-      "circle-color":"#C04020",
+      "circle-radius": bubbleRadius,
+      "circle-color": bubbleColor,
       "circle-opacity":0.55,
-      "circle-stroke-color":"#C04020",
+      "circle-stroke-color": bubbleColor,
       "circle-stroke-width":1.5,
       "circle-stroke-opacity":0.95
     }
@@ -623,12 +610,6 @@ map.on("load", () => {
     document.getElementById("map-note").textContent = "Pinch to zoom · drag to pan · tap a city bubble to open its card. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.";
   }
 
-  function upcomingHTML(p){
-    return `<p class="tip-city">${p.city}</p>
-       <p class="tip-country">${p.country}</p>
-       <p class="tip-num" style="font-size:.92rem;color:#7e57c2">City guide coming soon</p>`;
-  }
-
   function popupHTML(p, withButton){
     const num = Number(p.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
     let html =
@@ -654,17 +635,6 @@ map.on("load", () => {
       map.getCanvas().style.cursor="";
       popup.remove();
     });
-    map.on("mousemove","upcoming-bubbles",(e)=>{
-      if(pinned) return;
-      map.getCanvas().style.cursor="pointer";
-      const f = e.features[0];
-      popup.setLngLat(f.geometry.coordinates).setHTML(upcomingHTML(f.properties)).addTo(map);
-    });
-    map.on("mouseleave","upcoming-bubbles",()=>{
-      if(pinned) return;
-      map.getCanvas().style.cursor="";
-      popup.remove();
-    });
   }
 
   // Click/tap a bubble: show the full card with the "Explore" button
@@ -676,17 +646,9 @@ map.on("load", () => {
     map.easeTo({ center:f.geometry.coordinates, duration:600 });
   });
 
-  // Click/tap an upcoming (purple) bubble: pinned "coming soon" card
-  map.on("click","upcoming-bubbles",(e)=>{
-    const f = e.features[0];
-    pinned = true;
-    popup.setLngLat(f.geometry.coordinates).setHTML(upcomingHTML(f.properties)).addTo(map);
-    map.easeTo({ center:f.geometry.coordinates, duration:600 });
-  });
-
   // Click/tap empty map area: dismiss the pinned card
   map.on("click",(e)=>{
-    const hit = map.queryRenderedFeatures(e.point,{ layers:["city-bubbles","upcoming-bubbles"] });
+    const hit = map.queryRenderedFeatures(e.point,{ layers:["city-bubbles"] });
     if(!hit.length){ pinned=false; popup.remove(); if(!isTouch) map.getCanvas().style.cursor=""; }
   });
 });

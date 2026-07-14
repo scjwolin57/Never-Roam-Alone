@@ -135,7 +135,8 @@
 
   .view-switch{width:min(360px,calc(100% - 40px));margin:26px auto -6px}
   .map-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 20px}
-  #finderMap{height:540px;border-radius:16px;box-shadow:var(--shadow)}
+  #finderMap{height:540px;box-shadow:var(--shadow);overflow:visible}
+  #finderMap .maplibregl-canvas{border-radius:16px}
   @media(max-width:600px){#finderMap{height:420px}}
   .map-pin{width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
     font-size:.72rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff;
