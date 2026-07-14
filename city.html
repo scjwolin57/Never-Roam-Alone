@@ -3989,7 +3989,7 @@ const CITY_HOOD_TAG = {
   "Sydney":["central","sights","nightlife","sights","nightlife"],
   "Cape Town":["central","shopping","nightlife","nightlife","hipster"],
   "Rio de Janeiro":["nightlife","shopping","quiet","hipster","nightlife"],
-  "Cancún":["nightlife",null,"quiet","nightlife","quiet"],
+  "Cancún":["nightlife","central","quiet","nightlife","quiet"],
   "Marrakech":["sights","nightlife","nightlife","sights","quiet"],
   "Madrid":["nightlife","nightlife","nightlife","shopping","hipster"],
   "Taipei":["shopping","hipster","quiet","central","sights"],
@@ -7193,7 +7193,7 @@ if(!c){
     </section>
 
     <section style="padding-top:0">
-      <h2 class="sec-head">Getting around ${c.city}</h2>
+      <h2 class="sec-head">Getting to/from ${c.city}</h2>
       ${CITY_TRANSPORT[c.city] ? '<div id="transport-cards" class="transport-grid"></div>' : `<p class="hood-intro">Detailed getting-around info for ${c.city} is coming soon.</p>`}
       <div id="transit-card" class="fact transit-banner" hidden></div>
     </section>

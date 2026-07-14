@@ -98,6 +98,13 @@
     font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
     padding:5px 11px;border-radius:20px;display:flex;align-items:baseline;gap:5px}
   .city-card .visitors-chip b{font-size:.92rem}
+  .city-card .fav-heart{position:absolute;top:12px;left:12px;z-index:3;
+    border:2px solid rgba(255,255,255,.75);background:rgba(0,0,0,.35);backdrop-filter:blur(4px);color:#fff;
+    width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;transition:.15s}
+  .city-card .fav-heart:hover{background:rgba(192,64,32,.6)}
+  .city-card .fav-heart.active{background:var(--coral);border-color:var(--coral);color:#fff}
+  .city-card .fav-heart[disabled]{opacity:.6;cursor:default}
   .city-card .body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
   .city-card .country-label{font-size:.72rem;font-weight:700;text-transform:uppercase;
     letter-spacing:.12em;color:var(--teal);margin-bottom:6px}
@@ -471,6 +478,7 @@ function buildCards(list) {
     card.innerHTML = `
       <div class="photo" data-bg="${ph ? ph.img : `https://picsum.photos/seed/${sg}-hero/600/400`}">
         ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
+        <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>
         <div class="visitors-chip"><b>${c.est?'~':''}${num}M</b> visitors/yr</div>
       </div>
       <div class="body">
@@ -487,10 +495,34 @@ function buildCards(list) {
     grid.appendChild(card);
   });
   lazyBgObserve(grid);
+  paintFavHearts();
 
   document.getElementById("count-label").textContent =
     list.length === CITIES.length ? `${CITIES.length} destinations` : `${list.length} of ${CITIES.length} destinations`;
 }
+
+/* ---- Favorites hearts (same markup/store as the Destination Finder
+   result cards — see choose.html). Cards here are whole-card <a> links,
+   so the click handler stops the event to avoid also navigating. ---- */
+function paintFavHearts(){
+  if(!window.NRA_FAV) return;
+  document.querySelectorAll(".fav-heart[data-fav-city]").forEach(btn => {
+    const active = NRA_FAV.has(btn.dataset.favCity);
+    btn.classList.toggle("active", active);
+    btn.textContent = active ? "♥" : "♡";
+    btn.title = active ? "Remove from Favorites" : "Save to Favorites";
+  });
+}
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".fav-heart[data-fav-city]");
+  if(!btn || !window.NRA_FAV) return;
+  e.preventDefault();
+  e.stopPropagation();
+  btn.disabled = true;
+  NRA_FAV.toggle(btn.dataset.favCity, btn.dataset.favCountry)
+    .then(paintFavHearts)
+    .finally(() => { btn.disabled = false; });
+});
 
 function dailyCost(c) { return c.cost.hotel + c.cost.meal + c.cost.taxi; }
 
@@ -529,6 +561,10 @@ document.getElementById("city-sort").addEventListener("change", applyFilters);
 </script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="favorites.js"></script>
+<script>
+NRA_FAV.onChange(paintFavHearts); NRA_FAV.ready().then(paintFavHearts);
+</script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
