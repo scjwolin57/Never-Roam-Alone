@@ -172,8 +172,10 @@
   .card .go:hover{background:var(--coral)}
   .card .links-row{display:flex;flex-direction:column;gap:8px;margin-top:auto}
   .card .links-row .go{margin-top:0}
-  .card .country-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
-  .fav-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
+  .card .country-row{display:flex;align-items:flex-start;gap:8px}
+  .country-city{flex:1 1 50%;min-width:0}
+  .country-city h3{margin-top:4px}
+  .fav-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:1 1 50%}
   .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
   .fav-heart{
     border:2px solid rgba(192,64,32,.35);background:none;color:var(--coral);
@@ -1064,10 +1066,17 @@ function gFlightsLink(geo, c){
     q = (oneWay ? "One way flights" : "Flights") + ` from ${from} to ${c.city} on ${od}`
         + (rd ? ` returning ${rd}` : "");
   } else {
-    // no dates: fall back to trip length in nights when we have it
-    q = `Flights from ${from} to ${c.city}`;
+    // no dates picked: for a round-trip length, assume a departure ~1 month out
+    // and add the chosen nights to get a return date, so Google gets real dates
     const n = computedNights();
-    if(n && !oneWay) q += ` ${n} night trip`;
+    if(n && !oneWay){
+      const fmt = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+      const dep = new Date(); dep.setDate(dep.getDate()+30);
+      const ret = new Date(dep); ret.setDate(ret.getDate()+n);
+      q = `Flights from ${from} to ${c.city} on ${fmt(dep)} returning ${fmt(ret)}`;
+    } else {
+      q = `Flights from ${from} to ${c.city}`;
+    }
   }
   return "https://www.google.com/travel/flights?q=" + encodeURIComponent(q);
 }
@@ -1140,13 +1149,15 @@ function finderCardHTML(r, rank, actLabel, budget){
       </div>
       <div class="body">
         <div class="country-row">
-          <div class="country">${c.country}${seasonPillFor(c)}</div>
+          <div class="country-city">
+            <div class="country">${c.country}${seasonPillFor(c)}</div>
+            <h3>${c.city}</h3>
+          </div>
           <div class="fav-wrap">
             <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>
             <span class="fav-label">Favorite</span>
           </div>
         </div>
-        <h3>${c.city}</h3>
         <p>${c.tagline}</p>
         ${why.length ? `<div class="why">${why.join("")}</div>` : ""}
         ${r.cmp && r.cmp.modes.length > 1 ? `
