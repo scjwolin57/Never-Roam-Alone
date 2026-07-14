@@ -12,6 +12,7 @@
     { label: "Blog",               href: "blog.html" },
     { label: "City Guides",        href: "cities.html" },
     { label: "Destination Finder", href: "choose.html" },
+    { label: "Compare Cities",     href: "compare.html" },
     { label: "Ask A Roamer",       href: "askaroamer.html" }
   ];
 
@@ -24,6 +25,7 @@
     "cities.html":      "City Guides",
     "city.html":        "City Guides",   // a single city page belongs under "City Guides"
     "choose.html":      "Destination Finder",
+    "compare.html":     "Compare Cities",
     "askaroamer.html":  "Ask A Roamer"
   };
 

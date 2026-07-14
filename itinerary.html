@@ -746,11 +746,6 @@
     if (!place){ status("Type a city or place first.", "err"); return; }
     const g = guideOf(place);
     if (g){ place = g.city; country = g.country; }  // tidy capitalization for featured cities
-    let items;
-    try{ items = await loadItems(); }catch(e){ items = []; }
-    if (items.some(it => it.place.toLowerCase() === place.toLowerCase())){
-      status(`${place} is already on this list.`, "err"); closeSug(); return;
-    }
     try{
       await addItem(place, country);
       input.value = ""; closeSug();
