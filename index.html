@@ -216,10 +216,10 @@
   <div id="map"></div>
   <div class="map-legend">
     <b>Annual international visitors</b>
-    <div class="legend-row"><span class="legend-bubble purple" style="width:10px;height:10px"></span> 1 million +</div>
-    <div class="legend-row"><span class="legend-bubble pink" style="width:14px;height:14px"></span> 5 million +</div>
-    <div class="legend-row"><span class="legend-bubble yellow" style="width:20px;height:20px"></span> 12 million +</div>
-    <div class="legend-row"><span class="legend-bubble" style="width:28px;height:28px"></span> 20 million +</div>
+    <div class="legend-row"><span class="legend-bubble yellow" style="width:10px;height:10px"></span> under 1 million</div>
+    <div class="legend-row"><span class="legend-bubble pink" style="width:14px;height:14px"></span> under 5 million</div>
+    <div class="legend-row"><span class="legend-bubble purple" style="width:20px;height:20px"></span> under 12 million</div>
+    <div class="legend-row"><span class="legend-bubble" style="width:28px;height:28px"></span> 12 million +</div>
     <div class="legend-row" style="margin-top:8px" id="legend-hint">Hover a bubble for details</div>
   </div>
   <button id="legend-toggle" class="legend-toggle" aria-label="Show the map key">⊕ Key</button>
@@ -552,19 +552,19 @@ map.on("load", () => {
   map.addSource("cities", { type:"geojson", data:geojson });
 
   // Bubble color/size tiers by annual international visitors (millions):
-  // 1M+ small purple, 5M+ slightly larger pink, 12M+ slightly larger yellow,
-  // 20M+ same size/color the map has always used (coral, scaling on up).
+  // under 1M small yellow, under 5M slightly larger pink, under 12M slightly
+  // larger purple, 12M+ same size/color the map has always used (coral, scaling on up).
   const bubbleColor = ["step", ["get","visitors"],
-    "#7e57c2",
-    5, "#f48fb1",
-    12, "#ffe082",
-    20, "#C04020"
+    "#ffe082",
+    1, "#f48fb1",
+    5, "#7e57c2",
+    12, "#C04020"
   ];
   const bubbleRadius = ["step", ["get","visitors"],
     6,
-    5, 10,
-    12, 16,
-    20, ["interpolate",["linear"],["get","visitors"], 20,22, 27,28]
+    1, 10,
+    5, 16,
+    12, ["interpolate",["linear"],["get","visitors"], 12,18, 27,28]
   ];
 
   // Bubble layer — radius/color scale with visitor count
