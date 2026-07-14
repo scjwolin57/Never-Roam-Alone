@@ -107,6 +107,11 @@
     transition:opacity .35s ease;
   }
   .map-legend.legend-hidden{opacity:0;pointer-events:none;}
+  .legend-close{
+    position:absolute;top:6px;right:8px;background:none;border:none;cursor:pointer;
+    font-size:1rem;line-height:1;color:var(--muted);padding:2px 4px;font-family:inherit;
+  }
+  .legend-close:hover{color:var(--coral)}
   .legend-toggle{
     position:absolute;left:38px;bottom:20px;display:none;align-items:center;gap:6px;
     background:rgba(255,255,255,.94);border:1px solid rgba(85,107,47,.18);border-radius:20px;
@@ -114,7 +119,7 @@
     font-weight:600;color:var(--coral);cursor:pointer;
   }
   .legend-toggle.visible{display:inline-flex;}
-  .map-legend b{display:block;margin-bottom:6px;font-size:.82rem}
+  .map-legend b{display:block;margin-bottom:6px;font-size:.82rem;padding-right:16px}
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
   .legend-bubble{display:inline-block;border-radius:50%;background:rgba(192,64,32,.55);border:1.5px solid var(--coral)}
   .legend-bubble.purple{background:rgba(126,87,194,.55);border-color:#7e57c2}
@@ -215,6 +220,7 @@
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-legend">
+    <button id="legend-close" class="legend-close" aria-label="Hide the map key">✕</button>
     <b>Annual international visitors</b>
     <div class="legend-row"><span class="legend-bubble yellow" style="width:10px;height:10px"></span> under 1 million</div>
     <div class="legend-row"><span class="legend-bubble pink" style="width:14px;height:14px"></span> under 5 million</div>
@@ -540,9 +546,9 @@ const geojson = {
 const map = new maplibregl.Map({
   container:"map",
   style:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
-  center:[20, 28],
-  zoom:1.4,
-  minZoom:1.4,
+  center:[20, 15],
+  zoom:1.15,
+  minZoom:1,
   renderWorldCopies:false,
   attributionControl:true
 });
@@ -593,16 +599,17 @@ map.on("load", () => {
   // (Pinch-to-zoom and the +/- buttons still work.)
   if(isTouch){ map.doubleClickZoom.disable(); }
 
-  // On phones, tuck the visitor-size key out of the way as soon as the map
-  // is touched/panned/zoomed/tapped so it stops covering the map.
-  if(isTouch){
-    const legendEl = document.querySelector(".map-legend");
-    const legendToggle = document.getElementById("legend-toggle");
-    const hideLegend = ()=>{ if(legendEl) legendEl.classList.add("legend-hidden"); if(legendToggle) legendToggle.classList.add("visible"); };
-    const showLegend = ()=>{ if(legendEl) legendEl.classList.remove("legend-hidden"); if(legendToggle) legendToggle.classList.remove("visible"); };
-    map.on("movestart", hideLegend);
-    if(legendToggle) legendToggle.addEventListener("click", (e)=>{ e.stopPropagation(); showLegend(); });
-  }
+  // The visitor-size key can be collapsed (desktop: the ✕ in its corner;
+  // mobile: also auto-hides as soon as the map is touched/panned/zoomed)
+  // and brought back with the "⊕ Key" chip.
+  const legendEl = document.querySelector(".map-legend");
+  const legendToggle = document.getElementById("legend-toggle");
+  const legendClose = document.getElementById("legend-close");
+  const hideLegend = ()=>{ if(legendEl) legendEl.classList.add("legend-hidden"); if(legendToggle) legendToggle.classList.add("visible"); };
+  const showLegend = ()=>{ if(legendEl) legendEl.classList.remove("legend-hidden"); if(legendToggle) legendToggle.classList.remove("visible"); };
+  if(legendClose) legendClose.addEventListener("click", (e)=>{ e.stopPropagation(); hideLegend(); });
+  if(legendToggle) legendToggle.addEventListener("click", (e)=>{ e.stopPropagation(); showLegend(); });
+  if(isTouch){ map.on("movestart", hideLegend); }
 
   // Update hint text for mobile users
   if(isTouch){
