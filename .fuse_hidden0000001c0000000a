@@ -17,8 +17,8 @@
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Tell us what to improve — share your feedback on Never Roam Alone's guides and tools.">
-<title>Site Feedback — Never Roam Alone</title>
+<meta name="description" content="Get in touch with the Never Roam Alone team — questions, ideas, or partnerships.">
+<title>Contact Us — Never Roam Alone</title>
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
@@ -144,42 +144,27 @@
 </header>
 
 <div class="legal-hero">
-  <p class="kicker">Help us improve</p>
-  <h1>Site Feedback</h1>
-  <p class="sub">Spot a bug, a broken page, or something confusing? Let us know — a link to the page and a screenshot help a lot.</p>
+  <p class="kicker">Get in touch</p>
+  <h1>Contact Us</h1>
+  <p class="sub">Questions, ideas, or just want to say hi? Send us a note and we'll get back to you.</p>
 </div>
 
 <main class="form-card">
-  <form id="feedback-form" novalidate>
+  <form id="contact-form" novalidate>
     <div class="field">
-      <label for="f-name">Name <span class="opt">(optional)</span></label>
-      <input type="text" id="f-name" name="name" maxlength="80" autocomplete="name">
+      <label for="c-name">Name <span class="opt">(optional)</span></label>
+      <input type="text" id="c-name" name="name" maxlength="80" autocomplete="name">
     </div>
     <div class="field">
-      <label for="f-email">Your email</label>
-      <input type="email" id="f-email" name="email" maxlength="120" autocomplete="email" required>
+      <label for="c-email">Your email</label>
+      <input type="email" id="c-email" name="email" maxlength="120" autocomplete="email" required>
     </div>
     <div class="field">
-      <label for="f-page">Page <span class="opt">(paste the page URL you're giving feedback on)</span></label>
-      <input type="url" id="f-page" name="page" maxlength="500" placeholder="https://neverroamalone.netlify.app/...">
+      <label for="c-message">Message</label>
+      <textarea id="c-message" name="message" maxlength="4000" required></textarea>
     </div>
-    <div class="field">
-      <label for="f-message">Message</label>
-      <textarea id="f-message" name="message" maxlength="4000" required></textarea>
-    </div>
-    <div class="field">
-      <label for="f-screenshot">Screenshot <span class="opt">(optional)</span></label>
-      <div class="file-drop">
-        <button type="button" id="f-pick-btn">Choose image…</button>
-        <input type="file" id="f-screenshot" name="screenshot" accept="image/*" style="display:none">
-        <span class="filename" id="f-filename">No file chosen</span>
-        <img id="f-thumb" class="thumb" style="display:none" alt="Screenshot preview">
-        <span class="remove" id="f-remove" style="display:none">Remove</span>
-      </div>
-      <p class="hint">PNG, JPG, or GIF — up to about 4MB.</p>
-    </div>
-    <button type="submit" class="submit-btn" id="f-submit">Send Feedback</button>
-    <div class="status-msg" id="f-status" role="status"></div>
+    <button type="submit" class="submit-btn" id="c-submit">Send Message</button>
+    <div class="status-msg" id="c-status" role="status"></div>
   </form>
 </main>
 
@@ -187,7 +172,6 @@
   <div class="brand"><span class="dot"></span><span>Never Roam Alone</span></div>
   <div class="foot-links">
     <a href="index.html">Home</a>
-    <a href="compare.html">Compare Cities</a>
     <a href="contact.html">Contact</a>
     <a href="feedback.html">Feedback</a>
     <a href="community.html">Community Contributions</a>
@@ -204,31 +188,16 @@
 <script>
 (function(){
   "use strict";
-  var MAX_BYTES = 4 * 1024 * 1024; // 4MB
+  var form = document.getElementById("contact-form");
+  var statusEl = document.getElementById("c-status");
+  var submitBtn = document.getElementById("c-submit");
 
-  var form = document.getElementById("feedback-form");
-  var statusEl = document.getElementById("f-status");
-  var submitBtn = document.getElementById("f-submit");
-  var pageInput = document.getElementById("f-page");
-  var fileInput = document.getElementById("f-screenshot");
-  var pickBtn = document.getElementById("f-pick-btn");
-  var filenameEl = document.getElementById("f-filename");
-  var thumbEl = document.getElementById("f-thumb");
-  var removeBtn = document.getElementById("f-remove");
-  var screenshotDataUrl = null;
-  var screenshotName = null;
-
-  // Pre-fill "page" with the page the visitor came from, and email if signed in.
+  // Pre-fill the email field if the visitor is signed in.
   function prefill(){
     try{
-      if (document.referrer && document.referrer.indexOf(location.origin) === 0){
-        pageInput.value = document.referrer;
-      }
-      var params = new URLSearchParams(location.search);
-      if (params.get("page")) pageInput.value = params.get("page");
       if (window.NRA_AUTH && typeof NRA_AUTH.user === "function"){
         var u = NRA_AUTH.user();
-        if (u && u.email) document.getElementById("f-email").value = u.email;
+        if (u && u.email) document.getElementById("c-email").value = u.email;
       }
     }catch(e){}
   }
@@ -237,60 +206,17 @@
 
   function showStatus(msg, kind){
     statusEl.textContent = msg;
-    statusEl.className = "status-msg " + (kind || "");
+    statusEl.className = "status-msg " + kind;
   }
-
-  function clearScreenshot(){
-    screenshotDataUrl = null;
-    screenshotName = null;
-    fileInput.value = "";
-    filenameEl.textContent = "No file chosen";
-    thumbEl.style.display = "none";
-    thumbEl.src = "";
-    removeBtn.style.display = "none";
-  }
-
-  pickBtn.addEventListener("click", function(){ fileInput.click(); });
-  removeBtn.addEventListener("click", clearScreenshot);
-
-  fileInput.addEventListener("change", function(){
-    var file = fileInput.files && fileInput.files[0];
-    if (!file) { clearScreenshot(); return; }
-    if (!/^image\//.test(file.type)){
-      showStatus("Please choose an image file.", "err");
-      clearScreenshot();
-      return;
-    }
-    if (file.size > MAX_BYTES){
-      showStatus("That image is too large — please choose one under 4MB.", "err");
-      clearScreenshot();
-      return;
-    }
-    showStatus("", "");
-    var reader = new FileReader();
-    reader.onload = function(){
-      screenshotDataUrl = reader.result;
-      screenshotName = file.name;
-      filenameEl.textContent = file.name;
-      thumbEl.src = screenshotDataUrl;
-      thumbEl.style.display = "block";
-      removeBtn.style.display = "inline";
-    };
-    reader.onerror = function(){
-      showStatus("Couldn't read that image — please try another file.", "err");
-      clearScreenshot();
-    };
-    reader.readAsDataURL(file);
-  });
 
   form.addEventListener("submit", async function(e){
     e.preventDefault();
     showStatus("", "");
+    statusEl.className = "status-msg";
 
-    var name = document.getElementById("f-name").value.trim();
-    var email = document.getElementById("f-email").value.trim();
-    var page = pageInput.value.trim();
-    var message = document.getElementById("f-message").value.trim();
+    var name = document.getElementById("c-name").value.trim();
+    var email = document.getElementById("c-email").value.trim();
+    var message = document.getElementById("c-message").value.trim();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
       showStatus("Please enter a valid email address.", "err");
@@ -306,21 +232,17 @@
     submitBtn.textContent = "Sending…";
 
     try{
-      var body = { name: name, email: email, message: message, page: page };
-      if (screenshotDataUrl) body.screenshot = { dataUrl: screenshotDataUrl, filename: screenshotName };
-
-      var res = await fetch("/.netlify/functions/feedback", {
+      var res = await fetch("/.netlify/functions/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
+        body: JSON.stringify({ name: name, email: email, message: message })
       });
-      var resBody = await res.json().catch(function(){ return {}; });
-      if (!res.ok || !resBody.sent) throw new Error(resBody.error || "send failed");
+      var body = await res.json().catch(function(){ return {}; });
+      if (!res.ok || !body.sent) throw new Error(body.error || "send failed");
       form.reset();
-      clearScreenshot();
-      showStatus("Thanks for the feedback — it's on its way to us!", "ok");
+      showStatus("Thanks — your message has been sent. We'll get back to you soon.", "ok");
     }catch(err){
-      showStatus("Sorry, something went wrong sending your feedback. Please try again in a moment.", "err");
+      showStatus("Sorry, something went wrong sending your message. Please try again in a moment.", "err");
     }finally{
       submitBtn.disabled = false;
       submitBtn.textContent = orig;
