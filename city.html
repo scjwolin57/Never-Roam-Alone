@@ -445,6 +445,9 @@
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+  footer .foot-credits{margin-top:18px;font-size:.68rem;line-height:1.5;opacity:.65}
+  footer .foot-credits a{color:inherit;text-decoration:underline}
+  footer .foot-credits a:hover{opacity:1}
 
   .notfound{text-align:center;padding:120px 22px}
   .notfound h1{font-size:2.4rem;margin-bottom:10px}
@@ -540,6 +543,11 @@
     <a href="community.html">Community Contributions</a>
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
+  </div>
+  <div class="foot-credits">
+    Plug-type diagrams adapted from <a href="https://commons.wikimedia.org/wiki/File:Plug_types.svg" target="_blank" rel="noopener">"Plug types.svg"</a>
+    by <a href="https://commons.wikimedia.org/wiki/User:Yanpas" target="_blank" rel="noopener">Yanpas</a>, Wikimedia Commons, licensed under
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" rel="noopener">CC BY-SA 4.0</a> (cropped into individual icons for this site).
   </div>
 </footer>
 
@@ -7280,7 +7288,7 @@ if(!c){
     const power = PLUG_DATA[c.country];
     const powerHTML = power ? `
         <div class="net-power">
-          <span class="rides-k">Power</span>
+          <span class="rides-k">Electricity</span>
           <div class="plug-list" data-no-i18n>${power.plugs.map(p => `
             <div class="plug-item">${plugIconSVG(p)}<span class="plug-letter">Type ${p}</span></div>`).join('')}
             <span class="plug-meta">${power.v} &middot; ${power.hz}</span>
