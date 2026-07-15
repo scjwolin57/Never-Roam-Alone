@@ -1,7 +1,7 @@
 /* =====================================================================
    BLOG-REMOTE.JS — loads articles written in the online blog editor.
 
-   Articles created at blog-admin.html are stored in the site's Supabase
+   Articles created in the blog editor (admin.html) are stored in the site's Supabase
    database. This script fetches the PUBLISHED ones and merges them into
    window.NRA_POSTS (the list that posts.js starts), so they show up on
    the home page, the blog page, and get their own article page — exactly

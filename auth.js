@@ -217,6 +217,7 @@ window.NRA_AUTH = (function(){
           <a href="roamer.html?id=${uid}">View profile</a>
           <a href="messages.html">Messages</a>
           <a href="itinerary.html">Trips</a>
+          <a href="admin.html" id="nra-nav-admin" hidden>Admin page</a>
           <div class="nra-nav-menu-sep"></div>
           <button type="button" id="nra-nav-signout-btn">Sign out</button>
         </div>
@@ -244,7 +245,21 @@ window.NRA_AUTH = (function(){
         closeNavMenu();
         signOut();
       });
+      /* Show the "Admin page" link only for accounts on the blog_admins list.
+         The answer is cached on renderNavWidget so we don't re-ask every render. */
+      (async function revealAdmin(){
+        const link = el.querySelector("#nra-nav-admin");
+        if (!link || !sb) return;
+        if (renderNavWidget._admin === true){ link.hidden = false; return; }
+        if (renderNavWidget._admin === false) return;
+        try{
+          const { data, error } = await sb.rpc("is_blog_admin");
+          renderNavWidget._admin = (!error && data === true);
+          if (renderNavWidget._admin) link.hidden = false;
+        }catch(e){}
+      })();
     } else {
+      renderNavWidget._admin = null; // forget admin status on sign-out so the next sign-in re-checks
       el.innerHTML = `<button class="nra-nav-signin" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
         `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +
         `<circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-6.5 8-6.5s8 2.1 8 6.5"></path></svg></button>`;

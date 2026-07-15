@@ -271,7 +271,7 @@
 
     <!-- ===== Save bar ===== -->
     <div class="save-bar">
-      <a class="btn ghost" href="blog-admin.html">&larr; Manage posts</a>
+      <a class="btn ghost" href="admin.html">&larr; Back to Admin</a>
       <button class="btn danger" id="btn-delete" type="button" style="display:none">Delete article</button>
       <span class="save-msg" id="save-msg"></span>
       <button class="btn ghost" id="btn-preview" type="button">Preview</button>
@@ -438,7 +438,7 @@
     const { error } = await sb.from("blog_posts").delete().eq("id", postId);
     if (error){ setMsg("Couldn't delete: " + error.message, true); btn.disabled = false; return; }
     dirty = false;
-    location.href = "blog-admin.html";
+    location.href = "admin.html";
   });
 
   /* stored form ["p","text"] / ["img",{...}] / ["br"]  <->  editor form */

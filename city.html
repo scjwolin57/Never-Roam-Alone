@@ -262,7 +262,7 @@
   .cal-head-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
   .cal-submit-btn{background:var(--green);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
   .cal-submit-btn:hover{filter:brightness(1.08)}
-  .cal-wrap{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px;max-width:640px}
+  .cal-wrap{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px;max-width:640px;margin:0 auto}
   .cal-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
   .cal-month{font-weight:800;font-size:1.15rem;color:var(--green)}
   .cal-nav-btn{background:var(--sand);border:none;width:38px;height:38px;border-radius:9px;font-size:1.1rem;color:var(--ink);cursor:pointer;line-height:1}
@@ -300,6 +300,7 @@
   .evt-form label{display:block;font-size:.78rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 5px}
   .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file]{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
   .evt-form input:focus{outline:none;border-color:var(--green)}
+  .evt-hp{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden}
   .evt-form .evt-row{display:flex;gap:12px;flex-wrap:wrap}
   .evt-form .evt-row>div{flex:1;min-width:120px}
   .evt-hint{font-size:.74rem;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;margin-top:3px}
@@ -7727,6 +7728,7 @@ if(!c){
         `<h3>Submit an event</h3>` +
         `<p class="evt-modal-sub">In ${esc(CITY)}. We'll review it before it appears on the calendar.</p>` +
         `<form class="evt-form" id="evt-form" novalidate>` +
+          `<div class="evt-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>` +
           `<label>Event name *<input type="text" name="name" maxlength="140" required></label>` +
           `<label>Location<input type="text" name="location" maxlength="200" placeholder="Venue or address"></label>` +
           `<label>Map link<input type="url" name="mapLink" placeholder="https://maps.google.com/…"><span class="evt-hint">Optional — paste a Google Maps (or any) link.</span></label>` +
@@ -7746,9 +7748,27 @@ if(!c){
             `<span class="evt-msg" id="evt-msg"></span>` +
           `</div>` +
         `</form>` +
+        `<div id="evt-thanks" hidden style="text-align:center;padding:16px 6px 8px">` +
+          `<div style="font-size:2.2rem;line-height:1" aria-hidden="true">&#127881;</div>` +
+          `<p style="font-family:Georgia,serif;font-size:1.35rem;color:var(--green);margin:10px 0 6px">Thank you</p>` +
+          `<p style="color:var(--muted);margin:0 auto;max-width:360px">Your event has been submitted for review. You'll be notified by email when it's added to the calendar.</p>` +
+        `</div>` +
       `</div>`;
     subOv.querySelector(".evt-close").onclick = () => close(subOv);
-    if (openBtn) openBtn.onclick = () => { open(subOv); const n = subOv.querySelector('[name="name"]'); if (n) setTimeout(()=>n.focus(), 30); };
+    const subEl  = subOv.querySelector(".evt-modal-sub");
+    const thanks = subOv.querySelector("#evt-thanks");
+    let openedAt = 0; // when the form was last opened — feeds the too-fast-submit guard
+    function resetSubmitForm(){
+      form.hidden = false; if (subEl) subEl.hidden = false; if (thanks) thanks.hidden = true;
+      msg.className = "evt-msg"; msg.textContent = "";
+      form.reset();
+      const b = form.querySelector(".evt-send"); if (b) b.disabled = false;
+      openedAt = Date.now();
+    }
+    function showThanks(){
+      form.hidden = true; if (subEl) subEl.hidden = true; if (thanks) thanks.hidden = false;
+    }
+    if (openBtn) openBtn.onclick = () => { resetSubmitForm(); open(subOv); const n = subOv.querySelector('[name="name"]'); if (n) setTimeout(()=>n.focus(), 30); };
 
     async function uploadPoster(file){
       const sb = await getClient();
@@ -7767,6 +7787,8 @@ if(!c){
       e.preventDefault();
       const fd = new FormData(form);
       const get = k => String(fd.get(k) || "").trim();
+      // honeypot: real people never fill the hidden "website" field
+      if (get("website")){ showThanks(); return; }
       const name = get("name"), date = get("date");
       if (!name || !date){ msg.className = "evt-msg err"; msg.textContent = "Please add at least an event name and date."; return; }
       const file = form.poster.files && form.poster.files[0];
@@ -7787,16 +7809,13 @@ if(!c){
             city: CITY, name, location: get("location"), mapLink: get("mapLink"),
             date, startTime: get("startTime"), endTime: get("endTime"),
             link: get("link"), posterUrl,
-            submitterName: get("submitterName"), submitterEmail: get("submitterEmail")
+            submitterName: get("submitterName"), submitterEmail: get("submitterEmail"),
+            website: get("website"), elapsedMs: Date.now() - openedAt
           })
         });
         const d = await r.json().catch(() => ({}));
         if (!r.ok || !d.sent) throw new Error(d.error || "Something went wrong.");
-        msg.className = "evt-msg ok";
-        msg.textContent = file && !posterUrl
-          ? "Thanks! Sent for review (we couldn't attach the poster, so the details went without it)."
-          : "Thanks! Your event was sent for review.";
-        form.reset();
+        showThanks();
       }catch(err){
         msg.className = "evt-msg err";
         msg.textContent = "Couldn't send: " + (err.message || "please try again.");

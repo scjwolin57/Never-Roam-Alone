@@ -21,6 +21,10 @@
 create table if not exists public.blog_admins (
   email text primary key
 );
+-- Lock the admin list down: Row Level Security ON, and (below) only admins
+-- may read it. Without this, anon/authenticated keys could read the list.
+alter table public.blog_admins enable row level security;
+
 insert into public.blog_admins (email) values ('jcwolinsky@gmail.com')
 on conflict (email) do nothing;
 
@@ -38,6 +42,11 @@ as $$
 $$;
 grant execute on function public.is_blog_admin() to anon, authenticated;
 
+-- Admins may read the admin list itself; nobody else can.
+drop policy if exists "admins can read admin list" on public.blog_admins;
+create policy "admins can read admin list" on public.blog_admins
+  for select using (public.is_blog_admin());
+
 -- ---------- 1. The events table ----------
 create table if not exists public.city_events (
   id          uuid primary key default gen_random_uuid(),
@@ -51,9 +60,14 @@ create table if not exists public.city_events (
   link        text,                                  -- optional tickets / info link
   poster_url  text,                                  -- optional poster image URL
   published   boolean not null default true,         -- admin adds them already-approved
+  pending     boolean not null default false,        -- true = visitor submission awaiting review
   created_at  timestamptz not null default now(),
   updated_at  timestamptz not null default now()
 );
+
+-- If the table already existed from an earlier run, make sure the newer
+-- "pending" column is there too (safe to re-run).
+alter table public.city_events add column if not exists pending boolean not null default false;
 
 -- Fast lookup of a city's events by day.
 create index if not exists city_events_city_date_idx
