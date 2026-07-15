@@ -59,6 +59,12 @@ create table if not exists public.city_events (
   end_time    time,                                  -- optional end
   link        text,                                  -- optional tickets / info link
   poster_url  text,                                  -- optional poster image URL
+  contact_type  text,                                -- optional "event questions" contact: 'email' | 'phone' | 'social'
+  contact_value text,                                -- optional "event questions" contact value
+  allow_contact boolean not null default false,      -- show the contact to attendees on the calendar?
+  submitter_name  text,                              -- who submitted it (visitor form) — not shown publicly
+  submitter_email text,                              -- notified when the event is approved
+  notified    boolean not null default false,        -- has the submitter been emailed that it's live?
   published   boolean not null default true,         -- admin adds them already-approved
   pending     boolean not null default false,        -- true = visitor submission awaiting review
   created_at  timestamptz not null default now(),
@@ -66,8 +72,14 @@ create table if not exists public.city_events (
 );
 
 -- If the table already existed from an earlier run, make sure the newer
--- "pending" column is there too (safe to re-run).
+-- columns are there too (safe to re-run).
 alter table public.city_events add column if not exists pending boolean not null default false;
+alter table public.city_events add column if not exists contact_type text;
+alter table public.city_events add column if not exists contact_value text;
+alter table public.city_events add column if not exists allow_contact boolean not null default false;
+alter table public.city_events add column if not exists submitter_name text;
+alter table public.city_events add column if not exists submitter_email text;
+alter table public.city_events add column if not exists notified boolean not null default false;
 
 -- Fast lookup of a city's events by day.
 create index if not exists city_events_city_date_idx

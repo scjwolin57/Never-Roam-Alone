@@ -265,8 +265,10 @@
   .cal-wrap{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px;max-width:640px;margin:0 auto}
   .cal-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
   .cal-month{font-weight:800;font-size:1.15rem;color:var(--green)}
-  .cal-nav-btn{background:var(--sand);border:none;width:38px;height:38px;border-radius:9px;font-size:1.1rem;color:var(--ink);cursor:pointer;line-height:1}
+  .cal-nav-btn{position:relative;background:var(--sand);border:none;width:38px;height:38px;border-radius:9px;font-size:1.1rem;color:var(--ink);cursor:pointer;line-height:1}
   .cal-nav-btn:hover{background:#ece4d2}
+  .cal-arrow-dot{display:none;position:absolute;top:5px;right:6px;width:7px;height:7px;border-radius:50%;background:var(--green)}
+  .cal-nav-btn.has-more .cal-arrow-dot{display:block}
   .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
   .cal-dow{text-align:center;font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;padding:4px 0}
   #cal-days{margin-top:2px}
@@ -300,6 +302,10 @@
   .evt-form label{display:block;font-size:.78rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 5px}
   .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file]{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
   .evt-form input:focus{outline:none;border-color:var(--green)}
+  .evt-form select{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  .evt-form select:focus{outline:none;border-color:var(--green)}
+  .evt-form label.evt-check{display:flex;align-items:center;gap:9px;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:600;font-size:.9rem;margin:12px 0 0}
+  .evt-form label.evt-check input{width:auto;margin:0;flex-shrink:0}
   .evt-hp{position:absolute!important;left:-9999px!important;top:auto;width:1px;height:1px;overflow:hidden}
   .evt-form .evt-row{display:flex;gap:12px;flex-wrap:wrap}
   .evt-form .evt-row>div{flex:1;min-width:120px}
@@ -7624,12 +7630,20 @@ if(!c){
       });
     }
 
+    const MONTHS_EN = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
     dowEl.innerHTML = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
       .map(d => `<div class="cal-dow">${d}</div>`).join("");
 
+    // little "events this way" dots on the prev/next arrows
+    const prevDot = document.createElement("span"); prevDot.className = "cal-arrow-dot";
+    const nextDot = document.createElement("span"); nextDot.className = "cal-arrow-dot";
+    prevBtn.appendChild(prevDot); nextBtn.appendChild(nextDot);
+    let eventMonths = []; // sorted unique "YYYY-MM" strings that have upcoming events
+
     function renderCalendar(){
       const first = new Date(viewYear, viewMonth, 1);
-      monthEl.textContent = first.toLocaleDateString(undefined, { month:"long", year:"numeric" });
+      monthEl.innerHTML = `<span class="cal-mon">${MONTHS_EN[viewMonth]}</span> ${viewYear}`;
       const startDow = first.getDay();
       const daysInMonth = new Date(viewYear, viewMonth+1, 0).getDate();
       const todayStr = ymd(new Date());
@@ -7649,6 +7663,11 @@ if(!c){
         );
       }
       daysEl.innerHTML = cells.join("");
+      // arrow hints: are there event-months before / after the month in view?
+      const viewKey = viewYear + "-" + pad(viewMonth+1);
+      prevBtn.classList.toggle("has-more", eventMonths.some(m => m < viewKey));
+      nextBtn.classList.toggle("has-more", eventMonths.some(m => m > viewKey));
+      if (window.NRA_i18n) { try { window.NRA_i18n.apply(); } catch(e){} }
     }
 
     async function loadEvents(){
@@ -7658,10 +7677,16 @@ if(!c){
         const { data, error } = await sb.from("city_events")
           .select("*").eq("city", CITY).order("event_date", { ascending:true });
         if (error) throw error;
+        const todayStr = ymd(new Date());
         byDate = {};
-        (data || []).forEach(ev => { (byDate[ev.event_date] = byDate[ev.event_date] || []).push(ev); });
-        const total = (data || []).length;
-        statusEl.textContent = total ? "" : "No events listed yet — be the first to submit one!";
+        let upcoming = 0;
+        (data || []).forEach(ev => {
+          if (ev.event_date < todayStr) return;      // past events drop off the public calendar
+          (byDate[ev.event_date] = byDate[ev.event_date] || []).push(ev);
+          upcoming++;
+        });
+        eventMonths = Array.from(new Set(Object.keys(byDate).map(d => d.slice(0,7)))).sort();
+        statusEl.textContent = upcoming ? "" : "No upcoming events listed yet — be the first to submit one!";
       }catch(e){
         statusEl.textContent = "Couldn't load events (has city-events-setup.sql been run in Supabase?).";
       }
@@ -7693,18 +7718,29 @@ if(!c){
           ? `<a href="${esc(ev.map_link)}" target="_blank" rel="noopener">${esc(ev.location)} &#8599;</a>`
           : esc(ev.location);
       }
+      let contact = "";
+      if (ev.allow_contact && ev.contact_value){
+        const v = esc(ev.contact_value);
+        if (ev.contact_type === "phone")       contact = `<a href="tel:${esc(ev.contact_value.replace(/[^0-9+]/g,""))}">${v}</a>`;
+        else if (ev.contact_type === "social") contact = `<a href="${v}" target="_blank" rel="noopener">${v} &#8599;</a>`;
+        else                                   contact = `<a href="mailto:${v}">${v}</a>`;
+      }
       return `<div class="evt-item">` +
         (ev.poster_url ? `<a class="evt-poster" href="${esc(ev.poster_url)}" target="_blank" rel="noopener"><img src="${esc(ev.poster_url)}" alt="" loading="lazy"></a>` : "") +
         `<div class="evt-body">` +
           `<h4 class="evt-name">${esc(ev.name)}</h4>` +
           (time ? `<div class="evt-meta">&#128336; ${esc(time)}</div>` : "") +
           (loc  ? `<div class="evt-meta">&#128205; ${loc}</div>` : "") +
+          (contact ? `<div class="evt-meta">&#128172; <span>Questions:</span> ${contact}</div>` : "") +
           (ev.link ? `<a class="evt-link-btn" href="${esc(ev.link)}" target="_blank" rel="noopener">Event details &#8599;</a>` : "") +
         `</div></div>`;
     }
+    const LANG = () => (window.NRA_i18n && window.NRA_i18n.lang && window.NRA_i18n.lang()) || "en";
     function openDayModal(ds){
       const evs = byDate[ds] || [];
-      const dateLabel = new Date(ds + "T00:00:00").toLocaleDateString(undefined, { weekday:"long", month:"long", day:"numeric", year:"numeric" });
+      let dateLabel;
+      try { dateLabel = new Date(ds + "T00:00:00").toLocaleDateString(LANG(), { weekday:"long", month:"long", day:"numeric", year:"numeric" }); }
+      catch(e){ dateLabel = new Date(ds + "T00:00:00").toLocaleDateString(undefined, { weekday:"long", month:"long", day:"numeric", year:"numeric" }); }
       dayOv.innerHTML =
         `<div class="evt-modal" role="dialog" aria-modal="true">` +
           `<button type="button" class="evt-close" aria-label="Close">&times;</button>` +
@@ -7713,6 +7749,7 @@ if(!c){
           evs.map(eventItemHTML).join("") +
         `</div>`;
       dayOv.querySelector(".evt-close").onclick = () => close(dayOv);
+      if (window.NRA_i18n) { try { window.NRA_i18n.apply(); } catch(e){} }
       open(dayOv);
     }
     daysEl.addEventListener("click", e => {
@@ -7726,22 +7763,32 @@ if(!c){
       `<div class="evt-modal" role="dialog" aria-modal="true">` +
         `<button type="button" class="evt-close" aria-label="Close">&times;</button>` +
         `<h3>Submit an event</h3>` +
-        `<p class="evt-modal-sub">In ${esc(CITY)}. We'll review it before it appears on the calendar.</p>` +
-        `<form class="evt-form" id="evt-form" novalidate>` +
+        `<p class="evt-modal-sub">In ${esc(CITY)}. All fields are required. We'll review it before it appears on the calendar.</p>` +
+        `<form class="evt-form" id="evt-form">` +
           `<div class="evt-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>` +
           `<label>Event name *<input type="text" name="name" maxlength="140" required></label>` +
-          `<label>Location<input type="text" name="location" maxlength="200" placeholder="Venue or address"></label>` +
-          `<label>Map link<input type="url" name="mapLink" placeholder="https://maps.google.com/…"><span class="evt-hint">Optional — paste a Google Maps (or any) link.</span></label>` +
+          `<label>Location *<input type="text" name="location" maxlength="200" placeholder="Venue or address" required></label>` +
+          `<label>Map link *<input type="url" name="mapLink" placeholder="https://maps.google.com/…" required><span class="evt-hint">A Google Maps (or any) link to the location.</span></label>` +
           `<label>Date *<input type="date" name="date" required></label>` +
           `<div class="evt-row">` +
-            `<div><label>Start time<input type="time" name="startTime"></label></div>` +
+            `<div><label>Start time *<input type="time" name="startTime" required></label></div>` +
             `<div><label>End time<input type="time" name="endTime"></label></div>` +
           `</div>` +
-          `<label>Event link<input type="url" name="link" placeholder="https://…"><span class="evt-hint">Tickets or an info page, if there is one.</span></label>` +
+          `<label>Event link<input type="url" name="link" placeholder="https://…"><span class="evt-hint">Optional — tickets or an info page.</span></label>` +
           `<label>Event poster<input type="file" name="poster" accept="image/*"><span class="evt-hint">Optional image, up to 8&nbsp;MB.</span></label>` +
+          `<label>Event question contact<span class="evt-hint">Optional — a way for attendees to ask about the event.</span></label>` +
           `<div class="evt-row">` +
-            `<div><label>Your name<input type="text" name="submitterName" maxlength="60"></label></div>` +
-            `<div><label>Your email<input type="email" name="submitterEmail" maxlength="120"></label></div>` +
+            `<div><select name="contactType" aria-label="Contact type">` +
+              `<option value="email">Email address</option>` +
+              `<option value="phone">Phone number</option>` +
+              `<option value="social">Social media link</option>` +
+            `</select></div>` +
+            `<div><input type="text" name="contactValue" maxlength="200" placeholder="e.g. events@venue.com"></div>` +
+          `</div>` +
+          `<label class="evt-check"><input type="checkbox" name="allowContact"> Allow attendees to contact the organizer with questions</label>` +
+          `<div class="evt-row">` +
+            `<div><label>Organizer name *<input type="text" name="submitterName" maxlength="60" required></label></div>` +
+            `<div><label>Your email *<input type="email" name="submitterEmail" maxlength="120" required></label></div>` +
           `</div>` +
           `<div class="evt-actions">` +
             `<button type="submit" class="evt-send">Send for review</button>` +
@@ -7790,9 +7837,22 @@ if(!c){
       // honeypot: real people never fill the hidden "website" field
       if (get("website")){ showThanks(); return; }
       const name = get("name"), date = get("date");
-      if (!name || !date){ msg.className = "evt-msg err"; msg.textContent = "Please add at least an event name and date."; return; }
       const file = form.poster.files && form.poster.files[0];
+      // required fields (the browser enforces this too; this is a backup)
+      if (!name || !get("location") || !get("mapLink") || !date || !get("startTime") ||
+          !get("submitterName") || !get("submitterEmail")){
+        msg.className = "evt-msg err"; msg.textContent = "Please fill in every required field (marked *)."; return;
+      }
       if (file && file.size > 8*1024*1024){ msg.className = "evt-msg err"; msg.textContent = "That poster is over 8 MB — please use a smaller image."; return; }
+      // contact must match its chosen type, if provided
+      const cType = get("contactType"), cVal = get("contactValue");
+      if (cVal){
+        const bad =
+          (cType === "email"  && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(cVal)) ? "Please enter a valid contact email address (name@example.com)." :
+          (cType === "phone"  && (cVal.replace(/[^0-9]/g,"").length < 6)) ? "Please enter a valid contact phone number." :
+          (cType === "social" && !/^https?:\/\/.+/i.test(cVal)) ? "The social contact should be a full link starting with http:// or https://." : "";
+        if (bad){ msg.className = "evt-msg err"; msg.textContent = bad; return; }
+      }
 
       const btn = form.querySelector(".evt-send");
       btn.disabled = true; msg.className = "evt-msg"; msg.textContent = "Sending…";
@@ -7809,6 +7869,8 @@ if(!c){
             city: CITY, name, location: get("location"), mapLink: get("mapLink"),
             date, startTime: get("startTime"), endTime: get("endTime"),
             link: get("link"), posterUrl,
+            contactType: get("contactType"), contactValue: get("contactValue"),
+            allowContact: !!(form.allowContact && form.allowContact.checked),
             submitterName: get("submitterName"), submitterEmail: get("submitterEmail"),
             website: get("website"), elapsedMs: Date.now() - openedAt
           })

@@ -35,7 +35,7 @@ exports.handler = async (event) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + RESEND_API_KEY },
       body: JSON.stringify({
-        from: "Never Roam Alone <onboarding@resend.dev>",
+        from: "Never Roam Alone <hello@neverroamalone.com>",
         to: [email],
         subject: "You're on the list 🌍",
         html: confirmationEmail(SITE_URL)

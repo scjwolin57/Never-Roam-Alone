@@ -108,6 +108,10 @@
   form input[type=text],form input[type=url],form input[type=date],form input[type=time],form input[type=file]{
     width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
   form input:focus{outline:none;border-color:var(--green)}
+  form select{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  form select:focus{outline:none;border-color:var(--green)}
+  label.check-label{display:flex;align-items:center;gap:9px;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:600;font-size:.9rem;margin-top:12px}
+  label.check-label input{width:auto;margin:0;flex-shrink:0}
   .row{display:flex;gap:12px;flex-wrap:wrap}
   .row>div{flex:1;min-width:130px}
   .hint{font-size:.74rem;color:var(--muted);font-weight:400;text-transform:none;letter-spacing:0;margin-top:3px;display:block}
@@ -222,6 +226,16 @@
           <input type="file" id="f-poster-file" accept="image/*" style="margin-top:8px">
           <span class="hint">Paste the poster link from the email, or upload an image (up to 8&nbsp;MB) to fill it automatically.</span>
           <img id="poster-prev" class="poster-prev" alt="Poster preview">
+          <label>Event question contact</label>
+          <div class="row">
+            <div><select id="f-contact-type" aria-label="Contact type">
+              <option value="email">Email address</option>
+              <option value="phone">Phone number</option>
+              <option value="social">Social media link</option>
+            </select></div>
+            <div><input type="text" id="f-contact-value" maxlength="200" placeholder="e.g. events@venue.com"></div>
+          </div>
+          <label class="check-label"><input type="checkbox" id="f-allow-contact"> Show this contact to attendees on the calendar</label>
           <div class="actions">
             <button type="submit" class="btn" id="save-btn">Save event</button>
             <button type="button" class="btn ghost" id="clear-btn">Clear form</button>
@@ -231,8 +245,17 @@
       </div>
 
       <div class="card" style="padding-bottom:22px">
-        <h2>All events</h2>
-        <p class="sub">Newest date first. “Hidden” events stay saved but don't show on the city calendar.</p>
+        <div class="topbar" style="margin-bottom:6px">
+          <h2 style="margin:0;flex:1">All events</h2>
+          <label style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);font-weight:600">Show:
+            <select id="evt-filter" style="width:auto">
+              <option value="upcoming">Upcoming</option>
+              <option value="all">All</option>
+              <option value="past">Past</option>
+            </select>
+          </label>
+        </div>
+        <p class="sub">Pending submissions first. “Hidden” events stay saved but don't show on the city calendar. Past events drop off the public calendar automatically.</p>
         <p class="admin-msg" id="list-msg"></p>
         <div class="elist" id="event-list"></div>
       </div>
@@ -502,7 +525,18 @@
   function renderEventRows(){
     const wrap = $("event-list");
     if (!eRows.length){ wrap.innerHTML = `<div class="empty">No events yet. Add one above.</div>`; return; }
-    wrap.innerHTML = eRows.map(ev => {
+    const t = new Date();
+    const todayStr = t.getFullYear() + "-" + String(t.getMonth()+1).padStart(2,"0") + "-" + String(t.getDate()).padStart(2,"0");
+    const filter = ($("evt-filter") && $("evt-filter").value) || "upcoming";
+    const list = eRows.filter(ev => {
+      if (ev.pending) return true;                   // submissions awaiting review always show
+      const d = ev.event_date || "";
+      if (filter === "upcoming") return d >= todayStr;
+      if (filter === "past")     return d <  todayStr;
+      return true;                                   // "all"
+    });
+    if (!list.length){ wrap.innerHTML = `<div class="empty">No ${filter === "all" ? "" : filter + " "}events to show.</div>`; return; }
+    wrap.innerHTML = list.map(ev => {
       const time = ev.start_time ? fmtTime(ev.start_time) + (ev.end_time ? "–"+fmtTime(ev.end_time) : "") : "";
       const thumb = ev.poster_url ? `<div class="thumb" style="background-image:url('${esc(ev.poster_url)}')"></div>` : `<div class="thumb"></div>`;
       const pending = !!ev.pending;
@@ -521,7 +555,7 @@
         ${thumb}
         <div class="info">
           <div class="title">${esc(ev.name)} ${chip}</div>
-          <div class="sub">${esc(ev.city)} · ${esc(ev.event_date || "")}${time ? " · " + esc(time) : ""}${ev.location ? " · " + esc(ev.location) : ""}</div>
+          <div class="sub">${esc(ev.city)} · ${esc(ev.event_date || "")}${time ? " · " + esc(time) : ""}${ev.location ? " · " + esc(ev.location) : ""}${ev.contact_value ? " · ✉ " + esc(ev.contact_value) + (ev.allow_contact ? " (shown to attendees)" : " (hidden)") : ""}</div>
         </div>
         <div class="acts">${acts}</div>
       </div>`;
@@ -538,13 +572,16 @@
     reviewId = ""; // only flash once
   }
   function clearForm(){
-    ["f-id","f-city","f-name","f-date","f-start","f-end","f-location","f-map","f-link","f-poster","f-poster-file"].forEach(id => { $(id).value = ""; });
+    ["f-id","f-city","f-name","f-date","f-start","f-end","f-location","f-map","f-link","f-poster","f-poster-file","f-contact-value"].forEach(id => { $(id).value = ""; });
+    $("f-contact-type").value = "email";
+    $("f-allow-contact").checked = false;
     $("poster-prev").style.display = "none"; $("poster-prev").src = "";
     $("form-title").textContent = "Add an event";
     $("save-btn").textContent = "Save event";
     setMsg($("form-msg"), "");
   }
   $("clear-btn").onclick = clearForm;
+  if ($("evt-filter")) $("evt-filter").onchange = renderEventRows;
   function fillForm(ev){
     $("f-id").value = ev.id; $("f-city").value = ev.city || ""; $("f-name").value = ev.name || "";
     $("f-date").value = ev.event_date || "";
@@ -552,6 +589,9 @@
     $("f-end").value = ev.end_time ? String(ev.end_time).slice(0,5) : "";
     $("f-location").value = ev.location || ""; $("f-map").value = ev.map_link || "";
     $("f-link").value = ev.link || ""; $("f-poster").value = ev.poster_url || "";
+    $("f-contact-type").value = ev.contact_type || "email";
+    $("f-contact-value").value = ev.contact_value || "";
+    $("f-allow-contact").checked = !!ev.allow_contact;
     if (ev.poster_url){ $("poster-prev").src = ev.poster_url; $("poster-prev").style.display = "block"; }
     else { $("poster-prev").style.display = "none"; }
     $("form-title").textContent = "Edit event";
@@ -581,14 +621,26 @@
   $("evt-form").addEventListener("submit", async e => {
     e.preventDefault();
     const val = id => $(id).value.trim();
+    const contactValue = val("f-contact-value");
     const rec = {
       city: val("f-city"), name: val("f-name"), event_date: val("f-date"),
       start_time: val("f-start") || null, end_time: val("f-end") || null,
       location: val("f-location") || null, map_link: val("f-map") || null,
-      link: val("f-link") || null, poster_url: val("f-poster") || null
+      link: val("f-link") || null, poster_url: val("f-poster") || null,
+      contact_type: contactValue ? $("f-contact-type").value : null,
+      contact_value: contactValue || null,
+      allow_contact: $("f-allow-contact").checked
     };
     if (!rec.city || !rec.name || !rec.event_date){
       setMsg($("form-msg"), "Please fill in City, Event name, and Date.", true); return;
+    }
+    if (contactValue){
+      const ct = $("f-contact-type").value;
+      const bad =
+        (ct === "email"  && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(contactValue)) ? "Contact email doesn't look valid (name@example.com)." :
+        (ct === "phone"  && contactValue.replace(/[^0-9]/g,"").length < 6) ? "Contact phone number doesn't look valid." :
+        (ct === "social" && !/^https?:\/\/.+/i.test(contactValue)) ? "Social contact should be a full link (https://…)." : "";
+      if (bad){ setMsg($("form-msg"), bad, true); return; }
     }
     const id = $("f-id").value;
     const btn = $("save-btn"); btn.disabled = true;
@@ -613,10 +665,32 @@
     if (btn.dataset.act === "edit"){ fillForm(ev); return; }
     if (btn.dataset.act === "publish"){
       btn.disabled = true;
-      const { error } = await sb.from("city_events").update({ published: true, pending: false }).eq("id", ev.id);
-      if (error){ setMsg($("list-msg"), "Couldn't add: " + error.message, true); btn.disabled = false; return; }
-      setMsg($("list-msg"), `"${ev.name}" is now live on the ${ev.city} calendar.`);
-      await loadEvents(); return;
+      // Go through the approve-event function so the submitter gets the
+      // "your event is live" email. Fall back to a direct publish if the
+      // function is unreachable (older deploy / offline) — just no email then.
+      let published = false, notified = false, viaFn = false;
+      try{
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (token){
+          const r = await fetch("/.netlify/functions/approve-event", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+            body: JSON.stringify({ id: ev.id })
+          });
+          const d = await r.json().catch(() => ({}));
+          if (r.ok && d.published){ published = true; notified = !!d.notified; viaFn = true; }
+        }
+      }catch(e){ /* fall through to direct publish */ }
+      if (!published){
+        const { error } = await sb.from("city_events").update({ published: true, pending: false }).eq("id", ev.id);
+        if (error){ setMsg($("list-msg"), "Couldn't add: " + error.message, true); btn.disabled = false; return; }
+        published = true;
+      }
+      await loadEvents();
+      setMsg($("list-msg"), `"${ev.name}" is now live on the ${ev.city} calendar.` +
+        (notified ? " The organizer was emailed." : (viaFn ? "" : (ev.submitter_email ? " (Couldn't email the organizer automatically.)" : ""))));
+      return;
     }
     if (btn.dataset.act === "toggle"){
       btn.disabled = true;
@@ -633,7 +707,7 @@
       btn.disabled = true;
       const { error } = await sb.from("city_events").delete().eq("id", ev.id);
       if (error){ setMsg($("list-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
-      setMsg($("list-msg"), `Deleted "${ev.name}".`); await loadEvents();
+      await loadEvents(); setMsg($("list-msg"), `Deleted "${ev.name}".`);
     }
   });
 

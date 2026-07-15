@@ -16,6 +16,8 @@
 //   SITE_URL              - optional; used for the review link + footer
 //                           (defaults to https://neverroamalone.com)
 
+const crypto = require("crypto");
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
 
@@ -44,6 +46,9 @@ exports.handler = async (event) => {
   const posterUrl = rawUrl(p.posterUrl);
   const submitter = clip(p.submitterName, 60);
   const subEmail  = clip(p.submitterEmail, 120);
+  const contactType   = ["phone", "email", "social"].includes(p.contactType) ? p.contactType : "email";
+  const contactValue  = clip(p.contactValue, 200);   // optional "event questions" contact
+  const allowContact  = p.allowContact === true || p.allowContact === "true" || p.allowContact === "on";
   const website   = clip(p.website, 100);   // honeypot — hidden field, must stay empty
   const elapsedMs = Number(p.elapsedMs);    // ms between opening the form and submitting
 
@@ -102,6 +107,11 @@ exports.handler = async (event) => {
           end_time: endTime || null,
           link: link || null,
           poster_url: posterUrl || null,
+          contact_type: contactValue ? contactType : null,
+          contact_value: contactValue || null,
+          allow_contact: allowContact,
+          submitter_name: submitter || null,
+          submitter_email: subEmail || null,
           published: false,
           pending: true
         })
@@ -121,6 +131,10 @@ exports.handler = async (event) => {
   }
   const siteBase  = (SITE_URL || "https://neverroamalone.com").replace(/\/+$/, "");
   const reviewUrl = escapeHtml(siteBase + "/admin.html?tab=events" + (reviewId ? "&review=" + encodeURIComponent(reviewId) : ""));
+  // One-click "Approve & publish" link, signed so only someone with this email can use it.
+  const approveUrl = (reviewId && SUPABASE_SERVICE_KEY)
+    ? escapeHtml(siteBase + "/.netlify/functions/approve-event?id=" + encodeURIComponent(reviewId) + "&token=" + approveToken(reviewId, SUPABASE_SERVICE_KEY))
+    : "";
 
   const when = date + (startTime ? " · " + startTime + (endTime ? "–" + endTime : "") : "");
   const rows = [
@@ -129,7 +143,9 @@ exports.handler = async (event) => {
     ["Date & time", when],
     ["Location", location ? (mapLink ? `${escapeHtml(location)} — <a href="${escapeHtml(mapLink)}">map</a>` : escapeHtml(location)) : "—"],
     ["Event link", link ? `<a href="${escapeHtml(link)}">${escapeHtml(link)}</a>` : "—"],
-    ["Submitted by", (submitter || subEmail) ? `${escapeHtml(submitter || "Anonymous")}${subEmail ? " &lt;" + escapeHtml(subEmail) + "&gt;" : ""}` : "Anonymous visitor"]
+    ["Event contact", contactValue ? `${contactType === "phone" ? "Phone" : contactType === "social" ? "Social" : "Email"}: ${escapeHtml(contactValue)}` : "—"],
+    ["Attendees may contact organizer", allowContact ? "Yes" : "No"],
+    ["Organizer", (submitter || subEmail) ? `${escapeHtml(submitter || "Anonymous")}${subEmail ? " &lt;" + escapeHtml(subEmail) + "&gt;" : ""}` : "Anonymous visitor"]
   ];
   const rowsHtml = rows.map(([k, v]) =>
     `<tr><td style="padding:6px 12px 6px 0;color:#8a9aa3;vertical-align:top;white-space:nowrap">${k}</td><td style="padding:6px 0;color:#1d2a32">${v}</td></tr>`
@@ -140,7 +156,7 @@ exports.handler = async (event) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + RESEND_API_KEY },
       body: JSON.stringify({
-        from: "Never Roam Alone <onboarding@resend.dev>",
+        from: "Never Roam Alone <hello@neverroamalone.com>",
         to: [toEmail],
         subject: `Event submission: ${name} (${city})`,
         html: `
@@ -149,7 +165,9 @@ exports.handler = async (event) => {
             <p style="margin:0 0 16px;color:#3a4a52">A visitor submitted an event. It's saved as <strong>pending</strong> — nothing shows on the site until you approve it.</p>
             <table style="border-collapse:collapse;font-size:15px;width:100%">${rowsHtml}</table>
             ${posterUrl ? `<div style="margin:20px 0 8px"><strong>Poster:</strong></div><a href="${escapeHtml(posterUrl)}"><img src="${escapeHtml(posterUrl)}" alt="Event poster" style="max-width:100%;border-radius:12px;border:1px solid #e3ddce"/></a>` : `<p style="margin:18px 0 0;color:#8a9aa3">No poster image was uploaded.</p>`}
-            <p style="margin:24px 0 0"><a href="${reviewUrl}" style="display:inline-block;background:#556B2F;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:10px">Review this submission &rarr;</a></p>
+            ${approveUrl ? `<p style="margin:24px 0 6px"><a href="${approveUrl}" style="display:inline-block;background:#556B2F;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px;border-radius:10px">&#10003; Approve &amp; publish now</a></p>
+            <p style="margin:0 0 0;font-size:12px;color:#8a9aa3">Publishes it to the ${escapeHtml(city)} calendar right away${subEmail ? " and emails the organizer that it's live" : ""}. Or review first:</p>` : ""}
+            <p style="margin:${approveUrl ? "10px" : "24px"} 0 0"><a href="${reviewUrl}" style="display:inline-block;background:${approveUrl ? "#fff" : "#556B2F"};color:${approveUrl ? "#556B2F" : "#fff"};border:2px solid #556B2F;text-decoration:none;font-weight:bold;padding:10px 20px;border-radius:10px">Review this submission &rarr;</a></p>
             <p style="margin:8px 0 0;font-size:12px;color:#8a9aa3">Opens the Admin page &rarr; Events tab with this submission highlighted, where you can <strong>Add to calendar</strong> or <strong>Delete</strong> it.</p>
             <p style="margin:22px 0 0;font-size:13px;color:#8a9aa3">Sent from the ${escapeHtml(city)} city page on ${escapeHtml(siteBase)}.</p>
           </div>`
@@ -168,6 +186,9 @@ exports.handler = async (event) => {
   }
 };
 
+function approveToken(id, secret) {
+  return crypto.createHmac("sha256", secret).update("approve:" + String(id)).digest("hex").slice(0, 40);
+}
 function clip(s, n) { return String(s == null ? "" : s).trim().slice(0, n); }
 function rawUrl(s) {
   const u = clip(s, 500);
