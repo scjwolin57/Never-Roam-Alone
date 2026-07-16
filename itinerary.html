@@ -395,6 +395,10 @@
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
   <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="best-time-to-visit.html">Where to Go This Month</a>
+    <a href="choose.html">Destination Finder</a>
+    <a href="cities.html">City Guides</a>
     <a href="compare.html">Compare Cities</a>
     <a href="contact.html">Contact</a>
     <a href="feedback.html">Feedback</a>
@@ -402,7 +406,6 @@
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
   </div>
-  <small>Prototype · plan your roams, one stop at a time</small>
 </footer>
 
 <script src="nra-config.js"></script>
@@ -1095,14 +1098,17 @@
         catch(e){ btn.disabled = false; status("Couldn't delete that — try again.", "err"); }
       });
     });
-    /* per-city arrive/depart dates */
+    /* per-city arrive/depart dates — Upcoming is for trips still ahead of you,
+       so the calendar won't offer to pick a day that's already passed */
+    const todayISO = new Date().toISOString().slice(0,10);
     groups.querySelectorAll(".ig-stop").forEach(row => {
       const pid = row.dataset.pid;
       const a = row.querySelector("[data-pa]"), d = row.querySelector("[data-pd]");
-      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y" }) : null;
-      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: (a && a.value) || null }) : null;
+      const minForDepart = () => (a && a.value && a.value > todayISO) ? a.value : todayISO;
+      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: "today" }) : null;
+      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForDepart() }) : null;
       const onDate = async () => {
-        if (fpD) fpD.set("minDate", (a && a.value) || null);
+        if (fpD) fpD.set("minDate", minForDepart());
         if (a && d && a.value && d.value && d.value < a.value){ d.value = a.value; if (fpD) fpD.setDate(a.value, false); }
         checkTripChrono(row.closest(".itin-group"));
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").update({ arrive:(a&&a.value)||null, depart:(d&&d.value)||null }).eq("id", pid); if (error) throw error; }
