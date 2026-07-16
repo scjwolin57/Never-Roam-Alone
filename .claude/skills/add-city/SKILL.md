@@ -48,7 +48,7 @@ If working through the device bridge (Cowork), stage the files, run the script a
 
 Tell the user plainly:
 - Which fields/files got real data vs. which optional sections were skipped (and why — missing research, not a bug).
-- That a real photo still needs to be dropped at `images/cities/<slug>.jpg` if the report flagged it missing — nothing sources one automatically.
+- That a real photo still needs to be dropped at `images/cities/<slug>.jpg` if the report flagged it missing — nothing sources one automatically. (Once the file's there, the script registers it in `city-photos.js` for you — that's the step that actually makes the hero image show instead of a placeholder, and it used to be easy to miss.)
 - That, like every other change to this site, it needs `git push` + a Netlify redeploy to go live — nothing here deploys itself.
 
 No i18n/translation follow-up is needed — the site's long-form city content translates live via API for every city automatically (see `city_count_247_verified.md`).

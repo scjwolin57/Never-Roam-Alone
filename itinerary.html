@@ -23,6 +23,11 @@
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 
+<!-- Flatpickr (calendar date picker, replaces native <input type="date">) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<link rel="stylesheet" href="flatpickr-theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+
 <style>
   :root{
     --ink:#1d2a32;
@@ -98,7 +103,7 @@
   .save-note button{border:none;background:none;color:var(--teal);font-weight:700;cursor:pointer;text-decoration:underline;font-size:.82rem;padding:0}
 
   /* ---------- Search row ---------- */
-  .search-row{position:relative;display:flex;gap:10px}
+  .search-row{position:relative;display:flex;gap:10px;margin-top:14px}
   .search-row input{
     flex:1;padding:12px 14px;border:2px solid rgba(85,107,47,.22);border-radius:14px;
     background:#fff;font-size:1rem;color:var(--ink);font-family:inherit;outline:none;transition:.15s;
@@ -172,11 +177,12 @@
   /* ---------- Per-stop dates ---------- */
   .stop .dates{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:7px}
   .stop .dates label{display:flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--muted)}
-  .stop .dates input[type=date]{
+  input.date-field{
     border:2px solid rgba(85,107,47,.22);border-radius:10px;padding:5px 8px;
-    font-size:.82rem;font-family:inherit;color:var(--ink);background:#fff;outline:none;
+    font-size:.82rem;font-family:inherit;color:var(--ink);background:#fff;outline:none;width:110px;
+    cursor:pointer;
   }
-  .stop .dates input[type=date]:focus{border-color:var(--teal)}
+  input.date-field:focus{border-color:var(--teal)}
 
   /* ---------- Chronology warning ---------- */
   .chrono-warn{
@@ -215,6 +221,13 @@
     background:var(--green);border-radius:20px;transition:transform .25s ease;
   }
   .view-switch.table .knob{transform:translateX(100%)}
+
+  /* ---------- per-trip Edit/Table toggle (Upcoming tab cards) ---------- */
+  .ig-view-switch{display:flex;gap:4px;background:rgba(85,107,47,.1);border-radius:16px;padding:3px;margin:0 8px}
+  .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
+    font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
+  .ig-view-switch button.active{background:var(--green);color:#fff}
+  .ig-table{margin-top:4px}
 
   .empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
   .status-msg{font-size:.86rem;font-weight:600;margin:14px 0 0;min-height:1.2em}
@@ -329,7 +342,7 @@
 <!-- ===== Page hero ===== -->
 <div class="page-hero">
   <p class="kicker">Trip planner</p>
-  <h1 id="hero-title">Upcoming Trips</h1>
+  <h1 id="hero-title">My Travels</h1>
   <p id="hero-sub">Build your route — add the cities and places you're planning to roam.</p>
   <div class="trip-toggle" role="tablist">
     <button type="button" id="tab-upcoming" data-type="upcoming">Upcoming trips</button>
@@ -343,15 +356,15 @@
   <div class="card">
     <p class="save-note" id="save-note"></p>
 
+    <div class="itin-new-row" id="itin-new-row" style="display:none">
+      <input type="text" id="new-itin-name" placeholder="Name a new trip… e.g. Summer Europe" maxlength="80" autocomplete="off">
+      <button type="button" id="new-itin-btn">Create trip</button>
+    </div>
+
     <div class="search-row">
       <input type="text" id="place-input" placeholder="Search a city or place… e.g. Lisbon" autocomplete="off" />
       <button class="add-btn" id="add-btn" title="Add to itinerary" aria-label="Add to itinerary">+</button>
       <div class="suggest" id="suggest"></div>
-    </div>
-
-    <div class="itin-new-row" id="itin-new-row" style="display:none">
-      <input type="text" id="new-itin-name" placeholder="Name a new trip… e.g. Summer Europe" maxlength="80" autocomplete="off">
-      <button type="button" id="new-itin-btn">Create trip</button>
     </div>
 
     <div class="list" id="list"></div>
@@ -419,7 +432,8 @@
   let typeParam = new URLSearchParams(location.search).get("type");
   if (typeParam === "itineraries") typeParam = "upcoming";   // old links keep working
   let type = ALL_TABS.includes(typeParam) ? typeParam : "upcoming";
-  let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past/upcoming only
+  let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past only
+  const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -517,7 +531,7 @@
   const status = (text, kind) => { const m = $("status"); m.textContent = text || ""; m.className = "status-msg" + (kind ? " "+kind : ""); };
 
   /* ---- header + toggle ---- */
-  const TITLES = { past: "Past Trips", upcoming: "Upcoming Trips", favorite: "Favorites", wishlist: "Wishlist" };
+  const TITLES = { past: "My Travels", upcoming: "My Travels", favorite: "My Travels", wishlist: "My Travels" };
   const SUBS = {
     past: "Everywhere you've already roamed — keep the memories on the map.",
     upcoming: "Your named trips — group cities, set dates, and add more from any city guide.",
@@ -596,8 +610,8 @@
         <span class="info"><span class="place">${nameHtml}</span>
           <span class="where">${where}${g ? (where ? " · " : "") + "City guide available" : ""}</span>
           ${type === "favorite" ? "" : `<span class="dates">
-            <label>Arrive <input type="date" data-arrive value="${esc(it.arrive||"")}"></label>
-            <label>Depart <input type="date" data-depart value="${esc(it.depart||"")}" min="${esc(it.arrive||"")}"></label>
+            <label>Arrive <input type="text" class="date-field" data-arrive value="${esc(it.arrive||"")}" placeholder="Pick a date"></label>
+            <label>Depart <input type="text" class="date-field" data-depart value="${esc(it.depart||"")}" placeholder="Pick a date"></label>
           </span>`}</span>
         ${g ? "" : (requested(it.place)
             ? `<button class="req-btn" disabled>Guide requested ✓</button>`
@@ -612,9 +626,11 @@
     listEl.querySelectorAll(".stop").forEach(row => {
       const id = row.dataset.id;
       const aEl = row.querySelector("[data-arrive]"), dEl = row.querySelector("[data-depart]");
+      const fpA = window.flatpickr ? flatpickr(aEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y" }) : null;
+      const fpD = window.flatpickr ? flatpickr(dEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: aEl.value || null }) : null;
       const onDate = async () => {
-        dEl.min = aEl.value || "";                       // depart can't be before arrive
-        if (aEl.value && dEl.value && dEl.value < aEl.value) dEl.value = aEl.value;
+        if (fpD) fpD.set("minDate", aEl.value || null);   // depart can't be before arrive
+        if (aEl.value && dEl.value && dEl.value < aEl.value){ dEl.value = aEl.value; if (fpD) fpD.setDate(aEl.value, false); }
         checkChrono();
         try{ await updateDates(id, aEl.value, dEl.value); }
         catch(e){ status("Couldn't save that date — please try again.", "err"); }
@@ -713,7 +729,7 @@
   /* ---- show/hide the Edit/Table toggle and swap the two views ---- */
   function paintViewToggle(){
     const sw = $("view-switch");
-    const canToggle = (type === "past");         // table view only makes sense for the flat past list
+    const canToggle = false;                     // moved to per-trip toggles on the Upcoming tab (see tripCardView)
     sw.style.display = canToggle ? "" : "none";
     if (!canToggle) view = "edit";
     sw.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.view === view));
@@ -997,27 +1013,69 @@
             <span class="info"><span class="place">${nameHtml}</span>
               <span class="where">${where || "&mdash;"}</span>
               <span class="dates">
-                <label>Arrive <input type="date" data-pa value="${esc(p.arrive||"")}"></label>
-                <label>Depart <input type="date" data-pd value="${esc(p.depart||"")}" min="${esc(p.arrive||"")}"></label>
+                <label>Arrive <input type="text" class="date-field" data-pa value="${esc(p.arrive||"")}" placeholder="Pick a date"></label>
+                <label>Depart <input type="text" class="date-field" data-pd value="${esc(p.depart||"")}" placeholder="Pick a date"></label>
               </span></span>
             <button class="rm-btn" data-rmp="${esc(String(p.id))}" title="Remove" aria-label="Remove ${esc(p.place)}">✕</button>
           </div>`;
         }).join("");
       }
+      const cardView = tripCardView[it.id] || "edit";
+      const tableHtml = buildTripTable(cities);
       card.innerHTML = `
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
+          <div class="ig-view-switch" role="tablist" aria-label="Switch trip view">
+            <button type="button" data-view="edit" class="${cardView === "edit" ? "active" : ""}">Edit</button>
+            <button type="button" data-view="table" class="${cardView === "table" ? "active" : ""}">Table</button>
+          </div>
           <button class="ig-del" type="button" data-del="${esc(String(it.id))}">Delete</button>
         </div>
-        <div class="ig-stops">${rows}</div>
+        <div class="ig-stops" style="display:${cardView === "table" ? "none" : ""}">${rows}</div>
+        <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
         <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
       groups.appendChild(card);
     });
     wireItinEvents();
   }
 
+  /* ---- read-only table for one trip card (reuses the Past-tab table styling) ---- */
+  function buildTripTable(cities){
+    if (!cities.length){
+      return `<p class="table-empty">Nothing to show yet — switch to “Edit” to add stops.</p>`;
+    }
+    let rows = "";
+    cities.forEach((p, i) => {
+      const g = guideOf(p.place);
+      const country = esc(p.country || (g && g.country) || "");
+      const nameHtml = g
+        ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)}</a>`
+        : esc(p.place);
+      rows += `<tr>
+        <td class="tnum">${i+1}</td>
+        <td class="tcity">${nameHtml}</td>
+        <td>${country || "—"}</td>
+        <td>${esc(dateRange(p.arrive, p.depart))}</td>
+        <td class="tnights">${esc(nights(p.arrive, p.depart))}</td>
+      </tr>`;
+    });
+    return `<table class="trip-table">
+      <thead><tr><th>#</th><th>City</th><th>Country</th><th>Dates</th><th>Nights</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+  }
+
   function wireItinEvents(){
     const groups = $("itin-groups");
+    /* per-trip Edit/Table toggle */
+    groups.querySelectorAll(".ig-view-switch button").forEach(b => {
+      b.addEventListener("click", () => {
+        const card = b.closest(".itin-group");
+        const id = card.dataset.id;
+        if ((tripCardView[id] || "edit") === b.dataset.view) return;
+        tripCardView[id] = b.dataset.view;
+        renderItineraries();
+      });
+    });
     /* rename an itinerary */
     groups.querySelectorAll(".ig-name").forEach(inp => {
       const id = inp.closest(".itin-group").dataset.id;
@@ -1041,9 +1099,11 @@
     groups.querySelectorAll(".ig-stop").forEach(row => {
       const pid = row.dataset.pid;
       const a = row.querySelector("[data-pa]"), d = row.querySelector("[data-pd]");
+      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y" }) : null;
+      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: (a && a.value) || null }) : null;
       const onDate = async () => {
-        if (d) d.min = (a && a.value) || "";
-        if (a && d && a.value && d.value && d.value < a.value) d.value = a.value;
+        if (fpD) fpD.set("minDate", (a && a.value) || null);
+        if (a && d && a.value && d.value && d.value < a.value){ d.value = a.value; if (fpD) fpD.setDate(a.value, false); }
         checkTripChrono(row.closest(".itin-group"));
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").update({ arrive:(a&&a.value)||null, depart:(d&&d.value)||null }).eq("id", pid); if (error) throw error; }
         catch(e){ status("Couldn't save that date — try again.", "err"); }

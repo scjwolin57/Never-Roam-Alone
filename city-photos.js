@@ -4,6 +4,7 @@
    the city article leads with a flag/map). page = file page for credit.
    Pages fall back to placeholders for any city missing here. */
 window.NRA_CITY_PHOTO = {
+  "Ibiza": { img:"images/cities/ibiza.jpg" },
   "Abu Dhabi": { img:"images/cities/abu-dhabi.jpg", page:"https://commons.wikimedia.org/wiki/File:Abu_dhabi_skylines_2014.jpg" },
   "Amsterdam": { img:"images/cities/amsterdam.jpg", page:"https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png" },
   "Andorra la Vella": { img:"images/cities/andorra-la-vella.jpg", page:"https://commons.wikimedia.org/wiki/File:Vista_de_Andorra_la_Vieja,_Andorra,_2013-12-30,_DD_01.JPG" },

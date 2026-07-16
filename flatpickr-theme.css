@@ -1,0 +1,67 @@
+/* Flatpickr theme — matches Never Roam Alone's green/terracotta palette.
+   Loaded on every page that has a date field (itinerary, admin, blog-editor,
+   choose, city). Keep colors in sync with color_unification: green #556B2F,
+   terracotta #C04020. */
+
+.flatpickr-calendar{
+  border-radius:14px;
+  box-shadow:0 10px 32px rgba(0,0,0,.18);
+  border:1px solid rgba(85,107,47,.15);
+  font-family:inherit;
+}
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after{ border-bottom-color:#556B2F; }
+
+.flatpickr-months{
+  background:#556B2F;
+  border-radius:14px 14px 0 0;
+  padding:8px 0 4px;
+}
+.flatpickr-months .flatpickr-month{ color:#fff; fill:#fff; }
+.flatpickr-current-month .flatpickr-monthDropdown-months,
+.flatpickr-current-month input.cur-year{
+  color:#fff; font-weight:700;
+}
+.flatpickr-current-month .flatpickr-monthDropdown-months option{ color:#333; }
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month{ fill:#fff; color:#fff; }
+.flatpickr-months .flatpickr-prev-month:hover svg,
+.flatpickr-months .flatpickr-next-month:hover svg{ fill:#C04020; }
+
+.flatpickr-weekdays{ background:#556B2F; }
+span.flatpickr-weekday{
+  background:#556B2F; color:rgba(255,255,255,.85); font-weight:700;
+}
+
+.flatpickr-day.today{ border-color:#C04020; }
+.flatpickr-day.today:hover,
+.flatpickr-day.today:focus{ background:#C04020; border-color:#C04020; color:#fff; }
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.selected:focus,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange{
+  background:#556B2F; border-color:#556B2F; color:#fff;
+}
+.flatpickr-day.inRange{
+  background:rgba(85,107,47,.14);
+  border-color:rgba(85,107,47,.14);
+  box-shadow:-5px 0 0 rgba(85,107,47,.14), 5px 0 0 rgba(85,107,47,.14);
+}
+.flatpickr-day:hover,
+.flatpickr-day:focus{ background:rgba(192,64,32,.12); border-color:transparent; }
+
+.flatpickr-day.selected.startRange + .endRange:not(:nth-child(7n+1)),
+.flatpickr-day.startRange:nth-child(7n+7){ box-shadow:none; }
+
+.flatpickr-time input:hover,
+.flatpickr-time .flatpickr-am-pm:hover,
+.flatpickr-time input:focus,
+.flatpickr-time .flatpickr-am-pm:focus{ background:rgba(85,107,47,.1); }
+
+/* every date input on the site gets the calendar cursor + a touch more
+   breathing room now that the tiny native picker is gone on most browsers */
+input[type="date"], input.flatpickr-input{
+  cursor:pointer;
+}

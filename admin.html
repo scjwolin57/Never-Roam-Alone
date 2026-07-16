@@ -20,6 +20,9 @@
 <meta name="robots" content="noindex" />
 <title>Admin — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<link rel="stylesheet" href="flatpickr-theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
     --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
@@ -285,6 +288,8 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  /* calendar date picker (replaces the tiny native one, esp. on Safari) */
+  const fp_fdate = window.flatpickr ? flatpickr("#f-date", { dateFormat: "Y-m-d", altInput: true, altFormat: "F j, Y" }) : null;
   const gate = $("gate"), panel = $("panel");
   let sb = null;
 
@@ -572,7 +577,8 @@
     reviewId = ""; // only flash once
   }
   function clearForm(){
-    ["f-id","f-city","f-name","f-date","f-start","f-end","f-location","f-map","f-link","f-poster","f-poster-file","f-contact-value"].forEach(id => { $(id).value = ""; });
+    ["f-id","f-city","f-name","f-start","f-end","f-location","f-map","f-link","f-poster","f-poster-file","f-contact-value"].forEach(id => { $(id).value = ""; });
+    if (fp_fdate) fp_fdate.clear(); else $("f-date").value = "";
     $("f-contact-type").value = "email";
     $("f-allow-contact").checked = false;
     $("poster-prev").style.display = "none"; $("poster-prev").src = "";
@@ -584,7 +590,7 @@
   if ($("evt-filter")) $("evt-filter").onchange = renderEventRows;
   function fillForm(ev){
     $("f-id").value = ev.id; $("f-city").value = ev.city || ""; $("f-name").value = ev.name || "";
-    $("f-date").value = ev.event_date || "";
+    if (fp_fdate) fp_fdate.setDate(ev.event_date || null, true); else $("f-date").value = ev.event_date || "";
     $("f-start").value = ev.start_time ? String(ev.start_time).slice(0,5) : "";
     $("f-end").value = ev.end_time ? String(ev.end_time).slice(0,5) : "";
     $("f-location").value = ev.location || ""; $("f-map").value = ev.map_link || "";

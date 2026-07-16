@@ -20,6 +20,9 @@
 <meta name="robots" content="noindex" />
 <title>Article Editor — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<link rel="stylesheet" href="flatpickr-theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
     --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
@@ -330,6 +333,9 @@
 (function(){
   "use strict";
   const $ = id => document.getElementById(id);
+  /* calendar date picker (replaces the tiny native one, esp. on Safari) */
+  const fp_fdate = window.flatpickr ? flatpickr("#f-date", { dateFormat: "Y-m-d", altInput: true, altFormat: "F j, Y" }) : null;
+  const setFDate = v => { if (fp_fdate) fp_fdate.setDate(v || null, true); else $("f-date").value = v || ""; };
   const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const gate = $("gate"), editor = $("editor");
   let sb = null;
@@ -384,7 +390,7 @@
   const params = new URLSearchParams(location.search);
 
   async function loadInitial(){
-    $("f-date").value = new Date().toISOString().slice(0,10);
+    setFDate(new Date().toISOString().slice(0,10));
     const id = params.get("id");
     const copySlug = (params.get("copy")||"").toLowerCase();
 
@@ -395,7 +401,7 @@
       $("f-title").value = data.title || "";
       $("f-slug").value = data.slug || ""; slugTouched = true;
       $("f-tag").value = data.tag || "";
-      $("f-date").value = data.date || "";
+      setFDate(data.date || "");
       $("f-location").value = data.location || "";
       $("f-seed").value = data.seed || "";
       $("f-excerpt").value = data.excerpt || "";
@@ -407,7 +413,7 @@
       const p = window.NRA_POSTS_UTIL.bySlug(copySlug);
       if (p){
         $("f-title").value = p.title; $("f-slug").value = p.slug; slugTouched = true;
-        $("f-tag").value = p.tag || ""; $("f-date").value = p.date || "";
+        $("f-tag").value = p.tag || ""; setFDate(p.date || "");
         $("f-location").value = p.location || ""; $("f-seed").value = p.seed || "";
         $("f-excerpt").value = p.excerpt || "";
         $("f-authorname").value = p.authorName || ""; $("f-authorid").value = p.authorId || "";

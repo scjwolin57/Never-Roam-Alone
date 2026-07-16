@@ -36,6 +36,9 @@
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<link rel="stylesheet" href="flatpickr-theme.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
     --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
@@ -1503,7 +1506,7 @@ document.querySelectorAll('input[name="wayMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="viewMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
-departDateEl.addEventListener("change", ()=>{ if(departDateEl.value) returnDateEl.min = departDateEl.value; finderShowAll=false; renderFinder(); saveState(); });
+departDateEl.addEventListener("change", ()=>{ if(departDateEl.value){ returnDateEl.min = departDateEl.value; if(fp_return) fp_return.set("minDate", departDateEl.value); } finderShowAll=false; renderFinder(); saveState(); });
 returnDateEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
 finderPassportEl.addEventListener("change", ()=>{
   finderShowAll=false;
@@ -2038,6 +2041,15 @@ syncWhenUI();
 (function(){ const iso = new Date().toISOString().slice(0,10);
   if(departDateEl) departDateEl.min = iso;
   if(returnDateEl) returnDateEl.min = (departDateEl && departDateEl.value) ? departDateEl.value : iso; })();
+
+/* calendar date pickers (replace the tiny native ones, esp. on Safari) —
+   set up last so they pick up whatever value loadState()/applyShareParams()
+   already put on the real inputs */
+let fp_depart = null, fp_return = null;
+if (window.flatpickr){
+  fp_depart = flatpickr(departDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: "today" });
+  fp_return = flatpickr(returnDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: departDateEl.value || "today" });
+}
 updateOriginModeUI();
 renderFinder();
 renderBucket();
