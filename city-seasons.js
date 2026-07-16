@@ -5,6 +5,7 @@
    r  = rainy days per quarter (same source)
    ev = well-known recurring events / peak periods, by month number */
 window.NRA_SEASON = {
+  "Ibiza": {"t":[62,74,85,68],"r":[17,14,8,17]},
   "Kabul": {"t":[52,76,86,59],"r":[45,25,3,15]},
   "Yerevan": {"t":[43,75,90,53],"r":[39,39,12,27]},
   "Baku": {"t":[49,72,83,57],"r":[20,18,10,28]},

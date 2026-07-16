@@ -9,6 +9,7 @@
    Local data: no network lookup needed.
 ----------------------------------------------------------*/
 window.NRA_CITY_SCORES = {
+  "Ibiza": { nightlife:98, restaurants:68, museums:35, architecture:55, nature:82 },
   "Victoria Falls": { nightlife:30, restaurants:35, museums:25, architecture:20, nature:97 },
   "Lusaka": { nightlife:40, restaurants:38, museums:30, architecture:25, nature:70 },
   "Kampala": { nightlife:55, restaurants:42, museums:35, architecture:28, nature:72 },

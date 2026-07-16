@@ -124,8 +124,15 @@
         place: curCity, country: curCountry, sort_order: count
       });
       if (error) throw error;
-      if (btn){ const n = btn.querySelector(".n"); if (n) n.textContent = "Already added ✓"; }
-      setStatus(`Added ${curCity} to “${tripName}”.`, "ok");
+      // stay tappable — going back to the same city later in the trip is allowed
+      if (btn){
+        const newCount = count + 1;
+        btn.dataset.count = newCount;
+        const n = btn.querySelector(".n");
+        if (n) n.textContent = newCount + (newCount===1?" city":" cities") + " · ✓ in this trip";
+        btn.disabled = false;
+      }
+      setStatus(`Added ${curCity} to “${tripName}” — tap again if you're stopping there twice.`, "ok");
     }catch(e){
       if (btn) btn.disabled = false;
       setStatus("Couldn't add that — please try again.", "err");
@@ -181,10 +188,12 @@
     } else {
       html += `<div class="ta-list" id="ta-trips">` + data.itins.map(it => {
         const cities = byItin[it.id] || [];
+        // already in the trip? still tappable — you can visit a city twice on one trip
         const has = (mode === "add") && cities.includes(cityLc);
-        return `<button type="button" class="ta-pick" data-tid="${esc(it.id)}" data-tname="${esc(it.name)}" data-count="${cities.length}" ${has?"disabled":""}>
+        const label = (cities.length + (cities.length===1?" city":" cities")) + (has ? " · ✓ in this trip" : "");
+        return `<button type="button" class="ta-pick" data-tid="${esc(it.id)}" data-tname="${esc(it.name)}" data-count="${cities.length}">
           <span>${esc(it.name)}</span>
-          <span class="n">${has ? "Already added ✓" : (cities.length + (cities.length===1?" city":" cities"))}</span>
+          <span class="n">${label}</span>
         </button>`;
       }).join("") + `</div>`;
     }

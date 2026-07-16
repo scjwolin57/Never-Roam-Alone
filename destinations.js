@@ -21,6 +21,7 @@
    ===================================================================== */
 
 window.NRA_DESTINATIONS = [
+  {city:"Ibiza", country:"Spain", lat:38.9067, lng:1.4206, region:"ibiza", visitors:3.5, est:true, coastal:true, dailyCost:{budget:70, mid:190, luxury:550}, tagline:"White-walled old town by day, world capital of clubbing by night."},
   {city:"Hong Kong", country:"China (SAR)", lat:22.3193, lng:114.1694, region:"eurasia", visitors:26.7, dailyCost:{budget:60, mid:150, luxury:400}, tagline:"Neon harbor nights and dim-sum mornings."},
   {city:"Bangkok", country:"Thailand", lat:13.7563, lng:100.5018, region:"eurasia", visitors:22.8, dailyCost:{budget:35, mid:90, luxury:250}, tagline:"Temples, tuk-tuks, and street food that never sleeps."},
   {city:"London", country:"United Kingdom", lat:51.5072, lng:-0.1276, region:"eurasia", visitors:19.6, dailyCost:{budget:110, mid:290, luxury:830}, tagline:"Centuries of history around every rainy corner."},
@@ -113,6 +114,7 @@ window.NRA_DESTINATIONS = [
   {city:"Medina", country:"Saudi Arabia", lat:24.4672, lng:39.6142, region:"eurasia", visitors:9, est:true, coastal:false, dailyCost:{budget:55, mid:140, luxury:450}, tagline:"Islam's radiant second holiest city"},
   {city:"Tbilisi", country:"Georgia", lat:41.7151, lng:44.8271, region:"eurasia", visitors:2.5, est:true, coastal:false, dailyCost:{budget:35, mid:85, luxury:260}, tagline:"Sulfur baths and cobbled old-town charm"},
   {city:"Riyadh", country:"Saudi Arabia", lat:24.7136, lng:46.6753, region:"eurasia", visitors:5, est:true, coastal:false, dailyCost:{budget:70, mid:180, luxury:550}, tagline:"Desert capital reinventing itself skyward"},
+  {city:"Jeddah", country:"Saudi Arabia", lat:21.4858, lng:39.1925, region:"eurasia", visitors:9, est:true, coastal:true, dailyCost:{budget:65, mid:165, luxury:520}, tagline:"Red Sea gateway to Mecca and the historic Hejaz"},
   {city:"Tallinn", country:"Estonia", lat:59.437, lng:24.7536, region:"eurasia", visitors:1.9, est:true, dailyCost:{budget:65, mid:150, luxury:420}, tagline:"Fairytale medieval towers meet Baltic tech"},
   {city:"Mecca", country:"Saudi Arabia", lat:21.4225, lng:39.8262, region:"eurasia", visitors:18.7, coastal:false, dailyCost:{budget:60, mid:150, luxury:500}, tagline:"Islam's holiest city, heart of Hajj"},
   {city:"Denpasar", country:"Indonesia", lat:-8.6705, lng:115.213, region:"indonesia", visitors:6.3, est:true, dailyCost:{budget:35, mid:85, luxury:280}, tagline:"Island of temples, surf, and rice terraces"},
