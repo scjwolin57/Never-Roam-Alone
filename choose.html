@@ -523,7 +523,10 @@
     <button type="button" class="bl-chip" data-type="architecture">🌉 Architecture &amp; icons</button>
     <button type="button" class="bl-chip" data-type="sacred">🕌 Sacred &amp; cultural</button>
   </div>
-  <input type="text" id="blSearch" class="bl-search" placeholder="Search places or countries…" />
+  <div class="autocomplete" style="max-width:380px;margin:0 auto">
+    <input type="text" id="blSearch" class="bl-search" placeholder="Search places or countries…" />
+    <ul id="blSearchList" class="ac-list" hidden></ul>
+  </div>
   <div class="results" id="bucketResults"></div>
 </div>
 
@@ -1763,6 +1766,47 @@ const BL_TYPE = {
 let blType = "", blShown = 12;
 const CITY_SET = new Set(CITIES.map(c=>c.city));
 
+// Common abbreviations so "UAE" also matches United Arab Emirates, etc.
+const NRA_ALIASES = {
+  uae:"united arab emirates", usa:"united states", us:"united states",
+  uk:"united kingdom", gb:"united kingdom", drc:"democratic republic of the congo",
+  dr:"dominican republic", nz:"new zealand", sa:"south africa", ksa:"saudi arabia"
+};
+
+// Dropdown of matching wonders as you type
+const blSearchList = document.getElementById("blSearchList");
+let blSuggestItems = [], blSuggestIndex = -1;
+function buildBlSuggestions(q) {
+  const query = q.trim().toLowerCase();
+  if (!query) return [];
+  const alias = NRA_ALIASES[query];
+  const seen = new Set(), out = [];
+  for (const b of BUCKET) {
+    const text = (b.name + " " + b.country + " " + (b.city || "")).toLowerCase();
+    if (text.includes(query) || (alias && text.includes(alias))) {
+      if (seen.has(b.name)) continue;
+      seen.add(b.name);
+      out.push({ label: b.name, sub: b.country, value: b.name });
+      if (out.length >= 8) break;
+    }
+  }
+  return out;
+}
+function renderBlSuggestions(items) {
+  blSuggestItems = items; blSuggestIndex = -1;
+  if (!items.length) { blSearchList.hidden = true; blSearchList.innerHTML = ""; return; }
+  blSearchList.innerHTML = items.map((it, i) =>
+    `<li data-i="${i}"><span class="ac-city">${it.label}<span class="ac-name">${it.sub}</span></span></li>`).join("");
+  blSearchList.hidden = false;
+}
+function selectBlSuggestion(it) {
+  if (!it) return;
+  blSearch.value = it.value;
+  blSearchList.hidden = true;
+  blShown = 12;
+  renderBucket();
+}
+
 /* Bucket List photos are local files (images/bucketlist/) baked straight
    into each card's background-image in bucketCardHTML — no live fetch,
    so they always load correctly. Each card shows a Wikimedia Commons
@@ -1798,9 +1842,10 @@ function bucketCardHTML(b, rank){
 function renderBucket(){
   if(!BUCKET.length){ bucketResults.innerHTML = `<p class="empty">The bucket list couldn't load.</p>`; return; }
   const f = blSearch.value.trim().toLowerCase();
+  const fAlias = NRA_ALIASES[f];
   const withRank = BUCKET.map((b,i)=>({b, rank:i+1}));
   let list = blType ? withRank.filter(x=>x.b.type===blType) : withRank;
-  if(f) list = list.filter(x => x.b.name.toLowerCase().includes(f) || x.b.country.toLowerCase().includes(f) || (x.b.city||"").toLowerCase().includes(f));
+  if(f) list = list.filter(x => x.b.name.toLowerCase().includes(f) || x.b.country.toLowerCase().includes(f) || (x.b.city||"").toLowerCase().includes(f) || (fAlias && x.b.country.toLowerCase().includes(fAlias)));
   if(!list.length){ bucketResults.innerHTML = `<p class="empty">No places match that search.</p>`; return; }
   const shown = list.slice(0, blShown);
   bucketResults.innerHTML =
@@ -1823,7 +1868,26 @@ blChips.addEventListener("click", e=>{
   renderBucket();
   saveState();
 });
-blSearch.addEventListener("input", ()=>{ blShown = 12; renderBucket(); });
+blSearch.addEventListener("input", ()=>{
+  blShown = 12; renderBucket();
+  renderBlSuggestions(buildBlSuggestions(blSearch.value));
+});
+blSearch.addEventListener("keydown", (e) => {
+  if (blSearchList.hidden) return;
+  if (e.key === "ArrowDown") { blSuggestIndex = Math.min(blSuggestIndex + 1, blSuggestItems.length - 1); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { blSuggestIndex = Math.max(blSuggestIndex - 1, 0); e.preventDefault(); }
+  else if (e.key === "Enter") { if (blSuggestIndex >= 0) { selectBlSuggestion(blSuggestItems[blSuggestIndex]); e.preventDefault(); } return; }
+  else if (e.key === "Escape") { blSearchList.hidden = true; return; }
+  else return;
+  [...blSearchList.children].forEach((li, i) => li.classList.toggle("active", i === blSuggestIndex));
+});
+blSearchList.addEventListener("click", (e) => {
+  const li = e.target.closest("li");
+  if (li) selectBlSuggestion(blSuggestItems[+li.dataset.i]);
+});
+document.addEventListener("click", (e) => {
+  if (!blSearch.parentElement.contains(e.target)) blSearchList.hidden = true;
+});
 
 /* ---- "How to get here" pop-up ---- */
 const blModal = document.getElementById("blModal");

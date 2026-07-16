@@ -74,6 +74,12 @@
   #city-search{width:100%;padding:12px 16px 12px 42px;font-size:.97rem;font-family:inherit;
     border:2px solid rgba(85,107,47,.2);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s}
   #city-search:focus{outline:none;border-color:var(--green)}
+  .search-wrap .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;top:100%;
+    background:#fff;border:1px solid rgba(85,107,47,.2);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12);max-height:290px;overflow:auto}
+  .search-wrap .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .search-wrap .ac-list li:hover,.search-wrap .ac-list li.active{background:rgba(85,107,47,.08)}
+  .search-wrap .ac-city{font-weight:600;font-size:.95rem}
+  .search-wrap .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
   #city-sort{padding:12px 38px 12px 16px;font-size:.92rem;font-family:inherit;font-weight:600;
     border:2px solid rgba(85,107,47,.2);border-radius:12px;background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235b6b75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 12px center;
     background-size:15px;color:var(--ink);transition:border-color .2s;appearance:none;-webkit-appearance:none;cursor:pointer}
@@ -188,6 +194,7 @@
       <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
     </svg>
     <input id="city-search" type="search" placeholder="Search cities or countries…" autocomplete="off" />
+    <ul id="city-search-list" class="ac-list" hidden></ul>
   </div>
   <select id="city-sort" aria-label="Sort cities">
     <option value="az">A → Z</option>
@@ -659,25 +666,86 @@ function sortList(list, mode) {
   return sorted;
 }
 
+// Common abbreviations so "UAE" also matches United Arab Emirates, etc.
+const NRA_ALIASES = {
+  uae:"united arab emirates", usa:"united states", us:"united states",
+  uk:"united kingdom", gb:"united kingdom", drc:"democratic republic of the congo",
+  dr:"dominican republic", nz:"new zealand", sa:"south africa", ksa:"saudi arabia"
+};
+
 function applyFilters() {
   const q = document.getElementById("city-search").value.trim().toLowerCase();
+  const alias = NRA_ALIASES[q];
   const mode = document.getElementById("city-sort").value;
   let list = CITIES;
   if (q) {
     list = CITIES.filter(c =>
       c.city.toLowerCase().includes(q) ||
       c.country.toLowerCase().includes(q) ||
-      c.tagline.toLowerCase().includes(q)
+      c.tagline.toLowerCase().includes(q) ||
+      (alias && c.country.toLowerCase().includes(alias))
     );
   }
   buildCards(sortList(list, mode));
+}
+
+// Dropdown of matching cities as you type
+const citySearchList = document.getElementById("city-search-list");
+let citySuggestItems = [], citySuggestIndex = -1;
+function buildCitySuggestions(q) {
+  const query = q.trim().toLowerCase();
+  if (!query) return [];
+  const alias = NRA_ALIASES[query];
+  const seen = new Set(), out = [];
+  for (const c of CITIES) {
+    const text = (c.city + " " + c.country).toLowerCase();
+    if (text.includes(query) || (alias && text.includes(alias))) {
+      if (seen.has(c.city)) continue;
+      seen.add(c.city);
+      out.push({ label: c.city, sub: c.country, value: c.city });
+      if (out.length >= 8) break;
+    }
+  }
+  return out;
+}
+function renderCitySuggestions(items) {
+  citySuggestItems = items; citySuggestIndex = -1;
+  if (!items.length) { citySearchList.hidden = true; citySearchList.innerHTML = ""; return; }
+  citySearchList.innerHTML = items.map((it, i) =>
+    `<li data-i="${i}"><span class="ac-city">${it.label}<span class="ac-name">${it.sub}</span></span></li>`).join("");
+  citySearchList.hidden = false;
+}
+function selectCitySuggestion(it) {
+  if (!it) return;
+  document.getElementById("city-search").value = it.value;
+  citySearchList.hidden = true;
+  applyFilters();
 }
 
 // Initial render
 applyFilters();
 
 // Live search + sort
-document.getElementById("city-search").addEventListener("input", applyFilters);
+document.getElementById("city-search").addEventListener("input", () => {
+  applyFilters();
+  renderCitySuggestions(buildCitySuggestions(document.getElementById("city-search").value));
+});
+document.getElementById("city-search").addEventListener("keydown", (e) => {
+  if (citySearchList.hidden) return;
+  if (e.key === "ArrowDown") { citySuggestIndex = Math.min(citySuggestIndex + 1, citySuggestItems.length - 1); e.preventDefault(); }
+  else if (e.key === "ArrowUp") { citySuggestIndex = Math.max(citySuggestIndex - 1, 0); e.preventDefault(); }
+  else if (e.key === "Enter") { if (citySuggestIndex >= 0) { selectCitySuggestion(citySuggestItems[citySuggestIndex]); e.preventDefault(); } return; }
+  else if (e.key === "Escape") { citySearchList.hidden = true; return; }
+  else return;
+  [...citySearchList.children].forEach((li, i) => li.classList.toggle("active", i === citySuggestIndex));
+});
+citySearchList.addEventListener("click", (e) => {
+  const li = e.target.closest("li");
+  if (li) selectCitySuggestion(citySuggestItems[+li.dataset.i]);
+});
+document.addEventListener("click", (e) => {
+  if (!document.getElementById("city-search").parentElement.contains(e.target)) citySearchList.hidden = true;
+});
 document.getElementById("city-sort").addEventListener("change", applyFilters);
 </script>
 <script src="nra-config.js"></script>

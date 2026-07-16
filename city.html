@@ -621,6 +621,7 @@
    when we move to the production build). visitors = approx. annual international
    arrivals in millions. temps = avg high °F for each seasonal quarter. */
 const CITIES = [
+  {"city":"Ibiza","country":"Spain","visitors":3.5,"pop":"160K","lat":38.9067,"lng":1.4206,"tagline":"White-walled old town by day, world capital of clubbing by night.","temps":{"q1":62,"q2":74,"q3":85,"q4":68},"langs":[{"l":"Spanish","p":95},{"l":"Catalan","p":55},{"l":"English","p":45}]},
   {"city":"Victoria Falls","country":"Zimbabwe","visitors":0.6,"pop":"35K","lat":-17.9316,"lng":25.8309,"tagline":"Where the Zambezi thunders into mist and rainbows.","temps":{"q1":86,"q2":79,"q3":81,"q4":91},"langs":[{"l":"Ndebele","p":55},{"l":"Shona","p":20},{"l":"English","p":15}]},
   {"city":"Lusaka","country":"Zambia","visitors":1.3,"pop":"3.3M","lat":-15.3875,"lng":28.3228,"tagline":"Zambia's leafy capital and gateway to safari country.","temps":{"q1":79,"q2":75,"q3":78,"q4":85},"langs":[{"l":"Nyanja","p":60},{"l":"Bemba","p":30},{"l":"English","p":15}]},
   {"city":"Kampala","country":"Uganda","visitors":1.6,"pop":"6.7M","lat":0.3476,"lng":32.5825,"tagline":"Uganda's hilly, hospitable capital on the shores of Lake Victoria.","temps":{"q1":83,"q2":79,"q3":77,"q4":79},"langs":[{"l":"Luganda","p":46},{"l":"English","p":15},{"l":"Swahili","p":10}]},
@@ -1104,6 +1105,7 @@ function seasonsFor(lat) {
 /* ---------- Currency ---------- */
 /* Local currency for each city (keyed by name, so the main dataset stays clean) */
 const CITY_CUR = {
+  "Ibiza":"EUR",
   "Victoria Falls":"USD",
   "Lusaka":"ZMW",
   "Kampala":"UGX",
@@ -1260,6 +1262,7 @@ const CITY_CUR = {
 
 /* Approx. % of businesses that accept credit/debit cards (rough estimates) */
 const CITY_CARD = {
+  "Ibiza":90,
   "Victoria Falls":55,
   "Lusaka":55,
   "Kampala":45,
@@ -1424,6 +1427,7 @@ function cardLevel(p) {
 /* Typical traveler costs in USD: hotel/night (mid-range), restaurant meal/person
    (sit-down), and a ~10 km taxi/Uber fare. Rough estimates. */
 const CITY_COST = {
+  "Ibiza":{"hotel":140,"meal":30,"taxi":15},
   "Victoria Falls":{"hotel":130,"meal":15,"taxi":6},
   "Lusaka":{"hotel":90,"meal":10,"taxi":7},
   "Kampala":{"hotel":70,"meal":10,"taxi":5},
@@ -1588,6 +1592,7 @@ const CITY_COST = {
 
 /* Budget (b) and high-end (h) nightly hotel averages in USD */
 const CITY_HOTEL = {
+  "Ibiza":{"b":45,"h":400},
   "Victoria Falls":{"b":18,"h":550},
   "Lusaka":{"b":30,"h":220},
   "Kampala":{"b":15,"h":250},
@@ -1745,6 +1750,7 @@ const CITY_HOTEL = {
 
 /* Ride-sharing / e-hailing apps available in each city (empty = taxis only) */
 const CITY_RIDES = {
+  "Ibiza":["Uber","Cabify","FreeNow"],
   "Victoria Falls":[],
   "Lusaka":["Yango","GO (formerly Ulendo)"],
   "Kampala":["Uber","Bolt","SafeBoda"],
@@ -1982,6 +1988,7 @@ const CITY_RIDES = {
 
 /* Official taxi colour + fare type. fare = "metered" | "fixed" | "unmetered". */
 const CITY_TAXI = {
+  "Ibiza":{"color":"White","fare":"metered","fareNote":"Metered within town, but fixed/regulated flat fares apply for set routes like the airport; official fare sheets are posted in every cab. Demand far outstrips supply in peak summer season and at night, especially around club closing times. Uber operates on the island but only via licensed VTC drivers booked through the app — there's no street-hail Uber."},
   "Victoria Falls":{"color":"white/unmarked sedan","fare":"fixed","fareNote":"Negotiate or confirm the fare before departure; typical in-town trip $5-8, airport-town run $25-30."},
   "Lusaka":{"color":"unmarked/white","fare":"fixed","fareNote":"Meters are rare; agree on the fare with the driver before the ride starts. Registered taxis have blue number plates."},
   "Kampala":{"color":"white with blue stripe (special-hire) / branded app cars","fare":"fixed","fareNote":"Special-hire taxis and boda-bodas negotiate a fixed price upfront rather than using a meter; ride-hailing apps (Uber, Bolt) show a fixed fare in-app before you ride."},
@@ -2239,6 +2246,7 @@ function taxiFareColor(cat) {
 
 /* Emergency contact numbers per city (police + ambulance/fire). */
 const CITY_EMERGENCY = {"Jeddah":{"police":"999","medical":"997","note":"999 police, 997 Red Crescent ambulance, 998 civil defense/fire, 993 traffic. English-speaking operators are usually available."},
+  "Ibiza":{"police":"112","medical":"112","note":"112 is the general EU-style emergency number that connects to police, fire, and ambulance across Spain; the Guardia Civil and Policia Local also operate island-wide."},
   "Victoria Falls":{"police":"995 (or 999 general emergency)","medical":"994 (ambulance); private evacuation via Medical Air Rescue Service (MARS)","note":"Response times can be slow; most hotels and tour operators keep direct lines to private clinics and MARS for serious incidents."},
   "Lusaka":{"police":"999","medical":"992","note":"Fire is 993. Response times can be slow and inconsistent; serious medical cases are often taken to private clinics (e.g. Fairview or Corridor Sands) rather than relying solely on ambulance dispatch, and travel insurance with medevac coverage is strongly advised."},
   "Kampala":{"police":"999 or 112","medical":"999 or 112 (public ambulance coverage is limited; private services such as St. John Ambulance +256 800 199 555 are commonly used)","note":"Emergency response can be slow outside central areas; hotels can usually arrange faster private assistance."},
@@ -2420,6 +2428,7 @@ const EMBASSY_COUNTRIES = ["United States","United Kingdom","Canada","Australia"
 
 /* Top 3 religions by share of population (approximate; can overlap in some places) */
 const CITY_RELIGION = {
+  "Ibiza":[{"r":"Roman Catholic","p":60},{"r":"No religion","p":30},{"r":"Other/Islam","p":6}],
   "Victoria Falls":[{"r":"Christian","p":85},{"r":"Traditional/Ancestral beliefs","p":8},{"r":"Other/None","p":7}],
   "Lusaka":[{"r":"Christian","p":95},{"r":"Traditional/other","p":3},{"r":"Muslim","p":2}],
   "Kampala":[{"r":"Roman Catholic","p":39},{"r":"Protestant/Anglican","p":32},{"r":"Muslim","p":14}],
@@ -2670,6 +2679,7 @@ const CITY_RELIGION = {
 
 /* Average length of stay (days) — used for the daily tourist ratio */
 const CITY_STAY = {
+  "Ibiza":5.5,
   "Victoria Falls":2.6,
   "Lusaka":2.5,
   "Kampala":2.5,
@@ -2828,6 +2838,7 @@ const CITY_STAY = {
    [ scratch the surface, leisurely explore, deeper dive, live like a local ]
    Each tier is a [low, high] day range. */
 const CITY_VISIT = {
+  "Ibiza":[[2,3],[4,5],[6,8],[14,25]],
   "Victoria Falls":[[1,2],[3,4],[5,7],[10,14]],
   "Lusaka":[[1,2],[3,4],[5,7],[14,21]],
   "Kampala":[[1,2],[3,4],[5,7],[10,14]],
@@ -3047,6 +3058,7 @@ function buildVisitSection(cityName){
 
 /* Walkability score (0–100, Walk Score style) */
 const CITY_WALK = {
+  "Ibiza":68,
   "Victoria Falls":62,
   "Lusaka":35,
   "Kampala":35,
@@ -3211,6 +3223,7 @@ function walkInfo(s) {
 
 /* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
 const CITY_SAFETY = {
+  "Ibiza":{"safety":54,"crime":46},
   "Victoria Falls":{"safety":68,"crime":32},
   "Lusaka":{"safety":58,"crime":42},
   "Kampala":{"safety":46,"crime":54},
@@ -3467,6 +3480,7 @@ function crimeColor(s) {
 /* Five most popular neighborhoods per city */
 /* Most photographed landmark per neighborhood — used to fetch Wikipedia thumbnail */
 const CITY_HOOD_LANDMARK = {"Jeddah":{"Al-Balad":"Al-Balad Historic District, Jeddah","Ash Shati":"Al-Rahma (Floating) Mosque, Jeddah","Al Hamra":"King Fahd's Fountain, Jeddah","Al Rawdah":"Al Rawdah, Jeddah","Al Andalus":"Red Sea Mall, Jeddah"},
+  "Ibiza":{"Ibiza Town (Dalt Vila & Marina)":"Dalt Vila Ibiza Town","Playa d'en Bossa":"Playa d'en Bossa beach Ibiza","Sant Antoni de Portmany":"Sant Antoni de Portmany sunset strip Ibiza","Santa Eulària des Riu":"Santa Eularia des Riu marina Ibiza","Es Canà":"Es Cana beach Ibiza"},
   "Victoria Falls":{"Town Centre (CBD)":"Victoria Falls Rainforest entrance, Zimbabwe","Sprayview / Parkway":"Sprayview Shopping Centre, Victoria Falls","Zambezi Riverfront":"Elephant Hills Resort Golf Course, Victoria Falls","Zambezi National Park / Safari Lodge Estate":"Victoria Falls Safari Lodge, Zimbabwe","Chinotimba / Aerodrome":"Chinotimba Market, Victoria Falls"},
   "Lusaka":{"Longacres":"Mulungushi International Conference Centre, Lusaka","Kabulonga":"Kabulonga Shopping Centre, Lusaka","City Centre (Cairo Road)":"Cairo Road, Lusaka","Great East Road":"East Park Mall, Lusaka","Lilayi":"Lilayi Game Park, Lusaka"},
   "Kampala":{"Kololo":"Kololo Independence Grounds","Nakasero":"Nakasero Market","Bugolobi":"Village Mall Bugolobi","Kabalagala":"Kabalagala Market","Muyenga":"Tank Hill Muyenga"},
@@ -3642,6 +3656,7 @@ const CITY_HOOD_LANDMARK = {"Jeddah":{"Al-Balad":"Al-Balad Historic District, Je
 };
 
 const CITY_HOODS = {
+  "Ibiza":["Ibiza Town (Dalt Vila & Marina)","Playa d'en Bossa","Sant Antoni de Portmany","Santa Eulària des Riu","Es Canà"],
   "Victoria Falls":["Town Centre (CBD)","Sprayview / Parkway","Zambezi Riverfront","Zambezi National Park / Safari Lodge Estate","Chinotimba / Aerodrome"],
   "Lusaka":["Longacres","Kabulonga","City Centre (Cairo Road)","Great East Road","Lilayi"],
   "Kampala":["Kololo","Nakasero","Bugolobi","Kabalagala","Muyenga"],
@@ -4154,6 +4169,7 @@ const CITY_HOOD_TAG = {
 /* Lodging tiers shown under each neighborhood */
 /* Real neighborhood descriptions, one array per city aligned to CITY_HOODS order */
 const CITY_HOOD_DESC = {
+  "Ibiza":["The UNESCO-listed walled hilltop old town (Dalt Vila) and the harborside Marina/Sa Penya district below it, packed with cathedral views, boutique galleries, tapas bars and late-night terraces; best for first-timers who want history, dining and nightlife within walking distance.","Ibiza's biggest party strip, a long sandy beach lined with superclubs like Ushuàia and Hì Ibiza and beach clubs blasting music from midday on; suits clubbers and groups who want to be inside the action, less so anyone seeking quiet.","The island's sunset-worship capital on the west coast, famous for Café del Mar and a strip of bars along Carrer d'Es Egipte plus a separate quieter bay (S'Arenal/Es Pujols); popular with younger, budget-conscious nightlife travelers.","A cosmopolitan, more laid-back resort town on the east coast with a marina, family-friendly beaches, a Sunday hippy-market heritage and strong local Spanish character; suits couples, families and travelers wanting good restaurants without full-on clubbing.","A relaxed east-coast beach village built around a broad sandy bay, known for its Wednesday hippy market and calmer pace than the south or west coasts; suits families and travelers who want beach time over nightlife."],
   "Victoria Falls":["The compact tourist core right by the Falls entrance, packed with curio markets, restaurants and bars - best for first-timers who want everything walkable.","A quieter residential pocket a few blocks from the main strip, popular with backpackers and independent travelers wanting value without losing convenience.","Leafy riverside hotels and a golf estate along the Zambezi upstream of the Falls, suited to travelers wanting resort comforts and sunset-cruise access nearby.","Elevated bushveld lodges bordering Zambezi National Park with waterhole views and resident wildlife, ideal for safari-focused travelers near the airport road.","The local township adjoining downtown, offering budget guesthouses, campsites and homestays for travelers wanting a slower, community-based stay."],
   "Lusaka":["Leafy diplomatic quarter of embassies and government offices, orderly and well-guarded; suits business travelers, NGO staff, and those wanting a calm, secure base.","Lusaka's most fashionable suburb, with jacaranda-lined streets, boutique shops, and the city's best restaurants; ideal for travelers wanting upscale comfort with a residential feel.","The commercial spine of the city along Cairo Road, packed with markets, street vendors, and minibus stations; energetic and convenient but noisy and best for shorter stays.","A sprawling modern corridor of shopping malls, offices, and conference hotels linking downtown to the eastern suburbs; practical for business travelers and shoppers, less charm.","A bush-fringed area on Lusaka's southern edge where warthogs and antelope wander lodge grounds; suits travelers wanting a safari feel without leaving the city."],
   "Kampala":["Kampala's leafy, hilly diplomatic quarter of embassies and upscale homes, packed with boutique hotels, spas and fine dining; suits business travelers and those wanting a quiet, secure base close to downtown.","The historic commercial and government core with markets, banks and Kampala's best-known hotels within walking distance of Parliament; suits first-timers who want to be in the thick of downtown.","A green, affluent suburb of bungalows and serviced apartments popular with expats, anchored by Village Mall and quieter than the center; suits longer stays and travelers wanting calm with easy access in.","Kampala's round-the-clock nightlife and bar strip along Ggaba Road, full of cheap eats, clubs and backpacker hostels; suits younger travelers and anyone who wants to be near the action after dark.","Known as Tank Hill for its panoramic views over the city and Lake Victoria, a quieter upscale residential area with boutique lodges; suits travelers wanting scenery and a relaxed, leafy retreat."],
@@ -4404,6 +4420,7 @@ const CITY_HOOD_DESC = {
 
 /* Real lodging picks per neighborhood: [High-end, Mid-range, Budget], aligned to CITY_HOODS order */
 const CITY_LODGING = {
+  "Ibiza":[["Mirador de Dalt Vila","El Hotelito Ibiza","hIbiza Boutique Guest House"],["Ushuàia Ibiza Beach Hotel","Hard Rock Hotel Ibiza","Aparthotel Vibra Mogambo"],["Oku Ibiza","Bellamar Hotel Beach & Spa","Amistat Island Hostel Ibiza"],["W Ibiza Hotel","Hotel Riomar","Hostal Yebisah"],["BLESS Ibiza Cala Nova","Invisa Hotel Ereso","Camping Cala Nova"]],
   "Victoria Falls":[["Shoestrings Backpackers Lodge","Ilala Lodge Hotel","The Victoria Falls Hotel"],["Shearwater Explorers Village","Rainbow Hotel Victoria Falls","Bayete Guest Lodge"],["A'Zambezi River Lodge","Zambezi Sun Resort","Elephant Hills Resort"],["Lokuthula Lodges","Victoria Falls Safari Club","Victoria Falls Safari Lodge"],["N1 Hotel & Campsite Victoria Falls","DK Holiday Home","Pamusha Lodge"]],
   "Lusaka":[["Lusaka Mosi-o-Tunya Executive Lodge","Carrey Hotel","InterContinental Lusaka"],["One Roma by the Cubes","Holiday Inn Lusaka","Latitude 15 Degrees Hotel"],["Protea Hotel Lusaka Cairo Road","Radisson Blu Hotel Lusaka","The Pamodzi Hotel"],["Zambia Golden Peacock Hotel","Protea Hotel Lusaka (Longacres)","Ciela Lusaka, a Tribute Portfolio Resort and Spa"],["Natwange Backpackers","Cargo88 Hotel","Lilayi Lodge"]],
   "Kampala":[["Emin Pasha Hotel & Spa","Golf Course Hotel","Fairway Hotel & Spa"],["Kampala Serena Hotel","Sheraton Kampala Hotel","Speke Hotel"],["Dolphin Suites","Royal Suites Bugolobi","Bougainviller Hotel"],["Fang Fang Hotel","Fat Cat Backpackers","Bushpig Backpackers"],["Cassia Lodge","Diplomate Hotel","2 Friends Guest House"]],
@@ -4660,6 +4677,7 @@ const LODGE_TIERS = [
 
 /* Average days of measurable rainfall per quarter (3-month total) */
 const CITY_RAIN = {
+  "Ibiza":{"q1":17,"q2":14,"q3":8,"q4":17},
   "Victoria Falls":{"q1":140,"q2":15,"q3":2,"q4":65},
   "Lusaka":{"q1":169,"q2":7,"q3":0,"q4":91},
   "Kampala":{"q1":88,"q2":134,"q3":80,"q4":109},
@@ -4898,6 +4916,7 @@ const CITY_RAIN = {
 /* Takeaway coffee, beer (0.5L), and bottled water averages in USD.
    beer can be a number, or "restricted" / "notallowed" for alcohol rules. */
 const CITY_DRINKS = {
+  "Ibiza":{"coffee":2.2,"beer":4.5,"water":1.5},
   "Victoria Falls":{"coffee":3,"beer":3,"water":1.5},
   "Lusaka":{"coffee":2.9,"beer":1.6,"water":0.5},
   "Kampala":{"coffee":3,"beer":2,"water":1},
@@ -5136,6 +5155,7 @@ const CITY_DRINKS = {
 
 /* Public transit systems per city — powers the full-width Getting Around The City card */
 const CITY_TRANSIT = {
+  "Ibiza":{"sys":[{"n":"aIBIZAbus (Consell d'Eivissa island bus network)","t":"Bus"},{"n":"IBZ Bus (Ibiza Town local routes)","t":"Bus"}],"map":"https://www.ibizabus.com/","pay":"Pay in cash directly to the driver (typically €1.50-€3.60 depending on distance); there is no rechargeable island-wide transit card. Some routes also allow online ticket purchase in advance during peak season.","hours":"Daytime routes run roughly 6:30am-10pm; a limited seasonal night bus network (Disco Bus) links Ibiza Town, Playa d'en Bossa, Sant Antoni and the main clubs from around midnight to 6am, June-September only.","note":"Buses connect Ibiza Town with Sant Antoni, Santa Eulària, the airport and beach towns, but service thins out sharply outside peak season and away from the main routes; a rental car, taxi or scooter is the practical way to reach quieter coves and villages."},
   "Victoria Falls":{"sys":[{"n":"Kombis (shared minibus taxis)","t":"Bus"},{"n":"National Railways of Zimbabwe (Bulawayo-Victoria Falls line)","t":"Train"}],"map":"","pay":"Kombi and local taxi fares are paid in cash (USD) directly to the driver; there is no rechargeable card or app-based fare system. Most visitors instead arrange point-to-point transport through hotel front desks, tour operators, or pre-booked shuttle/taxi services.","hours":"Kombis and taxis run roughly 6am-9pm with no scheduled night service; hotels arrange private drivers after dark.","note":"The town centre is highly walkable, but riverfront hotels, safari lodges and the airport all require taxi, shuttle or hotel transfer."},
   "Lusaka":{"sys":[{"n":"Minibus network (privately operated)","t":"Bus"},{"n":"Intercity coach services from Lusaka InterCity Bus Terminus","t":"Bus"}],"map":"","pay":"Fares are paid in cash directly to the conductor on board minibuses; there is no electronic fare card system. Intercity coach tickets are bought at counters in the terminus before departure.","hours":"Minibuses run roughly 5:30am-9pm and thin out after dark; there is no reliable late-night public transit, so use a ride-hailing app or a registered taxi at night.","note":"Minibuses (locally called 'buses') are cheap and frequent along main routes like Cairo Road, Great East Road, and Kafue Road, but are crowded and poorly signed; most visitors rely on ride-hailing apps or hired drivers instead."},
   "Kampala":{"sys":[{"n":"Matatu shared minibus taxi network","t":"Bus"},{"n":"Pioneer Easy Bus","t":"Bus"},{"n":"Uganda Railways Commuter Rail (Kampala-Namanve)","t":"Train"}],"map":"","pay":"Matatus and city buses are paid in cash directly to the conductor/driver, with informal per-route fares; there is no citywide fare card. Ride-hailing apps (Uber, Bolt, SafeBoda) are paid via the app or cash to the driver.","hours":"Matatus and buses generally run about 6am-9pm; boda-bodas and app-based rides operate later into the night and are the safer option after dark.","note":"Kampala has no metro or tram system; most visitors rely on shared matatu minibuses, boda-boda motorcycle taxis, and ride-hailing apps, with a small commuter rail line serving outlying suburbs."},
@@ -5391,6 +5411,7 @@ const DRINK_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
 /* Transportation per city. car.idp = Int'l Driving Permit guidance for visitors;
    car.rental = mid-size car, 1 day, USD. car.side = which side they drive on. */
 const CITY_TRANSPORT = {
+  "Ibiza":{"air":["Ibiza Airport (IBZ)"],"train":["Ibiza is an island with no railway; there are no trains."],"bus":["aIBIZAbus island network","No international or mainland coach routes exist from an island"],"ferry":["Port of Ibiza (Ibiza Town)","Port of Sant Antoni"],"car":{"side":"right","idp":"Recommended","rental":45}},
   "Victoria Falls":{"air":["Victoria Falls International Airport (VFA)"],"train":["National Railways of Zimbabwe overnight service (Bulawayo-Victoria Falls, a few times weekly)"],"bus":["Intercity coaches to Bulawayo and Harare (operators such as City Link, Pathfinder)","Local kombis (shared minibus taxis)"],"ferry":[],"car":{"side":"left","idp":"Recommended","rental":70}},
   "Lusaka":{"air":["Kenneth Kaunda International Airport (LUN)"],"train":["Zambia Railways (Lusaka-Kitwe and Lusaka-Livingstone, limited/infrequent passenger service)"],"bus":["Mazhandu Family Bus Services","Power Tools Bus Services","Juldan Motors"],"ferry":[],"car":{"side":"left","idp":"Required","rental":55}},
   "Kampala":{"air":["Entebbe International Airport (EBB)"],"train":["Uganda Railways commuter service (Kampala-Namanve line)"],"bus":["Pioneer Easy Bus (city routes)","Post Bus Uganda","Intercity coaches (Link, Trinity, YY) to regional towns"],"ferry":["Lake Victoria ferry to the Ssese Islands (from Nakiwogo, near Entebbe)"],"car":{"side":"left","idp":"Required","rental":45}},
@@ -5660,6 +5681,7 @@ const CITY_ROUTES = window.NRA_ROUTES || {};
 /* Primary airport detail per city. km = distance to city center; costs in USD.
    ride.avail = "yes" | "limited" | "no". transit: {m: option, c: USD cost}. */
 const CITY_AIRPORT = {
+  "Ibiza":{"name":"Ibiza Airport (IBZ)","km":7,"drive":"15-20 min","rentals":["Hertz","Avis","Europcar","Sixt","Enterprise","Goldcar","Centauro"],"carService":45,"taxi":18,"ride":{"avail":"limited","cost":20},"transit":[{"m":"Bus lines 10/10E to Ibiza Town, 20-30 min","c":3.6},{"m":"Taxi to Ibiza Town (7km, ~15 min)","c":18}]},
   "Victoria Falls":{"name":"Victoria Falls International Airport (VFA)","km":18,"drive":"20-25 min","rentals":["Avis","Europcar","Hertz"],"carService":30,"taxi":28,"ride":{"avail":"no","cost":0},"transit":[{"m":"Shared shuttle/minivan (~25 min)","c":15},{"m":"Private taxi/transfer (~20-25 min)","c":28}]},
   "Lusaka":{"name":"Kenneth Kaunda International Airport (LUN)","km":27,"drive":"30-45 min","rentals":["Avis","Hertz","Europcar","First Car Rental"],"carService":30,"taxi":25,"ride":{"avail":"limited","cost":20},"transit":[{"m":"Pre-booked taxi/car service (~30-45 min)","c":25},{"m":"Yango/GO ride-hail (pickup often arranged outside terminal gate)","c":18},{"m":"Shared minibus to town centre (infrequent, daytime only)","c":3}]},
   "Kampala":{"name":"Entebbe International Airport (EBB)","km":40,"drive":"45-75 min depending on traffic; Entebbe Expressway toll road cuts the trip to around 45 min","rentals":["Avis","Hertz","Europcar"],"carService":40,"taxi":25,"ride":{"avail":"limited","cost":20},"transit":[{"m":"Entebbe Express airport bus (~45-60 min)","c":8},{"m":"Pineapple Express shuttle bus","c":15},{"m":"Boda-boda motorcycle taxi (not ideal with luggage)","c":5}]},
@@ -5916,6 +5938,7 @@ const CITY_AIRPORT = {
    Wi-Fi rating (fw: wide/mod/ltd, fwn: note number below) and main-airport
    free Wi-Fi (ap: note number below). Country-level estimates, July 2026. */
 const CITY_NET = {
+  "Ibiza":{"m":65,"w":100,"ops":["Movistar","Vodafone","Orange"],"gb":1.0,"fw":"mod","fwn":2,"ap":2},
   "Victoria Falls":{"m":18,"w":15,"ops":["Econet Wireless","NetOne","Telecel"],"gb":1.5,"fw":"ltd","fwn":2,"ap":3},
   "Lusaka":{"m":22,"w":15,"ops":["Airtel Zambia","MTN Zambia","Zamtel"],"gb":1.5,"fw":"ltd","fwn":2,"ap":7},
   "Kampala":{"m":15,"w":25,"ops":["MTN Uganda","Airtel Uganda"],"gb":1.5,"fw":"ltd","fwn":2,"ap":3},
@@ -6389,6 +6412,7 @@ function fwInfo(l) {
 /* Per-city "Buy eSIM" links — paste each city's purchase URL between the
    quotes as they become ready. Cities left blank show a placeholder link. */
 const CITY_ESIM = {
+  "Ibiza":"",
   "Victoria Falls":"",
   "Lusaka":"",
   "Kampala":"",
@@ -6581,6 +6605,7 @@ const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" st
 
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 const CITY_TIP = {
+  "Ibiza":{"s":"optional","r":"Not obligatory; rounding up the bill or leaving 5-10% at restaurants for good service is common and appreciated, more so in tourist-oriented restaurants and clubs."},
   "Victoria Falls":{"s":"customary","r":"10% at restaurants when service isn't included; $10-20/day for safari guides, $1-2 per bag for porters."},
   "Lusaka":{"s":"optional","r":"Not obligatory; rounding up or leaving 5-10% at restaurants catering to tourists and business travelers is appreciated but not expected."},
   "Kampala":{"s":"optional","r":"Tipping isn't mandatory but 5-10% at sit-down restaurants and small tips for tour guides, drivers and porters are appreciated and increasingly expected in tourist-facing venues."},
