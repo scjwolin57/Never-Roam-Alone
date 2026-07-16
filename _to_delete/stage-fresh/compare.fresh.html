@@ -1345,10 +1345,8 @@ function renderCompare(){
 
   document.getElementById("cmpTitles").innerHTML =
     '<div class="sp"></div>' +
-    '<div><h2>'+a.city+'</h2><div class="country">'+a.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(a.city)+'&from=guides">Full guide &rsaquo;</a>' +
-      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(a.city)+'" data-country="'+encodeURIComponent(a.country)+'" title="Add '+a.city+' to a trip or your wishlist">+ Add to trip</button></div></div>' +
-    '<div><h2>'+b.city+'</h2><div class="country">'+b.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(b.city)+'&from=guides">Full guide &rsaquo;</a>' +
-      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(b.city)+'" data-country="'+encodeURIComponent(b.country)+'" title="Add '+b.city+' to a trip or your wishlist">+ Add to trip</button></div></div>';
+    '<div><h2>'+a.city+'</h2><div class="country">'+a.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(a.city)+'&from=guides">Full guide &rsaquo;</a></div>' +
+    '<div><h2>'+b.city+'</h2><div class="country">'+b.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(b.city)+'&from=guides">Full guide &rsaquo;</a></div>';
 
   const numA = Number(a.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
   const numB = Number(b.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
@@ -1515,9 +1513,6 @@ fetch(PI_URL).then(r=>r.text()).then(text=>{
 
 renderCompare();
 </script>
-<script src="nra-config.js"></script>
-<script src="auth.js"></script>
-<script src="trip-add.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

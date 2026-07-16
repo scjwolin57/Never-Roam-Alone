@@ -7456,7 +7456,7 @@ if(!c){
       </div>
     </div>
 
-    <div class="hero-back-bar" style="display:flex;gap:10px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city &rarr;</a><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a></div>
+    <div class="hero-back-bar" style="display:flex;gap:10px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city &rarr;</a><a class="back back-itin" href="itinerary.html?type=itineraries" id="add-to-itin-btn" data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to itinerary</a></div>
 
     <section class="i18n-ml">
       <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
@@ -8252,12 +8252,199 @@ if(!c){
 })();
 </script>
 
-<!-- ===== "Add to trip" button (popup lives in the shared trip-add.js) ===== -->
+<!-- ================= Add-to-itinerary button + popup =================
+     Adds the current city to one of the user's named itineraries
+     (see named-itineraries-setup.sql). Signed out → sign-in prompt. -->
 <style>
   .hero-back-bar .back.back-itin{background:var(--coral)}
   .hero-back-bar .back.back-itin:hover{background:var(--green)}
+  .itin-overlay{
+    position:fixed;inset:0;z-index:1000;display:none;
+    background:rgba(20,40,50,.5);backdrop-filter:blur(3px);
+    align-items:center;justify-content:center;padding:20px;
+  }
+  .itin-overlay.open{display:flex}
+  .itin-modal{
+    background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(20,40,50,.35);
+    width:100%;max-width:440px;max-height:85vh;overflow:auto;padding:26px 24px;position:relative;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);
+  }
+  .itin-modal h3{margin:0 6px 4px 0;font-size:1.35rem;font-family:Georgia,serif}
+  .itin-x{position:absolute;top:14px;right:14px;border:none;background:none;font-size:1.3rem;line-height:1;
+    color:var(--muted);cursor:pointer;padding:6px 8px;border-radius:8px}
+  .itin-x:hover{background:rgba(85,107,47,.08);color:#b34a3a}
+  .itin-sub{color:var(--muted);font-size:.85rem;margin:0 0 16px}
+  .itin-status{font-size:.85rem;font-weight:600;min-height:1.1em;margin:0 0 12px}
+  .itin-status.ok{color:var(--green)}
+  .itin-status.err{color:#b34a3a}
+  .itin-list{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+  .itin-pick{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;
+    border:2px solid rgba(85,107,47,.22);background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;
+    font-family:inherit;font-size:.98rem;font-weight:700;color:var(--ink);transition:.15s;
+  }
+  .itin-pick:hover:not(:disabled){border-color:var(--green);background:rgba(85,107,47,.06)}
+  .itin-pick:disabled{cursor:default;opacity:.7;border-color:rgba(85,107,47,.35);color:var(--green)}
+  .itin-pick .n{color:var(--muted);font-size:.78rem;font-weight:600}
+  .itin-empty{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+  .itin-newrow{display:flex;gap:8px;border-top:1px solid rgba(85,107,47,.15);padding-top:16px}
+  .itin-newrow input{
+    flex:1;padding:11px 13px;border:2px solid rgba(85,107,47,.22);border-radius:13px;
+    font-size:.95rem;font-family:inherit;color:var(--ink);outline:none;
+  }
+  .itin-newrow input:focus{border-color:var(--green)}
+  .itin-create{
+    border:none;background:var(--green);color:#fff;font-weight:700;font-family:inherit;
+    padding:11px 16px;border-radius:13px;cursor:pointer;white-space:nowrap;transition:background .2s;
+  }
+  .itin-create:hover:not(:disabled){background:var(--coral)}
+  .itin-create:disabled{opacity:.6;cursor:default}
 </style>
-<script src="trip-add.js"></script>
+<script>
+/* Add-to-itinerary popup — self-contained, runs after auth.js loads. */
+(function(){
+  const escH = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const signedIn = () => !!(window.NRA_AUTH && NRA_AUTH.enabled && NRA_AUTH.user && NRA_AUTH.user());
+
+  /* build the popup once */
+  const overlay = document.createElement("div");
+  overlay.className = "itin-overlay";
+  overlay.innerHTML = `
+    <div class="itin-modal" role="dialog" aria-modal="true" aria-label="Add to itinerary">
+      <button class="itin-x" type="button" aria-label="Close">✕</button>
+      <h3>Add <span id="itin-city">this city</span></h3>
+      <p class="itin-sub">Pick one of your itineraries, or start a new one.</p>
+      <p class="itin-status" id="itin-status"></p>
+      <div class="itin-list" id="itin-list"></div>
+      <div class="itin-newrow">
+        <input type="text" id="itin-name" placeholder="Name a new itinerary…" maxlength="80" autocomplete="off">
+        <button class="itin-create" id="itin-create" type="button">Create &amp; add</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const $ = id => overlay.querySelector(id);
+  const listEl = $("#itin-list"), statusEl = $("#itin-status"), nameEl = $("#itin-name");
+  let curCity = "", curCountry = "";
+
+  const setStatus = (t, kind) => { statusEl.textContent = t || ""; statusEl.className = "itin-status" + (kind ? " "+kind : ""); };
+  function close(){ overlay.classList.remove("open"); }
+  function open(){ overlay.classList.add("open"); }
+
+  overlay.querySelector(".itin-x").addEventListener("click", close);
+  overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+  /* load the user's itineraries + which already contain this city */
+  async function loadList(){
+    listEl.innerHTML = `<p class="itin-empty">Loading your itineraries…</p>`;
+    setStatus("");
+    let itins = [], places = [];
+    try{
+      const sb = NRA_AUTH.client();
+      const r1 = await sb.from("itineraries").select("id,name")
+        .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      if (r1.error) throw r1.error;
+      itins = r1.data || [];
+      const r2 = await sb.from("itinerary_places").select("itinerary_id,place");
+      if (r2.error) throw r2.error;
+      places = r2.data || [];
+    }catch(e){
+      listEl.innerHTML = "";
+      setStatus("Couldn't load your itineraries — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.", "err");
+      return;
+    }
+    // group cities under each itinerary
+    const byItin = {};
+    places.forEach(p => { (byItin[p.itinerary_id] = byItin[p.itinerary_id] || []).push(String(p.place||"").toLowerCase()); });
+
+    if (!itins.length){
+      listEl.innerHTML = `<p class="itin-empty">You don't have any itineraries yet. Name one below to get started.</p>`;
+      return;
+    }
+    listEl.innerHTML = "";
+    itins.forEach(it => {
+      const cities = byItin[it.id] || [];
+      const has = cities.includes(curCity.toLowerCase());
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "itin-pick";
+      btn.disabled = has;
+      btn.innerHTML = `<span>${escH(it.name)}</span><span class="n">${has ? "Already added ✓" : (cities.length + (cities.length===1?" city":" cities"))}</span>`;
+      if (!has) btn.addEventListener("click", () => addCity(it.id, it.name, cities.length, btn));
+      listEl.appendChild(btn);
+    });
+  }
+
+  /* add the current city to an existing itinerary */
+  async function addCity(itinId, itinName, count, btn){
+    if (btn){ btn.disabled = true; }
+    setStatus("Adding…");
+    try{
+      const sb = NRA_AUTH.client();
+      const { error } = await sb.from("itinerary_places").insert({
+        itinerary_id: itinId, user_id: NRA_AUTH.user().id,
+        place: curCity, country: curCountry, sort_order: count
+      });
+      if (error) throw error;
+      if (btn){ btn.querySelector(".n").textContent = "Already added ✓"; }
+      setStatus(`Added ${curCity} to “${itinName}”. `, "ok");
+    }catch(e){
+      if (btn){ btn.disabled = false; }
+      setStatus("Couldn't add that — please try again.", "err");
+    }
+  }
+
+  /* create a new named itinerary, then add the city to it */
+  async function createAndAdd(){
+    const nm = nameEl.value.trim();
+    if (!nm){ setStatus("Give your new itinerary a name first.", "err"); nameEl.focus(); return; }
+    const createBtn = $("#itin-create");
+    createBtn.disabled = true; setStatus("Creating…");
+    try{
+      const sb = NRA_AUTH.client();
+      const { data, error } = await sb.from("itineraries")
+        .insert({ user_id: NRA_AUTH.user().id, name: nm, sort_order: 0 })
+        .select("id").single();
+      if (error) throw error;
+      const { error: e2 } = await sb.from("itinerary_places").insert({
+        itinerary_id: data.id, user_id: NRA_AUTH.user().id,
+        place: curCity, country: curCountry, sort_order: 0
+      });
+      if (e2) throw e2;
+      nameEl.value = "";
+      setStatus(`Created “${nm}” and added ${curCity}. `, "ok");
+      await loadList();
+    }catch(e){
+      setStatus("Couldn't create that itinerary — please try again.", "err");
+    }finally{
+      createBtn.disabled = false;
+    }
+  }
+  $("#itin-create").addEventListener("click", createAndAdd);
+  nameEl.addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); createAndAdd(); } });
+
+  /* the button lives inside the dynamically-rendered city hero — use delegation */
+  document.addEventListener("click", async e => {
+    const link = e.target.closest("#add-to-itin-btn");
+    if (!link) return;
+    e.preventDefault();
+    // wait for auth to be ready
+    if (window.NRA_AUTH && NRA_AUTH.ready){ try{ await NRA_AUTH.ready(); }catch(_){} }
+    if (!signedIn()){
+      if (window.NRA_AUTH && NRA_AUTH.openModal){ NRA_AUTH.openModal(); }
+      else { location.href = link.getAttribute("href"); }
+      return;
+    }
+    curCity = decodeURIComponent(link.dataset.city || "");
+    curCountry = decodeURIComponent(link.dataset.country || "");
+    $("#itin-city").textContent = curCity ? (curCity + " to an itinerary") : "this city";
+    nameEl.value = "";
+    open();
+    loadList();
+  });
+})();
+</script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
 <script src="nav.js"></script>

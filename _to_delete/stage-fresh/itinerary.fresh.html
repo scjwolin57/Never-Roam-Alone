@@ -269,47 +269,11 @@
   .ig-stop .info{flex:1;min-width:0}
   .ig-stop .place{font-weight:700;font-size:1rem}
   .ig-empty{color:var(--muted);font-size:.9rem;padding:8px 4px 12px}
-  .ig-stop .drag{
-    flex-shrink:0;cursor:grab;color:var(--muted);font-size:1.1rem;line-height:1;
-    padding:6px 2px;border-radius:8px;touch-action:none;user-select:none;
-  }
-  .ig-stop .drag:hover{color:var(--teal);background:rgba(85,107,47,.08)}
-  .ig-stop.dragging{opacity:.6;background:rgba(85,107,47,.06);border-radius:12px}
-  .ig-warn{
-    display:none;margin:10px 0 6px;padding:9px 12px;border-radius:10px;
-    background:rgba(192,64,32,.12);border:1px solid rgba(192,64,32,.4);
-    color:#b34a3a;font-size:.8rem;font-weight:600;
-  }
-  .ig-warn.show{display:block}
-
-  /* ---------- Wishlist tab ---------- */
-  .wish-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .wish-actions button{
-    border:2px solid rgba(85,107,47,.35);background:none;color:var(--green);cursor:pointer;
-    font-weight:700;font-size:.85rem;font-family:inherit;padding:9px 16px;border-radius:20px;transition:.2s;
-  }
-  .wish-actions button:hover{background:var(--green);color:#fff}
-  .wish-stop{display:flex;align-items:center;gap:14px;padding:13px 6px;border-bottom:1px solid rgba(85,107,47,.12)}
-  .wish-stop:last-child{border-bottom:none}
-  .wish-stop .num{
-    width:30px;height:30px;flex-shrink:0;border-radius:50%;
-    background:rgba(192,64,32,.1);color:var(--coral);font-weight:800;font-size:.82rem;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .wish-stop .info{flex:1;min-width:0}
-  .wish-stop .place{font-weight:700;font-size:1.02rem}
-  .wish-move{
-    border:2px solid rgba(85,107,47,.35);background:none;color:var(--green);cursor:pointer;
-    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
-  }
-  .wish-move:hover:not(:disabled){background:var(--green);color:#fff}
-  .wish-move:disabled{opacity:.6;cursor:default}
 
   @media (max-width:560px){
     .stop{flex-wrap:wrap}
     .suggest{right:0}
     .ig-stop{flex-wrap:wrap}
-    .wish-stop{flex-wrap:wrap}
   }
 </style>
 </head>
@@ -333,9 +297,9 @@
   <p id="hero-sub">Build your route — add the cities and places you're planning to roam.</p>
   <div class="trip-toggle" role="tablist">
     <button type="button" id="tab-upcoming" data-type="upcoming">Upcoming trips</button>
-    <button type="button" id="tab-wishlist" data-type="wishlist">Wishlist</button>
     <button type="button" id="tab-past" data-type="past">Past trips</button>
     <button type="button" id="tab-favorite" data-type="favorite">♥ Favorites</button>
+    <button type="button" id="tab-itineraries" data-type="itineraries">My Itineraries</button>
   </div>
 </div>
 
@@ -350,20 +314,14 @@
     </div>
 
     <div class="itin-new-row" id="itin-new-row" style="display:none">
-      <input type="text" id="new-itin-name" placeholder="Name a new trip… e.g. Summer Europe" maxlength="80" autocomplete="off">
-      <button type="button" id="new-itin-btn">Create trip</button>
+      <input type="text" id="new-itin-name" placeholder="Name a new itinerary… e.g. Summer Europe" maxlength="80" autocomplete="off">
+      <button type="button" id="new-itin-btn">Create itinerary</button>
     </div>
 
     <div class="list" id="list"></div>
     <p class="chrono-warn" id="chrono-warn">⚠️ Heads up — your stops aren't in date order. Drag them to match your dates, or leave it if that's on purpose.</p>
     <div class="table-view" id="table-view" style="display:none"></div>
     <div class="itin-groups" id="itin-groups" style="display:none"></div>
-    <div class="wish-wrap" id="wish-wrap" style="display:none">
-      <div class="wish-actions" id="wish-actions" style="display:none">
-        <button type="button" id="wish-move-all">⇢ Move whole wishlist to a trip</button>
-      </div>
-      <div class="wish-list" id="wish-list"></div>
-    </div>
     <p class="empty" id="empty" style="display:none"></p>
     <p class="status-msg" id="status"></p>
 
@@ -394,7 +352,6 @@
 
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
-<script src="trip-add.js"></script>
 <script src="destinations.js"></script>
 <script src="upcoming-cities.js"></script>
 <script src="world-cities.js"></script>
@@ -414,10 +371,9 @@
   const esc = s => String(s||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
   /* ---- which list are we on? ---- */
-  const TYPES = ["past","upcoming","favorite"];              // flat lists (localStorage keys; "upcoming" kept only for migration)
-  const ALL_TABS = ["past","upcoming","favorite","wishlist"];
-  let typeParam = new URLSearchParams(location.search).get("type");
-  if (typeParam === "itineraries") typeParam = "upcoming";   // old links keep working
+  const TYPES = ["past","upcoming","favorite"];              // flat lists (localStorage keys)
+  const ALL_TABS = ["past","upcoming","favorite","itineraries"];  // + named-itineraries tab
+  const typeParam = new URLSearchParams(location.search).get("type");
   let type = ALL_TABS.includes(typeParam) ? typeParam : "upcoming";
   let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past/upcoming only
 
@@ -517,12 +473,12 @@
   const status = (text, kind) => { const m = $("status"); m.textContent = text || ""; m.className = "status-msg" + (kind ? " "+kind : ""); };
 
   /* ---- header + toggle ---- */
-  const TITLES = { past: "Past Trips", upcoming: "Upcoming Trips", favorite: "Favorites", wishlist: "Wishlist" };
+  const TITLES = { past: "Past Trips", upcoming: "Upcoming Trips", favorite: "Favorites", itineraries: "My Itineraries" };
   const SUBS = {
     past: "Everywhere you've already roamed — keep the memories on the map.",
-    upcoming: "Your named trips — group cities, set dates, and add more from any city guide.",
+    upcoming: "Build your route — add the cities and places you're planning to roam.",
     favorite: "Places you've hearted from the Destination Finder — dream list, no dates required.",
-    wishlist: "Cities you're dreaming about — no dates needed. Move them into a trip when it gets real."
+    itineraries: "Group cities into named trips — add them from any city guide, or start a new one below."
   };
   function paintHeader(){
     $("hero-title").textContent = TITLES[type];
@@ -539,13 +495,10 @@
 
   function paintSaveNote(){
     const el = $("save-note");
-    const accountOnly = (type === "upcoming" || type === "wishlist");
     if (signedIn()){
       el.innerHTML = "Saved to your account — your trips follow you on any device.";
     } else if (window.NRA_AUTH && NRA_AUTH.enabled){
-      el.innerHTML = (accountOnly
-        ? 'Trips and the wishlist live on your account. <button type="button" id="note-signin">Sign in</button> to use them.'
-        : 'Saved in this browser only. <button type="button" id="note-signin">Sign in</button> to keep your trips on all your devices.');
+      el.innerHTML = 'Saved in this browser only. <button type="button" id="note-signin">Sign in</button> to keep your trips on all your devices.';
       const btn = $("note-signin"); if (btn) btn.addEventListener("click", () => NRA_AUTH.openModal());
     } else {
       el.innerHTML = "Saved in this browser.";
@@ -556,8 +509,7 @@
   async function render(){
     paintSaveNote();
     applyTabChrome();
-    if (type === "upcoming"){ await migrateFlatUpcoming(); await renderItineraries(); return; }
-    if (type === "wishlist"){ await renderWishlist(); return; }
+    if (type === "itineraries"){ await renderItineraries(); return; }
     paintViewToggle();
     const listEl = $("list"), emptyEl = $("empty");
     let items;
@@ -713,7 +665,7 @@
   /* ---- show/hide the Edit/Table toggle and swap the two views ---- */
   function paintViewToggle(){
     const sw = $("view-switch");
-    const canToggle = (type === "past");         // table view only makes sense for the flat past list
+    const canToggle = (type !== "favorite");     // favorites have no dates → no table
     sw.style.display = canToggle ? "" : "none";
     if (!canToggle) view = "edit";
     sw.querySelectorAll("button").forEach(b => b.classList.toggle("active", b.dataset.view === view));
@@ -843,17 +795,6 @@
     if (!place){ status("Type a city or place first.", "err"); return; }
     const g = guideOf(place);
     if (g){ place = g.city; country = g.country; }  // tidy capitalization for featured cities
-    if (type === "upcoming"){
-      // picking a city here opens the shared popup: choose a trip, the wishlist, or a new trip
-      input.value = ""; closeSug();
-      NRA_TRIPADD.open(place, country);
-      return;
-    }
-    if (type === "wishlist"){
-      try{ await wishAdd(place, country); input.value = ""; closeSug(); }
-      catch(e){ status("Couldn't save that — if you're the site owner, make sure wishlist-setup.sql has been run in Supabase.", "err"); }
-      return;
-    }
     try{
       await addItem(place, country);
       input.value = ""; closeSug();
@@ -893,15 +834,12 @@
 
   /* show the right controls for the current tab */
   function applyTabChrome(){
-    const isTrips = (type === "upcoming");
-    const isWish  = (type === "wishlist");
+    const isItin = (type === "itineraries");
     const sr = document.querySelector(".search-row");
-    // search works on every tab, but on the account-only tabs it needs a sign-in first
-    if (sr) sr.style.display = ((isTrips || isWish) && !signedIn()) ? "none" : "";
-    $("itin-new-row").style.display = (isTrips && signedIn()) ? "" : "none";
-    $("itin-groups").style.display = isTrips ? "" : "none";
-    $("wish-wrap").style.display = isWish ? "" : "none";
-    if (isTrips || isWish){
+    if (sr) sr.style.display = isItin ? "none" : "";
+    $("itin-new-row").style.display = isItin ? "" : "none";
+    $("itin-groups").style.display = isItin ? "" : "none";
+    if (isItin){
       $("list").style.display = "none";
       $("table-view").style.display = "none";
       $("empty").style.display = "none";
@@ -910,50 +848,17 @@
     }
   }
 
-  /* ---- one-time move of the old flat "Upcoming trips" list into a named trip ---- */
-  let migrationDone = false;
-  async function migrateFlatUpcoming(){
-    if (migrationDone || !signedIn()) return;
-    migrationDone = true;
-    try{
-      const sb = NRA_AUTH.client();
-      const { data: flat, error } = await sb.from("itinerary_items")
-        .select("id,place,country,arrive,depart,sort_order").eq("trip_type","upcoming")
-        .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
-      if (error) throw error;
-      const local = lsAll().upcoming || [];
-      const rows = [];
-      const seen = new Set();
-      (flat || []).forEach(f => { const k = String(f.place||"").toLowerCase(); if (!seen.has(k)){ seen.add(k); rows.push({place:f.place, country:f.country||"", arrive:f.arrive||null, depart:f.depart||null}); } });
-      local.forEach(f => { const k = String(f.place||"").toLowerCase(); if (f.place && !seen.has(k)){ seen.add(k); rows.push({place:f.place, country:f.country||"", arrive:f.arrive||null, depart:f.depart||null}); } });
-      if (!rows.length) return;
-      const { data: trip, error: e1 } = await sb.from("itineraries")
-        .insert({ user_id: NRA_AUTH.user().id, name: "My upcoming trip", sort_order: 0 })
-        .select("id").single();
-      if (e1) throw e1;
-      const payload = rows.map((r, i) => ({ itinerary_id: trip.id, user_id: NRA_AUTH.user().id, place: r.place, country: r.country, arrive: r.arrive, depart: r.depart, sort_order: i }));
-      const { error: e2 } = await sb.from("itinerary_places").insert(payload);
-      if (e2) throw e2;
-      // everything landed — now clean up the old copies
-      if (flat && flat.length){
-        const { error: e3 } = await sb.from("itinerary_items").delete().eq("trip_type","upcoming");
-        if (e3) throw e3;
-      }
-      if (local.length){ const d = lsAll(); d.upcoming = []; lsSave(d); }
-      status("Your old upcoming list was moved into a trip called “My upcoming trip.”", "ok");
-    }catch(e){ /* nothing deleted unless everything inserted — old data stays safe */ }
-  }
-
   async function renderItineraries(){
     const groups = $("itin-groups"), newRow = $("itin-new-row");
+    status("");
     if (!signedIn()){
       newRow.style.display = "none";
-      groups.innerHTML = `<p class="empty" style="display:block">Sign in to build named trips — then add cities from any city guide or the Destination Finder. <button type="button" id="itin-signin" class="btn ghost" style="display:inline;padding:6px">Sign in</button></p>`;
+      groups.innerHTML = `<p class="empty" style="display:block">Sign in to create named itineraries and add cities to them from any city guide. <button type="button" id="itin-signin" class="btn ghost" style="display:inline;padding:6px">Sign in</button></p>`;
       const b = $("itin-signin"); if (b && window.NRA_AUTH && NRA_AUTH.openModal) b.addEventListener("click", () => NRA_AUTH.openModal());
       return;
     }
     newRow.style.display = "";
-    groups.innerHTML = `<p class="empty" style="display:block">Loading your trips…</p>`;
+    groups.innerHTML = `<p class="empty" style="display:block">Loading your itineraries…</p>`;
     let itins = [], places = [];
     try{
       const sb = NRA_AUTH.client();
@@ -966,11 +871,11 @@
       if (r2.error) throw r2.error;
       places = r2.data || [];
     }catch(e){
-      groups.innerHTML = `<p class="empty" style="display:block">Couldn't load your trips — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.</p>`;
+      groups.innerHTML = `<p class="empty" style="display:block">Couldn't load your itineraries — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.</p>`;
       return;
     }
     if (!itins.length){
-      groups.innerHTML = `<p class="empty" style="display:block">No trips yet. Name one above, or open any city guide and tap “Add to trip.”</p>`;
+      groups.innerHTML = `<p class="empty" style="display:block">No itineraries yet. Name one above, or open any city guide and tap “Add to itinerary.”</p>`;
       return;
     }
     const byItin = {};
@@ -983,7 +888,7 @@
       card.dataset.id = String(it.id);
       let rows;
       if (!cities.length){
-        rows = `<p class="ig-empty">No cities yet — open any city guide and tap “Add to trip,” or search above.</p>`;
+        rows = `<p class="ig-empty">No cities yet — open any city guide and tap “Add to itinerary.”</p>`;
       } else {
         rows = cities.map((p, i) => {
           const g = guideOf(p.place);
@@ -992,7 +897,6 @@
             ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)} <span class="arrow">&rarr;</span></a>`
             : esc(p.place);
           return `<div class="ig-stop" data-pid="${esc(String(p.id))}">
-            <span class="drag" title="Drag to reorder" aria-label="Drag to reorder">⠿</span>
             <span class="num">${i+1}</span>
             <span class="info"><span class="place">${nameHtml}</span>
               <span class="where">${where || "&mdash;"}</span>
@@ -1006,11 +910,10 @@
       }
       card.innerHTML = `
         <div class="ig-head">
-          <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
+          <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Itinerary name">
           <button class="ig-del" type="button" data-del="${esc(String(it.id))}">Delete</button>
         </div>
-        <div class="ig-stops">${rows}</div>
-        <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
+        <div class="ig-stops">${rows}</div>`;
       groups.appendChild(card);
     });
     wireItinEvents();
@@ -1022,8 +925,8 @@
     groups.querySelectorAll(".ig-name").forEach(inp => {
       const id = inp.closest(".itin-group").dataset.id;
       inp.addEventListener("change", async () => {
-        const nm = inp.value.trim() || "My trip"; inp.value = nm;
-        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itineraries").update({ name: nm }).eq("id", id); if (error) throw error; status("Trip renamed.", "ok"); }
+        const nm = inp.value.trim() || "My itinerary"; inp.value = nm;
+        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itineraries").update({ name: nm }).eq("id", id); if (error) throw error; status("Itinerary renamed.", "ok"); }
         catch(e){ status("Couldn't rename that — try again.", "err"); }
       });
     });
@@ -1033,7 +936,7 @@
       btn.addEventListener("click", async () => {
         if (!armed){ armed = true; btn.textContent = "Really delete?"; btn.classList.add("armed"); t = setTimeout(() => { armed = false; btn.textContent = "Delete"; btn.classList.remove("armed"); }, 4000); return; }
         clearTimeout(t); btn.disabled = true;
-        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itineraries").delete().eq("id", btn.dataset.del); if (error) throw error; status("Trip deleted.", "ok"); renderItineraries(); }
+        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itineraries").delete().eq("id", btn.dataset.del); if (error) throw error; status("Itinerary deleted.", "ok"); renderItineraries(); }
         catch(e){ btn.disabled = false; status("Couldn't delete that — try again.", "err"); }
       });
     });
@@ -1044,7 +947,6 @@
       const onDate = async () => {
         if (d) d.min = (a && a.value) || "";
         if (a && d && a.value && d.value && d.value < a.value) d.value = a.value;
-        checkTripChrono(row.closest(".itin-group"));
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").update({ arrive:(a&&a.value)||null, depart:(d&&d.value)||null }).eq("id", pid); if (error) throw error; }
         catch(e){ status("Couldn't save that date — try again.", "err"); }
       };
@@ -1059,212 +961,19 @@
         catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
       });
     });
-    /* drag to reorder within a trip */
-    groups.querySelectorAll(".ig-stop .drag").forEach(h => h.addEventListener("pointerdown", startTripDrag));
-    /* initial date-order check */
-    groups.querySelectorAll(".itin-group").forEach(checkTripChrono);
-  }
-
-  /* ---- date-order warning, per trip card ---- */
-  function checkTripChrono(card){
-    if (!card) return;
-    const warn = card.querySelector(".ig-warn");
-    if (!warn) return;
-    let last = "", bad = false;
-    for (const row of card.querySelectorAll(".ig-stop")){
-      const a = row.querySelector("[data-pa]"), d = row.querySelector("[data-pd]");
-      const val = (a && a.value) || (d && d.value) || "";
-      if (!val) continue;
-      if (last && val < last){ bad = true; break; }
-      last = val;
-    }
-    warn.classList.toggle("show", bad);
-  }
-
-  /* ---- drag to reorder inside a trip card (mouse & touch) ---- */
-  let tripDragRow = null, tripDragCard = null;
-  function startTripDrag(e){
-    e.preventDefault();
-    tripDragRow = e.target.closest(".ig-stop");
-    tripDragCard = e.target.closest(".itin-group");
-    if (!tripDragRow || !tripDragCard) return;
-    tripDragRow.classList.add("dragging");
-    document.addEventListener("pointermove", onTripDragMove);
-    document.addEventListener("pointerup", endTripDrag, { once:true });
-  }
-  function onTripDragMove(e){
-    if (!tripDragRow) return;
-    const holder = tripDragCard.querySelector(".ig-stops");
-    const rows = Array.from(holder.querySelectorAll(".ig-stop")).filter(r => r !== tripDragRow);
-    const after = rows.find(r => { const b = r.getBoundingClientRect(); return e.clientY < b.top + b.height/2; });
-    if (after) holder.insertBefore(tripDragRow, after);
-    else holder.appendChild(tripDragRow);
-  }
-  async function endTripDrag(){
-    document.removeEventListener("pointermove", onTripDragMove);
-    if (!tripDragRow) return;
-    tripDragRow.classList.remove("dragging");
-    const card = tripDragCard;
-    tripDragRow = null; tripDragCard = null;
-    const holder = card.querySelector(".ig-stops");
-    const ids = Array.from(holder.querySelectorAll(".ig-stop")).map(r => r.dataset.pid);
-    holder.querySelectorAll(".ig-stop .num").forEach((n, i) => n.textContent = i + 1);
-    checkTripChrono(card);
-    try{
-      const sb = NRA_AUTH.client();
-      for (let i = 0; i < ids.length; i++){
-        const { error } = await sb.from("itinerary_places").update({ sort_order: i }).eq("id", ids[i]);
-        if (error) throw error;
-      }
-    }catch(e){ status("Couldn't save the new order — please try again.", "err"); }
-  }
-
-  /* ==================================================================
-     WISHLIST TAB — a dateless "someday" list (account only).
-     Cities arrive here from the "Add to trip" popup; from here the
-     whole list (or one city at a time) can be MOVED into a real trip
-     — moving removes it from the wishlist.
-     Data: "wishlist_items" (run wishlist-setup.sql once).
-  ================================================================== */
-  async function loadWishlist(){
-    const sb = NRA_AUTH.client();
-    const { data, error } = await sb.from("wishlist_items")
-      .select("id,place,country")
-      .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
-    if (error) throw error;
-    return data || [];
-  }
-
-  async function renderWishlist(){
-    const listEl = $("wish-list"), act = $("wish-actions");
-    if (!signedIn()){
-      act.style.display = "none";
-      listEl.innerHTML = `<p class="empty" style="display:block">Sign in to build a wishlist of dream cities — then move them into real trips whenever you're ready. <button type="button" id="wish-signin" class="btn ghost" style="display:inline;padding:6px">Sign in</button></p>`;
-      const b = $("wish-signin"); if (b && window.NRA_AUTH && NRA_AUTH.openModal) b.addEventListener("click", () => NRA_AUTH.openModal());
-      return;
-    }
-    listEl.innerHTML = `<p class="empty" style="display:block">Loading your wishlist…</p>`;
-    let items;
-    try{ items = await loadWishlist(); }
-    catch(e){
-      act.style.display = "none";
-      listEl.innerHTML = `<p class="empty" style="display:block">Couldn't load your wishlist — if you're the site owner, make sure wishlist-setup.sql has been run in Supabase.</p>`;
-      return;
-    }
-    if (!items.length){
-      act.style.display = "none";
-      listEl.innerHTML = `<p class="empty" style="display:block">Nothing on your wishlist yet — search above, or tap “Add to trip” on any city and choose Wishlist.</p>`;
-      return;
-    }
-    act.style.display = "";
-    listEl.innerHTML = "";
-    items.forEach((it, i) => {
-      const g = guideOf(it.place);
-      const where = esc(it.country || (g && g.country) || "");
-      const nameHtml = g
-        ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)} <span class="arrow">&rarr;</span></a>`
-        : esc(it.place);
-      const row = document.createElement("div");
-      row.className = "wish-stop";
-      row.innerHTML = `
-        <span class="num">${i+1}</span>
-        <span class="info"><span class="place">${nameHtml}</span>
-          <span class="where">${where || "&mdash;"}</span></span>
-        <button class="wish-move" data-mv="${esc(String(it.id))}" data-place="${esc(it.place)}" data-ctry="${esc(it.country||"")}">Move to a trip</button>
-        <button class="rm-btn" data-rmw="${esc(String(it.id))}" title="Remove" aria-label="Remove ${esc(it.place)}">✕</button>`;
-      listEl.appendChild(row);
-    });
-
-    /* move ONE city into a trip (removed from the wishlist on success) */
-    listEl.querySelectorAll("[data-mv]").forEach(btn => btn.addEventListener("click", () => {
-      const place = btn.dataset.place, ctry = btn.dataset.ctry, wid = btn.dataset.mv;
-      NRA_TRIPADD.pick({
-        title: `Move ${place} to…`,
-        sub: "Pick the trip this city belongs to — it'll leave your wishlist.",
-        onPick: async (trip) => {
-          try{
-            const sb = NRA_AUTH.client();
-            const { error } = await sb.from("itinerary_places").insert({
-              itinerary_id: trip.id, user_id: NRA_AUTH.user().id,
-              place, country: ctry, sort_order: trip.count || 0
-            });
-            if (error) throw error;
-            const { error: e2 } = await sb.from("wishlist_items").delete().eq("id", wid);
-            if (e2) throw e2;
-            status(`${place} moved to “${trip.name}.”`, "ok");
-            renderWishlist();
-          }catch(e){ status("Couldn't move that — please try again.", "err"); }
-        }
-      });
-    }));
-
-    /* remove from the wishlist */
-    listEl.querySelectorAll("[data-rmw]").forEach(btn => btn.addEventListener("click", async () => {
-      btn.disabled = true;
-      try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("wishlist_items").delete().eq("id", btn.dataset.rmw); if (error) throw error; renderWishlist(); }
-      catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
-    }));
-  }
-
-  /* move the WHOLE wishlist into a trip (new or existing) */
-  $("wish-move-all").addEventListener("click", async () => {
-    if (!signedIn()) return;
-    let items;
-    try{ items = await loadWishlist(); }catch(e){ return; }
-    if (!items.length) return;
-    NRA_TRIPADD.pick({
-      title: "Move your whole wishlist to…",
-      sub: `All ${items.length} ${items.length===1?"city":"cities"} will move into the trip you pick (or a new one), and your wishlist will be emptied.`,
-      onPick: async (trip) => {
-        try{
-          const sb = NRA_AUTH.client();
-          // skip cities already in that trip
-          const { data: existing, error: e0 } = await sb.from("itinerary_places").select("place").eq("itinerary_id", trip.id);
-          if (e0) throw e0;
-          const have = new Set((existing||[]).map(p => String(p.place||"").toLowerCase()));
-          const movers = items.filter(it => !have.has(String(it.place||"").toLowerCase()));
-          if (movers.length){
-            const base = trip.count || (existing||[]).length || 0;
-            const payload = movers.map((it, i) => ({ itinerary_id: trip.id, user_id: NRA_AUTH.user().id, place: it.place, country: it.country||"", sort_order: base + i }));
-            const { error } = await sb.from("itinerary_places").insert(payload);
-            if (error) throw error;
-          }
-          const ids = items.map(it => it.id);
-          const { error: e2 } = await sb.from("wishlist_items").delete().in("id", ids);
-          if (e2) throw e2;
-          status(`Wishlist moved to “${trip.name}.”`, "ok");
-          renderWishlist();
-        }catch(e){ status("Couldn't move the wishlist — please try again.", "err"); }
-      }
-    });
-  });
-
-  /* quick-add straight to the wishlist (used by the search box on this tab) */
-  async function wishAdd(place, country){
-    const sb = NRA_AUTH.client();
-    const items = await loadWishlist();
-    if (items.some(it => String(it.place||"").toLowerCase() === place.toLowerCase())){
-      status(`${place} is already on your wishlist.`, "ok"); return;
-    }
-    const { error } = await sb.from("wishlist_items").insert({
-      user_id: NRA_AUTH.user().id, place, country: country||"", sort_order: items.length
-    });
-    if (error) throw error;
-    status(`${place} added to your wishlist!`, "ok");
-    renderWishlist();
   }
 
   async function createItinerary(){
     if (!signedIn()){ if (window.NRA_AUTH && NRA_AUTH.openModal) NRA_AUTH.openModal(); return; }
     const inp = $("new-itin-name"), nm = inp.value.trim();
-    if (!nm){ status("Give your trip a name first.", "err"); inp.focus(); return; }
+    if (!nm){ status("Give your itinerary a name first.", "err"); inp.focus(); return; }
     const btn = $("new-itin-btn"); btn.disabled = true;
     try{
       const sb = NRA_AUTH.client();
       const { error } = await sb.from("itineraries").insert({ user_id: NRA_AUTH.user().id, name: nm, sort_order: 0 });
       if (error) throw error;
       inp.value = ""; status(`Created “${nm}.”`, "ok"); await renderItineraries();
-    }catch(e){ status("Couldn't create that trip — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.", "err"); }
+    }catch(e){ status("Couldn't create that itinerary — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.", "err"); }
     finally{ btn.disabled = false; }
   }
   $("new-itin-btn").addEventListener("click", createItinerary);

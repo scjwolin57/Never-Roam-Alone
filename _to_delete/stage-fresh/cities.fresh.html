@@ -541,7 +541,6 @@ function buildCards(list) {
             </svg>
           </span>
           <button type="button" class="cmp-toggle" data-cmp-city="${c.city.replace(/"/g,'&quot;')}" data-cmp-country="${c.country.replace(/"/g,'&quot;')}">+ Compare</button>
-          <button type="button" class="cmp-toggle" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add ${c.city} to a trip or your wishlist">+ Trip</button>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -677,7 +676,6 @@ document.getElementById("city-sort").addEventListener("change", applyFilters);
 </script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
-<script src="trip-add.js"></script>
 <script src="favorites.js"></script>
 <script>
 NRA_FAV.onChange(paintFavHearts); NRA_FAV.ready().then(paintFavHearts);

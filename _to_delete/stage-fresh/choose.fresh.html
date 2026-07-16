@@ -1175,7 +1175,6 @@ function finderCardHTML(r, rank, actLabel, budget){
         <div class="links-row">
           <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
           ${flightsLink}
-          <button type="button" class="trip-add-chip" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add ${c.city} to a trip or your wishlist">+ Add to trip</button>
         </div>
       </div>
     </article>`;
@@ -2085,7 +2084,6 @@ document.addEventListener("click", (e) => {
 </script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
-<script src="trip-add.js"></script>
 <script src="favorites.js"></script>
 <script src="visited.js"></script>
 <script>
