@@ -666,25 +666,32 @@ function sortList(list, mode) {
   return sorted;
 }
 
-// Common abbreviations so "UAE" also matches United Arab Emirates, etc.
+// Common abbreviations, matched BOTH ways: typing "UAE" or typing
+// "United Arab Emirates" both need to match cities stored as country:"UAE".
 const NRA_ALIASES = {
   uae:"united arab emirates", usa:"united states", us:"united states",
   uk:"united kingdom", gb:"united kingdom", drc:"democratic republic of the congo",
   dr:"dominican republic", nz:"new zealand", sa:"south africa", ksa:"saudi arabia"
 };
+function aliasTerms(query) {
+  const terms = [];
+  if (NRA_ALIASES[query]) terms.push(NRA_ALIASES[query]);
+  for (const abbr in NRA_ALIASES) {
+    if (query.length >= 3 && NRA_ALIASES[abbr].includes(query)) terms.push(abbr);
+  }
+  return terms;
+}
 
 function applyFilters() {
   const q = document.getElementById("city-search").value.trim().toLowerCase();
-  const alias = NRA_ALIASES[q];
+  const extra = aliasTerms(q);
   const mode = document.getElementById("city-sort").value;
   let list = CITIES;
   if (q) {
-    list = CITIES.filter(c =>
-      c.city.toLowerCase().includes(q) ||
-      c.country.toLowerCase().includes(q) ||
-      c.tagline.toLowerCase().includes(q) ||
-      (alias && c.country.toLowerCase().includes(alias))
-    );
+    list = CITIES.filter(c => {
+      const text = (c.city + " " + c.country + " " + c.tagline).toLowerCase();
+      return text.includes(q) || extra.some(t => text.includes(t));
+    });
   }
   buildCards(sortList(list, mode));
 }
@@ -695,11 +702,11 @@ let citySuggestItems = [], citySuggestIndex = -1;
 function buildCitySuggestions(q) {
   const query = q.trim().toLowerCase();
   if (!query) return [];
-  const alias = NRA_ALIASES[query];
+  const extra = aliasTerms(query);
   const seen = new Set(), out = [];
   for (const c of CITIES) {
     const text = (c.city + " " + c.country).toLowerCase();
-    if (text.includes(query) || (alias && text.includes(alias))) {
+    if (text.includes(query) || extra.some(t => text.includes(t))) {
       if (seen.has(c.city)) continue;
       seen.add(c.city);
       out.push({ label: c.city, sub: c.country, value: c.city });

@@ -1766,12 +1766,21 @@ const BL_TYPE = {
 let blType = "", blShown = 12;
 const CITY_SET = new Set(CITIES.map(c=>c.city));
 
-// Common abbreviations so "UAE" also matches United Arab Emirates, etc.
+// Common abbreviations, matched BOTH ways: typing "UAE" or typing
+// "United Arab Emirates" both need to find the right places.
 const NRA_ALIASES = {
   uae:"united arab emirates", usa:"united states", us:"united states",
   uk:"united kingdom", gb:"united kingdom", drc:"democratic republic of the congo",
   dr:"dominican republic", nz:"new zealand", sa:"south africa", ksa:"saudi arabia"
 };
+function aliasTerms(query) {
+  const terms = [];
+  if (NRA_ALIASES[query]) terms.push(NRA_ALIASES[query]);
+  for (const abbr in NRA_ALIASES) {
+    if (query.length >= 3 && NRA_ALIASES[abbr].includes(query)) terms.push(abbr);
+  }
+  return terms;
+}
 
 // Dropdown of matching wonders as you type
 const blSearchList = document.getElementById("blSearchList");
@@ -1779,11 +1788,11 @@ let blSuggestItems = [], blSuggestIndex = -1;
 function buildBlSuggestions(q) {
   const query = q.trim().toLowerCase();
   if (!query) return [];
-  const alias = NRA_ALIASES[query];
+  const extra = aliasTerms(query);
   const seen = new Set(), out = [];
   for (const b of BUCKET) {
     const text = (b.name + " " + b.country + " " + (b.city || "")).toLowerCase();
-    if (text.includes(query) || (alias && text.includes(alias))) {
+    if (text.includes(query) || extra.some(t => text.includes(t))) {
       if (seen.has(b.name)) continue;
       seen.add(b.name);
       out.push({ label: b.name, sub: b.country, value: b.name });
@@ -1842,10 +1851,13 @@ function bucketCardHTML(b, rank){
 function renderBucket(){
   if(!BUCKET.length){ bucketResults.innerHTML = `<p class="empty">The bucket list couldn't load.</p>`; return; }
   const f = blSearch.value.trim().toLowerCase();
-  const fAlias = NRA_ALIASES[f];
+  const fExtra = aliasTerms(f);
   const withRank = BUCKET.map((b,i)=>({b, rank:i+1}));
   let list = blType ? withRank.filter(x=>x.b.type===blType) : withRank;
-  if(f) list = list.filter(x => x.b.name.toLowerCase().includes(f) || x.b.country.toLowerCase().includes(f) || (x.b.city||"").toLowerCase().includes(f) || (fAlias && x.b.country.toLowerCase().includes(fAlias)));
+  if(f) list = list.filter(x => {
+    const text = (x.b.name + " " + x.b.country + " " + (x.b.city||"")).toLowerCase();
+    return text.includes(f) || fExtra.some(t => text.includes(t));
+  });
   if(!list.length){ bucketResults.innerHTML = `<p class="empty">No places match that search.</p>`; return; }
   const shown = list.slice(0, blShown);
   bucketResults.innerHTML =
