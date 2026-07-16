@@ -1336,6 +1336,16 @@
     if (window.NRA_AUTH){ await NRA_AUTH.ready(); NRA_AUTH.onChange(() => render()); }
     render();
   })();
+
+  /* ---- keep this page in sync with the "Add to trip" popup ----
+     Searching a city on the Upcoming tab opens the shared trip-add.js
+     popup (see doAdd). Once that popup is closed after a successful add,
+     it fires "nra:trip-updated" so the trip card / wishlist here refreshes
+     without needing a manual reload. */
+  document.addEventListener("nra:trip-updated", () => {
+    if (type === "upcoming") renderItineraries();
+    else if (type === "wishlist") renderWishlist();
+  });
 })();
 </script>
 <script src="nav.js"></script>

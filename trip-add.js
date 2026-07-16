@@ -87,7 +87,15 @@
   if (document.body) mount(); else document.addEventListener("DOMContentLoaded", mount);
 
   const setStatus = (t, kind) => { const el = $("#ta-status"); el.textContent = t || ""; el.className = "ta-status" + (kind ? " "+kind : ""); };
-  const close = () => overlay.classList.remove("open");
+  /* dirty: set true whenever a trip/wishlist row actually changed in this
+     opening. On close, if something changed, tell any page listening
+     (e.g. itinerary.html) to refresh so the just-added city shows up
+     without needing a manual reload. */
+  let dirty = false;
+  const close = () => {
+    overlay.classList.remove("open");
+    if (dirty){ dirty = false; document.dispatchEvent(new CustomEvent("nra:trip-updated")); }
+  };
   overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
   $(".ta-x").addEventListener("click", close);
   document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
@@ -124,6 +132,7 @@
         place: curCity, country: curCountry, sort_order: count
       });
       if (error) throw error;
+      dirty = true;
       // stay tappable — going back to the same city later in the trip is allowed
       if (btn){
         const newCount = count + 1;
@@ -148,6 +157,7 @@
         user_id: NRA_AUTH.user().id, place: curCity, country: curCountry, sort_order: count
       });
       if (error) throw error;
+      dirty = true;
       if (btn){ const n = btn.querySelector(".n"); if (n) n.textContent = "On your wishlist ✓"; }
       setStatus(`${curCity} saved to your wishlist.`, "ok");
     }catch(e){
@@ -230,6 +240,7 @@
         place: curCity, country: curCountry, sort_order: 0
       });
       if (e2) throw e2;
+      dirty = true;
       setStatus(`Created “${nm}” and added ${curCity}.`, "ok");
       await renderBody();
     }catch(e){
