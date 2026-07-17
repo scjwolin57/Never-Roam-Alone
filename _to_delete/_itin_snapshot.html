@@ -257,9 +257,6 @@
     font-size:.78rem;padding:5px 12px;border-radius:16px;text-decoration:none}
   .ns-guide:hover{background:var(--green);color:#fff}
   .ns-empty{font-size:.85rem;color:var(--muted);margin:4px 0}
-  .ns-more{margin-top:10px;border:1.5px dashed rgba(85,107,47,.5);background:#fff;color:var(--green);
-    font-family:inherit;font-weight:700;font-size:.82rem;padding:8px 14px;border-radius:18px;cursor:pointer;transition:background .2s,color .2s}
-  .ns-more:hover{background:var(--green);color:#fff;border-style:solid}
 
   .empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
   .status-msg{font-size:.86rem;font-weight:600;margin:14px 0 0;min-height:1.2em}
@@ -1288,7 +1285,7 @@
       r.score = parts.length ? parts.reduce((a,b)=>a+b,0)/parts.length : 0;
     });
     rows.sort((a,b) => b.score - a.score);
-    return rows.slice(0, 30);   // deeper pool so "More options" can page through the next best matches
+    return rows.slice(0, 5);
   }
   function nsCardHTML(r, i, factors, q){
     const ph = (window.NRA_CITY_PHOTO && NRA_CITY_PHOTO[r.c.city]) || null;
@@ -1339,25 +1336,14 @@
     }
     const q = nsQuarter(base.p);
     const anyOn = NS_FACTORS.some(f => st.factors[f.key]);
-    const ranked = anyOn ? nsCompute(base.d, cities, st.factors, q) : [];
-    const NS_PAGE = 5;
-    if (!st.offset || st.offset >= ranked.length) st.offset = 0;   // clamp / wrap the paging offset
-    const shown = ranked.slice(st.offset, st.offset + NS_PAGE);
-    const moreBtn = ranked.length > NS_PAGE ? `<button type="button" class="ns-more">🔄 More options</button>` : "";
+    const results = anyOn ? nsCompute(base.d, cities, st.factors, q) : [];
     panel.innerHTML = `
       <p class="ns-title">✨ Where next after ${esc(base.d.city)}?</p>
       <div class="ns-chips">${chips}</div>
       <p class="ns-note">Prices are estimates (cheapest way first — flight, train or bus). Pick what matters and we'll rank the best matches.</p>
       ${anyOn
-        ? `<div class="ns-list">${shown.map((r,i) => nsCardHTML(r, st.offset + i, st.factors, q)).join("")}</div>${moreBtn}`
+        ? `<div class="ns-list">${results.map((r,i) => nsCardHTML(r, i, st.factors, q)).join("")}</div>`
         : `<p class="ns-empty">Pick at least one factor above to see suggestions.</p>`}`;
-    /* "More options" — swap in the next batch of suggestions (cycles back to the top) */
-    const moreEl = panel.querySelector(".ns-more");
-    if (moreEl) moreEl.addEventListener("click", () => {
-      st.offset = (st.offset || 0) + NS_PAGE;
-      if (st.offset >= ranked.length) st.offset = 0;
-      nsRenderPanel(card);
-    });
     /* chip toggles (similar & change-of-pace can't both be on) */
     panel.querySelectorAll(".ns-chip").forEach(ch => {
       ch.addEventListener("click", () => {
@@ -1365,7 +1351,6 @@
         st.factors[k] = !st.factors[k];
         if (k === "similar" && st.factors.similar) st.factors.diff = false;
         if (k === "diff" && st.factors.diff) st.factors.similar = false;
-        st.offset = 0;   // new ranking — start from the top
         nsRenderPanel(card);
       });
     });
@@ -1382,7 +1367,6 @@
             sort_order: (card._cities || []).length
           });
           if (error) throw error;
-          st.offset = 0;              // fresh suggestions after adding a stop
           status(`${b.dataset.nsadd} added to this trip.`, "ok");
           renderItineraries();        // re-renders; panel re-opens with fresh suggestions
         }catch(e){
@@ -1470,20 +1454,9 @@
     groups.querySelectorAll(".ig-stop").forEach(row => {
       const pid = row.dataset.pid;
       const a = row.querySelector("[data-pa]"), d = row.querySelector("[data-pd]");
-      // a stop can't begin before the PREVIOUS stop's departure (fall back to its arrival, then today)
-      const prevMin = () => {
-        const prev = row.previousElementSibling;
-        if (!prev || !prev.classList.contains("ig-stop")) return todayISO;
-        const ppd = prev.querySelector("[data-pd]"), ppa = prev.querySelector("[data-pa]");
-        const v = (ppd && ppd.value) || (ppa && ppa.value) || "";
-        return (v && v > todayISO) ? v : todayISO;
-      };
-      const minForArrive = () => prevMin();
-      const minForDepart = () => { const pm = prevMin(); return (a && a.value && a.value > pm) ? a.value : pm; };
-      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForArrive(),
-        onOpen: (sd, ds, inst) => inst.set("minDate", minForArrive()) }) : null;
-      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForDepart(),
-        onOpen: (sd, ds, inst) => inst.set("minDate", minForDepart()) }) : null;
+      const minForDepart = () => (a && a.value && a.value > todayISO) ? a.value : todayISO;
+      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: "today" }) : null;
+      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForDepart() }) : null;
       // flag empty date boxes light red (flatpickr shows a visible "altInput"; fall back to the real field)
       const emptyEl = (fp, el) => (fp && fp.altInput) ? fp.altInput : el;
       const markEmpty = () => {

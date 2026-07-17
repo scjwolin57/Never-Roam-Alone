@@ -94,6 +94,14 @@
   .side-card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:16px 14px}
   .side-card + .side-card{margin-top:16px}
   .side-card h2{font-size:1.05rem;margin:2px 6px 12px;color:var(--ink)}
+  .cat-search{
+    width:100%;padding:9px 12px;margin:0 0 10px;box-sizing:border-box;
+    border:2px solid rgba(85,107,47,.2);border-radius:20px;
+    background:#fff;font-size:.85rem;color:var(--ink);
+    outline:none;font-family:inherit;transition:border-color .2s;
+  }
+  .cat-search:focus{border-color:var(--teal)}
+  .cat-no-match{font-size:.85rem;color:var(--muted);padding:8px 12px;margin:0}
   .cat-list{display:flex;flex-direction:column;gap:2px;max-height:62vh;overflow-y:auto}
   .cat-btn{
     display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -133,6 +141,7 @@
   .field input:focus, .field textarea:focus, .field select:focus{border-color:var(--teal);box-shadow:0 4px 16px rgba(85,107,47,.14)}
   .field textarea{resize:vertical;min-height:88px;line-height:1.5}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .row2.single{grid-template-columns:1fr}
   .btn{
     display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;
     background:#556B2F;color:#fff;font-weight:700;font-size:.95rem;font-family:inherit;
@@ -319,6 +328,7 @@
     </div>
     <div class="side-card">
       <h2>Browse by city</h2>
+      <input type="search" id="cat-search" class="cat-search" placeholder="Search cities…" autocomplete="off" aria-label="Search cities" />
       <div class="cat-list" id="cat-list"><!-- categories injected here --></div>
     </div>
   </aside>
@@ -331,8 +341,8 @@
       <h2>Ask a question</h2>
       <p class="hint">Be specific — the more context you give, the better the answers you'll get back.</p>
       <form id="ask-form" autocomplete="off">
-        <div class="row2">
-          <div class="field">
+        <div class="row2" id="ask-row2">
+          <div class="field" id="q-name-field">
             <label for="q-name">Your name <span class="opt">(optional)</span></label>
             <input type="text" id="q-name" placeholder="Anonymous Roamer" maxlength="40" />
           </div>
@@ -426,16 +436,56 @@
      prototype mode) — nothing breaks.
 ================================================================== */
 
-/* Cities mirror the map dataset in index.html. General Travel is the
-   pinned catch-all bucket for questions not tied to a specific city. */
+/* Cities mirror the full 248-city guide list (see cities.html). General
+   Travel and Destination Not Listed are pinned catch-all buckets for
+   questions not tied to one of those featured cities. */
 const GENERAL = "General Travel";
+const NOT_LISTED = "Destination not on the list";
 const CITIES = [
-  "Amsterdam","Antalya","Bangkok","Barcelona","Cancún","Cape Town","Dubai",
-  "Hong Kong","Istanbul","Kuala Lumpur","London","Los Angeles","Macau",
-  "Marrakech","Milan","New York","Osaka","Paris","Phuket","Prague",
-  "Rio de Janeiro","Rome","Seoul","Singapore","Sydney","Tokyo","Vienna"
+  "Abidjan","Abu Dhabi","Accra","Addis Ababa","Algiers","Almaty",
+  "Amman","Amsterdam","Andorra la Vella","Antalya","Antananarivo","Apia",
+  "Ashgabat","Asmara","Asunción","Athens","Auckland","Baghdad",
+  "Baku","Bamako","Bandar Seri Begawan","Bangkok","Bangui","Banjul",
+  "Barcelona","Basseterre","Beijing","Beirut","Belgrade","Belize City",
+  "Berlin","Bishkek","Bissau","Bogotá","Bologna","Bratislava",
+  "Brazzaville","Bridgetown","Brussels","Bucharest","Budapest","Buenos Aires",
+  "Bujumbura","Busan","Cairo","Cancún","Cape Town","Caracas",
+  "Castries","Chișinău","Colombo","Conakry","Copenhagen","Cotonou",
+  "Dakar","Damascus","Delhi","Denpasar","Dhaka","Dili",
+  "Djibouti City","Doha","Douala","Dubai","Dublin","Dubrovnik",
+  "Dushanbe","Edinburgh","Florence","Frankfurt am Main","Freetown","Fukuoka",
+  "Funafuti","Gaborone","Georgetown","Guangzhou","Guatemala City","Hanoi",
+  "Havana","Helsinki","Heraklion","Ho Chi Minh City","Hong Kong","Honiara",
+  "Honolulu","Ibiza","Istanbul","Jeddah","Jerusalem","Johor Bahru",
+  "Juba","Kabul","Kampala","Karachi","Kathmandu","Khartoum",
+  "Kigali","Kingstown","Kinshasa","Koror","Kotor","Kraków",
+  "Kuala Lumpur","Kuwait City","Kyiv","Kyoto","La Paz","Lagos",
+  "Las Vegas","Libreville","Lilongwe","Lima","Lisbon","Ljubljana",
+  "Lomé","London","Los Angeles","Luanda","Lusaka","Luxembourg City",
+  "Macau","Madrid","Majuro","Malabo","Malé","Managua",
+  "Manama","Manila","Maputo","Marne-la-Vallée","Marrakech","Maseru",
+  "Mbabane","Mecca","Medina","Melbourne","Mexico City","Miami",
+  "Milan","Minsk","Mogadishu","Monaco","Monrovia","Montego Bay",
+  "Montevideo","Montreal","Moroni","Moscow","Munich","Muscat",
+  "N'Djamena","Nadi","Nairobi","Nassau","New York","Niamey",
+  "Nice","Nicosia","Nouakchott","Nuku'alofa","Orlando","Osaka",
+  "Oslo","Ouagadougou","Palma de Mallorca","Panama City","Paramaribo","Paris",
+  "Pattaya-Chonburi","Phuket","Port Louis","Port Moresby","Port of Spain","Port Vila",
+  "Port-au-Prince","Porto","Prague","Praia","Punta Cana","Pyongyang",
+  "Quito","Reykjavík","Rhodes","Riga","Rio de Janeiro","Riyadh",
+  "Rome","Roseau","San Francisco","San José","San Marino","San Salvador",
+  "Sana'a","Santiago","Sapporo","Sarajevo","Seoul","Seville",
+  "Shanghai","Sharjah","Shenzhen","Siem Reap","Singapore","Skopje",
+  "Sofia","St. George's","St. John's","Stockholm","Sydney","São Paulo",
+  "São Tomé","Taipei","Tallinn","Tarawa","Tashkent","Tbilisi",
+  "Tegucigalpa","Tehran","Tel Aviv","Thessaloniki","Thimphu","Tirana",
+  "Tokyo","Toronto","Tripoli","Tunis","Ulaanbaatar","Vaduz",
+  "Valencia","Valletta","Vancouver","Venice","Verona","Victoria",
+  "Victoria Falls","Vienna","Vientiane","Vilnius","Warsaw","Washington, D.C.",
+  "Weno","Windhoek","Yangon","Yaren","Yerevan","Zanzibar City",
+  "Zhuhai","Zurich"
 ].sort((a,b) => a.localeCompare(b));
-const CATEGORIES = [GENERAL, ...CITIES];
+const CATEGORIES = [GENERAL, NOT_LISTED, ...CITIES];
 
 const LocalStore = (function () {
   const KEY = "nra_forum_v2";
@@ -543,6 +593,9 @@ const LocalStore = (function () {
     return { likes: obj.likes, dislikes: obj.dislikes, vote: next };
   }
   function uid(){ return Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7); }
+  const authedName = given => (given||"").trim()
+    || (window.NRA_AUTH && NRA_AUTH.user() ? (NRA_AUTH.displayName()||"").trim() : "")
+    || "Anonymous Roamer";
 
   return {
     async list(){ return read(); },
@@ -550,7 +603,7 @@ const LocalStore = (function () {
       const list = read();
       const q = normalize({
         id: uid(),
-        name: (name||"").trim() || "Anonymous Roamer",
+        name: authedName(name),
         city: (CATEGORIES.indexOf(city) !== -1) ? city : GENERAL,
         title: title.trim(),
         body: (body||"").trim(),
@@ -565,7 +618,7 @@ const LocalStore = (function () {
       const list = read();
       const q = list.find(x => x.id === questionId);
       if (!q) return null;
-      const r = { id: uid(), name:(name||"").trim()||"Anonymous Roamer", body: body.trim(), created: Date.now(), likes:0, dislikes:0 };
+      const r = { id: uid(), name:authedName(name), body: body.trim(), created: Date.now(), likes:0, dislikes:0 };
       q.replies.push(r);
       write(list);
       return r;
@@ -665,7 +718,8 @@ let ForumStore = LocalStore;   // swapped to the shared store at boot when confi
 /* ------------------------------------------------------------------
    Rendering / UI
 ------------------------------------------------------------------ */
-const catListEl  = document.getElementById("cat-list");
+const catListEl   = document.getElementById("cat-list");
+const citySearchEl = document.getElementById("cat-search");
 const citySelect = document.getElementById("q-city");
 const catTitleEl = document.getElementById("cat-title");
 const catSubEl   = document.getElementById("cat-sub");
@@ -737,9 +791,16 @@ function renderSidebar(){
       <span>${esc(cat)}</span>
       <span class="cat-count">${countFor(cat)}</span>
     </button>`;
-  let html = make(GENERAL, true);
+  const term = (citySearchEl ? citySearchEl.value : "").trim().toLowerCase();
+  const visibleCities = term ? CITIES.filter(c => c.toLowerCase().includes(term)) : CITIES;
+
+  let html = make(GENERAL, true) + make(NOT_LISTED, true);
   html += `<div class="cat-sep"></div><div class="side-sub">Cities</div>`;
-  html += CITIES.map(c => make(c, false)).join("");
+  if (visibleCities.length){
+    html += visibleCities.map(c => make(c, false)).join("");
+  } else {
+    html += `<p class="cat-no-match">No cities match "${esc(citySearchEl.value.trim())}".</p>`;
+  }
   catListEl.innerHTML = html;
 }
 
@@ -869,6 +930,12 @@ catListEl.addEventListener("click",(e)=>{
   setCategory(btn.dataset.cat);
 });
 
+/* ---- sidebar city search (filters the city list only, not General
+   Travel / Destination not on the list, which stay pinned) ---- */
+if (citySearchEl){
+  citySearchEl.addEventListener("input", renderSidebar);
+}
+
 /* ---- clicking a card's category chip jumps / voting on a reply ---- */
 threadsEl.addEventListener("click", async (e)=>{
   // reply vote (thumbs up / down)
@@ -957,11 +1024,17 @@ askForm.addEventListener("submit", async (e)=>{
 searchEl.addEventListener("input", applyView);
 sortEl.addEventListener("change", applyView);
 
-/* ---- signed-in users: their display name becomes the default poster name ---- */
+/* ---- signed-in users: their display name becomes the poster name, so the
+   "Your name" field on the main composer is hidden (their reply-box name
+   fields stay, since those are for other people posting the reply). ---- */
 function syncNameFields(){
-  const signedIn = window.NRA_AUTH && NRA_AUTH.user();
+  const signedIn = !!(window.NRA_AUTH && NRA_AUTH.user());
   const dn = signedIn ? NRA_AUTH.displayName() : "";
+  const qNameField = document.getElementById("q-name-field");
   const qName = document.getElementById("q-name");
+  const row2 = document.getElementById("ask-row2");
+  if (qNameField) qNameField.style.display = signedIn ? "none" : "";
+  if (row2) row2.classList.toggle("single", signedIn);
   if (qName) qName.placeholder = dn || "Anonymous Roamer";
   document.querySelectorAll(".rf-name").forEach(i => { i.placeholder = dn ? dn : "Your name (optional)"; });
 }
