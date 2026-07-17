@@ -104,6 +104,7 @@
   let mode = "add";              // "add" (insert city ourselves) or "pick" (hand trip back to caller)
   let curCity = "", curCountry = "";
   let onPick = null;
+  let closeAfterAdd = false;     // when true, close the popup right after a successful add (itinerary.html search)
 
   /* ---------- data helpers ---------- */
   async function fetchLists(){
@@ -133,6 +134,7 @@
       });
       if (error) throw error;
       dirty = true;
+      if (closeAfterAdd){ setStatus(`Added ${curCity} to “${tripName}.”`, "ok"); setTimeout(close, 550); return; }
       // stay tappable — going back to the same city later in the trip is allowed
       if (btn){
         const newCount = count + 1;
@@ -158,6 +160,7 @@
       });
       if (error) throw error;
       dirty = true;
+      if (closeAfterAdd){ setStatus(`${curCity} saved to your wishlist.`, "ok"); setTimeout(close, 550); return; }
       if (btn){ const n = btn.querySelector(".n"); if (n) n.textContent = "On your wishlist ✓"; }
       setStatus(`${curCity} saved to your wishlist.`, "ok");
     }catch(e){
@@ -241,6 +244,7 @@
       });
       if (e2) throw e2;
       dirty = true;
+      if (closeAfterAdd){ setStatus(`Created “${nm}” and added ${curCity}.`, "ok"); setTimeout(close, 550); return; }
       setStatus(`Created “${nm}” and added ${curCity}.`, "ok");
       await renderBody();
     }catch(e){
@@ -251,10 +255,10 @@
   $("#ta-name").addEventListener("keydown", e => { if (e.key === "Enter"){ e.preventDefault(); createTrip(); } });
 
   /* ---------- public API ---------- */
-  async function openStd(city, country){
+  async function openStd(city, country, opts){
     if (window.NRA_AUTH && NRA_AUTH.ready){ try{ await NRA_AUTH.ready(); }catch(_){} }
     if (!signedIn()){ if (window.NRA_AUTH && NRA_AUTH.openModal) NRA_AUTH.openModal(); return; }
-    mode = "add"; onPick = null;
+    mode = "add"; onPick = null; closeAfterAdd = !!(opts && opts.closeAfterAdd);
     curCity = String(city||"").trim(); curCountry = String(country||"").trim();
     mount();
     $("#ta-title").textContent = curCity ? `Add ${curCity}` : "Add to a trip";
@@ -268,7 +272,7 @@
     opts = opts || {};
     if (window.NRA_AUTH && NRA_AUTH.ready){ try{ await NRA_AUTH.ready(); }catch(_){} }
     if (!signedIn()){ if (window.NRA_AUTH && NRA_AUTH.openModal) NRA_AUTH.openModal(); return; }
-    mode = "pick"; onPick = opts.onPick || null;
+    mode = "pick"; onPick = opts.onPick || null; closeAfterAdd = false;
     curCity = ""; curCountry = "";
     mount();
     $("#ta-title").textContent = opts.title || "Pick a trip";

@@ -328,6 +328,12 @@
   }
   .ig-warn.show{display:block}
 
+  /* ---------- selected trip + empty-date warning (Upcoming tab) ---------- */
+  .itin-group{cursor:pointer}
+  .itin-group.trip-selected{background:#f3f3f1;box-shadow:0 0 0 3px rgba(85,107,47,.85)}
+  input.date-empty{background:rgba(192,64,32,.5);border-color:#C04020}
+  input.date-empty::placeholder{color:#fff;opacity:.95}
+
   /* ---------- Wishlist tab ---------- */
   .wish-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
   .wish-actions button{
@@ -391,7 +397,7 @@
 
     <div class="itin-new-row" id="itin-new-row" style="display:none">
       <input type="text" id="new-itin-name" placeholder="Name a new trip… e.g. Summer Europe" maxlength="80" autocomplete="off">
-      <button type="button" id="new-itin-btn">Create trip</button>
+      <button type="button" id="new-itin-btn">Create new trip</button>
     </div>
 
     <div class="search-row">
@@ -483,6 +489,14 @@
   let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past only
   const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
   let shareOK = true;        // false if itineraries.is_public doesn't exist yet (roamers-setup.sql not run)
+  let selectedTripId = null; // Upcoming tab: which trip card is selected (the search box sits below it)
+
+  /* the shared city-search row moves below the selected trip on the Upcoming
+     tab; remember its home spot so we can put it back on the other tabs */
+  const searchRowEl = document.querySelector(".search-row");
+  const searchHomeParent = searchRowEl ? searchRowEl.parentNode : null;
+  const searchHomeNext = searchRowEl ? searchRowEl.nextSibling : null;
+  function parkSearchRow(){ if (searchRowEl && searchHomeParent) searchHomeParent.insertBefore(searchRowEl, searchHomeNext); }
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -909,9 +923,10 @@
     const g = guideOf(place);
     if (g){ place = g.city; country = g.country; }  // tidy capitalization for featured cities
     if (type === "upcoming"){
-      // picking a city here opens the shared popup: choose a trip, the wishlist, or a new trip
+      // picking a city here opens the shared popup: choose a trip, the wishlist, or a new trip.
+      // closeAfterAdd → the popup closes itself once the city is added and the trip refreshes.
       input.value = ""; closeSug();
-      NRA_TRIPADD.open(place, country);
+      NRA_TRIPADD.open(place, country, { closeAfterAdd: true });
       return;
     }
     if (type === "wishlist"){
@@ -961,8 +976,10 @@
     const isTrips = (type === "upcoming");
     const isWish  = (type === "wishlist");
     const sr = document.querySelector(".search-row");
-    // search works on every tab, but on the account-only tabs it needs a sign-in first
-    if (sr) sr.style.display = ((isTrips || isWish) && !signedIn()) ? "none" : "";
+    if (!isTrips) parkSearchRow();   // put the search row back at the top on every other tab
+    // search works on every tab, but on the account-only tabs it needs a sign-in first.
+    // on Upcoming it's hidden here and revealed by applyTripSelection() below the selected trip.
+    if (sr) sr.style.display = (isTrips || ((isWish) && !signedIn())) ? "none" : "";
     $("itin-new-row").style.display = (isTrips && signedIn()) ? "" : "none";
     $("itin-groups").style.display = isTrips ? "" : "none";
     $("wish-wrap").style.display = isWish ? "" : "none";
@@ -1011,6 +1028,7 @@
 
   async function renderItineraries(){
     const groups = $("itin-groups"), newRow = $("itin-new-row");
+    parkSearchRow();                 // move the search row out before we rebuild the cards (so it isn't wiped)
     if (!signedIn()){
       newRow.style.display = "none";
       groups.innerHTML = `<p class="empty" style="display:block">Sign in to build named trips — then add cities from any city guide or the Destination Finder. <button type="button" id="itin-signin" class="btn ghost" style="display:inline;padding:6px">Sign in</button></p>`;
@@ -1095,6 +1113,34 @@
       groups.appendChild(card);
     });
     wireItinEvents();
+    applyTripSelection();
+  }
+
+  /* ---- Upcoming tab: highlight the selected trip and drop the search box below it ----
+     Click any trip to select it (grey fill + green ring); the city-search row
+     then appears right under that trip. With a single trip it's auto-selected. */
+  function applyTripSelection(){
+    const groups = $("itin-groups"), sr = searchRowEl;
+    const cards = Array.from(groups.querySelectorAll(".itin-group"));
+    if (!cards.length || !signedIn()){
+      if (sr){ parkSearchRow(); sr.style.display = "none"; }
+      return;
+    }
+    const ids = cards.map(c => c.dataset.id);
+    if (cards.length === 1) selectedTripId = ids[0];              // one trip → auto-select it
+    else if (!ids.includes(selectedTripId)) selectedTripId = null;
+    let selCard = null;
+    cards.forEach(c => {
+      const on = c.dataset.id === selectedTripId;
+      c.classList.toggle("trip-selected", on);
+      if (on) selCard = c;
+    });
+    if (selCard && sr){
+      sr.style.display = "";
+      selCard.insertAdjacentElement("afterend", sr);
+    } else if (sr){
+      parkSearchRow(); sr.style.display = "none";
+    }
   }
 
   /* ---- read-only table for one trip card (reuses the Past-tab table styling) ---- */
@@ -1183,9 +1229,18 @@
       const minForDepart = () => (a && a.value && a.value > todayISO) ? a.value : todayISO;
       const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: "today" }) : null;
       const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForDepart() }) : null;
+      // flag empty date boxes light red (flatpickr shows a visible "altInput"; fall back to the real field)
+      const emptyEl = (fp, el) => (fp && fp.altInput) ? fp.altInput : el;
+      const markEmpty = () => {
+        const ea = emptyEl(fpA, a), ed = emptyEl(fpD, d);
+        if (ea) ea.classList.toggle("date-empty", !(a && a.value));
+        if (ed) ed.classList.toggle("date-empty", !(d && d.value));
+      };
+      markEmpty();
       const onDate = async () => {
         if (fpD) fpD.set("minDate", minForDepart());
         if (a && d && a.value && d.value && d.value < a.value){ d.value = a.value; if (fpD) fpD.setDate(a.value, false); }
+        markEmpty();
         checkTripChrono(row.closest(".itin-group"));
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").update({ arrive:(a&&a.value)||null, depart:(d&&d.value)||null }).eq("id", pid); if (error) throw error; }
         catch(e){ status("Couldn't save that date — try again.", "err"); }
@@ -1203,6 +1258,14 @@
     });
     /* drag to reorder within a trip */
     groups.querySelectorAll(".ig-stop .drag").forEach(h => h.addEventListener("pointerdown", startTripDrag));
+    /* click anywhere on a trip to select it (search box drops in below it) */
+    groups.querySelectorAll(".itin-group").forEach(card => {
+      card.addEventListener("click", () => {
+        if (selectedTripId === card.dataset.id) return;
+        selectedTripId = card.dataset.id;
+        applyTripSelection();
+      });
+    });
     /* initial date-order check */
     groups.querySelectorAll(".itin-group").forEach(checkTripChrono);
   }
