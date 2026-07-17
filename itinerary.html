@@ -229,6 +229,35 @@
   .ig-view-switch button.active{background:var(--green);color:#fff}
   .ig-table{margin-top:4px}
 
+  /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
+  .ig-foot{display:flex;justify-content:flex-start;padding:8px 0 10px}
+  .ig-suggest{border:1.5px solid var(--green);background:#fff;color:var(--green);font-family:inherit;
+    font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:20px;cursor:pointer;transition:background .2s,color .2s}
+  .ig-suggest:hover,.ig-suggest.open{background:var(--green);color:#fff}
+  .ns-panel{border-top:1px dashed rgba(85,107,47,.3);margin:0 -4px;padding:12px 4px 14px}
+  .ns-title{font-weight:800;font-size:.95rem;margin:0 0 8px;color:var(--ink)}
+  .ns-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+  .ns-chip{border:1.5px solid rgba(85,107,47,.4);background:#fff;color:var(--ink);font-family:inherit;
+    font-weight:600;font-size:.8rem;padding:6px 12px;border-radius:18px;cursor:pointer;transition:all .15s}
+  .ns-chip.on{background:var(--green);border-color:var(--green);color:#fff}
+  .ns-note{font-size:.78rem;color:var(--muted);margin:0 0 10px}
+  .ns-list{display:flex;flex-direction:column;gap:10px}
+  .ns-card{display:flex;gap:12px;border:1px solid rgba(85,107,47,.2);border-radius:12px;padding:10px;background:#fcfcfa}
+  .ns-photo{width:86px;height:72px;flex:none;border-radius:8px;background-size:cover;background-position:center;background-color:#e8e8e2}
+  .ns-body{flex:1;min-width:0}
+  .ns-name{font-weight:800;font-size:.95rem;margin:0 0 2px}
+  .ns-name .ns-ctry{font-weight:600;color:var(--muted);font-size:.82rem}
+  .ns-why{margin:2px 0 8px;padding:0;list-style:none;font-size:.8rem;color:var(--ink)}
+  .ns-why li{margin:1px 0}
+  .ns-acts{display:flex;gap:8px;flex-wrap:wrap}
+  .ns-add{border:none;background:var(--coral);color:#fff;font-family:inherit;font-weight:700;
+    font-size:.78rem;padding:6px 12px;border-radius:16px;cursor:pointer}
+  .ns-add:disabled{opacity:.55;cursor:default}
+  .ns-guide{display:inline-block;border:1.5px solid var(--green);color:var(--green);font-weight:700;
+    font-size:.78rem;padding:5px 12px;border-radius:16px;text-decoration:none}
+  .ns-guide:hover{background:var(--green);color:#fff}
+  .ns-empty{font-size:.85rem;color:var(--muted);margin:4px 0}
+
   .empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
   .status-msg{font-size:.86rem;font-weight:600;margin:14px 0 0;min-height:1.2em}
   .status-msg.ok{color:var(--teal)}
@@ -463,6 +492,10 @@
 <script src="auth.js"></script>
 <script src="trip-add.js"></script>
 <script src="destinations.js"></script>
+<script src="transport.js"></script>
+<script src="city-scores.js"></script>
+<script src="city-seasons.js"></script>
+<script src="city-photos.js"></script>
 <script src="upcoming-cities.js"></script>
 <script src="world-cities.js"></script>
 <script>
@@ -490,6 +523,7 @@
   const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
   let shareOK = true;        // false if itineraries.is_public doesn't exist yet (roamers-setup.sql not run)
   let selectedTripId = null; // Upcoming tab: which trip card is selected (the search box sits below it)
+  const suggestState = {};   // per-trip "Suggest next stop" panel state: itinerary id -> {open, factors:{}}
 
   /* the shared city-search row moves below the selected trip on the Upcoming
      tab; remember its home spot so we can put it back on the other tabs */
@@ -1109,7 +1143,10 @@
         </div>
         <div class="ig-stops" style="display:${cardView === "table" ? "none" : ""}">${rows}</div>
         <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
+        <div class="ig-foot"><button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button></div>
+        <div class="ns-panel" data-ns="${esc(String(it.id))}" style="display:none"></div>
         <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
+      card._cities = cities;
       groups.appendChild(card);
     });
     wireItinEvents();
@@ -1168,6 +1205,174 @@
       <tbody>${rows}</tbody></table>`;
   }
 
+  /* ================= SUGGEST NEXT STOP =================
+     Reuses the Destination Finder's data: NRA_TRANSPORT (distance +
+     travel-cost estimates), NRA_CITY_SCORES (vibe), NRA_SEASON (weather).
+     Suggestions start from the trip's LAST featured city.            */
+  const NS_FACTORS = [
+    { key:"near",    label:"📍 Close by" },
+    { key:"cheap",   label:"💸 Cheap to get to" },
+    { key:"similar", label:"🎭 Similar vibe" },
+    { key:"diff",    label:"🔄 Change of pace" },
+    { key:"weather", label:"☀️ Good weather" },
+  ];
+  const NS_QLABEL = ["Jan–Mar","Apr–Jun","Jul–Sep","Oct–Dec"];
+  const DESTS = window.NRA_DESTINATIONS || [];
+  const destOf = name => DESTS.find(d => d.city.toLowerCase() === String(name||"").trim().toLowerCase()) || null;
+
+  function nsBase(cities){          // last stop in the trip that has full guide data
+    for (let i = cities.length - 1; i >= 0; i--){
+      const d = destOf(cities[i].place);
+      if (d) return { d, p: cities[i] };
+    }
+    return null;
+  }
+  function nsQuarter(p){            // which part of the year they'd travel next
+    const raw = (p && (p.depart || p.arrive)) || "";
+    const dt = raw ? new Date(raw + "T12:00:00") : new Date();
+    return isNaN(dt) ? Math.floor(new Date().getMonth()/3) : Math.floor(dt.getMonth()/3);
+  }
+  function nsVibeDist(a, b){        // how different two cities feel (0 = twins)
+    const S = window.NRA_CITY_SCORES || {};
+    const va = S[a], vb = S[b];
+    if (!va || !vb) return null;
+    let sum = 0;
+    ["nightlife","restaurants","museums","architecture","nature"].forEach(k => {
+      const d = (va[k]||0) - (vb[k]||0); sum += d*d;
+    });
+    return Math.sqrt(sum);
+  }
+  function nsWeather(city, q){      // 0..1 comfort: near 75°F and not too rainy
+    const s = window.NRA_SEASON && NRA_SEASON[city];
+    if (!s || !s.t || !s.r) return null;
+    const tScore = Math.max(0, 1 - Math.abs(s.t[q] - 75)/35);
+    const rScore = Math.max(0, 1 - Math.min(s.r[q], 90)/90);
+    return tScore*0.6 + rScore*0.4;
+  }
+  function nsCompute(base, cities, factors, q){
+    const inTrip = new Set(cities.map(p => String(p.place||"").toLowerCase()));
+    const rows = [];
+    DESTS.forEach(c => {
+      if (c.city === base.city || inTrip.has(c.city.toLowerCase())) return;
+      const cmp = NRA_TRANSPORT.compareModes(base, c, {});
+      // Jeff's cost rule: cheapest flight first, then train/bus if available
+      const wanted = cmp.modes.filter(m => m.mode==="plane" || m.mode==="train" || m.mode==="bus");
+      const cheapest = wanted[0] || cmp.modes[0] || null;
+      const plane  = cmp.modes.find(m => m.mode === "plane") || null;
+      const ground = cmp.modes.find(m => m.mode === "train" || m.mode === "bus") || null;
+      rows.push({ c, km: cmp.km, cost: cheapest ? cheapest.cost : null,
+                  cheapest, plane, ground,
+                  vd: nsVibeDist(base.city, c.city), wc: nsWeather(c.city, q) });
+    });
+    if (!rows.length) return [];
+    // normalize each factor to 0..1 so they mix fairly
+    const kms = rows.map(r => r.km), costs = rows.filter(r => r.cost!=null).map(r => r.cost);
+    const vds = rows.filter(r => r.vd!=null).map(r => r.vd);
+    const mm = a => ({ lo: Math.min.apply(null,a), hi: Math.max.apply(null,a) });
+    const norm = (v, m) => m.hi === m.lo ? 0.5 : (v - m.lo)/(m.hi - m.lo);
+    const kmM = mm(kms), costM = costs.length ? mm(costs) : null, vdM = vds.length ? mm(vds) : null;
+    rows.forEach(r => {
+      const parts = [];
+      if (factors.near)    parts.push(1 - norm(r.km, kmM));
+      if (factors.cheap)   parts.push(r.cost!=null && costM ? 1 - norm(r.cost, costM) : 0.3);
+      if (factors.similar) parts.push(r.vd!=null && vdM ? 1 - norm(r.vd, vdM) : 0.3);
+      if (factors.diff)    parts.push(r.vd!=null && vdM ? norm(r.vd, vdM) : 0.3);
+      if (factors.weather) parts.push(r.wc!=null ? r.wc : 0.3);
+      r.score = parts.length ? parts.reduce((a,b)=>a+b,0)/parts.length : 0;
+    });
+    rows.sort((a,b) => b.score - a.score);
+    return rows.slice(0, 5);
+  }
+  function nsCardHTML(r, i, factors, q){
+    const ph = (window.NRA_CITY_PHOTO && NRA_CITY_PHOTO[r.c.city]) || null;
+    const why = [];
+    if (factors.near) why.push(`📍 ${r.km.toLocaleString()} km away`);
+    if (factors.cheap && r.cheapest){
+      let line = `💸 ${r.cheapest.icon} ≈ $${Math.round(r.cheapest.cost).toLocaleString()} est. one-way`;
+      if (r.cheapest.mode === "plane" && r.ground)
+        line += ` · or ${r.ground.icon} ≈ $${Math.round(r.ground.cost).toLocaleString()}`;
+      else if (r.cheapest.mode !== "plane" && r.plane)
+        line += ` · or ${r.plane.icon} ≈ $${Math.round(r.plane.cost).toLocaleString()}`;
+      why.push(line);
+    }
+    if ((factors.similar || factors.diff) && r.vd != null){
+      const match = Math.max(0, Math.round(100 - (r.vd/223)*100));
+      why.push(factors.similar ? `🎭 Vibe match: ${match}/100` : `🔄 Change of pace: ${100-match}/100`);
+    }
+    if (factors.weather){
+      const s = window.NRA_SEASON && NRA_SEASON[r.c.city];
+      why.push(s ? `☀️ ~${s.t[q]}°F, ~${Math.round(s.r[q])} rainy days (${NS_QLABEL[q]})` : `☀️ No season data yet`);
+    }
+    return `<div class="ns-card">
+      <div class="ns-photo" style="background-image:url('${ph ? ph.img : ""}')"></div>
+      <div class="ns-body">
+        <p class="ns-name">#${i+1} ${esc(r.c.city)} <span class="ns-ctry">· ${esc(r.c.country)}</span></p>
+        <ul class="ns-why">${why.map(w => `<li>${w}</li>`).join("")}</ul>
+        <div class="ns-acts">
+          <button class="ns-add" type="button" data-nsadd="${esc(r.c.city)}" data-nsctry="${esc(r.c.country)}">+ Add to trip</button>
+          <a class="ns-guide" href="city.html?city=${encodeURIComponent(r.c.city)}">View guide →</a>
+        </div>
+      </div>
+    </div>`;
+  }
+  function nsRenderPanel(card){
+    const id = card.dataset.id;
+    const panel = card.querySelector(".ns-panel");
+    const st = suggestState[id];
+    if (!panel || !st || !st.open){ if (panel) panel.style.display = "none"; return; }
+    panel.style.display = "";
+    const cities = card._cities || [];
+    const base = nsBase(cities);
+    const chips = NS_FACTORS.map(f =>
+      `<button type="button" class="ns-chip${st.factors[f.key] ? " on" : ""}" data-nsf="${f.key}">${f.label}</button>`).join("");
+    if (!base){
+      panel.innerHTML = `<p class="ns-title">✨ Suggest next stop</p>
+        <p class="ns-empty">Add at least one city that has a guide page first — suggestions start from your last stop.</p>`;
+      return;
+    }
+    const q = nsQuarter(base.p);
+    const anyOn = NS_FACTORS.some(f => st.factors[f.key]);
+    const results = anyOn ? nsCompute(base.d, cities, st.factors, q) : [];
+    panel.innerHTML = `
+      <p class="ns-title">✨ Where next after ${esc(base.d.city)}?</p>
+      <div class="ns-chips">${chips}</div>
+      <p class="ns-note">Prices are estimates (cheapest way first — flight, train or bus). Pick what matters and we'll rank the best matches.</p>
+      ${anyOn
+        ? `<div class="ns-list">${results.map((r,i) => nsCardHTML(r, i, st.factors, q)).join("")}</div>`
+        : `<p class="ns-empty">Pick at least one factor above to see suggestions.</p>`}`;
+    /* chip toggles (similar & change-of-pace can't both be on) */
+    panel.querySelectorAll(".ns-chip").forEach(ch => {
+      ch.addEventListener("click", () => {
+        const k = ch.dataset.nsf;
+        st.factors[k] = !st.factors[k];
+        if (k === "similar" && st.factors.similar) st.factors.diff = false;
+        if (k === "diff" && st.factors.diff) st.factors.similar = false;
+        nsRenderPanel(card);
+      });
+    });
+    /* add a suggestion straight to this trip */
+    panel.querySelectorAll(".ns-add").forEach(b => {
+      b.addEventListener("click", async () => {
+        if (!signedIn()) return;
+        b.disabled = true; b.textContent = "Adding…";
+        try{
+          const sb = NRA_AUTH.client();
+          const { error } = await sb.from("itinerary_places").insert({
+            itinerary_id: id, user_id: NRA_AUTH.user().id,
+            place: b.dataset.nsadd, country: b.dataset.nsctry || "",
+            sort_order: (card._cities || []).length
+          });
+          if (error) throw error;
+          status(`${b.dataset.nsadd} added to this trip.`, "ok");
+          renderItineraries();        // re-renders; panel re-opens with fresh suggestions
+        }catch(e){
+          b.disabled = false; b.textContent = "+ Add to trip";
+          status("Couldn't add that — please try again.", "err");
+        }
+      });
+    });
+  }
+
   function wireItinEvents(){
     const groups = $("itin-groups");
     /* per-trip Edit/Table toggle */
@@ -1179,6 +1384,25 @@
         tripCardView[id] = b.dataset.view;
         renderItineraries();
       });
+    });
+    /* Suggest next stop: toggle the panel; restore panels that were open */
+    groups.querySelectorAll(".ig-suggest").forEach(b => {
+      b.addEventListener("click", () => {
+        const card = b.closest(".itin-group");
+        const id = card.dataset.id;
+        const st = suggestState[id] || (suggestState[id] = { open:false, factors:{ near:true, cheap:true } });
+        st.open = !st.open;
+        b.classList.toggle("open", st.open);
+        nsRenderPanel(card);
+      });
+    });
+    groups.querySelectorAll(".itin-group").forEach(card => {
+      const st = suggestState[card.dataset.id];
+      if (st && st.open){
+        const b = card.querySelector(".ig-suggest");
+        if (b) b.classList.add("open");
+        nsRenderPanel(card);
+      }
     });
     /* share / unshare a trip (public profile required — popup handles that) */
     groups.querySelectorAll("[data-share]").forEach(btn => {
