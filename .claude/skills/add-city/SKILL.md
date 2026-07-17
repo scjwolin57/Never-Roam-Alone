@@ -23,6 +23,8 @@ Research every **required** field with real facts — use WebSearch/WebFetch, no
 
 For the **optional** sections (`routes`, `daytrips`, `score`), include them if you can find real content worth adding, but it's fine to omit any of them — the script will flag what's missing rather than fail, and the user can fill those in later. Never fabricate a transit route, a day-trip attraction, or a score number; skip the section instead.
 
+Don't forget `hood_tags` — the neighborhood "best for" banners. After you've written the 5 `hoods` and `hood_desc`, classify each hood into one of the six banner categories (see the rubric in `CITY_SCHEMA.md`) and put them in `hood_tags`, in the same order as `hoods`. This is a quick read of the descriptions you just wrote, not extra research, but it's easy to forget — Ibiza originally shipped with no banners because this step was skipped. Fill all 5 (use `null` only for a hood with genuinely no clear fit).
+
 Assemble one JSON file per batch of cities (a single object, or a list of objects for multiple cities at once) matching the schema exactly — field names and types matter, `add_city.py` won't guess.
 
 ## Phase 2: Install
