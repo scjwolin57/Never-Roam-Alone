@@ -362,6 +362,8 @@
   .itin-group.trip-selected{background:#f3f3f1;box-shadow:0 0 0 3px rgba(85,107,47,.85)}
   input.date-empty{background:rgba(192,64,32,.5);border-color:#C04020}
   input.date-empty::placeholder{color:#fff;opacity:.95}
+  /* the city-search row when it sits inside the selected trip card */
+  .itin-group .search-row{margin-top:14px;padding-top:14px;border-top:1px solid rgba(85,107,47,.12)}
 
   /* ---------- Wishlist tab ---------- */
   .wish-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
@@ -1153,9 +1155,9 @@
     applyTripSelection();
   }
 
-  /* ---- Upcoming tab: highlight the selected trip and drop the search box below it ----
-     Click any trip to select it (grey fill + green ring); the city-search row
-     then appears right under that trip. With a single trip it's auto-selected. */
+  /* ---- Upcoming tab: highlight the selected trip and put the search box inside it ----
+     The first trip is selected by default (grey fill + green ring); the city-search
+     row lives inside that trip's card. Clicking another trip moves it there. */
   function applyTripSelection(){
     const groups = $("itin-groups"), sr = searchRowEl;
     const cards = Array.from(groups.querySelectorAll(".itin-group"));
@@ -1164,8 +1166,7 @@
       return;
     }
     const ids = cards.map(c => c.dataset.id);
-    if (cards.length === 1) selectedTripId = ids[0];              // one trip → auto-select it
-    else if (!ids.includes(selectedTripId)) selectedTripId = null;
+    if (!ids.includes(selectedTripId)) selectedTripId = ids[0];   // default to the first trip
     let selCard = null;
     cards.forEach(c => {
       const on = c.dataset.id === selectedTripId;
@@ -1174,7 +1175,10 @@
     });
     if (selCard && sr){
       sr.style.display = "";
-      selCard.insertAdjacentElement("afterend", sr);
+      // drop the search box inside the selected trip, above its "Suggest next stop" footer
+      const foot = selCard.querySelector(".ig-foot");
+      if (foot) selCard.insertBefore(sr, foot);
+      else selCard.appendChild(sr);
     } else if (sr){
       parkSearchRow(); sr.style.display = "none";
     }
@@ -1482,7 +1486,7 @@
     });
     /* drag to reorder within a trip */
     groups.querySelectorAll(".ig-stop .drag").forEach(h => h.addEventListener("pointerdown", startTripDrag));
-    /* click anywhere on a trip to select it (search box drops in below it) */
+    /* click anywhere on a trip to select it (search box moves inside it) */
     groups.querySelectorAll(".itin-group").forEach(card => {
       card.addEventListener("click", () => {
         if (selectedTripId === card.dataset.id) return;
