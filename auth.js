@@ -245,18 +245,16 @@ window.NRA_AUTH = (function(){
         closeNavMenu();
         signOut();
       });
-      /* Show the "Admin page" link only for accounts on the blog_admins list.
-         The answer is cached on renderNavWidget so we don't re-ask every render. */
-      (async function revealAdmin(){
+      /* Show the "Admin page" link only for the site owner.
+         For now that's a single hard-coded email — add more to ADMIN_EMAILS
+         later to grant others. This only controls who SEES the link; the
+         admin.html page still has its own is_blog_admin gate. */
+      (function revealAdmin(){
         const link = el.querySelector("#nra-nav-admin");
-        if (!link || !sb) return;
-        if (renderNavWidget._admin === true){ link.hidden = false; return; }
-        if (renderNavWidget._admin === false) return;
-        try{
-          const { data, error } = await sb.rpc("is_blog_admin");
-          renderNavWidget._admin = (!error && data === true);
-          if (renderNavWidget._admin) link.hidden = false;
-        }catch(e){}
+        if (!link) return;
+        const ADMIN_EMAILS = ["jcwolinsky@gmail.com"];
+        const myEmail = ((session.user && session.user.email) || "").toLowerCase();
+        link.hidden = !ADMIN_EMAILS.includes(myEmail);
       })();
     } else {
       renderNavWidget._admin = null; // forget admin status on sign-out so the next sign-in re-checks

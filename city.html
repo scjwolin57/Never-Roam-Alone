@@ -266,6 +266,31 @@
   .cal-submit-btn{background:var(--green);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.9rem;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap}
   .cal-submit-btn:hover{filter:brightness(1.08)}
   .cal-wrap{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px;max-width:640px;margin:0 auto}
+
+  /* Roamers in town (left of the events calendar) */
+  .events-row{display:flex;gap:24px;align-items:flex-start;justify-content:center}
+  .events-row .cal-wrap{flex:1 1 420px;margin:0;min-width:0}
+  .roamers-card{flex:0 0 300px;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px}
+  .rm-head{margin:0 0 4px;font-size:1.15rem;color:var(--green)}
+  .rm-sub{margin:0 0 10px;color:var(--muted);font-size:.82rem;line-height:1.5}
+  .rm-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(85,107,47,.12)}
+  .rm-av{width:38px;height:38px;flex-shrink:0;border-radius:50%;background:var(--green);background-size:cover;background-position:center;color:#fff;font-weight:800;font-size:.82rem;display:flex;align-items:center;justify-content:center}
+  .rm-info{flex:1;min-width:0}
+  .rm-name{font-weight:700;font-size:.92rem;line-height:1.3}
+  .rm-name a{color:var(--green);border-bottom:2px solid transparent;transition:.15s}
+  .rm-name a:hover{color:var(--coral);border-color:var(--coral)}
+  .rm-dates{color:var(--muted);font-size:.76rem}
+  .rm-you{display:inline-block;background:rgba(85,107,47,.12);color:var(--green);font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:9px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+  .rm-msg{flex-shrink:0;background:var(--green);color:#fff;font-weight:700;font-size:.74rem;padding:6px 12px;border-radius:16px;transition:filter .2s;white-space:nowrap}
+  .rm-msg:hover{filter:brightness(1.12)}
+  .rm-note{color:var(--muted);font-size:.86rem;line-height:1.55;margin:8px 0 0}
+  .rm-cta{display:inline-block;margin-top:10px;background:var(--green);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:.84rem;padding:9px 16px;border-radius:18px;cursor:pointer}
+  .rm-cta:hover{filter:brightness(1.12)}
+  @media (max-width:860px){
+    .events-row{flex-direction:column;align-items:stretch}
+    .roamers-card{flex:none}
+    .events-row .cal-wrap{flex:none;max-width:640px;margin:0 auto;width:100%}
+  }
   .cal-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
   .cal-month{font-weight:800;font-size:1.15rem;color:var(--green)}
   .cal-nav-btn{position:relative;background:var(--sand);border:none;width:38px;height:38px;border-radius:9px;font-size:1.1rem;color:var(--ink);cursor:pointer;line-height:1}
@@ -7583,6 +7608,12 @@ if(!c){
         <button type="button" class="cal-submit-btn" id="evt-submit-open">+ Submit an event</button>
       </div>
       <p class="hood-intro">What's happening in ${c.city}. Days with events are highlighted — tap one to see the details. Know about something going on? Submit it and we'll review it for the calendar.</p>
+      <div class="events-row">
+      <aside class="roamers-card" id="roamers-card">
+        <h3 class="rm-head">Roamers in town</h3>
+        <p class="rm-sub">Travelers who've shared plans to roam ${c.city} — say hi before you go.</p>
+        <div id="rm-body"><p class="rm-note">Loading&hellip;</p></div>
+      </aside>
       <div class="cal-wrap">
         <div class="cal-toolbar">
           <button type="button" class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
@@ -7592,6 +7623,7 @@ if(!c){
         <div class="cal-grid" id="cal-dow"></div>
         <div class="cal-grid" id="cal-days"></div>
         <div class="cal-status" id="cal-status">Loading events&hellip;</div>
+      </div>
       </div>
     </section>
 
@@ -7611,6 +7643,115 @@ if(!c){
       </div>
       <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </section>`;
+
+  /* ---------- Roamers in town (left of the events calendar) ----------
+     Shows travelers who shared a public trip that includes this city
+     (public trip + public profile, both opt-in — see roamers-setup.sql).
+     Signed-in members see who + dates + a Message button; signed-out
+     visitors just see the head-count and a sign-in prompt.          */
+  (function initCityRoamers(){
+    const CITY = c.city;
+    const body = document.getElementById("rm-body");
+    if (!body) return;
+    const escR = s => String(s == null ? "" : s).replace(/[&<>"']/g, ch => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[ch]));
+    const MO_R = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    function fdateR(s){
+      const p = String(s||"").split("-");
+      if (p.length !== 3) return s || "";
+      return MO_R[(+p[1]) - 1] + " " + (+p[2]);
+    }
+    function frangeR(a, d){
+      if (a && d){
+        const pa = a.split("-"), pd = d.split("-");
+        if (pa[0] === pd[0] && pa[1] === pd[1]) return fdateR(a) + " – " + (+pd[2]);   // Oct 3 – 8
+        return fdateR(a) + " – " + fdateR(d);                                          // Oct 28 – Nov 2
+      }
+      if (a) return "from " + fdateR(a);
+      return "";
+    }
+    function initialsR(name){
+      const parts = String(name||"").trim().split(/\s+/).filter(Boolean);
+      if (!parts.length) return "R";
+      return (parts[0][0] + (parts.length > 1 ? parts[parts.length-1][0] : "")).toUpperCase();
+    }
+    function avatarR(p){
+      return p.avatar_url
+        ? `<span class="rm-av" style="background-image:url('${escR(p.avatar_url)}')" aria-hidden="true"></span>`
+        : `<span class="rm-av" aria-hidden="true">${escR(initialsR(p.display_name))}</span>`;
+    }
+    function noteR(html){ body.innerHTML = `<p class="rm-note">${html}</p>`; }
+    function signinBtnR(){
+      const b = document.getElementById("rm-signin");
+      if (b) b.addEventListener("click", () => { if (window.NRA_AUTH && NRA_AUTH.openModal) NRA_AUTH.openModal(); });
+    }
+
+    /* wait for auth.js (loaded at the bottom of the page), same pattern
+       as the events calendar below */
+    function getClientR(){
+      return new Promise(resolve => {
+        let tries = 0;
+        (function poll(){
+          if (window.NRA_AUTH && window.NRA_AUTH.enabled){
+            Promise.resolve(window.NRA_AUTH.ready && window.NRA_AUTH.ready())
+              .then(() => resolve(window.NRA_AUTH.client ? window.NRA_AUTH.client() : null))
+              .catch(() => resolve(null));
+            return;
+          }
+          if (tries++ > 100){ resolve(null); return; }   // ~10s then give up
+          setTimeout(poll, 100);
+        })();
+      });
+    }
+
+    let subscribed = false;
+    async function paintRoamers(){
+      const sb = await getClientR();
+      const card = document.getElementById("roamers-card");
+      if (!sb){ if (card) card.style.display = "none"; return; }   // accounts unavailable — hide quietly
+      if (!subscribed && window.NRA_AUTH && NRA_AUTH.onChange){
+        subscribed = true;
+        NRA_AUTH.onChange(() => paintRoamers());   // repaint on sign-in / sign-out
+      }
+      const user = (window.NRA_AUTH && NRA_AUTH.user && NRA_AUTH.user()) || null;
+
+      if (!user){
+        let n = 0;
+        try{
+          const { data, error } = await sb.rpc("city_roamers_count", { city_name: CITY });
+          if (!error && typeof data === "number") n = data;
+        }catch(e){ /* count stays 0 */ }
+        if (n > 0){
+          noteR(`<b>${n}</b> Roamer${n === 1 ? "" : "s"} will be in town soon. Sign in to see who — and say hi.<br><button type="button" class="rm-cta" id="rm-signin">Sign in to see who</button>`);
+        } else {
+          noteR(`No Roamers have shared plans for ${escR(CITY)} yet. Sign in, add it to a trip and tap Share to be the first.<br><button type="button" class="rm-cta" id="rm-signin">Sign in</button>`);
+        }
+        signinBtnR();
+        return;
+      }
+
+      let rows = null;
+      try{
+        const { data, error } = await sb.rpc("city_roamers", { city_name: CITY });
+        if (error) throw error;
+        rows = data || [];
+      }catch(e){
+        noteR(`Couldn't load who's in town right now — please try again later.`);
+        return;
+      }
+      if (!rows.length){
+        noteR(`No Roamers have shared plans for ${escR(CITY)} yet. <a href="itinerary.html?type=upcoming" style="color:var(--green);font-weight:700">Add it to a trip</a> and tap Share to be the first.`);
+        return;
+      }
+      body.innerHTML = rows.map(p => {
+        const me = p.roamer_id === user.id;
+        const name = `<a href="roamer.html?id=${encodeURIComponent(p.roamer_id)}">${escR(p.display_name)}</a>` + (me ? `<span class="rm-you">You</span>` : "");
+        const msg = (!me && p.allow_messages !== false)
+          ? `<a class="rm-msg" href="messages.html?to=${encodeURIComponent(p.roamer_id)}">Message</a>` : "";
+        return `<div class="rm-row">${avatarR(p)}<span class="rm-info"><span class="rm-name">${name}</span><span class="rm-dates" style="display:block">${escR(frangeR(p.arrive, p.depart))}</span></span>${msg}</div>`;
+      }).join("");
+    }
+    paintRoamers();
+  })();
 
   /* ---------- Events calendar (below Day trips) ---------- */
   (function initCityEvents(){

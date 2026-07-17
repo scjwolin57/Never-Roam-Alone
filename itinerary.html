@@ -273,6 +273,39 @@
   }
   .ig-del:hover{background:#b34a3a;color:#fff}
   .ig-del.armed{background:#b34a3a;color:#fff}
+  .ig-share{
+    border:2px solid rgba(85,107,47,.35);background:none;color:var(--green);cursor:pointer;
+    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
+  }
+  .ig-share:hover{background:rgba(85,107,47,.1)}
+  .ig-share.on{background:var(--green);border-color:var(--green);color:#fff}
+  .ig-share.on:hover{background:var(--teal-dark)}
+  .ig-share:disabled{opacity:.6;cursor:default}
+
+  /* ---------- "public profile needed" popup ---------- */
+  .share-overlay{
+    position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+    background:rgba(29,42,50,.55);padding:22px;
+  }
+  .share-overlay.open{display:flex}
+  .share-modal{
+    background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(20,40,50,.35);
+    max-width:440px;width:100%;padding:26px 24px;
+  }
+  .share-modal h3{margin:0 0 10px;font-size:1.25rem;color:var(--ink)}
+  .share-modal p{margin:0 0 18px;color:var(--muted);font-size:.92rem;line-height:1.55}
+  .share-modal .sm-btns{display:flex;flex-direction:column;gap:10px}
+  .share-modal .sm-yes{
+    border:none;background:var(--green);color:#fff;font-weight:700;font-family:inherit;
+    padding:12px 16px;border-radius:14px;cursor:pointer;font-size:.95rem;transition:background .2s;
+  }
+  .share-modal .sm-yes:hover{background:var(--teal-dark)}
+  .share-modal .sm-yes:disabled{opacity:.6;cursor:default}
+  .share-modal .sm-no{
+    border:2px solid rgba(85,107,47,.25);background:none;color:var(--muted);font-weight:700;font-family:inherit;
+    padding:11px 16px;border-radius:14px;cursor:pointer;font-size:.9rem;transition:.2s;
+  }
+  .share-modal .sm-no:hover{border-color:rgba(179,74,58,.4);color:#b34a3a}
   .ig-stop{display:flex;align-items:center;gap:12px;padding:11px 4px;border-top:1px solid rgba(85,107,47,.1)}
   .ig-stop .num{
     width:28px;height:28px;flex-shrink:0;border-radius:50%;
@@ -392,6 +425,18 @@
   </div>
 </div>
 
+<!-- ===== "Public profile needed" popup (shown when sharing a trip) ===== -->
+<div class="share-overlay" id="share-overlay" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+  <div class="share-modal">
+    <h3 id="share-modal-title">A public profile is needed to share your itinerary</h3>
+    <p>Sharing a trip shows your name, photo and travel dates in the &ldquo;Roamers in town&rdquo; section of each city on your route, so other travelers can say hi. For that, your public Roamer profile needs to be on.</p>
+    <div class="sm-btns">
+      <button type="button" class="sm-yes" id="share-modal-yes">Turn on my public profile &amp; share this trip</button>
+      <button type="button" class="sm-no" id="share-modal-no">Not now — keep my profile hidden</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
   <div class="foot-links">
@@ -437,6 +482,7 @@
   let type = ALL_TABS.includes(typeParam) ? typeParam : "upcoming";
   let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past only
   const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
+  let shareOK = true;        // false if itineraries.is_public doesn't exist yet (roamers-setup.sql not run)
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -976,8 +1022,15 @@
     let itins = [], places = [];
     try{
       const sb = NRA_AUTH.client();
-      const r1 = await sb.from("itineraries").select("id,name")
+      // is_public powers the "Share" switch (roamers-setup.sql). If that SQL
+      // hasn't been run yet, fall back gracefully and just hide the switch.
+      let r1 = await sb.from("itineraries").select("id,name,is_public")
         .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      if (r1.error){
+        shareOK = false;
+        r1 = await sb.from("itineraries").select("id,name")
+          .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      }
       if (r1.error) throw r1.error;
       itins = r1.data || [];
       const r2 = await sb.from("itinerary_places").select("id,itinerary_id,place,country,arrive,depart")
@@ -1028,6 +1081,8 @@
       card.innerHTML = `
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
+          ${shareOK ? `<button class="ig-share${it.is_public ? " on" : ""}" type="button" data-share="${esc(String(it.id))}"
+            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — click to make it private" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "Shared ✓" : "Share"}</button>` : ""}
           <div class="ig-view-switch" role="tablist" aria-label="Switch trip view">
             <button type="button" data-view="edit" class="${cardView === "edit" ? "active" : ""}">Edit</button>
             <button type="button" data-view="table" class="${cardView === "table" ? "active" : ""}">Table</button>
@@ -1077,6 +1132,27 @@
         if ((tripCardView[id] || "edit") === b.dataset.view) return;
         tripCardView[id] = b.dataset.view;
         renderItineraries();
+      });
+    });
+    /* share / unshare a trip (public profile required — popup handles that) */
+    groups.querySelectorAll("[data-share]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.share;
+        const isOn = btn.classList.contains("on");
+        if (isOn){
+          btn.disabled = true;
+          try{ await setTripPublic(id, false); status("This trip is private again.", "ok"); renderItineraries(); }
+          catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
+          return;
+        }
+        const p = (window.NRA_AUTH && NRA_AUTH.profile && NRA_AUTH.profile()) || null;
+        if (p && p.is_public){
+          btn.disabled = true;
+          try{ await setTripPublic(id, true); status("Trip shared — you'll now appear in “Roamers in town” on the city pages on this route.", "ok"); renderItineraries(); }
+          catch(e){ btn.disabled = false; status("Couldn't share that — please try again.", "err"); }
+          return;
+        }
+        openShareModal(id);   // profile isn't public yet — ask first
       });
     });
     /* rename an itinerary */
@@ -1184,6 +1260,52 @@
       }
     }catch(e){ status("Couldn't save the new order — please try again.", "err"); }
   }
+
+  /* ---- share a trip publicly ("Roamers in town" on city pages) ---- */
+  async function setTripPublic(id, on){
+    const sb = NRA_AUTH.client();
+    const { error } = await sb.from("itineraries").update({ is_public: !!on }).eq("id", id);
+    if (error) throw error;
+  }
+
+  /* ---- "public profile needed" popup ----
+     Sharing a trip requires the user's public Roamer profile to be on,
+     so other travelers can see who they are. If it's off we ask:
+       1. turn the public profile on (we flip it for them) and share, or
+       2. dismiss — trip stays private, profile stays hidden.       */
+  let shareModalTripId = null;
+  function openShareModal(tripId){
+    shareModalTripId = tripId;
+    const yes = $("share-modal-yes");
+    yes.disabled = false;
+    $("share-overlay").classList.add("open");
+  }
+  function closeShareModal(){
+    shareModalTripId = null;
+    $("share-overlay").classList.remove("open");
+  }
+  $("share-modal-yes").addEventListener("click", async () => {
+    const tripId = shareModalTripId;
+    if (!tripId){ closeShareModal(); return; }
+    const yes = $("share-modal-yes"); yes.disabled = true;
+    try{
+      const r = await NRA_AUTH.updateProfile({ is_public: true });
+      if (!r || !r.ok) throw new Error("profile");
+      await setTripPublic(tripId, true);
+      closeShareModal();
+      status("Your public profile is on and this trip is shared — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
+      renderItineraries();
+    }catch(e){
+      yes.disabled = false;
+      status("Couldn't turn that on — please try again.", "err");
+    }
+  });
+  $("share-modal-no").addEventListener("click", () => {
+    closeShareModal();
+    status("No problem — this trip stays private and your profile stays hidden.", "ok");
+  });
+  $("share-overlay").addEventListener("click", (e) => { if (e.target === $("share-overlay")) closeShareModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("share-overlay").classList.contains("open")) closeShareModal(); });
 
   /* ==================================================================
      WISHLIST TAB — a dateless "someday" list (account only).
