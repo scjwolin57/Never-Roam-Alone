@@ -80,7 +80,12 @@
         "header.nav.nra-nav-open nav.links[data-site-nav] a:hover{background:rgba(192,64,32,.08);" +
           "color:#C04020;border-color:transparent}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a.active{color:#556B2F}" +
-      "}";
+      "}" +
+      // Explorer: square rounded buttons, pills, tags, badges, toggles, inputs site-wide
+      ".btn,.share-btn,.show-more,.rm-cta,.rm-you,.swap,.esim-btn,.tr-map-btn,.back,.back-link,.cal-submit-btn,.cal-nav-btn,.evt-send,.atm-btn,.flights-link,.explore-btn,.cta,.save-btn,.submit-btn,.primary-btn,.msg-btn,.cmp-toggle,.reply-toggle,.trip-add-chip,.gate,.pick-file,.filter-btn,.esim-btn," +
+      ".tag,.season-pill,.count-pill,.visa-badge,.visa-tag,.live-tag,.est-tag,.badge,.age-pill,.tt-badge,.rank-chip,.visit,.chip,.lchip,.ph-tag,.status-msg,.copied-note,.mini-radio,.tab,.pick-tab,.readmore," +
+      ".tag,.pill{border-radius:0 !important}" +
+      "input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{border-radius:0 !important}";
     var s = document.createElement("style");
     s.id = "nra-nav-style";
     s.textContent = css;
