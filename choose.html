@@ -330,6 +330,19 @@
   .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
   footer{background:#2c3a27;border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
+  /* ---- full-design: finder page chrome ---- */
+  .intro .cx{width:24px;height:24px;color:#b0802f;display:block;margin:0 auto 8px}
+  .intro h1 em{font-style:italic;color:var(--coral)}
+  .tool-section[data-tool="finder"] .panel{position:relative;border:1px solid var(--ink);border-radius:3px}
+  .tool-section[data-tool="finder"] .panel::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .tool-section[data-tool="finder"] .panel>*{position:relative;z-index:1}
+  .panel .corner{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--coral);padding:5px 12px;margin:0 0 16px}
+  .results-plate{display:flex;align-items:center;gap:10px;justify-content:center;margin:0 0 6px}
+  .results-plate .cx{width:20px;height:20px;color:#b0802f;flex:none}
+  .results-plate span{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .results-plate b{color:var(--coral)}
+  #finderResults h2 em,#bucketResults h2 em{font-style:italic;color:var(--coral)}
+
 </style>
 </head>
 <body>
@@ -346,8 +359,9 @@
 </header>
 
 <div class="intro hero-banner">
+  <svg class="cx"><use href="#compass"/></svg>
   <p class="kicker">Not sure where to roam?</p>
-  <h1>Inspire My Next Location</h1>
+  <h1>Inspire My Next <em>Location</em></h1>
 </div>
 
 <div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
@@ -369,6 +383,7 @@
 <div class="tool-section" data-tool="finder">
   <div class="chooser">
     <div class="panel">
+      <span class="corner">Trip briefing &middot; 01</span>
       <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
         <strong id="cityCount">101</strong> featured destinations.</p>
       <div class="field-grid">
@@ -1406,9 +1421,10 @@ function renderFinder(){
 
   /* heading */
   const anyFilter = !!(cont || act || budget || nightsIn || geo || pass);
-  const head = anyFilter
-    ? `<h2>Suggested Destinations${cont ? ` in ${CONTINENT_LABEL[cont]}` : ""}${act ? ` for ${act.replace("&amp;","&")}` : ""}</h2>`
-    : `<h2>All ${CITIES.length} featured destinations</h2>`;
+  const plate = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>`;
+  const head = plate + (anyFilter
+    ? `<h2>Suggested Destinations${cont ? ` in <em>${CONTINENT_LABEL[cont]}</em>` : ""}${act ? ` for <em>${act.replace("&amp;","&")}</em>` : ""}</h2>`
+    : `<h2>All <em>${CITIES.length}</em> featured destinations</h2>`);
 
   const hiddenBits = [];
   if(hiddenBudget) hiddenBits.push(`${hiddenBudget} over budget`);
