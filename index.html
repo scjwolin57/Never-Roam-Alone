@@ -36,6 +36,8 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <!-- MapLibre GL (free, open-source map engine — no API key needed) -->
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
@@ -44,26 +46,30 @@
 
 <style>
   :root{
-    --ink:#1d2a32;
-    --muted:#5b6b75;
-    --sand:#f6f1e7;
-    --teal:#556B2F;
-    --teal-dark:#3C4B21;
-    --coral:#C04020;
-    --card:#ffffff;
-    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --ink:#2b2417;
+    --muted:#82755b;
+    --sand:#ece2cc;
+    --teal:#3f5138;
+    --teal-dark:#2c3a27;
+    --coral:#a8482a;
+    --card:#f6efdd;
+    --shadow:0 12px 30px rgba(43,36,23,.18);
     --maxw:1180px;
+    --paper-2:#e3d7bc;--brass:#b0802f;--brass-lt:#c99a45;--rust-dk:#8a3a20;--green-dk:#2c3a27;
+    --line:rgba(43,36,23,.20);--line-soft:rgba(43,36,23,.12);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);
-    background:var(--sand);
+    background-color:var(--sand);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3Cpath d='M-40 90c70-34 150-20 195 30M330 -10c34 60 118 70 190 48M-30 470c82 14 140-36 175-84'/%3E%3C/g%3E%3C/svg%3E");
+    background-position:0 0,center;
     line-height:1.6;
   }
-  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em}
   a{color:inherit;text-decoration:none}
 
   /* ---------- Menu bar ---------- */
@@ -121,10 +127,10 @@
   .legend-toggle.visible{display:inline-flex;}
   .map-legend b{display:block;margin-bottom:6px;font-size:.82rem;padding-right:16px}
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
-  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(192,64,32,.55);border:1.5px solid var(--coral)}
-  .legend-bubble.purple{background:rgba(126,87,194,.55);border-color:#7e57c2}
-  .legend-bubble.pink{background:rgba(244,143,177,.55);border-color:#f48fb1}
-  .legend-bubble.yellow{background:rgba(255,224,130,.55);border-color:#ffe082}
+  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(138,58,32,.55);border:1.5px solid #8a3a20}
+  .legend-bubble.purple{background:rgba(168,72,42,.5);border-color:#a8482a}
+  .legend-bubble.pink{background:rgba(176,128,47,.5);border-color:#b0802f}
+  .legend-bubble.yellow{background:rgba(138,154,91,.55);border-color:#8a9a5b}
   .map-note{max-width:var(--maxw);margin:0 auto;padding:6px 22px 0;color:var(--muted);font-size:.78rem;text-align:center}
 
   /* Tooltip / popup */
@@ -194,9 +200,69 @@
     .about h3{font-size:1.2rem;margin-bottom:6px}
     .about p{font-size:.9rem;margin-bottom:8px}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  header.nav{background:rgba(236,226,204,.93);border-bottom:1px solid var(--ink)}
+  .brand .dot{display:none}
+  .brand small{font-family:'IBM Plex Mono',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:var(--brass)}
+
+  .hero p.kicker{font-family:'IBM Plex Mono',monospace;color:var(--teal);letter-spacing:.24em}
+  .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
+
+  #map{border-radius:0;border:1px solid var(--ink);box-shadow:0 16px 40px rgba(43,36,23,.22)}
+  .map-wrap::before,.map-wrap::after{content:"";position:absolute;width:26px;height:26px;z-index:6;pointer-events:none}
+  .map-wrap::before{left:30px;top:-8px;border-left:3px solid var(--brass);border-top:3px solid var(--brass)}
+  .map-wrap::after{right:30px;bottom:2px;border-right:3px solid var(--brass);border-bottom:3px solid var(--brass)}
+  .map-legend{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.2)}
+  .map-legend b{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
+  .legend-toggle{background:var(--card);border:1px solid var(--ink);border-radius:0;color:var(--coral)}
+  .map-note{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.05em}
+
+  .maplibregl-popup-content{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:4px 4px 0 rgba(43,36,23,.35)}
+  .tip-city{font-family:'Fraunces',serif;font-weight:700}
+  .tip-num{color:var(--coral);font-family:'Fraunces',serif}
+  .tip-num span{font-family:'IBM Plex Mono',monospace}
+  .explore-btn{border-radius:0;background:var(--coral);font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+  .explore-btn:hover{background:var(--rust-dk)}
+
+  .section-head .cx{width:22px;height:22px;color:var(--brass);display:block;margin:0 auto 6px}
+  .section-head .kicker{font-family:'IBM Plex Mono',monospace;color:var(--teal);letter-spacing:.22em}
+
+  .about{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:0 12px 28px rgba(43,36,23,.2);position:relative;gap:44px}
+  .about::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .about>*{position:relative;z-index:1}
+  .about .photo-frame{background:#fffdf6;border:1px solid var(--line);padding:10px 10px 40px;transform:rotate(-2.4deg);box-shadow:0 12px 26px rgba(43,36,23,.28);position:relative}
+  .about .photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;display:block;filter:sepia(.2) saturate(.95)}
+  .about .photo-frame::after{content:"Giza, Egypt";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Amatic SC',cursive;font-size:1.4rem;color:var(--muted)}
+  .about .sig{font-family:'Amatic SC',cursive;color:var(--coral);font-size:1.9rem;font-style:normal}
+  @media(max-width:880px){.about .photo-frame{padding:6px 6px 26px}.about .photo-frame::after{font-size:1rem;bottom:3px}}
+
+  .tile{border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.14)}
+  .tile:hover{box-shadow:0 16px 32px rgba(43,36,23,.22)}
+  .tile .photo{filter:sepia(.18) saturate(.95)}
+  .tile .tag{background:var(--coral);border-radius:0;font-family:'IBM Plex Mono',monospace;letter-spacing:.1em}
+  .tile .date{font-family:'IBM Plex Mono',monospace;color:var(--coral);letter-spacing:.1em}
+  .tile .readmore{font-family:'IBM Plex Mono',monospace;color:var(--coral);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+  .all-stories a{background:var(--coral);border-radius:0;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;padding:14px 30px}
+  .all-stories a:hover{background:var(--rust-dk)}
+
+  footer{background:var(--green-dk);color:#d8d0b8;border-top:5px solid var(--brass)}
+  footer .brand{color:var(--brass-lt)}
+  footer .foot-links a{color:#c6bd9f}
+  footer .foot-links a:hover{color:#fff;border-color:var(--brass)}
+
+  /* email signup -> field dispatch (mailing-list.js injects its own CSS later, so use !important) */
+  .nra-ml{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
+  .nra-ml .ml-kicker{font-family:'IBM Plex Mono',monospace!important;color:var(--teal)!important;letter-spacing:.2em!important}
+  .nra-ml h2{font-family:'Fraunces',serif!important;font-weight:700!important}
+  .nra-ml input{border-radius:0!important;border:1px solid var(--ink)!important;background:var(--sand)!important}
+  .nra-ml button{border-radius:0!important;background:var(--coral)!important;font-family:'IBM Plex Mono',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+  .nra-ml button:hover{background:var(--rust-dk)!important}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <!-- ===== Menu bar ===== -->
 <header class="nav">
@@ -240,10 +306,11 @@
 <!-- ===== About ===== -->
 <section class="block" id="about">
   <div class="section-head">
+    <svg class="cx"><use href="#compass"/></svg>
     <h2>About Me</h2>
   </div>
   <div class="about">
-    <img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" />
+    <div class="photo-frame"><img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" /></div>
     <div>
       <h3>Hi, I'm Jeff</h3>
       <p>I got bit by the travel bug a bit later than many, but like they say, it's never too late to start anything. What started for me as an escape from the stresses of life has turned into a love of exploration and discovery. I have been fortunate enough to have visited over 60 countries in 5 continents so far, with plans for many more.</p>
@@ -256,6 +323,7 @@
 <!-- ===== Latest stories (top 3 from posts.js) ===== -->
 <section class="block" id="blog">
   <div class="section-head">
+    <svg class="cx"><use href="#compass"/></svg>
     <p class="kicker">Stories from the road</p>
     <h2>Latest Posts</h2>
   </div>
@@ -288,46 +356,6 @@
    meant for layout — easy to replace with a verified dataset later.
 ----------------------------------------------------------*/
 const CITIES = [
-  {"city":"Yokohama","country":"Japan","lng":139.65,"lat":35.4333,"visitors":2.5},
-  {"city":"Xiamen","country":"China","lng":118.0819,"lat":24.4798,"visitors":90},
-  {"city":"Wuxi","country":"China","lng":120.2886,"lat":31.5689,"visitors":20},
-  {"city":"Tianshui","country":"China","lng":105.7424,"lat":34.5795,"visitors":2.5},
-  {"city":"Qingdao","country":"China","lng":120.3804,"lat":36.0649,"visitors":8},
-  {"city":"Ningbo","country":"China","lng":121.5494,"lat":29.8782,"visitors":3.5},
-  {"city":"Kunming","country":"China","lng":102.7183,"lat":25.0389,"visitors":60},
-  {"city":"Kano","country":"Nigeria","lng":8.5167,"lat":12.0001,"visitors":0.3},
-  {"city":"Ibadan","country":"Nigeria","lng":3.9059,"lat":7.3776,"visitors":0.3},
-  {"city":"Hyderabad","country":"India","lng":78.4564,"lat":17.384,"visitors":3.0},
-  {"city":"Foshan","country":"China","lng":113.1315,"lat":23.0268,"visitors":2.5},
-  {"city":"Chittagong","country":"Bangladesh","lng":91.8317,"lat":22.3384,"visitors":0.5},
-  {"city":"Ankara","country":"Türkiye","lng":32.8543,"lat":39.9199,"visitors":1.0},
-  {"city":"Alexandria","country":"Egypt","lng":29.9158,"lat":31.2018,"visitors":1.5},
-  {"city":"Ahmedabad","country":"India","lng":72.5873,"lat":23.0258,"visitors":5.5},
-  {"city":"Zhengzhou","country":"China","lng":113.6486,"lat":34.7578,"visitors":15},
-  {"city":"Tai'an","country":"China","lng":117.12,"lat":36.1853,"visitors":9},
-  {"city":"Suzhou","country":"China","lng":120.5954,"lat":31.3041,"visitors":100},
-  {"city":"Shenyang","country":"China","lng":123.4328,"lat":41.7922,"visitors":1.5},
-  {"city":"Shantou","country":"China","lng":116.7148,"lat":23.3681,"visitors":30},
-  {"city":"Saint Petersburg","country":"Russia","lng":30.3141,"lat":59.9386,"visitors":9.0},
-  {"city":"Lahore","country":"Pakistan","lng":74.3507,"lat":31.558,"visitors":0.8},
-  {"city":"Kolkata","country":"India","lng":88.363,"lat":22.5626,"visitors":2.0},
-  {"city":"Jinan","country":"China","lng":116.9972,"lat":36.6683,"visitors":9},
-  {"city":"Harbin","country":"China","lng":126.65,"lat":45.75,"visitors":9.5},
-  {"city":"Hangzhou","country":"China","lng":120.1614,"lat":30.2936,"visitors":30},
-  {"city":"Dalian","country":"China","lng":121.6022,"lat":38.9122,"visitors":3},
-  {"city":"Chennai","country":"India","lng":80.2785,"lat":13.0878,"visitors":5.0},
-  {"city":"Changchun","country":"China","lng":125.3228,"lat":43.88,"visitors":3.0},
-  {"city":"Bengaluru","country":"India","lng":77.5937,"lat":12.9719,"visitors":2.0},
-  {"city":"Xi'an","country":"China","lng":108.9286,"lat":34.2583,"visitors":30},
-  {"city":"Wuhan","country":"China","lng":114.2667,"lat":30.5833,"visitors":30},
-  {"city":"Tianjin","country":"China","lng":117.1767,"lat":39.1422,"visitors":2.5},
-  {"city":"Nanjing","country":"China","lng":118.7778,"lat":32.0617,"visitors":12},
-  {"city":"Nanchong","country":"China","lng":106.0847,"lat":30.7951,"visitors":1.5},
-  {"city":"Mumbai","country":"India","lng":72.8826,"lat":19.0728,"visitors":6},
-  {"city":"Jakarta","country":"Indonesia","lng":106.8451,"lat":-6.2146,"visitors":2.5},
-  {"city":"Dongguan","country":"China","lng":113.7487,"lat":23.018,"visitors":4.0},
-  {"city":"Chongqing","country":"China","lng":106.5528,"lat":29.5628,"visitors":65},
-  {"city":"Chengdu","country":"China","lng":104.0667,"lat":30.6667,"visitors":6.5},
   {"city":"Ibiza","country":"Spain","lng":1.4206,"lat":38.9067,"visitors":3.5},
   {"city":"Victoria Falls","country":"Zimbabwe","lng":25.8309,"lat":-17.9316,"visitors":0.6},
   {"city":"Lusaka","country":"Zambia","lng":28.3228,"lat":-15.3875,"visitors":1.3},
@@ -605,10 +633,10 @@ map.on("load", () => {
   // under 1M small yellow, under 5M slightly larger pink, under 12M slightly
   // larger purple, 12M+ same size/color the map has always used (coral, scaling on up).
   const bubbleColor = ["step", ["get","visitors"],
-    "#ffe082",
-    1, "#f48fb1",
-    5, "#7e57c2",
-    12, "#C04020"
+    "#8a9a5b",
+    1, "#b0802f",
+    5, "#a8482a",
+    12, "#8a3a20"
   ];
   const bubbleRadius = ["step", ["get","visitors"],
     6,
