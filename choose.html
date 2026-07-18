@@ -393,6 +393,29 @@
   .nra-chips .lchip{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:8px 15px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:.15s}
   .nra-chips .lchip:hover{color:var(--ink);border-color:var(--teal)}
   .nra-chips .lchip.on{background:rgba(63,81,56,.14);border-color:var(--teal);color:var(--ink)}
+
+  /* ---- full-design v5: unify ALL finder fields to one spec (incl. date pickers) ---- */
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]),
+  .tool-section[data-tool="finder"] .panel .select-wrap select,
+  .tool-section[data-tool="finder"] .panel input.flatpickr-input,
+  .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput{
+    width:100%;
+    background:var(--sand);
+    border:1px solid var(--ink);
+    color:var(--ink);
+    padding:12px 14px;
+    font-family:'Work Sans',sans-serif;
+    font-size:.9rem;
+    border-radius:0;
+    box-shadow:none;
+  }
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]):focus,
+  .tool-section[data-tool="finder"] .panel .select-wrap select:focus,
+  .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput:focus{
+    outline:none;border-color:var(--coral);
+  }
+  /* native date icon tinted to match the palette (fallback when flatpickr is off) */
+  .tool-section[data-tool="finder"] .panel input[type=date]::-webkit-calendar-picker-indicator{filter:sepia(1) saturate(4) hue-rotate(-15deg) brightness(.7)}
 </style>
 </head>
 <body>
