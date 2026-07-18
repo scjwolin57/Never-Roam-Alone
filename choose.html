@@ -416,6 +416,27 @@
   }
   /* native date icon tinted to match the palette (fallback when flatpickr is off) */
   .tool-section[data-tool="finder"] .panel input[type=date]::-webkit-calendar-picker-indicator{filter:sepia(1) saturate(4) hue-rotate(-15deg) brightness(.7)}
+
+  /* ---- full-design v6: content-fit field widths (whole form, wraps on mobile) ---- */
+  .tool-section[data-tool="finder"] .field-grid{align-items:start}
+  .tool-section[data-tool="finder"] .autocomplete{max-width:22rem}            /* Traveling from */
+  .tool-section[data-tool="finder"] .sw-narrow{max-width:15rem}               /* Where / Passport */
+  .tool-section[data-tool="finder"] #totalBudget{max-width:12rem}             /* Total budget */
+  .tool-section[data-tool="finder"] #nights{max-width:10rem}                  /* Trip length */
+  .tool-section[data-tool="finder"] #departDate,
+  .tool-section[data-tool="finder"] #returnDate{max-width:13rem}              /* Dates */
+  /* keep them from stretching even when their grid cell is wider */
+  .tool-section[data-tool="finder"] .field-grid > div > .autocomplete,
+  .tool-section[data-tool="finder"] .field-grid > div > .select-wrap{width:100%}
+
+  /* ---- full-design v7: force responsive column count (last-word cascade) ---- */
+  @media(max-width:620px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}}
+  @media(min-width:621px) and (max-width:900px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr 1fr!important}}
+  @media(min-width:901px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(3,1fr)!important}}
+
+  /* ---- full-design v8: span-2 as class + responsive (fixes mobile implicit column) ---- */
+  .tool-section[data-tool="finder"] .span2{grid-column:span 2}
+  @media(max-width:900px){.tool-section[data-tool="finder"] .span2{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -475,7 +496,7 @@
         </div>
         <div>
           <label class="field" for="continent">Where in the world?</label>
-          <div class="select-wrap">
+          <div class="select-wrap sw-narrow">
             <select id="continent">
               <option value="" selected>I'm open to anywhere</option>
               <option value="africa">Africa</option>
@@ -488,7 +509,7 @@
             </select>
           </div>
         </div>
-        <div style="grid-column:span 2">
+        <div class="span2">
           <label class="field" for="travelBy">Get there by</label>
           <div class="select-wrap">
             <select id="travelBy">
@@ -556,7 +577,7 @@
             <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
           </div>
         </div>
-        <div>
+        <div class="span2">
           <label class="field" for="travelStyle">Travel budget style</label>
           <div class="select-wrap">
             <select id="travelStyle">
@@ -569,7 +590,7 @@
         </div>
         <div>
           <label class="field" for="finderPassport">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <div class="select-wrap">
+          <div class="select-wrap sw-narrow">
             <select id="finderPassport">
               <option value="" selected>Not now</option>
             </select>
