@@ -620,6 +620,15 @@
 
   footer{background:var(--green-dk);border-top:5px solid var(--brass)}
   footer .brand{color:var(--brass-lt)}
+
+  /* ---- full-design: city guide chrome ---- */
+  .coords{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.12em;color:#e9dcbb;margin:0 0 6px}
+  .plate{display:flex;align-items:center;gap:12px;margin:0 0 16px}
+  .plate .cx{width:22px;height:22px;color:#b0802f;flex:none}
+  .plate .tag{font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#82755b;white-space:nowrap}
+  .plate .tag b{color:#a8482a}
+  .plate .dotline{flex:1;border-top:1px dashed rgba(43,36,23,.2)}
+  .sec-head em{font-style:italic;color:#a8482a}
 </style>
 </head>
 <body>
@@ -8567,11 +8576,17 @@ if(!c){
       ${dt.full.length ? `<div class="daytrip-sub">Full day &middot; over 2 hours one way</div>
       <div class="daytrip-grid">${dt.full.map(dtCardHTML).join("")}</div>` : ""}`;
 
+  const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")
+    ? `${Math.abs(c.lat).toFixed(4)}\u00b0 ${c.lat>=0?"N":"S"} \u00b7 ${Math.abs(c.lng).toFixed(4)}\u00b0 ${c.lng>=0?"E":"W"}` : "";
+  const _plateNo = (CITIES.findIndex(x=>x.city===c.city)+1) || 0;
+  const _coordsLine = `<p class="coords">${_coordStr ? _coordStr + " &nbsp;\u00b7&nbsp; " : ""}Plate \u2116 ${String(_plateNo).padStart(3,"0")} / ${CITIES.length}</p>`;
+  const plate = (n,label) => `<div class="plate"><svg class="cx"><use href="#compass"/></svg><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
       <div class="hero-inner">
         <div class="crumb"><a href="${crumbHref}">${crumbText}</a> &nbsp;/&nbsp; ${c.country}</div>
+        ${_coordsLine}
         <h1>${c.city}</h1>
         <div class="country">${c.country}</div>
         <p class="tagline">${c.tagline}</p>
@@ -8585,8 +8600,10 @@ if(!c){
       <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
       <div class="placeholder-note">📝 Placeholder text — this intro, the photos, and the stories below are samples. Real content gets added per city as you publish.</div>
 
+      ${plate("01","Season &amp; duration")}
       ${buildVisitSection(c.city)}
 
+      ${plate("02","Fast facts")}
       <div class="facts">
         <div class="fact fact-wide">
           <div class="temp-head">
@@ -8656,25 +8673,29 @@ if(!c){
     </section>
 
     <section style="padding-top:0">
-      <h2 class="sec-head">Getting to/from ${c.city}</h2>
+      ${plate("03","Passage")}
+      <h2 class="sec-head">Getting to/from <em>${c.city}</em></h2>
       ${CITY_TRANSPORT[c.city] ? '<div id="transport-cards" class="transport-grid"></div>' : `<p class="hood-intro">Detailed getting-around info for ${c.city} is coming soon.</p>`}
       <div id="transit-card" class="fact transit-banner" hidden></div>
     </section>
 
     <section style="padding-top:0">
-      <h2 class="sec-head">Neighborhood guide &mdash; ${c.city}</h2>
+      ${plate("04","Quarters")}
+      <h2 class="sec-head">Neighborhood guide &mdash; <em>${c.city}</em></h2>
       ${hoods.length ? `<p class="hood-intro">A quick look at ${c.city}'s most distinctive neighborhoods — the character of each and who it suits — to help you choose the right base for your trip. Lodging picks are well-known local options — check current availability before booking.</p>
       <div class="hoods">${hoodsHTML}</div>` : `<p class="hood-intro">Neighborhood guides for ${c.city} are coming soon.</p>`}
     </section>
 
     <section style="padding-top:0">
-      <h2 class="sec-head">Day trips from ${c.city}</h2>
+      ${plate("05","Excursions")}
+      <h2 class="sec-head">Day trips from <em>${c.city}</em></h2>
       ${dayTripsHTML ? dayTripsHTML : `<p class="hood-intro">Day trip picks for ${c.city} are coming soon.</p>`}
     </section>
 
     <section style="padding-top:0" id="events-section">
+      ${plate("06","Happenings")}
       <div class="cal-head-row">
-        <h2 class="sec-head" style="margin:0">Events in ${c.city}</h2>
+        <h2 class="sec-head" style="margin:0">Events in <em>${c.city}</em></h2>
         <button type="button" class="cal-submit-btn" id="evt-submit-open">+ Submit an event</button>
       </div>
       <p class="hood-intro">What's happening in ${c.city}. Days with events are highlighted — tap one to see the details. Know about something going on? Submit it and we'll review it for the calendar.</p>
@@ -8698,7 +8719,8 @@ if(!c){
     </section>
 
     <section style="padding-top:0">
-      <h2 class="sec-head">Stories from ${c.city}</h2>
+      ${plate("07","Dispatches")}
+      <h2 class="sec-head">Stories from <em>${c.city}</em></h2>
       <div class="tiles">
         ${stories.map(s=>`
           <a class="tile" href="post.html?post=${encodeURIComponent(s.s)}">
