@@ -277,10 +277,14 @@
   .story .frame{position:relative;width:92px;height:92px;border:2px solid var(--ink);background:var(--sand);padding:4px}
   .story:hover .frame{border-color:var(--coral)}
   .story .frame .ph{width:100%;height:100%;background-size:cover;background-position:center;background-color:var(--paper-2);filter:sepia(.18) saturate(.95)}
-  .story .frame .wpt{position:absolute;top:-9px;left:-9px;background:var(--coral);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:600;letter-spacing:.08em;padding:3px 6px}
+  .story .cat{display:inline-block;margin-top:6px;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.54rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;line-height:1.4}
+  .story .cat.fx-new{background:var(--coral)}
+  .story .cat.fx-top{background:var(--teal)}
+  .story .cat.fx-under{background:var(--brass)}
+  .story .cat.fx-season{background:var(--rust-dk)}
   .story .frame .pin{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--brass);border:2px solid var(--sand);box-shadow:0 0 6px rgba(176,128,47,.6)}
   .story figcaption{text-align:center}
-  .story figcaption .nm{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
+  .story figcaption .nm{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
   .story figcaption small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--teal);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
   .story figcaption small .hv{color:var(--coral)}
   @media(max-width:560px){.stories::before{display:none}.story .frame{width:78px;height:78px}}
@@ -660,28 +664,44 @@ const CITIES = [
   {city:"Cairo", country:"Egypt", lng:31.2357, lat:30.0444, visitors:9.0, est:true},
 ];
 
-/* ===== Waypoint featured cities (real data from CITIES + city-photos.js) ===== */
+/* ===== Featured cities — 4 curated slots (real photos + guide links) ===== */
 (function(){
+  /* Which city fills each slot will be driven by real data soon
+     (newest guide, top visited, editor's underrated pick, seasonal pick).
+     For now these are easy-to-edit placeholders — just change the "city"
+     values below. Each must match a city name in the CITIES list above. */
+  var FEATURED = [
+    { label:"New article",            city:"Kyoto",     cls:"fx-new" },
+    { label:"Top visited",            city:"Hong Kong", cls:"fx-top" },
+    { label:"Underrated destination", city:"Lisbon",    cls:"fx-under" },
+    { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season" }
+  ];
   function ph(name){
     var rec = (window.NRA_CITY_PHOTO || {})[name];
     return (rec && rec.img) ? rec.img : "";
   }
+  function find(name){
+    if (typeof CITIES === "undefined") return null;
+    for (var i=0;i<CITIES.length;i++){ if (CITIES[i].city === name) return CITIES[i]; }
+    return null;
+  }
   function render(){
     var el = document.getElementById("featured-cities");
-    if (!el || typeof CITIES === "undefined") return;
-    var top = CITIES.slice().sort(function(a,b){return (b.visitors||0)-(a.visitors||0);}).slice(0,7);
+    if (!el) return;
     // reflect the real catalogue size in the social-proof line
     var sp = document.getElementById("sp-cities");
-    if (sp) sp.textContent = CITIES.length + " cities";
-    el.innerHTML = top.map(function(c,i){
-      var img = ph(c.city);
+    if (sp && typeof CITIES !== "undefined") sp.textContent = CITIES.length + " cities";
+    el.innerHTML = FEATURED.map(function(f){
+      var c = find(f.city);
+      var country = c ? c.country : "";
+      var img = ph(f.city);
       var bg = img ? "background-image:url('"+img+"')" : "";
-      var v = (c.visitors!=null) ? (c.visitors>=1 ? c.visitors+"M" : Math.round(c.visitors*1000)+"k") : "";
-      var stat = v ? '<span class="hv">'+v+' visitors/yr</span>' : c.country;
-      return '<a class="story" href="city.html?city='+encodeURIComponent(c.city)+'">'
-        + '<div class="frame"><span class="wpt">WPT 0'+(i+1)+'</span>'
-        + '<div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
-        + '<figcaption><span class="nm">'+c.city+'</span><small>'+stat+'</small></figcaption></a>';
+      return '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
+        + '<div class="frame"><div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
+        + '<figcaption><span class="nm">'+f.city+'</span>'
+        + '<span class="cat '+f.cls+'">'+f.label+'</span>'
+        + (country ? '<small>'+country+'</small>' : '')
+        + '</figcaption></a>';
     }).join("");
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
