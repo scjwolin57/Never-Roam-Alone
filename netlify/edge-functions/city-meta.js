@@ -31,6 +31,21 @@ import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.t
 const SITE = "https://neverroamalone.com";
 
 const CITY_META = {
+  "yokohama": {"city":"Yokohama","slug":"yokohama","tagline":"Japan's cosmopolitan port city, where a futuristic bay skyline meets the country's largest Chinatown."},
+  "xiamen": {"city":"Xiamen","slug":"xiamen","tagline":"Fujian's island city of colonial Gulangyu, sea breezes, and oolong tea."},
+  "wuxi": {"city":"Wuxi","slug":"wuxi","tagline":"Canal town on Lake Tai, ringed by classical gardens, cherry blossoms, and a giant hilltop Buddha."},
+  "tianshui": {"city":"Tianshui","slug":"tianshui","tagline":"Silk Road city of Gansu, guardian of the Maijishan grottoes."},
+  "qingdao": {"city":"Qingdao","slug":"qingdao","tagline":"German colonial charm, Tsingtao beer, and Yellow Sea beaches on China's Shandong coast."},
+  "ningbo": {"city":"Ningbo","slug":"ningbo","tagline":"One of the world's busiest ports, where an ancient library and the Old Bund meet the East China Sea."},
+  "kunming": {"city":"Kunming","slug":"kunming","tagline":"China's mild-weather 'Spring City' and the gateway to Yunnan and the Stone Forest."},
+  "kano": {"city":"Kano","slug":"kano","tagline":"Ancient Sahel trading city of mud-walled markets, indigo dye pits, and Hausa heritage."},
+  "ibadan": {"city":"Ibadan","slug":"ibadan","tagline":"Nigeria's vast Yoruba metropolis of rust-red rooftops, cocoa-trade history, and its first university."},
+  "hyderabad": {"city":"Hyderabad","slug":"hyderabad","tagline":"City of pearls and biryani, where Nizami palaces meet the glass towers of HITEC City."},
+  "foshan": {"city":"Foshan","slug":"foshan","tagline":"Guangdong's kung-fu heartland of Lingnan temples, ceramics, and Cantonese feasts."},
+  "chittagong": {"city":"Chittagong","slug":"chittagong","tagline":"Bangladesh's port city of hills, sea, and Mezban feasts."},
+  "ankara": {"city":"Ankara","slug":"ankara","tagline":"Türkiye's modernist capital, from Atatürk's mausoleum to an ancient hilltop citadel."},
+  "alexandria": {"city":"Alexandria","slug":"alexandria","tagline":"Egypt's Mediterranean pearl, where the ghost of the ancient Library meets a sea-swept corniche."},
+  "ahmedabad": {"city":"Ahmedabad","slug":"ahmedabad","tagline":"India's first UNESCO World Heritage city — Gandhi's ashram, carved-wood pols, and Gujarati street food."},
   "zhengzhou": {"city":"Zhengzhou","slug":"zhengzhou","tagline":"Henan's ancient crossroads where China's rail lines and dynasties converge, gateway to Shaolin and the Yellow River."},
   "tai'an": {"city":"Tai'an","slug":"tai-an","tagline":"Gateway to sacred Mount Tai, holiest of China's five great peaks."},
   "suzhou": {"city":"Suzhou","slug":"suzhou","tagline":"The 'Venice of the East' - classical gardens, silk, and canal-woven old lanes an hour from Shanghai."},
