@@ -313,6 +313,33 @@
   .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
   footer{background:#2c3a27;border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
+
+  /* ---- full-design: roamer cover brackets + compass watermark ---- */
+  .pcard .cover{position:relative}
+  .pcard .cover::before,.pcard .cover::after{content:"";position:absolute;width:26px;height:26px;z-index:3;pointer-events:none}
+  .pcard .cover::before{left:14px;top:14px;border-left:2px solid #c99a45;border-top:2px solid #c99a45}
+  .pcard .cover::after{right:14px;top:14px;border-right:2px solid #c99a45;border-top:2px solid #c99a45}
+
+  /* ---- full-design: section headings -> plate labels ---- */
+  .sec-zone > h3,.articles-zone h3,.travelmap-zone h3{
+    font-family:'IBM Plex Mono',monospace!important;font-size:.7rem!important;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted)!important;font-weight:600;display:flex;align-items:center;gap:10px;
+    border-top:1.5px solid var(--ink);padding-top:16px;margin-bottom:14px}
+  .sec-zone > h3 .cx,.articles-zone h3 .cx,.travelmap-zone h3 .cx{width:18px;height:18px;color:#b0802f;flex:none}
+
+  /* ---- full-design: dossier chips + socials + labels ---- */
+  .chip-group .group-label{font-family:'IBM Plex Mono',monospace!important;color:var(--green)!important;letter-spacing:.14em!important;font-weight:600!important}
+  .chip{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)!important}
+  .chip.goal{background:rgba(63,81,56,.1)!important;border-color:var(--green)!important}
+  a.social-btn{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important}
+  a.social-btn:hover{border-color:var(--coral)!important;color:var(--coral)!important}
+
+  /* ---- full-design: identity polish ---- */
+  .whoname{font-family:'Fraunces',serif!important;font-weight:900!important}
+  .tt-badge{background:var(--coral)!important;border-radius:0!important;font-family:'IBM Plex Mono',monospace!important;letter-spacing:.06em!important}
+  .bio{font-style:italic;font-family:'Fraunces',serif!important}
+  .avatar{border-radius:50%}
+  .r-travel-map,.travelmap-zone [id="r-travel-map"]{border:1px solid var(--ink);border-radius:0}
 </style>
 </head>
 <body>
@@ -382,12 +409,12 @@
     <div id="r-stories"></div>
 
     <div class="sec-zone" id="r-gallery" style="display:none">
-      <h3>Favorite travel photos</h3>
+      <h3><svg class="cx"><use href="#compass"/></svg>Favorite travel photos</h3>
       <div class="g-grid" id="r-gallery-grid"></div>
     </div>
 
     <div class="articles-zone" id="r-articles" style="display:none">
-      <h3>Articles</h3>
+      <h3><svg class="cx"><use href="#compass"/></svg>Articles</h3>
       <p class="sub">Stories this Roamer has contributed as a trusted traveler.</p>
       <div id="r-articles-list"></div>
     </div>
@@ -395,7 +422,7 @@
     <!-- Personal Travel Map (read-only): only the places/landmarks this
          Roamer has marked "been there" — see visited.js / travel-map-setup.sql -->
     <div class="travelmap-zone" id="r-travelmap" style="display:none">
-      <h3>&#127757; <span id="r-travelmap-name"></span>'s Travels</h3>
+      <h3><svg class="cx"><use href="#compass"/></svg><span id="r-travelmap-name"></span>'s Travels</h3>
       <p class="travelmap-stats" id="r-travelmap-stats"></p>
       <div id="r-travel-map" class="r-travel-map"></div>
       <p class="map-fallback" id="r-travelmap-fallback" hidden>Map couldn't load — see the list below.</p>
