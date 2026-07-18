@@ -437,6 +437,35 @@
   /* ---- full-design v8: span-2 as class + responsive (fixes mobile implicit column) ---- */
   .tool-section[data-tool="finder"] .span2{grid-column:span 2}
   @media(max-width:900px){.tool-section[data-tool="finder"] .span2{grid-column:1/-1}}
+
+  /* ---- MATCH MOCKUP: exact 3-col grid, inputs fill their columns ---- */
+  .tool-section[data-tool="finder"] .field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 22px;align-items:start}
+  .tool-section[data-tool="finder"] .fld-love{grid-column:span 2}
+  /* inputs fill the column (remove the earlier per-field width caps) */
+  .tool-section[data-tool="finder"] .autocomplete,
+  .tool-section[data-tool="finder"] .sw-narrow,
+  .tool-section[data-tool="finder"] .select-wrap,
+  .tool-section[data-tool="finder"] #totalBudget,
+  .tool-section[data-tool="finder"] #nights,
+  .tool-section[data-tool="finder"] #departDate,
+  .tool-section[data-tool="finder"] #returnDate,
+  .tool-section[data-tool="finder"] .origin-input,
+  .tool-section[data-tool="finder"] .num-input{max-width:none!important;width:100%}
+  @media(max-width:900px){
+    .tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,1fr)!important}
+    .tool-section[data-tool="finder"] .fld-love{grid-column:1/-1}
+  }
+  @media(max-width:620px){
+    .tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}
+    .tool-section[data-tool="finder"] .fld-love{grid-column:auto}
+  }
+
+  /* ---- MATCH MOCKUP (authoritative): equal columns, controls fit within ---- */
+  @media(min-width:901px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+  @media(min-width:621px) and (max-width:900px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+  @media(max-width:620px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}}
+  .tool-section[data-tool="finder"] .nra-seg span{min-width:0;flex:1 1 auto;font-size:.72rem;padding:11px 4px}
+  .tool-section[data-tool="finder"] .nra-chips .lchip{font-size:.74rem;padding:8px 12px}
 </style>
 </head>
 <body>
@@ -482,7 +511,7 @@
       <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
         <strong id="cityCount">101</strong> featured destinations.</p>
       <div class="field-grid">
-        <div class="field-full">
+        <div>
           <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
           <div class="autocomplete">
             <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
@@ -509,7 +538,7 @@
             </select>
           </div>
         </div>
-        <div class="span2">
+        <div class="fld-mode">
           <label class="field" for="travelBy">Get there by</label>
           <div class="select-wrap">
             <select id="travelBy">
@@ -524,7 +553,7 @@
           </div>
           <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
         </div>
-        <div class="field-full">
+        <div class="fld-love">
           <label class="field" for="activity">I love…</label>
           <div class="select-wrap">
             <select id="activity">
@@ -537,7 +566,7 @@
             </select>
           </div>
         </div>
-        <div class="field-full">
+        <div class="fld-when">
           <label class="field">When are you traveling?</label>
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
             <label class="mini-radio active">
@@ -577,7 +606,7 @@
             <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
           </div>
         </div>
-        <div class="span2">
+        <div>
           <label class="field" for="travelStyle">Travel budget style</label>
           <div class="select-wrap">
             <select id="travelStyle">
