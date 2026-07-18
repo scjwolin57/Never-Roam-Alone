@@ -9,6 +9,16 @@
    Local data: no network lookup needed.
 ----------------------------------------------------------*/
 window.NRA_CITY_SCORES = {
+  "Xi'an": { nightlife:55, restaurants:82, museums:92, architecture:88, nature:50 },
+  "Wuhan": { nightlife:66, restaurants:78, museums:72, architecture:68, nature:80 },
+  "Tianjin": { nightlife:55, restaurants:72, museums:64, architecture:82, nature:45 },
+  "Nanjing": { nightlife:60, restaurants:78, museums:82, architecture:80, nature:75 },
+  "Nanchong": { nightlife:38, restaurants:58, museums:40, architecture:42, nature:55 },
+  "Mumbai": { nightlife:78, restaurants:85, museums:60, architecture:78, nature:45 },
+  "Jakarta": { nightlife:70, restaurants:72, museums:55, architecture:55, nature:45 },
+  "Dongguan": { nightlife:55, restaurants:66, museums:45, architecture:50, nature:52 },
+  "Chongqing": { nightlife:70, restaurants:88, museums:60, architecture:80, nature:75 },
+  "Chengdu": { nightlife:74, restaurants:88, museums:70, architecture:62, nature:78 },
   "Ibiza": { nightlife:98, restaurants:68, museums:35, architecture:55, nature:82 },
   "Victoria Falls": { nightlife:30, restaurants:35, museums:25, architecture:20, nature:97 },
   "Lusaka": { nightlife:40, restaurants:38, museums:30, architecture:25, nature:70 },

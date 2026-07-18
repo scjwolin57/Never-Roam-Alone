@@ -21,6 +21,16 @@
    ===================================================================== */
 
 window.NRA_DESTINATIONS = [
+  {city:"Xi'an", country:"China", lat:34.2583, lng:108.9286, region:"eurasia", visitors:30, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"Ancient Silk Road capital of the Terracotta Army, city walls, and dumpling feasts."},
+  {city:"Wuhan", country:"China", lat:30.5833, lng:114.2667, region:"eurasia", visitors:30, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"River city of a thousand lakes, hot-dry noodles, and the Yellow Crane Tower."},
+  {city:"Tianjin", country:"China", lat:39.1422, lng:117.1767, region:"eurasia", visitors:2.5, est:true, coastal:true, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"China's treaty-port gateway where European villas meet a booming Bohai skyline."},
+  {city:"Nanjing", country:"China", lat:32.0617, lng:118.7778, region:"eurasia", visitors:12, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"Ancient southern capital of dynasties, city walls, and Yangtze lore."},
+  {city:"Nanchong", country:"China", lat:30.7951, lng:106.0847, region:"eurasia", visitors:1.5, est:true, coastal:false, dailyCost:{budget:25, mid:55, luxury:150}, tagline:"Sichuan's silk city on the Jialing, steeped in Three Kingdoms lore."},
+  {city:"Mumbai", country:"India", lat:19.0728, lng:72.8826, region:"eurasia", visitors:6, est:true, coastal:true, dailyCost:{budget:25, mid:75, luxury:300}, tagline:"India's maximum city, where Bollywood dreams meet colonial grandeur and the Arabian Sea."},
+  {city:"Jakarta", country:"Indonesia", lat:-6.2146, lng:106.8451, region:"java", visitors:2.5, est:true, coastal:true, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"Indonesia's sprawling capital of malls, markets, and endless motorbikes."},
+  {city:"Dongguan", country:"China", lat:23.018, lng:113.7487, region:"eurasia", visitors:4.0, est:true, coastal:true, dailyCost:{budget:30, mid:75, luxury:200}, tagline:"Sprawling Pearl River factory metropolis wedged between Guangzhou and Shenzhen."},
+  {city:"Chongqing", country:"China", lat:29.5628, lng:106.5528, region:"eurasia", visitors:65, est:true, coastal:false, dailyCost:{budget:30, mid:80, luxury:250}, tagline:"Cyberpunk mountain metropolis of fog, hot pot, and cities stacked along the Yangtze."},
+  {city:"Chengdu", country:"China", lat:30.6667, lng:104.0667, region:"eurasia", visitors:6.5, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"Laid-back Sichuan capital of pandas, teahouses, and mouth-numbing hotpot."},
   {city:"Ibiza", country:"Spain", lat:38.9067, lng:1.4206, region:"ibiza", visitors:3.5, est:true, coastal:true, dailyCost:{budget:70, mid:190, luxury:550}, tagline:"White-walled old town by day, world capital of clubbing by night."},
   {city:"Hong Kong", country:"China (SAR)", lat:22.3193, lng:114.1694, region:"eurasia", visitors:26.7, dailyCost:{budget:60, mid:150, luxury:400}, tagline:"Neon harbor nights and dim-sum mornings."},
   {city:"Bangkok", country:"Thailand", lat:13.7563, lng:100.5018, region:"eurasia", visitors:22.8, dailyCost:{budget:35, mid:90, luxury:250}, tagline:"Temples, tuk-tuks, and street food that never sleeps."},

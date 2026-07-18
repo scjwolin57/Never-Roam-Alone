@@ -31,6 +31,16 @@ import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.t
 const SITE = "https://neverroamalone.com";
 
 const CITY_META = {
+  "xi'an": {"city":"Xi'an","slug":"xi-an","tagline":"Ancient Silk Road capital of the Terracotta Army, city walls, and dumpling feasts."},
+  "wuhan": {"city":"Wuhan","slug":"wuhan","tagline":"River city of a thousand lakes, hot-dry noodles, and the Yellow Crane Tower."},
+  "tianjin": {"city":"Tianjin","slug":"tianjin","tagline":"China's treaty-port gateway where European villas meet a booming Bohai skyline."},
+  "nanjing": {"city":"Nanjing","slug":"nanjing","tagline":"Ancient southern capital of dynasties, city walls, and Yangtze lore."},
+  "nanchong": {"city":"Nanchong","slug":"nanchong","tagline":"Sichuan's silk city on the Jialing, steeped in Three Kingdoms lore."},
+  "mumbai": {"city":"Mumbai","slug":"mumbai","tagline":"India's maximum city, where Bollywood dreams meet colonial grandeur and the Arabian Sea."},
+  "jakarta": {"city":"Jakarta","slug":"jakarta","tagline":"Indonesia's sprawling capital of malls, markets, and endless motorbikes."},
+  "dongguan": {"city":"Dongguan","slug":"dongguan","tagline":"Sprawling Pearl River factory metropolis wedged between Guangzhou and Shenzhen."},
+  "chongqing": {"city":"Chongqing","slug":"chongqing","tagline":"Cyberpunk mountain metropolis of fog, hot pot, and cities stacked along the Yangtze."},
+  "chengdu": {"city":"Chengdu","slug":"chengdu","tagline":"Laid-back Sichuan capital of pandas, teahouses, and mouth-numbing hotpot."},
   "ibiza": {"city":"Ibiza","slug":"ibiza","tagline":"White-walled old town by day, world capital of clubbing by night."},
   "abidjan": {
     "city": "Abidjan",

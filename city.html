@@ -646,6 +646,16 @@
    when we move to the production build). visitors = approx. annual international
    arrivals in millions. temps = avg high °F for each seasonal quarter. */
 const CITIES = [
+  {"city":"Xi'an","country":"China","visitors":30,"pop":"6.5M","lat":34.2583,"lng":108.9286,"tagline":"Ancient Silk Road capital of the Terracotta Army, city walls, and dumpling feasts.","temps":{"q1":48,"q2":79,"q3":86,"q4":57},"langs":[{"l":"Mandarin Chinese","p":99},{"l":"English","p":15}]},
+  {"city":"Wuhan","country":"China","visitors":30,"pop":"9.8M","lat":30.5833,"lng":114.2667,"tagline":"River city of a thousand lakes, hot-dry noodles, and the Yellow Crane Tower.","temps":{"q1":52,"q2":79,"q3":89,"q4":61},"langs":[{"l":"Mandarin Chinese","p":95},{"l":"Wuhan Dialect","p":85},{"l":"English","p":15}]},
+  {"city":"Tianjin","country":"China","visitors":2.5,"pop":"11.1M","lat":39.1422,"lng":117.1767,"tagline":"China's treaty-port gateway where European villas meet a booming Bohai skyline.","temps":{"q1":44,"q2":77,"q3":86,"q4":52},"langs":[{"l":"Mandarin Chinese","p":99},{"l":"English","p":12}]},
+  {"city":"Nanjing","country":"China","visitors":12,"pop":"7.2M","lat":32.0617,"lng":118.7778,"tagline":"Ancient southern capital of dynasties, city walls, and Yangtze lore.","temps":{"q1":52,"q2":78,"q3":89,"q4":59},"langs":[{"l":"Mandarin Chinese","p":99},{"l":"English","p":15}]},
+  {"city":"Nanchong","country":"China","visitors":1.5,"pop":"7.2M","lat":30.7951,"lng":106.0847,"tagline":"Sichuan's silk city on the Jialing, steeped in Three Kingdoms lore.","temps":{"q1":54,"q2":79,"q3":90,"q4":64},"langs":[{"l":"Mandarin","p":95},{"l":"Sichuanese","p":85},{"l":"English","p":8}]},
+  {"city":"Mumbai","country":"India","visitors":6,"pop":"12.7M","lat":19.0728,"lng":72.8826,"tagline":"India's maximum city, where Bollywood dreams meet colonial grandeur and the Arabian Sea.","temps":{"q1":88,"q2":91,"q3":85,"q4":90},"langs":[{"l":"Hindi","p":80},{"l":"English","p":55},{"l":"Marathi","p":50},{"l":"Gujarati","p":20}]},
+  {"city":"Jakarta","country":"Indonesia","visitors":2.5,"pop":"8.5M","lat":-6.2146,"lng":106.8451,"tagline":"Indonesia's sprawling capital of malls, markets, and endless motorbikes.","temps":{"q1":88,"q2":89,"q3":89,"q4":88},"langs":[{"l":"Indonesian","p":100},{"l":"Javanese","p":30},{"l":"English","p":30}]},
+  {"city":"Dongguan","country":"China","visitors":4.0,"pop":"8.0M","lat":23.018,"lng":113.7487,"tagline":"Sprawling Pearl River factory metropolis wedged between Guangzhou and Shenzhen.","temps":{"q1":66,"q2":86,"q3":92,"q4":77},"langs":[{"l":"Mandarin","p":95},{"l":"Cantonese","p":60},{"l":"English","p":10}]},
+  {"city":"Chongqing","country":"China","visitors":65,"pop":"7.5M","lat":29.5628,"lng":106.5528,"tagline":"Cyberpunk mountain metropolis of fog, hot pot, and cities stacked along the Yangtze.","temps":{"q1":55,"q2":82,"q3":95,"q4":63},"langs":[{"l":"Mandarin Chinese","p":99},{"l":"Sichuan/Chongqing dialect","p":95},{"l":"English","p":10}]},
+  {"city":"Chengdu","country":"China","visitors":6.5,"pop":"7.4M","lat":30.6667,"lng":104.0667,"tagline":"Laid-back Sichuan capital of pandas, teahouses, and mouth-numbing hotpot.","temps":{"q1":57,"q2":79,"q3":86,"q4":63},"langs":[{"l":"Mandarin","p":95},{"l":"Sichuanese","p":70},{"l":"English","p":15}]},
   {"city":"Ibiza","country":"Spain","visitors":3.5,"pop":"160K","lat":38.9067,"lng":1.4206,"tagline":"White-walled old town by day, world capital of clubbing by night.","temps":{"q1":62,"q2":74,"q3":85,"q4":68},"langs":[{"l":"Spanish","p":95},{"l":"Catalan","p":55},{"l":"English","p":45}]},
   {"city":"Victoria Falls","country":"Zimbabwe","visitors":0.6,"pop":"35K","lat":-17.9316,"lng":25.8309,"tagline":"Where the Zambezi thunders into mist and rainbows.","temps":{"q1":86,"q2":79,"q3":81,"q4":91},"langs":[{"l":"Ndebele","p":55},{"l":"Shona","p":20},{"l":"English","p":15}]},
   {"city":"Lusaka","country":"Zambia","visitors":1.3,"pop":"3.3M","lat":-15.3875,"lng":28.3228,"tagline":"Zambia's leafy capital and gateway to safari country.","temps":{"q1":79,"q2":75,"q3":78,"q4":85},"langs":[{"l":"Nyanja","p":60},{"l":"Bemba","p":30},{"l":"English","p":15}]},
@@ -1130,6 +1140,16 @@ function seasonsFor(lat) {
 /* ---------- Currency ---------- */
 /* Local currency for each city (keyed by name, so the main dataset stays clean) */
 const CITY_CUR = {
+  "Xi'an":"CNY",
+  "Wuhan":"CNY",
+  "Tianjin":"CNY",
+  "Nanjing":"CNY",
+  "Nanchong":"CNY",
+  "Mumbai":"INR",
+  "Jakarta":"IDR",
+  "Dongguan":"CNY",
+  "Chongqing":"CNY",
+  "Chengdu":"CNY",
   "Ibiza":"EUR",
   "Victoria Falls":"USD",
   "Lusaka":"ZMW",
@@ -1287,6 +1307,16 @@ const CITY_CUR = {
 
 /* Approx. % of businesses that accept credit/debit cards (rough estimates) */
 const CITY_CARD = {
+  "Xi'an":40,
+  "Wuhan":55,
+  "Tianjin":55,
+  "Nanjing":55,
+  "Nanchong":55,
+  "Mumbai":65,
+  "Jakarta":70,
+  "Dongguan":85,
+  "Chongqing":45,
+  "Chengdu":80,
   "Ibiza":90,
   "Victoria Falls":55,
   "Lusaka":55,
@@ -1452,6 +1482,16 @@ function cardLevel(p) {
 /* Typical traveler costs in USD: hotel/night (mid-range), restaurant meal/person
    (sit-down), and a ~10 km taxi/Uber fare. Rough estimates. */
 const CITY_COST = {
+  "Xi'an":{"hotel":55,"meal":6,"taxi":3},
+  "Wuhan":{"hotel":55,"meal":8,"taxi":4},
+  "Tianjin":{"hotel":55,"meal":6,"taxi":3},
+  "Nanjing":{"hotel":55,"meal":6,"taxi":3},
+  "Nanchong":{"hotel":40,"meal":6,"taxi":3},
+  "Mumbai":{"hotel":75,"meal":6,"taxi":4},
+  "Jakarta":{"hotel":50,"meal":5,"taxi":5},
+  "Dongguan":{"hotel":55,"meal":6,"taxi":4},
+  "Chongqing":{"hotel":55,"meal":8,"taxi":4},
+  "Chengdu":{"hotel":60,"meal":6,"taxi":3},
   "Ibiza":{"hotel":140,"meal":30,"taxi":15},
   "Victoria Falls":{"hotel":130,"meal":15,"taxi":6},
   "Lusaka":{"hotel":90,"meal":10,"taxi":7},
@@ -1617,6 +1657,16 @@ const CITY_COST = {
 
 /* Budget (b) and high-end (h) nightly hotel averages in USD */
 const CITY_HOTEL = {
+  "Xi'an":{"b":20,"h":130},
+  "Wuhan":{"b":22,"h":130},
+  "Tianjin":{"b":20,"h":130},
+  "Nanjing":{"b":20,"h":130},
+  "Nanchong":{"b":18,"h":90},
+  "Mumbai":{"b":20,"h":260},
+  "Jakarta":{"b":20,"h":150},
+  "Dongguan":{"b":20,"h":130},
+  "Chongqing":{"b":20,"h":180},
+  "Chengdu":{"b":20,"h":180},
   "Ibiza":{"b":45,"h":400},
   "Victoria Falls":{"b":18,"h":550},
   "Lusaka":{"b":30,"h":220},
@@ -1775,6 +1825,16 @@ const CITY_HOTEL = {
 
 /* Ride-sharing / e-hailing apps available in each city (empty = taxis only) */
 const CITY_RIDES = {
+  "Xi'an":["Didi"],
+  "Wuhan":["Didi"],
+  "Tianjin":["Didi"],
+  "Nanjing":["Didi"],
+  "Nanchong":["Didi"],
+  "Mumbai":["Uber","Ola","Rapido"],
+  "Jakarta":["Gojek","Grab"],
+  "Dongguan":["Didi"],
+  "Chongqing":["Didi"],
+  "Chengdu":["Didi"],
   "Ibiza":["Uber","Cabify","FreeNow"],
   "Victoria Falls":[],
   "Lusaka":["Yango","GO (formerly Ulendo)"],
@@ -2013,6 +2073,16 @@ const CITY_RIDES = {
 
 /* Official taxi colour + fare type. fare = "metered" | "fixed" | "unmetered". */
 const CITY_TAXI = {
+  "Xi'an":{"color":"green","fare":"metered","fareNote":"Cabs are metered and cheap, but drivers rarely speak English and foreign cards aren't accepted; pay cash or use Didi (linkable to Alipay/WeChat) and have your destination written in Chinese."},
+  "Wuhan":{"color":"yellow","fare":"metered","fareNote":"Meters are standard, with a starting fare around ¥10-13; most drivers accept cash but overwhelmingly prefer WeChat Pay or Alipay QR payment."},
+  "Tianjin":{"color":"assorted (mostly two-tone)","fare":"metered","fareNote":"Metered from about ¥10 for the first 3 km; hailing via Didi is common and often cheaper. Few drivers speak English, so have your destination written in Chinese."},
+  "Nanjing":{"color":"yellow and green","fare":"metered","fareNote":"Metered fares start around 11 CNY; most locals hail via Didi. Foreign credit cards are rarely accepted, so pay by Alipay/WeChat or cash."},
+  "Nanchong":{"color":"green and white","fare":"metered","fareNote":"Fares are metered with a low flag-fall (around ¥8); most locals simply hail or book via Didi and pay by WeChat or Alipay QR code."},
+  "Mumbai":{"color":"black and yellow","fare":"metered","fareNote":"The iconic black-and-yellow 'kaali-peeli' cabs and auto-rickshaws (suburbs only, not South Mumbai) run on meters; insist the meter is used, or book via Uber/Ola for a fixed fare."},
+  "Jakarta":{"color":"blue","fare":"metered","fareNote":"Blue Bird is the trusted metered taxi brand; insist on the meter, or use Gojek/Grab for fixed up-front pricing. Avoid unmarked touts at the airport."},
+  "Dongguan":{"color":"red","fare":"metered","fareNote":"Cabs are metered, but most locals hail rides through Didi; cash is rarely used, so pay via Alipay or WeChat QR, and having your destination written in Chinese helps as few drivers speak English."},
+  "Chongqing":{"color":"yellow","fare":"metered","fareNote":"Meters are standard with a starting fare around 10 yuan; many drivers prefer cash or a WeChat/Alipay QR code, and few speak English, so have your destination written in Chinese."},
+  "Chengdu":{"color":"green and yellow","fare":"metered","fareNote":"Metered fares start around ¥8-9; most residents book via Didi, and drivers overwhelmingly expect Alipay or WeChat Pay rather than cash."},
   "Ibiza":{"color":"White","fare":"metered","fareNote":"Metered within town, but fixed/regulated flat fares apply for set routes like the airport; official fare sheets are posted in every cab. Demand far outstrips supply in peak summer season and at night, especially around club closing times. Uber operates on the island but only via licensed VTC drivers booked through the app — there's no street-hail Uber."},
   "Victoria Falls":{"color":"white/unmarked sedan","fare":"fixed","fareNote":"Negotiate or confirm the fare before departure; typical in-town trip $5-8, airport-town run $25-30."},
   "Lusaka":{"color":"unmarked/white","fare":"fixed","fareNote":"Meters are rare; agree on the fare with the driver before the ride starts. Registered taxis have blue number plates."},
@@ -2271,6 +2341,16 @@ function taxiFareColor(cat) {
 
 /* Emergency contact numbers per city (police + ambulance/fire). */
 const CITY_EMERGENCY = {"Jeddah":{"police":"999","medical":"997","note":"999 police, 997 Red Crescent ambulance, 998 civil defense/fire, 993 traffic. English-speaking operators are usually available."},
+  "Xi'an":{"medical":"120","note":"110 reaches the police, 120 for ambulance/medical, and 119 for fire. English-speaking operators are limited, so having your location written in Chinese helps.","police":"110"},
+  "Wuhan":{"medical":"120","note":"110 reaches police, 120 is the ambulance line, and 119 is fire; 112 also works from mobile phones. English-speaking operators are limited, so having your location written in Chinese helps.","police":"110"},
+  "Tianjin":{"medical":"120","note":"110 reaches police, 120 ambulance, 119 fire. English-speaking operators are limited; hotel staff can help relay.","police":"110"},
+  "Nanjing":{"medical":"120","note":"Police is 110, ambulance/medical is 120, and fire is 119. English-speaking operators are limited, so having your address in Chinese helps.","police":"110"},
+  "Nanchong":{"medical":"120","note":"110 is police, 120 is ambulance, and 119 is fire. English-speaking operators are rare, so having someone help translate is useful.","police":"110"},
+  "Mumbai":{"medical":"108 (ambulance) or 102","note":"112 is the all-in-one national emergency number connecting to police, fire, and ambulance.","police":"100 (or 112)"},
+  "Jakarta":{"medical":"118 or 119","note":"112 is the general nationwide emergency line; 110 reaches police and 113 the fire service.","police":"110"},
+  "Dongguan":{"medical":"120","note":"Dial 110 for police, 120 for ambulance, and 119 for fire. English-speaking operators are limited, so having your destination or emergency written in Chinese helps.","police":"110"},
+  "Chongqing":{"medical":"120","note":"110 connects to police, 120 for ambulance, and 119 for fire. English support is limited, so use a translation app or ask hotel staff to help place the call.","police":"110"},
+  "Chengdu":{"medical":"120","note":"Dial 110 for police, 120 for ambulance, and 119 for fire; English-language support is limited, so having a translation app or local help ready is useful.","police":"110"},
   "Ibiza":{"police":"112","medical":"112","note":"112 is the general EU-style emergency number that connects to police, fire, and ambulance across Spain; the Guardia Civil and Policia Local also operate island-wide."},
   "Victoria Falls":{"police":"995 (or 999 general emergency)","medical":"994 (ambulance); private evacuation via Medical Air Rescue Service (MARS)","note":"Response times can be slow; most hotels and tour operators keep direct lines to private clinics and MARS for serious incidents."},
   "Lusaka":{"police":"999","medical":"992","note":"Fire is 993. Response times can be slow and inconsistent; serious medical cases are often taken to private clinics (e.g. Fairview or Corridor Sands) rather than relying solely on ambulance dispatch, and travel insurance with medevac coverage is strongly advised."},
@@ -2453,6 +2533,16 @@ const EMBASSY_COUNTRIES = ["United States","United Kingdom","Canada","Australia"
 
 /* Top 3 religions by share of population (approximate; can overlap in some places) */
 const CITY_RELIGION = {
+  "Xi'an":[{"p":18,"r":"Buddhist"},{"p":5,"r":"Christian"},{"p":2,"r":"Muslim"}],
+  "Wuhan":[{"p":18,"r":"Buddhist & folk religion"},{"p":4,"r":"Christian"},{"p":2,"r":"Muslim"}],
+  "Tianjin":[{"p":70,"r":"Unaffiliated"},{"p":20,"r":"Buddhist / Chinese folk"},{"p":3,"r":"Christian"},{"p":2,"r":"Muslim"}],
+  "Nanjing":[{"p":18,"r":"Buddhist / Chinese folk"},{"p":5,"r":"Christian"},{"p":1,"r":"Muslim"}],
+  "Nanchong":[{"p":74,"r":"Non-religious / folk"},{"p":16,"r":"Buddhist"},{"p":3,"r":"Christian"},{"p":1,"r":"Muslim"}],
+  "Mumbai":[{"p":66,"r":"Hindu"},{"p":21,"r":"Muslim"},{"p":5,"r":"Buddhist"},{"p":4,"r":"Jain"},{"p":3,"r":"Christian"}],
+  "Jakarta":[{"p":83,"r":"Muslim"},{"p":11,"r":"Christian"},{"p":4,"r":"Buddhist"}],
+  "Dongguan":[{"p":74,"r":"Non-religious / Folk"},{"p":18,"r":"Buddhist / Taoist"},{"p":6,"r":"Christian"},{"p":1,"r":"Muslim"}],
+  "Chongqing":[{"p":70,"r":"Non-religious"},{"p":22,"r":"Chinese folk / Buddhist"},{"p":4,"r":"Christian"},{"p":2,"r":"Muslim"}],
+  "Chengdu":[{"p":74,"r":"Non-religious / Folk beliefs"},{"p":16,"r":"Buddhist"},{"p":2,"r":"Christian"}],
   "Ibiza":[{"r":"Roman Catholic","p":60},{"r":"No religion","p":30},{"r":"Other/Islam","p":6}],
   "Victoria Falls":[{"r":"Christian","p":85},{"r":"Traditional/Ancestral beliefs","p":8},{"r":"Other/None","p":7}],
   "Lusaka":[{"r":"Christian","p":95},{"r":"Traditional/other","p":3},{"r":"Muslim","p":2}],
@@ -2704,6 +2794,16 @@ const CITY_RELIGION = {
 
 /* Average length of stay (days) — used for the daily tourist ratio */
 const CITY_STAY = {
+  "Xi'an":2.5,
+  "Wuhan":2.5,
+  "Tianjin":2,
+  "Nanjing":2.5,
+  "Nanchong":1.5,
+  "Mumbai":3,
+  "Jakarta":3,
+  "Dongguan":2,
+  "Chongqing":2.5,
+  "Chengdu":3,
   "Ibiza":5.5,
   "Victoria Falls":2.6,
   "Lusaka":2.5,
@@ -2863,6 +2963,16 @@ const CITY_STAY = {
    [ scratch the surface, leisurely explore, deeper dive, live like a local ]
    Each tier is a [low, high] day range. */
 const CITY_VISIT = {
+  "Xi'an":[[10,15],[25,35],[30,40],[15,22]],
+  "Wuhan":[[20,28],[22,30],[15,20],[15,22]],
+  "Tianjin":[[2,3],[5,7],[6,8],[4,5]],
+  "Nanjing":[[6,9],[10,14],[8,12],[7,10]],
+  "Nanchong":[[1,2],[2,3],[2,3],[2,3]],
+  "Mumbai":[[10,14],[5,8],[3,5],[11,15]],
+  "Jakarta":[[3,4],[3,4],[4,5],[4,6]],
+  "Dongguan":[[4,6],[6,8],[5,7],[7,10]],
+  "Chongqing":[[10,14],[13,17],[16,20],[11,15]],
+  "Chengdu":[[3,4],[5,6],[6,8],[4,5]],
   "Ibiza":[[2,3],[4,5],[6,8],[14,25]],
   "Victoria Falls":[[1,2],[3,4],[5,7],[10,14]],
   "Lusaka":[[1,2],[3,4],[5,7],[14,21]],
@@ -3083,6 +3193,16 @@ function buildVisitSection(cityName){
 
 /* Walkability score (0–100, Walk Score style) */
 const CITY_WALK = {
+  "Xi'an":68,
+  "Wuhan":65,
+  "Tianjin":68,
+  "Nanjing":68,
+  "Nanchong":58,
+  "Mumbai":62,
+  "Jakarta":45,
+  "Dongguan":55,
+  "Chongqing":65,
+  "Chengdu":65,
   "Ibiza":68,
   "Victoria Falls":62,
   "Lusaka":35,
@@ -3248,6 +3368,16 @@ function walkInfo(s) {
 
 /* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
 const CITY_SAFETY = {
+  "Xi'an":{"crime":22,"safety":80},
+  "Wuhan":{"crime":22,"safety":80},
+  "Tianjin":{"crime":20,"safety":82},
+  "Nanjing":{"crime":22,"safety":80},
+  "Nanchong":{"crime":22,"safety":78},
+  "Mumbai":{"crime":45,"safety":55},
+  "Jakarta":{"crime":54,"safety":46},
+  "Dongguan":{"crime":25,"safety":75},
+  "Chongqing":{"crime":22,"safety":78},
+  "Chengdu":{"crime":22,"safety":80},
   "Ibiza":{"safety":54,"crime":46},
   "Victoria Falls":{"safety":68,"crime":32},
   "Lusaka":{"safety":58,"crime":42},
@@ -3505,6 +3635,16 @@ function crimeColor(s) {
 /* Five most popular neighborhoods per city */
 /* Most photographed landmark per neighborhood — used to fetch Wikipedia thumbnail */
 const CITY_HOOD_LANDMARK = {"Jeddah":{"Al-Balad":"Al-Balad Historic District, Jeddah","Ash Shati":"Al-Rahma (Floating) Mosque, Jeddah","Al Hamra":"King Fahd's Fountain, Jeddah","Al Rawdah":"Al Rawdah, Jeddah","Al Andalus":"Red Sea Mall, Jeddah"},
+  "Xi'an":{"Beilin / City Wall & Bell Tower":"Bell Tower of Xi'an","Muslim Quarter (Huimin Jie)":"Muslim Quarter Xi'an Beiyuanmen","Qujiang New District":"Tang Paradise Xi'an","Weiyang / High-tech Zone":"Xi'an High-tech Zone Gaoxin","Yanta / Big Wild Goose Pagoda":"Big Wild Goose Pagoda Xi'an"},
+  "Wuhan":{"Hanyang":"Guiyuan Temple, Wuhan","Jiang'an (Hankou Bund)":"Hankou Bund, Wuhan","Jianghan (Hankou)":"Jianghan Road Pedestrian Street, Wuhan","Optics Valley (Guanggu)":"Optics Valley Square, Wuhan","Wuchang":"Yellow Crane Tower, Wuhan"},
+  "Tianjin":{"Binhai New Area":"Tianjin Binhai Cultural Center Library","Heping (Binjiang Dao)":"Binjiang Road pedestrian street, Tianjin","Italian Style Town":"Italian Style Town, Tianjin","Nankai (Ancient Culture Street)":"Tianjin Ancient Culture Street","Wudadao (Five Great Avenues)":"Five Great Avenues Wudadao, Tianjin"},
+  "Nanjing":{"Fuzimiao / Qinhuai":"Confucius Temple (Fuzimiao), Nanjing","Hexi / Jianye":"Nanjing Youth Olympic Sports Park","Xinjiekou / Gulou":"Xinjiekou, Nanjing","Xuanwu / Xuanwu Lake":"Xuanwu Lake, Nanjing","Zhongshan / Purple Mountain":"Sun Yat-sen Mausoleum, Nanjing"},
+  "Nanchong":{"Beihu Park area":"Beihu Park, Nanchong","Gaoping District":"Nanchong Gaoping Airport","Jialing District":"Jialing District, Nanchong","Shunqing District":"Beihu Park, Nanchong","Xishan Scenic Area":"Xishan Scenic Area, Nanchong"},
+  "Mumbai":{"Bandra West":"Bandra Bandstand promenade, Mumbai","Colaba":"Gateway of India, Mumbai","Fort":"Chhatrapati Shivaji Maharaj Terminus, Mumbai","Juhu":"Juhu Beach, Mumbai","Lower Parel / Worli":"Worli Sea Face skyline, Mumbai"},
+  "Jakarta":{"Kemang":"Kemang, South Jakarta","Kota Tua (Old Town)":"Fatahillah Square, Kota Tua Jakarta","Menteng":"Menteng, Jakarta","SCBD / Sudirman":"Sudirman Central Business District Jakarta","Thamrin":"Bundaran HI, Jakarta"},
+  "Dongguan":{"Chang'an":"Chang'an Park Dongguan","Dongcheng":"Dongguan People's Park","Houjie":"Guangdong Modern International Exhibition Center","Humen":"Opium War Museum, Humen","Nancheng":"Yuanmei Park, Dongguan"},
+  "Chongqing":{"Ciqikou Ancient Town":"Ciqikou Ancient Town, Chongqing","Guanyinqiao (Jiangbei)":"Guanyinqiao Pedestrian Street, Chongqing","Jiefangbei (Yuzhong)":"Jiefangbei Pedestrian Street, Chongqing","Nanshan (Nan'an)":"Nanshan One Tree Viewing Platform, Chongqing","Shapingba":"Shapingba Sanxia Square, Chongqing"},
+  "Chengdu":{"Gaoxin / Tianfu New Area":"New Century Global Center, Chengdu","Jinjiang / Chunxi Road":"Sino-Ocean Taikoo Li Chunxi Road, Chengdu","Jinniu / North Station":"Chengdu North Railway Station","Qingyang / Kuanzhai Alley":"Kuanzhai Alley (Wide and Narrow Alleys), Chengdu","Wuhou / Jinli":"Jinli Ancient Street, Chengdu"},
   "Ibiza":{"Ibiza Town (Dalt Vila & Marina)":"Dalt Vila Ibiza Town","Playa d'en Bossa":"Playa d'en Bossa beach Ibiza","Sant Antoni de Portmany":"Sant Antoni de Portmany sunset strip Ibiza","Santa Eulària des Riu":"Santa Eularia des Riu marina Ibiza","Es Canà":"Es Cana beach Ibiza"},
   "Victoria Falls":{"Town Centre (CBD)":"Victoria Falls Rainforest entrance, Zimbabwe","Sprayview / Parkway":"Sprayview Shopping Centre, Victoria Falls","Zambezi Riverfront":"Elephant Hills Resort Golf Course, Victoria Falls","Zambezi National Park / Safari Lodge Estate":"Victoria Falls Safari Lodge, Zimbabwe","Chinotimba / Aerodrome":"Chinotimba Market, Victoria Falls"},
   "Lusaka":{"Longacres":"Mulungushi International Conference Centre, Lusaka","Kabulonga":"Kabulonga Shopping Centre, Lusaka","City Centre (Cairo Road)":"Cairo Road, Lusaka","Great East Road":"East Park Mall, Lusaka","Lilayi":"Lilayi Game Park, Lusaka"},
@@ -3681,6 +3821,16 @@ const CITY_HOOD_LANDMARK = {"Jeddah":{"Al-Balad":"Al-Balad Historic District, Je
 };
 
 const CITY_HOODS = {
+  "Xi'an":["Beilin / City Wall & Bell Tower","Muslim Quarter (Huimin Jie)","Yanta / Big Wild Goose Pagoda","Qujiang New District","Weiyang / High-tech Zone"],
+  "Wuhan":["Wuchang","Jianghan (Hankou)","Hanyang","Optics Valley (Guanggu)","Jiang'an (Hankou Bund)"],
+  "Tianjin":["Heping (Binjiang Dao)","Wudadao (Five Great Avenues)","Italian Style Town","Nankai (Ancient Culture Street)","Binhai New Area"],
+  "Nanjing":["Xinjiekou / Gulou","Fuzimiao / Qinhuai","Xuanwu / Xuanwu Lake","Zhongshan / Purple Mountain","Hexi / Jianye"],
+  "Nanchong":["Shunqing District","Gaoping District","Jialing District","Xishan Scenic Area","Beihu Park area"],
+  "Mumbai":["Colaba","Fort","Bandra West","Juhu","Lower Parel / Worli"],
+  "Jakarta":["Menteng","Kemang","Kota Tua (Old Town)","SCBD / Sudirman","Thamrin"],
+  "Dongguan":["Dongcheng","Nancheng","Houjie","Chang'an","Humen"],
+  "Chongqing":["Jiefangbei (Yuzhong)","Guanyinqiao (Jiangbei)","Nanshan (Nan'an)","Shapingba","Ciqikou Ancient Town"],
+  "Chengdu":["Jinjiang / Chunxi Road","Qingyang / Kuanzhai Alley","Wuhou / Jinli","Gaoxin / Tianfu New Area","Jinniu / North Station"],
   "Ibiza":["Ibiza Town (Dalt Vila & Marina)","Playa d'en Bossa","Sant Antoni de Portmany","Santa Eulària des Riu","Es Canà"],
   "Victoria Falls":["Town Centre (CBD)","Sprayview / Parkway","Zambezi Riverfront","Zambezi National Park / Safari Lodge Estate","Chinotimba / Aerodrome"],
   "Lusaka":["Longacres","Kabulonga","City Centre (Cairo Road)","Great East Road","Lilayi"],
@@ -3942,6 +4092,16 @@ const HOOD_TAG_META = {
   quiet:     { label:"Quiet & Residential", emoji:"🏠" }
 };
 const CITY_HOOD_TAG = {
+  "Xi'an":["central","nightlife","sights","quiet","quiet"],
+  "Wuhan":["sights","shopping","quiet","nightlife","sights"],
+  "Tianjin":["central","sights","nightlife","sights",null],
+  "Nanjing":["central","sights","quiet","sights",null],
+  "Nanchong":["central",null,"quiet","sights","nightlife"],
+  "Mumbai":["sights","central","hipster","quiet","nightlife"],
+  "Jakarta":["quiet","nightlife","sights","nightlife","central"],
+  "Dongguan":["central","nightlife","shopping",null,"sights"],
+  "Chongqing":["central","nightlife","quiet","hipster","sights"],
+  "Chengdu":["central","sights","sights",null,null],
   "Ibiza":["sights","nightlife","nightlife","quiet","quiet"],
   "Victoria Falls":["sights","quiet",null,null,"quiet"],
   "Lusaka":["quiet","shopping","central","shopping",null],
@@ -4195,6 +4355,16 @@ const CITY_HOOD_TAG = {
 /* Lodging tiers shown under each neighborhood */
 /* Real neighborhood descriptions, one array per city aligned to CITY_HOODS order */
 const CITY_HOOD_DESC = {
+  "Xi'an":["The walled historic core around the Bell Tower, Drum Tower, and Beilin (Forest of Steles) Museum, ringed by the fully intact Ming-era City Wall; best for first-timers who want the major sights and old-city atmosphere within walking distance.","The centuries-old Hui Muslim quarter along Beiyuanmen and Huimin Jie, a maze of lantern-lit food lanes, mosques, and market stalls beside the Drum Tower; the city's top spot for street food, snacks, and evening buzz.","The Yanta district built around the Tang-dynasty Big Wild Goose Pagoda, the Datang Everbright City promenade, and the Shaanxi History Museum; a landmark-heavy area with grand plazas, fountains, and easy metro access.","An upscale, planned cultural-tourism zone south of the center around Tang Paradise and the Qujiang Pool Heritage Park, full of themed gardens, museums, and modern hotels; calmer and greener, good for a relaxed base.","Xi'an's modern business and tech belt spanning the High-tech Zone (Gaoxin) and the northern Weiyang new city, with corporate towers, malls, and international hotels; convenient and quiet but away from the historic sights."],
+  "Wuhan":["The historic and cultural heart of Wuhan on the east bank of the Yangtze, home to the Yellow Crane Tower, scenic East Lake, and the Wuhan University campus famous for its spring cherry blossoms; best for first-timers who want the city's marquee sights.","The commercial core of the Hankou side built around the Jianghan Road pedestrian street, packed with department stores, malls, snack streets, and the Wuhan International Plaza; ideal for shoppers and those who want everything at street level.","A quieter, more traditional district across the river anchored by the Buddhist Guiyuan Temple, the Qingchuan Pavilion, and Tortoise Hill, with leafy riverside walks and industrial heritage; good for a calmer, more local base.","Wuhan's tech and university belt in Hongshan district around Guanggu (Optics Valley) Square, a young, energetic area thick with students, cafes, craft-beer bars, and late-night dining; suits younger travelers and digital nomads.","The former foreign-concession quarter on the Hankou Bund, lined with early-1900s European bank and consulate buildings, the riverside promenade, and the trendy Wuhan Tiandi dining and nightlife complex; great for architecture and atmospheric strolls."],
+  "Tianjin":["Tianjin's central downtown around the Binjiang Dao pedestrian shopping street and Jinwan Plaza, packed with department stores, restaurants, and metro links; the most convenient walkable base for first-timers.","The 'Five Great Avenues,' a leafy grid of over 2,000 early-20th-century European-style villas from the concession era, now cafes, boutiques, and small museums best explored on foot or by pedicab; ideal for architecture and history lovers.","Tianjin's former Italian concession along the Haihe River, a picturesque quarter of restored Mediterranean buildings, riverside bars, and restaurants that comes alive in the evening; the go-to area for dining and nightlife.","Home to the Ancient Culture Street, the Drum Tower, Confucius Temple, and traditional bazaars near the old city; the best district for temples, folk crafts, and classic Tianjin sightseeing.","A sprawling modern port and economic zone about 40 km east on the Bohai coast, home to the striking Binhai Library, the TEDA business district, and the cruise terminal; more futuristic architecture and business than old-city charm."],
+  "Nanjing":["Nanjing's downtown core and one of China's busiest commercial hubs, centered on the Xinjiekou traffic circle and Zifeng Tower; packed with malls, department stores, offices, and metro interchanges, it is the most convenient walkable base for first-timers.","The historic soul of Nanjing along the Qinhuai River, home to the Confucius Temple (Fuzimiao), the Imperial Examination Museum, and lantern-lit night markets; touristy but atmospheric, best for sightseeing and evening strolls by the water.","A green, relaxed district wrapped around Xuanwu Lake and the Ming-era city wall, with parks, lakeside promenades, and Jiming Temple nearby; suits travelers wanting calm scenery and open space near the center.","The forested Purple Mountain (Zhongshan) scenic area on the eastern edge of the city, holding the Sun Yat-sen Mausoleum, the Ming Xiaoling Tomb, and Linggu Temple; a sights-and-nature retreat of trails, gardens, and monuments.","Hexi is Nanjing's modern riverfront new town in Jianye District, built around the Youth Olympic Sports Park, the Nanjing International Expo Center, and Hexi CBD skyscrapers; orderly, spacious, and business-oriented."],
+  "Nanchong":["Nanchong's central urban district and downtown core on the west bank of the Jialing River, with the main shopping streets, Beihu Park, and West China Normal University; the most convenient, walkable base for first-timers.","The east-bank district that holds Nanchong Gaoping Airport and the Nanchong North high-speed rail station; a newer, spread-out area handy for arrivals and departures but light on sights.","A newer district on the southwest side of the river with residential blocks, industry, and the small restored Fengyi ancient town nearby; quieter and more local than the center.","The forested western edge of Shunqing rising into the West Hills (Xishan), home to hiking trails, temples, and the Wanjuanlou pavilion linked to Three Kingdoms historian Chen Shou; scenic and calm.","The commercial pocket around Beihu Park in the heart of downtown, dense with restaurants, tea houses, malls, and evening street life; the liveliest area for dining and going out."],
+  "Mumbai":["The southern tourist heart around the Gateway of India and the Taj hotel, packed with heritage buildings, cafes, street stalls, and the Colaba Causeway market; best for first-timers who want the icons on their doorstep.","Mumbai's grand Victorian-Gothic and Art Deco business core around CSMT station, Kala Ghoda, and Flora Fountain; walkable, full of museums, galleries, and colonial architecture.","The trendy suburban hub of leafy lanes, seaside promenades, indie boutiques, cafes, and buzzing bars; the city's creative and celebrity set gravitates here.","A relaxed coastal suburb built around a long sandy beach, upscale homes, and beachfront hotels; favored by families and Bollywood stars wanting sea air away from the crush.","A revamped former textile-mill district now dense with rooftop bars, clubs, fine-dining, malls, and skyscrapers along the Worli seafront; the go-to for nightlife and modern dining."],
+  "Jakarta":["A leafy, upscale colonial-era district of tree-lined streets, embassies, and museums; central and calm, it suits travelers who want green surroundings within reach of the center.","South Jakarta's expat-favored district packed with bars, cafes, restaurants, and boutiques; the go-to area for nightlife and international dining.","The historic Dutch colonial old town (Kota Tua) around Fatahillah Square, with cobblestone plazas, museums, and the Sunda Kelapa harbor; the city's main sightseeing quarter.","The Sudirman Central Business District, a cluster of gleaming skyscrapers, luxury malls, rooftop bars, and high-end hotels; a modern base for business travelers and upscale nightlife.","The central Thamrin corridor around the Bundaran HI roundabout and Grand Indonesia mall, lined with flagship hotels and transit links; the most convenient walkable base for first-timers."],
+  "Dongguan":["The traditional commercial and administrative heart of the city, home to Dongguan People's Park, the pedestrianized shopping streets around Dongzong Road, and older residential blocks; a convenient, walkable base for first-timers.","The modern central business district with Dongguan's tallest towers, Yuanmei Park, the First International shopping-and-entertainment complex, government offices, malls, and international-brand hotels; best for business travelers who want dining and nightlife on hand.","A manufacturing and exhibition town southwest of the center, built around the Guangdong Modern International Exhibition Center and sprawling factory outlets; a practical base for trade-fair visitors, with lively local Cantonese food streets.","A wealthy industrial town on the Pearl River estuary right beside Shenzhen, headquarters of electronics giants OPPO and vivo; busy, modern, and the most convenient Dongguan base for Shenzhen-bound travelers.","A historic riverside town famous as the site of the 1839 opium destruction, with the Opium War Museum and Sea Battle Museum, and today a giant garment and wholesale-clothing hub served directly by high-speed rail at Humen Station."],
+  "Chongqing":["The dense downtown peninsula between the Yangtze and Jialing rivers, centered on the Jiefangbei (Liberation Monument) pedestrian mall and the stacked Hongyadong stilt houses; best for first-timers who want everything within walking distance.","A major commercial and nightlife hub on the north bank across the Jialing, packed with malls, bars, and restaurants and adjacent to the gleaming Jiangbeizui financial district; ideal for shopping and going out.","A forested mountain on the south bank famous for its cluster of hot pot restaurants, the One Tree lookout, and sweeping night views of the illuminated skyline; quieter, greener, and scenic.","A lively university and youth district around Sanxia Square and the Testbed2 creative park, with cheap eats, indie shops, and quick access to Ciqikou; affordable and full of student energy.","A 1,000-year-old riverside porcelain town of cobbled lanes, teahouses, and street-food stalls near the Jialing River; touristy but atmospheric, best for old-town wandering and souvenirs."],
+  "Chengdu":["Central downtown core around the Chunxi Road pedestrian street and the open-air Sino-Ocean Taikoo Li mall; best for first-timers who want shopping, food, and metro links all within walking distance.","The historic heart with the Qing-era Kuanzhai Alley (Wide and Narrow Alleys), the Qingyang Palace Taoist temple, and People's Park teahouses; best for old-Chengdu atmosphere and sightseeing.","Home to the Wuhou Shrine (Three Kingdoms memorial), the reconstructed Jinli Ancient Street, and a lively Tibetan quarter; best for culture, street snacks, and evening strolls.","Chengdu's modern high-tech and financial district of skyscrapers, the New Century Global Center, and Jiaozi Park; suits business travelers and those wanting new malls and calmer, newer surroundings.","A practical transit-hub district around Chengdu North Railway Station with wholesale markets and inexpensive hotels; convenient for onward high-speed rail and budget stays."],
   "Ibiza":["The UNESCO-listed walled hilltop old town (Dalt Vila) and the harborside Marina/Sa Penya district below it, packed with cathedral views, boutique galleries, tapas bars and late-night terraces; best for first-timers who want history, dining and nightlife within walking distance.","Ibiza's biggest party strip, a long sandy beach lined with superclubs like Ushuàia and Hì Ibiza and beach clubs blasting music from midday on; suits clubbers and groups who want to be inside the action, less so anyone seeking quiet.","The island's sunset-worship capital on the west coast, famous for Café del Mar and a strip of bars along Carrer d'Es Egipte plus a separate quieter bay (S'Arenal/Es Pujols); popular with younger, budget-conscious nightlife travelers.","A cosmopolitan, more laid-back resort town on the east coast with a marina, family-friendly beaches, a Sunday hippy-market heritage and strong local Spanish character; suits couples, families and travelers wanting good restaurants without full-on clubbing.","A relaxed east-coast beach village built around a broad sandy bay, known for its Wednesday hippy market and calmer pace than the south or west coasts; suits families and travelers who want beach time over nightlife."],
   "Victoria Falls":["The compact tourist core right by the Falls entrance, packed with curio markets, restaurants and bars - best for first-timers who want everything walkable.","A quieter residential pocket a few blocks from the main strip, popular with backpackers and independent travelers wanting value without losing convenience.","Leafy riverside hotels and a golf estate along the Zambezi upstream of the Falls, suited to travelers wanting resort comforts and sunset-cruise access nearby.","Elevated bushveld lodges bordering Zambezi National Park with waterhole views and resident wildlife, ideal for safari-focused travelers near the airport road.","The local township adjoining downtown, offering budget guesthouses, campsites and homestays for travelers wanting a slower, community-based stay."],
   "Lusaka":["Leafy diplomatic quarter of embassies and government offices, orderly and well-guarded; suits business travelers, NGO staff, and those wanting a calm, secure base.","Lusaka's most fashionable suburb, with jacaranda-lined streets, boutique shops, and the city's best restaurants; ideal for travelers wanting upscale comfort with a residential feel.","The commercial spine of the city along Cairo Road, packed with markets, street vendors, and minibus stations; energetic and convenient but noisy and best for shorter stays.","A sprawling modern corridor of shopping malls, offices, and conference hotels linking downtown to the eastern suburbs; practical for business travelers and shoppers, less charm.","A bush-fringed area on Lusaka's southern edge where warthogs and antelope wander lodge grounds; suits travelers wanting a safari feel without leaving the city."],
@@ -4446,6 +4616,16 @@ const CITY_HOOD_DESC = {
 
 /* Real lodging picks per neighborhood: [High-end, Mid-range, Budget], aligned to CITY_HOODS order */
 const CITY_LODGING = {
+  "Xi'an":[["Sofitel Legend People's Grand Hotel Xian","Grand Park Xian","Xian Travelling With Hostel (South Gate)"],["Grand Mercure Xian on Renmin Square","Bell Tower Hotel Xian","Han Tang Inn Hostel"],["The Westin Xian","Wyndham Grand Xian South","7 Days Inn (Big Wild Goose Pagoda)"],["Tang Dynasty Art Garden Hotel MGallery Xian","Holiday Inn Xian Greenland Century City","Hanting Hotel Xian Qujiang"],["Shangri-La Hotel Xian","Crowne Plaza Xian","Ibis Xian Gaoxin"]],
+  "Wuhan":[["Wanda Reign Wuhan","Grand Mercure Wuhan Zhongnan","Home Inn Wuhan Wuchang Railway Station"],["JW Marriott Hotel Wuhan","Hampton by Hilton Wuhan Jianghan Road","Jinjiang Inn Wuhan Jianghan Road Pedestrian Street"],["Crowne Plaza Wuhan Riverside","Holiday Inn Express Wuhan Hanyang","GreenTree Inn Wuhan Hanyang"],["Hilton Wuhan Optics Valley","Atour Hotel Wuhan Optics Valley","Hanting Hotel Wuhan Optics Valley Square"],["InterContinental Wuhan","Orange Hotel Select Wuhan Jiang'an","7 Days Inn Wuhan Jiang'an Bund"]],
+  "Tianjin":[["The Ritz-Carlton, Tianjin","Tianjin Saixiang Hotel","Home Inn Tianjin Binjiang Road"],["The Astor Hotel Tianjin, A Luxury Collection Hotel","Orange Hotel Select Tianjin Wudadao","7 Days Inn Tianjin Wudadao"],["The St. Regis Tianjin","Holiday Inn Tianjin Riverside","Hanting Hotel Tianjin Italian Style Town"],["Renaissance Tianjin Lakeview Hotel","Ji Hotel Tianjin Ancient Culture Street","Jinjiang Inn Tianjin Ancient Culture Street"],["Sheraton Tianjin Binhai Hotel","Holiday Inn Tianjin TEDA","Hanting Hotel Tianjin TEDA MSD"]],
+  "Nanjing":[["The Westin Nanjing","Jinling Hotel Nanjing","Ji Hotel Nanjing Xinjiekou"],["Mandarin Garden Hotel","Atour Hotel Nanjing Fuzimiao","Nanjing Qinhuai International Youth Hostel"],["Nanjing Xuanwu Hotel","Grand Metropark Hotel Nanjing","Jinjiang Inn Nanjing Xuanwu Lake"],["Sofitel Nanjing Zhongshan Golf Suning","Grand Hotel Nanjing","GreenTree Inn Nanjing Zhongshan"],["Fairmont Nanjing","Nanjing Marriott Hotel","Holiday Inn Express Nanjing Hexi"]],
+  "Nanchong":[["Nanchong Guest House (Nanchong Binguan)","Atour Hotel Nanchong","Hanting Hotel Nanchong"],["Vienna International Hotel Nanchong","Orange Hotel (Juzi) Nanchong","7 Days Inn Nanchong"],["Vienna Hotel Nanchong","GreenTree Inn Nanchong","Home Inn (Rujia) Nanchong"],["JI Hotel (Quanji) Nanchong","Home Inn Plus Nanchong","7 Days Inn Nanchong"],["Vienna International Hotel Nanchong Beihu","Jinjiang Inn Nanchong","Hanting Hotel Nanchong Beihu"]],
+  "Mumbai":[["The Taj Mahal Palace Mumbai","Hotel Suba Palace","Salvation Army Red Shield Guest House"],["The Oberoi Mumbai","Residency Hotel Fort","Traveller's Inn"],["Taj Lands End","Hotel Regal Enclave","Anand Hotel"],["JW Marriott Mumbai Juhu","Ramee Guestline Hotel Juhu","Hotel Iris"],["The St. Regis Mumbai","Hotel Midtown Pritam","Hotel Avon Ruby"]],
+  "Jakarta":[["The Hermitage, a Tribute Portfolio Hotel","Ashley Menteng Hotel","Ibis Budget Jakarta Menteng"],["Kemang Icon by Alila","favehotel Kemang","RedDoorz Plus near Kemang"],["Mercure Jakarta Batavia","Ibis Styles Jakarta Gajah Mada","Wonderloft Hostel Kota Tua"],["The Ritz-Carlton Jakarta, Pacific Place","Century Park Hotel","Amaris Hotel Senayan"],["Hotel Indonesia Kempinski Jakarta","Ibis Jakarta Tamarin","Amaris Hotel Thamrin City"]],
+  "Dongguan":[["Pullman Dongguan Forum","Kande International Hotel","Vienna Hotel Dongguan Dongcheng"],["Grand Noble Hotel Dongguan","Hampton by Hilton Dongguan Central Square","Hampton by Hilton Dongguan Nancheng Xiping"],["Sheraton Dongguan Hotel","Haiyatt Garden Hotel Houjie","Ramada Encore by Wyndham Dongguan Houjie"],["Hyatt Regency Dongguan","Vienna Hotel Dongguan Chang'an Wanda Plaza","GreenTree Inn Dongguan Chang'an"],["Dongguan Silverworld Garden Hotel","Vienna Hotel Dongguan Humen Wanda Plaza","GreenTree Inn Dongguan Humen"]],
+  "Chongqing":[["JW Marriott Hotel Chongqing","Harbour Plaza Chongqing","Tina's Hostel Chongqing"],["Niccolo Chongqing","InterContinental Chongqing","Ji Hotel Chongqing Guanyinqiao"],["Le Méridien Chongqing, Nan'an","Sheraton Chongqing Hotel","Hanting Hotel Chongqing Nanping"],["Vienna International Hotel Chongqing Shapingba","Lavande Hotels Chongqing Shapingba","7 Days Inn Chongqing Shapingba"],["Atour Hotel Chongqing Ciqikou","Jinjiang Inn Chongqing Ciqikou","Chongqing Ciqikou International Youth Hostel"]],
+  "Chengdu":[["The Temple House","Chengdu Minshan Hotel","Flipflop Lounge Hostel"],["The Ritz-Carlton, Chengdu","Buddhazen Hotel","Lazybones Hostel Poshpacker"],["Yinhe Dynasty Hotel","Holiday Inn Express Chengdu Wuhou","Home Inn Chengdu Wuhouci"],["Chengdu Marriott Hotel Financial Centre","Holiday Inn Express Chengdu Gaoxin","Ji Hotel Chengdu Gaoxin Financial Center"],["Chengdu Jinniu Hotel","Home Inn Chengdu North Railway Station","7 Days Inn Chengdu North Railway Station"]],
   "Ibiza":[["Mirador de Dalt Vila","El Hotelito Ibiza","hIbiza Boutique Guest House"],["Ushuàia Ibiza Beach Hotel","Hard Rock Hotel Ibiza","Aparthotel Vibra Mogambo"],["Oku Ibiza","Bellamar Hotel Beach & Spa","Amistat Island Hostel Ibiza"],["W Ibiza Hotel","Hotel Riomar","Hostal Yebisah"],["BLESS Ibiza Cala Nova","Invisa Hotel Ereso","Camping Cala Nova"]],
   "Victoria Falls":[["Shoestrings Backpackers Lodge","Ilala Lodge Hotel","The Victoria Falls Hotel"],["Shearwater Explorers Village","Rainbow Hotel Victoria Falls","Bayete Guest Lodge"],["A'Zambezi River Lodge","Zambezi Sun Resort","Elephant Hills Resort"],["Lokuthula Lodges","Victoria Falls Safari Club","Victoria Falls Safari Lodge"],["N1 Hotel & Campsite Victoria Falls","DK Holiday Home","Pamusha Lodge"]],
   "Lusaka":[["Lusaka Mosi-o-Tunya Executive Lodge","Carrey Hotel","InterContinental Lusaka"],["One Roma by the Cubes","Holiday Inn Lusaka","Latitude 15 Degrees Hotel"],["Protea Hotel Lusaka Cairo Road","Radisson Blu Hotel Lusaka","The Pamodzi Hotel"],["Zambia Golden Peacock Hotel","Protea Hotel Lusaka (Longacres)","Ciela Lusaka, a Tribute Portfolio Resort and Spa"],["Natwange Backpackers","Cargo88 Hotel","Lilayi Lodge"]],
@@ -4703,6 +4883,16 @@ const LODGE_TIERS = [
 
 /* Average days of measurable rainfall per quarter (3-month total) */
 const CITY_RAIN = {
+  "Xi'an":{"q1":15,"q2":22,"q3":28,"q4":18},
+  "Wuhan":{"q1":30,"q2":35,"q3":25,"q4":20},
+  "Tianjin":{"q1":7,"q2":16,"q3":25,"q4":9},
+  "Nanjing":{"q1":28,"q2":34,"q3":30,"q4":22},
+  "Nanchong":{"q1":30,"q2":38,"q3":42,"q4":30},
+  "Mumbai":{"q1":1,"q2":8,"q3":62,"q4":5},
+  "Jakarta":{"q1":50,"q2":30,"q3":12,"q4":40},
+  "Dongguan":{"q1":30,"q2":45,"q3":40,"q4":15},
+  "Chongqing":{"q1":30,"q2":38,"q3":32,"q4":32},
+  "Chengdu":{"q1":25,"q2":35,"q3":45,"q4":30},
   "Ibiza":{"q1":17,"q2":14,"q3":8,"q4":17},
   "Victoria Falls":{"q1":140,"q2":15,"q3":2,"q4":65},
   "Lusaka":{"q1":169,"q2":7,"q3":0,"q4":91},
@@ -4942,6 +5132,16 @@ const CITY_RAIN = {
 /* Takeaway coffee, beer (0.5L), and bottled water averages in USD.
    beer can be a number, or "restricted" / "notallowed" for alcohol rules. */
 const CITY_DRINKS = {
+  "Xi'an":{"beer":1.5,"coffee":4,"water":0.4},
+  "Wuhan":{"beer":1.2,"coffee":3.5,"water":0.3},
+  "Tianjin":{"beer":2,"coffee":4,"water":0.4},
+  "Nanjing":{"beer":1.5,"coffee":4,"water":0.5},
+  "Nanchong":{"beer":1.2,"coffee":3.5,"water":0.5},
+  "Mumbai":{"beer":4,"coffee":2.5,"water":0.3},
+  "Jakarta":{"beer":3.5,"coffee":2.5,"water":0.5},
+  "Dongguan":{"beer":1.5,"coffee":3.5,"water":0.4},
+  "Chongqing":{"beer":1.5,"coffee":4,"water":0.4},
+  "Chengdu":{"beer":1.5,"coffee":4,"water":0.4},
   "Ibiza":{"coffee":2.2,"beer":4.5,"water":1.5},
   "Victoria Falls":{"coffee":3,"beer":3,"water":1.5},
   "Lusaka":{"coffee":2.9,"beer":1.6,"water":0.5},
@@ -5181,6 +5381,16 @@ const CITY_DRINKS = {
 
 /* Public transit systems per city — powers the full-width Getting Around The City card */
 const CITY_TRANSIT = {
+  "Xi'an":{"hours":"Metro trains run roughly 6:00 AM to 11:00 PM; buses run from early morning to around 11:00 PM, with limited late-night service.","map":"https://www.xianmetro.com","note":"Xi'an Metro is a fast-growing network of 10+ lines covering the walled city, Big Wild Goose Pagoda, the high-speed rail station, and the airport (Line 14); clean, cheap, and the easiest way around, backed by an extensive city bus system.","pay":"Buy single-journey tokens at station machines, tap a rechargeable Chang'an Tong card, or scan the Xi'an Metro / Alipay / WeChat QR code; fares start around 2 yuan by distance. Buses cost ~2 yuan, cash or QR/card.","sys":[{"n":"Xi'an Metro","t":"Metro"},{"n":"Xi'an City Bus Network","t":"Bus"}]},
+  "Wuhan":{"hours":"Metro trains run roughly 6:00 AM to 11:00 PM; buses run similar hours with a limited set of night routes, and taxis or Didi fill the late-night gap.","map":"https://www.wuhanrt.com/","note":"Wuhan Metro is one of the world's largest systems, with more than a dozen lines crossing the Yangtze and Han rivers; it is supplemented by an extensive bus network and historic Yangtze River passenger ferries between Wuchang and Hankou.","pay":"Buy single-journey QR tickets in the metro app or tap in with Alipay/WeChat; a rechargeable Wuhan Tong card also works on metro, bus, and ferry. Cash is accepted on buses but exact change is expected.","sys":[{"n":"Wuhan Metro","t":"Metro"},{"n":"Wuhan Bus","t":"Bus"},{"n":"Wuhan Yangtze River Ferry","t":"Ferry"}]},
+  "Tianjin":{"hours":"Metro runs roughly 6:00 AM to 11:00 PM; buses from around 5:00 AM to 10:00 PM, with limited late-night service.","map":"http://www.tjdt.com.cn/","note":"Tianjin has an extensive and growing metro network plus buses, a modern guided-rail tram in the Binhai TEDA zone, and the Binhai light rail (Line 9); the metro is the easiest way for visitors to get around the core.","pay":"Pay by rechargeable Tianjin transit card, single-ride QR tickets, or by scanning Alipay/WeChat Pay QR codes at the gates; cash is not accepted on board buses (exact fare or card only).","sys":[{"n":"Tianjin Metro","t":"Metro"},{"n":"Binhai Mass Transit (Line 9 light rail)","t":"Light rail"},{"n":"TEDA Modern Guided Rail Tram","t":"Tram"},{"n":"Tianjin Public Transport Bus Network","t":"Bus"}]},
+  "Nanjing":{"hours":"Metro trains generally run from around 6:00 AM to 11:00 PM; buses run roughly 5:30 AM to 11:00 PM, with taxis and Didi filling the late-night gap.","map":"http://www.njmetro.com.cn/","note":"Nanjing Metro is one of China's largest systems with a dozen lines linking the airport, both high-speed rail stations, and most sights; it is the fastest and cheapest way around, backed by an extensive bus network.","pay":"Pay by QR code through Alipay, WeChat, or the Nanjing Metro app; a rechargeable Jinlingtong transit card and single-journey tokens are also sold at station machines. Fares are distance-based, starting around 2 CNY.","sys":[{"n":"Nanjing Metro","t":"Metro"},{"n":"Nanjing Bus Network","t":"Bus"}]},
+  "Nanchong":{"hours":"City buses generally run from around 6:00 AM to 9:00-10:00 PM; after that, taxis and Didi fill the late-night gap.","map":"","note":"Nanchong has no metro or tram; public transport is an extensive city bus network supplemented by taxis and Didi ride-hailing. Rail-transit lines have been discussed but none operates as of 2026.","pay":"Bus fares are a flat 1-2 yuan, paid in cash (exact change), with a local transit card, or by scanning a WeChat/Alipay QR code onboard.","sys":[{"n":"Nanchong Public Bus (Nanchong Gongjiao)","t":"Bus"}]},
+  "Mumbai":{"hours":"Suburban trains run roughly 4:00 AM to 1:00 AM; metro lines about 5:30 AM to 11:30 PM; BEST buses run all day with limited night services.","map":"https://www.mmrcl.com/en/network-map","note":"The suburban railway is the city's lifeline, moving millions daily on Western, Central, and Harbour lines; an expanding metro network, a monorail, and BEST buses fill in the gaps, with ride-hailing and kaali-peeli taxis for the rest.","pay":"Paper tickets and smart cards for trains; metro uses tokens, QR tickets, and the Mumbai 1 card; BEST buses take cash or the Chalo app/card. There is no single fully-unified fare card as of 2026.","sys":[{"n":"Mumbai Suburban Railway","t":"Rail"},{"n":"Mumbai Metro","t":"Metro"},{"n":"Mumbai Monorail","t":"Monorail"},{"n":"BEST Bus Network","t":"Bus"}]},
+  "Jakarta":{"hours":"MRT and TransJakarta run roughly 5:00 AM to midnight; the KRL Commuterline runs from around 4:00 AM to midnight. No 24-hour rail service, so ride-hailing fills the late-night gap.","map":"https://jakartamrt.co.id/en","note":"Jakarta's rail backbone is the MRT (north-south line), supplemented by the extensive TransJakarta BRT busway network, the KRL Commuterline serving Greater Jakarta (Jabodetabek), and the newer Jakarta LRT and Jabodebek LRT lines.","pay":"Most systems use the tap-in JakLingko card or bank e-money cards (as of 2026 the MRT and TransJakarta also accept the JakLingko app and QRIS). Fares are cheap (TransJakarta ~3,500 IDR flat; MRT distance-based).","sys":[{"n":"MRT Jakarta","t":"Metro"},{"n":"TransJakarta","t":"BRT"},{"n":"KRL Commuterline","t":"Commuter Rail"},{"n":"Jakarta LRT / Jabodebek LRT","t":"Light Rail"}]},
+  "Dongguan":{"hours":"Metro trains run roughly 6:00 AM to 11:00 PM.","map":"https://www.dggdjt.com/","note":"Dongguan Rail Transit currently runs Line 1 (opened Nov 2025, Dongguanxi Railway Station to Meitang) and Line 2 (opened 2016, Dongguan Railway Station to Humen Railway Station), linking the city's two main high-speed rail stations. Coverage is still limited across this sprawling town-based city, so buses, taxis, and Didi fill most gaps.","pay":"Tap in with an Alipay or WeChat transit QR code, a rechargeable Lingnan Tong / Dongguan Tong card, or a single-journey token from station machines; fares are distance-based starting around ¥2.","sys":[{"n":"Dongguan Rail Transit","t":"Metro"}]},
+  "Chongqing":{"hours":"Trains run roughly 6:30 AM to 10:30-11:00 PM depending on the line.","map":"https://www.cqmetro.cn/","note":"Chongqing Rail Transit is an extensive metro network famous for its straddle-beam monorail Lines 2 and 3 — Line 2 threads directly through the Liziba station built into a residential tower, and the system climbs the mountainous terrain with dramatic elevation changes, bridges, and cliffside stations.","pay":"Pay by QR code through Alipay/WeChat or the Yu Kuai Xing app, a rechargeable Chang'an Tong transit card, or single-journey tokens from station machines (fares run ~2-10 yuan by distance).","sys":[{"n":"Chongqing Rail Transit (Metro & Monorail)","t":"Metro"},{"n":"Rail Transit Lines 2 & 3 (straddle-beam monorail)","t":"Monorail"}]},
+  "Chengdu":{"hours":"Metro trains run roughly 6:00 AM to 11:00 PM; buses run from early morning to around 10-11 PM, with Didi and taxis covering later hours.","map":"https://www.chengdurail.com/en/","note":"Chengdu Metro is one of China's largest systems, with 17+ lines topping 720 km, backed by an extensive bus network and a tram line in the outer districts.","pay":"Fares start at ¥2 by distance; pay with the Tianfutong transit card, a QR code via the Tianfutong or Alipay app, or single-ride tickets from station machines. Cash is rarely used.","sys":[{"n":"Chengdu Metro","t":"Metro"},{"n":"Chengdu Bus","t":"Bus"},{"n":"Chengdu Tram (Line T2)","t":"Tram"}]},
   "Ibiza":{"sys":[{"n":"aIBIZAbus (Consell d'Eivissa island bus network)","t":"Bus"},{"n":"IBZ Bus (Ibiza Town local routes)","t":"Bus"}],"map":"https://www.ibizabus.com/","pay":"Pay in cash directly to the driver (typically €1.50-€3.60 depending on distance); there is no rechargeable island-wide transit card. Some routes also allow online ticket purchase in advance during peak season.","hours":"Daytime routes run roughly 6:30am-10pm; a limited seasonal night bus network (Disco Bus) links Ibiza Town, Playa d'en Bossa, Sant Antoni and the main clubs from around midnight to 6am, June-September only.","note":"Buses connect Ibiza Town with Sant Antoni, Santa Eulària, the airport and beach towns, but service thins out sharply outside peak season and away from the main routes; a rental car, taxi or scooter is the practical way to reach quieter coves and villages."},
   "Victoria Falls":{"sys":[{"n":"Kombis (shared minibus taxis)","t":"Bus"},{"n":"National Railways of Zimbabwe (Bulawayo-Victoria Falls line)","t":"Train"}],"map":"","pay":"Kombi and local taxi fares are paid in cash (USD) directly to the driver; there is no rechargeable card or app-based fare system. Most visitors instead arrange point-to-point transport through hotel front desks, tour operators, or pre-booked shuttle/taxi services.","hours":"Kombis and taxis run roughly 6am-9pm with no scheduled night service; hotels arrange private drivers after dark.","note":"The town centre is highly walkable, but riverfront hotels, safari lodges and the airport all require taxi, shuttle or hotel transfer."},
   "Lusaka":{"sys":[{"n":"Minibus network (privately operated)","t":"Bus"},{"n":"Intercity coach services from Lusaka InterCity Bus Terminus","t":"Bus"}],"map":"","pay":"Fares are paid in cash directly to the conductor on board minibuses; there is no electronic fare card system. Intercity coach tickets are bought at counters in the terminus before departure.","hours":"Minibuses run roughly 5:30am-9pm and thin out after dark; there is no reliable late-night public transit, so use a ride-hailing app or a registered taxi at night.","note":"Minibuses (locally called 'buses') are cheap and frequent along main routes like Cairo Road, Great East Road, and Kafue Road, but are crowded and poorly signed; most visitors rely on ride-hailing apps or hired drivers instead."},
@@ -5437,6 +5647,16 @@ const DRINK_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
 /* Transportation per city. car.idp = Int'l Driving Permit guidance for visitors;
    car.rental = mid-size car, 1 day, USD. car.side = which side they drive on. */
 const CITY_TRANSPORT = {
+  "Xi'an":{"air":["Xi'an Xianyang International Airport (XIY)"],"bus":["Xi'an City Bus Network","Intercity coaches to Shaanxi towns and the Terracotta Army (Lintong)"],"car":{"idp":"Required (foreign licenses not valid; a temporary Chinese permit is needed)","rental":45,"side":"right"},"ferry":[],"train":["Xi'an North Railway Station (high-speed rail to Beijing, Shanghai, Chengdu, Zhengzhou)","Xi'an Railway Station (conventional lines)"]},
+  "Wuhan":{"air":["Wuhan Tianhe International Airport (WUH)"],"bus":["Wuhan city bus network","Long-distance coaches from Fujiapo, Hankou, and Xinhua Road bus stations"],"car":{"idp":"Not valid; a Chinese driver's license is required to drive, so most visitors rely on metro and Didi","rental":40,"side":"right"},"ferry":["Wuhan Yangtze River passenger ferries (Zhonghua Road-Wuchang and other crossings)"],"train":["Major high-speed rail hub: Wuhan, Hankou, and Wuchang stations connect to Beijing, Shanghai, Guangzhou, Chengdu, and Xi'an"]},
+  "Tianjin":{"air":["Tianjin Binhai International Airport (TSN)"],"bus":["Tianjin Public Transport bus network","Long-distance coaches to Beijing and across Hebei"],"car":{"idp":"Not valid — China does not recognize the International Driving Permit; a temporary Chinese licence is required to drive","rental":40,"side":"right"},"ferry":["Bohai Sea ferries from Tianjin Port to Dalian and Yantai","International ferry to Incheon, South Korea"],"train":["Beijing–Tianjin Intercity high-speed rail (~35 min to Beijing)","Tianjin & Tianjin West high-speed rail stations","National high-speed network to Shanghai, Ji'nan, and beyond"]},
+  "Nanjing":{"air":["Nanjing Lukou International Airport (NKG)"],"bus":["Nanjing Bus Network","Intercity coaches from Nanjing Bus Terminals to regional cities"],"car":{"idp":"Required (foreign licenses not valid; a temporary Chinese permit is needed)","rental":45,"side":"right"},"ferry":["Yangtze River local ferry crossings (e.g. Zhongshan Wharf)"],"train":["Nanjing South Railway Station (major high-speed rail hub)","Nanjing Railway Station"]},
+  "Nanchong":{"air":["Nanchong Gaoping Airport (NAO)"],"bus":["Nanchong city bus network","Intercity coaches to Chengdu, Chongqing and nearby Sichuan cities"],"car":{"idp":"Not valid; mainland China does not recognize International Driving Permits, so a temporary or full Chinese license is required","rental":40,"side":"right"},"ferry":[],"train":["Nanchong and Nanchong North stations on the Lanzhou-Chongqing railway, with the Chengdu-Nanchong-Dazhou high-speed line expanding fast rail links"]},
+  "Mumbai":{"air":["Chhatrapati Shivaji Maharaj International Airport (BOM)"],"bus":["BEST city buses","MSRTC intercity buses","Private AC intercity coaches"],"car":{"idp":"Recommended","rental":30,"side":"left"},"ferry":["Ferries to Elephanta Island from the Gateway of India","Mumbai-Alibaug RoRo ferry","Water taxis to Navi Mumbai (Belapur)"],"train":["Mumbai Suburban Railway","Long-distance Indian Railways from CSMT, Mumbai Central, Dadar, and LTT"]},
+  "Jakarta":{"air":["Soekarno-Hatta International Airport (CGK)","Halim Perdanakusuma International Airport (HLP)"],"bus":["TransJakarta BRT","Intercity buses from Kampung Rambutan, Pulo Gebang, and Kalideres terminals"],"car":{"idp":"Recommended","rental":30,"side":"left"},"ferry":["Ferries to the Thousand Islands (Kepulauan Seribu) from Ancol Marina and Muara Angke"],"train":["KRL Commuterline (Greater Jakarta)","Intercity trains from Gambir and Pasar Senen stations to Bandung, Yogyakarta, and Surabaya"]},
+  "Dongguan":{"air":["No major airport of its own; nearest hubs are Shenzhen Bao'an International (SZX) and Guangzhou Baiyun International (CAN)"],"bus":["Dongguan city bus network","Intercity coaches across the Pearl River Delta to Shenzhen and Guangzhou"],"car":{"idp":"Foreign and international permits are not valid; a temporary Chinese driving permit is required","rental":40,"side":"right"},"ferry":[],"train":["Humen Railway Station (Guangzhou-Shenzhen high-speed rail)","Dongguanxi Railway Station (Guangzhou-Shenzhen intercity)","Dongguan Railway Station (Shilong) & Changping / Dongguan East"]},
+  "Chongqing":{"air":["Chongqing Jiangbei International Airport (CKG)"],"bus":["Chongqing public bus network","Long-distance coaches from Chongqing Coach Station and Longtousi Bus Station"],"car":{"idp":"Not valid — China does not recognize the IDP; visitors need a temporary Chinese licence, so most do not self-drive","rental":50,"side":"right"},"ferry":["Yangtze River cross-river passenger ferries and cruise piers at Chaotianmen"],"train":["Chongqingbei (North), Chongqingxi (West) & Shapingba high-speed rail stations","High-speed links to Chengdu, Xi'an, Wuhan, Guiyang and beyond"]},
+  "Chengdu":{"air":["Chengdu Shuangliu International Airport (CTU)","Chengdu Tianfu International Airport (TFU)"],"bus":["Chengdu city bus network","Intercity coaches from Chadianzi, Beimen, and Xinnanmen bus stations"],"car":{"idp":"Not recognized (a temporary or full Chinese driving license is required)","rental":40,"side":"right"},"ferry":[],"train":["Chengdu East, Chengdu South & Chengdu North railway stations (high-speed rail to Chongqing, Xi'an, Kunming and beyond)"]},
   "Ibiza":{"air":["Ibiza Airport (IBZ)"],"train":["Ibiza is an island with no railway; there are no trains."],"bus":["aIBIZAbus island network","No international or mainland coach routes exist from an island"],"ferry":["Port of Ibiza (Ibiza Town)","Port of Sant Antoni"],"car":{"side":"right","idp":"Recommended","rental":45}},
   "Victoria Falls":{"air":["Victoria Falls International Airport (VFA)"],"train":["National Railways of Zimbabwe overnight service (Bulawayo-Victoria Falls, a few times weekly)"],"bus":["Intercity coaches to Bulawayo and Harare (operators such as City Link, Pathfinder)","Local kombis (shared minibus taxis)"],"ferry":[],"car":{"side":"left","idp":"Recommended","rental":70}},
   "Lusaka":{"air":["Kenneth Kaunda International Airport (LUN)"],"train":["Zambia Railways (Lusaka-Kitwe and Lusaka-Livingstone, limited/infrequent passenger service)"],"bus":["Mazhandu Family Bus Services","Power Tools Bus Services","Juldan Motors"],"ferry":[],"car":{"side":"left","idp":"Required","rental":55}},
@@ -5707,6 +5927,16 @@ const CITY_ROUTES = window.NRA_ROUTES || {};
 /* Primary airport detail per city. km = distance to city center; costs in USD.
    ride.avail = "yes" | "limited" | "no". transit: {m: option, c: USD cost}. */
 const CITY_AIRPORT = {
+  "Xi'an":{"carService":40,"drive":"50-60 min","km":47,"name":"Xi'an Xianyang International Airport (XIY)","rentals":["China Auto Rental","eHi Car Services","Avis","Hertz"],"ride":{"avail":"wide","cost":22},"taxi":30,"transit":[{"c":4,"m":"Airport shuttle bus to city center / railway station (~60 min, frequent)"},{"c":3,"m":"Metro Line 14 + transfer to Line 2 for city center (~70 min)"},{"c":30,"m":"Taxi to city center (50-60 min, plus expressway toll)"}]},
+  "Wuhan":{"carService":25,"drive":"45-60 min","km":26,"name":"Wuhan Tianhe International Airport (WUH)","rentals":["China Auto Rental (CAR)","eHi Car Rental","Hertz"],"ride":{"avail":"wide","cost":15},"taxi":18,"transit":[{"c":1,"m":"Metro Line 2 from the airport terminal to the city center (~55 min, direct)"},{"c":3,"m":"Airport shuttle bus to Wuchang/Hankou (~60 min)"},{"c":18,"m":"Taxi to city center (45-60 min)"}]},
+  "Tianjin":{"carService":20,"drive":"20-30 min","km":13,"name":"Tianjin Binhai International Airport (TSN)","rentals":["CAR Inc (China Auto Rental)","eHi Car Services","Shouqi","Avis"],"ride":{"avail":"wide","cost":8},"taxi":11,"transit":[{"c":0.7,"m":"Metro Line 2 direct to city center (~25-30 min)"},{"c":11,"m":"Taxi to city center (20-30 min)"}]},
+  "Nanjing":{"carService":30,"drive":"50-60 min","km":36,"name":"Nanjing Lukou International Airport (NKG)","rentals":["Hertz","Avis","eHi Car Services","CAR Inc"],"ride":{"avail":"wide","cost":22},"taxi":20,"transit":[{"c":1,"m":"Metro Line S1 (Airport Line) to city center via Nanjing South (~35-45 min)"},{"c":3,"m":"Airport coach to city center (~45-60 min)"},{"c":20,"m":"Taxi to city center (50-60 min, ~130-150 CNY)"}]},
+  "Nanchong":{"carService":15,"drive":"20-30 min","km":12,"name":"Nanchong Gaoping Airport (NAO)","rentals":["China Auto Rental (Shenzhou)","eHi Car Rental (Yihai)"],"ride":{"avail":"wide","cost":6},"taxi":10,"transit":[{"c":2,"m":"Airport shuttle bus to city center (~40 min)"},{"c":10,"m":"Taxi/Didi to city center (20-30 min)"}]},
+  "Mumbai":{"carService":22,"drive":"45-90 min to South Mumbai","km":20,"name":"Chhatrapati Shivaji Maharaj International Airport (BOM)","rentals":["Zoomcar","Avis","Hertz","Europcar"],"ride":{"avail":"wide","cost":12},"taxi":14,"transit":[{"c":0.7,"m":"Airport Metro (Line 3/Line 7) plus suburban rail into the city"},{"c":12,"m":"Prepaid taxi or Uber/Ola to South Mumbai (45-90 min in traffic)"},{"c":1,"m":"BEST AC bus to nearby suburbs and rail stations"}]},
+  "Jakarta":{"carService":15,"drive":"45-90 min","km":20,"name":"Soekarno-Hatta International Airport (CGK)","rentals":["TRAC","Avis","Golden Bird","Hertz"],"ride":{"avail":"available","cost":10},"taxi":16,"transit":[{"c":4.5,"m":"Railink airport train to BNI City / Sudirman (~40-55 min)"},{"c":2.5,"m":"Damri airport bus to points around the city (~60-90 min)"},{"c":16,"m":"Blue Bird metered taxi to city center (45-90 min in traffic)"}]},
+  "Dongguan":{"carService":55,"drive":"60-90 min","km":50,"name":"No major airport of its own; nearest hubs Shenzhen Bao'an Int'l (SZX, ~50 km) & Guangzhou Baiyun Int'l (CAN, ~80 km)","rentals":["Not common; most travelers use high-speed rail or airport coaches"],"ride":{"avail":"wide","cost":45},"taxi":65,"transit":[{"c":8,"m":"High-speed/intercity rail from Humen or Dongguanxi Station toward Shenzhen, then Metro Line 11 to Shenzhen Bao'an Airport (SZX) - about 1-1.5 hr total"},{"c":10,"m":"Direct airport shuttle coaches from Dongguan city terminals to SZX (~1 hr) and to Guangzhou Baiyun CAN (~1.5 hr)"},{"c":9,"m":"Guangzhou-Shenzhen intercity train to Guangzhou, then Metro Line 3 to Guangzhou Baiyun Airport (CAN)"}]},
+  "Chongqing":{"carService":30,"drive":"40-55 min","km":21,"name":"Chongqing Jiangbei International Airport (CKG)","rentals":["China Auto Rental","eHi Car Rental","Avis","Hertz"],"ride":{"avail":"wide","cost":18},"taxi":22,"transit":[{"c":1,"m":"Rail Transit Line 3/10 to city center (~45-60 min)"},{"c":22,"m":"Taxi to Jiefangbei city center (40-55 min)"},{"c":15,"m":"Airport shuttle bus to downtown (~50 min)"}]},
+  "Chengdu":{"carService":30,"drive":"30-40 min","km":16,"name":"Chengdu Shuangliu International Airport (CTU)","rentals":["Hertz","Avis","China Auto Rental (CAR)","eHi"],"ride":{"avail":"wide","cost":10},"taxi":9,"transit":[{"c":0.7,"m":"Metro Line 10 from Shuangliu Airport to the center (~30 min, transfer to Line 3/1)"},{"c":9,"m":"Taxi to city center (30-40 min)"},{"c":1.5,"m":"Airport shuttle buses to key downtown points; note the newer Chengdu Tianfu Int'l (TFU), ~50 km SE, handles most long-haul flights and links by Metro Line 18 / airport rail"}]},
   "Ibiza":{"name":"Ibiza Airport (IBZ)","km":7,"drive":"15-20 min","rentals":["Hertz","Avis","Europcar","Sixt","Enterprise","Goldcar","Centauro"],"carService":45,"taxi":18,"ride":{"avail":"limited","cost":20},"transit":[{"m":"Bus lines 10/10E to Ibiza Town, 20-30 min","c":3.6},{"m":"Taxi to Ibiza Town (7km, ~15 min)","c":18}]},
   "Victoria Falls":{"name":"Victoria Falls International Airport (VFA)","km":18,"drive":"20-25 min","rentals":["Avis","Europcar","Hertz"],"carService":30,"taxi":28,"ride":{"avail":"no","cost":0},"transit":[{"m":"Shared shuttle/minivan (~25 min)","c":15},{"m":"Private taxi/transfer (~20-25 min)","c":28}]},
   "Lusaka":{"name":"Kenneth Kaunda International Airport (LUN)","km":27,"drive":"30-45 min","rentals":["Avis","Hertz","Europcar","First Car Rental"],"carService":30,"taxi":25,"ride":{"avail":"limited","cost":20},"transit":[{"m":"Pre-booked taxi/car service (~30-45 min)","c":25},{"m":"Yango/GO ride-hail (pickup often arranged outside terminal gate)","c":18},{"m":"Shared minibus to town centre (infrequent, daytime only)","c":3}]},
@@ -5964,6 +6194,16 @@ const CITY_AIRPORT = {
    Wi-Fi rating (fw: wide/mod/ltd, fwn: note number below) and main-airport
    free Wi-Fi (ap: note number below). Country-level estimates, July 2026. */
 const CITY_NET = {
+  "Xi'an":{"ap":2,"fw":"ltd","fwn":7,"gb":3,"m":95,"ops":["China Mobile","China Unicom","China Telecom"],"w":50},
+  "Wuhan":{"ap":2,"fw":"ltd","fwn":8,"gb":1,"m":95,"ops":["China Mobile","China Unicom","China Telecom"],"w":55},
+  "Tianjin":{"ap":6,"fw":"ltd","fwn":8,"gb":3,"m":120,"ops":["China Mobile","China Unicom","China Telecom"],"w":50},
+  "Nanjing":{"ap":3,"fw":"ltd","fwn":7,"gb":1,"m":90,"ops":["China Mobile","China Unicom","China Telecom"],"w":60},
+  "Nanchong":{"ap":2,"fw":"ltd","fwn":1,"gb":3,"m":55,"ops":["China Mobile","China Unicom","China Telecom"],"w":35},
+  "Mumbai":{"ap":4,"fw":"mod","fwn":4,"gb":1,"m":55,"ops":["Jio","Airtel","Vi (Vodafone Idea)"],"w":35},
+  "Jakarta":{"ap":3,"fw":"mod","fwn":4,"gb":2,"m":25,"ops":["Telkomsel","Indosat Ooredoo Hutchison (IM3)","XL Axiata"],"w":20},
+  "Dongguan":{"ap":6,"fw":"ltd","fwn":7,"gb":3,"m":90,"ops":["China Mobile","China Unicom","China Telecom"],"w":45},
+  "Chongqing":{"ap":2,"fw":"ltd","fwn":8,"gb":3,"m":90,"ops":["China Mobile","China Unicom","China Telecom"],"w":60},
+  "Chengdu":{"ap":3,"fw":"ltd","fwn":7,"gb":3,"m":90,"ops":["China Mobile","China Unicom","China Telecom"],"w":50},
   "Ibiza":{"m":65,"w":100,"ops":["Movistar","Vodafone","Orange"],"gb":1.0,"fw":"mod","fwn":2,"ap":2},
   "Victoria Falls":{"m":18,"w":15,"ops":["Econet Wireless","NetOne","Telecel"],"gb":1.5,"fw":"ltd","fwn":2,"ap":3},
   "Lusaka":{"m":22,"w":15,"ops":["Airtel Zambia","MTN Zambia","Zamtel"],"gb":1.5,"fw":"ltd","fwn":2,"ap":7},
@@ -6438,6 +6678,16 @@ function fwInfo(l) {
 /* Per-city "Buy eSIM" links — paste each city's purchase URL between the
    quotes as they become ready. Cities left blank show a placeholder link. */
 const CITY_ESIM = {
+  "Xi'an":"",
+  "Wuhan":"",
+  "Tianjin":"",
+  "Nanjing":"",
+  "Nanchong":"",
+  "Mumbai":"",
+  "Jakarta":"",
+  "Dongguan":"",
+  "Chongqing":"",
+  "Chengdu":"",
   "Ibiza":"",
   "Victoria Falls":"",
   "Lusaka":"",
@@ -6631,6 +6881,16 @@ const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" st
 
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 const CITY_TIP = {
+  "Xi'an":{"r":"Tipping is not customary or expected at restaurants, taxis, or hotels; prices are as marked and staff may even decline a tip.","s":"not expected"},
+  "Wuhan":{"r":"Tipping is not customary in China and is generally not expected in restaurants, taxis, or hotels; prices are as marked.","s":"none"},
+  "Tianjin":{"r":"Tipping is not expected or practiced in China; there is no service charge at most local restaurants and no need to tip taxis or hotel staff.","s":"not customary"},
+  "Nanjing":{"r":"Tipping is not customary or expected in Nanjing; restaurants, taxis, and cafes do not anticipate a tip, though upscale hotels may add a service charge.","s":"not customary"},
+  "Nanchong":{"r":"Tipping is not part of local culture and is not expected in restaurants, taxis, or hotels.","s":"not customary"},
+  "Mumbai":{"r":"Not obligatory; 5-10% at restaurants when no service charge is added, and rounding up for taxis, autos, and porters is appreciated.","s":"optional"},
+  "Jakarta":{"r":"Not expected; many restaurants already add a 5-10% service charge. Rounding up or leaving small change for good service is appreciated.","s":"optional"},
+  "Dongguan":{"r":"Tipping is not expected or practiced in mainland China; restaurants add no service charge and rounding up is unnecessary.","s":"not customary"},
+  "Chongqing":{"r":"Tipping is not expected or practiced in restaurants, taxis, or hotels; a service charge is occasionally added at upscale venues.","s":"not customary"},
+  "Chengdu":{"r":"Tipping is not customary or expected in Chengdu; restaurant bills are paid as-is and rounding up is neither required nor common.","s":"not expected"},
   "Ibiza":{"s":"optional","r":"Not obligatory; rounding up the bill or leaving 5-10% at restaurants for good service is common and appreciated, more so in tourist-oriented restaurants and clubs."},
   "Victoria Falls":{"s":"customary","r":"10% at restaurants when service isn't included; $10-20/day for safari guides, $1-2 per bag for porters."},
   "Lusaka":{"s":"optional","r":"Not obligatory; rounding up or leaving 5-10% at restaurants catering to tourists and business travelers is appreciated but not expected."},
