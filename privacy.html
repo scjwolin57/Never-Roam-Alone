@@ -21,17 +21,17 @@
 <title>Privacy Policy — Never Roam Alone</title>
 
 <!-- Amatic SC (logo font) -->
-<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
-    --ink:#1d2a32;
-    --muted:#5b6b75;
-    --sand:#f6f1e7;
-    --teal:#556B2F;
-    --teal-dark:#3C4B21;
-    --coral:#C04020;
-    --card:#ffffff;
+    --ink:#2b2417;
+    --muted:#82755b;
+    --sand:#ece2cc;
+    --teal:#3f5138;
+    --teal-dark:#2c3a27;
+    --coral:#a8482a;
+    --card:#f6efdd;
     --shadow:0 10px 30px rgba(20,40,50,.12);
     --maxw:1180px;
   }
@@ -50,16 +50,16 @@
   /* ---------- Menu bar ---------- */
   header.nav{
     position:sticky;top:0;z-index:50;
-    background:rgba(246,241,231,.92);
+    background:rgba(236,226,204,.92);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(85,107,47,.15);
+    border-bottom:1px solid rgba(63,81,56,.15);
   }
   .nav-inner{
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
-  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(192,64,32,.2)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(168,72,42,.2)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
@@ -84,7 +84,7 @@
   .legal p{color:#34454e;margin:0 0 14px}
   .legal ul{color:#34454e;margin:0 0 14px;padding-left:22px}
   .legal li{margin:6px 0}
-  .legal a.inline{color:var(--teal);border-bottom:1px solid rgba(85,107,47,.4)}
+  .legal a.inline{color:var(--teal);border-bottom:1px solid rgba(63,81,56,.4)}
   .legal a.inline:hover{color:var(--coral);border-color:var(--coral)}
   .callout{
     background:var(--sand);border-left:4px solid var(--coral);
@@ -96,7 +96,7 @@
   .toc a:hover{color:var(--coral)}
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
-  footer .brand{justify-content:center;color:#C04020}
+  footer .brand{justify-content:center;color:#a8482a}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -106,9 +106,22 @@
     nav.links{display:none}
     .legal{padding:28px 22px}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'IBM Plex Mono',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <!-- ===== Menu bar ===== -->
 <header class="nav">

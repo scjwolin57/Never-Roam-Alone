@@ -24,22 +24,22 @@
 <meta name="twitter:description" content="Costs, weather, safety, walkability, visitors and visa rules, side by side.">
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>Compare Cities — Never Roam Alone</title>
-<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
-    --coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
+    --coral:#a8482a;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--sand);line-height:1.65}
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
   a{color:inherit;text-decoration:none}
 
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -62,12 +62,12 @@
 
   .picker{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:28px 0 8px}
   .picker select{font-size:1rem;font-family:inherit;padding:12px 16px;border-radius:12px;
-    border:1.5px solid rgba(85,107,47,.3);background:#fff;color:var(--ink);min-width:220px}
+    border:1.5px solid rgba(63,81,56,.3);background:#fff;color:var(--ink);min-width:220px}
   .picker select:focus{outline:none;border-color:var(--green)}
-  .picker .vs{font-family:Georgia,serif;font-style:italic;color:var(--coral);font-weight:700;font-size:1.1rem}
-  .picker .swap{background:none;border:1.5px solid rgba(85,107,47,.3);border-radius:10px;width:40px;height:40px;
+  .picker .vs{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--coral);font-weight:700;font-size:1.1rem}
+  .picker .swap{background:none;border:1.5px solid rgba(63,81,56,.3);border-radius:10px;width:40px;height:40px;
     cursor:pointer;color:var(--green);font-size:1.1rem}
-  .picker .swap:hover{background:rgba(85,107,47,.08)}
+  .picker .swap:hover{background:rgba(63,81,56,.08)}
 
   .hint{text-align:center;color:var(--muted);font-size:.9rem;margin:6px 0 30px}
 
@@ -85,7 +85,7 @@
   .cmp-card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:18px 20px;margin-bottom:16px}
   .cmp-card h3{margin:0 0 14px;font-size:1.05rem;color:var(--green)}
   .cmp-row{display:grid;grid-template-columns:1.1fr 1fr 1fr;align-items:center;gap:12px;padding:9px 0;
-    border-bottom:1px solid rgba(85,107,47,.08)}
+    border-bottom:1px solid rgba(63,81,56,.08)}
   .cmp-row:last-child{border-bottom:none}
   .cmp-row .lbl{color:var(--muted);font-size:.85rem}
   .cmp-row .val{text-align:center;font-weight:700;font-size:.98rem}
@@ -104,13 +104,13 @@
   .visa-panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px 20px;text-align:center;margin-bottom:16px}
   .visa-panel h3{margin:0 0 4px;color:var(--green);font-size:1.05rem}
   .visa-panel select{font-size:1rem;font-family:inherit;padding:10px 14px;border-radius:10px;
-    border:1.5px solid rgba(85,107,47,.3);margin-top:10px;min-width:260px}
+    border:1.5px solid rgba(63,81,56,.3);margin-top:10px;min-width:260px}
   .visa-status{font-size:.8rem;color:var(--muted);margin-top:8px}
   .visa-badges{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
   .visa-badge{padding:10px;border-radius:10px;font-weight:700;font-size:.88rem;color:#fff}
   .visa-badge small{display:block;font-weight:500;font-size:.7rem;opacity:.9;margin-top:3px}
   .b-free{background:#1d9a6c}.b-voa{background:#5aa9e6}.b-eta{background:#7c5cbf}
-  .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#5b6b75}
+  .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#82755b}
 
   .disclaimer{font-size:.78rem;color:var(--muted);text-align:center;max-width:700px;margin:20px auto 0}
   .disclaimer a{color:var(--teal);font-weight:600}
@@ -125,9 +125,22 @@
     .cmp-titles .sp{display:none}
     .season-grid{grid-template-columns:1fr}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'IBM Plex Mono',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -988,7 +1001,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#C04020", w:"Car-dependent"};
+  return {c:"#a8482a", w:"Car-dependent"};
 }
 const CITY_SAFETY = {
   "Victoria Falls":{"safety":68,"crime":32},
@@ -1286,7 +1299,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#C04020", w:"Car-dependent"};
+  return {c:"#a8482a", w:"Car-dependent"};
 }
 function safetyColor(s) {
   if (s >= 80) return "#1d9a6c";
