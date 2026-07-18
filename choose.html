@@ -466,6 +466,13 @@
   @media(max-width:620px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}}
   .tool-section[data-tool="finder"] .nra-seg span{min-width:0;flex:1 1 auto;font-size:.72rem;padding:11px 4px}
   .tool-section[data-tool="finder"] .nra-chips .lchip{font-size:.74rem;padding:8px 12px}
+
+  /* ---- MATCH MOCKUP: When/view toggles -> squared seg (fix sliding-pill overlap) ---- */
+  .tool-section[data-tool="finder"] .when-switch{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:0;gap:0;margin:2px 0 12px}
+  .tool-section[data-tool="finder"] .when-switch::before{display:none!important}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio{border-radius:0;border-right:1px solid var(--ink);padding:11px 8px;font-size:.72rem;font-weight:600;color:var(--muted);gap:6px}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio:last-child{border-right:none}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio.active{background:var(--coral)!important;color:#fff!important}
 </style>
 </head>
 <body>
