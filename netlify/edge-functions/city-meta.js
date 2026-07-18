@@ -31,6 +31,21 @@ import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.t
 const SITE = "https://neverroamalone.com";
 
 const CITY_META = {
+  "zhengzhou": {"city":"Zhengzhou","slug":"zhengzhou","tagline":"Henan's ancient crossroads where China's rail lines and dynasties converge, gateway to Shaolin and the Yellow River."},
+  "tai'an": {"city":"Tai'an","slug":"tai-an","tagline":"Gateway to sacred Mount Tai, holiest of China's five great peaks."},
+  "suzhou": {"city":"Suzhou","slug":"suzhou","tagline":"The 'Venice of the East' - classical gardens, silk, and canal-woven old lanes an hour from Shanghai."},
+  "shenyang": {"city":"Shenyang","slug":"shenyang","tagline":"Manchuria's old capital, where an imperial palace meets industrial reinvention."},
+  "shantou": {"city":"Shantou","slug":"shantou","tagline":"Teochew heartland of gongfu tea, seafood feasts, and arcade-lined old streets on the South China Sea."},
+  "saint petersburg": {"city":"Saint Petersburg","slug":"saint-petersburg","tagline":"Russia's imperial capital of palaces, the Hermitage, and summer White Nights."},
+  "lahore": {"city":"Lahore","slug":"lahore","tagline":"Pakistan's cultural heart, where Mughal grandeur meets nonstop food streets."},
+  "kolkata": {"city":"Kolkata","slug":"kolkata","tagline":"The City of Joy — India's cultural capital of literature, art, adda, and unrivalled street food."},
+  "jinan": {"city":"Jinan","slug":"jinan","tagline":"China's City of Springs, where bubbling waters, willow-lined lakes, and hearty Shandong flavors meet."},
+  "harbin": {"city":"Harbin","slug":"harbin","tagline":"China's frozen north, where ice cities glow and Russian domes meet Manchurian street food."},
+  "hangzhou": {"city":"Hangzhou","slug":"hangzhou","tagline":"West Lake serenity and Alibaba ambition, wrapped in tea hills and canals."},
+  "dalian": {"city":"Dalian","slug":"dalian","tagline":"Breezy Yellow Sea port where Russian and Japanese pasts meet China's beach-resort playground."},
+  "chennai": {"city":"Chennai","slug":"chennai","tagline":"South India's Dravidian capital of temples, filter coffee, and the world's second-longest urban beach."},
+  "changchun": {"city":"Changchun","slug":"changchun","tagline":"China's Motor City on the Manchurian plain—auto plants, film studios, and long snowbound winters."},
+  "bengaluru": {"city":"Bengaluru","slug":"bengaluru","tagline":"India's Garden City turned tech capital — craft beer, startups, and near-perfect weather."},
   "xi'an": {"city":"Xi'an","slug":"xi-an","tagline":"Ancient Silk Road capital of the Terracotta Army, city walls, and dumpling feasts."},
   "wuhan": {"city":"Wuhan","slug":"wuhan","tagline":"River city of a thousand lakes, hot-dry noodles, and the Yellow Crane Tower."},
   "tianjin": {"city":"Tianjin","slug":"tianjin","tagline":"China's treaty-port gateway where European villas meet a booming Bohai skyline."},

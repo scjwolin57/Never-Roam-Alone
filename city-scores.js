@@ -9,6 +9,20 @@
    Local data: no network lookup needed.
 ----------------------------------------------------------*/
 window.NRA_CITY_SCORES = {
+  "Zhengzhou": { nightlife:55, restaurants:72, museums:78, architecture:60, nature:58 },
+  "Tai'an": { nightlife:30, restaurants:55, museums:60, architecture:72, nature:95 },
+  "Suzhou": { nightlife:60, restaurants:78, museums:75, architecture:88, nature:70 },
+  "Shenyang": { nightlife:50, restaurants:60, museums:62, architecture:68, nature:45 },
+  "Shantou": { nightlife:35, restaurants:82, museums:42, architecture:62, nature:60 },
+  "Saint Petersburg": { nightlife:78, restaurants:80, museums:95, architecture:96, nature:60 },
+  "Lahore": { nightlife:25, restaurants:85, museums:60, architecture:88, nature:42 },
+  "Kolkata": { nightlife:60, restaurants:82, museums:70, architecture:78, nature:45 },
+  "Jinan": { nightlife:45, restaurants:70, museums:60, architecture:55, nature:78 },
+  "Harbin": { nightlife:50, restaurants:60, museums:55, architecture:78, nature:62 },
+  "Hangzhou": { nightlife:55, restaurants:78, museums:65, architecture:60, nature:88 },
+  "Dalian": { nightlife:55, restaurants:70, museums:55, architecture:65, nature:78 },
+  "Changchun": { nightlife:45, restaurants:60, museums:65, architecture:62, nature:60 },
+  "Bengaluru": { nightlife:78, restaurants:82, museums:55, architecture:50, nature:70 },
   "Xi'an": { nightlife:55, restaurants:82, museums:92, architecture:88, nature:50 },
   "Wuhan": { nightlife:66, restaurants:78, museums:72, architecture:68, nature:80 },
   "Tianjin": { nightlife:55, restaurants:72, museums:64, architecture:82, nature:45 },
