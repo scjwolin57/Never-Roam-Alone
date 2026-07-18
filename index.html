@@ -42,6 +42,7 @@
 <!-- MapLibre GL (free, open-source map engine — no API key needed) -->
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="city-photos.js"></script>
 <script src="posts.js"></script>
 
 <style>
@@ -259,6 +260,49 @@
   .nra-ml input{border-radius:0!important;border:1px solid var(--ink)!important;background:var(--sand)!important}
   .nra-ml button{border-radius:0!important;background:var(--coral)!important;font-family:'IBM Plex Mono',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
   .nra-ml button:hover{background:var(--rust-dk)!important}
+
+  /* ---- full-design: social proof under hero ---- */
+  .social-proof{display:flex;align-items:center;justify-content:center;gap:13px;margin:18px auto 0;flex-wrap:wrap}
+  .avatars{display:flex}
+  .avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--sand);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:.76rem;font-weight:700;color:#fff}
+  .avatars span:first-child{margin-left:0}
+  .social-proof p{margin:0;font-size:.82rem;color:var(--muted)}
+  .social-proof b{color:var(--ink)}
+
+  /* ---- full-design: waypoint featured cities on a dashed route ---- */
+  .stories{max-width:var(--maxw);margin:30px auto 36px;padding:0 22px;position:relative;display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+  .stories::before{content:"";position:absolute;left:8%;right:8%;top:44px;border-top:2px dashed rgba(168,72,42,.4);z-index:0}
+  .story{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;transition:transform .2s;text-decoration:none}
+  .story:hover{transform:translateY(-5px)}
+  .story .frame{position:relative;width:92px;height:92px;border:2px solid var(--ink);background:var(--sand);padding:4px}
+  .story:hover .frame{border-color:var(--coral)}
+  .story .frame .ph{width:100%;height:100%;background-size:cover;background-position:center;background-color:var(--paper-2);filter:sepia(.18) saturate(.95)}
+  .story .frame .wpt{position:absolute;top:-9px;left:-9px;background:var(--coral);color:#fff;font-family:'IBM Plex Mono',monospace;font-size:.56rem;font-weight:600;letter-spacing:.08em;padding:3px 6px}
+  .story .frame .pin{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--brass);border:2px solid var(--sand);box-shadow:0 0 6px rgba(176,128,47,.6)}
+  .story figcaption{text-align:center}
+  .story figcaption .nm{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
+  .story figcaption small{display:block;font-family:'IBM Plex Mono',monospace;font-weight:400;color:var(--teal);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .story figcaption small .hv{color:var(--coral)}
+  @media(max-width:560px){.stories::before{display:none}.story .frame{width:78px;height:78px}}
+
+  /* ---- full-design: rust italic emphasis in section heads ---- */
+  .section-head h2 em{font-style:italic;color:var(--coral)}
+
+  /* ---- full-design: mono handle under About name ---- */
+  .about .handle{font-family:'IBM Plex Mono',monospace;color:var(--teal);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+
+  /* ---- full-design: dossier post tiles (author row + social row) ---- */
+  .tile .author{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .tile .author .av{width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:.76rem;flex:none}
+  .tile .author b{font-size:.82rem;color:var(--ink)}
+  .tile .author small{display:block;color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.06em}
+  .tile .social-row{display:flex;align-items:center;gap:15px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--muted)}
+  .tile .social-row .lk{color:var(--coral)}
+
+  /* ---- full-design: field-dispatch signup (dashed route + inset line) ---- */
+  .nra-ml{position:relative!important;overflow:hidden!important;background-color:var(--card)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='230' viewBox='0 0 760 230'%3E%3Cg fill='none'%3E%3Cpath d='M20 185 C 140 120, 230 205, 340 150 S 540 60, 660 95' stroke='%23a8482a' stroke-width='2.5' stroke-dasharray='7 8' stroke-linecap='round' opacity='.7'/%3E%3Ccircle cx='20' cy='185' r='6' fill='%233f5138'/%3E%3Ccircle cx='340' cy='150' r='4.5' fill='%23b0802f'/%3E%3Ccircle cx='500' cy='96' r='4.5' fill='%23b0802f'/%3E%3Cpath d='M648 83 L672 107 M672 83 L648 107' stroke='%23a8482a' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='660' cy='95' r='20' stroke='%23a8482a' stroke-width='1.5' opacity='.5' stroke-dasharray='3 5'/%3E%3C/g%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right -20px bottom -14px!important}
+  .nra-ml::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .nra-ml>*{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -279,9 +323,18 @@
 <a id="top"></a>
 <div class="hero">
   <p class="kicker">A world worth exploring</p>
-  <h1>Where will you roam next?</h1>
+  <h1>Where will you <em>roam</em> next?</h1>
   <p class="sub">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
+  <div class="social-proof">
+    <div class="avatars">
+      <span style="background:#a8482a">J</span><span style="background:#3f5138">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
+    </div>
+    <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides written from real trips</p>
+  </div>
 </div>
+
+<!-- ===== Waypoint featured cities ===== -->
+<div class="stories" id="featured-cities" aria-label="Featured cities"></div>
 
 <div class="map-wrap">
   <div id="map"></div>
@@ -307,12 +360,13 @@
 <section class="block" id="about">
   <div class="section-head">
     <svg class="cx"><use href="#compass"/></svg>
-    <h2>About Me</h2>
+    <h2>About <em>Me</em></h2>
   </div>
   <div class="about">
     <div class="photo-frame"><img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" /></div>
     <div>
       <h3>Hi, I'm Jeff</h3>
+      <p class="handle">Founder &amp; chief roamer &middot; 60+ countries</p>
       <p>I got bit by the travel bug a bit later than many, but like they say, it's never too late to start anything. What started for me as an escape from the stresses of life has turned into a love of exploration and discovery. I have been fortunate enough to have visited over 60 countries in 5 continents so far, with plans for many more.</p>
       <p>I started this website to share my experiences and to hopefully provide useful tools for fellow travelers to successfully navigate their next adventures. I hope that you find them helpful.</p>
       <p class="sig">— happy roaming</p>
@@ -325,7 +379,7 @@
   <div class="section-head">
     <svg class="cx"><use href="#compass"/></svg>
     <p class="kicker">Stories from the road</p>
-    <h2>Latest Posts</h2>
+    <h2>Latest <em>Posts</em></h2>
   </div>
   <div class="tiles" id="latest-tiles"></div>
   <div class="all-stories"><a href="blog.html">See all stories &rarr;</a></div>
@@ -606,6 +660,35 @@ const CITIES = [
   {city:"Cairo", country:"Egypt", lng:31.2357, lat:30.0444, visitors:9.0, est:true},
 ];
 
+/* ===== Waypoint featured cities (real data from CITIES + city-photos.js) ===== */
+(function(){
+  function ph(name){
+    var rec = (window.NRA_CITY_PHOTO || {})[name];
+    return (rec && rec.img) ? rec.img : "";
+  }
+  function render(){
+    var el = document.getElementById("featured-cities");
+    if (!el || typeof CITIES === "undefined") return;
+    var top = CITIES.slice().sort(function(a,b){return (b.visitors||0)-(a.visitors||0);}).slice(0,7);
+    // reflect the real catalogue size in the social-proof line
+    var sp = document.getElementById("sp-cities");
+    if (sp) sp.textContent = CITIES.length + " cities";
+    el.innerHTML = top.map(function(c,i){
+      var img = ph(c.city);
+      var bg = img ? "background-image:url('"+img+"')" : "";
+      var v = (c.visitors!=null) ? (c.visitors>=1 ? c.visitors+"M" : Math.round(c.visitors*1000)+"k") : "";
+      var stat = v ? '<span class="hv">'+v+' visitors/yr</span>' : c.country;
+      return '<a class="story" href="city.html?city='+encodeURIComponent(c.city)+'">'
+        + '<div class="frame"><span class="wpt">WPT 0'+(i+1)+'</span>'
+        + '<div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
+        + '<figcaption><span class="nm">'+c.city+'</span><small>'+stat+'</small></figcaption></a>';
+    }).join("");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
+  else render();
+})();
+
+
 const geojson = {
   type:"FeatureCollection",
   features: CITIES.map(c => ({
@@ -741,8 +824,19 @@ map.on("load", () => {
   function renderLatest(){
     const wrap = document.getElementById("latest-tiles");
     if(!wrap || !window.NRA_POSTS_UTIL) return;
-    wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => `
+    const fmtNum = n => n >= 1000 ? (n/1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/,"") + "k" : String(n);
+    wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => {
+      const name = p.authorName || "Jeff";
+      const av = name.trim().charAt(0).toUpperCase();
+      const loc = (p.location || "").toUpperCase();
+      const meta = [loc, window.NRA_POSTS_UTIL.shortDate(p.date).toUpperCase()].filter(Boolean).join(" \u00b7 ");
+      const social = [];
+      if (typeof p.likes === "number") social.push(`<span class="lk">\u2665 ${fmtNum(p.likes)}</span>`);
+      if (typeof p.views === "number") social.push(`<span>\uD83D\uDC41 ${fmtNum(p.views)}</span>`);
+      const socialRow = social.length ? `<div class="social-row">${social.join("")}</div>` : "";
+      return `
       <a class="tile" href="post.html?post=${encodeURIComponent(p.slug)}">
+        <div class="author"><span class="av">${av}</span><span><b>${name}</b><small>${meta}</small></span></div>
         <div class="photo" style="background-image:url('${window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(p,600,400) : `https://picsum.photos/seed/${p.seed}-nra/600/400`}')">
           <span class="tag">${p.tag}</span>
         </div>
@@ -751,8 +845,10 @@ map.on("load", () => {
           <h3>${p.title}</h3>
           <p>${p.excerpt}</p>
           <span class="readmore">Read story &rarr;</span>
+          ${socialRow}
         </div>
-      </a>`).join("");
+      </a>`;
+    }).join("");
   }
   renderLatest();
   /* Redraw when articles written in the online editor arrive (blog-remote.js) */
