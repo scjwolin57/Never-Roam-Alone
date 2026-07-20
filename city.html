@@ -68,9 +68,16 @@
   .hero .country{font-size:1.1rem;opacity:.95;margin-top:6px}
   .hero .tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.25rem;margin:14px 0 0;max-width:640px}
   .chip{display:inline-flex;align-items:baseline;gap:8px;background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:8px 16px;border-radius:30px;margin-top:18px}
+    border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:8px 16px;border-radius:30px}
   .chip b{font-size:1.35rem}
   .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
+  .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:18px}
+  .hero-fav{width:40px;height:40px;flex-shrink:0;border-radius:0;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);color:#fff;font-size:1.2rem;line-height:1;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:.15s}
+  .hero-fav:hover{background:rgba(255,255,255,.3)}
+  .hero-fav.active{background:var(--coral);border-color:var(--coral);color:#fff}
+  .hero-fav[disabled]{opacity:.6;cursor:default}
 
   /* How long to stay — sits just above the temperature/facts grid */
   .stay-section{margin:0 0 30px}
@@ -138,6 +145,7 @@
   .lang-row{display:flex;align-items:center;gap:10px}
   .lang-name{font-size:.9rem;font-family:'Fraunces',Georgia,serif;min-width:110px;flex-shrink:0}
   .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
+  .eng-pct{min-width:0;text-align:left}
   .lang-bar-track{flex:1;height:5px;background:#eee;border-radius:4px;overflow:hidden}
   .lang-bar{height:100%;border-radius:4px;background:var(--teal);opacity:.75}
   .rel-section{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
@@ -198,6 +206,9 @@
     border:1px solid rgba(63,81,56,.18);border-radius:20px;padding:3px 10px}
   .rides-none{font-size:.8rem;color:var(--muted)}
   .taxi-tip{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
+  .taxi-tip-btn{display:block;width:100%;margin-top:10px;padding:10px 0 0;border:0;border-top:1px solid rgba(0,0,0,.08);
+    background:none;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--green);text-align:left;cursor:pointer;transition:color .2s}
+  .taxi-tip-btn:hover{color:var(--coral)}
   /* 4-up cost cards row */
   .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   /* Connectivity banner — full-width card above the cost cards */
@@ -448,6 +459,18 @@
   .cur-name{color:var(--muted);font-size:.86rem;margin-top:2px}
   .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
   .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
+  .cost-snapshot{display:flex;justify-content:flex-end;margin-top:16px}
+  .csnap-box{background:var(--sand);border-radius:12px;padding:14px 16px;min-width:230px;max-width:320px}
+  .csnap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .csnap-k{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .csnap-tier{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em;margin-left:auto}
+  .csnap-dim{color:rgba(0,0,0,.18)}
+  .csnap-word{font-size:.82rem;font-weight:700}
+  .csnap-days{display:flex;gap:8px;margin-top:10px}
+  .csnap-day{flex:1;text-align:center;background:#fff;border-radius:9px;padding:8px 4px}
+  .csnap-day .cd-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+  .csnap-day .cd-v{display:block;font-size:.98rem;font-weight:700;margin-top:3px;color:var(--green)}
+  .csnap-foot{font-size:.72rem;color:var(--muted);margin-top:9px;text-align:right}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(63,81,56,.22);
     border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
@@ -483,9 +506,9 @@
   .hood-credit a{color:rgba(255,255,255,.8);text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:2px}
   .hood-credit a:hover{color:#fff}
   .hood-map-link{position:absolute;bottom:28px;right:12px;z-index:1;font-size:.74rem;font-weight:700;
-    color:#fff;background:rgba(0,0,0,.4);backdrop-filter:blur(2px);padding:5px 10px;border-radius:20px;
-    text-decoration:none;transition:background .2s}
-  .hood-map-link:hover{background:rgba(0,0,0,.6)}
+    color:#2b2417;background:#8a9a5b;border-radius:0;padding:6px 12px;
+    text-decoration:none;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .hood-map-link:hover{background:#b0802f}
   .hood-tag{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 28px);padding:8px 24px;background:#a8482a;color:#fff;font-size:.74rem;font-weight:700;line-height:1;letter-spacing:.02em;text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
   .hood-tag .hood-tag-emoji{font-size:.98rem;line-height:1}
   .hood-tag .hood-tag-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -1829,6 +1852,297 @@ const CITY_COST = {
   "Madrid":{hotel:130,meal:20,taxi:25},"Taipei":{hotel:90,meal:12,taxi:15},"Berlin":{hotel:110,meal:18,taxi:25},"Melbourne":{hotel:130,meal:22,taxi:22},"Munich":{hotel:140,meal:20,taxi:28},"Las Vegas":{hotel:120,meal:25,taxi:30},"Florence":{hotel:130,meal:25,taxi:25},"Dublin":{hotel:160,meal:25,taxi:30},"Kyoto":{hotel:120,meal:18,taxi:25},"Lisbon":{hotel:120,meal:18,taxi:20},"Venice":{hotel:160,meal:28,taxi:35},"Athens":{hotel:110,meal:18,taxi:20},"Orlando":{hotel:120,meal:22,taxi:28},"Toronto":{hotel:150,meal:22,taxi:28},"Miami":{hotel:180,meal:30,taxi:30},"San Francisco":{hotel:230,meal:30,taxi:30},"Shanghai":{hotel:90,meal:15,taxi:12},"Frankfurt am Main":{hotel:140,meal:22,taxi:30},"Copenhagen":{hotel:180,meal:30,taxi:35},"Zurich":{hotel:250,meal:40,taxi:40},"Washington, D.C.":{hotel:200,meal:28,taxi:28},"Pattaya-Chonburi":{hotel:45,meal:8,taxi:10},"Vancouver":{hotel:180,meal:25,taxi:28},"Stockholm":{hotel:160,meal:28,taxi:40},"Mexico City":{hotel:90,meal:15,taxi:12},"Oslo":{hotel:190,meal:35,taxi:45},"São Paulo":{hotel:80,meal:15,taxi:15},"Helsinki":{hotel:150,meal:28,taxi:35},"Brussels":{hotel:130,meal:25,taxi:25},"Budapest":{hotel:90,meal:18,taxi:15},"Guangzhou":{hotel:70,meal:12,taxi:8},"Nice":{hotel:150,meal:30,taxi:30},"Palma de Mallorca":{hotel:130,meal:25,taxi:20},"Honolulu":{hotel:250,meal:30,taxi:30},"Beijing":{hotel:80,meal:12,taxi:8},"Warsaw":{hotel:80,meal:15,taxi:15},"Seville":{hotel:110,meal:20,taxi:18},"Valencia":{hotel:100,meal:18,taxi:18},"Shenzhen":{hotel:75,meal:12,taxi:8},"Doha":{hotel:150,meal:30,taxi:15},"Abu Dhabi":{hotel:140,meal:30,taxi:15},"Fukuoka":{hotel:90,meal:15,taxi:20},"Sapporo":{hotel:85,meal:15,taxi:18},"Busan":{hotel:80,meal:15,taxi:12},"Edinburgh":{hotel:160,meal:25,taxi:20},"Montreal":{hotel:180,meal:30,taxi:25},"Bologna":{hotel:130,meal:28,taxi:25},"Rhodes":{hotel:110,meal:25,taxi:20},"Verona":{hotel:130,meal:28,taxi:25},"Delhi":{hotel:70,meal:12,taxi:8},"Porto":{hotel:120,meal:22,taxi:15},"Ho Chi Minh City":{hotel:55,meal:8,taxi:8},"Buenos Aires":{hotel:90,meal:20,taxi:12},"Marne-la-Vallée":{hotel:200,meal:30,taxi:30},"Kraków":{hotel:80,meal:15,taxi:12},"Heraklion":{hotel:100,meal:22,taxi:18},"Johor Bahru":{hotel:55,meal:8,taxi:8},"Hanoi":{hotel:55,meal:8,taxi:8},"Tel Aviv":{hotel:220,meal:35,taxi:25},"Sharjah":{hotel:90,meal:18,taxi:12},"Thessaloniki":{hotel:90,meal:18,taxi:15},"Lima":{hotel:80,meal:15,taxi:10},"Medina":{hotel:90,meal:12,taxi:10},"Tbilisi":{hotel:70,meal:12,taxi:8},"Riyadh":{hotel:110,meal:20,taxi:12},"Jeddah":{hotel:100,meal:18,taxi:11},"Tallinn":{hotel:100,meal:18,taxi:15},"Mecca":{hotel:120,meal:12,taxi:10},"Denpasar":{hotel:60,meal:12,taxi:12},"Punta Cana":{hotel:150,meal:25,taxi:20},"Santiago":{hotel:90,meal:18,taxi:12},"Vilnius":{hotel:90,meal:16,taxi:12},"Jerusalem":{hotel:130,meal:25,taxi:15},"Zhuhai":{hotel:70,meal:15,taxi:10},"Cairo":{hotel:70,meal:12,taxi:8}
 };
 
+const CITY_DAILY = {
+  "Yokohama":{"b":60,"m":150,"h":400},
+  "Xiamen":{"b":35,"m":90,"h":280},
+  "Wuxi":{"b":40,"m":100,"h":280},
+  "Tianshui":{"b":25,"m":60,"h":160},
+  "Qingdao":{"b":30,"m":75,"h":220},
+  "Ningbo":{"b":40,"m":100,"h":300},
+  "Kunming":{"b":30,"m":75,"h":220},
+  "Kano":{"b":30,"m":70,"h":200},
+  "Ibadan":{"b":25,"m":65,"h":200},
+  "Hyderabad":{"b":20,"m":55,"h":200},
+  "Foshan":{"b":30,"m":75,"h":220},
+  "Chittagong":{"b":25,"m":60,"h":180},
+  "Ankara":{"b":30,"m":75,"h":220},
+  "Alexandria":{"b":30,"m":75,"h":250},
+  "Ahmedabad":{"b":25,"m":60,"h":180},
+  "Zhengzhou":{"b":30,"m":70,"h":220},
+  "Tai'an":{"b":30,"m":70,"h":180},
+  "Suzhou":{"b":40,"m":100,"h":300},
+  "Shenyang":{"b":30,"m":75,"h":220},
+  "Shantou":{"b":30,"m":70,"h":200},
+  "Saint Petersburg":{"b":40,"m":95,"h":300},
+  "Lahore":{"b":20,"m":55,"h":180},
+  "Kolkata":{"b":25,"m":60,"h":200},
+  "Jinan":{"b":30,"m":70,"h":200},
+  "Harbin":{"b":30,"m":75,"h":220},
+  "Hangzhou":{"b":45,"m":110,"h":320},
+  "Dalian":{"b":40,"m":90,"h":260},
+  "Chennai":{"b":25,"m":65,"h":180},
+  "Changchun":{"b":30,"m":70,"h":200},
+  "Bengaluru":{"b":30,"m":75,"h":220},
+  "Xi'an":{"b":30,"m":75,"h":220},
+  "Wuhan":{"b":30,"m":75,"h":220},
+  "Tianjin":{"b":30,"m":75,"h":220},
+  "Nanjing":{"b":30,"m":75,"h":220},
+  "Nanchong":{"b":25,"m":55,"h":150},
+  "Mumbai":{"b":25,"m":75,"h":300},
+  "Jakarta":{"b":30,"m":75,"h":220},
+  "Dongguan":{"b":30,"m":75,"h":200},
+  "Chongqing":{"b":30,"m":80,"h":250},
+  "Chengdu":{"b":30,"m":75,"h":220},
+  "Ibiza":{"b":70,"m":190,"h":550},
+  "Victoria Falls":{"b":50,"m":140,"h":475},
+  "Lusaka":{"b":40,"m":105,"h":305},
+  "Kampala":{"b":35,"m":95,"h":295},
+  "Tunis":{"b":45,"m":115,"h":365},
+  "Lomé":{"b":35,"m":90,"h":280},
+  "Zanzibar City":{"b":45,"m":115,"h":350},
+  "Khartoum":{"b":45,"m":110,"h":330},
+  "Juba":{"b":45,"m":115,"h":345},
+  "Mogadishu":{"b":45,"m":110,"h":310},
+  "Freetown":{"b":40,"m":100,"h":295},
+  "Victoria":{"b":60,"m":150,"h":450},
+  "Dakar":{"b":45,"m":110,"h":320},
+  "São Tomé":{"b":45,"m":110,"h":340},
+  "Kigali":{"b":40,"m":105,"h":330},
+  "Lagos":{"b":50,"m":130,"h":405},
+  "Niamey":{"b":40,"m":100,"h":300},
+  "Windhoek":{"b":40,"m":105,"h":315},
+  "Maputo":{"b":40,"m":100,"h":295},
+  "Port Louis":{"b":50,"m":125,"h":390},
+  "Nouakchott":{"b":35,"m":85,"h":260},
+  "Bamako":{"b":40,"m":100,"h":300},
+  "Lilongwe":{"b":35,"m":85,"h":255},
+  "Antananarivo":{"b":35,"m":80,"h":245},
+  "Tripoli":{"b":50,"m":125,"h":360},
+  "Monrovia":{"b":55,"m":135,"h":425},
+  "Maseru":{"b":45,"m":105,"h":305},
+  "Nairobi":{"b":45,"m":115,"h":365},
+  "Bissau":{"b":45,"m":105,"h":320},
+  "Conakry":{"b":40,"m":95,"h":280},
+  "Accra":{"b":45,"m":115,"h":350},
+  "Banjul":{"b":35,"m":85,"h":250},
+  "Libreville":{"b":50,"m":125,"h":365},
+  "Addis Ababa":{"b":35,"m":90,"h":295},
+  "Mbabane":{"b":40,"m":105,"h":315},
+  "Asmara":{"b":35,"m":85,"h":250},
+  "Malabo":{"b":75,"m":185,"h":545},
+  "Djibouti City":{"b":45,"m":110,"h":340},
+  "Abidjan":{"b":50,"m":120,"h":355},
+  "Kinshasa":{"b":55,"m":145,"h":425},
+  "Brazzaville":{"b":50,"m":130,"h":395},
+  "Moroni":{"b":40,"m":95,"h":280},
+  "N'Djamena":{"b":40,"m":105,"h":320},
+  "Bangui":{"b":40,"m":105,"h":310},
+  "Douala":{"b":40,"m":105,"h":320},
+  "Praia":{"b":40,"m":100,"h":295},
+  "Bujumbura":{"b":40,"m":105,"h":315},
+  "Ouagadougou":{"b":35,"m":80,"h":245},
+  "Gaborone":{"b":45,"m":110,"h":320},
+  "Cotonou":{"b":40,"m":105,"h":335},
+  "Luanda":{"b":75,"m":185,"h":545},
+  "Algiers":{"b":40,"m":100,"h":285},
+  "Port Vila":{"b":60,"m":150,"h":450},
+  "Funafuti":{"b":50,"m":120,"h":350},
+  "Nuku'alofa":{"b":45,"m":105,"h":310},
+  "Honiara":{"b":60,"m":140,"h":395},
+  "Apia":{"b":50,"m":135,"h":405},
+  "Port Moresby":{"b":65,"m":160,"h":445},
+  "Koror":{"b":60,"m":155,"h":450},
+  "Auckland":{"b":65,"m":160,"h":470},
+  "Yaren":{"b":65,"m":165,"h":490},
+  "Weno":{"b":50,"m":125,"h":350},
+  "Majuro":{"b":50,"m":120,"h":335},
+  "Tarawa":{"b":50,"m":120,"h":335},
+  "Nadi":{"b":50,"m":140,"h":450},
+  "Caracas":{"b":40,"m":105,"h":320},
+  "Montevideo":{"b":55,"m":135,"h":415},
+  "Port of Spain":{"b":55,"m":135,"h":390},
+  "Paramaribo":{"b":45,"m":105,"h":310},
+  "Kingstown":{"b":65,"m":160,"h":450},
+  "Castries":{"b":75,"m":200,"h":595},
+  "Basseterre":{"b":85,"m":220,"h":650},
+  "Asunción":{"b":40,"m":100,"h":295},
+  "Panama City":{"b":50,"m":130,"h":385},
+  "Managua":{"b":30,"m":75,"h":225},
+  "Montego Bay":{"b":65,"m":175,"h":535},
+  "Tegucigalpa":{"b":35,"m":85,"h":255},
+  "Port-au-Prince":{"b":60,"m":145,"h":420},
+  "Georgetown":{"b":50,"m":125,"h":365},
+  "Guatemala City":{"b":35,"m":95,"h":280},
+  "St. George's":{"b":90,"m":230,"h":655},
+  "San Salvador":{"b":40,"m":95,"h":280},
+  "Quito":{"b":40,"m":105,"h":335},
+  "Roseau":{"b":60,"m":145,"h":425},
+  "Havana":{"b":45,"m":110,"h":330},
+  "San José":{"b":40,"m":100,"h":295},
+  "Bogotá":{"b":40,"m":100,"h":305},
+  "La Paz":{"b":35,"m":85,"h":260},
+  "Belize City":{"b":45,"m":110,"h":330},
+  "Bridgetown":{"b":105,"m":275,"h":830},
+  "Nassau":{"b":85,"m":215,"h":615},
+  "St. John's":{"b":85,"m":210,"h":620},
+  "Sana'a":{"b":30,"m":65,"h":205},
+  "Tashkent":{"b":35,"m":95,"h":295},
+  "Ashgabat":{"b":40,"m":100,"h":310},
+  "Dili":{"b":35,"m":85,"h":260},
+  "Dushanbe":{"b":35,"m":85,"h":265},
+  "Damascus":{"b":40,"m":100,"h":300},
+  "Colombo":{"b":35,"m":95,"h":305},
+  "Manila":{"b":35,"m":85,"h":265},
+  "Karachi":{"b":35,"m":80,"h":245},
+  "Muscat":{"b":55,"m":140,"h":435},
+  "Pyongyang":{"b":50,"m":120,"h":345},
+  "Kathmandu":{"b":30,"m":80,"h":245},
+  "Yangon":{"b":30,"m":80,"h":240},
+  "Ulaanbaatar":{"b":35,"m":90,"h":265},
+  "Malé":{"b":45,"m":115,"h":365},
+  "Beirut":{"b":55,"m":135,"h":400},
+  "Vientiane":{"b":30,"m":70,"h":215},
+  "Bishkek":{"b":30,"m":80,"h":250},
+  "Kuwait City":{"b":85,"m":205,"h":595},
+  "Almaty":{"b":45,"m":110,"h":335},
+  "Amman":{"b":50,"m":130,"h":385},
+  "Baghdad":{"b":50,"m":120,"h":370},
+  "Tehran":{"b":35,"m":90,"h":265},
+  "Nicosia":{"b":55,"m":140,"h":410},
+  "Siem Reap":{"b":35,"m":90,"h":285},
+  "Bandar Seri Begawan":{"b":40,"m":100,"h":285},
+  "Thimphu":{"b":45,"m":115,"h":370},
+  "Dhaka":{"b":30,"m":80,"h":240},
+  "Manama":{"b":50,"m":135,"h":405},
+  "Baku":{"b":45,"m":110,"h":340},
+  "Yerevan":{"b":40,"m":95,"h":290},
+  "Kabul":{"b":35,"m":85,"h":265},
+  "Kyiv":{"b":40,"m":100,"h":305},
+  "Ljubljana":{"b":65,"m":160,"h":465},
+  "Kotor":{"b":50,"m":130,"h":395},
+  "Bratislava":{"b":50,"m":125,"h":365},
+  "Belgrade":{"b":45,"m":110,"h":340},
+  "San Marino":{"b":75,"m":180,"h":500},
+  "Moscow":{"b":50,"m":125,"h":375},
+  "Bucharest":{"b":45,"m":110,"h":325},
+  "Skopje":{"b":40,"m":95,"h":280},
+  "Chișinău":{"b":35,"m":90,"h":275},
+  "Monaco":{"b":165,"m":440,"h":1325},
+  "Valletta":{"b":80,"m":200,"h":590},
+  "Vaduz":{"b":90,"m":220,"h":595},
+  "Luxembourg City":{"b":95,"m":230,"h":645},
+  "Riga":{"b":45,"m":115,"h":345},
+  "Reykjavík":{"b":95,"m":240,"h":690},
+  "Dubrovnik":{"b":70,"m":180,"h":545},
+  "Sofia":{"b":40,"m":100,"h":290},
+  "Minsk":{"b":45,"m":110,"h":320},
+  "Sarajevo":{"b":40,"m":95,"h":280},
+  "Andorra la Vella":{"b":65,"m":160,"h":465},
+  "Tirana":{"b":35,"m":85,"h":250},
+  "Hong Kong":{"b":60,"m":150,"h":400},
+  "Bangkok":{"b":35,"m":90,"h":250},
+  "London":{"b":110,"m":290,"h":830},
+  "Macau":{"b":55,"m":140,"h":400},
+  "Singapore":{"b":70,"m":180,"h":500},
+  "Paris":{"b":100,"m":250,"h":700},
+  "Dubai":{"b":75,"m":200,"h":650},
+  "New York":{"b":120,"m":300,"h":800},
+  "Kuala Lumpur":{"b":30,"m":75,"h":220},
+  "Istanbul":{"b":45,"m":110,"h":320},
+  "Tokyo":{"b":70,"m":165,"h":450},
+  "Antalya":{"b":40,"m":95,"h":280},
+  "Seoul":{"b":65,"m":150,"h":400},
+  "Osaka":{"b":60,"m":140,"h":380},
+  "Rome":{"b":80,"m":190,"h":520},
+  "Phuket":{"b":40,"m":100,"h":300},
+  "Barcelona":{"b":75,"m":180,"h":500},
+  "Amsterdam":{"b":90,"m":220,"h":600},
+  "Milan":{"b":85,"m":200,"h":550},
+  "Vienna":{"b":80,"m":190,"h":500},
+  "Prague":{"b":55,"m":130,"h":350},
+  "Los Angeles":{"b":110,"m":280,"h":750},
+  "Sydney":{"b":90,"m":220,"h":600},
+  "Cape Town":{"b":45,"m":110,"h":350},
+  "Rio de Janeiro":{"b":45,"m":110,"h":320},
+  "Cancún":{"b":60,"m":150,"h":450},
+  "Marrakech":{"b":40,"m":95,"h":300},
+  "Madrid":{"b":70,"m":170,"h":470},
+  "Taipei":{"b":50,"m":120,"h":330},
+  "Berlin":{"b":70,"m":170,"h":470},
+  "Melbourne":{"b":85,"m":210,"h":570},
+  "Munich":{"b":80,"m":190,"h":520},
+  "Las Vegas":{"b":90,"m":230,"h":650},
+  "Florence":{"b":75,"m":180,"h":500},
+  "Dublin":{"b":85,"m":210,"h":580},
+  "Kyoto":{"b":65,"m":155,"h":420},
+  "Lisbon":{"b":65,"m":160,"h":440},
+  "Venice":{"b":90,"m":210,"h":600},
+  "Athens":{"b":65,"m":150,"h":420},
+  "Orlando":{"b":85,"m":210,"h":550},
+  "Toronto":{"b":85,"m":210,"h":570},
+  "Miami":{"b":100,"m":250,"h":700},
+  "San Francisco":{"b":120,"m":300,"h":800},
+  "Shanghai":{"b":60,"m":150,"h":420},
+  "Frankfurt am Main":{"b":80,"m":195,"h":540},
+  "Copenhagen":{"b":100,"m":240,"h":650},
+  "Zurich":{"b":130,"m":300,"h":850},
+  "Washington, D.C.":{"b":100,"m":250,"h":680},
+  "Pattaya-Chonburi":{"b":35,"m":85,"h":250},
+  "Vancouver":{"b":90,"m":220,"h":600},
+  "Stockholm":{"b":95,"m":230,"h":620},
+  "Mexico City":{"b":40,"m":100,"h":300},
+  "Oslo":{"b":100,"m":240,"h":650},
+  "São Paulo":{"b":45,"m":110,"h":320},
+  "Helsinki":{"b":95,"m":220,"h":600},
+  "Brussels":{"b":85,"m":200,"h":550},
+  "Budapest":{"b":55,"m":130,"h":360},
+  "Guangzhou":{"b":50,"m":125,"h":350},
+  "Nice":{"b":90,"m":210,"h":600},
+  "Palma de Mallorca":{"b":75,"m":180,"h":500},
+  "Honolulu":{"b":115,"m":280,"h":780},
+  "Beijing":{"b":55,"m":135,"h":380},
+  "Warsaw":{"b":55,"m":130,"h":350},
+  "Seville":{"b":65,"m":150,"h":420},
+  "Valencia":{"b":65,"m":155,"h":430},
+  "Shenzhen":{"b":55,"m":135,"h":380},
+  "Doha":{"b":70,"m":180,"h":550},
+  "Abu Dhabi":{"b":70,"m":185,"h":600},
+  "Fukuoka":{"b":60,"m":140,"h":380},
+  "Sapporo":{"b":60,"m":140,"h":380},
+  "Busan":{"b":60,"m":140,"h":390},
+  "Edinburgh":{"b":90,"m":220,"h":620},
+  "Montreal":{"b":80,"m":190,"h":520},
+  "Bologna":{"b":70,"m":165,"h":450},
+  "Rhodes":{"b":60,"m":140,"h":400},
+  "Verona":{"b":70,"m":165,"h":450},
+  "Delhi":{"b":30,"m":75,"h":250},
+  "Porto":{"b":60,"m":145,"h":400},
+  "Ho Chi Minh City":{"b":30,"m":75,"h":230},
+  "Buenos Aires":{"b":50,"m":120,"h":350},
+  "Marne-la-Vallée":{"b":90,"m":220,"h":600},
+  "Kraków":{"b":50,"m":120,"h":330},
+  "Heraklion":{"b":60,"m":140,"h":400},
+  "Johor Bahru":{"b":30,"m":75,"h":220},
+  "Hanoi":{"b":30,"m":70,"h":220},
+  "Tel Aviv":{"b":110,"m":260,"h":750},
+  "Sharjah":{"b":60,"m":160,"h":500},
+  "Thessaloniki":{"b":55,"m":130,"h":370},
+  "Lima":{"b":45,"m":110,"h":320},
+  "Medina":{"b":55,"m":140,"h":450},
+  "Tbilisi":{"b":35,"m":85,"h":260},
+  "Riyadh":{"b":70,"m":180,"h":550},
+  "Jeddah":{"b":65,"m":165,"h":520},
+  "Tallinn":{"b":65,"m":150,"h":420},
+  "Mecca":{"b":60,"m":150,"h":500},
+  "Denpasar":{"b":35,"m":85,"h":280},
+  "Punta Cana":{"b":70,"m":180,"h":550},
+  "Santiago":{"b":55,"m":130,"h":370},
+  "Vilnius":{"b":55,"m":130,"h":350},
+  "Jerusalem":{"b":95,"m":230,"h":650},
+  "Zhuhai":{"b":45,"m":110,"h":320},
+  "Cairo":{"b":35,"m":85,"h":280},
+};
+
 /* Budget (b) and high-end (h) nightly hotel averages in USD */
 const CITY_HOTEL = {
   "Yokohama":{"b":45,"h":300},
@@ -3117,6 +3431,281 @@ const CITY_RELIGION = {
   "Cairo":[{r:"Islam",p:90},{r:"Christianity",p:10},{r:"No religion",p:0}]
 };
 
+/* English-proficiency stat by city, based on national EF EPI 2025 data; omitted for native-English-speaking countries and countries without EF data */
+const CITY_ENGLISH = {
+  "Andorra la Vella":{"tier":"m","label":"Manageable with some patience"},
+  "St. John's":{"tier":"h","label":"Easy to get by in English"},
+  "Nassau":{"tier":"h","label":"Easy to get by in English"},
+  "Manama":{"tier":"l","label":"Expect a language barrier"},
+  "Bridgetown":{"tier":"h","label":"Easy to get by in English"},
+  "Belize City":{"tier":"h","label":"Easy to get by in English"},
+  "Thimphu":{"tier":"m","label":"Manageable with some patience"},
+  "Sarajevo":{"tier":"m","label":"Manageable with some patience"},
+  "Gaborone":{"tier":"h","label":"Easy to get by in English"},
+  "Bandar Seri Begawan":{"tier":"h","label":"Easy to get by in English"},
+  "Ouagadougou":{"tier":"vl","label":"Expect a language barrier"},
+  "Bujumbura":{"tier":"vl","label":"Expect a language barrier"},
+  "Bangui":{"tier":"vl","label":"Expect a language barrier"},
+  "N'Djamena":{"tier":"vl","label":"Expect a language barrier"},
+  "Moroni":{"tier":"vl","label":"Expect a language barrier"},
+  "Kinshasa":{"tier":"vl","label":"Expect a language barrier"},
+  "Djibouti City":{"tier":"vl","label":"Expect a language barrier"},
+  "Roseau":{"tier":"h","label":"Easy to get by in English"},
+  "Malabo":{"tier":"vl","label":"Expect a language barrier"},
+  "Asmara":{"tier":"m","label":"Manageable with some patience"},
+  "Mbabane":{"tier":"h","label":"Easy to get by in English"},
+  "Weno":{"tier":"h","label":"Easy to get by in English"},
+  "Nadi":{"tier":"h","label":"Easy to get by in English"},
+  "Libreville":{"tier":"vl","label":"Expect a language barrier"},
+  "Banjul":{"tier":"h","label":"Easy to get by in English"},
+  "St. George's":{"tier":"h","label":"Easy to get by in English"},
+  "Conakry":{"tier":"vl","label":"Expect a language barrier"},
+  "Bissau":{"tier":"vl","label":"Expect a language barrier"},
+  "Georgetown":{"tier":"h","label":"Easy to get by in English"},
+  "Reykjavík":{"tier":"vh","label":"Easy to get by in English"},
+  "Montego Bay":{"tier":"h","label":"Easy to get by in English"},
+  "Tarawa":{"tier":"m","label":"Manageable with some patience"},
+  "Vientiane":{"tier":"vl","label":"Expect a language barrier"},
+  "Maseru":{"tier":"h","label":"Easy to get by in English"},
+  "Monrovia":{"tier":"h","label":"Easy to get by in English"},
+  "Vaduz":{"tier":"h","label":"Easy to get by in English"},
+  "Malé":{"tier":"h","label":"Easy to get by in English"},
+  "Bamako":{"tier":"vl","label":"Expect a language barrier"},
+  "Valletta":{"tier":"vh","label":"Easy to get by in English"},
+  "Majuro":{"tier":"h","label":"Easy to get by in English"},
+  "Nouakchott":{"tier":"vl","label":"Expect a language barrier"},
+  "Port Louis":{"tier":"h","label":"Easy to get by in English"},
+  "Monaco":{"tier":"m","label":"Manageable with some patience"},
+  "Kotor":{"tier":"m","label":"Manageable with some patience"},
+  "Windhoek":{"tier":"h","label":"Easy to get by in English"},
+  "Yaren":{"tier":"h","label":"Easy to get by in English"},
+  "Niamey":{"tier":"vl","label":"Expect a language barrier"},
+  "Pyongyang":{"tier":"vl","label":"Expect a language barrier"},
+  "Skopje":{"tier":"m","label":"Manageable with some patience"},
+  "Koror":{"tier":"h","label":"Easy to get by in English"},
+  "Port Moresby":{"tier":"m","label":"Manageable with some patience"},
+  "Brazzaville":{"tier":"vl","label":"Expect a language barrier"},
+  "Castries":{"tier":"h","label":"Easy to get by in English"},
+  "Kingstown":{"tier":"h","label":"Easy to get by in English"},
+  "Apia":{"tier":"m","label":"Manageable with some patience"},
+  "San Marino":{"tier":"m","label":"Manageable with some patience"},
+  "São Tomé":{"tier":"vl","label":"Expect a language barrier"},
+  "Victoria":{"tier":"h","label":"Easy to get by in English"},
+  "Freetown":{"tier":"h","label":"Easy to get by in English"},
+  "Honiara":{"tier":"m","label":"Manageable with some patience"},
+  "Juba":{"tier":"m","label":"Manageable with some patience"},
+  "Basseterre":{"tier":"h","label":"Easy to get by in English"},
+  "Dili":{"tier":"vl","label":"Expect a language barrier"},
+  "Lomé":{"tier":"vl","label":"Expect a language barrier"},
+  "Nuku'alofa":{"tier":"m","label":"Manageable with some patience"},
+  "Port of Spain":{"tier":"h","label":"Easy to get by in English"},
+  "Ashgabat":{"tier":"vl","label":"Expect a language barrier"},
+  "Funafuti":{"tier":"m","label":"Manageable with some patience"},
+  "Port Vila":{"tier":"m","label":"Manageable with some patience"},
+  "Lusaka":{"tier":"h","label":"Easy to get by in English"},
+  "Victoria Falls":{"tier":"h","label":"Easy to get by in English"},
+  "Taipei":{"tier":"l","label":"Expect a language barrier"},
+  "Riga":{"tier":"m","label":"Manageable with some patience"},
+  "Ljubljana":{"tier":"h","label":"Easy to get by in English"},
+  "Lilongwe":{"tier":"vl","label":"Expect a language barrier"},
+  "Luanda":{"tier":"vl","label":"Expect a language barrier"},
+  "Managua":{"tier":"m","label":"Manageable with some patience"},
+  "Dubrovnik":{"tier":"vh","label":"Easy to get by in English"},
+  "Yokohama":{"tier":"l","label":"Expect a language barrier"},
+  "Xiamen":{"tier":"l","label":"Expect a language barrier"},
+  "Wuxi":{"tier":"l","label":"Expect a language barrier"},
+  "Tianshui":{"tier":"l","label":"Expect a language barrier"},
+  "Qingdao":{"tier":"l","label":"Expect a language barrier"},
+  "Ningbo":{"tier":"l","label":"Expect a language barrier"},
+  "Kunming":{"tier":"l","label":"Expect a language barrier"},
+  "Kano":{"tier":"h","label":"Easy to get by in English"},
+  "Ibadan":{"tier":"h","label":"Easy to get by in English"},
+  "Hyderabad":{"tier":"l","label":"Expect a language barrier"},
+  "Foshan":{"tier":"l","label":"Expect a language barrier"},
+  "Chittagong":{"tier":"m","label":"Manageable with some patience"},
+  "Ankara":{"tier":"l","label":"Expect a language barrier"},
+  "Alexandria":{"tier":"l","label":"Expect a language barrier"},
+  "Ahmedabad":{"tier":"l","label":"Expect a language barrier"},
+  "Zhengzhou":{"tier":"l","label":"Expect a language barrier"},
+  "Tai'an":{"tier":"l","label":"Expect a language barrier"},
+  "Suzhou":{"tier":"l","label":"Expect a language barrier"},
+  "Shenyang":{"tier":"l","label":"Expect a language barrier"},
+  "Shantou":{"tier":"l","label":"Expect a language barrier"},
+  "Saint Petersburg":{"tier":"m","label":"Manageable with some patience"},
+  "Lahore":{"tier":"l","label":"Expect a language barrier"},
+  "Kolkata":{"tier":"l","label":"Expect a language barrier"},
+  "Jinan":{"tier":"l","label":"Expect a language barrier"},
+  "Harbin":{"tier":"l","label":"Expect a language barrier"},
+  "Hangzhou":{"tier":"l","label":"Expect a language barrier"},
+  "Dalian":{"tier":"l","label":"Expect a language barrier"},
+  "Chennai":{"tier":"l","label":"Expect a language barrier"},
+  "Changchun":{"tier":"l","label":"Expect a language barrier"},
+  "Bengaluru":{"tier":"l","label":"Expect a language barrier"},
+  "Xi'an":{"tier":"l","label":"Expect a language barrier"},
+  "Wuhan":{"tier":"l","label":"Expect a language barrier"},
+  "Tianjin":{"tier":"l","label":"Expect a language barrier"},
+  "Nanjing":{"tier":"l","label":"Expect a language barrier"},
+  "Nanchong":{"tier":"l","label":"Expect a language barrier"},
+  "Mumbai":{"tier":"l","label":"Expect a language barrier"},
+  "Jakarta":{"tier":"l","label":"Expect a language barrier"},
+  "Dongguan":{"tier":"l","label":"Expect a language barrier"},
+  "Chongqing":{"tier":"l","label":"Expect a language barrier"},
+  "Chengdu":{"tier":"l","label":"Expect a language barrier"},
+  "Ibiza":{"tier":"m","label":"Manageable with some patience"},
+  "Kampala":{"tier":"m","label":"Manageable with some patience"},
+  "Tunis":{"tier":"l","label":"Expect a language barrier"},
+  "Zanzibar City":{"tier":"l","label":"Expect a language barrier"},
+  "Khartoum":{"tier":"vl","label":"Expect a language barrier"},
+  "Mogadishu":{"tier":"vl","label":"Expect a language barrier"},
+  "Dakar":{"tier":"vl","label":"Expect a language barrier"},
+  "Kigali":{"tier":"vl","label":"Expect a language barrier"},
+  "Lagos":{"tier":"h","label":"Easy to get by in English"},
+  "Maputo":{"tier":"l","label":"Expect a language barrier"},
+  "Antananarivo":{"tier":"l","label":"Expect a language barrier"},
+  "Tripoli":{"tier":"vl","label":"Expect a language barrier"},
+  "Nairobi":{"tier":"h","label":"Easy to get by in English"},
+  "Accra":{"tier":"m","label":"Manageable with some patience"},
+  "Addis Ababa":{"tier":"l","label":"Expect a language barrier"},
+  "Abidjan":{"tier":"vl","label":"Expect a language barrier"},
+  "Douala":{"tier":"vl","label":"Expect a language barrier"},
+  "Praia":{"tier":"l","label":"Expect a language barrier"},
+  "Cotonou":{"tier":"vl","label":"Expect a language barrier"},
+  "Algiers":{"tier":"l","label":"Expect a language barrier"},
+  "Caracas":{"tier":"m","label":"Manageable with some patience"},
+  "Montevideo":{"tier":"m","label":"Manageable with some patience"},
+  "Paramaribo":{"tier":"h","label":"Easy to get by in English"},
+  "Asunción":{"tier":"m","label":"Manageable with some patience"},
+  "Panama City":{"tier":"l","label":"Expect a language barrier"},
+  "Tegucigalpa":{"tier":"m","label":"Manageable with some patience"},
+  "Port-au-Prince":{"tier":"vl","label":"Expect a language barrier"},
+  "Guatemala City":{"tier":"m","label":"Manageable with some patience"},
+  "San Salvador":{"tier":"m","label":"Manageable with some patience"},
+  "Quito":{"tier":"l","label":"Expect a language barrier"},
+  "Havana":{"tier":"m","label":"Manageable with some patience"},
+  "San José":{"tier":"m","label":"Manageable with some patience"},
+  "Bogotá":{"tier":"l","label":"Expect a language barrier"},
+  "La Paz":{"tier":"m","label":"Manageable with some patience"},
+  "Sana'a":{"tier":"vl","label":"Expect a language barrier"},
+  "Tashkent":{"tier":"vl","label":"Expect a language barrier"},
+  "Dushanbe":{"tier":"vl","label":"Expect a language barrier"},
+  "Damascus":{"tier":"vl","label":"Expect a language barrier"},
+  "Colombo":{"tier":"l","label":"Expect a language barrier"},
+  "Manila":{"tier":"h","label":"Easy to get by in English"},
+  "Karachi":{"tier":"l","label":"Expect a language barrier"},
+  "Muscat":{"tier":"vl","label":"Expect a language barrier"},
+  "Kathmandu":{"tier":"m","label":"Manageable with some patience"},
+  "Yangon":{"tier":"vl","label":"Expect a language barrier"},
+  "Ulaanbaatar":{"tier":"l","label":"Expect a language barrier"},
+  "Beirut":{"tier":"l","label":"Expect a language barrier"},
+  "Bishkek":{"tier":"l","label":"Expect a language barrier"},
+  "Kuwait City":{"tier":"l","label":"Expect a language barrier"},
+  "Almaty":{"tier":"vl","label":"Expect a language barrier"},
+  "Amman":{"tier":"vl","label":"Expect a language barrier"},
+  "Baghdad":{"tier":"vl","label":"Expect a language barrier"},
+  "Tehran":{"tier":"l","label":"Expect a language barrier"},
+  "Nicosia":{"tier":"h","label":"Easy to get by in English"},
+  "Siem Reap":{"tier":"vl","label":"Expect a language barrier"},
+  "Dhaka":{"tier":"m","label":"Manageable with some patience"},
+  "Baku":{"tier":"l","label":"Expect a language barrier"},
+  "Yerevan":{"tier":"m","label":"Manageable with some patience"},
+  "Kabul":{"tier":"vl","label":"Expect a language barrier"},
+  "Kyiv":{"tier":"m","label":"Manageable with some patience"},
+  "Bratislava":{"tier":"h","label":"Easy to get by in English"},
+  "Belgrade":{"tier":"h","label":"Easy to get by in English"},
+  "Moscow":{"tier":"m","label":"Manageable with some patience"},
+  "Bucharest":{"tier":"h","label":"Easy to get by in English"},
+  "Chișinău":{"tier":"m","label":"Manageable with some patience"},
+  "Luxembourg City":{"tier":"h","label":"Easy to get by in English"},
+  "Sofia":{"tier":"h","label":"Easy to get by in English"},
+  "Minsk":{"tier":"m","label":"Manageable with some patience"},
+  "Tirana":{"tier":"m","label":"Manageable with some patience"},
+  "Hong Kong":{"tier":"m","label":"Manageable with some patience"},
+  "Bangkok":{"tier":"vl","label":"Expect a language barrier"},
+  "Macau":{"tier":"m","label":"Manageable with some patience"},
+  "Singapore":{"tier":"vh","label":"Easy to get by in English"},
+  "Paris":{"tier":"m","label":"Manageable with some patience"},
+  "Dubai":{"tier":"l","label":"Expect a language barrier"},
+  "Kuala Lumpur":{"tier":"h","label":"Easy to get by in English"},
+  "Istanbul":{"tier":"l","label":"Expect a language barrier"},
+  "Tokyo":{"tier":"l","label":"Expect a language barrier"},
+  "Antalya":{"tier":"l","label":"Expect a language barrier"},
+  "Seoul":{"tier":"m","label":"Manageable with some patience"},
+  "Osaka":{"tier":"l","label":"Expect a language barrier"},
+  "Rome":{"tier":"m","label":"Manageable with some patience"},
+  "Phuket":{"tier":"vl","label":"Expect a language barrier"},
+  "Barcelona":{"tier":"m","label":"Manageable with some patience"},
+  "Amsterdam":{"tier":"vh","label":"Easy to get by in English"},
+  "Milan":{"tier":"m","label":"Manageable with some patience"},
+  "Vienna":{"tier":"vh","label":"Easy to get by in English"},
+  "Prague":{"tier":"h","label":"Easy to get by in English"},
+  "Cape Town":{"tier":"h","label":"Easy to get by in English"},
+  "Rio de Janeiro":{"tier":"l","label":"Expect a language barrier"},
+  "Cancún":{"tier":"l","label":"Expect a language barrier"},
+  "Marrakech":{"tier":"l","label":"Expect a language barrier"},
+  "Madrid":{"tier":"m","label":"Manageable with some patience"},
+  "Berlin":{"tier":"h","label":"Easy to get by in English"},
+  "Munich":{"tier":"h","label":"Easy to get by in English"},
+  "Florence":{"tier":"m","label":"Manageable with some patience"},
+  "Kyoto":{"tier":"l","label":"Expect a language barrier"},
+  "Lisbon":{"tier":"vh","label":"Easy to get by in English"},
+  "Venice":{"tier":"m","label":"Manageable with some patience"},
+  "Athens":{"tier":"vh","label":"Easy to get by in English"},
+  "Shanghai":{"tier":"l","label":"Expect a language barrier"},
+  "Frankfurt am Main":{"tier":"h","label":"Easy to get by in English"},
+  "Copenhagen":{"tier":"vh","label":"Easy to get by in English"},
+  "Zurich":{"tier":"h","label":"Easy to get by in English"},
+  "Pattaya-Chonburi":{"tier":"vl","label":"Expect a language barrier"},
+  "Stockholm":{"tier":"vh","label":"Easy to get by in English"},
+  "Mexico City":{"tier":"l","label":"Expect a language barrier"},
+  "Oslo":{"tier":"vh","label":"Easy to get by in English"},
+  "São Paulo":{"tier":"l","label":"Expect a language barrier"},
+  "Helsinki":{"tier":"h","label":"Easy to get by in English"},
+  "Brussels":{"tier":"h","label":"Easy to get by in English"},
+  "Budapest":{"tier":"h","label":"Easy to get by in English"},
+  "Guangzhou":{"tier":"l","label":"Expect a language barrier"},
+  "Nice":{"tier":"m","label":"Manageable with some patience"},
+  "Palma de Mallorca":{"tier":"m","label":"Manageable with some patience"},
+  "Beijing":{"tier":"l","label":"Expect a language barrier"},
+  "Warsaw":{"tier":"h","label":"Easy to get by in English"},
+  "Seville":{"tier":"m","label":"Manageable with some patience"},
+  "Valencia":{"tier":"m","label":"Manageable with some patience"},
+  "Shenzhen":{"tier":"l","label":"Expect a language barrier"},
+  "Doha":{"tier":"l","label":"Expect a language barrier"},
+  "Abu Dhabi":{"tier":"l","label":"Expect a language barrier"},
+  "Fukuoka":{"tier":"l","label":"Expect a language barrier"},
+  "Sapporo":{"tier":"l","label":"Expect a language barrier"},
+  "Busan":{"tier":"m","label":"Manageable with some patience"},
+  "Bologna":{"tier":"m","label":"Manageable with some patience"},
+  "Rhodes":{"tier":"vh","label":"Easy to get by in English"},
+  "Verona":{"tier":"m","label":"Manageable with some patience"},
+  "Delhi":{"tier":"l","label":"Expect a language barrier"},
+  "Porto":{"tier":"vh","label":"Easy to get by in English"},
+  "Ho Chi Minh City":{"tier":"l","label":"Expect a language barrier"},
+  "Buenos Aires":{"tier":"h","label":"Easy to get by in English"},
+  "Marne-la-Vallée":{"tier":"m","label":"Manageable with some patience"},
+  "Kraków":{"tier":"h","label":"Easy to get by in English"},
+  "Heraklion":{"tier":"vh","label":"Easy to get by in English"},
+  "Johor Bahru":{"tier":"h","label":"Easy to get by in English"},
+  "Hanoi":{"tier":"l","label":"Expect a language barrier"},
+  "Tel Aviv":{"tier":"m","label":"Manageable with some patience"},
+  "Sharjah":{"tier":"l","label":"Expect a language barrier"},
+  "Thessaloniki":{"tier":"vh","label":"Easy to get by in English"},
+  "Lima":{"tier":"m","label":"Manageable with some patience"},
+  "Medina":{"tier":"vl","label":"Expect a language barrier"},
+  "Tbilisi":{"tier":"m","label":"Manageable with some patience"},
+  "Riyadh":{"tier":"vl","label":"Expect a language barrier"},
+  "Jeddah":{"tier":"vl","label":"Expect a language barrier"},
+  "Tallinn":{"tier":"h","label":"Easy to get by in English"},
+  "Mecca":{"tier":"vl","label":"Expect a language barrier"},
+  "Denpasar":{"tier":"l","label":"Expect a language barrier"},
+  "Punta Cana":{"tier":"m","label":"Manageable with some patience"},
+  "Santiago":{"tier":"m","label":"Manageable with some patience"},
+  "Vilnius":{"tier":"h","label":"Easy to get by in English"},
+  "Jerusalem":{"tier":"m","label":"Manageable with some patience"},
+  "Zhuhai":{"tier":"l","label":"Expect a language barrier"},
+  "Cairo":{"tier":"l","label":"Expect a language barrier"}
+};
+
 /* Average length of stay (days) — used for the daily tourist ratio */
 const CITY_STAY = {
   "Yokohama":2,
@@ -4058,6 +4647,298 @@ const CITY_SAFETY = {
   "Zhuhai":{safety:72,crime:28},
   "Cairo":{safety:52,crime:48}
 };
+
+const CITY_SOLO = {
+  "Kabul":{"sc":"vl","f":"high caution — research first"},
+  "Tirana":{"sc":"h","f":"easy; usual night caution"},
+  "Algiers":{"sc":"l","f":"harassment common; dress modestly"},
+  "Andorra la Vella":{"sc":"vh","f":"very easy — among the safest"},
+  "Luanda":{"sc":"l","f":"extra caution advised"},
+  "St. John's":{"sc":"h","f":"easy; usual night caution"},
+  "Buenos Aires":{"sc":"m","f":"generally fine; usual precautions"},
+  "Yerevan":{"sc":"h","f":"easy; usual night caution"},
+  "Melbourne":{"sc":"vh","f":"very easy — among the safest"},
+  "Sydney":{"sc":"vh","f":"very easy — among the safest"},
+  "Vienna":{"sc":"vh","f":"very easy — among the safest"},
+  "Baku":{"sc":"m","f":"generally fine; usual precautions"},
+  "Nassau":{"sc":"m","f":"generally fine; usual precautions"},
+  "Manama":{"sc":"h","f":"comfortable; dress modestly"},
+  "Chittagong":{"sc":"l","f":"extra caution advised"},
+  "Dhaka":{"sc":"l","f":"extra caution advised"},
+  "Bridgetown":{"sc":"h","f":"easy; usual night caution"},
+  "Minsk":{"sc":"h","f":"easy; usual night caution"},
+  "Brussels":{"sc":"h","f":"easy; usual night caution"},
+  "Belize City":{"sc":"l","f":"extra caution advised"},
+  "Cotonou":{"sc":"l","f":"extra caution advised"},
+  "Thimphu":{"sc":"h","f":"easy; usual night caution"},
+  "La Paz":{"sc":"m","f":"generally fine; usual precautions"},
+  "Sarajevo":{"sc":"h","f":"easy; usual night caution"},
+  "Gaborone":{"sc":"m","f":"generally fine; usual precautions"},
+  "Rio de Janeiro":{"sc":"l","f":"extra caution advised"},
+  "S\u00e3o Paulo":{"sc":"l","f":"extra caution advised"},
+  "Bandar Seri Begawan":{"sc":"h","f":"comfortable; dress modestly"},
+  "Sofia":{"sc":"h","f":"easy; usual night caution"},
+  "Ouagadougou":{"sc":"vl","f":"high caution — research first"},
+  "Bujumbura":{"sc":"vl","f":"high caution — research first"},
+  "Praia":{"sc":"m","f":"generally fine; usual precautions"},
+  "Siem Reap":{"sc":"m","f":"generally fine; usual precautions"},
+  "Douala":{"sc":"l","f":"extra caution advised"},
+  "Montreal":{"sc":"vh","f":"very easy — among the safest"},
+  "Toronto":{"sc":"vh","f":"very easy — among the safest"},
+  "Vancouver":{"sc":"vh","f":"very easy — among the safest"},
+  "Bangui":{"sc":"vl","f":"high caution — research first"},
+  "N'Djamena":{"sc":"vl","f":"high caution — research first"},
+  "Santiago":{"sc":"h","f":"easy; usual night caution"},
+  "Beijing":{"sc":"vh","f":"very easy — among the safest"},
+  "Changchun":{"sc":"vh","f":"very easy — among the safest"},
+  "Chengdu":{"sc":"vh","f":"very easy — among the safest"},
+  "Chongqing":{"sc":"vh","f":"very easy — among the safest"},
+  "Dalian":{"sc":"vh","f":"very easy — among the safest"},
+  "Dongguan":{"sc":"vh","f":"very easy — among the safest"},
+  "Foshan":{"sc":"vh","f":"very easy — among the safest"},
+  "Guangzhou":{"sc":"vh","f":"very easy — among the safest"},
+  "Hangzhou":{"sc":"vh","f":"very easy — among the safest"},
+  "Harbin":{"sc":"vh","f":"very easy — among the safest"},
+  "Jinan":{"sc":"vh","f":"very easy — among the safest"},
+  "Kunming":{"sc":"vh","f":"very easy — among the safest"},
+  "Nanchong":{"sc":"vh","f":"very easy — among the safest"},
+  "Nanjing":{"sc":"vh","f":"very easy — among the safest"},
+  "Ningbo":{"sc":"vh","f":"very easy — among the safest"},
+  "Qingdao":{"sc":"vh","f":"very easy — among the safest"},
+  "Shanghai":{"sc":"vh","f":"very easy — among the safest"},
+  "Shantou":{"sc":"vh","f":"very easy — among the safest"},
+  "Shenyang":{"sc":"vh","f":"very easy — among the safest"},
+  "Shenzhen":{"sc":"vh","f":"very easy — among the safest"},
+  "Suzhou":{"sc":"vh","f":"very easy — among the safest"},
+  "Tai'an":{"sc":"vh","f":"very easy — among the safest"},
+  "Tianjin":{"sc":"vh","f":"very easy — among the safest"},
+  "Tianshui":{"sc":"vh","f":"very easy — among the safest"},
+  "Wuhan":{"sc":"vh","f":"very easy — among the safest"},
+  "Wuxi":{"sc":"vh","f":"very easy — among the safest"},
+  "Xi'an":{"sc":"vh","f":"very easy — among the safest"},
+  "Xiamen":{"sc":"vh","f":"very easy — among the safest"},
+  "Zhengzhou":{"sc":"vh","f":"very easy — among the safest"},
+  "Zhuhai":{"sc":"vh","f":"very easy — among the safest"},
+  "Hong Kong":{"sc":"vh","f":"very easy — among the safest"},
+  "Macau":{"sc":"vh","f":"very easy — among the safest"},
+  "Bogot\u00e1":{"sc":"l","f":"extra caution advised"},
+  "Moroni":{"sc":"m","f":"comfortable; dress modestly"},
+  "San Jos\u00e9":{"sc":"m","f":"generally fine; usual precautions"},
+  "Dubrovnik":{"sc":"vh","f":"very easy — among the safest"},
+  "Havana":{"sc":"h","f":"generally fine; some harassment"},
+  "Nicosia":{"sc":"h","f":"easy; usual night caution"},
+  "Prague":{"sc":"vh","f":"very easy — among the safest"},
+  "Abidjan":{"sc":"l","f":"extra caution advised"},
+  "Kinshasa":{"sc":"vl","f":"high caution — research first"},
+  "Copenhagen":{"sc":"vh","f":"very easy — among the safest"},
+  "Djibouti City":{"sc":"l","f":"extra caution advised"},
+  "Roseau":{"sc":"h","f":"easy; usual night caution"},
+  "Punta Cana":{"sc":"l","f":"harassment reported; extra caution"},
+  "Quito":{"sc":"l","f":"extra caution advised"},
+  "Alexandria":{"sc":"l","f":"harassment common; dress modestly"},
+  "Cairo":{"sc":"l","f":"harassment common; dress modestly"},
+  "San Salvador":{"sc":"l","f":"extra caution advised"},
+  "Malabo":{"sc":"l","f":"extra caution advised"},
+  "Asmara":{"sc":"m","f":"generally fine; usual precautions"},
+  "Tallinn":{"sc":"vh","f":"very easy — among the safest"},
+  "Mbabane":{"sc":"m","f":"generally fine; usual precautions"},
+  "Addis Ababa":{"sc":"l","f":"extra caution advised"},
+  "Weno":{"sc":"m","f":"generally fine; usual precautions"},
+  "Nadi":{"sc":"m","f":"generally fine; usual precautions"},
+  "Helsinki":{"sc":"vh","f":"very easy — among the safest"},
+  "Marne-la-Vall\u00e9e":{"sc":"h","f":"easy; usual night caution"},
+  "Nice":{"sc":"h","f":"easy; usual night caution"},
+  "Paris":{"sc":"h","f":"easy; usual night caution"},
+  "Libreville":{"sc":"l","f":"extra caution advised"},
+  "Banjul":{"sc":"m","f":"some harassment; usual precautions"},
+  "Tbilisi":{"sc":"h","f":"easy; usual night caution"},
+  "Berlin":{"sc":"vh","f":"very easy — among the safest"},
+  "Frankfurt am Main":{"sc":"vh","f":"very easy — among the safest"},
+  "Munich":{"sc":"vh","f":"very easy — among the safest"},
+  "Accra":{"sc":"m","f":"generally fine; usual precautions"},
+  "Athens":{"sc":"h","f":"easy; usual night caution"},
+  "Heraklion":{"sc":"h","f":"easy; usual night caution"},
+  "Rhodes":{"sc":"h","f":"easy; usual night caution"},
+  "Thessaloniki":{"sc":"h","f":"easy; usual night caution"},
+  "St. George's":{"sc":"h","f":"easy; usual night caution"},
+  "Guatemala City":{"sc":"l","f":"extra caution advised"},
+  "Conakry":{"sc":"l","f":"extra caution advised"},
+  "Bissau":{"sc":"l","f":"extra caution advised"},
+  "Georgetown":{"sc":"l","f":"extra caution advised"},
+  "Port-au-Prince":{"sc":"vl","f":"high caution — research first"},
+  "Tegucigalpa":{"sc":"l","f":"extra caution advised"},
+  "Budapest":{"sc":"h","f":"easy; usual night caution"},
+  "Reykjav\u00edk":{"sc":"vh","f":"very easy — among the safest"},
+  "Ahmedabad":{"sc":"l","f":"harassment common; extra caution"},
+  "Bengaluru":{"sc":"l","f":"harassment common; extra caution"},
+  "Chennai":{"sc":"l","f":"harassment common; extra caution"},
+  "Delhi":{"sc":"l","f":"harassment common; extra caution"},
+  "Hyderabad":{"sc":"l","f":"harassment common; extra caution"},
+  "Kolkata":{"sc":"l","f":"harassment common; extra caution"},
+  "Mumbai":{"sc":"l","f":"harassment common; extra caution"},
+  "Denpasar":{"sc":"m","f":"comfortable; dress modestly"},
+  "Jakarta":{"sc":"m","f":"comfortable; dress modestly"},
+  "Tehran":{"sc":"l","f":"headscarf required; extra caution"},
+  "Baghdad":{"sc":"vl","f":"high caution — research first"},
+  "Dublin":{"sc":"vh","f":"very easy — among the safest"},
+  "Jerusalem":{"sc":"h","f":"easy; usual night caution"},
+  "Tel Aviv":{"sc":"h","f":"easy; usual night caution"},
+  "Bologna":{"sc":"h","f":"easy; usual night caution"},
+  "Florence":{"sc":"h","f":"easy; usual night caution"},
+  "Milan":{"sc":"h","f":"easy; usual night caution"},
+  "Rome":{"sc":"h","f":"easy; usual night caution"},
+  "Venice":{"sc":"h","f":"easy; usual night caution"},
+  "Verona":{"sc":"h","f":"easy; usual night caution"},
+  "Montego Bay":{"sc":"l","f":"harassment common; extra caution"},
+  "Fukuoka":{"sc":"vh","f":"very easy — among the safest"},
+  "Kyoto":{"sc":"vh","f":"very easy — among the safest"},
+  "Osaka":{"sc":"vh","f":"very easy — among the safest"},
+  "Sapporo":{"sc":"vh","f":"very easy — among the safest"},
+  "Tokyo":{"sc":"vh","f":"very easy — among the safest"},
+  "Yokohama":{"sc":"vh","f":"very easy — among the safest"},
+  "Amman":{"sc":"m","f":"comfortable; dress modestly"},
+  "Almaty":{"sc":"m","f":"generally fine; usual precautions"},
+  "Nairobi":{"sc":"l","f":"extra caution advised"},
+  "Tarawa":{"sc":"m","f":"generally fine; usual precautions"},
+  "Kuwait City":{"sc":"h","f":"comfortable; dress modestly"},
+  "Bishkek":{"sc":"m","f":"generally fine; usual precautions"},
+  "Vientiane":{"sc":"m","f":"generally fine; usual precautions"},
+  "Riga":{"sc":"vh","f":"very easy — among the safest"},
+  "Beirut":{"sc":"m","f":"generally fine; some harassment"},
+  "Maseru":{"sc":"l","f":"extra caution advised"},
+  "Monrovia":{"sc":"l","f":"extra caution advised"},
+  "Tripoli":{"sc":"vl","f":"high caution — research first"},
+  "Vaduz":{"sc":"vh","f":"very easy — among the safest"},
+  "Vilnius":{"sc":"vh","f":"very easy — among the safest"},
+  "Luxembourg City":{"sc":"vh","f":"very easy — among the safest"},
+  "Antananarivo":{"sc":"m","f":"generally fine; usual precautions"},
+  "Lilongwe":{"sc":"m","f":"generally fine; usual precautions"},
+  "Johor Bahru":{"sc":"m","f":"comfortable; dress modestly"},
+  "Kuala Lumpur":{"sc":"m","f":"comfortable; dress modestly"},
+  "Mal\u00e9":{"sc":"m","f":"comfortable; dress modestly"},
+  "Bamako":{"sc":"vl","f":"high caution — research first"},
+  "Valletta":{"sc":"vh","f":"very easy — among the safest"},
+  "Majuro":{"sc":"m","f":"generally fine; usual precautions"},
+  "Nouakchott":{"sc":"l","f":"extra caution advised"},
+  "Port Louis":{"sc":"h","f":"easy; usual night caution"},
+  "Canc\u00fan":{"sc":"l","f":"extra caution advised"},
+  "Mexico City":{"sc":"l","f":"extra caution advised"},
+  "Chi\u0219in\u0103u":{"sc":"h","f":"easy; usual night caution"},
+  "Monaco":{"sc":"vh","f":"very easy — among the safest"},
+  "Ulaanbaatar":{"sc":"m","f":"generally fine; usual precautions"},
+  "Kotor":{"sc":"h","f":"easy; usual night caution"},
+  "Marrakech":{"sc":"l","f":"harassment common; dress modestly"},
+  "Maputo":{"sc":"l","f":"extra caution advised"},
+  "Yangon":{"sc":"m","f":"generally fine; usual precautions"},
+  "Windhoek":{"sc":"m","f":"generally fine; usual precautions"},
+  "Yaren":{"sc":"m","f":"generally fine; usual precautions"},
+  "Kathmandu":{"sc":"m","f":"generally fine; usual precautions"},
+  "Amsterdam":{"sc":"vh","f":"very easy — among the safest"},
+  "Auckland":{"sc":"vh","f":"very easy — among the safest"},
+  "Managua":{"sc":"m","f":"generally fine; usual precautions"},
+  "Niamey":{"sc":"vl","f":"high caution — research first"},
+  "Ibadan":{"sc":"l","f":"extra caution advised"},
+  "Kano":{"sc":"l","f":"extra caution advised"},
+  "Lagos":{"sc":"l","f":"extra caution advised"},
+  "Pyongyang":{"sc":"m","f":"escorted travel only"},
+  "Skopje":{"sc":"h","f":"easy; usual night caution"},
+  "Oslo":{"sc":"vh","f":"very easy — among the safest"},
+  "Muscat":{"sc":"h","f":"comfortable; dress modestly"},
+  "Karachi":{"sc":"l","f":"extra caution advised"},
+  "Lahore":{"sc":"l","f":"extra caution advised"},
+  "Koror":{"sc":"h","f":"easy; usual night caution"},
+  "Panama City":{"sc":"m","f":"generally fine; usual precautions"},
+  "Port Moresby":{"sc":"vl","f":"high caution — research first"},
+  "Asunci\u00f3n":{"sc":"m","f":"generally fine; usual precautions"},
+  "Lima":{"sc":"m","f":"some harassment; usual precautions"},
+  "Manila":{"sc":"m","f":"generally fine; usual precautions"},
+  "Krak\u00f3w":{"sc":"vh","f":"very easy — among the safest"},
+  "Warsaw":{"sc":"vh","f":"very easy — among the safest"},
+  "Lisbon":{"sc":"vh","f":"very easy — among the safest"},
+  "Porto":{"sc":"vh","f":"very easy — among the safest"},
+  "Doha":{"sc":"h","f":"comfortable; dress modestly"},
+  "Brazzaville":{"sc":"l","f":"extra caution advised"},
+  "Bucharest":{"sc":"h","f":"easy; usual night caution"},
+  "Moscow":{"sc":"m","f":"generally fine; usual precautions"},
+  "Saint Petersburg":{"sc":"m","f":"generally fine; usual precautions"},
+  "Kigali":{"sc":"h","f":"easy; usual night caution"},
+  "Castries":{"sc":"h","f":"easy; usual night caution"},
+  "Kingstown":{"sc":"h","f":"easy; usual night caution"},
+  "Apia":{"sc":"m","f":"generally fine; usual precautions"},
+  "San Marino":{"sc":"vh","f":"very easy — among the safest"},
+  "Jeddah":{"sc":"m","f":"conservative norms; dress modestly"},
+  "Mecca":{"sc":"m","f":"conservative norms; dress modestly"},
+  "Medina":{"sc":"m","f":"conservative norms; dress modestly"},
+  "Riyadh":{"sc":"m","f":"conservative norms; dress modestly"},
+  "Dakar":{"sc":"m","f":"some harassment; usual precautions"},
+  "Belgrade":{"sc":"h","f":"easy; usual night caution"},
+  "Victoria":{"sc":"h","f":"easy; usual night caution"},
+  "Freetown":{"sc":"l","f":"extra caution advised"},
+  "Singapore":{"sc":"vh","f":"very easy — among the safest"},
+  "Bratislava":{"sc":"vh","f":"very easy — among the safest"},
+  "Ljubljana":{"sc":"vh","f":"very easy — among the safest"},
+  "Honiara":{"sc":"m","f":"generally fine; usual precautions"},
+  "Mogadishu":{"sc":"vl","f":"high caution — research first"},
+  "Cape Town":{"sc":"l","f":"extra caution advised"},
+  "Busan":{"sc":"vh","f":"very easy — among the safest"},
+  "Seoul":{"sc":"vh","f":"very easy — among the safest"},
+  "Juba":{"sc":"vl","f":"high caution — research first"},
+  "Barcelona":{"sc":"vh","f":"very easy — among the safest"},
+  "Ibiza":{"sc":"vh","f":"very easy — among the safest"},
+  "Madrid":{"sc":"vh","f":"very easy — among the safest"},
+  "Palma de Mallorca":{"sc":"vh","f":"very easy — among the safest"},
+  "Seville":{"sc":"vh","f":"very easy — among the safest"},
+  "Valencia":{"sc":"vh","f":"very easy — among the safest"},
+  "Colombo":{"sc":"m","f":"generally fine; usual precautions"},
+  "Basseterre":{"sc":"h","f":"easy; usual night caution"},
+  "Khartoum":{"sc":"vl","f":"high caution — research first"},
+  "Paramaribo":{"sc":"m","f":"generally fine; usual precautions"},
+  "Stockholm":{"sc":"vh","f":"very easy — among the safest"},
+  "Zurich":{"sc":"vh","f":"very easy — among the safest"},
+  "Damascus":{"sc":"vl","f":"high caution — research first"},
+  "S\u00e3o Tom\u00e9":{"sc":"m","f":"generally fine; usual precautions"},
+  "Taipei":{"sc":"vh","f":"very easy — among the safest"},
+  "Dushanbe":{"sc":"m","f":"generally fine; usual precautions"},
+  "Zanzibar City":{"sc":"m","f":"comfortable; dress modestly"},
+  "Bangkok":{"sc":"m","f":"generally fine; usual precautions"},
+  "Pattaya-Chonburi":{"sc":"m","f":"generally fine; usual precautions"},
+  "Phuket":{"sc":"m","f":"generally fine; usual precautions"},
+  "Dili":{"sc":"m","f":"generally fine; usual precautions"},
+  "Lom\u00e9":{"sc":"l","f":"extra caution advised"},
+  "Nuku'alofa":{"sc":"m","f":"generally fine; usual precautions"},
+  "Port of Spain":{"sc":"l","f":"extra caution, esp. at night"},
+  "Tunis":{"sc":"m","f":"some harassment; dress modestly"},
+  "Ashgabat":{"sc":"m","f":"generally fine; usual precautions"},
+  "Funafuti":{"sc":"m","f":"generally fine; usual precautions"},
+  "Ankara":{"sc":"m","f":"some harassment; usual precautions"},
+  "Antalya":{"sc":"m","f":"some harassment; usual precautions"},
+  "Istanbul":{"sc":"m","f":"some harassment; usual precautions"},
+  "Abu Dhabi":{"sc":"vh","f":"very safe; dress modestly"},
+  "Dubai":{"sc":"vh","f":"very safe; dress modestly"},
+  "Sharjah":{"sc":"vh","f":"very safe; dress modestly"},
+  "Kampala":{"sc":"m","f":"generally fine; usual precautions"},
+  "Kyiv":{"sc":"m","f":"wartime — check advisories"},
+  "Edinburgh":{"sc":"vh","f":"very easy — among the safest"},
+  "London":{"sc":"vh","f":"very easy — among the safest"},
+  "Honolulu":{"sc":"h","f":"easy; usual night caution"},
+  "Las Vegas":{"sc":"h","f":"easy; usual night caution"},
+  "Los Angeles":{"sc":"h","f":"easy; usual night caution"},
+  "Miami":{"sc":"h","f":"easy; usual night caution"},
+  "New York":{"sc":"h","f":"easy; usual night caution"},
+  "Orlando":{"sc":"h","f":"easy; usual night caution"},
+  "San Francisco":{"sc":"h","f":"easy; usual night caution"},
+  "Washington, D.C.":{"sc":"h","f":"easy; usual night caution"},
+  "Montevideo":{"sc":"h","f":"easy; usual night caution"},
+  "Tashkent":{"sc":"m","f":"generally fine; usual precautions"},
+  "Port Vila":{"sc":"m","f":"generally fine; usual precautions"},
+  "Caracas":{"sc":"vl","f":"high caution — research first"},
+  "Hanoi":{"sc":"m","f":"generally fine; usual precautions"},
+  "Ho Chi Minh City":{"sc":"m","f":"generally fine; usual precautions"},
+  "Sana'a":{"sc":"vl","f":"high caution — research first"},
+  "Lusaka":{"sc":"m","f":"generally fine; usual precautions"},
+  "Victoria Falls":{"sc":"m","f":"generally fine; usual precautions"},
+};
+const SOLO_META = {vh:{w:"Very comfortable",c:"#556B2F"},h:{w:"Comfortable",c:"#6B8E23"},m:{w:"Generally fine — some caution",c:"#B8860B"},l:{w:"Use extra caution",c:"#C04020"},vl:{w:"Challenging — go prepared",c:"#8B2500"}};
 
 /* Colour for a safety index (higher = safer), 5 tiers */
 function safetyColor(s) {
@@ -8612,6 +9493,7 @@ if(!c){
   const walk = CITY_WALK[c.city];
   const walkLvl = walk != null ? walkInfo(walk) : null;
   const safety = CITY_SAFETY[c.city];
+  const solo = CITY_SOLO[c.city];
 
   const stories = [
     {t:`First Impressions of ${c.city}`, d:"Coming soon", s:`${sg}-a`},
@@ -8684,6 +9566,7 @@ if(!c){
           </div>`;
 
   const cost = CITY_COST[c.city];
+  const daily = CITY_DAILY[c.city];
   const hotelRange = CITY_HOTEL[c.city];
   const rides = CITY_RIDES[c.city];
   const drinks = CITY_DRINKS[c.city];
@@ -8729,7 +9612,7 @@ if(!c){
           </div>`;
   const tx = CITY_TAXI[c.city];
   const taxiTipHTML = !tx ? "" : `
-          <p class="taxi-tip"><b style="color:${taxiFareColor(tx.fare)}">${tx.color} taxis</b> &middot; ${tx.fareNote}</p>`;
+          <button type="button" class="taxi-tip-btn" data-taxitip="1">Taxi tips / info &rarr;</button>`;
   const tip = CITY_TIP[c.city];
   const tipLvl = tip ? tipInfo(tip.s) : null;
   const tipHTML = !tip ? "" : `
@@ -8737,6 +9620,35 @@ if(!c){
             <span class="tip-ic" aria-hidden="true">${TIP_ICON}</span>
             <span>Tipping <b style="color:${tipLvl.c}">${tipLvl.w}</b> &middot; ${tip.r}</span>
           </div>`;
+  /* Cost snapshot: $-tier badge (from mid daily budget) + low/mid/high per-day
+     estimates, priced in the given currency code. Figures from CITY_DAILY. */
+  function costTier(mid) {
+    if (mid < 90)  return {n:1, w:"Budget",    c:"#556B2F"};
+    if (mid < 150) return {n:2, w:"Moderate",  c:"#B8860B"};
+    if (mid < 220) return {n:3, w:"Pricey",    c:"#C77400"};
+    return                {n:4, w:"Expensive", c:"#C04020"};
+  }
+  function buildCostSnapshot(code) {
+    if (daily == null) return "";
+    const t = costTier(daily.m);
+    const dollars = '<span style="color:' + t.c + '">' + '$'.repeat(t.n) + '</span>'
+                  + '<span class="csnap-dim">' + '$'.repeat(4 - t.n) + '</span>';
+    return `
+          <div class="csnap-box">
+            <div class="csnap-head">
+              <span class="csnap-k">Cost snapshot</span>
+              <span class="csnap-tier" aria-label="${t.w}">${dollars}</span>
+              <span class="csnap-word" style="color:${t.c}">${t.w}</span>
+            </div>
+            <div class="csnap-days">
+              <div class="csnap-day"><span class="cd-k">Budget</span><span class="cd-v">${fmtPrice(daily.b, code)}</span></div>
+              <div class="csnap-day"><span class="cd-k">Mid</span><span class="cd-v">${fmtPrice(daily.m, code)}</span></div>
+              <div class="csnap-day"><span class="cd-k">High</span><span class="cd-v">${fmtPrice(daily.h, code)}</span></div>
+            </div>
+            <div class="csnap-foot">est. per person/day &middot; assumes budget&ndash;midrange lodging &middot; <span>${code}</span></div>
+          </div>`;
+  }
+
   /* Build the three cost cards with prices in the given currency code */
   function buildCostCards(code) {
     if (cost == null) return "";
@@ -8911,7 +9823,10 @@ if(!c){
         <h1>${c.city}</h1>
         <div class="country">${c.country}</div>
         <p class="tagline">${c.tagline}</p>
-        <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual visitors${c.est?' \u00b7 est.':''}</span></div>
+        <div class="hero-fav-row">
+          <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual visitors${c.est?' \u00b7 est.':''}</span></div>
+          <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">&#9825;</button>
+        </div>
       </div>
     </div>
 
@@ -8941,6 +9856,8 @@ if(!c){
             ${touristRatio == null ? "" : `<div class="ratio-line">Daily tourist-to-local ratio <b style="color:${ratioColor(touristRatio)}">${touristRatio}%</b> &middot; ~${stayDays}-day avg stay</div>`}
             ${walkLvl == null ? "" : `<div class="ratio-line">Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}</div>`}
             ${safety == null ? "" : `<div class="ratio-line">Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a></div>`}
+            ${solo == null ? "" : `<div class="ratio-line">Solo comfort <b style="color:${SOLO_META[solo.sc].c}">${SOLO_META[solo.sc].w}</b></div>`}
+            ${solo == null ? "" : `<div class="ratio-line">Women traveling solo <b style="color:${SOLO_META[solo.sc].c}">${solo.f}</b></div>`}
           </div>
           <p class="stat-disclaimer"><em>*these average figures are displayed for reference purposes and may not reflect real world conditions</em></p>
         </div>
@@ -8955,6 +9872,7 @@ if(!c){
               <span class="lang-pct">${p}%</span>
             </div>`).join('')}
           </div>
+          ${CITY_ENGLISH[c.city] ? `<div class="lang-row eng-row"><span class="lang-name">English</span><span class="lang-pct eng-pct">${CITY_ENGLISH[c.city].label}</span></div>` : ''}
           <div class="rel-section">
             <div class="k rel-k">Religion by majority</div>
             <div class="lang-list">
@@ -8967,8 +9885,9 @@ if(!c){
             </div>
           </div>
         </div>
+        <div id="net-card" class="fact net-banner"></div>
         <div class="fact fact-wide">
-          <div class="k">Currency &amp; converter</div>
+          <div class="k">Cost, currency and converter</div>
           ${cardAcceptHTML}
           <div class="cur-grid">
             <div class="cur-local">
@@ -8986,8 +9905,8 @@ if(!c){
               </button>
             </div>
           </div>
+          <div id="cost-snapshot" class="cost-snapshot"></div>
         </div>
-        <div id="net-card" class="fact net-banner"></div>
         <div id="cost-cards" class="cost-cards-grid"></div>
       </div>
     </section>
@@ -9602,6 +10521,8 @@ if(!c){
   function renderCosts() {
     const el = document.getElementById("cost-cards");
     if (el) el.innerHTML = buildCostCards(compareCode);
+    const sel = document.getElementById("cost-snapshot");
+    if (sel) sel.innerHTML = buildCostSnapshot(compareCode);
     const nel = document.getElementById("net-card");
     if (nel) { nel.innerHTML = buildNetCard(compareCode); nel.hidden = (net == null); }
     const tel = document.getElementById("transport-cards");
@@ -9755,6 +10676,25 @@ if(!c){
       <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
   }
 
+  function buildTaxiTipModal() {
+    const tx = CITY_TAXI[c.city];
+    if (!tx) return `<p class="modal-placeholder">More taxi info for ${c.city} is coming soon.</p>`;
+    const fareLabel = {metered:"Metered", fixed:"Fixed fare", negotiated:"Negotiate first",
+                       unmetered:"Unmetered — agree fare first"}[tx.fare]
+                       || (tx.fare.charAt(0).toUpperCase() + tx.fare.slice(1));
+    const ride = CITY_RIDES[c.city];
+    const rideHTML = ride == null ? "" : (ride.length
+      ? `<dt>Ride-share apps</dt><dd>${ride.join(", ")}</dd>`
+      : `<dt>Ride-share apps</dt><dd>Local taxis — no major apps</dd>`);
+    return `
+      <dl class="air-rows">
+        <dt>Official taxi color</dt><dd>${tx.color}</dd>
+        <dt>Fares</dt><dd><b style="color:${taxiFareColor(tx.fare)}">${fareLabel}</b></dd>
+        ${rideHTML}
+      </dl>
+      <p class="rt-note">${tx.fareNote}</p>`;
+  }
+
   function openModal(title) {
     modalTitle.textContent = `${title} — ${c.city}`;
     if (title === "Major airports" && CITY_AIRPORT[c.city]) {
@@ -9767,6 +10707,8 @@ if(!c){
       modalBody.innerHTML = buildBusModal();
     } else if (title === "Ferry / boat ports" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].ferry) {
       modalBody.innerHTML = buildFerryModal();
+    } else if (title === "Taxi tips & info") {
+      modalBody.innerHTML = buildTaxiTipModal();
     } else {
       // Placeholder content — detailed info to be filled in later.
       modalBody.innerHTML = `<p class="modal-placeholder">More information about ${title.toLowerCase()} in ${c.city} is coming soon.</p>`;
@@ -9802,6 +10744,12 @@ if(!c){
   /* ---------- ATM & cash finder button ---------- */
   const atmBtn = document.getElementById("atm-btn");
   if (atmBtn) atmBtn.addEventListener("click", () => openModal("ATM & cash finder"));
+
+  /* ---------- Taxi tips / info button (delegated — cost cards re-render) ---------- */
+  const costCardsEl = document.getElementById("cost-cards");
+  if (costCardsEl) costCardsEl.addEventListener("click", e => {
+    if (e.target.closest(".taxi-tip-btn")) openModal("Taxi tips & info");
+  });
 
   /* ---------- Embassy finder ---------- */
   const embSel  = document.getElementById("embassy-sel");
@@ -9849,6 +10797,27 @@ if(!c){
 <script src="trip-add.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="favorites.js"></script>
+<script>
+(function(){
+  var btn = document.getElementById("hero-fav-btn");
+  if (!btn) return;
+  function paintHeroFav(){
+    var active = NRA_FAV.has(btn.dataset.favCity);
+    btn.classList.toggle("active", active);
+    btn.innerHTML = active ? "&#9829;" : "&#9825;";
+    btn.title = active ? "Remove from Favorites" : "Save to Favorites";
+  }
+  btn.addEventListener("click", function(){
+    btn.disabled = true;
+    NRA_FAV.toggle(btn.dataset.favCity, btn.dataset.favCountry)
+      .then(paintHeroFav)
+      .finally(function(){ btn.disabled = false; });
+  });
+  NRA_FAV.onChange(paintHeroFav);
+  NRA_FAV.ready().then(paintHeroFav);
+})();
+</script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
