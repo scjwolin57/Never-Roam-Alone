@@ -80,7 +80,19 @@
         "header.nav.nra-nav-open nav.links[data-site-nav] a:hover{background:rgba(192,64,32,.08);" +
           "color:#C04020;border-color:transparent}" +
         "header.nav.nra-nav-open nav.links[data-site-nav] a.active{color:#556B2F}" +
-      "}";
+      "}" +
+      // Explorer: square rounded buttons, pills, tags, badges, toggles, inputs site-wide
+      ".btn,.share-btn,.show-more,.rm-cta,.rm-you,.swap,.esim-btn,.tr-map-btn,.back,.back-link,.cal-submit-btn,.cal-nav-btn,.evt-send,.atm-btn,.flights-link,.explore-btn,.cta,.save-btn,.submit-btn,.primary-btn,.msg-btn,.cmp-toggle,.reply-toggle,.trip-add-chip,.gate,.pick-file,.filter-btn,.esim-btn," +
+      ".tag,.season-pill,.count-pill,.visa-badge,.visa-tag,.live-tag,.est-tag,.badge,.age-pill,.tt-badge,.rank-chip,.visit,.chip,.lchip,.ph-tag,.status-msg,.copied-note,.mini-radio,.tab,.pick-tab,.readmore," +
+      ".tag,.pill{border-radius:0 !important}" +
+      "input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{border-radius:0 !important}" +
+      // Explorer finish: parchment page-heads + themed form inputs site-wide
+      ".intro.hero-banner,.page-hero,.hero-banner{background:transparent !important;background-image:none !important;color:#2b2417 !important;border:none !important}" +
+      ".intro.hero-banner .kicker,.page-hero .kicker,.hero-banner .kicker{color:#3f5138 !important;opacity:1 !important;font-family:'Work Sans',monospace;letter-spacing:.22em;text-transform:uppercase}" +
+      ".intro.hero-banner h1,.page-hero h1,.hero-banner h1{color:#2b2417 !important;font-family:'Fraunces',Georgia,serif}" +
+      ".intro.hero-banner h1 em,.page-hero h1 em,.hero-banner h1 em{color:#a8482a !important;font-style:italic}" +
+      ".intro.hero-banner p,.page-hero p,.hero-banner p{color:#82755b !important}" +
+      "input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{background:#ece2cc !important;border:1px solid #2b2417 !important;color:#2b2417 !important}";
     var s = document.createElement("style");
     s.id = "nra-nav-style";
     s.textContent = css;

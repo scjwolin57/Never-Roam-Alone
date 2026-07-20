@@ -96,44 +96,44 @@ window.NRA_AUTH = (function(){
   const CSS = `
   .nra-acct{font-size:.9rem}
   .nra-acct .who-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-  .nra-acct .av{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
-  .nra-acct .nm{font-weight:700}
-  .nra-acct .em{display:block;font-size:.74rem;color:#5b6b75;font-weight:400;max-width:170px;overflow:hidden;text-overflow:ellipsis}
-  .nra-btn{display:inline-block;background:#556B2F;color:#fff;font-weight:700;font-size:.85rem;border:none;border-radius:22px;padding:9px 18px;cursor:pointer}
-  .nra-btn:hover{background:#C04020}
-  .nra-btn.ghost{background:none;color:#5b6b75;font-weight:600;text-decoration:underline;padding:6px 4px}
-  .nra-note{font-size:.78rem;color:#5b6b75;margin:8px 0 0}
-  .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#1d2a32;margin-top:10px;cursor:pointer}
-  .nra-check input{margin-top:2px;accent-color:#556B2F}
-  .nra-modal-bg{position:fixed;inset:0;background:rgba(20,40,50,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
-  .nra-modal{background:#fff;border-radius:18px;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 24px 70px rgba(0,0,0,.35);max-height:92vh;overflow:auto}
-  .nra-modal h3{font-family:Georgia,serif;margin:0 0 4px;font-size:1.35rem}
-  .nra-modal .sub{color:#5b6b75;font-size:.86rem;margin:0 0 16px}
+  .nra-acct .av{width:34px;height:34px;border-radius:0;background:#a8482a;color:#f6efdd;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
+  .nra-acct .nm{font-weight:700;color:#2b2417}
+  .nra-acct .em{display:block;font-size:.74rem;color:#82755b;font-weight:400;max-width:170px;overflow:hidden;text-overflow:ellipsis}
+  .nra-btn{display:inline-block;background:#a8482a;color:#f6efdd;font-weight:600;font-size:.8rem;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.06em;border:none;border-radius:0;padding:11px 20px;cursor:pointer}
+  .nra-btn:hover{background:#8a3a20}
+  .nra-btn.ghost{background:none;color:#82755b;font-weight:600;text-decoration:underline;padding:6px 4px;text-transform:none;letter-spacing:normal;font-family:'Work Sans',-apple-system,sans-serif}
+  .nra-note{font-size:.78rem;color:#82755b;margin:8px 0 0}
+  .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#2b2417;margin-top:10px;cursor:pointer}
+  .nra-check input{margin-top:2px;accent-color:#a8482a}
+  .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+  .nra-modal{background:#f6efdd;border:1px solid #2b2417;border-radius:0;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 16px 40px rgba(43,36,23,.3);max-height:92vh;overflow:auto}
+  .nra-modal h3{font-family:'Fraunces',Georgia,serif;font-weight:700;margin:0 0 4px;font-size:1.35rem;color:#2b2417}
+  .nra-modal .sub{color:#82755b;font-size:.86rem;margin:0 0 16px}
   .nra-tabs{display:flex;gap:6px;margin-bottom:16px}
-  .nra-tab{flex:1;border:2px solid rgba(85,107,47,.22);background:#fff;border-radius:10px;padding:8px 4px;font-size:.78rem;font-weight:700;cursor:pointer;color:#1d2a32}
-  .nra-tab.active{border-color:#556B2F;background:rgba(85,107,47,.07)}
+  .nra-tab{flex:1;border:1px solid #2b2417;background:#f6efdd;border-radius:0;padding:8px 4px;font-size:.68rem;font-weight:600;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:#2b2417}
+  .nra-tab.active{border-color:#a8482a;background:#a8482a;color:#f6efdd}
   .nra-field{margin-bottom:12px}
-  .nra-field label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#5b6b75;margin-bottom:5px}
-  .nra-field input{width:100%;box-sizing:border-box;font-size:.95rem;font-family:inherit;background:#f6f1e7;border:2px solid rgba(85,107,47,.25);border-radius:10px;padding:11px 12px}
-  .nra-field input:focus{outline:none;border-color:#556B2F}
-  .nra-msg{font-size:.82rem;margin:10px 0 0;color:#556B2F}
-  .nra-msg.err{color:#b34a3a}
-  .nra-social{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:2px solid transparent;border-radius:10px;padding:10px;font-weight:700;font-size:.9rem;cursor:pointer;margin-top:10px}
+  .nra-field label{display:block;font-size:.68rem;font-weight:600;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.1em;color:#3f5138;margin-bottom:5px}
+  .nra-field input{width:100%;box-sizing:border-box;font-size:.95rem;font-family:inherit;background:#ece2cc;border:1px solid #2b2417;border-radius:0;padding:11px 12px;color:#2b2417}
+  .nra-field input:focus{outline:none;border-color:#a8482a}
+  .nra-msg{font-size:.82rem;margin:10px 0 0;color:#3f5138}
+  .nra-msg.err{color:#a8482a}
+  .nra-social{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border:1px solid #2b2417;border-radius:0;padding:10px;font-weight:600;font-size:.9rem;cursor:pointer;margin-top:10px;background:#f6efdd;color:#2b2417}
   .nra-social:first-of-type{margin-top:0}
-  .nra-social.google{border-color:rgba(85,107,47,.25);background:#fff;color:#1d2a32}
-  .nra-social.google:hover{border-color:#556B2F}
-  .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#5b6b75}
+  .nra-social.google{border-color:#2b2417;background:#f6efdd;color:#2b2417}
+  .nra-social.google:hover{border-color:#a8482a;color:#a8482a}
+  .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#82755b}
   .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
-  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
-  .nra-nav-avatar:hover{background:#C04020}
-  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#556B2F;color:#fff;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .nra-nav-signin:hover{background:#C04020}
+  .nra-nav-avatar{width:34px;height:34px;border-radius:0;background:#a8482a;color:#f6efdd;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
+  .nra-nav-avatar:hover{background:#8a3a20}
+  .nra-nav-signin{width:34px;height:34px;border-radius:0;background:#a8482a;color:#f6efdd;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nra-nav-signin:hover{background:#8a3a20}
   .nra-nav-signin svg{width:17px;height:17px}
   .nra-nav-wrap{position:relative}
-  .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#fff;border:1px solid rgba(85,107,47,.18);border-radius:14px;box-shadow:0 10px 30px rgba(20,40,50,.18);padding:8px;min-width:190px;z-index:60}
-  .nra-nav-menu a,.nra-nav-menu button{display:block;width:100%;box-sizing:border-box;text-align:left;padding:10px 12px;border-radius:8px;border:none;background:none;font-size:.9rem;font-weight:600;color:#1d2a32;text-decoration:none;cursor:pointer;font-family:inherit}
-  .nra-nav-menu a:hover,.nra-nav-menu button:hover{background:rgba(192,64,32,.08);color:#C04020}
-  .nra-nav-menu .nra-nav-menu-sep{height:1px;background:rgba(20,40,50,.1);margin:6px 4px}`;
+  .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#f6efdd;border:1px solid #2b2417;border-radius:0;box-shadow:0 10px 30px rgba(43,36,23,.25);padding:8px;min-width:190px;z-index:60}
+  .nra-nav-menu a,.nra-nav-menu button{display:block;width:100%;box-sizing:border-box;text-align:left;padding:10px 12px;border-radius:0;border:none;background:none;font-size:.9rem;font-weight:600;color:#2b2417;text-decoration:none;cursor:pointer;font-family:inherit}
+  .nra-nav-menu a:hover,.nra-nav-menu button:hover{background:rgba(168,72,42,.1);color:#a8482a}
+  .nra-nav-menu .nra-nav-menu-sep{height:1px;background:rgba(43,36,23,.15);margin:6px 4px}`;
 
   function ensureCSS(){
     if (document.getElementById("nra-auth-css")) return;
@@ -498,14 +498,23 @@ window.NRA_AUTH = (function(){
       }).catch(() => {});
     }catch(e){ /* ignore */ }
   }
-  async function subscribeMailing(email, source){
+  async function subscribeMailing(email, source, interests){
     email = String(email || "").trim().toLowerCase();
     if (!isValidEmail(email)) return { ok:false, error:"That email address doesn't look right — double check it." };
     if (!sb) return { ok:false, error:"Sign-ups aren't switched on yet." };
     const row = { email, source: source || "site" };
+    // Optional: which regions they said they care about (see mailing-list.js).
+    if (Array.isArray(interests) && interests.length)
+      row.interests = interests.slice(0, 12).map(s => String(s).slice(0, 40));
     if (session) row.user_id = session.user.id;
     try{
-      const { error } = await sb.from("mailing_list").insert(row);
+      let { error } = await sb.from("mailing_list").insert(row);
+      // If the interests column doesn't exist yet (setup SQL not run), save
+      // the signup anyway without it — never lose an email address.
+      if (error && row.interests && /interests/i.test(error.message || "")){
+        delete row.interests;
+        ({ error } = await sb.from("mailing_list").insert(row));
+      }
       if (error){
         // 23505 = already on the list — treat as success so we never scare a
         // returning subscriber with an error.

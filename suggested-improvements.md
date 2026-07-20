@@ -105,4 +105,48 @@
 
 ---
 
+## 🧭 Solo-first differentiators (added July 19, 2026 — research-backed)
+
+*From competitor research: no mainstream travel site does items 34 or 35; items 36–38 address the top solo-traveler worries (safety, loneliness, eating alone).*
+
+**34. Visa / stay-limit tracker (M/L)** ⭐ *validated gap* — no mainstream planner tracks rules like Schengen's "90 days in any 180." The visa checker + itinerary dates already exist; connect them: "your trip plan uses 47 of your 90 Schengen days" with an overstay warning.
+
+**35. Solo Score per city (M)** ⭐ *owns the brand* — score every city on ease of meeting people, eating-alone friendliness, safe-after-dark, and hostel/social scene, using existing safety/walkability/lodging/events data. Creates linkable SEO pages ("best cities for first-time solo travelers").
+
+**36. Solo-specific city content (M)** — per city: a "Your first night in {city}" arrival-evening plan (safe area to walk, one easy solo-friendly dinner spot, when things close); an eating-alone guide (local dinner hours, counter/bar-seat culture, food halls); and safe-after-dark tags on the already-labeled neighborhoods.
+
+**37. Safety check-in (M)** — traveler picks a trusted contact and taps "check in" daily during a trip; a missed check-in emails the contact with the itinerary. Standalone safety apps do this; no planning site does. Builds on trips + Resend.
+
+**38. Linkups (M)** — the step beyond Roamers in Town: members post a small public activity ("free walking tour Sat 10am, join me") that others RSVP to. Low-friction meetups are the 2026 social-travel trend.
+
+**39. Solo cost reality (S/M)** — travel costs assume couples splitting a room. Add a "solo daily cost" line per city: single/private hostel room vs. dorm price, and flag cities where solo lodging is disproportionately expensive. Nobody shows this.
+
+**40. First solo trip mode (M)** — guided path for nervous first-timers: short quiz → recommends an "easy" starter city (high Solo Score) → pre-trip checklist → first-night plan. Converts people who want to solo travel but haven't dared. Pairs with the quiz (item 18).
+
+**41. Roamer vouches (M)** — after two members meet via a linkup or message, each can confirm "met in real life." Vouch counts become a trust badge that makes future meetups feel safer — directly answers the #1 solo worry.
+
+**42. Classes & group activities per city (M)** — cooking classes, walking tours, pub crawls: cooking workshops rated the most memorable solo experience (68% in one survey) and the easiest natural way to meet people. Clean affiliate fit (GetYourGuide/Viator) per monetization-plan.md.
+
+**43. Solo female lens (M)** — optional toggle adding women-specific safety notes to city and neighborhood info. A huge, loyal audience that generic sites underserve.
+
+## 📋 City-page quick-reference additions (added July 19, 2026)
+
+**44. Common scams here (M)** — per-city card: taxi meter tricks, pickpocket hotspots, ATM skimming zones. Scam warnings exist only scattered across blogs, never on the guide page itself.
+
+**45. "Apps to download before you land" (S/M)** — which ride-hailing app actually works there (Grab vs. Uber vs. Bolt), the local transit app, food delivery. Small card, hugely practical.
+
+**46. Essentials strip (S/M)** — emergency number, tap-water safety, plug type/voltage, tipping norm as four icons in one row. Overlaps the arrival cheat-sheet (item 5) — build the data once, show it both places.
+
+**47. Local rhythm (S/M)** — when dinner happens, siesta/Sunday closures, when shops open. Prevents the "everything's closed and I'm hungry" first-day fail.
+
+**48. Cash vs. card verdict (S)** — card-acceptance % is already stored; surface it as a one-liner ("cards fine everywhere" / "carry cash for taxis and markets").
+
+**49. Best months mini-strip (S/M)** — the finder's season/weather data shown as 12 small month dots on the city page itself.
+
+## ⚠️ Pending fix (added July 19, 2026)
+
+**50. Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.
+
+---
+
 *Suggested order if you want a default path: 5 (arrival cheat-sheets) → 2+3 (accounts worth having) → 4 (monthly seasonal page) → 1 (buddy matching, the big swing).*

