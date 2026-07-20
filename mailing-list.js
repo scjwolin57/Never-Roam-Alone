@@ -65,8 +65,8 @@
           <button type="submit">Subscribe</button>
         </form>
         <div class="ml-ints" role="group" aria-label="Regions you're interested in">
-          <p class="ml-ints-label">Interested in (optional)</p>
-          ${["Europe","Asia","North America","South America","Africa","Middle East","Oceania"]
+          <p class="ml-ints-label">Regional Content Interested in (optional)</p>
+          ${["Europe","Asia","North America","South America","Africa","Middle East","Oceania","All Regions"]
             .map(r => `<button type="button" class="ml-int" aria-pressed="false">${r}</button>`).join("")}
         </div>
         <p class="ml-msg" role="status" aria-live="polite"></p>

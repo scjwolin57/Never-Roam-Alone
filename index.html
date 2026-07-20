@@ -179,6 +179,7 @@
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
   footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
+  footer .foot-disclosure{margin-top:22px!important;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:.76rem;opacity:.65}
 
   @media(max-width:880px){
     .tiles{grid-template-columns:1fr}
@@ -203,7 +204,7 @@
 
   .hero p.kicker{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.08em}
   .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
-  .hero h1 em{font-family:'Amatic SC',cursive;font-style:normal}
+  .hero h1 em{font-family:'Amatic SC',cursive;font-style:normal;color:var(--coral)}
 
   #map{border-radius:0;border:1px solid var(--ink);box-shadow:0 16px 40px rgba(43,36,23,.22)}
   .map-wrap::before,.map-wrap::after{content:"";position:absolute;width:26px;height:26px;z-index:6;pointer-events:none}
@@ -252,8 +253,13 @@
   .nra-ml .ml-kicker{font-family:'Work Sans',monospace!important;color:var(--teal)!important;letter-spacing:.2em!important}
   .nra-ml h2{font-family:'Fraunces',serif!important;font-weight:700!important}
   .nra-ml input{border-radius:0!important;border:1px solid var(--ink)!important;background:var(--sand)!important}
-  .nra-ml button{border-radius:0!important;background:var(--coral)!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
-  .nra-ml button:hover{background:var(--rust-dk)!important}
+  .nra-ml form button{border-radius:0!important;background:var(--coral)!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
+  .nra-ml form button:hover{background:var(--rust-dk)!important}
+  /* Region interest chips (also <button> elements, but outside the <form> —
+     scoped separately so the Subscribe-button styling above doesn't leak
+     onto them) */
+  .nra-ml .ml-int{background:var(--teal)!important;color:#fff!important;border-color:var(--teal)!important}
+  .nra-ml .ml-int[aria-pressed=true]{background:var(--coral)!important;border-color:var(--coral)!important}
 
   /* ---- full-design: social proof under hero ---- */
   .social-proof{display:flex;align-items:center;justify-content:center;gap:13px;margin:18px auto 0;flex-wrap:wrap}
@@ -384,7 +390,7 @@
 </section>
 
 <footer>
-  <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="brand"><span>Never Roam Alone &copy; 2026</span></div>
   <div class="foot-links">
     <a href="index.html">Home</a>
     <a href="best-time-to-visit.html">Where to Go This Month</a>
@@ -694,8 +700,8 @@ const CITIES = [
       return '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
         + '<div class="frame"><div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
         + '<figcaption><span class="nm">'+f.city+'</span>'
-        + '<span class="cat '+f.cls+'">'+f.label+'</span>'
         + (country ? '<small>'+country+'</small>' : '')
+        + '<span class="cat '+f.cls+'">'+f.label+'</span>'
         + '</figcaption></a>';
     }).join("");
   }
@@ -716,8 +722,8 @@ const geojson = {
 const map = new maplibregl.Map({
   container:"map",
   style:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
-  center:[20, 15],
-  zoom:1.15,
+  center:[15, -10],
+  zoom:1.05,
   minZoom:1,
   renderWorldCopies:false,
   attributionControl:true

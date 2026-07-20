@@ -28,7 +28,11 @@
   };
 
   // Below this window width the inline links collapse into the hamburger menu.
-  var BREAKPOINT = 880;
+  // (Raised from 880 to 1180 — between those widths the full nav + language
+  // selector + sign-in button no longer fit on one line and the language
+  // selector/sign-in button were getting squeezed off-screen. 1180 matches
+  // the site's --maxw so the row never needs to fit more than that.)
+  var BREAKPOINT = 1180;
 
   function escapeAttr(s) {
     return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");

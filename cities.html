@@ -106,16 +106,17 @@
   .city-card .fav-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0}
   .city-card .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
   .city-card .fav-heart{border:2px solid rgba(168,72,42,.35);background:none;color:var(--coral);
-    width:32px;height:32px;border-radius:50%;font-size:1rem;line-height:1;cursor:pointer;
+    width:32px;height:32px;border-radius:0;font-size:1rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;transition:.15s;flex-shrink:0}
   .city-card .fav-heart:hover{background:rgba(168,72,42,.1)}
   .city-card .fav-heart.active{background:var(--coral);border-color:var(--coral);color:#fff}
   .city-card .fav-heart[disabled]{opacity:.6;cursor:default}
   .city-card .tagline{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:.92rem;
     color:var(--muted);margin:0;flex:1}
-  .city-card .card-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .city-card .card-actions{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px}
+  .city-card .card-actions-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;width:100%}
   .city-card .explore-btn{display:inline-flex;align-items:center;gap:7px;margin-top:0;
-    align-self:flex-start;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
+    align-self:center;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
     padding:10px 20px;border-radius:30px;transition:background .2s}
   .city-card .explore-btn:hover{background:var(--coral)}
   .city-card .explore-btn svg{flex-shrink:0}
@@ -126,6 +127,19 @@
 
   /* No results */
   .no-results{display:none;text-align:center;padding:60px 22px;color:var(--muted);font-size:1.1rem;grid-column:1/-1}
+
+  /* Floating "Back to top" button */
+  .back-to-top{position:fixed;right:22px;bottom:22px;z-index:500;
+    width:48px;height:48px;border-radius:50%;
+    background:rgba(63,81,56,.72);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;line-height:1;text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,.22);backdrop-filter:blur(4px);
+    opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:opacity .25s,transform .25s,visibility .25s,background .2s}
+  .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+  .back-to-top:hover{background:rgba(63,81,56,.9)}
+  @media (max-width:640px){.back-to-top{right:14px;bottom:14px;width:42px;height:42px;font-size:1.15rem}}
 
   /* Compare tray — floating bar that appears once a city is picked for comparison */
   .cmp-tray{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;justify-content:center;padding:16px 22px;pointer-events:none}
@@ -228,6 +242,8 @@
     <a class="cmp-tray-go disabled" id="cmpTrayGo" href="#">Pick one more city to compare &rarr;</a>
   </div>
 </div>
+
+<a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">&uarr;</a>
 
 <footer>
   <div class="brand"><span>Never Roam Alone</span></div>
@@ -594,14 +610,18 @@ function buildCards(list) {
         </div>
         <p class="tagline">${c.tagline}</p>
         <div class="card-actions">
-          <span class="explore-btn">
-            Explore
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </span>
-          <button type="button" class="cmp-toggle" data-cmp-city="${c.city.replace(/"/g,'&quot;')}" data-cmp-country="${c.country.replace(/"/g,'&quot;')}">+ Compare</button>
-          <button type="button" class="cmp-toggle" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add ${c.city} to a trip or your wishlist">+ Trip</button>
+          <div class="card-actions-row">
+            <span class="explore-btn">
+              Explore
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </div>
+          <div class="card-actions-row">
+            <button type="button" class="cmp-toggle" data-cmp-city="${c.city.replace(/"/g,'&quot;')}" data-cmp-country="${c.country.replace(/"/g,'&quot;')}">Compare Cities</button>
+            <button type="button" class="cmp-toggle" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add ${c.city} to a trip or your wishlist">+ Add to a trip</button>
+          </div>
         </div>
       </div>`;
     grid.appendChild(card);
@@ -646,7 +666,7 @@ function paintCmpToggles(){
   document.querySelectorAll(".cmp-toggle[data-cmp-city]").forEach(btn => {
     const active = cmpSelected.some(c => c.city === btn.dataset.cmpCity);
     btn.classList.toggle("active", active);
-    btn.textContent = active ? "✓ Comparing" : "+ Compare";
+    btn.textContent = active ? "✓ Comparing" : "Compare Cities";
   });
 }
 
@@ -802,6 +822,19 @@ document.addEventListener("click", (e) => {
   if (!document.getElementById("city-search").parentElement.contains(e.target)) citySearchList.hidden = true;
 });
 document.getElementById("city-sort").addEventListener("change", applyFilters);
+
+/* ---------- Floating "Back to top" button ---------- */
+(function(){
+  const btn = document.getElementById("back-to-top");
+  if (!btn) return;
+  const toggle = () => btn.classList.toggle("show", window.scrollY > 400);
+  toggle();
+  window.addEventListener("scroll", toggle, { passive: true });
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
 </script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>

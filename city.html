@@ -76,21 +76,21 @@
   .stay-section{margin:0 0 30px}
   .stay-head{text-align:center;margin-bottom:22px}
   .stay-head h2{font-size:clamp(1.4rem,3.2vw,1.9rem);color:var(--green);margin:0}
-  .stay-sub{color:var(--muted);font-size:.96rem;margin:8px auto 0;max-width:560px}
+  .stay-sub{color:var(--muted);font-size:clamp(.72rem,1.8vw,.96rem);margin:8px auto 0;max-width:none;white-space:nowrap}
   .stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .stay-card{background:var(--card);border:1px solid #e7e0d2;
-    border-top:4px solid var(--teal);border-radius:16px;padding:22px 18px 24px;
+    border-top:4px solid var(--teal);border-radius:12px;padding:16px 14px 18px;
     box-shadow:var(--shadow);text-align:center;transition:transform .18s,box-shadow .18s}
   .stay-card:nth-child(1){border-top-color:#8bbf9f}
   .stay-card:nth-child(2){border-top-color:var(--teal)}
   .stay-card:nth-child(3){border-top-color:var(--green)}
   .stay-card:nth-child(4){border-top-color:var(--coral)}
   .stay-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,40,50,.16)}
-  .stay-days{font-size:1rem;color:var(--ink);margin-bottom:8px}
-  .stay-days b{font-size:1.8rem;color:var(--green);font-weight:800}
-  .stay-days span{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-  .stay-label{font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:6px}
-  .stay-blurb{font-size:.85rem;color:var(--muted);line-height:1.45}
+  .stay-days{font-size:.9rem;color:var(--ink);margin-bottom:6px}
+  .stay-days b{font-size:1.5rem;color:var(--green);font-weight:800}
+  .stay-days span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+  .stay-label{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:5px}
+  .stay-blurb{font-size:.78rem;color:var(--muted);line-height:1.4}
   @media(max-width:820px){.stay-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:460px){.stay-grid{grid-template-columns:1fr}}
 
@@ -127,9 +127,9 @@
   .emrg-note{font-size:.76rem;color:var(--muted);font-style:italic}
   .embassy{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
   .embassy-k{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;margin-bottom:8px}
-  .embassy select{width:100%;padding:9px 10px;border:2px solid rgba(63,81,56,.2);border-radius:10px;
-    background:#fff;font-family:inherit;font-size:.88rem;color:var(--ink);cursor:pointer}
-  .embassy select:focus{outline:none;border-color:var(--green)}
+  .embassy #embassy-sel{width:100%;padding:9px 10px;border:2px solid rgba(63,81,56,.2);border-radius:10px;
+    background:#fff;font-family:inherit;font-size:.88rem;color:var(--ink);cursor:text}
+  .embassy #embassy-sel:focus{outline:none;border-color:var(--green)}
   .embassy-hint{margin:10px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
   .embassy-link{display:inline-block;margin-top:10px;color:var(--green);font-weight:700;font-size:.85rem}
 
@@ -190,12 +190,14 @@
   .hotel-tiers .ht{display:flex;flex-direction:column}
   .hotel-tiers .ht-k{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
   .hotel-tiers .ht-v{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.05rem;margin-top:2px}
+  .hotel-disclaimer{margin:10px 0 0;font-size:.72rem;color:var(--muted);font-style:italic;line-height:1.35}
   .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
   .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
   .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(63,81,56,.08);
     border:1px solid rgba(63,81,56,.18);border-radius:20px;padding:3px 10px}
   .rides-none{font-size:.8rem;color:var(--muted)}
+  .taxi-tip{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   /* 4-up cost cards row */
   .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   /* Connectivity banner — full-width card above the cost cards */
@@ -232,6 +234,7 @@
   .drink-row .dr-v{font-family:'Fraunces',Georgia,serif;font-weight:700;white-space:nowrap}
   .drink-row .alc-note{color:var(--coral);font-weight:700;font-size:.76rem;text-align:right;line-height:1.25}
   .drinks-foot{margin-top:10px;font-size:.7rem;font-style:italic;color:var(--muted)}
+  .tap-water-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
 
   /* Transportation section */
   .transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:6px}
@@ -449,6 +452,9 @@
   .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(63,81,56,.22);
     border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
   .conv-field:focus-within{border-color:var(--green)}
+  .conv-field-from{background:rgba(168,72,42,.09);border-color:rgba(168,72,42,.28)}
+  .conv-field-from:focus-within{border-color:var(--coral)}
+  .conv-field-to{background:rgba(63,81,56,.09);border-color:rgba(63,81,56,.28)}
   .conv-field input{border:none;outline:none;background:transparent;font-size:1.05rem;font-family:inherit;
     color:var(--ink);flex:1 1 auto;width:auto;min-width:48px}
   .conv-field .tag{font-weight:700;color:var(--teal);font-size:.9rem;flex-shrink:0}
@@ -476,6 +482,10 @@
   .hood-credit{position:absolute;bottom:8px;right:12px;z-index:1;font-size:.65rem;color:rgba(255,255,255,.7);line-height:1.3}
   .hood-credit a{color:rgba(255,255,255,.8);text-decoration:underline;text-decoration-color:rgba(255,255,255,.35);text-underline-offset:2px}
   .hood-credit a:hover{color:#fff}
+  .hood-map-link{position:absolute;bottom:28px;right:12px;z-index:1;font-size:.74rem;font-weight:700;
+    color:#fff;background:rgba(0,0,0,.4);backdrop-filter:blur(2px);padding:5px 10px;border-radius:20px;
+    text-decoration:none;transition:background .2s}
+  .hood-map-link:hover{background:rgba(0,0,0,.6)}
   .hood-tag{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 28px);padding:8px 24px;background:#a8482a;color:#fff;font-size:.74rem;font-weight:700;line-height:1;letter-spacing:.02em;text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
   .hood-tag .hood-tag-emoji{font-size:.98rem;line-height:1}
   .hood-tag .hood-tag-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -631,7 +641,8 @@
   .evt-form .evt-send{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
   .evt-form .evt-send:hover{background:#8a3a20!important}
   .cal-submit-btn{border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important}
-  #conv-row input,#conv-row select,#embassy-sel{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
+  #embassy-sel{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
+  #conv-row input,#conv-row select{background:transparent!important;border:none!important;border-radius:0!important;color:var(--ink)}
   .modal-card{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
 </style>
 </head>
@@ -2582,7 +2593,9 @@ const CITY_TAXI = {
   "Vilnius":{color:"no official colour (varied)",fare:"metered",fareNote:"metered; apps (Bolt) widely used"},
   "Jerusalem":{color:"white",fare:"metered",fareNote:"meter (moneh) required by law; insist it is used"},
   "Zhuhai":{color:"green and silver",fare:"metered",fareNote:"metered; mobile QR pay expected over cards"},
-  "Cairo":{color:"white",fare:"metered",fareNote:"white taxis metered but often ignored; agree fare or use apps"}
+  "Cairo":{color:"white",fare:"metered",fareNote:"white taxis metered but often ignored; agree fare or use apps"},
+  "Chișinău":{color:"yellow",fare:"metered",fareNote:"Insist the driver uses the meter, or book via the Yandex Go/inDriver app — airport and station taxis often quote inflated flat fares to tourists."},
+  "Washington, D.C.":{color:"no single official color; look for the city taxi markings and roof light",fare:"metered",fareNote:"Insist the driver runs the digital meter rather than agreeing to a flat price, and expect to tip 10-20%."}
 };
 
 /* Colour for a taxi fare type */
@@ -2809,10 +2822,9 @@ const CITY_EMERGENCY = {"Jeddah":{"police":"999","medical":"997","note":"999 pol
   "Marrakech":{police:"19",medical:"15",note:"112 from mobile"}
 };
 
-/* Home countries for the embassy finder dropdown */
-const EMBASSY_COUNTRIES = ["United States","United Kingdom","Canada","Australia","Ireland",
-  "Germany","France","Spain","Italy","Netherlands","Switzerland","Sweden","India","China",
-  "Japan","South Korea","Singapore","United Arab Emirates","Brazil","Mexico","South Africa","New Zealand"];
+/* Home countries for the embassy finder dropdown — all 195 recognized countries
+   (193 UN member states + the 2 UN observer states, Holy See and State of Palestine) */
+const EMBASSY_COUNTRIES = ["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo, Republic of the","Costa Rica","Côte d'Ivoire","Croatia","Cuba","Cyprus","Czechia","Democratic Republic of the Congo","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Tajikistan","Tanzania","Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe","Holy See","State of Palestine"];
 
 /* Top 3 religions by share of population (approximate; can overlap in some places) */
 const CITY_RELIGION = {
@@ -3531,7 +3543,7 @@ const CITY_VISIT = {
 /* Fixed tier labels + blurbs for the "How long to stay" section (same for every city). */
 const VISIT_TIERS = [
   { label:"Scratch the surface", blurb:"Hit the iconic, must-see sights and headline landmarks." },
-  { label:"Leisurely explore",   blurb:"See the highlights at an unhurried pace, with room to wander." },
+  { label:"Leisurely explore",   blurb:"See the highlights and more at an unhurried pace." },
   { label:"Deeper dive",         blurb:"Time for hidden gems, local neighborhoods, and day trips." },
   { label:"Live like a local",   blurb:"Settle in and soak up everyday life at your own rhythm." }
 ];
@@ -5740,6 +5752,299 @@ const CITY_RAIN = {
   "Jerusalem":{q1:23,q2:4,q3:1,q4:17},
   "Zhuhai":{q1:24,q2:41,q3:40,q4:15},
   "Cairo":{q1:3,q2:1,q3:0,q4:2}
+};
+
+/* Tap water safety for visitors: "safe" (fine straight from the tap), "unsafe"
+   (stick to bottled/filtered), or "uncertain" (sources conflict — bottled water advised). */
+const CITY_WATER = {
+  "Yokohama":{"status":"safe","note":"Tap water is treated to strict national standards and safe to drink directly."},
+  "Xiamen":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Wuxi":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Tianshui":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Qingdao":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Ningbo":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Kunming":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Kano":{"status":"unsafe","note":"Tap water isn't reliably treated; drink only bottled or well-filtered water."},
+  "Ibadan":{"status":"unsafe","note":"Piped supply is unreliable and often contaminated; stick to bottled water."},
+  "Hyderabad":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Foshan":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Chittagong":{"status":"unsafe","note":"Tap water isn't safe to drink; stick to bottled or properly filtered water."},
+  "Ankara":{"status":"unsafe","note":"Officially treated and chlorinated, but aging pipes mean bottled water is the safer choice for visitors."},
+  "Alexandria":{"status":"unsafe","note":"Tap water is not recommended for visitors; drink bottled or filtered water only."},
+  "Ahmedabad":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Zhengzhou":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Tai'an":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Suzhou":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Shenyang":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Shantou":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Saint Petersburg":{"status":"unsafe","note":"Improved treatment has cut historic giardia risk, but bottled water is still the safer bet for visitors."},
+  "Lahore":{"status":"unsafe","note":"Groundwater and piped supplies are often polluted; use bottled or filtered water."},
+  "Kolkata":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Jinan":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Harbin":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Hangzhou":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Dalian":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Chennai":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Changchun":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Bengaluru":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Xi'an":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Wuhan":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Tianjin":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Nanjing":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Nanchong":{"status":"unsafe","note":"Stick to bottled or boiled water; avoid tap water and ice made from it."},
+  "Mumbai":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or filtered water, including for brushing teeth."},
+  "Jakarta":{"status":"unsafe","note":"Stick to bottled or purified water; even locals avoid tap water in Jakarta."},
+  "Dongguan":{"status":"unsafe","note":"Tap water is treated but not potable; drink bottled or boiled water instead."},
+  "Chongqing":{"status":"unsafe","note":"Tap water is treated for household use but not recommended for drinking; use bottled water."},
+  "Chengdu":{"status":"unsafe","note":"Tap water meets basic standards but isn't recommended to drink untreated; stick to bottled water."},
+  "Ibiza":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, though it can taste salty or mineral-heavy."},
+  "Victoria Falls":{"status":"unsafe","note":"Stick to bottled or filtered water; most lodges provide safe drinking water for guests."},
+  "Lusaka":{"status":"unsafe","note":"Aging infrastructure and intermittent supply make tap water unreliable; drink bottled or boiled water."},
+  "Kampala":{"status":"unsafe","note":"Tap water isn't reliably safe even after treatment; use bottled or filtered water."},
+  "Tunis":{"status":"uncertain","note":"Sources conflict on safety; high mineral content can upset visitors' stomachs, so bottled water is the safer choice."},
+  "Lomé":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Zanzibar City":{"status":"unsafe","note":"Unreliable water distribution and infrastructure make tap water unsafe; drink bottled or boiled water."},
+  "Khartoum":{"status":"unsafe","note":"Tap water is not recommended for visitors; stick to bottled or treated water."},
+  "Juba":{"status":"unsafe","note":"Tap water is not safe for visitors; use bottled or treated water only."},
+  "Mogadishu":{"status":"unsafe","note":"Poor sanitation infrastructure makes tap water unsafe; use bottled or treated water."},
+  "Freetown":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Victoria":{"status":"uncertain","note":"Technically meets WHO standards, but official tourism advice recommends bottled water due to chlorination."},
+  "Dakar":{"status":"unsafe","note":"Water is treated but aging pipes create contamination risk; most residents and visitors drink bottled water."},
+  "São Tomé":{"status":"unsafe","note":"Outdated infrastructure makes tap water unsafe; stick to bottled or treated water."},
+  "Kigali":{"status":"uncertain","note":"Treated in modern plants but old pipes risk contamination; bottled water is the safer choice for visitors."},
+  "Lagos":{"status":"unsafe","note":"Tap water is generally unsafe due to contamination risk; use bottled or purified water."},
+  "Niamey":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Windhoek":{"status":"safe","note":"Windhoek's tap water is highly treated and considered among the safest in Africa to drink straight from the tap."},
+  "Maputo":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Port Louis":{"status":"uncertain","note":"Treated to WHO standards in urban areas, but quality varies; bottled water is safer, especially after heavy rain."},
+  "Nouakchott":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Bamako":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Lilongwe":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Antananarivo":{"status":"unsafe","note":"Microbial contamination risk means tap water should be boiled or avoided; use bottled water instead."},
+  "Tripoli":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Monrovia":{"status":"unsafe","note":"Tap water is not recommended for visitors; use bottled or treated water."},
+  "Maseru":{"status":"unsafe","note":"Tap water is not considered safe for visitors; use bottled or treated water."},
+  "Nairobi":{"status":"unsafe","note":"Tap water isn't recommended for tourists despite meeting national standards; stick to bottled water."},
+  "Bissau":{"status":"unsafe","note":"Tap water is not considered safe to drink; use bottled or treated water."},
+  "Conakry":{"status":"unsafe","note":"Piped water is often contaminated by leaks and illegal connections; use bottled or treated water."},
+  "Accra":{"status":"unsafe","note":"Tap water is treated but contamination risk remains; use bottled or purified water."},
+  "Banjul":{"status":"unsafe","note":"Tap water is not safe; use sealed bottled water only."},
+  "Libreville":{"status":"unsafe","note":"Tap water is not treated to potable standards; stick to bottled or filtered water."},
+  "Addis Ababa":{"status":"unsafe","note":"Tap water is unreliable and often contaminated; drink bottled or boiled water only."},
+  "Mbabane":{"status":"uncertain","note":"Municipal water is treated and locals drink it, but many travelers still opt for bottled water to be safe."},
+  "Asmara":{"status":"unsafe","note":"Tap water is not considered safe for visitors; use bottled or purified water."},
+  "Malabo":{"status":"unsafe","note":"Tap water is unsafe for visitors; stick to bottled water."},
+  "Djibouti City":{"status":"unsafe","note":"Tap water is not safe to drink; use bottled or boiled water."},
+  "Abidjan":{"status":"unsafe","note":"Tap water is not reliably treated; visitors should drink bottled water."},
+  "Kinshasa":{"status":"unsafe","note":"Tap water is unsafe for visitors; use bottled or purified water only."},
+  "Brazzaville":{"status":"unsafe","note":"Tap water is not safe to drink; stick to bottled water."},
+  "Moroni":{"status":"unsafe","note":"Tap water is unsafe for tourists; drink bottled or filtered water."},
+  "N'Djamena":{"status":"unsafe","note":"Tap water is unsafe; use bottled or boiled water only."},
+  "Bangui":{"status":"unsafe","note":"Tap water is unsafe for visitors; stick to bottled water."},
+  "Douala":{"status":"unsafe","note":"Tap water is not safe to drink; use bottled water."},
+  "Praia":{"status":"unsafe","note":"Despite treated desalinated supply, aging pipes and inconsistent delivery mean bottled water is safest."},
+  "Bujumbura":{"status":"unsafe","note":"Tap water is unsafe for visitors; drink bottled or boiled water."},
+  "Ouagadougou":{"status":"unsafe","note":"Tap water is unsafe; stick to bottled water."},
+  "Gaborone":{"status":"uncertain","note":"Officially treated and chlorinated, but water-quality audits and rural inconsistencies mean bottled water is the safer choice."},
+  "Cotonou":{"status":"unsafe","note":"Tap water is unsafe for tourists; use bottled water."},
+  "Luanda":{"status":"unsafe","note":"Tap water is not safe to drink; stick to bottled water."},
+  "Algiers":{"status":"unsafe","note":"Aging pipes mean tap water carries contamination risk; drink bottled water instead."},
+  "Port Vila":{"status":"safe","note":"Town water supply is treated and generally safe, though high mineral content can upset sensitive stomachs."},
+  "Funafuti":{"status":"unsafe","note":"Water comes from rainwater catchment and wells with contamination risk; use bottled or boiled water."},
+  "Nuku'alofa":{"status":"uncertain","note":"Municipal supply is treated but guidance is mixed; boiling or bottled water is recommended for visitors."},
+  "Honiara":{"status":"uncertain","note":"Chlorinated piped water has improved in recent years, but bottled or boiled water is still the safer bet for visitors."},
+  "Apia":{"status":"uncertain","note":"Treated and generally the most reliable supply in the country, but bottled water is still the safer default for visitors."},
+  "Port Moresby":{"status":"unsafe","note":"Reports on treatment quality are mixed; visitors should stick to bottled or boiled water."},
+  "Koror":{"status":"safe","note":"Central Koror's tap water is treated and generally considered safe, though sensitive travelers may prefer bottled water."},
+  "Auckland":{"status":"safe","note":"Tap water is treated to high standards and safe to drink straight from the tap."},
+  "Yaren":{"status":"unsafe","note":"Water relies on desalination and rainwater catchment with inconsistent quality; use bottled water."},
+  "Weno":{"status":"unsafe","note":"Water access and treatment are unreliable in Chuuk; stick to bottled or boiled water."},
+  "Majuro":{"status":"unsafe","note":"Tap water is not safe to drink due to bacterial contamination risk; use bottled water."},
+  "Tarawa":{"status":"unsafe","note":"Tap water is not recommended for drinking; use bottled or treated water."},
+  "Nadi":{"status":"uncertain","note":"Treated municipal water can still carry bacterial contamination; resorts recommend bottled water for visitors."},
+  "Caracas":{"status":"unsafe","note":"Tap water is unreliable and unsafe for visitors; drink bottled water."},
+  "Montevideo":{"status":"safe","note":"Tap water is treated to high standards and safe to drink."},
+  "Port of Spain":{"status":"uncertain","note":"Tap water is treated but infrastructure issues persist; bottled water is recommended for visitors."},
+  "Paramaribo":{"status":"safe","note":"Tap water in Paramaribo itself is treated and generally safe; use bottled water outside the city."},
+  "Kingstown":{"status":"uncertain","note":"Municipal water is treated, but visitors commonly stick to bottled water as a precaution."},
+  "Castries":{"status":"uncertain","note":"Tap water is chlorinated and locals drink it, but many guides still recommend bottled water for visitors."},
+  "Basseterre":{"status":"safe","note":"Tap water is treated and chlorinated and officially considered safe to drink."},
+  "Asunción":{"status":"unsafe","note":"Stick to bottled or filtered water; tap water quality is inconsistent."},
+  "Panama City":{"status":"safe","note":"Tap water in the city center and hotel zones is treated and safe to drink."},
+  "Managua":{"status":"unsafe","note":"Avoid tap water; drink only bottled or purified water."},
+  "Montego Bay":{"status":"unsafe","note":"Tap water is chlorinated but visitors are generally advised to use bottled water."},
+  "Tegucigalpa":{"status":"unsafe","note":"Avoid tap water; stick to bottled or purified water."},
+  "Port-au-Prince":{"status":"unsafe","note":"Tap water is unsafe; drink only bottled or treated water."},
+  "Georgetown":{"status":"unsafe","note":"Avoid tap water; use bottled or filtered water instead."},
+  "Guatemala City":{"status":"unsafe","note":"Avoid tap water; stick to bottled or purified water."},
+  "St. George's":{"status":"uncertain","note":"Officially treated and safe, but many locals and hotels still recommend bottled water for visitors."},
+  "San Salvador":{"status":"unsafe","note":"Avoid tap water; drink bottled or purified water."},
+  "Quito":{"status":"unsafe","note":"Aging pipes mean tap water can pick up contaminants; stick to bottled water."},
+  "Roseau":{"status":"uncertain","note":"Water is drawn from mountain rivers and treated, but bottled water is the safer bet for visitors."},
+  "Havana":{"status":"unsafe","note":"Avoid tap water; drink only bottled or boiled water."},
+  "San José":{"status":"safe","note":"Tap water in San José and most of the Central Valley is treated and safe to drink."},
+  "Bogotá":{"status":"safe","note":"Tap water in Bogotá's modern, developed areas is treated and safe to drink; older buildings may vary."},
+  "La Paz":{"status":"unsafe","note":"Avoid tap water; stick to bottled or purified water."},
+  "Belize City":{"status":"unsafe","note":"Stick to bottled or filtered water as a precaution."},
+  "Bridgetown":{"status":"safe","note":"Filtered through coral limestone and treated to WHO standards; one of the safest taps in the Caribbean."},
+  "Nassau":{"status":"safe","note":"Tap water meets safety standards, though it can taste of chlorine or salt; bottled water is common by preference."},
+  "St. John's":{"status":"uncertain","note":"Desalinated tap water is generally treated, but bottled water is commonly recommended for visitors."},
+  "Sana'a":{"status":"unsafe","note":"Do not drink tap water; use only bottled or properly treated water."},
+  "Tashkent":{"status":"unsafe","note":"Avoid tap water; stick to bottled or boiled water."},
+  "Ashgabat":{"status":"unsafe","note":"Avoid tap water; use bottled or filtered water."},
+  "Dili":{"status":"unsafe","note":"Tap water is unsafe unless boiled or treated; use bottled water."},
+  "Dushanbe":{"status":"unsafe","note":"Avoid tap water; drink only bottled or boiled water."},
+  "Damascus":{"status":"unsafe","note":"Avoid tap water given damaged infrastructure; use bottled water."},
+  "Colombo":{"status":"unsafe","note":"Avoid tap water; stick to bottled or filtered water."},
+  "Manila":{"status":"unsafe","note":"Avoid tap water; use bottled or filtered water even though some areas claim treated supply."},
+  "Karachi":{"status":"unsafe","note":"Avoid tap water; drink only bottled or purified water."},
+  "Muscat":{"status":"safe","note":"Desalinated tap water meets international standards, though bottled water is widely preferred for taste."},
+  "Pyongyang":{"status":"unsafe","note":"Tourists are provided bottled water; avoid drinking tap water."},
+  "Kathmandu":{"status":"unsafe","note":"Avoid tap water; drink only bottled, filtered, or boiled water."},
+  "Yangon":{"status":"unsafe","note":"Tap water isn't treated to safe standards; stick to bottled or boiled water and avoid ice from unknown sources."},
+  "Ulaanbaatar":{"status":"unsafe","note":"Aging infrastructure means tap water often falls short of safe standards; drink bottled, boiled, or filtered water."},
+  "Malé":{"status":"uncertain","note":"Officially treated desalinated water meets WHO standards, but most visitors' stomachs react poorly, so bottled water is safer."},
+  "Beirut":{"status":"unsafe","note":"Water supply is unreliable and often contaminated; use bottled water for drinking and brushing teeth."},
+  "Vientiane":{"status":"unsafe","note":"Tap water isn't safe even in the capital; drink bottled or filtered water, though commercial ice in tourist spots is usually fine."},
+  "Bishkek":{"status":"uncertain","note":"Officially meets standards, but locals commonly filter or boil it, so bottled or boiled water is the safer choice."},
+  "Kuwait City":{"status":"safe","note":"Desalinated tap water generally meets safety standards, though many prefer bottled water for taste."},
+  "Almaty":{"status":"unsafe","note":"Treated but quality is inconsistent; bottled, boiled, or filtered water is recommended for visitors."},
+  "Amman":{"status":"uncertain","note":"Municipally treated and generally safe, but rooftop storage tanks can affect quality, so bottled water is a safer bet for visitors."},
+  "Baghdad":{"status":"unsafe","note":"Infrastructure and contamination issues make tap water unsuitable for drinking; use bottled water."},
+  "Tehran":{"status":"uncertain","note":"Technically treated and meets standards, but aging pipes and mineral content commonly cause stomach upset in visitors; bottled water advised."},
+  "Nicosia":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, though its mineral taste leads many to prefer bottled water."},
+  "Siem Reap":{"status":"unsafe","note":"Not safe to drink from the tap; use bottled or filtered water, though commercial ice at tourist restaurants is usually fine."},
+  "Bandar Seri Begawan":{"status":"uncertain","note":"Generally treated to standard, but avoid it if discolored (common after heavy rain); bottled water is a safe extra precaution."},
+  "Thimphu":{"status":"unsafe","note":"Water is often contaminated by the time it reaches the tap; drink bottled or boiled water only."},
+  "Dhaka":{"status":"unsafe","note":"Tap water is unsafe due to aging pipes, contamination, and arsenic concerns; use bottled or filtered water."},
+  "Manama":{"status":"uncertain","note":"Desalinated supply generally meets standards, but building plumbing varies; bottled water is a safe precaution."},
+  "Baku":{"status":"unsafe","note":"Despite treatment upgrades, most residents and all visitors are advised to use bottled or filtered water."},
+  "Yerevan":{"status":"safe","note":"Sourced from mountain springs and well treated; tap water is generally safe and pleasant to drink."},
+  "Kabul":{"status":"unsafe","note":"Groundwater is heavily contaminated; only drink bottled water and avoid tap water even for brushing teeth."},
+  "Kyiv":{"status":"uncertain","note":"Meets regulatory standards, but many recommend boiling or filtering due to aging pipes; bottled water is the easy safe choice."},
+  "Ljubljana":{"status":"safe","note":"Excellent, EU-compliant tap water straight from protected springs; public fountains even offer free drinking water."},
+  "Kotor":{"status":"safe","note":"Generally safe and drunk by locals daily, though it can turn cloudy and undrinkable briefly after heavy winter storms."},
+  "Bratislava":{"status":"safe","note":"Meets EU drinking water standards and is safe straight from the tap."},
+  "Belgrade":{"status":"safe","note":"Treated and generally safe, though a noticeable chlorine taste leads many visitors to prefer bottled water."},
+  "San Marino":{"status":"safe","note":"Well-monitored supply that's safe to drink, with EU-equivalent quality standards."},
+  "Moscow":{"status":"uncertain","note":"Officially meets sanitary standards, but most residents avoid drinking it raw; bottled water is the safer choice for visitors."},
+  "Bucharest":{"status":"safe","note":"Meets EU standards and is safe to drink, though a chlorine smell leads many to prefer bottled water."},
+  "Skopje":{"status":"uncertain","note":"Meets national standards but aging distribution pipes are a concern; bottled water is the safer choice for visitors."},
+  "Chișinău":{"status":"uncertain","note":"Officials say it's safe, but low water-quality index scores mean bottled or boiled water is the more cautious choice."},
+  "Monaco":{"status":"safe","note":"Meets strict EU standards and is safe to drink, with only a mild chlorine taste."},
+  "Valletta":{"status":"safe","note":"Desalinated tap water meets EU standards and is safe from the kitchen tap, though bathroom taps (fed by storage tanks) are best avoided for drinking."},
+  "Vaduz":{"status":"safe","note":"Among the highest-quality tap water in Europe; safe to drink directly from any tap or public fountain."},
+  "Luxembourg City":{"status":"safe","note":"Rigorously tested and safe to drink straight from the tap, no filtering needed."},
+  "Riga":{"status":"safe","note":"Meets EU standards and is safe to drink; even ice in bars and restaurants is made from treated tap water."},
+  "Reykjavík":{"status":"safe","note":"Naturally pure spring-sourced tap water, safe to drink straight from the tap with no treatment needed."},
+  "Dubrovnik":{"status":"safe","note":"Tap water is treated and safe to drink throughout Croatia."},
+  "Sofia":{"status":"safe","note":"Tap water meets EU standards and is generally safe to drink."},
+  "Minsk":{"status":"uncertain","note":"Officially meets safety standards, but aging pipes mean many prefer bottled or filtered water."},
+  "Sarajevo":{"status":"safe","note":"Fed by mountain springs and considered safe, though many visitors opt for bottled water as extra precaution."},
+  "Andorra la Vella":{"status":"safe","note":"Sourced from clean Pyrenees mountain water and safe to drink from the tap."},
+  "Tirana":{"status":"uncertain","note":"Meets basic standards but aging pipes and intermittent supply mean bottled or filtered water is safer for visitors."},
+  "Hong Kong":{"status":"safe","note":"Meets world-class standards; safe in modern buildings, though older plumbing means some flush taps briefly first."},
+  "Bangkok":{"status":"unsafe","note":"Avoid drinking from the tap; stick to bottled or filtered water, though ice at restaurants is usually fine."},
+  "London":{"status":"safe","note":"Tap water is treated and safe to drink throughout the city."},
+  "Macau":{"status":"safe","note":"Tap water meets WHO standards and is safe to drink."},
+  "Singapore":{"status":"safe","note":"Tap water is treated to the highest standards and safe to drink straight from the tap."},
+  "Paris":{"status":"safe","note":"Tap water is safe and closely monitored; a Parisian classic is asking for 'une carafe d'eau'."},
+  "Dubai":{"status":"safe","note":"Desalinated tap water is treated and safe to drink, though many prefer bottled for taste."},
+  "New York":{"status":"safe","note":"Tap water is treated and safe to drink throughout the city."},
+  "Kuala Lumpur":{"status":"unsafe","note":"Treated at the source but aging pipes make it unsafe by the tap; stick to bottled or filtered water."},
+  "Istanbul":{"status":"unsafe","note":"Officially potable but most locals and visitors use bottled water due to old plumbing and taste."},
+  "Tokyo":{"status":"safe","note":"Tap water is treated to a very high standard and safe to drink."},
+  "Antalya":{"status":"unsafe","note":"Tap water is treated but bottled or filtered water is recommended for visitors."},
+  "Seoul":{"status":"safe","note":"Tap water meets safety standards, though many locals still prefer boiled or filtered water for taste."},
+  "Osaka":{"status":"safe","note":"Tap water is treated to a very high standard and safe to drink."},
+  "Rome":{"status":"safe","note":"Tap water is safe to drink, including from the city's public drinking fountains (nasoni)."},
+  "Phuket":{"status":"unsafe","note":"Avoid tap water; stick to bottled or purified water to prevent stomach issues."},
+  "Barcelona":{"status":"safe","note":"Tap water is safe, though some visitors find the taste strong and prefer bottled water."},
+  "Amsterdam":{"status":"safe","note":"Tap water is among the best-tested and safest in the world."},
+  "Milan":{"status":"safe","note":"Tap water is safe to drink and closely monitored."},
+  "Vienna":{"status":"safe","note":"Tap water comes from Alpine springs and is famously clean and safe to drink."},
+  "Prague":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "Los Angeles":{"status":"safe","note":"Tap water is treated and safe to drink throughout the city."},
+  "Sydney":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "Cape Town":{"status":"safe","note":"Tap water meets national and WHO standards and is safe to drink in urban areas."},
+  "Rio de Janeiro":{"status":"unsafe","note":"Technically treated but old pipes mean bottled or filtered water is recommended for visitors."},
+  "Cancún":{"status":"unsafe","note":"Avoid tap water; use bottled or purified water, though hotel-made ice is usually safe."},
+  "Marrakech":{"status":"unsafe","note":"Officially treated but CDC/NHS advise visitors stick to bottled or filtered water."},
+  "Madrid":{"status":"safe","note":"Tap water is safe and among the best-rated in Europe."},
+  "Taipei":{"status":"uncertain","note":"Treated water meets standards but aging pipes mean locals commonly boil or filter it; bottled water is the safer bet for visitors."},
+  "Berlin":{"status":"safe","note":"Tap water is strictly regulated and safe to drink."},
+  "Melbourne":{"status":"safe","note":"Tap water is treated and safe to drink throughout the city."},
+  "Munich":{"status":"safe","note":"Tap water is high quality and safe to drink straight from the tap."},
+  "Las Vegas":{"status":"safe","note":"Tap water is treated and safe to drink, though some prefer bottled for taste."},
+  "Florence":{"status":"safe","note":"Tap water is safe to drink; it can taste mineral-heavy but poses no health risk."},
+  "Dublin":{"status":"safe","note":"Tap water is safe and well-regulated across the city."},
+  "Kyoto":{"status":"safe","note":"Tap water is treated to a high standard and safe to drink anywhere."},
+  "Lisbon":{"status":"safe","note":"Tap water is safe to drink, though many locals prefer bottled for taste."},
+  "Venice":{"status":"safe","note":"Tap water is safe to drink; public fountains (acqua alta) also run drinkable water."},
+  "Athens":{"status":"safe","note":"Tap water is treated and safe to drink, though taste varies by neighborhood."},
+  "Orlando":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "Toronto":{"status":"safe","note":"Tap water is safe and among the most rigorously tested in the world."},
+  "Miami":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "San Francisco":{"status":"safe","note":"Tap water is safe and known for its high quality Hetch Hetchy source."},
+  "Shanghai":{"status":"unsafe","note":"Avoid tap water; stick to bottled or boiled water, which is the local norm even for residents."},
+  "Frankfurt am Main":{"status":"safe","note":"Tap water is high quality and safe to drink straight from the tap."},
+  "Copenhagen":{"status":"safe","note":"Tap water is untreated groundwater and considered among the best-tasting and safest in Europe."},
+  "Zurich":{"status":"safe","note":"Tap water is safe and often sourced straight from Alpine springs, even from public fountains."},
+  "Washington, D.C.":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "Pattaya-Chonburi":{"status":"unsafe","note":"Avoid tap water; use bottled or filtered water, and check that ice is made from purified water."},
+  "Vancouver":{"status":"safe","note":"Tap water is safe and comes from protected mountain watersheds."},
+  "Stockholm":{"status":"safe","note":"Tap water is safe and considered some of the cleanest in Europe."},
+  "Mexico City":{"status":"unsafe","note":"Avoid tap water; drink bottled or purified water, and confirm ice is made from purified water."},
+  "Oslo":{"status":"safe","note":"Tap water is safe and of excellent quality."},
+  "São Paulo":{"status":"unsafe","note":"Tap water is technically treated but most visitors stick to bottled or filtered water as a precaution."},
+  "Helsinki":{"status":"safe","note":"Tap water is safe and considered among the best-tasting in the world."},
+  "Brussels":{"status":"safe","note":"Tap water is safe to drink, though it can be quite hard/chalky."},
+  "Budapest":{"status":"safe","note":"Tap water is safe to drink throughout the city."},
+  "Guangzhou":{"status":"unsafe","note":"Avoid tap water; stick to bottled or boiled water, which is the local norm even for residents."},
+  "Nice":{"status":"safe","note":"Tap water is safe and well regulated across France."},
+  "Palma de Mallorca":{"status":"safe","note":"Tap water is safe to drink, though many prefer bottled due to a mineral/desalinated taste."},
+  "Honolulu":{"status":"safe","note":"Tap water is treated and safe to drink."},
+  "Beijing":{"status":"unsafe","note":"Avoid tap water; stick to bottled or boiled water, which is the local norm even for residents."},
+  "Warsaw":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, with only an occasional mild chlorine taste."},
+  "Seville":{"status":"safe","note":"Tap water is safe to drink throughout the city."},
+  "Valencia":{"status":"safe","note":"Tap water is safe to drink throughout the city."},
+  "Shenzhen":{"status":"unsafe","note":"Avoid tap water; stick to bottled or boiled water, which is the local norm even for residents."},
+  "Doha":{"status":"safe","note":"Treated to international standards, though many opt for bottled water due to rooftop storage tanks."},
+  "Abu Dhabi":{"status":"safe","note":"Desalinated tap water meets international standards; some prefer bottled for taste."},
+  "Fukuoka":{"status":"safe","note":"Tap water is treated to high national standards and safe to drink straight from the tap."},
+  "Sapporo":{"status":"safe","note":"Tap water is treated to high national standards and safe to drink straight from the tap."},
+  "Busan":{"status":"safe","note":"Tap water meets national safety standards, though locals commonly prefer filtered or bottled water."},
+  "Edinburgh":{"status":"safe","note":"Tap water is treated to strict UK standards and safe to drink."},
+  "Montreal":{"status":"safe","note":"Tap water is safe and well-regulated; older buildings occasionally have lead pipe concerns."},
+  "Bologna":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, though locals often prefer bottled for taste."},
+  "Rhodes":{"status":"safe","note":"Safe in Rhodes Town; in smaller villages and resorts, bottled water is the safer choice."},
+  "Verona":{"status":"safe","note":"Tap water meets EU standards and is safe to drink."},
+  "Delhi":{"status":"unsafe","note":"Avoid tap water; use sealed bottled or purified water, including for brushing teeth."},
+  "Porto":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, though many locals prefer bottled for taste."},
+  "Ho Chi Minh City":{"status":"unsafe","note":"Avoid tap water; use bottled or boiled water, even for brushing teeth."},
+  "Buenos Aires":{"status":"safe","note":"Tap water is treated and officially safe to drink; some travelers ease in with bottled water first."},
+  "Marne-la-Vallée":{"status":"safe","note":"Tap water is safe and well-regulated; free tap water is standard in restaurants."},
+  "Kraków":{"status":"safe","note":"Tap water meets EU standards and is safe to drink, though some prefer bottled for taste."},
+  "Heraklion":{"status":"safe","note":"Safe in Heraklion and other major towns; bottled water recommended in smaller villages."},
+  "Johor Bahru":{"status":"unsafe","note":"Water is treated at the plant, but aging pipes make boiling or filtering advisable before drinking."},
+  "Hanoi":{"status":"unsafe","note":"Avoid tap water; use bottled or boiled water, even for brushing teeth."},
+  "Tel Aviv":{"status":"safe","note":"Tap water meets high standards and is officially recommended by the Ministry of Health."},
+  "Sharjah":{"status":"safe","note":"Treated water meets standards, but building storage tanks can affect quality; bottled water is a common precaution."},
+  "Thessaloniki":{"status":"safe","note":"Tap water meets EU standards and is safe to drink."},
+  "Lima":{"status":"unsafe","note":"Avoid tap water; use sealed bottled water, including for brushing teeth."},
+  "Medina":{"status":"unsafe","note":"Treated water meets standards, but bottled water is commonly preferred due to plumbing and taste."},
+  "Tbilisi":{"status":"safe","note":"Tap water meets WHO standards and is safe to drink; some prefer bottled due to older building pipes."},
+  "Riyadh":{"status":"unsafe","note":"Treated water meets standards, but bottled water is recommended, especially outside modern hotels."},
+  "Jeddah":{"status":"unsafe","note":"Treated water meets standards, but bottled water is recommended, especially in older districts."},
+  "Tallinn":{"status":"safe","note":"Tap water is safe and considered some of the best quality in the Baltics."},
+  "Mecca":{"status":"unsafe","note":"Treated water meets standards, but bottled water is commonly preferred due to plumbing and taste."},
+  "Denpasar":{"status":"unsafe","note":"Avoid tap water; use bottled, boiled, or filtered water throughout your stay."},
+  "Punta Cana":{"status":"unsafe","note":"Avoid tap water; use bottled or purified water, even for brushing teeth."},
+  "Santiago":{"status":"safe","note":"Tap water is treated and safe to drink; may have a strong mineral or chlorine taste."},
+  "Vilnius":{"status":"safe","note":"Tap water is safe and among the cleanest in Europe."},
+  "Jerusalem":{"status":"safe","note":"Tap water meets high standards and is officially recommended by the Ministry of Health."},
+  "Zhuhai":{"status":"unsafe","note":"Avoid tap water; use bottled or boiled water, even for brushing teeth."},
+  "Cairo":{"status":"unsafe","note":"Avoid tap water; stick to sealed bottled water to prevent stomach upset."}
 };
 
 /* Takeaway coffee, beer (0.5L), and bottled water averages in USD.
@@ -8326,6 +8631,7 @@ if(!c){
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
             ${tagHTML}
             <h3 class="hood-name">${name}</h3>
+            <a class="hood-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ', ' + c.city)}" target="_blank" rel="noopener">See on the map &rarr;</a>
             <p class="hood-credit"></p>
           </div>
           <div class="hood-body">
@@ -8405,11 +8711,11 @@ if(!c){
           ${emergencyHTML}
           <div class="embassy">
             <label class="embassy-k" for="embassy-sel">Find your embassy</label>
-            <select id="embassy-sel">
-              <option value="" selected>Select your country…</option>
-              ${EMBASSY_COUNTRIES.map(cc => `<option value="${cc}">${cc}</option>`).join('')}
-            </select>
-            <p class="embassy-hint" id="embassy-hint">Pick a country for a Maps link to the nearest embassy.</p>
+            <input type="text" id="embassy-sel" list="embassy-country-list" placeholder="Start typing your country…" autocomplete="off" />
+            <datalist id="embassy-country-list">
+              ${EMBASSY_COUNTRIES.map(cc => `<option value="${cc}">`).join('')}
+            </datalist>
+            <p class="embassy-hint" id="embassy-hint">Type a country for a Maps link to the nearest embassy.</p>
             <a class="embassy-link" id="embassy-link" target="_blank" rel="noopener" hidden></a>
           </div>
         </div>`;
@@ -8421,6 +8727,9 @@ if(!c){
               ? `<div class="rides-list">${rides.map(r => `<span class="ride-chip">${r}</span>`).join('')}</div>`
               : `<span class="rides-none">Local taxis — no major apps</span>`}
           </div>`;
+  const tx = CITY_TAXI[c.city];
+  const taxiTipHTML = !tx ? "" : `
+          <p class="taxi-tip"><b style="color:${taxiFareColor(tx.fare)}">${tx.color} taxis</b> &middot; ${tx.fareNote}</p>`;
   const tip = CITY_TIP[c.city];
   const tipLvl = tip ? tipInfo(tip.s) : null;
   const tipHTML = !tip ? "" : `
@@ -8443,6 +8752,7 @@ if(!c){
           <div class="v">${fmtPrice(cost.hotel, code)}</div>
           <div class="cost-note">mid-range &middot; avg, <span>${code}</span></div>
           ${hotelTiers}
+          <p class="hotel-disclaimer">Prices are citywide averages and can vary a lot by neighborhood.</p>
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.meal}</span>
@@ -8457,6 +8767,7 @@ if(!c){
           <div class="v">${fmtPrice(cost.taxi, code)}</div>
           <div class="cost-note">typical fare &middot; <span>${code}</span></div>
           ${ridesHTML}
+          ${taxiTipHTML}
         </div>
         ${drinks == null ? "" : `
         <div class="fact cost-card">
@@ -8471,6 +8782,13 @@ if(!c){
             }</div>
             <div class="drink-row"><span class="dr-k">Water &middot; bottle</span><span class="dr-v">${fmtPrice(drinks.water, code)}</span></div>
           </div>
+          ${(() => {
+            const w = CITY_WATER[c.city];
+            if (!w) return "";
+            const col = w.status === "safe" ? "#1d9a6c" : w.status === "unsafe" ? "#c0392b" : "#a8482a";
+            const label = w.status === "safe" ? "Tap water: safe to drink" : w.status === "unsafe" ? "Tap water: not recommended" : "Tap water: uncertain";
+            return `<p class="tap-water-note"><b style="color:${col}">${label}</b> &middot; ${w.note}</p>`;
+          })()}
           <div class="drinks-foot">average prices per drink</div>
         </div>`}`;
   }
@@ -8582,8 +8900,7 @@ if(!c){
 
   const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")
     ? `${Math.abs(c.lat).toFixed(4)}\u00b0 ${c.lat>=0?"N":"S"} \u00b7 ${Math.abs(c.lng).toFixed(4)}\u00b0 ${c.lng>=0?"E":"W"}` : "";
-  const _plateNo = (CITIES.findIndex(x=>x.city===c.city)+1) || 0;
-  const _coordsLine = `<p class="coords">${_coordStr ? _coordStr + " &nbsp;\u00b7&nbsp; " : ""}Plate \u2116 ${String(_plateNo).padStart(3,"0")} / ${CITIES.length}</p>`;
+  const _coordsLine = _coordStr ? `<p class="coords">${_coordStr}</p>` : "";
   const plate = (n,label) => `<div class="plate"><svg class="cx"><use href="#compass"/></svg><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
@@ -8602,7 +8919,6 @@ if(!c){
 
     <section class="i18n-ml">
       <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
-      <div class="placeholder-note">📝 Placeholder text — this intro, the photos, and the stories below are samples. Real content gets added per city as you publish.</div>
 
       ${plate("01","Season &amp; duration")}
       ${buildVisitSection(c.city)}
@@ -9223,7 +9539,7 @@ if(!c){
     const currency = isLocal
       ? `<span class="tag">${localCode}</span>`
       : `<select id="conv-sel" aria-label="Compare currency">${compareOptions()}</select>`;
-    return `<div class="conv-field">${input}${currency}</div>`;
+    return `<div class="conv-field conv-field-${role}">${input}${currency}</div>`;
   }
 
   function renderConverter(amount) {
@@ -9492,8 +9808,9 @@ if(!c){
   const embLink = document.getElementById("embassy-link");
   const embHint = document.getElementById("embassy-hint");
   if (embSel) {
-    embSel.addEventListener("change", () => {
-      const country = embSel.value;
+    const embMatch = typed => EMBASSY_COUNTRIES.find(cc => cc.toLowerCase() === typed.trim().toLowerCase());
+    const embUpdate = () => {
+      const country = embMatch(embSel.value);
       if (!country) {
         embLink.hidden = true;
         if (embHint) embHint.hidden = false;
@@ -9504,7 +9821,9 @@ if(!c){
       embLink.textContent = `Nearest ${country} embassy on Google Maps →`;
       embLink.hidden = false;
       if (embHint) embHint.hidden = true;
-    });
+    };
+    embSel.addEventListener("input", embUpdate);
+    embSel.addEventListener("change", embUpdate);
   }
 }
 
