@@ -88,7 +88,7 @@
       "input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{border-radius:0 !important}" +
       // Explorer finish: parchment page-heads + themed form inputs site-wide
       ".intro.hero-banner,.page-hero,.hero-banner{background:transparent !important;background-image:none !important;color:#2b2417 !important;border:none !important}" +
-      ".intro.hero-banner .kicker,.page-hero .kicker,.hero-banner .kicker{color:#3f5138 !important;opacity:1 !important;font-family:'IBM Plex Mono',monospace;letter-spacing:.22em;text-transform:uppercase}" +
+      ".intro.hero-banner .kicker,.page-hero .kicker,.hero-banner .kicker{color:#3f5138 !important;opacity:1 !important;font-family:'Work Sans',monospace;letter-spacing:.22em;text-transform:uppercase}" +
       ".intro.hero-banner h1,.page-hero h1,.hero-banner h1{color:#2b2417 !important;font-family:'Fraunces',Georgia,serif}" +
       ".intro.hero-banner h1 em,.page-hero h1 em,.hero-banner h1 em{color:#a8482a !important;font-style:italic}" +
       ".intro.hero-banner p,.page-hero p,.hero-banner p{color:#82755b !important}" +

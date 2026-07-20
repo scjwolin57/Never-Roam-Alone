@@ -99,7 +99,7 @@ window.NRA_AUTH = (function(){
   .nra-acct .av{width:34px;height:34px;border-radius:0;background:#a8482a;color:#f6efdd;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0}
   .nra-acct .nm{font-weight:700;color:#2b2417}
   .nra-acct .em{display:block;font-size:.74rem;color:#82755b;font-weight:400;max-width:170px;overflow:hidden;text-overflow:ellipsis}
-  .nra-btn{display:inline-block;background:#a8482a;color:#f6efdd;font-weight:600;font-size:.8rem;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.06em;border:none;border-radius:0;padding:11px 20px;cursor:pointer}
+  .nra-btn{display:inline-block;background:#a8482a;color:#f6efdd;font-weight:600;font-size:.8rem;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.06em;border:none;border-radius:0;padding:11px 20px;cursor:pointer}
   .nra-btn:hover{background:#8a3a20}
   .nra-btn.ghost{background:none;color:#82755b;font-weight:600;text-decoration:underline;padding:6px 4px;text-transform:none;letter-spacing:normal;font-family:'Work Sans',-apple-system,sans-serif}
   .nra-note{font-size:.78rem;color:#82755b;margin:8px 0 0}
@@ -110,10 +110,10 @@ window.NRA_AUTH = (function(){
   .nra-modal h3{font-family:'Fraunces',Georgia,serif;font-weight:700;margin:0 0 4px;font-size:1.35rem;color:#2b2417}
   .nra-modal .sub{color:#82755b;font-size:.86rem;margin:0 0 16px}
   .nra-tabs{display:flex;gap:6px;margin-bottom:16px}
-  .nra-tab{flex:1;border:1px solid #2b2417;background:#f6efdd;border-radius:0;padding:8px 4px;font-size:.68rem;font-weight:600;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:#2b2417}
+  .nra-tab{flex:1;border:1px solid #2b2417;background:#f6efdd;border-radius:0;padding:8px 4px;font-size:.68rem;font-weight:600;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;color:#2b2417}
   .nra-tab.active{border-color:#a8482a;background:#a8482a;color:#f6efdd}
   .nra-field{margin-bottom:12px}
-  .nra-field label{display:block;font-size:.68rem;font-weight:600;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.1em;color:#3f5138;margin-bottom:5px}
+  .nra-field label{display:block;font-size:.68rem;font-weight:600;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.1em;color:#3f5138;margin-bottom:5px}
   .nra-field input{width:100%;box-sizing:border-box;font-size:.95rem;font-family:inherit;background:#ece2cc;border:1px solid #2b2417;border-radius:0;padding:11px 12px;color:#2b2417}
   .nra-field input:focus{outline:none;border-color:#a8482a}
   .nra-msg{font-size:.82rem;margin:10px 0 0;color:#3f5138}

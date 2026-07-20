@@ -1,6 +1,6 @@
 /* Flatpickr theme — EXPLORER dossier style.
    Squared (no rounded corners), parchment card, ink border, expedition-green
-   header, rust (terracotta) selection, IBM Plex Mono numerals. Matches the
+   header, rust (terracotta) selection, Work Sans numerals. Matches the
    Explorer form: paper #f6efdd, ink #2b2417, green #3f5138 / #2c3a27,
    rust #a8482a. Loaded on every page with a date field (choose, city,
    itinerary, admin, blog-editor). */
@@ -26,10 +26,10 @@
   border-bottom:1px solid #2b2417;
 }
 .flatpickr-months .flatpickr-month{ color:#f6efdd !important; fill:#f6efdd !important; }
-.flatpickr-current-month{ font-family:'IBM Plex Mono',monospace; font-size:.95rem; }
+.flatpickr-current-month{ font-family:'Work Sans',monospace; font-size:.95rem; }
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year{
-  color:#f6efdd !important; font-weight:700; font-family:'IBM Plex Mono',monospace;
+  color:#f6efdd !important; font-weight:700; font-family:'Work Sans',monospace;
 }
 .flatpickr-current-month .flatpickr-monthDropdown-months{ background:#3f5138; }
 .flatpickr-current-month .flatpickr-monthDropdown-months option{ color:#2b2417; background:#f6efdd; }
@@ -44,14 +44,14 @@
 .flatpickr-weekdays{ background:#2c3a27 !important; }
 span.flatpickr-weekday{
   background:#2c3a27 !important; color:rgba(246,239,221,.85) !important;
-  font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.68rem;
+  font-family:'Work Sans',monospace; font-weight:600; font-size:.68rem;
   letter-spacing:.06em; text-transform:uppercase;
 }
 
 /* ---- day cells: mono numerals, squared ---- */
 .flatpickr-day{
   color:#2b2417;
-  font-family:'IBM Plex Mono',monospace;
+  font-family:'Work Sans',monospace;
   border-radius:0 !important;
   border:1px solid transparent;
 }
@@ -88,7 +88,7 @@ span.flatpickr-weekday{
 .flatpickr-time .flatpickr-am-pm:hover,
 .flatpickr-time input:focus,
 .flatpickr-time .flatpickr-am-pm:focus{ background:rgba(63,81,56,.1); }
-.flatpickr-time input{ color:#2b2417; font-family:'IBM Plex Mono',monospace; }
+.flatpickr-time input{ color:#2b2417; font-family:'Work Sans',monospace; }
 
 /* every date input gets the calendar cursor */
 input[type="date"], input.flatpickr-input{ cursor:pointer; }
