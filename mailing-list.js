@@ -35,7 +35,11 @@
   .nra-ml .ml-msg{font-size:.9rem;font-weight:600;margin:14px 0 0;min-height:1.1em;font-family:'IBM Plex Mono',monospace}
   .nra-ml .ml-msg.ok{color:#3f5138}
   .nra-ml .ml-msg.err{color:#a8482a}
-  .nra-ml .ml-fine{font-size:.72rem;color:#82755b;margin:12px 0 0}
+  .nra-ml .ml-fine{font-size:.72rem;color:#82755b;margin:26px 0 0;position:relative;z-index:2;background:rgba(246,239,221,.9);display:inline-block;padding:3px 10px;border-radius:0}
+  .nra-ml .ml-ints{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px auto 0;max-width:520px}
+  .nra-ml .ml-ints-label{width:100%;font-family:'IBM Plex Mono',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:#82755b;margin:0 0 2px}
+  .nra-ml .ml-int{cursor:pointer;background:#ece2cc;border:1px solid #2b2417;border-radius:0;padding:7px 14px;font-size:.78rem;font-family:'IBM Plex Mono',monospace;color:#2b2417;transition:.15s}
+  .nra-ml .ml-int[aria-pressed=true]{background:#3f5138;color:#fff;border-color:#3f5138}
   @media(max-width:520px){.nra-ml{padding:28px 20px}.nra-ml input[type=email]{min-width:0;width:100%}.nra-ml button{width:100%}}
   `;
 
@@ -60,6 +64,11 @@
           <input type="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required>
           <button type="submit">Subscribe</button>
         </form>
+        <div class="ml-ints" role="group" aria-label="Regions you're interested in">
+          <p class="ml-ints-label">Interested in (optional)</p>
+          ${["Europe","Asia","North America","South America","Africa","Middle East","Oceania"]
+            .map(r => `<button type="button" class="ml-int" aria-pressed="false">${r}</button>`).join("")}
+        </div>
         <p class="ml-msg" role="status" aria-live="polite"></p>
         <p class="ml-fine">We'll only use your email to send you Never Roam Alone updates.</p>
       </div>`;
@@ -69,6 +78,15 @@
     const btn   = mount.querySelector("button");
     const msgEl = mount.querySelector(".ml-msg");
     const setMsg = (text, kind) => { msgEl.textContent = text || ""; msgEl.className = "ml-msg" + (kind ? " " + kind : ""); };
+
+    // Interest chips: click to toggle on/off.
+    mount.querySelectorAll(".ml-int").forEach(chip => {
+      chip.addEventListener("click", () => {
+        chip.setAttribute("aria-pressed", chip.getAttribute("aria-pressed") === "true" ? "false" : "true");
+      });
+    });
+    const pickedInterests = () =>
+      Array.from(mount.querySelectorAll('.ml-int[aria-pressed="true"]')).map(c => c.textContent.trim());
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -82,7 +100,7 @@
       btn.disabled = true; btn.textContent = "Subscribing…"; setMsg("");
       try{
         await window.NRA_AUTH.ready();
-        const res = await window.NRA_AUTH.subscribeMailing(email, source);
+        const res = await window.NRA_AUTH.subscribeMailing(email, source, pickedInterests());
         if (res && res.ok){
           setMsg(res.already ? "You're already on the list — thanks for the love!" : "You're in! Check your inbox for a confirmation.", "ok");
           if (!res.already) input.value = "";

