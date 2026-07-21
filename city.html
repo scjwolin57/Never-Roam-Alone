@@ -467,11 +467,16 @@
   .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
   .cost-snapshot{display:block;margin-top:18px}
   .csnap-box{background:var(--sand);border-radius:12px;padding:16px 18px;width:100%;box-sizing:border-box}
-  .csnap-toggles{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
-  .csnap-toggle{display:flex;align-items:center;gap:7px;font-size:.84rem;color:var(--ink);cursor:pointer}
-  .csnap-toggle input{width:16px;height:16px;cursor:pointer;accent-color:var(--green)}
+  .csnap-toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .csnap-toggle{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--ink);cursor:pointer}
+  .csnap-toggle input{width:17px;height:17px;flex-shrink:0;margin:0;cursor:pointer;accent-color:var(--green);
+    border:1.5px solid rgba(63,81,56,.4);border-radius:0;background:#fff}
+  .csnap-toggle input:hover{border-color:var(--green)}
+  .csnap-toggle input:focus-visible{outline:2px solid var(--green);outline-offset:2px}
   .csnap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .csnap-k{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .csnap-persons{font-size:.7rem;font-weight:600;color:var(--muted);font-style:italic}
+  .csnap-afford-label{font-size:.72rem;font-weight:600;color:var(--muted);margin-left:auto}
   .csnap-tier{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em;margin-left:auto}
   .csnap-dim{color:rgba(0,0,0,.18)}
   .csnap-word{font-size:.82rem;font-weight:700}
@@ -479,7 +484,6 @@
   .csnap-day{flex:1;text-align:center;background:#fff;border-radius:9px;padding:8px 4px}
   .csnap-day .cd-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
   .csnap-day .cd-v{display:block;font-size:.98rem;font-weight:700;margin-top:3px;color:var(--green)}
-  .csnap-foot{font-size:.72rem;color:var(--muted);margin-top:9px;text-align:right}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(63,81,56,.22);
     border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
@@ -566,7 +570,7 @@
   .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
   .back-to-top:hover{background:rgba(26,74,58,.9)}
 
-  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer{background:#5c6933;color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#b5492c}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
@@ -655,7 +659,7 @@
   .esim-btn,.tr-map-btn,.back,.cal-submit-btn,.evt-send,.rm-cta,.atm-btn,.tr-map-btn{border-radius:3px}
   .tile .date,.tile .readmore{font-family:'Work Sans',monospace;letter-spacing:.08em}
 
-  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);border-top:5px solid var(--brass)}
+  footer{background:#5c6933;border-top:5px solid var(--brass)}
   footer .brand{color:var(--brass-lt)}
 
   /* ---- full-design: city guide chrome ---- */
@@ -9594,6 +9598,7 @@ if(!c){
   /* Daily Cost Estimator toggle state (persists across currency changes) */
   let csnapIncludeAlcohol = true;
   let csnapIncludeActivities = true;
+  let csnapSolo = false;
   const rides = CITY_RIDES[c.city];
   const drinks = CITY_DRINKS[c.city];
   const net = CITY_NET[c.city];
@@ -9658,11 +9663,14 @@ if(!c){
     if (mid < 220) return {n:3, w:"Pricey",    c:"#C77400"};
     return                {n:4, w:"Expensive", c:"#C04020"};
   }
-  function computeDailyTiers(includeAlcohol, includeActivities) {
+  function computeDailyTiers(includeAlcohol, includeActivities, solo) {
     if (cost == null) return null;
-    const hb = hotelRange ? hotelRange.b : cost.hotel;
-    const hm = cost.hotel;
-    const hl = hotelRange ? hotelRange.h : cost.hotel;
+    /* Room rates are per-room. Default assumes two people splitting a room (per-person
+       half-cost); the "traveling solo" toggle switches to the full room rate for one. */
+    const roomDivisor = solo ? 1 : 2;
+    const hb = (hotelRange ? hotelRange.b : cost.hotel) / roomDivisor;
+    const hm = cost.hotel / roomDivisor;
+    const hl = (hotelRange ? hotelRange.h : cost.hotel) / roomDivisor;
     const mealB = 3 * 1.0 * cost.meal, mealM = 3 * 1.8 * cost.meal, mealL = 3 * 3.5 * cost.meal;
     const txB = 1 * cost.taxi, txM = 2 * cost.taxi, txL = 4 * cost.taxi;
     const drinksBase = drinks ? (drinks.coffee || 0) + (drinks.water || 0) : 0;
@@ -9681,7 +9689,7 @@ if(!c){
     return { b: coreB + alcB + actB, m: coreM + alcM + actM, h: coreL + alcL + actL };
   }
   function buildCostSnapshot(code) {
-    const tiers = computeDailyTiers(csnapIncludeAlcohol, csnapIncludeActivities);
+    const tiers = computeDailyTiers(csnapIncludeAlcohol, csnapIncludeActivities, csnapSolo);
     if (tiers == null) return "";
     const t = costTier(tiers.m);
     const dollars = '<span style="color:' + t.c + '">' + '$'.repeat(t.n) + '</span>'
@@ -9689,7 +9697,8 @@ if(!c){
     return `
           <div class="csnap-box">
             <div class="csnap-head">
-              <span class="csnap-k">Daily Cost Estimator</span>
+              <span class="csnap-k">Daily Cost Estimator <span class="csnap-persons">&middot; est. per person/day</span></span>
+              <span class="csnap-afford-label">Affordability factor</span>
               <span class="csnap-tier" aria-label="${t.w}">${dollars}</span>
               <span class="csnap-word" style="color:${t.c}">${t.w}</span>
             </div>
@@ -9701,8 +9710,8 @@ if(!c){
             <div class="csnap-toggles">
               <label class="csnap-toggle"><input type="checkbox" id="csnap-alcohol-toggle" ${csnapIncludeAlcohol ? "checked" : ""}> Include alcoholic beverages</label>
               <label class="csnap-toggle"><input type="checkbox" id="csnap-activities-toggle" ${csnapIncludeActivities ? "checked" : ""}> Include activities/tours</label>
+              <label class="csnap-toggle"><input type="checkbox" id="csnap-solo-toggle" ${csnapSolo ? "checked" : ""}> I'm traveling solo (calculates lodging cost for one)</label>
             </div>
-            <div class="csnap-foot">est. per person/day &middot; assumes budget&ndash;midrange lodging &middot; <span>${code}</span></div>
           </div>`;
   }
 
@@ -10582,11 +10591,13 @@ if(!c){
     if (el) el.innerHTML = buildCostCards(compareCode);
     const sel = document.getElementById("cost-snapshot");
     if (sel) {
-      sel.innerHTML = buildCostSnapshot(compareCode);
+      sel.innerHTML = buildCostSnapshot(curCode);   /* always shown in the city's local currency */
       const alcToggle = document.getElementById("csnap-alcohol-toggle");
       if (alcToggle) alcToggle.addEventListener("change", () => { csnapIncludeAlcohol = alcToggle.checked; renderCosts(); });
       const actToggle = document.getElementById("csnap-activities-toggle");
       if (actToggle) actToggle.addEventListener("change", () => { csnapIncludeActivities = actToggle.checked; renderCosts(); });
+      const soloToggle = document.getElementById("csnap-solo-toggle");
+      if (soloToggle) soloToggle.addEventListener("change", () => { csnapSolo = soloToggle.checked; renderCosts(); });
     }
     const nel = document.getElementById("net-card");
     if (nel) { nel.innerHTML = buildNetCard(compareCode); nel.hidden = (net == null); }
