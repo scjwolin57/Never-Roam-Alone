@@ -215,7 +215,7 @@
     background:none;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--green);text-align:left;cursor:pointer;transition:color .2s}
   .taxi-tip-btn:hover{color:var(--coral)}
   /* 4-up cost cards row */
-  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
+  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   /* Connectivity banner — full-width card above the cost cards */
   .net-banner{grid-column:1/-1;display:flex;flex-direction:column}
   .net-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -249,7 +249,7 @@
   .drink-row .dr-k{color:var(--ink)}
   .drink-row .dr-v{font-family:'Fraunces',Georgia,serif;font-weight:700;white-space:nowrap}
   .drink-row .alc-note{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;color:var(--coral);font-weight:700;font-size:.76rem;line-height:1.25;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
-  .drinks-foot{margin-top:10px;font-size:.7rem;font-style:italic;color:var(--muted)}
+  .drinks-avg-note{font-size:.68rem;font-weight:400;font-style:italic;text-transform:none;letter-spacing:0;color:var(--muted);margin-left:6px}
   .tap-water-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   .water-more-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;vertical-align:middle}
 
@@ -464,7 +464,10 @@
   .cur-code{font-weight:700;letter-spacing:.06em;margin-top:8px;font-size:1.05rem}
   .cur-name{color:var(--muted);font-size:.86rem;margin-top:2px}
   .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
-  .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
+  .conv-labels{display:flex;justify-content:space-between;gap:10px;margin-bottom:-6px}
+  .conv-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600;text-align:center}
+  .conv-currency-toggle{margin-left:auto}
   .cost-snapshot{display:block;margin-top:18px}
   .csnap-box{background:var(--sand);border-radius:12px;padding:16px 18px;width:100%;box-sizing:border-box}
   .csnap-toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
@@ -476,12 +479,15 @@
   .csnap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .csnap-k{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
   .csnap-persons{font-size:.7rem;font-weight:600;color:var(--muted);font-style:italic}
-  .csnap-afford-label{font-size:.72rem;font-weight:600;color:var(--muted);margin-left:auto}
+  .csnap-afford-label{font-size:1rem;font-weight:700;color:var(--muted);margin-left:auto;padding-right:.35rem}
   .csnap-tier{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em;margin-left:auto}
   .csnap-dim{color:rgba(0,0,0,.18)}
   .csnap-word{font-size:.82rem;font-weight:700}
   .csnap-days{display:flex;gap:8px;margin-top:10px}
   .csnap-day{flex:1;text-align:center;background:#fff;border-radius:9px;padding:8px 4px}
+  .csnap-day-budget{background:rgba(63,81,56,.14)}
+  .csnap-day-mid{background:rgba(184,134,11,.16)}
+  .csnap-day-high{background:rgba(168,72,42,.14)}
   .csnap-day .cd-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
   .csnap-day .cd-v{display:block;font-size:.98rem;font-weight:700;margin-top:3px;color:var(--green)}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -3459,14 +3465,14 @@ const CITY_RELIGION = {
 
 /* English-proficiency stat by city, based on national EF EPI 2025 data; omitted for native-English-speaking countries and countries without EF data */
 const CITY_ENGLISH = {
-  "Andorra la Vella":{"tier":"m","label":"Manageable with some patience"},
+  "Andorra la Vella":{"tier":"m","label":"Manageable with patience"},
   "St. John's":{"tier":"h","label":"Easy to get by in English"},
   "Nassau":{"tier":"h","label":"Easy to get by in English"},
   "Manama":{"tier":"l","label":"Expect a language barrier"},
   "Bridgetown":{"tier":"h","label":"Easy to get by in English"},
   "Belize City":{"tier":"h","label":"Easy to get by in English"},
-  "Thimphu":{"tier":"m","label":"Manageable with some patience"},
-  "Sarajevo":{"tier":"m","label":"Manageable with some patience"},
+  "Thimphu":{"tier":"m","label":"Manageable with patience"},
+  "Sarajevo":{"tier":"m","label":"Manageable with patience"},
   "Gaborone":{"tier":"h","label":"Easy to get by in English"},
   "Bandar Seri Begawan":{"tier":"h","label":"Easy to get by in English"},
   "Ouagadougou":{"tier":"vl","label":"Expect a language barrier"},
@@ -3478,7 +3484,7 @@ const CITY_ENGLISH = {
   "Djibouti City":{"tier":"vl","label":"Expect a language barrier"},
   "Roseau":{"tier":"h","label":"Easy to get by in English"},
   "Malabo":{"tier":"vl","label":"Expect a language barrier"},
-  "Asmara":{"tier":"m","label":"Manageable with some patience"},
+  "Asmara":{"tier":"m","label":"Manageable with patience"},
   "Mbabane":{"tier":"h","label":"Easy to get by in English"},
   "Weno":{"tier":"h","label":"Easy to get by in English"},
   "Nadi":{"tier":"h","label":"Easy to get by in English"},
@@ -3490,7 +3496,7 @@ const CITY_ENGLISH = {
   "Georgetown":{"tier":"h","label":"Easy to get by in English"},
   "Reykjavík":{"tier":"vh","label":"Easy to get by in English"},
   "Montego Bay":{"tier":"h","label":"Easy to get by in English"},
-  "Tarawa":{"tier":"m","label":"Manageable with some patience"},
+  "Tarawa":{"tier":"m","label":"Manageable with patience"},
   "Vientiane":{"tier":"vl","label":"Expect a language barrier"},
   "Maseru":{"tier":"h","label":"Easy to get by in English"},
   "Monrovia":{"tier":"h","label":"Easy to get by in English"},
@@ -3501,41 +3507,41 @@ const CITY_ENGLISH = {
   "Majuro":{"tier":"h","label":"Easy to get by in English"},
   "Nouakchott":{"tier":"vl","label":"Expect a language barrier"},
   "Port Louis":{"tier":"h","label":"Easy to get by in English"},
-  "Monaco":{"tier":"m","label":"Manageable with some patience"},
-  "Kotor":{"tier":"m","label":"Manageable with some patience"},
+  "Monaco":{"tier":"m","label":"Manageable with patience"},
+  "Kotor":{"tier":"m","label":"Manageable with patience"},
   "Windhoek":{"tier":"h","label":"Easy to get by in English"},
   "Yaren":{"tier":"h","label":"Easy to get by in English"},
   "Niamey":{"tier":"vl","label":"Expect a language barrier"},
   "Pyongyang":{"tier":"vl","label":"Expect a language barrier"},
-  "Skopje":{"tier":"m","label":"Manageable with some patience"},
+  "Skopje":{"tier":"m","label":"Manageable with patience"},
   "Koror":{"tier":"h","label":"Easy to get by in English"},
-  "Port Moresby":{"tier":"m","label":"Manageable with some patience"},
+  "Port Moresby":{"tier":"m","label":"Manageable with patience"},
   "Brazzaville":{"tier":"vl","label":"Expect a language barrier"},
   "Castries":{"tier":"h","label":"Easy to get by in English"},
   "Kingstown":{"tier":"h","label":"Easy to get by in English"},
-  "Apia":{"tier":"m","label":"Manageable with some patience"},
-  "San Marino":{"tier":"m","label":"Manageable with some patience"},
+  "Apia":{"tier":"m","label":"Manageable with patience"},
+  "San Marino":{"tier":"m","label":"Manageable with patience"},
   "São Tomé":{"tier":"vl","label":"Expect a language barrier"},
   "Victoria":{"tier":"h","label":"Easy to get by in English"},
   "Freetown":{"tier":"h","label":"Easy to get by in English"},
-  "Honiara":{"tier":"m","label":"Manageable with some patience"},
-  "Juba":{"tier":"m","label":"Manageable with some patience"},
+  "Honiara":{"tier":"m","label":"Manageable with patience"},
+  "Juba":{"tier":"m","label":"Manageable with patience"},
   "Basseterre":{"tier":"h","label":"Easy to get by in English"},
   "Dili":{"tier":"vl","label":"Expect a language barrier"},
   "Lomé":{"tier":"vl","label":"Expect a language barrier"},
-  "Nuku'alofa":{"tier":"m","label":"Manageable with some patience"},
+  "Nuku'alofa":{"tier":"m","label":"Manageable with patience"},
   "Port of Spain":{"tier":"h","label":"Easy to get by in English"},
   "Ashgabat":{"tier":"vl","label":"Expect a language barrier"},
-  "Funafuti":{"tier":"m","label":"Manageable with some patience"},
-  "Port Vila":{"tier":"m","label":"Manageable with some patience"},
+  "Funafuti":{"tier":"m","label":"Manageable with patience"},
+  "Port Vila":{"tier":"m","label":"Manageable with patience"},
   "Lusaka":{"tier":"h","label":"Easy to get by in English"},
   "Victoria Falls":{"tier":"h","label":"Easy to get by in English"},
   "Taipei":{"tier":"l","label":"Expect a language barrier"},
-  "Riga":{"tier":"m","label":"Manageable with some patience"},
+  "Riga":{"tier":"m","label":"Manageable with patience"},
   "Ljubljana":{"tier":"h","label":"Easy to get by in English"},
   "Lilongwe":{"tier":"vl","label":"Expect a language barrier"},
   "Luanda":{"tier":"vl","label":"Expect a language barrier"},
-  "Managua":{"tier":"m","label":"Manageable with some patience"},
+  "Managua":{"tier":"m","label":"Manageable with patience"},
   "Dubrovnik":{"tier":"vh","label":"Easy to get by in English"},
   "Yokohama":{"tier":"l","label":"Expect a language barrier"},
   "Xiamen":{"tier":"l","label":"Expect a language barrier"},
@@ -3548,7 +3554,7 @@ const CITY_ENGLISH = {
   "Ibadan":{"tier":"h","label":"Easy to get by in English"},
   "Hyderabad":{"tier":"l","label":"Expect a language barrier"},
   "Foshan":{"tier":"l","label":"Expect a language barrier"},
-  "Chittagong":{"tier":"m","label":"Manageable with some patience"},
+  "Chittagong":{"tier":"m","label":"Manageable with patience"},
   "Ankara":{"tier":"l","label":"Expect a language barrier"},
   "Alexandria":{"tier":"l","label":"Expect a language barrier"},
   "Ahmedabad":{"tier":"l","label":"Expect a language barrier"},
@@ -3557,7 +3563,7 @@ const CITY_ENGLISH = {
   "Suzhou":{"tier":"l","label":"Expect a language barrier"},
   "Shenyang":{"tier":"l","label":"Expect a language barrier"},
   "Shantou":{"tier":"l","label":"Expect a language barrier"},
-  "Saint Petersburg":{"tier":"m","label":"Manageable with some patience"},
+  "Saint Petersburg":{"tier":"m","label":"Manageable with patience"},
   "Lahore":{"tier":"l","label":"Expect a language barrier"},
   "Kolkata":{"tier":"l","label":"Expect a language barrier"},
   "Jinan":{"tier":"l","label":"Expect a language barrier"},
@@ -3577,8 +3583,8 @@ const CITY_ENGLISH = {
   "Dongguan":{"tier":"l","label":"Expect a language barrier"},
   "Chongqing":{"tier":"l","label":"Expect a language barrier"},
   "Chengdu":{"tier":"l","label":"Expect a language barrier"},
-  "Ibiza":{"tier":"m","label":"Manageable with some patience"},
-  "Kampala":{"tier":"m","label":"Manageable with some patience"},
+  "Ibiza":{"tier":"m","label":"Manageable with patience"},
+  "Kampala":{"tier":"m","label":"Manageable with patience"},
   "Tunis":{"tier":"l","label":"Expect a language barrier"},
   "Zanzibar City":{"tier":"l","label":"Expect a language barrier"},
   "Khartoum":{"tier":"vl","label":"Expect a language barrier"},
@@ -3590,27 +3596,27 @@ const CITY_ENGLISH = {
   "Antananarivo":{"tier":"l","label":"Expect a language barrier"},
   "Tripoli":{"tier":"vl","label":"Expect a language barrier"},
   "Nairobi":{"tier":"h","label":"Easy to get by in English"},
-  "Accra":{"tier":"m","label":"Manageable with some patience"},
+  "Accra":{"tier":"m","label":"Manageable with patience"},
   "Addis Ababa":{"tier":"l","label":"Expect a language barrier"},
   "Abidjan":{"tier":"vl","label":"Expect a language barrier"},
   "Douala":{"tier":"vl","label":"Expect a language barrier"},
   "Praia":{"tier":"l","label":"Expect a language barrier"},
   "Cotonou":{"tier":"vl","label":"Expect a language barrier"},
   "Algiers":{"tier":"l","label":"Expect a language barrier"},
-  "Caracas":{"tier":"m","label":"Manageable with some patience"},
-  "Montevideo":{"tier":"m","label":"Manageable with some patience"},
+  "Caracas":{"tier":"m","label":"Manageable with patience"},
+  "Montevideo":{"tier":"m","label":"Manageable with patience"},
   "Paramaribo":{"tier":"h","label":"Easy to get by in English"},
-  "Asunción":{"tier":"m","label":"Manageable with some patience"},
+  "Asunción":{"tier":"m","label":"Manageable with patience"},
   "Panama City":{"tier":"l","label":"Expect a language barrier"},
-  "Tegucigalpa":{"tier":"m","label":"Manageable with some patience"},
+  "Tegucigalpa":{"tier":"m","label":"Manageable with patience"},
   "Port-au-Prince":{"tier":"vl","label":"Expect a language barrier"},
-  "Guatemala City":{"tier":"m","label":"Manageable with some patience"},
-  "San Salvador":{"tier":"m","label":"Manageable with some patience"},
+  "Guatemala City":{"tier":"m","label":"Manageable with patience"},
+  "San Salvador":{"tier":"m","label":"Manageable with patience"},
   "Quito":{"tier":"l","label":"Expect a language barrier"},
-  "Havana":{"tier":"m","label":"Manageable with some patience"},
-  "San José":{"tier":"m","label":"Manageable with some patience"},
+  "Havana":{"tier":"m","label":"Manageable with patience"},
+  "San José":{"tier":"m","label":"Manageable with patience"},
   "Bogotá":{"tier":"l","label":"Expect a language barrier"},
-  "La Paz":{"tier":"m","label":"Manageable with some patience"},
+  "La Paz":{"tier":"m","label":"Manageable with patience"},
   "Sana'a":{"tier":"vl","label":"Expect a language barrier"},
   "Tashkent":{"tier":"vl","label":"Expect a language barrier"},
   "Dushanbe":{"tier":"vl","label":"Expect a language barrier"},
@@ -3619,7 +3625,7 @@ const CITY_ENGLISH = {
   "Manila":{"tier":"h","label":"Easy to get by in English"},
   "Karachi":{"tier":"l","label":"Expect a language barrier"},
   "Muscat":{"tier":"vl","label":"Expect a language barrier"},
-  "Kathmandu":{"tier":"m","label":"Manageable with some patience"},
+  "Kathmandu":{"tier":"m","label":"Manageable with patience"},
   "Yangon":{"tier":"vl","label":"Expect a language barrier"},
   "Ulaanbaatar":{"tier":"l","label":"Expect a language barrier"},
   "Beirut":{"tier":"l","label":"Expect a language barrier"},
@@ -3631,50 +3637,50 @@ const CITY_ENGLISH = {
   "Tehran":{"tier":"l","label":"Expect a language barrier"},
   "Nicosia":{"tier":"h","label":"Easy to get by in English"},
   "Siem Reap":{"tier":"vl","label":"Expect a language barrier"},
-  "Dhaka":{"tier":"m","label":"Manageable with some patience"},
+  "Dhaka":{"tier":"m","label":"Manageable with patience"},
   "Baku":{"tier":"l","label":"Expect a language barrier"},
-  "Yerevan":{"tier":"m","label":"Manageable with some patience"},
+  "Yerevan":{"tier":"m","label":"Manageable with patience"},
   "Kabul":{"tier":"vl","label":"Expect a language barrier"},
-  "Kyiv":{"tier":"m","label":"Manageable with some patience"},
+  "Kyiv":{"tier":"m","label":"Manageable with patience"},
   "Bratislava":{"tier":"h","label":"Easy to get by in English"},
   "Belgrade":{"tier":"h","label":"Easy to get by in English"},
-  "Moscow":{"tier":"m","label":"Manageable with some patience"},
+  "Moscow":{"tier":"m","label":"Manageable with patience"},
   "Bucharest":{"tier":"h","label":"Easy to get by in English"},
-  "Chișinău":{"tier":"m","label":"Manageable with some patience"},
+  "Chișinău":{"tier":"m","label":"Manageable with patience"},
   "Luxembourg City":{"tier":"h","label":"Easy to get by in English"},
   "Sofia":{"tier":"h","label":"Easy to get by in English"},
-  "Minsk":{"tier":"m","label":"Manageable with some patience"},
-  "Tirana":{"tier":"m","label":"Manageable with some patience"},
-  "Hong Kong":{"tier":"m","label":"Manageable with some patience"},
+  "Minsk":{"tier":"m","label":"Manageable with patience"},
+  "Tirana":{"tier":"m","label":"Manageable with patience"},
+  "Hong Kong":{"tier":"m","label":"Manageable with patience"},
   "Bangkok":{"tier":"vl","label":"Expect a language barrier"},
-  "Macau":{"tier":"m","label":"Manageable with some patience"},
+  "Macau":{"tier":"m","label":"Manageable with patience"},
   "Singapore":{"tier":"vh","label":"Easy to get by in English"},
-  "Paris":{"tier":"m","label":"Manageable with some patience"},
+  "Paris":{"tier":"m","label":"Manageable with patience"},
   "Dubai":{"tier":"l","label":"Expect a language barrier"},
   "Kuala Lumpur":{"tier":"h","label":"Easy to get by in English"},
   "Istanbul":{"tier":"l","label":"Expect a language barrier"},
   "Tokyo":{"tier":"l","label":"Expect a language barrier"},
   "Antalya":{"tier":"l","label":"Expect a language barrier"},
-  "Seoul":{"tier":"m","label":"Manageable with some patience"},
+  "Seoul":{"tier":"m","label":"Manageable with patience"},
   "Osaka":{"tier":"l","label":"Expect a language barrier"},
-  "Rome":{"tier":"m","label":"Manageable with some patience"},
+  "Rome":{"tier":"m","label":"Manageable with patience"},
   "Phuket":{"tier":"vl","label":"Expect a language barrier"},
-  "Barcelona":{"tier":"m","label":"Manageable with some patience"},
+  "Barcelona":{"tier":"m","label":"Manageable with patience"},
   "Amsterdam":{"tier":"vh","label":"Easy to get by in English"},
-  "Milan":{"tier":"m","label":"Manageable with some patience"},
+  "Milan":{"tier":"m","label":"Manageable with patience"},
   "Vienna":{"tier":"vh","label":"Easy to get by in English"},
   "Prague":{"tier":"h","label":"Easy to get by in English"},
   "Cape Town":{"tier":"h","label":"Easy to get by in English"},
   "Rio de Janeiro":{"tier":"l","label":"Expect a language barrier"},
   "Cancún":{"tier":"l","label":"Expect a language barrier"},
   "Marrakech":{"tier":"l","label":"Expect a language barrier"},
-  "Madrid":{"tier":"m","label":"Manageable with some patience"},
+  "Madrid":{"tier":"m","label":"Manageable with patience"},
   "Berlin":{"tier":"h","label":"Easy to get by in English"},
   "Munich":{"tier":"h","label":"Easy to get by in English"},
-  "Florence":{"tier":"m","label":"Manageable with some patience"},
+  "Florence":{"tier":"m","label":"Manageable with patience"},
   "Kyoto":{"tier":"l","label":"Expect a language barrier"},
   "Lisbon":{"tier":"vh","label":"Easy to get by in English"},
-  "Venice":{"tier":"m","label":"Manageable with some patience"},
+  "Venice":{"tier":"m","label":"Manageable with patience"},
   "Athens":{"tier":"vh","label":"Easy to get by in English"},
   "Shanghai":{"tier":"l","label":"Expect a language barrier"},
   "Frankfurt am Main":{"tier":"h","label":"Easy to get by in English"},
@@ -3689,45 +3695,45 @@ const CITY_ENGLISH = {
   "Brussels":{"tier":"h","label":"Easy to get by in English"},
   "Budapest":{"tier":"h","label":"Easy to get by in English"},
   "Guangzhou":{"tier":"l","label":"Expect a language barrier"},
-  "Nice":{"tier":"m","label":"Manageable with some patience"},
-  "Palma de Mallorca":{"tier":"m","label":"Manageable with some patience"},
+  "Nice":{"tier":"m","label":"Manageable with patience"},
+  "Palma de Mallorca":{"tier":"m","label":"Manageable with patience"},
   "Beijing":{"tier":"l","label":"Expect a language barrier"},
   "Warsaw":{"tier":"h","label":"Easy to get by in English"},
-  "Seville":{"tier":"m","label":"Manageable with some patience"},
-  "Valencia":{"tier":"m","label":"Manageable with some patience"},
+  "Seville":{"tier":"m","label":"Manageable with patience"},
+  "Valencia":{"tier":"m","label":"Manageable with patience"},
   "Shenzhen":{"tier":"l","label":"Expect a language barrier"},
   "Doha":{"tier":"l","label":"Expect a language barrier"},
   "Abu Dhabi":{"tier":"l","label":"Expect a language barrier"},
   "Fukuoka":{"tier":"l","label":"Expect a language barrier"},
   "Sapporo":{"tier":"l","label":"Expect a language barrier"},
-  "Busan":{"tier":"m","label":"Manageable with some patience"},
-  "Bologna":{"tier":"m","label":"Manageable with some patience"},
+  "Busan":{"tier":"m","label":"Manageable with patience"},
+  "Bologna":{"tier":"m","label":"Manageable with patience"},
   "Rhodes":{"tier":"vh","label":"Easy to get by in English"},
-  "Verona":{"tier":"m","label":"Manageable with some patience"},
+  "Verona":{"tier":"m","label":"Manageable with patience"},
   "Delhi":{"tier":"l","label":"Expect a language barrier"},
   "Porto":{"tier":"vh","label":"Easy to get by in English"},
   "Ho Chi Minh City":{"tier":"l","label":"Expect a language barrier"},
   "Buenos Aires":{"tier":"h","label":"Easy to get by in English"},
-  "Marne-la-Vallée":{"tier":"m","label":"Manageable with some patience"},
+  "Marne-la-Vallée":{"tier":"m","label":"Manageable with patience"},
   "Kraków":{"tier":"h","label":"Easy to get by in English"},
   "Heraklion":{"tier":"vh","label":"Easy to get by in English"},
   "Johor Bahru":{"tier":"h","label":"Easy to get by in English"},
   "Hanoi":{"tier":"l","label":"Expect a language barrier"},
-  "Tel Aviv":{"tier":"m","label":"Manageable with some patience"},
+  "Tel Aviv":{"tier":"m","label":"Manageable with patience"},
   "Sharjah":{"tier":"l","label":"Expect a language barrier"},
   "Thessaloniki":{"tier":"vh","label":"Easy to get by in English"},
-  "Lima":{"tier":"m","label":"Manageable with some patience"},
+  "Lima":{"tier":"m","label":"Manageable with patience"},
   "Medina":{"tier":"vl","label":"Expect a language barrier"},
-  "Tbilisi":{"tier":"m","label":"Manageable with some patience"},
+  "Tbilisi":{"tier":"m","label":"Manageable with patience"},
   "Riyadh":{"tier":"vl","label":"Expect a language barrier"},
   "Jeddah":{"tier":"vl","label":"Expect a language barrier"},
   "Tallinn":{"tier":"h","label":"Easy to get by in English"},
   "Mecca":{"tier":"vl","label":"Expect a language barrier"},
   "Denpasar":{"tier":"l","label":"Expect a language barrier"},
-  "Punta Cana":{"tier":"m","label":"Manageable with some patience"},
-  "Santiago":{"tier":"m","label":"Manageable with some patience"},
+  "Punta Cana":{"tier":"m","label":"Manageable with patience"},
+  "Santiago":{"tier":"m","label":"Manageable with patience"},
   "Vilnius":{"tier":"h","label":"Easy to get by in English"},
-  "Jerusalem":{"tier":"m","label":"Manageable with some patience"},
+  "Jerusalem":{"tier":"m","label":"Manageable with patience"},
   "Zhuhai":{"tier":"l","label":"Expect a language barrier"},
   "Cairo":{"tier":"l","label":"Expect a language barrier"}
 };
@@ -3934,45 +3940,45 @@ const CITY_STAY = {
    Each tier is a [low, high] day range. */
 const CITY_VISIT = {
   "Yokohama":[[2,3],[4,6],[5,7],[6,8]],
-  "Xiamen":[[4,6],[6,8],[8,12],[5,7]],
-  "Wuxi":[[4,6],[6,8],[5,7],[5,7]],
-  "Tianshui":[[1,2],[3,5],[3,4],[2,3]],
-  "Qingdao":[[2,3],[4,6],[8,12],[3,4]],
+  "Xiamen":[[4,6],[5,7],[6,8],[8,12]],
+  "Wuxi":[[4,6],[5,7],[5,7],[6,8]],
+  "Tianshui":[[1,2],[2,3],[3,4],[3,5]],
+  "Qingdao":[[2,3],[3,4],[4,6],[8,12]],
   "Ningbo":[[2,3],[4,6],[5,7],[6,9]],
-  "Kunming":[[12,16],[14,18],[14,18],[13,17]],
-  "Kano":[[2,3],[1,2],[1,2],[2,3]],
-  "Ibadan":[[2,3],[1,2],[1,2],[2,4]],
-  "Hyderabad":[[3,4],[1,2],[2,3],[4,5]],
-  "Foshan":[[1,2],[2,3],[3,4],[2,3]],
+  "Kunming":[[12,16],[13,17],[14,18],[14,18]],
+  "Kano":[[1,2],[1,2],[2,3],[2,3]],
+  "Ibadan":[[1,2],[1,2],[2,3],[2,4]],
+  "Hyderabad":[[1,2],[2,3],[3,4],[4,5]],
+  "Foshan":[[1,2],[2,3],[2,3],[3,4]],
   "Chittagong":[[1,2],[1,2],[1,2],[2,3]],
-  "Ankara":[[2,3],[4,6],[3,5],[3,4]],
-  "Alexandria":[[2,3],[4,6],[7,10],[3,5]],
-  "Ahmedabad":[[9,13],[2,3],[3,5],[10,14]],
-  "Zhengzhou":[[2,3],[4,6],[6,9],[3,5]],
-  "Tai'an":[[3,4],[6,8],[7,9],[4,6]],
-  "Suzhou":[[18,24],[26,34],[20,26],[24,32]],
-  "Shenyang":[[1,2],[3,5],[5,7],[2,3]],
-  "Shantou":[[6,9],[4,6],[7,10],[8,12]],
-  "Saint Petersburg":[[2,3],[6,8],[8,10],[3,4]],
-  "Lahore":[[3,5],[1,2],[1,3],[4,6]],
-  "Kolkata":[[5,7],[2,3],[1,2],[7,10]],
-  "Jinan":[[2,3],[4,6],[4,5],[4,6]],
-  "Harbin":[[8,12],[3,5],[4,6],[6,10]],
-  "Hangzhou":[[10,15],[25,35],[18,25],[28,38]],
-  "Dalian":[[2,3],[5,7],[9,14],[4,6]],
-  "Chennai":[[3,5],[2,3],[2,3],[3,5]],
-  "Changchun":[[1,2],[3,5],[5,8],[2,3]],
-  "Bengaluru":[[4,6],[2,3],[2,3],[4,6]],
-  "Xi'an":[[10,15],[25,35],[30,40],[15,22]],
-  "Wuhan":[[20,28],[22,30],[15,20],[15,22]],
-  "Tianjin":[[2,3],[5,7],[6,8],[4,5]],
-  "Nanjing":[[6,9],[10,14],[8,12],[7,10]],
+  "Ankara":[[2,3],[3,4],[3,5],[4,6]],
+  "Alexandria":[[2,3],[3,5],[4,6],[7,10]],
+  "Ahmedabad":[[2,3],[3,5],[9,13],[10,14]],
+  "Zhengzhou":[[2,3],[3,5],[4,6],[6,9]],
+  "Tai'an":[[3,4],[4,6],[6,8],[7,9]],
+  "Suzhou":[[18,24],[20,26],[24,32],[26,34]],
+  "Shenyang":[[1,2],[2,3],[3,5],[5,7]],
+  "Shantou":[[4,6],[6,9],[7,10],[8,12]],
+  "Saint Petersburg":[[2,3],[3,4],[6,8],[8,10]],
+  "Lahore":[[1,2],[1,3],[3,5],[4,6]],
+  "Kolkata":[[1,2],[2,3],[5,7],[7,10]],
+  "Jinan":[[2,3],[4,5],[4,6],[4,6]],
+  "Harbin":[[3,5],[4,6],[6,10],[8,12]],
+  "Hangzhou":[[10,15],[18,25],[25,35],[28,38]],
+  "Dalian":[[2,3],[4,6],[5,7],[9,14]],
+  "Chennai":[[2,3],[2,3],[3,5],[3,5]],
+  "Changchun":[[1,2],[2,3],[3,5],[5,8]],
+  "Bengaluru":[[2,3],[2,3],[4,6],[4,6]],
+  "Xi'an":[[10,15],[15,22],[25,35],[30,40]],
+  "Wuhan":[[15,20],[15,22],[20,28],[22,30]],
+  "Tianjin":[[2,3],[4,5],[5,7],[6,8]],
+  "Nanjing":[[6,9],[7,10],[8,12],[10,14]],
   "Nanchong":[[1,2],[2,3],[2,3],[2,3]],
-  "Mumbai":[[10,14],[5,8],[3,5],[11,15]],
+  "Mumbai":[[3,5],[5,8],[10,14],[11,15]],
   "Jakarta":[[3,4],[3,4],[4,5],[4,6]],
-  "Dongguan":[[4,6],[6,8],[5,7],[7,10]],
-  "Chongqing":[[10,14],[13,17],[16,20],[11,15]],
-  "Chengdu":[[3,4],[5,6],[6,8],[4,5]],
+  "Dongguan":[[4,6],[5,7],[6,8],[7,10]],
+  "Chongqing":[[10,14],[11,15],[13,17],[16,20]],
+  "Chengdu":[[3,4],[4,5],[5,6],[6,8]],
   "Ibiza":[[2,3],[4,5],[6,8],[14,25]],
   "Victoria Falls":[[1,2],[3,4],[5,7],[10,14]],
   "Lusaka":[[1,2],[3,4],[5,7],[14,21]],
@@ -9703,9 +9709,9 @@ if(!c){
               <span class="csnap-word" style="color:${t.c}">${t.w}</span>
             </div>
             <div class="csnap-days">
-              <div class="csnap-day"><span class="cd-k">Budget</span><span class="cd-v">${fmtPrice(tiers.b, code)}</span></div>
-              <div class="csnap-day"><span class="cd-k">Mid</span><span class="cd-v">${fmtPrice(tiers.m, code)}</span></div>
-              <div class="csnap-day"><span class="cd-k">High</span><span class="cd-v">${fmtPrice(tiers.h, code)}</span></div>
+              <div class="csnap-day csnap-day-budget"><span class="cd-k">Budget</span><span class="cd-v">${fmtPrice(tiers.b, code)}</span></div>
+              <div class="csnap-day csnap-day-mid"><span class="cd-k">Mid-Range</span><span class="cd-v">${fmtPrice(tiers.m, code)}</span></div>
+              <div class="csnap-day csnap-day-high"><span class="cd-k">High-End</span><span class="cd-v">${fmtPrice(tiers.h, code)}</span></div>
             </div>
             <div class="csnap-toggles">
               <label class="csnap-toggle"><input type="checkbox" id="csnap-alcohol-toggle" ${csnapIncludeAlcohol ? "checked" : ""}> Include alcoholic beverages</label>
@@ -9728,7 +9734,7 @@ if(!c){
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
           <div class="k">Hotel &middot; per night</div>
           <div class="v">${fmtPrice(cost.hotel, code)}</div>
-          <div class="cost-note">mid-range &middot; avg, <span>${code}</span></div>
+          <div class="cost-note">mid-range &middot; avg</div>
           ${hotelTiers}
           <p class="hotel-disclaimer">Prices are citywide averages and can vary a lot by neighborhood.</p>
         </div>
@@ -9736,21 +9742,21 @@ if(!c){
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.meal}</span>
           <div class="k">Meal &middot; per person</div>
           <div class="v">${fmtPrice(cost.meal, code)}</div>
-          <div class="cost-note">sit-down restaurant &middot; <span>${code}</span></div>
+          <div class="cost-note">sit-down restaurant</div>
           ${tipHTML}
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
           <div class="k">Taxi / Uber &middot; 10 km</div>
           <div class="v">${fmtPrice(cost.taxi, code)}</div>
-          <div class="cost-note">typical fare &middot; <span>${code}</span></div>
+          <div class="cost-note">typical fare</div>
           ${ridesHTML}
           ${taxiTipHTML}
         </div>
         ${drinks == null ? "" : `
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${DRINK_ICON}</span>
-          <div class="k">Drinks</div>
+          <div class="k">Drinks <span class="drinks-avg-note">average price per drink</span></div>
           <div class="drinks-list">
             <div class="drink-row"><span class="dr-k">Coffee &middot; takeaway</span><span class="dr-v">${fmtPrice(drinks.coffee, code)}</span></div>
             <div class="drink-row"><span class="dr-k">Beer &middot; 0.5L</span>${
@@ -9767,7 +9773,6 @@ if(!c){
             const label = w.status === "safe" ? "Tap water: safe to drink" : w.status === "unsafe" ? "Tap water: not recommended" : "Tap water: uncertain";
             return `<p class="tap-water-note"><b style="color:${col}">${label}</b>${w.note ? ` &middot; <button type="button" class="water-more-btn" onclick="openModal('Tap water safety')">${INFO_ICON} More info</button>` : ''}</p>`;
           })()}
-          <div class="drinks-foot">average prices per drink</div>
         </div>`}`;
   }
 
@@ -9962,13 +9967,15 @@ if(!c){
               <div class="cur-name">${curInfo.n}</div>
             </div>
             <div class="cur-conv">
+              <div class="conv-labels" id="conv-labels"></div>
+              <div class="conv-row" id="conv-row"></div>
               <div class="conv-sub">Enter an amount, pick a currency, or tap &#8644; to reverse</div>
               <div class="conv-and-atm">
-                <div class="conv-row" id="conv-row"></div>
                 <button type="button" class="atm-btn" id="atm-btn" aria-haspopup="dialog">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="14" x2="9" y2="14"/><line x1="7" y1="17" x2="13" y2="17"/></svg>
                   Find ATMs &amp; cash
                 </button>
+                <label class="csnap-toggle conv-currency-toggle"><input type="checkbox" id="cost-currency-toggle"> Show estimated costs in chosen currency</label>
               </div>
               <div class="conv-rate" id="conv-rate"></div>
             </div>
@@ -10508,6 +10515,7 @@ if(!c){
   const localCode = curCode;
   let compareCode = defaultTarget;
   let reversed = false;   // false: local → compare ; true: compare → local
+  let showCostsInChosen = false;   // cost cards + Daily Cost Estimator: local currency by default
   let lastRaw = null;     // last converted value, carried over on swap
 
   const SWAP_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>`;
@@ -10535,6 +10543,12 @@ if(!c){
       fieldHTML("from", fromLocal) +
       `<button type="button" class="conv-swap" id="conv-swap" title="Reverse currencies" aria-label="Reverse currencies">${SWAP_SVG}</button>` +
       fieldHTML("to", !fromLocal);
+    const labelsEl = document.getElementById("conv-labels");
+    if (labelsEl) {
+      labelsEl.innerHTML =
+        `<span class="conv-label">${fromLocal ? "Local currency" : "Chosen currency"}</span>` +
+        `<span class="conv-label">${fromLocal ? "Chosen currency" : "Local currency"}</span>`;
+    }
     document.getElementById("conv-amt").value = amount;
     bindConverter();
     renderConversion();
@@ -10587,11 +10601,12 @@ if(!c){
   }
 
   function renderCosts() {
+    const costCode = showCostsInChosen ? compareCode : curCode;
     const el = document.getElementById("cost-cards");
-    if (el) el.innerHTML = buildCostCards(compareCode);
+    if (el) el.innerHTML = buildCostCards(costCode);
     const sel = document.getElementById("cost-snapshot");
     if (sel) {
-      sel.innerHTML = buildCostSnapshot(curCode);   /* always shown in the city's local currency */
+      sel.innerHTML = buildCostSnapshot(costCode);
       const alcToggle = document.getElementById("csnap-alcohol-toggle");
       if (alcToggle) alcToggle.addEventListener("change", () => { csnapIncludeAlcohol = alcToggle.checked; renderCosts(); });
       const actToggle = document.getElementById("csnap-activities-toggle");
@@ -10837,6 +10852,10 @@ if(!c){
   /* ---------- ATM & cash finder button ---------- */
   const atmBtn = document.getElementById("atm-btn");
   if (atmBtn) atmBtn.addEventListener("click", () => openModal("ATM & cash finder"));
+
+  /* ---------- Cost currency toggle (static element, bound once) ---------- */
+  const costCurrencyToggle = document.getElementById("cost-currency-toggle");
+  if (costCurrencyToggle) costCurrencyToggle.addEventListener("change", () => { showCostsInChosen = costCurrencyToggle.checked; renderCosts(); });
 
   /* ---------- Taxi tips / info button (delegated — cost cards re-render) ---------- */
   const costCardsEl = document.getElementById("cost-cards");
