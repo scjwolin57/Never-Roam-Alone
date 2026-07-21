@@ -476,6 +476,8 @@
     border:1.5px solid rgba(63,81,56,.4);border-radius:0;background:#fff}
   .csnap-toggle input:hover{border-color:var(--green)}
   .csnap-toggle input:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .csnap-toggle-disabled{color:var(--muted);cursor:not-allowed;opacity:.6}
+  .csnap-toggle-disabled input{cursor:not-allowed;accent-color:var(--muted)}
   .csnap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .csnap-k{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
   .csnap-persons{font-size:.7rem;font-weight:600;color:var(--muted);font-style:italic}
@@ -9697,6 +9699,7 @@ if(!c){
   function buildCostSnapshot(code) {
     const tiers = computeDailyTiers(csnapIncludeAlcohol, csnapIncludeActivities, csnapSolo);
     if (tiers == null) return "";
+    const alcoholProhibited = !!(drinks && drinks.beer === "notallowed");
     const t = costTier(tiers.m);
     const dollars = '<span style="color:' + t.c + '">' + '$'.repeat(t.n) + '</span>'
                   + '<span class="csnap-dim">' + '$'.repeat(4 - t.n) + '</span>';
@@ -9714,7 +9717,7 @@ if(!c){
               <div class="csnap-day csnap-day-high"><span class="cd-k">High-End</span><span class="cd-v">${fmtPrice(tiers.h, code)}</span></div>
             </div>
             <div class="csnap-toggles">
-              <label class="csnap-toggle"><input type="checkbox" id="csnap-alcohol-toggle" ${csnapIncludeAlcohol ? "checked" : ""}> Include alcoholic beverages</label>
+              <label class="csnap-toggle${alcoholProhibited ? " csnap-toggle-disabled" : ""}" ${alcoholProhibited ? 'title="Alcohol is prohibited in this city, so it isn\'t included in the estimate"' : ""}><input type="checkbox" id="csnap-alcohol-toggle" ${csnapIncludeAlcohol && !alcoholProhibited ? "checked" : ""} ${alcoholProhibited ? "disabled" : ""}> Include alcoholic beverages</label>
               <label class="csnap-toggle"><input type="checkbox" id="csnap-activities-toggle" ${csnapIncludeActivities ? "checked" : ""}> Include activities/tours</label>
               <label class="csnap-toggle"><input type="checkbox" id="csnap-solo-toggle" ${csnapSolo ? "checked" : ""}> I'm traveling solo (calculates lodging cost for one)</label>
             </div>
