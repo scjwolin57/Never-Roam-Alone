@@ -43,26 +43,26 @@
     var css = document.createElement('style');
     css.textContent =
       '#nra-cc-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:560px;margin:0 auto;' +
-        'background:#fffdf7;border:1px solid #d8cdb2;border-top:4px solid #556B2F;border-radius:16px;' +
+        'background:#fffdf7;border:1px solid #d8cdb2;border-top:4px solid #5c6933;border-radius:0;' +
         'box-shadow:0 12px 30px rgba(43,36,23,.18);' +
         'padding:18px 20px;font-family:"Work Sans",system-ui,sans-serif;color:#2b2417;font-size:14.5px;line-height:1.55;}' +
       '#nra-cc-banner .nra-cc-head{display:flex;align-items:center;gap:9px;margin:0 0 8px;' +
         'font-family:Fraunces,Georgia,serif;font-weight:700;font-size:1.05rem;color:#2b2417;}' +
-      '#nra-cc-banner .nra-cc-head svg{color:#556B2F;flex-shrink:0;}' +
+      '#nra-cc-banner .nra-cc-head svg{color:#5c6933;flex-shrink:0;}' +
       '#nra-cc-banner p{margin:0;}' +
-      '#nra-cc-banner a{color:#556B2F;text-decoration:underline;text-underline-offset:2px;}' +
-      '#nra-cc-banner a:hover{color:#C04020;}' +
+      '#nra-cc-banner a{color:#5c6933;text-decoration:underline;text-underline-offset:2px;}' +
+      '#nra-cc-banner a:hover{color:#b5492c;}' +
       '#nra-cc-banner .nra-cc-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}' +
       '#nra-cc-banner button{font:inherit;font-weight:700;font-size:.86rem;letter-spacing:.01em;' +
-        'border-radius:999px;padding:9px 22px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;}' +
-      '#nra-cc-accept{background:#556B2F;border:1px solid #556B2F;color:#fff;}' +
-      '#nra-cc-accept:hover{background:#C04020;border-color:#C04020;}' +
+        'border-radius:0;padding:9px 22px;cursor:pointer;transition:background .2s,border-color .2s,color .2s;}' +
+      '#nra-cc-accept{background:#5c6933;border:1px solid #5c6933;color:#fff;}' +
+      '#nra-cc-accept:hover{background:#b5492c;border-color:#b5492c;}' +
       '#nra-cc-decline{background:transparent;border:1px solid #82755b;color:#2b2417;}' +
-      '#nra-cc-decline:hover{border-color:#C04020;color:#C04020;}' +
+      '#nra-cc-decline:hover{border-color:#b5492c;color:#b5492c;}' +
       '#nra-cc-icon{position:fixed;left:16px;bottom:16px;z-index:99998;width:44px;height:44px;border-radius:50%;' +
-        'background:#556B2F;color:#fff;border:none;box-shadow:0 4px 14px rgba(43,36,23,.28);cursor:pointer;' +
+        'background:#5c6933;color:#fff;border:none;box-shadow:0 4px 14px rgba(43,36,23,.28);cursor:pointer;' +
         'display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s;}' +
-      '#nra-cc-icon:hover{background:#C04020;}';
+      '#nra-cc-icon:hover{background:#b5492c;}';
     document.head.appendChild(css);
 
     var banner = null;

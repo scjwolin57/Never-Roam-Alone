@@ -27,8 +27,8 @@
 <link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
-    --coral:#a8482a;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
+    --coral:#b5492c;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -39,7 +39,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -53,7 +53,7 @@
   .back-row{max-width:var(--maxw);margin:18px auto 0;padding:0 22px;text-align:center}
   .back-row.bottom{margin:36px auto 0}
   .back-link{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
-    padding:10px 20px;border-radius:30px;transition:background .2s}
+    padding:10px 20px;border-radius:3px;transition:background .2s}
   .back-link:hover{background:var(--coral)}
 
   .cmp-head{text-align:center;padding:44px 0 8px}
@@ -61,11 +61,11 @@
   .cmp-head p{color:var(--muted);max-width:560px;margin:12px auto 0}
 
   .picker{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin:28px 0 8px}
-  .picker select{font-size:1rem;font-family:inherit;padding:12px 16px;border-radius:12px;
+  .picker select{font-size:1rem;font-family:inherit;padding:12px 16px;border-radius:3px;
     border:1.5px solid rgba(63,81,56,.3);background:#fff;color:var(--ink);min-width:220px}
   .picker select:focus{outline:none;border-color:var(--green)}
   .picker .vs{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--coral);font-weight:700;font-size:1.1rem}
-  .picker .swap{background:none;border:1.5px solid rgba(63,81,56,.3);border-radius:10px;width:40px;height:40px;
+  .picker .swap{background:none;border:1.5px solid rgba(63,81,56,.3);border-radius:3px;width:40px;height:40px;
     cursor:pointer;color:var(--green);font-size:1.1rem}
   .picker .swap:hover{background:rgba(63,81,56,.08)}
 
@@ -103,11 +103,11 @@
 
   .visa-panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px 20px;text-align:center;margin-bottom:16px}
   .visa-panel h3{margin:0 0 4px;color:var(--green);font-size:1.05rem}
-  .visa-panel select{font-size:1rem;font-family:inherit;padding:10px 14px;border-radius:10px;
+  .visa-panel select{font-size:1rem;font-family:inherit;padding:10px 14px;border-radius:3px;
     border:1.5px solid rgba(63,81,56,.3);margin-top:10px;min-width:260px}
   .visa-status{font-size:.8rem;color:var(--muted);margin-top:8px}
   .visa-badges{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-  .visa-badge{padding:10px;border-radius:10px;font-weight:700;font-size:.88rem;color:#fff}
+  .visa-badge{padding:10px;border-radius:3px;font-weight:700;font-size:.88rem;color:#fff}
   .visa-badge small{display:block;font-weight:500;font-size:.7rem;opacity:.9;margin-top:3px}
   .b-free{background:#1d9a6c}.b-voa{background:#5aa9e6}.b-eta{background:#7c5cbf}
   .b-evisa{background:#cf8a2c}.b-req{background:#b34a3a}.b-no{background:#82755b}
@@ -115,7 +115,7 @@
   .disclaimer{font-size:.78rem;color:var(--muted);text-align:center;max-width:700px;margin:20px auto 0}
   .disclaimer a{color:var(--teal);font-weight:600}
 
-  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -137,12 +137,12 @@
   .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
   .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
   .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
-  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
 </style>
 </head>
 <body>
-<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#b5492c"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#b5492c"/></symbol></svg>
 
 <header class="nav">
   <div class="nav-inner">
@@ -1003,7 +1003,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#a8482a", w:"Car-dependent"};
+  return {c:"#b5492c", w:"Car-dependent"};
 }
 const CITY_SAFETY = {
   "Victoria Falls":{"safety":68,"crime":32},
@@ -1301,7 +1301,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#a8482a", w:"Car-dependent"};
+  return {c:"#b5492c", w:"Car-dependent"};
 }
 function safetyColor(s) {
   if (s >= 80) return "#1d9a6c";

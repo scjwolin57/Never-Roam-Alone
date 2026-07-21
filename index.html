@@ -43,9 +43,9 @@
     --ink:#2b2417;
     --muted:#82755b;
     --sand:#ece2cc;
-    --teal:#3f5138;
+    --teal:#5c6933;
     --teal-dark:#2c3a27;
-    --coral:#a8482a;
+    --coral:#b5492c;
     --card:#f6efdd;
     --shadow:0 12px 30px rgba(43,36,23,.18);
     --maxw:1180px;
@@ -122,7 +122,7 @@
   .map-legend b{display:block;margin-bottom:6px;font-size:.82rem;padding-right:16px}
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
   .legend-bubble{display:inline-block;border-radius:50%;background:rgba(138,58,32,.55);border:1.5px solid #8a3a20}
-  .legend-bubble.purple{background:rgba(168,72,42,.5);border-color:#a8482a}
+  .legend-bubble.purple{background:rgba(168,72,42,.5);border-color:#b5492c}
   .legend-bubble.pink{background:rgba(176,128,47,.5);border-color:#b0802f}
   .legend-bubble.yellow{background:rgba(138,154,91,.55);border-color:#8a9a5b}
   .map-note{max-width:var(--maxw);margin:0 auto;padding:6px 22px 0;color:var(--muted);font-size:.78rem;text-align:center}
@@ -173,7 +173,7 @@
   .all-stories a:hover{background:var(--coral)}
   @media(min-width:540px) and (max-width:880px){.tiles{grid-template-columns:repeat(2,1fr)}}
 
-  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
   footer .brand{justify-content:center;color:var(--coral)}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
@@ -243,7 +243,7 @@
   .all-stories a{background:var(--coral);border-radius:0;font-family:'Work Sans',monospace;text-transform:uppercase;letter-spacing:.1em;font-size:.74rem;padding:14px 30px}
   .all-stories a:hover{background:var(--rust-dk)}
 
-  footer{background:var(--green-dk);color:#d8d0b8;border-top:5px solid var(--brass)}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#d8d0b8;border-top:5px solid var(--brass)}
   footer .brand{color:var(--brass-lt)}
   footer .foot-links a{color:#c6bd9f}
   footer .foot-links a:hover{color:#fff;border-color:var(--brass)}
@@ -310,7 +310,7 @@
 </style>
 </head>
 <body>
-<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#b5492c"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#b5492c"/></symbol></svg>
 
 <!-- ===== Menu bar ===== -->
 <header class="nav">
@@ -330,7 +330,7 @@
   <h1>Where will you <em>roam</em> next?</h1>
   <div class="social-proof">
     <div class="avatars">
-      <span style="background:#a8482a">J</span><span style="background:#3f5138">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
+      <span style="background:#b5492c">J</span><span style="background:#5c6933">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
     </div>
     <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides with insight from real travelers</p>
   </div>
@@ -739,7 +739,7 @@ map.on("load", () => {
   const bubbleColor = ["step", ["get","visitors"],
     "#8a9a5b",
     1, "#b0802f",
-    5, "#a8482a",
+    5, "#b5492c",
     12, "#8a3a20"
   ];
   const bubbleRadius = ["step", ["get","visitors"],

@@ -34,8 +34,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <style>
   :root{
-    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#3f5138;--teal:#3f5138;
-    --coral:#a8482a;--card:#f6efdd;--shadow:0 12px 30px rgba(43,36,23,.18);--maxw:1100px;
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
+    --coral:#b5492c;--card:#f6efdd;--shadow:0 12px 30px rgba(43,36,23,.18);--maxw:1100px;
     --paper-2:#e3d7bc;--brass:#b0802f;--brass-lt:#c99a45;--rust-dk:#8a3a20;--green-dk:#2c3a27;
     --line:rgba(43,36,23,.20);--line-soft:rgba(43,36,23,.12);
   }
@@ -48,7 +48,7 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
     backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
     letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -72,9 +72,10 @@
   .chip b{font-size:1.35rem}
   .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
   .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:18px}
-  .hero-fav{width:40px;height:40px;flex-shrink:0;border-radius:0;background:rgba(255,255,255,.16);
+  .hero-fav{height:40px;flex-shrink:0;border-radius:0;background:rgba(255,255,255,.16);
     border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);color:#fff;font-size:1.2rem;line-height:1;
-    display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;transition:.15s}
+    display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;padding:0 14px;transition:.15s}
+  .hero-fav-label{font-size:.8rem;font-weight:700;font-family:'Work Sans',sans-serif;letter-spacing:.02em}
   .hero-fav:hover{background:rgba(255,255,255,.3)}
   .hero-fav.active{background:var(--coral);border-color:var(--coral);color:#fff}
   .hero-fav[disabled]{opacity:.6;cursor:default}
@@ -146,6 +147,8 @@
   .lang-name{font-size:.9rem;font-family:'Fraunces',Georgia,serif;min-width:110px;flex-shrink:0}
   .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
   .eng-pct{min-width:0;text-align:left}
+  .eng-box{background:var(--sand);border-radius:0;padding:10px 14px;margin-top:2px}
+  .eng-sub{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:4px 0 0}
   .lang-bar-track{flex:1;height:5px;background:#eee;border-radius:4px;overflow:hidden}
   .lang-bar{height:100%;border-radius:4px;background:var(--teal);opacity:.75}
   .rel-section{margin-top:14px;padding-top:14px;border-top:1px solid rgba(0,0,0,.07)}
@@ -183,6 +186,8 @@
   .card-accept .ca-bar-track{flex:1 1 120px;min-width:90px;height:7px;background:#e7e0d2;border-radius:4px;overflow:hidden}
   .card-accept .ca-bar{height:100%;border-radius:4px;transition:width .4s ease}
   .cur-grid{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:12px;align-items:stretch;min-width:0}
+  .conv-and-atm{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .conv-and-atm .conv-row{flex:1 1 auto}
   .cur-grid > *{min-width:0}
 
   /* Cost cards */
@@ -210,7 +215,7 @@
     background:none;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--green);text-align:left;cursor:pointer;transition:color .2s}
   .taxi-tip-btn:hover{color:var(--coral)}
   /* 4-up cost cards row */
-  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start}
   /* Connectivity banner — full-width card above the cost cards */
   .net-banner{grid-column:1/-1;display:flex;flex-direction:column}
   .net-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -243,9 +248,10 @@
   .drink-row:last-child{border-bottom:none;padding-bottom:0}
   .drink-row .dr-k{color:var(--ink)}
   .drink-row .dr-v{font-family:'Fraunces',Georgia,serif;font-weight:700;white-space:nowrap}
-  .drink-row .alc-note{color:var(--coral);font-weight:700;font-size:.76rem;text-align:right;line-height:1.25}
+  .drink-row .alc-note{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;color:var(--coral);font-weight:700;font-size:.76rem;line-height:1.25;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
   .drinks-foot{margin-top:10px;font-size:.7rem;font-style:italic;color:var(--muted)}
   .tap-water-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
+  .water-more-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;vertical-align:middle}
 
   /* Transportation section */
   .transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:6px}
@@ -432,7 +438,7 @@
   .rt-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   /* ATM & cash finder button + modal */
-  .atm-btn{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:2px;
+  .atm-btn{display:inline-flex;align-items:center;gap:8px;align-self:center;flex-shrink:0;
     padding:10px 16px;border:2px solid var(--green);background:#fff;color:var(--green);
     font-family:inherit;font-weight:700;font-size:.9rem;border-radius:12px;cursor:pointer;transition:background .2s,color .2s}
   .atm-btn:hover{background:var(--coral);color:#fff}
@@ -459,8 +465,11 @@
   .cur-name{color:var(--muted);font-size:.86rem;margin-top:2px}
   .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
   .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600}
-  .cost-snapshot{display:flex;justify-content:flex-end;margin-top:16px}
-  .csnap-box{background:var(--sand);border-radius:12px;padding:14px 16px;min-width:230px;max-width:320px}
+  .cost-snapshot{display:block;margin-top:18px}
+  .csnap-box{background:var(--sand);border-radius:12px;padding:16px 18px;width:100%;box-sizing:border-box}
+  .csnap-toggles{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .csnap-toggle{display:flex;align-items:center;gap:7px;font-size:.84rem;color:var(--ink);cursor:pointer}
+  .csnap-toggle input{width:16px;height:16px;cursor:pointer;accent-color:var(--green)}
   .csnap-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .csnap-k{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
   .csnap-tier{font-family:'Fraunces',Georgia,serif;font-size:1.15rem;font-weight:700;letter-spacing:.02em;margin-left:auto}
@@ -509,7 +518,7 @@
     color:#2b2417;background:#8a9a5b;border-radius:0;padding:6px 12px;
     text-decoration:none;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .hood-map-link:hover{background:#b0802f}
-  .hood-tag{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 28px);padding:8px 24px;background:#a8482a;color:#fff;font-size:.74rem;font-weight:700;line-height:1;letter-spacing:.02em;text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
+  .hood-tag{position:absolute;top:14px;right:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 28px);padding:8px 24px;background:#b5492c;color:#fff;font-size:.74rem;font-weight:700;line-height:1;letter-spacing:.02em;text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
   .hood-tag .hood-tag-emoji{font-size:.98rem;line-height:1}
   .hood-tag .hood-tag-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   @media(max-width:640px){.hood-tag{top:10px;right:10px;font-size:.66rem;padding:7px 20px}}
@@ -557,8 +566,8 @@
   .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
   .back-to-top:hover{background:rgba(26,74,58,.9)}
 
-  footer{background:var(--green);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
-  footer .brand{justify-content:center;color:#a8482a}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
+  footer .brand{justify-content:center;color:#b5492c}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -608,6 +617,8 @@
 
     /* Currency converter stacks neatly */
     .conv-row{flex-direction:column;align-items:stretch}
+    .conv-and-atm{flex-direction:column;align-items:stretch}
+    .conv-and-atm .atm-btn{justify-content:center}
     .conv-field{flex:none;width:100%;min-width:0}
     .conv-field select{max-width:100%}
     .conv-eq{text-align:center}
@@ -644,7 +655,7 @@
   .esim-btn,.tr-map-btn,.back,.cal-submit-btn,.evt-send,.rm-cta,.atm-btn,.tr-map-btn{border-radius:3px}
   .tile .date,.tile .readmore{font-family:'Work Sans',monospace;letter-spacing:.08em}
 
-  footer{background:var(--green-dk);border-top:5px solid var(--brass)}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);border-top:5px solid var(--brass)}
   footer .brand{color:var(--brass-lt)}
 
   /* ---- full-design: city guide chrome ---- */
@@ -652,9 +663,9 @@
   .plate{display:flex;align-items:center;gap:12px;margin:0 0 16px}
   .plate .cx{width:22px;height:22px;color:#b0802f;flex:none}
   .plate .tag{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#82755b;white-space:nowrap}
-  .plate .tag b{color:#a8482a}
+  .plate .tag b{color:#b5492c}
   .plate .dotline{flex:1;border-top:1px dashed rgba(43,36,23,.2)}
-  .sec-head em{font-style:italic;color:#a8482a}
+  .sec-head em{font-style:italic;color:#b5492c}
 
   /* ---- full-design: city forms -> dossier (event submit, currency, embassy) ---- */
   .evt-modal{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
@@ -667,10 +678,21 @@
   #embassy-sel{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   #conv-row input,#conv-row select{background:transparent!important;border:none!important;border-radius:0!important;color:var(--ink)}
   .modal-card{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
+
+  /* ================= SQUARE CORNERS (site-wide, added per Jeff's request) ================= */
+  .chip,.stay-card,.placeholder-note,.fact,.lang-bar-track,.lang-bar,.temp-bar-track,.temp-bar,
+  .card-accept,.card-accept .ca-bar-track,.card-accept .ca-bar,.ride-chip,.esim-btn,.tcard,
+  .tcard-list li::before,.dtcard,.cal-submit-btn,.cal-wrap,.roamers-card,.rm-av,.rm-you,.rm-msg,
+  .rm-cta,.cal-nav-btn,.cal-arrow-dot,.cal-cell,.cal-cell.today .cal-num,.cal-dot,.evt-modal,
+  .evt-close,.evt-poster,.evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],
+  .evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file],.evt-form select,
+  .evt-form .evt-send,.tr-map-btn,.tr-chip,.modal-card,.modal-close,.rt-row,.rt-badge,.rt-search,
+  .atm-btn,.atm-link,.atm-tips li::before,.cur-local,.csnap-box,.csnap-day,.conv-field,.conv-swap,
+  .hood,.lodge-tier,.tile,.back,.back-to-top{border-radius:0!important}
 </style>
 </head>
 <body>
-<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#a8482a"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#a8482a"/></symbol></svg>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#b5492c"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#b5492c"/></symbol></svg>
 <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="plug-type-sheet" viewBox="0 0 1000 800"><g id="layer1" transform="translate(0,-252.36214)"> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 53.068509,839.86215 212.32499,840.41019 212.5,999.86214 52.269189,999.37229 Z" id="path4154-3-6-06" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 298.06849,839.86217 159.25648,0.54804 0.17501,159.45193 -159.76919,-0.48975 z" id="path4154-3-6-26" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 543.06851,839.86212 702.32499,840.41016 702.5,999.86214 542.73081,999.6031 Z" id="path4154-3-6-18" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 788.06851,839.86214 159.25648,0.54804 0.17501,159.45196 -159.76919,-0.0282 z" id="path4154-3-6-7" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 53.068509,577.36216 212.32499,577.9102 212.5,737.36215 52.499999,737.67674 Z" id="path4154-3-6-06-2" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 298.06849,577.36218 159.25648,0.54804 0.17501,159.45193 -159.67358,-0.0117 z" id="path4154-3-6-26-0" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 543.06851,577.36213 159.25648,0.54804 0.17501,159.45198 -159.67358,-0.0118 z" id="path4154-3-6-18-2" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 946.93149,737.36215 787.67501,736.81411 787.5,577.36215 l 160,0.33824 z" id="path4154-3-6-7-3" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="M 53.068509,314.86215 212.32499,315.41019 212.5,474.86214 52.499999,475.52634 Z" id="path4154-3-6-06-5" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 298.06849,314.86217 159.25648,0.54804 0.17501,159.45193 -160,0.20268 z" id="path4154-3-6-26-9" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 543.06851,314.86212 159.25648,0.54804 0.17501,159.45198 -160,-0.0118 z" id="path4154-3-6-18-22" /> <path style="fill:#dedede;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" d="m 788.06851,314.86214 159.25648,0.54804 0.17501,159.45196 -160,-0.0118 z" id="path4154-3-6-7-8" /> <g id="g4411"> <path id="path4348-9" d="m 74.950717,605.43046 113.747473,0.19701 c 4.59666,0.009 7.19394,2.62353 7.31061,6.80106 l 0.55915,43.9652 c -2.04523,5.34595 -2.39433,5.5114 -7.43794,6.32032 l -28.05474,0.16162 0.14128,22.60298 c -5.36225,31.75276 -50.91787,31.83687 -57.28091,-0.24511 l -0.5593,-22.33039 -27.819043,-0.23377 c -3.36137,-0.0777 -7.62035,-5.35509 -7.07747,-9.33699 l 0.40025,-40.7103 c 0.37757,-3.45932 2.15961,-6.01236 6.07064,-7.19163 z" style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /> <rect y="621.92865" x="91.599854" height="26.773996" width="8.770792" id="rect4367-7" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <rect y="621.92865" x="164.13759" height="26.773996" width="8.770792" id="rect4367-3" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="685.06207" cx="132.38326" id="path4390-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> </g> <g transform="translate(1.8653366e-6,-238.99387)" id="g4411-1"> <path id="path4348-9-2" d="m 74.950717,605.43046 113.747473,0.19701 c 4.59666,0.009 7.19394,2.62353 7.31061,6.80106 l 0.55915,43.9652 c -2.04523,5.34595 -2.39433,5.5114 -7.43794,6.32032 l -113.572713,-0.0447 c -3.36137,-0.0777 -7.62035,-5.35509 -7.07747,-9.33699 l 0.40025,-40.7103 c 0.37757,-3.45932 2.15961,-6.01236 6.07064,-7.19163 z" style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /> <rect y="621.92865" x="91.599854" height="26.773996" width="8.770792" id="rect4367-7-9" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <rect y="621.92865" x="164.13759" height="26.773996" width="8.770792" id="rect4367-3-3" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> </g> <g id="g4524" transform="translate(27.911824,670.22529)"> <path id="path4348-9-2-3" d="m 537.0398,-338.71513 113.74747,0.19701 c 4.59666,0.009 7.19394,2.62353 7.31061,6.80106 l 0.55915,113.81803 c -2.04523,5.34595 -2.39433,5.5114 -7.43794,6.32032 l -113.57271,-0.0447 c -3.36137,-0.0777 -7.62035,-5.35509 -7.07747,-9.33699 l 0.40025,-110.56313 c 0.37757,-3.45932 2.15961,-6.01236 6.07064,-7.19163 z" style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /> <rect y="-577.66321" x="-247.93233" height="26.773996" width="8.770792" id="rect4367-7-9-2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(0,1,-1,0,0,0)" /> <rect y="-638.1236" x="-247.93233" height="26.773996" width="8.770792" id="rect4367-3-3-0" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(0,1,-1,0,0,0)" /> <rect y="-313.36252" x="588.05798" height="26.773996" width="12.687773" id="rect4367-3-3-0-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> </g> <g id="g4602" transform="translate(735.11541,286.00613)"> <path id="path4348-9-2-5" d="m 74.950717,605.43046 113.747473,0.19701 c 4.59666,0.009 7.19394,2.62353 7.31061,6.80106 l 0.55915,43.9652 c -2.04523,5.34595 -2.39433,5.5114 -7.43794,6.32032 l -113.572713,-0.0447 c -3.36137,-0.0777 -7.62035,-5.35509 -7.07747,-9.33699 l 0.40025,-40.7103 c 0.37757,-3.45932 2.15961,-6.01236 6.07064,-7.19163 z" style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" /> <circle r="7.5" cy="633.85602" cx="132.5" id="path4390-6-5" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="633.85602" cx="102.38459" id="path4390-6-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="633.85602" cx="162.3846" id="path4390-6-69" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> </g> <g id="g4643"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608" cx="132.3846" cy="919.86212" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3" cx="106.32017" cy="919.86212" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-7" cx="158.44904" cy="919.86212" r="7.5" /> </g> <g transform="translate(245.23079,3.3440887e-5)" id="g4643-4"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608-5" cx="132.3846" cy="919.86212" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-2" cx="106.32017" cy="919.86212" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-7-5" cx="158.44904" cy="919.86212" r="7.5" /> </g> <g transform="translate(245.27859,-262.49996)" id="g4643-47"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608-4" cx="132.3846" cy="919.86212" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-4" cx="106.32017" cy="919.86212" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-7-3" cx="158.44904" cy="919.86212" r="7.5" /> <circle style="opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-4-7" cx="132.3846" cy="883.9942" r="7.5" /> </g> <g id="g4206" transform="translate(245.11538,-524.89863)"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608-7" cx="132.3846" cy="919.86212" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-8" cx="106.32017" cy="934.63397" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-7-6" cx="158.44904" cy="934.63397" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-8-3" cx="132.3846" cy="896.17847" r="10" /> </g> <g id="g4206-6" transform="matrix(-1,0,0,-1,999.88458,1577.2243)"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608-7-7" cx="132.3846" cy="919.86212" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-8-5" cx="106.32017" cy="922.63184" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-7-6-3" cx="158.44904" cy="922.63184" r="7.5" /> <circle style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4390-6-6-3-8-3-5" cx="132.3846" cy="884.17633" r="10" /> </g> <g id="g4316"> <circle r="65" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#050505;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="path4608-2" cx="622.66321" cy="657.36212" /> <rect y="679.91858" x="618.27783" height="26.773996" width="8.770792" id="rect4367-7-9-2-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <rect y="-30.382124" x="906.2431" height="26.773996" width="8.770792" id="rect4367-7-9-2-9" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(0.69919905,0.71492705,-0.71492705,0.69919905,0,0)" /> <rect y="859.93542" x="35.512043" height="26.773996" width="8.770792" id="rect4367-7-9-2-9-2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(-0.69919905,0.71492705,0.71492705,0.69919905,0,0)" /> </g> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 381.9969,855.38455 -8.125,0.0273 0,8.33789 8.14648,0.041 -0.0215,-8.40625 z m 0.0215,8.40625 -14.08008,0 -0.0586,4.81836 19.47461,0.0274 -0.0274,-4.84571 -5.30859,0 z" id="path4337" /> <path style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="m 381.9969,984.31999 -8.125,-0.0274 0,-8.33789 8.14648,-0.041 -0.0215,8.40625 z m 0.0215,-8.40625 -14.08008,0 -0.0586,-4.81836 19.47461,-0.0274 -0.0274,4.84571 -5.30859,0 z" id="path4337-0" /> <g id="g4427"> <path id="rect4357" d="m 575.60056,858.48145 94.32946,0 c 21.34964,0 17.90212,122.79107 0,122.79107 l -94.32946,0 c -20.60986,0 -17.56026,-122.79107 0,-122.79107 z" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <rect style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" id="rect4367-7-9-2-6-9" width="8.770792" height="26.773996" x="618.58545" y="935.17511" /> <g transform="translate(138.24446,408.01884)" id="g4423"> <rect y="184.66689" x="635.47809" height="26.773996" width="8.770792" id="rect4367-7-9-2-6-3" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(0.86659931,0.49900465,-0.49900465,0.86659931,0,0)" /> <rect y="668.42841" x="-204.64902" height="26.773996" width="8.770792" id="rect4367-7-9-2-6-3-0" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" transform="matrix(-0.86659931,0.49900465,0.49900465,0.86659931,0,0)" /> </g> </g> <g id="g4481" transform="translate(1.8268748,8.2245302)"> <path id="rect4434" d="m 830.32509,356.40146 70.74876,-0.16321 34.24504,30.24026 -33.96983,30.55846 -71.07516,0 -34.24654,-30.88487 z" style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="386.6376" cx="836.45654" id="path4390-6-6-3-8-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="386.6376" cx="897.3905" id="path4390-6-6-3-8-2" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> <circle r="7.5" cy="399.53198" cx="865.6731" id="path4390-6-6-3-8-2-6" style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:3.55999994;stroke-opacity:1" /> </g> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="123.17749" y="502.35275" id="text4487"><tspan id="tspan4489" x="123.17749" y="502.35275" style="font-size:22.5px">A</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="368.3978" y="501.74084" id="text4487-8"><tspan id="tspan4489-7" x="368.3978" y="501.74084" style="font-size:22.5px">D</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="614.07349" y="501.08798" id="text4487-9"><tspan id="tspan4489-2" x="614.07349" y="501.08798" style="font-size:22.5px">G</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="865.86853" y="498.47668" id="text4487-0"><tspan id="tspan4489-23" x="865.86853" y="498.47668" style="font-size:22.5px">J</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="858.78235" y="761.5672" id="text4487-7"><tspan id="tspan4489-5" x="858.78235" y="761.5672" style="font-size:22.5px">K</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="614.20374" y="761.5672" id="text4487-92"><tspan id="tspan4489-28" x="614.20374" y="761.5672" style="font-size:22.5px">H</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="370.1705" y="761.5672" id="text4487-97"><tspan id="tspan4489-3" x="370.1705" y="761.5672" style="font-size:22.5px">E</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="124.47449" y="760.91443" id="text4487-6"><tspan id="tspan4489-1" x="124.47449" y="760.91443" style="font-size:22.5px">B</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="124.5074" y="1025.3105" id="text4487-2"><tspan id="tspan4489-9" x="124.5074" y="1025.3105" style="font-size:22.5px">C</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="370.694" y="1025.3105" id="text4487-3"><tspan id="tspan4489-19" x="370.694" y="1025.3105" style="font-size:22.5px">F</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="619.29755" y="1024.6577" id="text4487-4"><tspan id="tspan4489-78" x="619.29755" y="1024.6577" style="font-size:22.5px">I</tspan></text> <text xml:space="preserve" style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker:none;enable-background:accumulate" x="860.30402" y="1025.9634" id="text4487-45"><tspan id="tspan4489-0" x="860.30402" y="1025.9634" style="font-size:22.5px">L</tspan></text> </g>
 </symbol></defs></svg>
 <!-- Plug type reference diagram above adapted from "Plug types.svg", Wikimedia Commons -->
@@ -1643,7 +1665,7 @@ const CITY_CARD = {
 function cardLevel(p) {
   if (p >= 85) return {c:"#1d9a6c", w:"widely accepted"};
   if (p >= 65) return {c:"#e0a800", w:"commonly accepted"};
-  return {c:"#a8482a", w:"carry cash — limited acceptance"};
+  return {c:"#b5492c", w:"carry cash — limited acceptance"};
 }
 
 /* Typical traveler costs in USD: hotel/night (mid-range), restaurant meal/person
@@ -2915,7 +2937,7 @@ const CITY_TAXI = {
 /* Colour for a taxi fare type */
 function taxiFareColor(cat) {
   if (cat === "metered") return "#1d9a6c";
-  if (cat === "fixed")   return "#3f5138";
+  if (cat === "fixed")   return "#5c6933";
   return "#e0a800"; // unmetered / haggle
 }
 
@@ -4367,7 +4389,7 @@ function walkInfo(s) {
   if (s >= 90) return {c:"#1d9a6c", w:"Walker's paradise"};
   if (s >= 70) return {c:"#1d9a6c", w:"Very walkable"};
   if (s >= 50) return {c:"#e0a800", w:"Somewhat walkable"};
-  return {c:"#a8482a", w:"Car-dependent"};
+  return {c:"#b5492c", w:"Car-dependent"};
 }
 
 /* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
@@ -6352,8 +6374,8 @@ const CITY_LODGING = {
 };
 
 const LODGE_TIERS = [
-  {k:"High-end", c:"#3f5138"},
-  {k:"Mid-range", c:"#3f5138"},
+  {k:"High-end", c:"#5c6933"},
+  {k:"Mid-range", c:"#5c6933"},
   {k:"Budget", c:"#c0792c"}
 ];
 
@@ -8620,7 +8642,7 @@ const NET_AP_NOTES = {
 /* Free-Wi-Fi rating word + colour per level */
 function fwInfo(l) {
   if (l === "wide") return {c:"#1d9a6c", w:"Widespread"};
-  if (l === "ltd")  return {c:"#a8482a", w:"Limited"};
+  if (l === "ltd")  return {c:"#b5492c", w:"Limited"};
   return {c:"#e0a800", w:"Moderate"};
 }
 
@@ -8857,6 +8879,7 @@ const COST_ICONS = {
   net:`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="0.6"/></svg>`
 };
 const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.6 9.3c-.6-.6-1.6-1-2.6-1-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1 0-2-.4-2.6-1"/></svg>`;
+const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
 
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 const CITY_TIP = {
@@ -9138,7 +9161,7 @@ const CITY_TIP = {
 
 /* Label + color for a tipping status */
 function tipInfo(s) {
-  if (s === "expected")  return {c:"#a8482a", w:"expected"};
+  if (s === "expected")  return {c:"#b5492c", w:"expected"};
   if (s === "customary") return {c:"#e0a800", w:"customary"};
   if (s === "optional")  return {c:"#e0a800", w:"optional"};
   if (s === "included")  return {c:"#1d9a6c", w:"service included"};
@@ -9568,6 +9591,9 @@ if(!c){
   const cost = CITY_COST[c.city];
   const daily = CITY_DAILY[c.city];
   const hotelRange = CITY_HOTEL[c.city];
+  /* Daily Cost Estimator toggle state (persists across currency changes) */
+  let csnapIncludeAlcohol = true;
+  let csnapIncludeActivities = true;
   const rides = CITY_RIDES[c.city];
   const drinks = CITY_DRINKS[c.city];
   const net = CITY_NET[c.city];
@@ -9621,29 +9647,60 @@ if(!c){
             <span>Tipping <b style="color:${tipLvl.c}">${tipLvl.w}</b> &middot; ${tip.r}</span>
           </div>`;
   /* Cost snapshot: $-tier badge (from mid daily budget) + low/mid/high per-day
-     estimates, priced in the given currency code. Figures from CITY_DAILY. */
+     estimates, priced in the given currency code. Built from the site's own
+     hotel/meal/taxi/drinks data (not the old static CITY_DAILY table) so the
+     "Include alcoholic beverages" / "Include activities/tours" checkboxes can
+     add or remove those pieces live. Multipliers are documented assumptions —
+     see the "Daily cost formula" spreadsheet for the full breakdown. */
   function costTier(mid) {
     if (mid < 90)  return {n:1, w:"Budget",    c:"#556B2F"};
     if (mid < 150) return {n:2, w:"Moderate",  c:"#B8860B"};
     if (mid < 220) return {n:3, w:"Pricey",    c:"#C77400"};
     return                {n:4, w:"Expensive", c:"#C04020"};
   }
+  function computeDailyTiers(includeAlcohol, includeActivities) {
+    if (cost == null) return null;
+    const hb = hotelRange ? hotelRange.b : cost.hotel;
+    const hm = cost.hotel;
+    const hl = hotelRange ? hotelRange.h : cost.hotel;
+    const mealB = 3 * 1.0 * cost.meal, mealM = 3 * 1.8 * cost.meal, mealL = 3 * 3.5 * cost.meal;
+    const txB = 1 * cost.taxi, txM = 2 * cost.taxi, txL = 4 * cost.taxi;
+    const drinksBase = drinks ? (drinks.coffee || 0) + (drinks.water || 0) : 0;
+    const beerNum = (drinks && typeof drinks.beer === "number") ? drinks.beer : null;
+    /* Per-drink price = 1.5x the average beer price, to cover cocktails/wine/spirits running pricier than beer. */
+    const drinkPrice = beerNum != null ? 1.5 * beerNum : null;
+    const alcB = (includeAlcohol && drinkPrice != null) ? 1 * drinkPrice : 0;
+    const alcM = (includeAlcohol && drinkPrice != null) ? 2 * drinkPrice : 0;
+    const alcL = (includeAlcohol && drinkPrice != null) ? 3 * drinkPrice : 0;
+    const coreB = hb + mealB + txB + drinksBase;
+    const coreM = hm + mealM + txM + drinksBase;
+    const coreL = hl + mealL + txL + drinksBase;
+    const actB = includeActivities ? 0.10 * coreB : 0;
+    const actM = includeActivities ? 0.20 * coreM : 0;
+    const actL = includeActivities ? 0.35 * coreL : 0;
+    return { b: coreB + alcB + actB, m: coreM + alcM + actM, h: coreL + alcL + actL };
+  }
   function buildCostSnapshot(code) {
-    if (daily == null) return "";
-    const t = costTier(daily.m);
+    const tiers = computeDailyTiers(csnapIncludeAlcohol, csnapIncludeActivities);
+    if (tiers == null) return "";
+    const t = costTier(tiers.m);
     const dollars = '<span style="color:' + t.c + '">' + '$'.repeat(t.n) + '</span>'
                   + '<span class="csnap-dim">' + '$'.repeat(4 - t.n) + '</span>';
     return `
           <div class="csnap-box">
             <div class="csnap-head">
-              <span class="csnap-k">Cost snapshot</span>
+              <span class="csnap-k">Daily Cost Estimator</span>
               <span class="csnap-tier" aria-label="${t.w}">${dollars}</span>
               <span class="csnap-word" style="color:${t.c}">${t.w}</span>
             </div>
             <div class="csnap-days">
-              <div class="csnap-day"><span class="cd-k">Budget</span><span class="cd-v">${fmtPrice(daily.b, code)}</span></div>
-              <div class="csnap-day"><span class="cd-k">Mid</span><span class="cd-v">${fmtPrice(daily.m, code)}</span></div>
-              <div class="csnap-day"><span class="cd-k">High</span><span class="cd-v">${fmtPrice(daily.h, code)}</span></div>
+              <div class="csnap-day"><span class="cd-k">Budget</span><span class="cd-v">${fmtPrice(tiers.b, code)}</span></div>
+              <div class="csnap-day"><span class="cd-k">Mid</span><span class="cd-v">${fmtPrice(tiers.m, code)}</span></div>
+              <div class="csnap-day"><span class="cd-k">High</span><span class="cd-v">${fmtPrice(tiers.h, code)}</span></div>
+            </div>
+            <div class="csnap-toggles">
+              <label class="csnap-toggle"><input type="checkbox" id="csnap-alcohol-toggle" ${csnapIncludeAlcohol ? "checked" : ""}> Include alcoholic beverages</label>
+              <label class="csnap-toggle"><input type="checkbox" id="csnap-activities-toggle" ${csnapIncludeActivities ? "checked" : ""}> Include activities/tours</label>
             </div>
             <div class="csnap-foot">est. per person/day &middot; assumes budget&ndash;midrange lodging &middot; <span>${code}</span></div>
           </div>`;
@@ -9690,16 +9747,16 @@ if(!c){
             <div class="drink-row"><span class="dr-k">Beer &middot; 0.5L</span>${
               typeof drinks.beer === "number"
                 ? `<span class="dr-v">${fmtPrice(drinks.beer, code)}</span>`
-                : `<span class="alc-note">${drinks.beer === "notallowed" ? "Public alcohol not allowed" : "Public alcohol restricted"}</span>`
+                : `<button type="button" class="alc-note" onclick="openModal('Alcohol rules')">${INFO_ICON} ${drinks.beer === "notallowed" ? "Prohibited" : "Restricted"}</button>`
             }</div>
             <div class="drink-row"><span class="dr-k">Water &middot; bottle</span><span class="dr-v">${fmtPrice(drinks.water, code)}</span></div>
           </div>
           ${(() => {
             const w = CITY_WATER[c.city];
             if (!w) return "";
-            const col = w.status === "safe" ? "#1d9a6c" : w.status === "unsafe" ? "#c0392b" : "#a8482a";
+            const col = w.status === "safe" ? "#1d9a6c" : w.status === "unsafe" ? "#c0392b" : "#b5492c";
             const label = w.status === "safe" ? "Tap water: safe to drink" : w.status === "unsafe" ? "Tap water: not recommended" : "Tap water: uncertain";
-            return `<p class="tap-water-note"><b style="color:${col}">${label}</b> &middot; ${w.note}</p>`;
+            return `<p class="tap-water-note"><b style="color:${col}">${label}</b>${w.note ? ` &middot; <button type="button" class="water-more-btn" onclick="openModal('Tap water safety')">${INFO_ICON} More info</button>` : ''}</p>`;
           })()}
           <div class="drinks-foot">average prices per drink</div>
         </div>`}`;
@@ -9825,7 +9882,7 @@ if(!c){
         <p class="tagline">${c.tagline}</p>
         <div class="hero-fav-row">
           <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual visitors${c.est?' \u00b7 est.':''}</span></div>
-          <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">&#9825;</button>
+          <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
         </div>
       </div>
     </div>
@@ -9872,7 +9929,7 @@ if(!c){
               <span class="lang-pct">${p}%</span>
             </div>`).join('')}
           </div>
-          ${CITY_ENGLISH[c.city] ? `<div class="lang-row eng-row"><span class="lang-name">English</span><span class="lang-pct eng-pct">${CITY_ENGLISH[c.city].label}</span></div>` : ''}
+          ${CITY_ENGLISH[c.city] ? `<div class="eng-box"><div class="lang-row eng-row"><span class="lang-name">English</span><span class="lang-pct eng-pct">${CITY_ENGLISH[c.city].label}</span></div><div class="eng-sub">Conversation</div></div>` : ''}
           <div class="rel-section">
             <div class="k rel-k">Religion by majority</div>
             <div class="lang-list">
@@ -9897,12 +9954,14 @@ if(!c){
             </div>
             <div class="cur-conv">
               <div class="conv-sub">Enter an amount, pick a currency, or tap &#8644; to reverse</div>
-              <div class="conv-row" id="conv-row"></div>
+              <div class="conv-and-atm">
+                <div class="conv-row" id="conv-row"></div>
+                <button type="button" class="atm-btn" id="atm-btn" aria-haspopup="dialog">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="14" x2="9" y2="14"/><line x1="7" y1="17" x2="13" y2="17"/></svg>
+                  Find ATMs &amp; cash
+                </button>
+              </div>
               <div class="conv-rate" id="conv-rate"></div>
-              <button type="button" class="atm-btn" id="atm-btn" aria-haspopup="dialog">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="14" x2="9" y2="14"/><line x1="7" y1="17" x2="13" y2="17"/></svg>
-                Find ATMs &amp; cash
-              </button>
             </div>
           </div>
           <div id="cost-snapshot" class="cost-snapshot"></div>
@@ -10522,7 +10581,13 @@ if(!c){
     const el = document.getElementById("cost-cards");
     if (el) el.innerHTML = buildCostCards(compareCode);
     const sel = document.getElementById("cost-snapshot");
-    if (sel) sel.innerHTML = buildCostSnapshot(compareCode);
+    if (sel) {
+      sel.innerHTML = buildCostSnapshot(compareCode);
+      const alcToggle = document.getElementById("csnap-alcohol-toggle");
+      if (alcToggle) alcToggle.addEventListener("change", () => { csnapIncludeAlcohol = alcToggle.checked; renderCosts(); });
+      const actToggle = document.getElementById("csnap-activities-toggle");
+      if (actToggle) actToggle.addEventListener("change", () => { csnapIncludeActivities = actToggle.checked; renderCosts(); });
+    }
     const nel = document.getElementById("net-card");
     if (nel) { nel.innerHTML = buildNetCard(compareCode); nel.hidden = (net == null); }
     const tel = document.getElementById("transport-cards");
@@ -10695,12 +10760,29 @@ if(!c){
       <p class="rt-note">${tx.fareNote}</p>`;
   }
 
+  function buildAlcoholModal() {
+    if (!drinks || typeof drinks.beer === "number") return `<p class="modal-placeholder">No alcohol restrictions on file for ${c.city}.</p>`;
+    const detail = drinks.beer === "notallowed"
+      ? "The public sale and consumption of alcohol is not allowed here. Visitors should not expect to find beer, wine or spirits at typical restaurants or shops."
+      : "Alcohol is restricted rather than fully banned — it may only be available in specific licensed hotels, resorts or members-only venues, and public drinking is generally not permitted.";
+    return `<p class="rt-intro">${detail}</p><p class="rt-foot">Rules can change and vary by neighborhood — check current local guidance before your trip.</p>`;
+  }
+  function buildWaterModal() {
+    const w = CITY_WATER[c.city];
+    if (!w) return `<p class="modal-placeholder">No tap water information on file for ${c.city}.</p>`;
+    return `<p class="rt-intro">${w.note}</p>`;
+  }
+
   function openModal(title) {
     modalTitle.textContent = `${title} — ${c.city}`;
     if (title === "Major airports" && CITY_AIRPORT[c.city]) {
       modalBody.innerHTML = buildAirportModal(compareCode);
     } else if (title === "ATM & cash finder") {
       modalBody.innerHTML = buildAtmModal();
+    } else if (title === "Alcohol rules") {
+      modalBody.innerHTML = buildAlcoholModal();
+    } else if (title === "Tap water safety") {
+      modalBody.innerHTML = buildWaterModal();
     } else if (title === "Major train stations" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].train) {
       modalBody.innerHTML = buildTrainModal();
     } else if (title === "Major bus stations" && CITY_ROUTES[c.city] && CITY_ROUTES[c.city].bus) {
@@ -10805,7 +10887,7 @@ if(!c){
   function paintHeroFav(){
     var active = NRA_FAV.has(btn.dataset.favCity);
     btn.classList.toggle("active", active);
-    btn.innerHTML = active ? "&#9829;" : "&#9825;";
+    btn.innerHTML = "<span class=\"hero-fav-icon\">" + (active ? "&#9829;" : "&#9825;") + "</span><span class=\"hero-fav-label\">" + (active ? "Favorited" : "Favorite") + "</span>";
     btn.title = active ? "Remove from Favorites" : "Save to Favorites";
   }
   btn.addEventListener("click", function(){

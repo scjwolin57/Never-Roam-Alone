@@ -26,10 +26,10 @@
     --ink:#2b2417;
     --muted:#82755b;
     --sand:#ece2cc;
-    --teal:#3f5138;
+    --teal:#5c6933;
     --teal-dark:#2c3a27;
-    --coral:#a8482a;
-    --green:#3f5138;
+    --coral:#b5492c;
+    --green:#5c6933;
     --card:#f6efdd;
     --shadow:0 10px 30px rgba(20,40,50,.12);
     --maxw:1180px;
@@ -57,7 +57,7 @@
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
@@ -69,7 +69,7 @@
 
   /* ---------- Page hero ---------- */
   .page-hero{
-    background:linear-gradient(135deg, #2c3a27 0%, #3f5138 100%);
+    background:linear-gradient(135deg, #5c6933 0%, #8a9a5b 100%);
     color:#fff;text-align:center;padding:56px 22px 48px;
   }
   .page-hero .kicker{
@@ -225,9 +225,9 @@
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
   .ig-foot{display:flex;justify-content:flex-start;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
   .ig-tips{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;color:#82755b;cursor:pointer;user-select:none}
-  .ig-tips input{accent-color:#3f5138;width:15px;height:15px;cursor:pointer;margin:0}
-  .ig-tips-msg{font-size:.78rem;font-weight:600;color:#3f5138}
-  .ig-tips-msg.err{color:#a8482a}
+  .ig-tips input{accent-color:#5c6933;width:15px;height:15px;cursor:pointer;margin:0}
+  .ig-tips-msg{font-size:.78rem;font-weight:600;color:#5c6933}
+  .ig-tips-msg.err{color:#b5492c}
   .ig-suggest{border:1.5px solid var(--green);background:#fff;color:var(--green);font-family:inherit;
     font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:20px;cursor:pointer;transition:background .2s,color .2s}
   .ig-suggest:hover,.ig-suggest.open{background:var(--green);color:#fff}
@@ -267,7 +267,7 @@
   .btn.ghost{background:transparent;color:var(--muted);text-decoration:underline;padding:10px 6px;border:none;cursor:pointer;font-weight:700;font-size:.95rem;font-family:inherit}
 
   /* ---------- Footer ---------- */
-  footer{background:linear-gradient(135deg,#2c3a27,#3f5138);color:#fff;text-align:center;padding:40px 22px;margin-top:40px}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#fff;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#fff}
   footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
@@ -360,7 +360,7 @@
   /* ---------- selected trip + empty-date warning (Upcoming tab) ---------- */
   .itin-group{cursor:pointer}
   .itin-group.trip-selected{background:#f3f3f1;box-shadow:0 0 0 3px rgba(63,81,56,.85)}
-  input.date-empty{background:rgba(168,72,42,.5);border-color:#a8482a}
+  input.date-empty{background:rgba(168,72,42,.5);border-color:#b5492c}
   input.date-empty::placeholder{color:#fff;opacity:.95}
   /* the city-search row when it sits inside the selected trip card */
   .itin-group .search-row{margin-top:14px;padding-top:14px;border-top:1px solid rgba(63,81,56,.12)}
@@ -397,9 +397,9 @@
 
   /* ================= EXPLORER form dossier (generic) ================= */
   input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{
-    background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+    background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   input[type=text]:focus,input[type=email]:focus,input[type=url]:focus,input[type=search]:focus,textarea:focus,select:focus{outline:none;border-color:var(--coral)!important}
-  button[type=submit],.btn-primary,.submit-btn,.primary-btn,.save-btn{background:var(--coral)!important;border-radius:3px!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important;border:none}
+  button[type=submit],.btn-primary,.submit-btn,.primary-btn,.save-btn{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important;border:none}
   button[type=submit]:hover,.btn-primary:hover,.submit-btn:hover{background:#8a3a20!important}
   /* ================= EXPLORER THEME (overrides) ================= */
   body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
@@ -409,13 +409,19 @@
   .brand small{font-family:'Work Sans',sans-serif;letter-spacing:.22em}
   nav.links a:hover{color:var(--coral);border-color:#b0802f}
   .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,.form-card,.side-card,.gate,.legal,.toc{border:1px solid var(--ink);border-radius:3px}
-  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
   /* dossier forms */
-  input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+  input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   form label,.field label{font-family:'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;color:var(--teal)}
-  button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:3px!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
+  button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:0!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
   button[type=submit]:hover,.btn:hover{background:#8a3a20!important}
+
+  /* ================= SQUARE CORNERS: buttons, pills, popups, inputs (site-wide consistency pass) ================= */
+  .trip-toggle button,.req-btn,.rm-btn,.stop .drag,.view-switch button,.view-switch .knob,
+  .ig-view-switch button,.ig-suggest,.ns-chip,.ns-add,.ns-guide,.ns-more,.itin-new-row button,
+  .ig-del,.ig-share,.share-modal,.share-modal .sm-yes,.share-modal .sm-no,.wish-actions button,
+  .wish-move,.ig-stop .drag,.chip,.suggest,.ig-name{border-radius:0!important}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>

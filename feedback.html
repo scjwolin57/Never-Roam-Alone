@@ -21,9 +21,9 @@
     --ink:#2b2417;
     --muted:#82755b;
     --sand:#ece2cc;
-    --teal:#3f5138;
+    --teal:#5c6933;
     --teal-dark:#2c3a27;
-    --coral:#a8482a;
+    --coral:#b5492c;
     --card:#f6efdd;
     --shadow:0 10px 30px rgba(20,40,50,.12);
     --maxw:1180px;
@@ -51,7 +51,7 @@
     max-width:var(--maxw);margin:0 auto;padding:14px 22px;
     display:flex;align-items:center;justify-content:space-between;
   }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#a8482a}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
   .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(168,72,42,.2)}
   .brand .logo{flex-shrink:0;display:block}
   .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
@@ -79,7 +79,7 @@
   .field input[type=email],
   .field input[type=url],
   .field textarea{
-    width:100%;font:inherit;font-size:.98rem;padding:12px 14px;border-radius:10px;
+    width:100%;font:inherit;font-size:.98rem;padding:12px 14px;border-radius:0;
     border:1.5px solid rgba(63,81,56,.22);background:var(--sand);color:var(--ink);
     transition:.15s;
   }
@@ -87,10 +87,10 @@
   .field textarea{resize:vertical;min-height:130px}
   .file-drop{
     display:flex;align-items:center;gap:12px;flex-wrap:wrap;
-    border:1.5px dashed rgba(63,81,56,.3);border-radius:10px;padding:14px;background:var(--sand);
+    border:1.5px dashed rgba(63,81,56,.3);border-radius:0;padding:14px;background:var(--sand);
   }
   .file-drop button{
-    font:inherit;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:20px;
+    font:inherit;font-weight:700;font-size:.85rem;padding:9px 16px;border-radius:0;
     border:1.5px solid var(--teal);background:#fff;color:var(--teal);cursor:pointer;transition:.15s;
   }
   .file-drop button:hover{background:var(--coral);color:#fff}
@@ -100,18 +100,18 @@
   .thumb{max-width:120px;max-height:80px;border-radius:8px;display:block;box-shadow:0 2px 8px rgba(20,40,50,.2)}
   .hint{color:var(--muted);font-size:.8rem;margin-top:6px}
   .submit-btn{
-    width:100%;font:inherit;font-weight:700;font-size:1rem;padding:14px 20px;border-radius:26px;
+    width:100%;font:inherit;font-weight:700;font-size:1rem;padding:14px 20px;border-radius:0;
     border:none;background:var(--coral);color:#fff;cursor:pointer;transition:.15s;
     box-shadow:0 8px 20px rgba(168,72,42,.32);
   }
   .submit-btn:hover{background:#d85d43}
   .submit-btn:disabled{opacity:.6;cursor:default;box-shadow:none}
-  .status-msg{margin-top:16px;padding:12px 14px;border-radius:10px;font-size:.92rem;display:none}
-  .status-msg.ok{display:block;background:rgba(63,81,56,.1);color:#3f5138}
+  .status-msg{margin-top:16px;padding:12px 14px;border-radius:0;font-size:.92rem;display:none}
+  .status-msg.ok{display:block;background:rgba(63,81,56,.1);color:#5c6933}
   .status-msg.err{display:block;background:rgba(168,72,42,.12);color:#b8452f}
 
-  footer{background:var(--teal-dark);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
-  footer .brand{justify-content:center;color:#a8482a}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
+  footer .brand{justify-content:center;color:#b5492c}
   footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
   footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
@@ -124,9 +124,9 @@
 
   /* ================= EXPLORER form dossier (generic) ================= */
   input[type=text],input[type=email],input[type=url],input[type=search],input[type=tel],input[type=number],input[type=date],input[type=time],input[type=password],textarea,select{
-    background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+    background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   input[type=text]:focus,input[type=email]:focus,input[type=url]:focus,input[type=search]:focus,textarea:focus,select:focus{outline:none;border-color:var(--coral)!important}
-  button[type=submit],.btn-primary,.submit-btn,.primary-btn,.save-btn{background:var(--coral)!important;border-radius:3px!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important;border:none}
+  button[type=submit],.btn-primary,.submit-btn,.primary-btn,.save-btn{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important;border:none}
   button[type=submit]:hover,.btn-primary:hover,.submit-btn:hover{background:#8a3a20!important}
   /* ================= EXPLORER THEME (overrides) ================= */
   body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
@@ -136,12 +136,12 @@
   .brand small{font-family:'Work Sans',sans-serif;letter-spacing:.22em}
   nav.links a:hover{color:var(--coral);border-color:#b0802f}
   .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,.form-card,.side-card,.gate,.legal,.toc{border:1px solid var(--ink);border-radius:3px}
-  footer{background:#2c3a27;border-top:5px solid #b0802f}
+  footer{background:linear-gradient(135deg,#5c6933,#8a9a5b);border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
   /* dossier forms */
-  input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:3px!important;color:var(--ink)}
+  input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   form label,.field label{font-family:'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;color:var(--teal)}
-  button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:3px!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
+  button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:0!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
   button[type=submit]:hover,.btn:hover{background:#8a3a20!important}
 </style>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">

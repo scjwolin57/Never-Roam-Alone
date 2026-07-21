@@ -31,40 +31,40 @@
   .ta-overlay{position:fixed;inset:0;z-index:1000;display:none;background:rgba(20,40,50,.5);
     backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:20px}
   .ta-overlay.open{display:flex}
-  .ta-modal{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(20,40,50,.35);
+  .ta-modal{background:#fff;border-radius:0;box-shadow:0 20px 60px rgba(20,40,50,.35);
     width:100%;max-width:460px;max-height:85vh;overflow:auto;padding:26px 24px;position:relative;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d2a32;line-height:1.5}
-  .ta-modal h3{margin:0 26px 4px 0;font-size:1.35rem;font-family:Georgia,serif}
+    font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1d2a32;line-height:1.5}
+  .ta-modal h3{margin:0 26px 4px 0;font-size:1.35rem;font-family:'Fraunces',Georgia,serif}
   .ta-x{position:absolute;top:14px;right:14px;border:none;background:none;font-size:1.3rem;line-height:1;
-    color:#5b6b75;cursor:pointer;padding:6px 8px;border-radius:8px}
-  .ta-x:hover{background:rgba(85,107,47,.08);color:#b34a3a}
+    color:#5b6b75;cursor:pointer;padding:6px 8px;border-radius:0}
+  .ta-x:hover{background:rgba(92, 105, 51,.08);color:#b34a3a}
   .ta-sub{color:#5b6b75;font-size:.85rem;margin:0 0 14px}
   .ta-status{font-size:.85rem;font-weight:600;min-height:1.1em;margin:0 0 12px}
-  .ta-status.ok{color:#556B2F}
+  .ta-status.ok{color:#5c6933}
   .ta-status.err{color:#b34a3a}
   .ta-sect{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#5b6b75;margin:14px 0 8px}
   .ta-list{display:flex;flex-direction:column;gap:9px}
   .ta-pick{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;
-    border:2px solid rgba(85,107,47,.22);background:#fff;border-radius:14px;padding:12px 14px;cursor:pointer;
+    border:2px solid rgba(92, 105, 51,.22);background:#fff;border-radius:0;padding:12px 14px;cursor:pointer;
     font-family:inherit;font-size:.98rem;font-weight:700;color:#1d2a32;transition:.15s}
-  .ta-pick:hover:not(:disabled){border-color:#556B2F;background:rgba(85,107,47,.06)}
-  .ta-pick:disabled{cursor:default;opacity:.7;border-color:rgba(85,107,47,.35);color:#556B2F}
-  .ta-pick.wish{border-color:rgba(192,64,32,.35)}
-  .ta-pick.wish:hover:not(:disabled){border-color:#C04020;background:rgba(192,64,32,.05)}
+  .ta-pick:hover:not(:disabled){border-color:#5c6933;background:rgba(92, 105, 51,.06)}
+  .ta-pick:disabled{cursor:default;opacity:.7;border-color:rgba(92, 105, 51,.35);color:#5c6933}
+  .ta-pick.wish{border-color:rgba(181, 73, 44,.35)}
+  .ta-pick.wish:hover:not(:disabled){border-color:#b5492c;background:rgba(181, 73, 44,.05)}
   .ta-pick .n{color:#5b6b75;font-size:.78rem;font-weight:600;flex-shrink:0}
   .ta-empty{color:#5b6b75;font-size:.9rem;margin:0}
-  .ta-newrow{display:flex;gap:8px;border-top:1px solid rgba(85,107,47,.15);padding-top:16px;margin-top:16px}
-  .ta-newrow input{flex:1;min-width:0;padding:11px 13px;border:2px solid rgba(85,107,47,.22);border-radius:13px;
+  .ta-newrow{display:flex;gap:8px;border-top:1px solid rgba(92, 105, 51,.15);padding-top:16px;margin-top:16px}
+  .ta-newrow input{flex:1;min-width:0;padding:11px 13px;border:2px solid rgba(92, 105, 51,.22);border-radius:0;
     font-size:.95rem;font-family:inherit;color:#1d2a32;outline:none}
-  .ta-newrow input:focus{border-color:#556B2F}
-  .ta-create{border:none;background:#556B2F;color:#fff;font-weight:700;font-family:inherit;
-    padding:11px 16px;border-radius:13px;cursor:pointer;white-space:nowrap;transition:background .2s}
-  .ta-create:hover:not(:disabled){background:#C04020}
+  .ta-newrow input:focus{border-color:#5c6933}
+  .ta-create{border:none;background:#5c6933;color:#fff;font-weight:700;font-family:inherit;
+    padding:11px 16px;border-radius:0;cursor:pointer;white-space:nowrap;transition:background .2s}
+  .ta-create:hover:not(:disabled){background:#b5492c}
   .ta-create:disabled{opacity:.6;cursor:default}
   /* a ready-made small button pages can use next to cards */
-  .trip-add-chip{border:none;background:#556B2F;color:#fff;font-weight:700;font-family:inherit;font-size:.78rem;
-    padding:7px 12px;border-radius:16px;cursor:pointer;transition:background .2s;white-space:nowrap}
-  .trip-add-chip:hover{background:#C04020}`;
+  .trip-add-chip{border:none;background:#5c6933;color:#fff;font-weight:700;font-family:inherit;font-size:.78rem;
+    padding:7px 12px;border-radius:0;cursor:pointer;transition:background .2s;white-space:nowrap}
+  .trip-add-chip:hover{background:#b5492c}`;
   document.head.appendChild(css);
 
   /* ---------- popup shell (built once) ---------- */
