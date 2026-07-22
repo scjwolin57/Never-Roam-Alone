@@ -606,6 +606,23 @@
             </select>
           </div>
         </div>
+        <div>
+          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
+          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
+          <datalist id="finderPassportList"></datalist>
+          <select id="finderPassport" hidden>
+            <option value="" selected>Not now</option>
+          </select>
+        </div>
+        <div id="lengthFields" hidden>
+          <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
+          <div class="stepper" id="nightsStepper">
+            <button type="button" class="stepper-btn" id="nightsMinus" aria-label="Fewer nights">&minus;</button>
+            <input type="number" id="nights" class="stepper-input" min="1" max="90" step="1" value="7" inputmode="numeric" aria-label="Trip length in nights" />
+            <button type="button" class="stepper-btn" id="nightsPlus" aria-label="More nights">+</button>
+          </div>
+          <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
+        </div>
         <div class="fld-when">
           <label class="field">When are you traveling?</label>
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
@@ -640,19 +657,6 @@
               </div>
             </div>
           </div>
-          <div id="lengthFields" hidden>
-            <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
-            <input type="number" id="nights" class="num-input" min="1" max="90" step="1" placeholder="e.g. 7" inputmode="numeric" />
-            <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
-          </div>
-        </div>
-        <div>
-          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
-          <datalist id="finderPassportList"></datalist>
-          <select id="finderPassport" hidden>
-            <option value="" selected>Not now</option>
-          </select>
         </div>
         <div>
           <label class="field" for="travelStyle">Travel budget style</label>
@@ -1189,6 +1193,8 @@ const numTravelersEl  = document.getElementById("numTravelers");
 const travelersMinusEl= document.getElementById("travelersMinus");
 const travelersPlusEl = document.getElementById("travelersPlus");
 const nightsEl        = document.getElementById("nights");
+const nightsMinusEl   = document.getElementById("nightsMinus");
+const nightsPlusEl    = document.getElementById("nightsPlus");
 const sortByEl        = document.getElementById("sortBy");
 const finderPassportEl= document.getElementById("finderPassport");
 const departDateEl    = document.getElementById("departDate");
@@ -1690,7 +1696,8 @@ finderResults.addEventListener("change", e=>{
   if(!(v > 0)) return;
   const lr = document.querySelector('input[name="whenMode"][value="length"]');
   if(lr) lr.checked = true;                 // switch to Trip length mode
-  nightsEl.value = v;
+  nightsEl.value = clampNights(v);
+  nightsMinusEl.disabled = nightsEl.value === "1";
   syncWhenUI();
   finderShowAll = false;
   renderFinder();
@@ -1712,7 +1719,7 @@ let numTimer = null;
 [continentEl, activityEl, travelByEl, sortByEl, travelStyleEl].forEach(el =>
   el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
 travelByEl.addEventListener("change", updateOriginModeUI);
-[totalBudgetEl, nightsEl].forEach(el =>
+[totalBudgetEl].forEach(el =>
   el.addEventListener("input", ()=>{
     clearTimeout(numTimer);
     numTimer = setTimeout(()=>{ finderShowAll=false; renderFinder(); saveState(); }, 400);
@@ -1728,6 +1735,17 @@ travelersMinusEl.addEventListener("click", ()=> setTravelers(clampTravelers(numT
 travelersPlusEl.addEventListener("click", ()=> setTravelers(clampTravelers(numTravelersEl.value)+1));
 numTravelersEl.addEventListener("change", ()=> setTravelers(numTravelersEl.value));
 travelersMinusEl.disabled = numTravelersEl.value === "1";
+/* trip-length (nights) stepper: same style as travelers, default 7, clamped 1-90 */
+function clampNights(v){ v = parseInt(v,10); if(!v || v<1) v=1; if(v>90) v=90; return v; }
+function setNights(v){
+  nightsEl.value = clampNights(v);
+  nightsMinusEl.disabled = nightsEl.value === "1";
+  finderShowAll = false; renderFinder(); saveState();
+}
+nightsMinusEl.addEventListener("click", ()=> setNights(clampNights(nightsEl.value)-1));
+nightsPlusEl.addEventListener("click", ()=> setNights(clampNights(nightsEl.value)+1));
+nightsEl.addEventListener("change", ()=> setNights(nightsEl.value));
+nightsMinusEl.disabled = nightsEl.value === "1";
 document.querySelectorAll('input[name="whenMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="wayMode"]').forEach(el =>
@@ -2250,7 +2268,7 @@ function loadState(){
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
   if(s.travelStyle) travelStyleEl.value = s.travelStyle;
   if(s.travelers){ numTravelersEl.value = clampTravelers(s.travelers); travelersMinusEl.disabled = numTravelersEl.value === "1"; }
-  if(s.nights) nightsEl.value = s.nights;
+  if(s.nights){ nightsEl.value = clampNights(s.nights); nightsMinusEl.disabled = nightsEl.value === "1"; }
   if(s.whenMode){ const wr=document.querySelector(`input[name="whenMode"][value="${s.whenMode}"]`); if(wr) wr.checked=true; }
   if(s.departDate) departDateEl.value = s.departDate;
   if(s.returnDate) returnDateEl.value = s.returnDate;
@@ -2323,7 +2341,7 @@ function applyShareParams(){
   const wm = inSet(p.get("wm"), ["dates","length"]);
   if(wm){ const r = document.querySelector('input[name="whenMode"][value="'+wm+'"]'); if(r) r.checked = true; }
   const ni = parseInt(p.get("ni"), 10);
-  if(ni >= 1 && ni <= 90) nightsEl.value = ni;
+  if(ni >= 1 && ni <= 90){ nightsEl.value = ni; nightsMinusEl.disabled = ni === 1; }
   const dateOK = v => /^\d{4}-\d{2}-\d{2}$/.test(v || "");
   if(dateOK(p.get("dd"))) departDateEl.value = p.get("dd");
   if(dateOK(p.get("rd"))) returnDateEl.value = p.get("rd");
