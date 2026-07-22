@@ -1365,9 +1365,9 @@ function renderCompare(){
   document.getElementById("cmpTitles").innerHTML =
     '<div class="sp"></div>' +
     '<div><h2>'+a.city+'</h2><div class="country">'+a.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(a.city)+'&from=guides">Full guide &rsaquo;</a>' +
-      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(a.city)+'" data-country="'+encodeURIComponent(a.country)+'" title="Add '+a.city+' to a trip or your wishlist">+ Add to trip</button></div></div>' +
+      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(a.city)+'" data-country="'+encodeURIComponent(a.country)+'" title="Add &quot;'+a.city+'&quot; to a trip or wishlist (Must be signed in to use this feature)">+ Add to a trip</button></div></div>' +
     '<div><h2>'+b.city+'</h2><div class="country">'+b.country+'</div><a class="guide-link" href="city.html?city='+encodeURIComponent(b.city)+'&from=guides">Full guide &rsaquo;</a>' +
-      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(b.city)+'" data-country="'+encodeURIComponent(b.country)+'" title="Add '+b.city+' to a trip or your wishlist">+ Add to trip</button></div></div>';
+      '<div><button type="button" class="trip-add-chip" data-trip-add data-city="'+encodeURIComponent(b.city)+'" data-country="'+encodeURIComponent(b.country)+'" title="Add &quot;'+b.city+'&quot; to a trip or wishlist (Must be signed in to use this feature)">+ Add to a trip</button></div></div>';
 
   const numA = Number(a.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
   const numB = Number(b.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});

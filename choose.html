@@ -94,7 +94,8 @@
   .when-switch .mini-radio:not(.active):hover{color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
   .when-switch .mini-radio.active{color:#fff}
-  .date-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .date-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+  .date-row input[type=date]{min-width:0}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
   .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
   .results-bar .select-wrap{min-width:210px}
@@ -174,7 +175,7 @@
   .season-pill.good{background:rgba(63,81,56,.12);color:#5c6933}
   .season-pill.warn{background:rgba(207,138,44,.16);color:#a3620e}
   .season-pill.peak{background:rgba(168,72,42,.14);color:#b5492c}
-  .card h3{font-size:1.2rem;margin:6px 0 8px}
+  .card h3{font-size:1.2rem;margin:6px 0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .card p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
   .card .go{align-self:flex-start;background:var(--green);color:#fff;font-weight:700;font-size:.82rem;
     padding:8px 16px;border-radius:22px;transition:background .2s;margin-top:auto;
@@ -203,7 +204,7 @@
   .bucket-visited-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
   .bucket-visited-btn[disabled]{opacity:.6;cursor:default}
   .flights-link{display:block;width:100%;box-sizing:border-box;text-align:center;font-size:.8rem;font-weight:700;color:#fff;
-    background:rgba(168,72,42,.5);padding:8px 16px;border-radius:22px;transition:background .2s}
+    background:var(--coral);padding:8px 16px;border-radius:22px;transition:background .2s}
   .flights-link:hover{background:var(--green);text-decoration:none}
 
   /* "Why this matched" block on finder cards */
@@ -226,6 +227,12 @@
   .cmp-row.picked .cm-mode{color:var(--green)}
   .cmp-row .cm-cost{margin-left:auto;font-weight:600;white-space:nowrap}
   .cmp-row .cm-note{flex-basis:100%;font-size:.7rem;font-style:italic;padding-left:2px}
+  /* mobile: tighter padding/gap so mode + time + cost fit on one line instead of wrapping */
+  @media(max-width:480px){
+    .cmp-row{padding:7px 6px;gap:5px}
+    .cmp-row .cm-mode{flex:0 0 68px;font-size:.74rem;white-space:nowrap}
+    .cmp-row .cm-time,.cmp-row .cm-cost{font-size:.74rem}
+  }
   .est-tag{font-style:normal;background:#cf8a2c;color:#fff;font-size:.62rem;font-weight:700;padding:1px 6px;border-radius:10px}
 
   .nights-inline{width:56px;font:inherit;font-weight:700;color:var(--green);text-align:center;background:#fff;
@@ -392,13 +399,16 @@
   .panel .select-wrap select,.panel input.origin-input,.panel input.num-input{background:var(--sand);border:1px solid var(--ink);border-radius:0}
   .nra-seg{display:flex;border:1px solid var(--ink);overflow:hidden;flex-wrap:wrap}
   .nra-seg span{flex:1;min-width:62px;text-align:center;padding:11px 6px;font-size:.76rem;font-weight:600;color:var(--muted);background:var(--sand);cursor:pointer;border-right:1px solid var(--ink);transition:.15s}
-  .nra-seg span:last-child{border-right:none}
+  /* no :last-child border removal here — the "narrow window" rule below
+     reorders these with CSS `order`, so the DOM-last item isn't always the
+     visually-last one; every pill keeps its border-right (harmless overlap
+     with the container's own border on the true last one) */
   .nra-seg span:hover{color:var(--ink)}
   .nra-seg span.on{background:var(--coral);color:#fff}
   .nra-chips{display:flex;gap:8px;flex-wrap:wrap}
   .nra-chips .lchip{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:8px 15px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:.15s}
   .nra-chips .lchip:hover{color:var(--ink);border-color:var(--teal)}
-  .nra-chips .lchip.on{background:rgba(63,81,56,.14);border-color:var(--teal);color:var(--ink)}
+  .nra-chips .lchip.on{background:var(--coral);border-color:var(--coral);color:#fff}
 
   /* ---- full-design v5: unify ALL finder fields to one spec (incl. date pickers) ---- */
   .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]),
@@ -508,6 +518,25 @@
   .tool-section[data-tool="finder"] .stepper-input:focus{border:none!important;outline:none}
   .tool-section[data-tool="finder"] .stepper-btn{border-radius:0}
   .tool-section[data-tool="finder"] .fld-travelers .stepper{margin:8px auto 0}
+
+  /* Clear colored focus ring on every interactive control in the finder
+     form — text fields, dropdowns, buttons, the pill/segmented choices,
+     chips, steppers, and the custom checkbox/radio pills — so it's always
+     obvious which field currently has focus, whether by mouse or keyboard. */
+  .tool-section[data-tool="finder"] .panel input:focus,
+  .tool-section[data-tool="finder"] .panel select:focus,
+  .tool-section[data-tool="finder"] .panel button:focus,
+  .tool-section[data-tool="finder"] .panel .nra-seg span:focus,
+  .tool-section[data-tool="finder"] .panel .nra-chips .lchip:focus{
+    outline:3px solid var(--coral)!important;
+    outline-offset:2px;
+  }
+  .tool-section[data-tool="finder"] .panel .mini-radio:focus-within,
+  .tool-section[data-tool="finder"] .panel .check-row:focus-within{
+    outline:3px solid var(--coral);
+    outline-offset:2px;
+    border-radius:4px;
+  }
 </style>
 </head>
 <body>
@@ -1391,7 +1420,7 @@ function finderCardHTML(r, rank, actLabel, budget){
         <div class="links-row">
           <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
           ${flightsLink}
-          <button type="button" class="trip-add-chip" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add ${c.city} to a trip or your wishlist">+ Add to trip</button>
+          <button type="button" class="trip-add-chip" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}" title="Add &quot;${c.city}&quot; to a trip or wishlist (Must be signed in to use this feature)">+ Add to a trip</button>
         </div>
       </div>
     </article>`;
@@ -2468,7 +2497,10 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
     items.forEach(function(it){
       var b=document.createElement('span'); if(chip) b.className='lchip';
       b.textContent=it.label; b.dataset.val=it.value;
-      b.addEventListener('click',function(){ sel.value=it.value; reflect(sel,nodes); sel.dispatchEvent(new Event('change',{bubbles:true})); });
+      b.tabIndex=0; b.setAttribute('role','button');
+      var pick=function(){ sel.value=it.value; reflect(sel,nodes); sel.dispatchEvent(new Event('change',{bubbles:true})); };
+      b.addEventListener('click',pick);
+      b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
       nodes.push(b); wrap.appendChild(b);
     });
     host.style.display='none';

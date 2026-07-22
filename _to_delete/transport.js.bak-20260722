@@ -149,123 +149,48 @@ window.NRA_TRANSPORT = (function(){
 
   const fmtH = h => h < 1 ? Math.round(h*60) + "m" : (h >= 24 ? Math.round(h/24*10)/10 + " days" : Math.round(h*10)/10 + "h");
 
-  /* =====================================================================
-     CONFIRMED-ROUTE LAYER (added 2026-07-22)
-     A mode is only offered when it can be PROVEN, never guessed:
-       • Plane – any two cities (commercial aviation is effectively
-                 universal); offered whenever they are >150 km apart.
-       • Car   – only when both cities sit on the SAME landmass (a real
-                 road connects them) that is genuinely road-linked, and
-                 the drive is within a sane range.
-       • Train – only when the destination has REAL rail service in the
-                 link-checked city-routes.js data AND is reachable
-                 overland from the origin (same landmass, sane range;
-                 domestic-only rail additionally requires same country).
-       • Bus   – same rule as train, using the researched coach data.
-       • Boat  – only when city-routes.js lists a CONFIRMED ferry whose
-                 route names the origin's country/city (either
-                 direction). No confirmed ferry ⇒ no boat. No more "if"s.
-     Fail-safe: if the researched data is missing on a page, the modes
-     that depend on it simply don't appear — we hide, we never guess.
-     ===================================================================== */
-  const TRAIN_MAX_KM = 2000, BUS_MAX_KM = 2500, FERRY_MAX_KM = 2000;
-  function stripAccents(x){ return String(x||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,""); }
-  function routeFor(city){
-    const R = window.NRA_ROUTES;
-    if (!R || !city) return null;
-    if (R[city]) return R[city];
-    const want = stripAccents(city);
-    for (const k in R){ if (stripAccents(k) === want) return R[k]; }
-    return null;
-  }
-  function hasRail(route){ return !!(route && route.train && ((route.train.intl && route.train.intl.length) || route.train.dom)); }
-  function railIsIntl(route){ return !!(route && route.train && route.train.intl && route.train.intl.length); }
-  function busIsIntl(route){ return !!(route && route.bus && route.bus.intl && route.bus.intl.length); }
-  /* A destination is road/rail-linked to the mainland (i.e. NOT an
-     isolated island) when the researched data shows real rail or real
-     international coach service reaching it. Used to keep ground modes
-     honest for island cities that share a mainland country's "region". */
-  function landConnected(route){ return hasRail(route) || busIsIntl(route); }
-  /* Does a CONFIRMED ferry link this origin & destination (either way)?
-     We match on the specific CITY named in the researched ferry route
-     (whole-word), NOT the country — a ferry to Bimini in the Bahamas
-     must NOT be counted as a ferry to Nassau. Returns the operator
-     name when a real link is found, else null. */
-  function ferryLink(origin, dest){
-    function cityMatches(text, city){
-      if (!city || city.length < 4) return false;
-      const esc = city.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      return new RegExp("\\b" + esc + "\\b").test(text);
-    }
-    function scan(route, city){
-      if (!route || !route.ferry || !route.ferry.intl) return null;
-      for (const f of route.ferry.intl){
-        if (cityMatches(stripAccents(f.to), city)) return f.op || "confirmed ferry";
-      }
-      return null;
-    }
-    // destination's ferry list names the origin city, OR origin's list
-    // (when it's a featured city) names the destination city.
-    return scan(routeFor(dest.city), stripAccents(origin.city)) ||
-           scan(routeFor(origin.city), stripAccents(dest.city));
-  }
-
-  /* Compare every mode for one origin/destination pair, showing ONLY
-     confirmed options. origin/dest: {lat,lng,region,country,city}.
-     opts.looseBoat is accepted for backward compatibility but no longer
-     loosens anything — boats always require a confirmed ferry.        */
+  /* Compare every mode for one origin/destination pair.
+     origin: {lat,lng,region}  dest: {lat,lng,region,coastal}
+     opts.looseBoat: offer boat on ANY short hop (≤1200 km), not just
+     cross-water ones — used by the dedicated Boat search, always
+     labeled "if a ferry runs this route".                          */
   function compareModes(origin, dest, opts){
     opts = opts || {};
     const km = distKm(origin, dest);
     const sameLand = origin.region && dest.region && origin.region === dest.region;
-    const sameCtry = sameCountry(origin.country, dest.country);
-    const HAVE_ROUTES = !!window.NRA_ROUTES;
-    const dRoute = routeFor(dest.city);
     const modes = [];
 
-    // Plane — commercial aviation connects essentially any two cities.
+    // Plane — always an option between cities this far apart.
     // Time is DOOR-TO-DOOR: air time + airport processing (2 h domestic,
-    // 3 h international) + the airport<->city-center transfer at both ends.
+    // 3 h international) + the airport↔city-center transfer at both ends.
     if (km > 150){
-      const groundH = (sameCtry ? 2 : 3) + (centerMin(origin) + centerMin(dest))/60;
+      const domestic = sameCountry(origin.country, dest.country);
+      const groundH  = (domestic ? 2 : 3) + (centerMin(origin) + centerMin(dest))/60;
       modes.push({ mode:"plane", icon:"✈", cost:Math.round(RATES.planeBase + km*RATES.planePerKm),
                    live:false, timeH: km/750 + groundH, door:true, note:"" });
     }
-
-    // Car — same landmass only (a real road connects them). When the
-    // researched data is present, also require the destination to be
-    // genuinely road/rail-linked (not an isolated island).
-    if (sameLand && km >= 40 && km <= 3500 && (!HAVE_ROUTES || landConnected(dRoute))){
-      const roadKm = km * ROAD_F;
-      const days = Math.max(1, Math.ceil(roadKm/650));
-      const stops = days - 1;   // nights sleeping en route on a multi-day drive
-      modes.push({ mode:"car", icon:"🚗", live:false,
-                   cost:Math.round(days*RATES.carRentalPerDay + (roadKm/100)*RATES.fuelPer100Km + stops*MOTEL_NIGHT),
-                   timeH: roadKm/85,
-                   note: days > 1 ? days + "-day drive (incl. " + stops + " night" + (stops>1?"s":"") + " en route)" : "" });
-    }
-
-    // Train — destination must have REAL rail service and be reachable
-    // overland; domestic-only rail requires the same country.
-    if (HAVE_ROUTES && sameLand && km >= 40 && km <= TRAIN_MAX_KM && hasRail(dRoute) && (railIsIntl(dRoute) || sameCtry)){
-      const rate = RATES.trainPerKm[dest.region] || RATES.trainPerKm[origin.region] || RATES.trainPerKm.default;
-      modes.push({ mode:"train", icon:"🚆", live:false, cost:Math.round(Math.max(10, km*RAIL_F*rate)), timeH: km*RAIL_F/105, note:"" });
-    }
-
-    // Bus — real coach service, reachable overland; international coach
-    // network or a same-country domestic network.
-    if (HAVE_ROUTES && sameLand && km >= 40 && km <= BUS_MAX_KM && landConnected(dRoute) && (busIsIntl(dRoute) || sameCtry)){
-      modes.push({ mode:"bus", icon:"🚌", live:false, cost:Math.round(Math.max(8, km*ROAD_F*RATES.busPerKm)), timeH: km*ROAD_F/70, note:"" });
-    }
-
-    // Boat — ONLY when a confirmed ferry links the two cities. The note
-    // carries the real operator name so travelers can look it up.
-    if (km <= FERRY_MAX_KM){
-      const op = ferryLink(origin, dest);
-      if (op){
-        modes.push({ mode:"boat", icon:"⛴", live:false, cost:Math.round(Math.max(25, km*RATES.boatPerKm)),
-                     timeH: km/35, note: op + " ferry" });
+    if (sameLand && km >= 40){
+      if (km <= 3500){ // Car — time, fuel and fares use estimated ROAD distance
+        const roadKm = km * ROAD_F;
+        const days = Math.max(1, Math.ceil(roadKm/650));
+        const stops = days - 1;   // nights sleeping en route on a multi-day drive
+        modes.push({ mode:"car", icon:"🚗", live:false,
+                     cost:Math.round(days*RATES.carRentalPerDay + (roadKm/100)*RATES.fuelPer100Km + stops*MOTEL_NIGHT),
+                     timeH: roadKm/85,
+                     note: days > 1 ? days + "-day drive (incl. " + stops + " night" + (stops>1?"s":"") + " en route)" : "" });
       }
+      if (km <= 3200){ // Train — estimated RAIL distance
+        const rate = RATES.trainPerKm[dest.region] || RATES.trainPerKm[origin.region] || RATES.trainPerKm.default;
+        modes.push({ mode:"train", icon:"🚆", live:false, cost:Math.round(Math.max(10, km*RAIL_F*rate)), timeH: km*RAIL_F/105, note:"" });
+      }
+      if (km <= 3000){ // Bus — estimated ROAD distance
+        modes.push({ mode:"bus", icon:"🚌", live:false, cost:Math.round(Math.max(8, km*ROAD_F*RATES.busPerKm)), timeH: km*ROAD_F/70, note:"" });
+      }
+    }
+    // Boat — short coastal hops only (real ferry availability varies)
+    if ((opts.looseBoat || !sameLand) && km <= 1200 && dest.coastal !== false){
+      modes.push({ mode:"boat", icon:"⛴", live:false, cost:Math.round(Math.max(25, km*RATES.boatPerKm)),
+                   timeH: km/35, note:"if a ferry runs this route" });
     }
 
     modes.sort((a,b)=> a.cost - b.cost);   // cheapest workable mode first
