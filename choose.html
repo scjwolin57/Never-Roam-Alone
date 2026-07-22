@@ -446,7 +446,7 @@
 
   /* ---- MATCH MOCKUP: exact 3-col grid, inputs fill their columns ---- */
   .tool-section[data-tool="finder"] .field-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 22px;align-items:start}
-  .tool-section[data-tool="finder"] .fld-love{grid-column:span 2}
+  .tool-section[data-tool="finder"] .fld-love{grid-column:auto}
   /* inputs fill the column (remove the earlier per-field width caps) */
   .tool-section[data-tool="finder"] .autocomplete,
   .tool-section[data-tool="finder"] .sw-narrow,
@@ -507,6 +507,7 @@
   .tool-section[data-tool="finder"] .stepper-input{width:56px!important;border:none!important;background:transparent!important;padding:12px 4px!important;font-family:inherit}
   .tool-section[data-tool="finder"] .stepper-input:focus{border:none!important;outline:none}
   .tool-section[data-tool="finder"] .stepper-btn{border-radius:0}
+  .tool-section[data-tool="finder"] .fld-travelers .stepper{margin:8px auto 0}
 </style>
 </head>
 <body>
@@ -606,23 +607,6 @@
             </select>
           </div>
         </div>
-        <div>
-          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
-          <datalist id="finderPassportList"></datalist>
-          <select id="finderPassport" hidden>
-            <option value="" selected>Not now</option>
-          </select>
-        </div>
-        <div id="lengthFields" hidden>
-          <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
-          <div class="stepper" id="nightsStepper">
-            <button type="button" class="stepper-btn" id="nightsMinus" aria-label="Fewer nights">&minus;</button>
-            <input type="number" id="nights" class="stepper-input" min="1" max="90" step="1" value="7" inputmode="numeric" aria-label="Trip length in nights" />
-            <button type="button" class="stepper-btn" id="nightsPlus" aria-label="More nights">+</button>
-          </div>
-          <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
-        </div>
         <div class="fld-when">
           <label class="field">When are you traveling?</label>
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
@@ -657,6 +641,23 @@
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
+          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
+          <datalist id="finderPassportList"></datalist>
+          <select id="finderPassport" hidden>
+            <option value="" selected>Not now</option>
+          </select>
+        </div>
+        <div id="lengthFields" hidden>
+          <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
+          <div class="stepper" id="nightsStepper">
+            <button type="button" class="stepper-btn" id="nightsMinus" aria-label="Fewer nights">&minus;</button>
+            <input type="number" id="nights" class="stepper-input" min="1" max="90" step="1" value="7" inputmode="numeric" aria-label="Trip length in nights" />
+            <button type="button" class="stepper-btn" id="nightsPlus" aria-label="More nights">+</button>
+          </div>
+          <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
         </div>
         <div>
           <label class="field" for="travelStyle">Travel budget style</label>
@@ -1071,6 +1072,7 @@ function selectOrigin(it){
   finderOriginList.hidden = true;
   renderFinder();
   saveState();
+  if(continentEl) continentEl.focus();   // move on to "Where in the world?" next
 }
 /* ---- mode-aware origin search ----------------------------------------
    What "Traveling from" suggests depends on "Get there by":
