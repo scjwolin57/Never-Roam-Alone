@@ -83,6 +83,7 @@
   label.field{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.15rem;margin-bottom:10px}
   .field-note{color:var(--muted);font-size:.95rem;margin:-4px 0 16px}
   .label-hint{display:inline-block;font-family:-apple-system,sans-serif;font-size:.82rem;font-weight:400;color:var(--muted)}
+  .req-asterisk{color:var(--coral);font-weight:700}
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-top:4px}
   .field-full{grid-column:1 / -1}
   @media(max-width:600px){.field-grid{grid-template-columns:1fr}}
@@ -115,6 +116,18 @@
   .ac-name{display:block;color:var(--muted);font-size:.78rem;font-weight:400}
   .ac-code{font-weight:800;color:var(--green);font-size:.9rem;flex-shrink:0;letter-spacing:.04em}
   .origin-status{font-size:.82rem;color:var(--muted);margin-top:10px}
+  .stepper{display:flex;align-items:stretch;width:fit-content;background:var(--sand);
+    border:2px solid rgba(63,81,56,.25);border-radius:12px;overflow:hidden}
+  .stepper-btn{flex:0 0 44px;width:44px;background:none;border:none;color:var(--ink);
+    font-size:1.25rem;font-weight:700;cursor:pointer;transition:background .15s,color .15s}
+  .stepper-btn:first-child{border-right:1px solid rgba(63,81,56,.25)}
+  .stepper-btn:last-child{border-left:1px solid rgba(63,81,56,.25)}
+  .stepper-btn:hover:not(:disabled){background:var(--coral);color:#fff}
+  .stepper-btn:disabled{opacity:.35;cursor:not-allowed}
+  .stepper-input{flex:1 1 56px;width:56px;min-width:0;text-align:center;border:none;background:transparent;
+    font-size:1.05rem;font-weight:700;color:var(--ink);padding:12px 4px;-moz-appearance:textfield}
+  .stepper-input::-webkit-outer-spin-button,.stepper-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .stepper-input:focus{outline:none}
   .check-row{display:flex;align-items:center;gap:10px;margin-top:12px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.9rem}
   .check-row input{width:18px;height:18px;accent-color:var(--green);cursor:pointer}
   .show-more{background:var(--green);color:#fff;font-weight:700;font-size:.9rem;border:none;border-radius:24px;padding:11px 24px;cursor:pointer;transition:background .2s}
@@ -460,6 +473,17 @@
   .tool-section[data-tool="finder"] .nra-seg span{min-width:0;flex:1 1 auto;font-size:.72rem;padding:11px 4px}
   .tool-section[data-tool="finder"] .nra-chips .lchip{font-size:.74rem;padding:8px 12px}
 
+  /* narrow window: send the default option ("Cheapest", "Anything — surprise
+     me", "Any budget") to the end of its pill/chip row instead of the start */
+  @media(max-width:620px){
+    #travelBySeg span:first-child,
+    #activityChips .lchip:first-child,
+    #travelStyleSeg span:first-child{order:1}
+    #travelBySeg span:not(:first-child),
+    #activityChips .lchip:not(:first-child),
+    #travelStyleSeg span:not(:first-child){order:0}
+  }
+
   /* ---- MATCH MOCKUP: When/view toggles -> squared seg (fix sliding-pill overlap) ---- */
   .tool-section[data-tool="finder"] .when-switch{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:0;gap:0;margin:2px 0 12px}
   .tool-section[data-tool="finder"] .when-switch::before{display:none!important}
@@ -476,6 +500,13 @@
   .card .visit,.season-pill,.bl-chip,.how-pill,.chip2,.badge,.est-tag,.live-tag,
   .bl-modal,.card-popup .maplibregl-popup-content,
   .ac-list,.ac-list li,.select-wrap select,.visa-filter,.bl-search,.nights-inline{border-radius:0!important}
+
+  /* Number-of-travelers stepper isn't a plain text field — keep its compact
+     pill layout instead of the finder's full-width square input styling */
+  .tool-section[data-tool="finder"] .stepper{width:fit-content!important;max-width:none;border:2px solid rgba(63,81,56,.25)!important;border-radius:12px!important;background:var(--sand)}
+  .tool-section[data-tool="finder"] .stepper-input{width:56px!important;border:none!important;background:transparent!important;padding:12px 4px!important;font-family:inherit}
+  .tool-section[data-tool="finder"] .stepper-input:focus{border:none!important;outline:none}
+  .tool-section[data-tool="finder"] .stepper-btn{border-radius:0}
 </style>
 </head>
 <body>
@@ -518,13 +549,12 @@
   <div class="chooser">
     <div class="panel">
       <span class="corner">Trip briefing &middot; 01</span>
-      <p class="field-note" style="margin-top:0">Fill in as much or as little as you like — every answer sharpens the match. We search all
-        <strong id="cityCount">101</strong> featured destinations.</p>
+      <p class="field-note" style="margin-top:0">Tell us where you're traveling from, then fill in as much or as little of the rest as you like — every answer sharpens the match.</p>
       <div class="field-grid">
         <div>
-          <label class="field" for="finderOrigin">Traveling from <span class="label-hint" id="originHint">(adds travel cost &amp; time to the math)</span></label>
+          <label class="field" for="finderOrigin">Traveling from <span class="req-asterisk" aria-hidden="true">*</span></label>
           <div class="autocomplete">
-            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" />
+            <input type="text" id="finderOrigin" class="origin-input" placeholder="Type your home city or airport code…" autocomplete="off" required aria-required="true" />
             <ul id="finderOriginList" class="ac-list" hidden></ul>
           </div>
           <label class="check-row" id="regionalRow">
@@ -617,6 +647,14 @@
           </div>
         </div>
         <div>
+          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
+          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
+          <datalist id="finderPassportList"></datalist>
+          <select id="finderPassport" hidden>
+            <option value="" selected>Not now</option>
+          </select>
+        </div>
+        <div>
           <label class="field" for="travelStyle">Travel budget style</label>
           <div class="select-wrap">
             <select id="travelStyle">
@@ -627,16 +665,16 @@
             </select>
           </div>
         </div>
-        <div>
-          <label class="field" for="finderPassport">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <div class="select-wrap sw-narrow">
-            <select id="finderPassport">
-              <option value="" selected>Not now</option>
-            </select>
+        <div class="fld-travelers">
+          <label class="field" for="numTravelers">Number of travelers</label>
+          <div class="stepper" id="travelersStepper">
+            <button type="button" class="stepper-btn" id="travelersMinus" aria-label="Fewer travelers">&minus;</button>
+            <input type="number" id="numTravelers" class="stepper-input" min="1" max="20" step="1" value="1" inputmode="numeric" aria-label="Number of travelers" />
+            <button type="button" class="stepper-btn" id="travelersPlus" aria-label="More travelers">+</button>
           </div>
         </div>
         <div>
-          <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, per person)</span></label>
+          <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, All Travelers)</span></label>
           <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
         </div>
       </div>
@@ -764,7 +802,6 @@
    SHARED
    ============================================================ */
 const CITIES = window.NRA_DESTINATIONS;
-document.getElementById("cityCount").textContent = CITIES.length;
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 
 /* Lazy background images — photos load only as their card nears the screen */
@@ -1040,27 +1077,22 @@ function selectOrigin(it){
      Boat        -> passenger ports & ferry terminals (OpenStreetMap)
    The OpenStreetMap searches use the free Photon geocoder.          */
 const regionalRow = document.getElementById("regionalRow");
-const originHint  = document.getElementById("originHint");
 const PHOTON_URL  = "https://photon.komoot.io/api/";
 const ORIGIN_MODE = {
   airport:{ tags:null, icon:"✈",
-            ph:"Type your home city or airport code…",
-            hint:"(city or airport code — adds travel cost & time to the math)", status:"" },
+            ph:"Type your home city or airport code (required — adds travel cost & time)…",
+            status:"" },
   station:{ tags:["railway:station"], icon:"🚆",
-            ph:"Type your city to find major train stations…",
-            hint:"(pick your departure train station)",
+            ph:"Type your city to find major train stations (required)…",
             status:"We'll suggest real train stations as you type (OpenStreetMap)." },
   bus:    { tags:["amenity:bus_station"], icon:"🚌",
-            ph:"Type your city to find major bus stations…",
-            hint:"(pick your departure bus station)",
+            ph:"Type your city to find major bus stations (required)…",
             status:"We'll suggest real bus stations as you type (OpenStreetMap)." },
   city:   { tags:["place:city","place:town","place:village"], icon:"📍",
-            ph:"Type your home city…",
-            hint:"(driving costs are estimated from your city)",
+            ph:"Type your home city (required)…",
             status:"" },
   port:   { tags:["amenity:ferry_terminal"], icon:"⛴",
-            ph:"Type your city to find passenger ports…",
-            hint:"(pick your departure port or ferry terminal)",
+            ph:"Type your city to find passenger ports (required)…",
             status:"We'll suggest passenger ports & ferry terminals as you type (OpenStreetMap)." }
 };
 function originKind(){
@@ -1070,7 +1102,6 @@ function originKind(){
 function updateOriginModeUI(){
   const cfg = ORIGIN_MODE[originKind()];
   finderOriginInput.placeholder = cfg.ph;
-  originHint.textContent = cfg.hint;
   regionalRow.hidden = !!cfg.tags;                 // regional-airports box only makes sense for flights
   renderAcList([]);
   if(cfg.tags) setAirportStatus(cfg.status);
@@ -1154,6 +1185,9 @@ const activityEl      = document.getElementById("activity");
 const travelByEl      = document.getElementById("travelBy");
 const totalBudgetEl   = document.getElementById("totalBudget");
 const travelStyleEl   = document.getElementById("travelStyle");
+const numTravelersEl  = document.getElementById("numTravelers");
+const travelersMinusEl= document.getElementById("travelersMinus");
+const travelersPlusEl = document.getElementById("travelersPlus");
 const nightsEl        = document.getElementById("nights");
 const sortByEl        = document.getElementById("sortBy");
 const finderPassportEl= document.getElementById("finderPassport");
@@ -1286,11 +1320,12 @@ function finderCardHTML(r, rank, actLabel, budget){
     why.push(`<div class="w"><span class="tick">✓</span><span>Editor's pick for ${r.fallbackPick}</span></div>`);
   }
   if(r.fitTotal != null){
-    const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))} ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ''} + ` : "";
+    const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))}/person ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ''} + ` : "";
     const fitBit = budget
       ? ` — fits your ${fmtMoney(budget)}`
       : "";
-    why.push(`<div class="w cost-highlight"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/day (${STYLE_LABEL[r.fitStyle]})${fitBit}</span></div>`);
+    const travBit = r.travelers > 1 ? ` for ${r.travelers} travelers` : "";
+    why.push(`<div class="w cost-highlight"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total${travBit}</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/person/day (${STYLE_LABEL[r.fitStyle]})${fitBit}</span></div>`);
   }
   if(r.m && r.fitTotal == null){
     why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ${MODE_NAMES[r.m.mode]} · ${r.m.live ? "" : "≈ "}${fmtMoney(r.m.cost)}${r.m.live ? ' <em class="live-tag">live</em>' : ''} ${oneWay ? "one-way" : "each way"} · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span>${r.m.door ? " door-to-door" : ""} · ${r.cmp.km.toLocaleString()} km${r.m.note ? " · "+r.m.note : ""}</span></div>`);
@@ -1458,10 +1493,21 @@ function renderFinder(){
   const cont   = continentEl.value;
   const mode   = travelByEl.value;
   const budget = Math.max(0, parseFloat(totalBudgetEl.value) || 0);
+  const travelers = clampTravelers(numTravelersEl.value);
   const nightsIn = computedNights();
   const pass   = finderPassportEl.value;
   let sortBy   = sortByEl.value;
   const geo    = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
+
+  /* "Traveling from" is required — no origin, no results */
+  if(!geo){
+    finderOriginInput.setCustomValidity("Please tell us where you're traveling from.");
+    if(finderMapWrap) finderMapWrap.hidden = true;
+    finderResults.innerHTML = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>` +
+      `<p class="empty">Tell us where you're traveling from above to see matches — it's required so we can work out travel cost & time.</p>`;
+    return;
+  }
+  finderOriginInput.setCustomValidity("");
 
   /* activity counts: use cache, or kick off a fetch and re-render when it lands */
   let counts = null, actLoading = false, actLabel = "";
@@ -1508,23 +1554,24 @@ function renderFinder(){
     const vi = pass ? visaInfoFor(pass, c) : null;
     if(vi && vi.cat === "no"){ hiddenEntry++; return; }   // no admission — don't recommend
 
-    /* budget math: round-trip travel + nights × daily cost, best style that fits */
+    /* budget math: round-trip travel + nights × daily cost, per traveler,
+       times the number of travelers — best style that fits the total budget */
     const trav = m ? tripCost(m) : 0;
     let fitStyle = null, fitTotal = null;
     const styleChoice = travelStyleEl.value;
     if(nights){
       if(styleChoice){
-        fitTotal = trav + nights*c.dailyCost[styleChoice];
+        fitTotal = travelers * (trav + nights*c.dailyCost[styleChoice]);
         if(budget && fitTotal > budget){ hiddenBudget++; return; }
         fitStyle = styleChoice;
       } else if(budget){
         for(const st of ["luxury","mid","budget"]){
-          const t = trav + nights*c.dailyCost[st];
+          const t = travelers * (trav + nights*c.dailyCost[st]);
           if(t <= budget){ fitStyle = st; fitTotal = t; break; }
         }
         if(!fitStyle){ hiddenBudget++; return; }
       } else {
-        fitStyle = "mid"; fitTotal = trav + nights*c.dailyCost.mid;
+        fitStyle = "mid"; fitTotal = travelers * (trav + nights*c.dailyCost.mid);
       }
     }
 
@@ -1540,14 +1587,14 @@ function renderFinder(){
     if(vi) score += vi.cat==="free" ? 12 : vi.cat==="voa" ? 9 : vi.cat==="eta" ? 8 : vi.cat==="evisa" ? 5 : 0;
     if(cmp) score += Math.max(0, 1 - cmp.km/20000)*8;                // closer is easier
 
-    rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights,
+    rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights, travelers,
                 count: counts ? counts[i] : null,
                 fallbackPick: fbIdx >= 0 ? act : null, score });
   });
 
   /* sort */
   if(sortBy === "near" && !geo) sortBy = "match";
-  const totalFor = r => r.fitTotal != null ? r.fitTotal : (r.m ? tripCost(r.m) : 0) + 7*r.c.dailyCost.mid;
+  const totalFor = r => r.fitTotal != null ? r.fitTotal : travelers*((r.m ? tripCost(r.m) : 0) + 7*r.c.dailyCost.mid);
   if(sortBy === "cost")         rows.sort((a,b)=> totalFor(a)-totalFor(b));
   else if(sortBy === "popular") rows.sort((a,b)=> b.c.visitors-a.c.visitors);
   else if(sortBy === "near")    rows.sort((a,b)=> a.cmp.km-b.cmp.km);
@@ -1570,7 +1617,6 @@ function renderFinder(){
   subBits.push(`Costs are estimates and should be used as reference only.`);
   if(actLoading) subBits.push(`Counting real ${actLabel} on OpenStreetMap — results will sharpen in a moment…`);
   else if(counts) subBits.push(`Activity ranking uses live <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a> venue counts.`);
-  if(budget && !geo) subBits.push(`Tip: add where you're traveling from and the math will include getting there.`);
   if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="7" aria-label="Trip length in nights"> -night trip — change the number to sharpen the math.`);
 
   if(!rows.length && isMapView()) finderMapWrap.hidden = true;
@@ -1671,6 +1717,17 @@ travelByEl.addEventListener("change", updateOriginModeUI);
     clearTimeout(numTimer);
     numTimer = setTimeout(()=>{ finderShowAll=false; renderFinder(); saveState(); }, 400);
   }));
+/* number-of-travelers stepper: +/- buttons and direct typing, clamped 1-20 */
+function clampTravelers(v){ v = parseInt(v,10); if(!v || v<1) v=1; if(v>20) v=20; return v; }
+function setTravelers(v){
+  numTravelersEl.value = clampTravelers(v);
+  travelersMinusEl.disabled = numTravelersEl.value === "1";
+  finderShowAll = false; renderFinder(); saveState();
+}
+travelersMinusEl.addEventListener("click", ()=> setTravelers(clampTravelers(numTravelersEl.value)-1));
+travelersPlusEl.addEventListener("click", ()=> setTravelers(clampTravelers(numTravelersEl.value)+1));
+numTravelersEl.addEventListener("change", ()=> setTravelers(numTravelersEl.value));
+travelersMinusEl.disabled = numTravelersEl.value === "1";
 document.querySelectorAll('input[name="whenMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="wayMode"]').forEach(el =>
@@ -1718,18 +1775,39 @@ const COUNTRIES = [
 ];
 const passport = document.getElementById("passport");
 let pendingPassport = null;
+/* passport autocomplete text field — same native <input list=…>/<datalist>
+   pattern as the "Find your embassy" box on the city guide pages, rather
+   than a custom-built dropdown. The real <select id="finderPassport"> stays
+   in the DOM (hidden) so all the existing finder/visa logic keeps working. */
+const finderPassportInput = document.getElementById("finderPassportInput");
+const finderPassportList  = document.getElementById("finderPassportList");
+function syncPassportInput(){ finderPassportInput.value = finderPassportEl.value || ""; }
 function fillPassportSelects(names){
   const keepV = passport.value, keepF = finderPassportEl.value;
   passport.innerHTML = '<option value="" selected disabled>Select your country…</option>';
   finderPassportEl.innerHTML = '<option value="" selected>Not now</option>';
+  finderPassportList.innerHTML = names.map(n => `<option value="${n}">`).join("");
   names.forEach(n=>{
     const o = document.createElement("option"); o.value=n; o.textContent=n; passport.appendChild(o);
     const o2 = document.createElement("option"); o2.value=n; o2.textContent=n; finderPassportEl.appendChild(o2);
   });
   if(names.includes(keepV)) passport.value = keepV;
   if(names.includes(keepF)) finderPassportEl.value = keepF;
+  syncPassportInput();
 }
 fillPassportSelects(COUNTRIES);
+
+/* same match-on-exact-typed-value logic as the embassy finder's embMatch/embUpdate */
+function passportOptions(){ return [...finderPassportEl.options].map(o=>o.value).filter(Boolean); }
+finderPassportInput.addEventListener("input", () => {
+  const typed = finderPassportInput.value.trim().toLowerCase();
+  const match = typed ? passportOptions().find(n => n.toLowerCase() === typed) : null;
+  if(match){
+    if(finderPassportEl.value !== match){ finderPassportEl.value = match; finderPassportEl.dispatchEvent(new Event("change",{bubbles:true})); }
+  } else if(finderPassportEl.value){
+    finderPassportEl.value = ""; finderPassportEl.dispatchEvent(new Event("change",{bubbles:true}));
+  }
+});
 
 const PI_URL = "https://cdn.jsdelivr.net/gh/ilyankou/passport-index-dataset@master/passport-index-tidy.csv";
 const visaStatus  = document.getElementById("visaStatus");
@@ -1884,7 +1962,7 @@ visaFilterHint.addEventListener("click", e => {
 passport.addEventListener("change", e => {
   activeCat = null; render(e.target.value);
   /* keep the finder in sync */
-  if(finderPassportEl.value !== e.target.value){ finderPassportEl.value = e.target.value; renderFinder(); }
+  if(finderPassportEl.value !== e.target.value){ finderPassportEl.value = e.target.value; syncPassportInput(); renderFinder(); }
   saveState();
 });
 visaFilter.addEventListener("input", () => {
@@ -1902,7 +1980,7 @@ fetch(PI_URL)
     const keepF = finderPassportEl.value || keepP;
     fillPassportSelects(parsed.passports);
     if(parsed.passports.includes(keepP)){ passport.value = keepP; render(keepP); }
-    if(keepF && parsed.passports.includes(keepF)){ finderPassportEl.value = keepF; }
+    if(keepF && parsed.passports.includes(keepF)){ finderPassportEl.value = keepF; syncPassportInput(); }
     pendingPassport = null;
     visaStatus.textContent = "Pick your passport to see entry requirements for every country.";
     renderFinder();   // badges can appear now
@@ -2146,6 +2224,7 @@ function saveState(){
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
       travelStyle: travelStyleEl.value,
+      travelers: numTravelersEl.value,
       nights: nightsEl.value,
       whenMode: whenMode(),
       departDate: departDateEl.value,
@@ -2170,6 +2249,7 @@ function loadState(){
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
   if(s.travelStyle) travelStyleEl.value = s.travelStyle;
+  if(s.travelers){ numTravelersEl.value = clampTravelers(s.travelers); travelersMinusEl.disabled = numTravelersEl.value === "1"; }
   if(s.nights) nightsEl.value = s.nights;
   if(s.whenMode){ const wr=document.querySelector(`input[name="whenMode"][value="${s.whenMode}"]`); if(wr) wr.checked=true; }
   if(s.departDate) departDateEl.value = s.departDate;
@@ -2180,7 +2260,7 @@ function loadState(){
   if(s.regional){ regionalPref = true; regionalBox.checked = true; }
   if(s.sortBy) sortByEl.value = s.sortBy;
   if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
-  if(s.finderPassport) finderPassportEl.value = s.finderPassport;
+  if(s.finderPassport){ finderPassportEl.value = s.finderPassport; syncPassportInput(); }
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
   if(s.bucketType){
     blType = s.bucketType;
@@ -2206,6 +2286,7 @@ function buildShareURL(){
   if(travelByEl.value && travelByEl.value !== "cheapest") p.set("tb", travelByEl.value);
   if(totalBudgetEl.value) p.set("bg", totalBudgetEl.value);
   if(travelStyleEl.value) p.set("sy", travelStyleEl.value);
+  if(clampTravelers(numTravelersEl.value) > 1) p.set("tv", numTravelersEl.value);
   p.set("wm", whenMode());
   if(whenMode()==="length"){ if(nightsEl.value) p.set("ni", nightsEl.value); }
   else { if(departDateEl.value) p.set("dd", departDateEl.value);
@@ -2237,6 +2318,8 @@ function applyShareParams(){
   if(bg > 0 && bg < 1e7) totalBudgetEl.value = Math.round(bg);
   const sy = inSet(p.get("sy"), ["budget","mid","luxury"]);
   if(sy) travelStyleEl.value = sy;
+  const tv = parseInt(p.get("tv"), 10);
+  if(tv >= 1 && tv <= 20){ numTravelersEl.value = tv; travelersMinusEl.disabled = tv === 1; }
   const wm = inSet(p.get("wm"), ["dates","length"]);
   if(wm){ const r = document.querySelector('input[name="whenMode"][value="'+wm+'"]'); if(r) r.checked = true; }
   const ni = parseInt(p.get("ni"), 10);
@@ -2358,10 +2441,10 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
    that reads those values and listens for their 'change' keeps working. */
 (function(){
   function reflect(sel, nodes){ nodes.forEach(function(n){ n.classList.toggle('on', n.dataset.val===sel.value); }); }
-  function build(id, items, cls, chip){
+  function build(id, items, cls, chip, wrapId){
     var sel=document.getElementById(id); if(!sel) return;
     var host=sel.closest('.select-wrap')||sel;
-    var wrap=document.createElement('div'); wrap.className=cls; var nodes=[];
+    var wrap=document.createElement('div'); wrap.className=cls; if(wrapId) wrap.id=wrapId; var nodes=[];
     items.forEach(function(it){
       var b=document.createElement('span'); if(chip) b.className='lchip';
       b.textContent=it.label; b.dataset.val=it.value;
@@ -2374,9 +2457,9 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
     sel.addEventListener('change',function(){ reflect(sel,nodes); });  // stay in sync if logic resets the value
   }
   function init(){
-    build('travelBy',[{value:'cheapest',label:'Cheapest'},{value:'fastest',label:'Fastest'},{value:'Plane',label:'Plane'},{value:'Train',label:'Train'},{value:'Bus',label:'Bus'},{value:'Car',label:'Car'},{value:'Boat',label:'Boat'}],'nra-seg',false);
-    build('activity',[{value:'',label:'Anything — surprise me'},{value:'Nightlife',label:'Nightlife'},{value:'Restaurants',label:'Restaurants'},{value:'Museums & Culture',label:'Museums & culture'},{value:'Architecture',label:'Architecture'},{value:'Nature',label:'Nature'}],'nra-chips',true);
-    build('travelStyle',[{value:'',label:'Any budget'},{value:'budget',label:'Backpacker'},{value:'mid',label:'Mid-range'},{value:'luxury',label:'High-end'}],'nra-seg',false);
+    build('travelBy',[{value:'cheapest',label:'Cheapest'},{value:'fastest',label:'Fastest'},{value:'Plane',label:'Plane'},{value:'Train',label:'Train'},{value:'Bus',label:'Bus'},{value:'Car',label:'Car'},{value:'Boat',label:'Boat'}],'nra-seg',false,'travelBySeg');
+    build('activity',[{value:'',label:'Anything — surprise me'},{value:'Nightlife',label:'Nightlife'},{value:'Restaurants',label:'Restaurants'},{value:'Museums & Culture',label:'Museums & culture'},{value:'Architecture',label:'Architecture'},{value:'Nature',label:'Nature'}],'nra-chips',true,'activityChips');
+    build('travelStyle',[{value:'',label:'Any budget'},{value:'budget',label:'Backpacker'},{value:'mid',label:'Mid-range'},{value:'luxury',label:'High-end'}],'nra-seg',false,'travelStyleSeg');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
 })();
