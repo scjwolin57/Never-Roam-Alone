@@ -92,3 +92,22 @@ span.flatpickr-weekday{
 
 /* every date input gets the calendar cursor */
 input[type="date"], input.flatpickr-input{ cursor:pointer; }
+
+/* ---- narrow screens: the calendar popup is normally a fixed ~308px wide,
+   which can spill past a narrow form/viewport (phones, or a browser window
+   just resized down to check mobile). Let it shrink to fit instead. ---- */
+@media(max-width:480px){
+  .flatpickr-calendar{
+    width:calc(100vw - 24px) !important;
+    max-width:307.875px !important;
+    min-width:0 !important;
+  }
+  .flatpickr-innerContainer,
+  .flatpickr-rContainer,
+  .flatpickr-days,
+  .dayContainer{
+    width:100% !important;
+    min-width:0 !important;
+    max-width:100% !important;
+  }
+}

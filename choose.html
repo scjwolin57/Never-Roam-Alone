@@ -104,7 +104,7 @@
     font-family:inherit;transition:.15s}
   .share-btn:hover{background:var(--coral);color:#fff}
   .share-note{font-size:.82rem;font-weight:700;color:var(--green)}
-  @media(max-width:600px){.results-bar{padding:22px 22px 0}.results-bar .select-wrap{min-width:0;flex:1}}
+  @media(max-width:600px){.results-bar{padding:22px 22px 0;flex-wrap:wrap;row-gap:10px}.results-bar #shareBtn{margin-right:0}.results-bar label[for="sortBy"]{flex:1 1 auto;white-space:nowrap}.results-bar .select-wrap{min-width:0;flex:1 1 100%}}
   .autocomplete{position:relative}
   .origin-input,.num-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
     border:2px solid rgba(63,81,56,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
@@ -467,6 +467,20 @@
   .tool-section[data-tool="finder"] #returnDate,
   .tool-section[data-tool="finder"] .origin-input,
   .tool-section[data-tool="finder"] .num-input{max-width:none!important;width:100%}
+
+  /* Departure/Return: flatpickr swaps in its own visible input (the desktop
+     altInput, or on real mobile browsers a plain native <input type=date>)
+     that does NOT carry the #departDate/#returnDate id — only the "num-input
+     flatpickr-input" classes — so it can slip past the id-based width rules
+     above and end up wider than every other field. Pin it down explicitly,
+     on every possible variant, so it always matches its column exactly. */
+  .tool-section[data-tool="finder"] .date-row,
+  .tool-section[data-tool="finder"] .date-row > div{max-width:100%;box-sizing:border-box}
+  .tool-section[data-tool="finder"] .date-row input{
+    box-sizing:border-box!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
   @media(max-width:900px){
     .tool-section[data-tool="finder"] .field-grid{grid-template-columns:repeat(2,1fr)!important}
     .tool-section[data-tool="finder"] .fld-love{grid-column:1/-1}
@@ -1783,7 +1797,29 @@ document.querySelectorAll('input[name="wayMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="viewMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
-departDateEl.addEventListener("change", ()=>{ if(departDateEl.value){ returnDateEl.min = departDateEl.value; if(fp_return) fp_return.set("minDate", departDateEl.value); } finderShowAll=false; renderFinder(); saveState(); });
+/* after a departure date is chosen: (a) stop the return calendar from
+   allowing anything earlier than it, clearing an already-picked return
+   date that's now invalid, and (b) move focus along — to Return Date for
+   round trips, or to the next field (My passport) for one-way trips */
+function focusVisibleDateInput(fpInst, nativeEl){
+  const el = (fpInst && fpInst.altInput) ? fpInst.altInput : nativeEl;
+  if(el && el.focus) el.focus();
+}
+function afterDepartDatePicked(){
+  if(!departDateEl.value) return;
+  returnDateEl.min = departDateEl.value;
+  if(fp_return) fp_return.set("minDate", departDateEl.value);
+  if(returnDateEl.value && returnDateEl.value < departDateEl.value){
+    returnDateEl.value = "";
+    if(fp_return) fp_return.clear();
+  }
+  if(isOneWay()){
+    if(finderPassportInput) finderPassportInput.focus();
+  } else {
+    focusVisibleDateInput(fp_return, returnDateEl);
+  }
+}
+departDateEl.addEventListener("change", ()=>{ afterDepartDatePicked(); finderShowAll=false; renderFinder(); saveState(); });
 returnDateEl.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); });
 finderPassportEl.addEventListener("change", ()=>{
   finderShowAll=false;
@@ -2423,7 +2459,8 @@ syncWhenUI();
    already put on the real inputs */
 let fp_depart = null, fp_return = null;
 if (window.flatpickr){
-  fp_depart = flatpickr(departDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: "today" });
+  fp_depart = flatpickr(departDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: "today",
+    onChange: ()=> afterDepartDatePicked() });
   fp_return = flatpickr(returnDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: departDateEl.value || "today" });
 }
 updateOriginModeUI();
