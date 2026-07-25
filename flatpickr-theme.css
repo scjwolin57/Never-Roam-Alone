@@ -94,12 +94,19 @@ span.flatpickr-weekday{
 input[type="date"], input.flatpickr-input{ cursor:pointer; }
 
 /* ---- narrow screens: the calendar popup is normally a fixed ~308px wide,
-   which can spill past a narrow form/viewport (phones, or a browser window
-   just resized down to check mobile). Let it shrink to fit instead. ---- */
+   which can spill past a narrow form (phones, or a browser window resized
+   down to check mobile). The date fields are set up with flatpickr's
+   "static" mode, which attaches the calendar inside the field's own wrapper
+   (instead of the page body) — so pinning it to 100% width here ties it to
+   the exact width of the field itself, matching every other field on the
+   form, rather than to the viewport (which can be wider than the form). ---- */
 @media(max-width:480px){
   .flatpickr-calendar{
-    width:calc(100vw - 24px) !important;
-    max-width:307.875px !important;
+    position:absolute !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    max-width:100% !important;
     min-width:0 !important;
   }
   .flatpickr-innerContainer,

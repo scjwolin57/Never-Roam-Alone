@@ -97,6 +97,15 @@
   .date-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
   .date-row input[type=date]{min-width:0}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
+  /* flatpickr's popup calendar is set to "static" (below) so it attaches
+     inside this wrapper instead of the page body — that's what lets us pin
+     its width to the exact width of the field instead of the viewport.
+     flatpickr's own .flatpickr-wrapper defaults to inline-block (shrinks to
+     fit its content) — stretch it to the full field width so the calendar's
+     100%-width rule (in flatpickr-theme.css) measures against the actual
+     field width instead of that shrunken size. */
+  .date-row > div{position:relative}
+  .date-row .flatpickr-wrapper{display:block;width:100%}
   .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
   .results-bar .select-wrap{min-width:210px}
   .share-btn{display:inline-flex;align-items:center;gap:7px;background:#fff;border:2px solid var(--teal);
@@ -679,8 +688,8 @@
                 <input type="date" id="departDate" class="num-input" />
               </div>
               <div id="returnWrap">
-                <label class="field" for="returnDate">Return</label>
-                <input type="date" id="returnDate" class="num-input" />
+                <label class="field" for="returnDate">Return <span class="req-asterisk" aria-hidden="true">*</span></label>
+                <input type="date" id="returnDate" class="num-input" required aria-required="true" />
               </div>
             </div>
           </div>
@@ -1560,6 +1569,17 @@ function renderFinder(){
   }
   finderOriginInput.setCustomValidity("");
 
+  /* Return date is required whenever you're planning to come back (round
+     trip) with specific dates chosen — mirrors the "Traveling from" guard */
+  if(whenMode()==="dates" && !isOneWay() && !returnDateEl.value){
+    returnDateEl.setCustomValidity("Please choose a return date.");
+    if(finderMapWrap) finderMapWrap.hidden = true;
+    finderResults.innerHTML = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>` +
+      `<p class="empty">Choose a return date above to see matches — it's required for round trips.</p>`;
+    return;
+  }
+  returnDateEl.setCustomValidity("");
+
   /* activity counts: use cache, or kick off a fetch and re-render when it lands */
   let counts = null, actLoading = false, actLabel = "";
   if(act){
@@ -1668,7 +1688,11 @@ function renderFinder(){
   subBits.push(`Costs are estimates and should be used as reference only.`);
   if(actLoading) subBits.push(`Counting real ${actLabel} on OpenStreetMap — results will sharpen in a moment…`);
   else if(counts) subBits.push(`Activity ranking uses live <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">OpenStreetMap</a> venue counts.`);
-  if(nightsAssumed && (budget || geo)) subBits.push(`Assuming a <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="7" aria-label="Trip length in nights"> -night trip — change the number to sharpen the math.`);
+  /* editable nights shortcut only makes sense in Flexible/Trip-length mode
+     (specific-dates trips get their length from the calendar instead) —
+     and it must keep showing after you use it, so it mirrors the current
+     value rather than a condition that flips off once you've changed it */
+  if(whenMode()==="length") subBits.push(`Trip length: <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="${nightsIn}" aria-label="Trip length in nights"> nights — adjust here or in the form above.`);
 
   if(!rows.length && isMapView()) finderMapWrap.hidden = true;
   if(!rows.length){
@@ -1734,19 +1758,15 @@ function renderFinder(){
   }
 }
 
-/* editable "Assuming a 7-night trip" number (delegated — note re-renders) */
+/* editable nights shortcut in the results section (delegated — note
+   re-renders). Only shown in Flexible/Trip-length mode already, so this
+   just updates the shared nights value in place — no mode-switching here,
+   which is what used to make the control vanish right after you used it. */
 finderResults.addEventListener("change", e=>{
   if(e.target.id !== "nightsInline") return;
   const v = parseInt(e.target.value, 10);
   if(!(v > 0)) return;
-  const lr = document.querySelector('input[name="whenMode"][value="length"]');
-  if(lr) lr.checked = true;                 // switch to Trip length mode
-  nightsEl.value = clampNights(v);
-  nightsMinusEl.disabled = nightsEl.value === "1";
-  syncWhenUI();
-  finderShowAll = false;
-  renderFinder();
-  saveState();
+  setNights(v);
 });
 
 /* "Compare all ways" expander (delegated — cards re-render often) */
@@ -1794,7 +1814,13 @@ nightsMinusEl.disabled = nightsEl.value === "1";
 document.querySelectorAll('input[name="whenMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
 document.querySelectorAll('input[name="wayMode"]').forEach(el =>
-  el.addEventListener("change", ()=>{ syncWhenUI(); finderShowAll=false; renderFinder(); saveState(); }));
+  el.addEventListener("change", ()=>{
+    syncWhenUI();
+    /* switching to "I plan to return" — send focus straight to Return Date,
+       since it's now a required field */
+    if(el.value === "return") focusVisibleDateInput(fp_return, returnDateEl);
+    finderShowAll=false; renderFinder(); saveState();
+  }));
 document.querySelectorAll('input[name="viewMode"]').forEach(el =>
   el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
 /* after a departure date is chosen: (a) stop the return calendar from
@@ -2457,11 +2483,17 @@ syncWhenUI();
 /* calendar date pickers (replace the tiny native ones, esp. on Safari) —
    set up last so they pick up whatever value loadState()/applyShareParams()
    already put on the real inputs */
+/* disableMobile:true — without this, flatpickr swaps in the PHONE'S OWN
+   native date control on real mobile browsers (esp. iOS Safari), and that
+   native control ignores our width/max-width CSS and renders at its own
+   fixed intrinsic size, which is what was pushing it past the edge of the
+   form on phones. Forcing our own calendar+text-input everywhere keeps the
+   field the same width as every other field on every device. */
 let fp_depart = null, fp_return = null;
 if (window.flatpickr){
-  fp_depart = flatpickr(departDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: "today",
+  fp_depart = flatpickr(departDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: "today", disableMobile: true, static: true,
     onChange: ()=> afterDepartDatePicked() });
-  fp_return = flatpickr(returnDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: departDateEl.value || "today" });
+  fp_return = flatpickr(returnDateEl, { dateFormat: "Y-m-d", altInput: true, altFormat: "D, M j, Y", minDate: departDateEl.value || "today", disableMobile: true, static: true });
 }
 updateOriginModeUI();
 renderFinder();
