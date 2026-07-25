@@ -1,0 +1,30 @@
+[
+  {
+    "city": "George Town (Cayman Islands)", "country": "Cayman Islands", "visitors": 2.0, "pop": "41K",
+    "lat": 19.2964, "lng": -81.3817,
+    "tagline": "Caribbean offshore-banking capital ringed by white sand, coral reefs, and cruise ships.",
+    "temps": {"q1":81,"q2":85,"q3":88,"q4":84}, "rain": {"q1":210,"q2":320,"q3":430,"q4":463},
+    "langs": [{"l":"English","p":95},{"l":"Spanish","p":15},{"l":"Filipino/Tagalog","p":8}],
+    "currency":"KYD", "currency_symbol":"CI$", "currency_name":"Cayman Islands Dollar", "usd_rate":0.85,
+    "card":95, "cost":{"hotel":320,"meal":30,"taxi":15}, "hotel":{"b":150,"h":700},
+    "rides":[],
+    "taxi":{"color":"white with a light blue CAYMAN taxi decal","fare":"flat zone rate","fareNote":"Cayman taxis use government-regulated flat fares by zone rather than meters; confirm the fare for your destination before departing. There is no Uber or Lyft on the islands."},
+    "emergency":{"police":"911","medical":"911","note":"911 is the single emergency number for police, fire, and ambulance across the Cayman Islands."},
+    "religion":[{"r":"Protestant","p":50},{"r":"Roman Catholic","p":15},{"r":"Church of God","p":9}],
+    "stay":4, "visit":[[1,2],[3,4],[5,7],[10,14]], "walk":50,
+    "safety":{"safety":70,"crime":30},
+    "hood_landmark":{"Downtown George Town":"George Town, Cayman Islands","Seven Mile Beach":"Seven Mile Beach, Cayman Islands","Camana Bay":"Camana Bay","West Bay":"Cayman Turtle Centre","East End":"Wreck of the Ten Sail"},
+    "hoods":["Downtown George Town","Seven Mile Beach","Camana Bay","West Bay","East End"],
+    "hood_desc":["The compact capital and cruise port, with the National Museum, duty-free jewelry shops, and government offices around Hog Sty Bay; best for first-timers who want history and walkable dining near the harbor.","Grand Cayman's famous stretch of white sand lined with beachfront resorts, condos, and restaurants; suits travelers who want a classic beach vacation within reach of nightlife.","A planned waterfront town center of boutiques, a cinema, restaurants, and an observation tower between George Town and Seven Mile Beach; good for shopping and family-friendly evenings.","A quieter residential district home to the Cayman Turtle Centre, Hell, and Cemetery Beach; suits travelers wanting local sights and calmer beaches away from the resort strip.","A remote, laid-back stretch of coastline known for its dive sites, blow holes, and the Wreck of the Ten Sail; suits divers and travelers seeking a slower, less touristy pace."],
+    "hood_tags":["central","nightlife","shopping","sights","quiet"],
+    "lodging":[["Margaritaville Beach Resort Grand Cayman","Sunset House","Eldemire's Tropical Island Inn"],["The Ritz-Carlton, Grand Cayman","Grand Cayman Marriott Resort","Hampton by Hilton Grand Cayman Seven Mile Beach"],["Kimpton Seafire Resort + Spa","The Westin Grand Cayman Seven Mile Beach Resort & Spa","The Locale Hotel Grand Cayman"],["The Grand Caymanian Resort","Sunset Cove Condominiums","Coconut Bay Villas"],["Wyndham Reef Resort","Compass Point Dive Resort","Cayman Diving Lodge"]],
+    "drinks":{"coffee":4.5,"beer":6,"water":2},
+    "transit":{"sys":[{"n":"Public route buses (mini-buses)","t":"Bus"}],"hours":"Privately-run route buses (blue license plates) operate roughly 6am-midnight on main corridors like Seven Mile Beach and George Town; frequency drops sharply off those routes.","pay":"Cash fare paid to the driver on boarding (a few CI dollars); no rechargeable transit card.","map":"https://www.exploregov.ky","note":"Grand Cayman has no rail or metro. Route buses cover Seven Mile Beach, George Town, and West Bay, but a rental car or taxi is the practical way to reach Camana Bay, East End, or North Side."},
+    "transport":{"air":["Owen Roberts International Airport (GCM)"],"train":[],"bus":["Public route buses (Seven Mile Beach, George Town, West Bay corridors)"],"ferry":["Cruise tender service from anchored ships into George Town Harbour (no scheduled inter-island ferries)"],"car":{"side":"left","idp":"Recommended","rental":55}},
+    "airport":{"name":"Owen Roberts International Airport (GCM)","km":3,"drive":"10 min","transit":[{"m":"Taxi to downtown George Town (10 min)","c":15},{"m":"Taxi to Seven Mile Beach (15-20 min)","c":25}],"taxi":15,"ride":{"avail":"none","cost":0},"carService":30,"rentals":["Avis","Hertz","Budget","Andy's Rent-A-Car"]},
+    "net":{"m":60,"w":70,"ops":["Flow (C&W)","Digicel"],"gb":3,"fw":"low","fwn":2,"ap":2},
+    "tip":{"s":"customary","r":"A 10-15% service charge is usually added automatically to restaurant bills; if not, tipping 10-15% is expected. Taxi drivers and hotel staff are typically tipped 10-15%, or a few dollars per bag/service."},
+    "region":"cayman", "coastal":true, "dailyCost":{"budget":110,"mid":280,"luxury":700},
+    "score":{"nightlife":45,"restaurants":65,"museums":30,"architecture":35,"nature":80}
+  }
+]

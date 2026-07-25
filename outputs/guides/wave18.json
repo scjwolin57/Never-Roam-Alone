@@ -1,0 +1,1688 @@
+[
+  {
+    "city": "Chamonix-Mont-Blanc",
+    "country": "France",
+    "visitors": 5.0,
+    "pop": "~8,700 (commune; urban area ~12,200)",
+    "lat": 45.9237,
+    "lng": 6.8694,
+    "tagline": "The birthplace of alpinism, beneath Western Europe's highest peak and the world's highest cable car ascent",
+    "temps": {
+      "q1": 28,
+      "q2": 48,
+      "q3": 62,
+      "q4": 42
+    },
+    "rain": {
+      "q1": 90,
+      "q2": 100,
+      "q3": 100,
+      "q4": 100
+    },
+    "langs": [
+      "French",
+      "English (widely spoken due to international mountaineering tourism)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for mountain refuges and small shops",
+    "cost": {
+      "hotel": 130,
+      "meal": 22,
+      "taxi": 9
+    },
+    "hotel": {
+      "b": "$50-80",
+      "h": "$180-450"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €4 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard; the free local bus (Chamonix Bus) covers most valley trips"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number; mountain rescue (PGHM) is reached via 112"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Aiguille du Midi cable car to 3,842m",
+        "Mer de Glace glacier via the Montenvers rack railway",
+        "Chamonix's pedestrian old town"
+      ],
+      [
+        "Mont Blanc massif hiking or the Tour du Mont Blanc trail",
+        "Planpraz and Brévent cable car for panoramic views",
+        "Alpine Museum of Chamonix"
+      ],
+      [
+        "Skiing or snowboarding the Grands Montets/Argentière ski area (winter)",
+        "day trip to Courmayeur, Italy via the Mont Blanc Tunnel",
+        "paragliding over the valley (summer)"
+      ]
+    ],
+    "walk": "Central Chamonix is compact and walkable; the surrounding villages (Argentière, Les Praz, Les Bossons) require the free local bus or a car",
+    "safety": {
+      "safety": "Very safe town; the main risks are mountain-related (weather, altitude, glacier travel) rather than crime",
+      "crime": "Petty theft is rare; standard mountain safety precautions apply for hikers and climbers"
+    },
+    "hood_landmark": {
+      "Chamonix Centre": "The Aiguille du Midi cable car base station",
+      "Argentière": "The Grands Montets ski lift base",
+      "Les Praz-de-Chamonix": "The Flégère cable car base and golf course",
+      "Les Bossons": "The Bossons glacier viewpoint",
+      "Le Tour": "Le Tour's quiet ski lift base at the valley's northern end"
+    },
+    "hoods": [
+      "Chamonix Centre",
+      "Argentière",
+      "Les Praz-de-Chamonix",
+      "Les Bossons",
+      "Le Tour"
+    ],
+    "hood_desc": [
+      "The lively pedestrian core with the Aiguille du Midi lift, most restaurants, shops, and mountaineering outfitters; the natural base for any visit.",
+      "A quieter alpine village further up the valley, home to the Grands Montets ski area and a more local feel.",
+      "A residential hamlet with its own cable car up to the Flégère balcony trail, good for a calmer stay with valley views.",
+      "A small settlement near the Bossons glacier, one of the most easily viewed glaciers in the valley from the road.",
+      "The northernmost, quietest village in the valley, popular with families and cross-country skiers seeking fewer crowds."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Mont-Blanc",
+        "Grand Hotel des Alpes",
+        "Hameau Albert 1er"
+      ],
+      [
+        "La Dame Blanche",
+        "Hotel Montana Chamonix",
+        "Argentière chalets"
+      ],
+      [
+        "Les Praz boutique guesthouses",
+        "Flégère-view chalets",
+        "Golf course-area B&Bs"
+      ],
+      [
+        "Bossons-area guesthouses",
+        "Glacier-view chalets",
+        "Family-run inns"
+      ],
+      [
+        "Le Tour ski lodges",
+        "Cross-country lodge stays",
+        "Quiet valley-end guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.2,
+      "beer": 3.5,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "Chamonix Bus (free local network) and the Mont-Blanc Express mountain train linking valley villages",
+      "hours": "Roughly 7am-8pm, extended in ski season",
+      "pay": "Free on Chamonix Bus with a valid lift pass or lodging card; the Mont-Blanc Express requires a ticket",
+      "map": "https://www.chamonix-bus.com/",
+      "note": "The free valley bus makes a car unnecessary for most visitors"
+    },
+    "transport": {
+      "air": "Geneva Airport (GVA, Switzerland), about 1 hr away; Lyon-Saint Exupéry (LYS) is a further alternative",
+      "train": "Mont-Blanc Express narrow-gauge train connects Chamonix to Martigny, Switzerland; TGV to Saint-Gervais-Le Fayet connects to Paris",
+      "bus": "Direct shuttle buses run from Geneva Airport",
+      "ferry": "",
+      "car": "Well connected via the Mont Blanc Tunnel to Italy and the A40 motorway from Geneva/Lyon"
+    },
+    "airport": {
+      "code": "GVA",
+      "name": "Geneva Airport",
+      "distance": "~88 km (1 hr) from Chamonix",
+      "transport": "Direct shuttle bus, train via Martigny, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G in the valley, patchier at altitude",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% is appreciated for mountain guides",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 65,
+      "mid": 170,
+      "luxury": 380
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 60,
+      "museums": 30,
+      "architecture": 35,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Carcassonne",
+    "country": "France",
+    "visitors": 3.0,
+    "pop": "~46,000",
+    "lat": 43.213,
+    "lng": 2.3491,
+    "tagline": "A double-walled medieval fortress city, the largest of its kind still standing in Europe",
+    "temps": {
+      "q1": 46,
+      "q2": 62,
+      "q3": 82,
+      "q4": 60
+    },
+    "rain": {
+      "q1": 45,
+      "q2": 45,
+      "q3": 40,
+      "q4": 55
+    },
+    "langs": [
+      "French",
+      "Occitan (regional minority language)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small shops within La Cité",
+    "cost": {
+      "hotel": 85,
+      "meal": 15,
+      "taxi": 7
+    },
+    "hotel": {
+      "b": "$35-55",
+      "h": "$120-260"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €3.50 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Cité de Carcassonne fortified walls and towers",
+        "Basilica of Saints Nazarius and Celsus",
+        "Château Comtal museum"
+      ],
+      [
+        "Ville Basse (Lower Town) squares and markets",
+        "Canal du Midi towpath walk",
+        "Carcassonne Cathedral"
+      ],
+      [
+        "Languedoc vineyard day trips",
+        "Lac de la Cavayère for swimming and watersports",
+        "night illumination of La Cité (July 14 Bastille Day fireworks)"
+      ]
+    ],
+    "walk": "La Cité's cobbled streets are compact and walkable (though steep in places); the Ville Basse across the Aude River is a separate 15-20 min walk or short bus/taxi ride",
+    "safety": {
+      "safety": "Very safe city, popular with visitors of all ages",
+      "crime": "Petty theft in crowded La Cité during peak season is the main concern"
+    },
+    "hood_landmark": {
+      "La Cité (Walled Citadel)": "The Château Comtal and Basilica within the double walls",
+      "Ville Basse (Lower Town)": "Place Carnot's market square",
+      "Pont Vieux Area": "The medieval Pont Vieux bridge over the Aude River",
+      "Canal du Midi (Bassin)": "The Canal du Midi's tree-lined port basin",
+      "Trivalle": "The Trivalle quarter beneath La Cité's walls"
+    },
+    "hoods": [
+      "La Cité (Walled Citadel)",
+      "Ville Basse (Lower Town)",
+      "Pont Vieux Area",
+      "Canal du Midi (Bassin)",
+      "Trivalle"
+    ],
+    "hood_desc": [
+      "The famous double-walled medieval fortress with 52 towers, restaurants, and shops; the essential base for first-time visitors, though very touristy by day.",
+      "The newer 19th-century town across the river, with everyday shops, markets, and more affordable dining away from the tourist crowds.",
+      "The historic bridge connecting La Cité and the Lower Town, with good photo views back up at the fortress walls.",
+      "A pleasant canal port with tree-shaded quays, popular for boat trips and cycling along the Canal du Midi.",
+      "A quiet residential quarter directly beneath La Cité's ramparts, offering a more local, budget-friendly base."
+    ],
+    "hood_tags": [
+      "sights",
+      "shopping",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel de la Cite",
+        "Hotel du Chateau",
+        "La Cite boutique guesthouses"
+      ],
+      [
+        "Hotel Montsegur",
+        "Ibis Carcassonne Centre",
+        "Ville Basse guesthouses"
+      ],
+      [
+        "Pont Vieux-area B&Bs",
+        "Riverside guesthouses",
+        "Bridge-view apartments"
+      ],
+      [
+        "Canal-side hotels",
+        "Bassin-area guesthouses",
+        "Houseboat rentals"
+      ],
+      [
+        "Trivalle guesthouses",
+        "Budget local inns",
+        "Rampart-view apartments"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 3.0,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "CARCA urban bus network",
+      "hours": "Roughly 6:30am-8pm",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.carcassonne-agglo.fr/carca",
+      "note": "A shuttle bus connects La Cité to the Ville Basse and train station in peak season"
+    },
+    "transport": {
+      "air": "Carcassonne Airport (CCF) has budget flights from the UK and elsewhere in Europe; Toulouse-Blagnac (TLS) is a larger alternative about 1 hr away",
+      "train": "TGV and regional trains connect to Toulouse and onward to the rest of France",
+      "bus": "Regional buses connect to nearby Languedoc towns",
+      "ferry": "",
+      "car": "Well connected via the A61 motorway; parking is available near La Cité and in the Ville Basse"
+    },
+    "airport": {
+      "code": "CCF",
+      "name": "Carcassonne Airport",
+      "distance": "~5 km (10 min) from the city center",
+      "transport": "Airport shuttle bus or taxi"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 110,
+      "luxury": 240
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 55,
+      "museums": 55,
+      "architecture": 95,
+      "nature": 30
+    }
+  },
+  {
+    "city": "Biarritz",
+    "country": "France",
+    "visitors": 2.5,
+    "pop": "~26,000",
+    "lat": 43.4832,
+    "lng": -1.5586,
+    "tagline": "A Belle Époque beach resort on the Basque coast, and the birthplace of European surfing",
+    "temps": {
+      "q1": 48,
+      "q2": 60,
+      "q3": 72,
+      "q4": 58
+    },
+    "rain": {
+      "q1": 130,
+      "q2": 110,
+      "q3": 90,
+      "q4": 150
+    },
+    "langs": [
+      "French",
+      "Basque (regional minority language)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small shops and beach vendors",
+    "cost": {
+      "hotel": 130,
+      "meal": 20,
+      "taxi": 8
+    },
+    "hotel": {
+      "b": "$50-80",
+      "h": "$180-420"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €4 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Grande Plage beach and the Hotel du Palais",
+        "Rocher de la Vierge viewpoint",
+        "Cite de l'Ocean (surf and ocean museum)"
+      ],
+      [
+        "Surfing lessons at the Cote des Basques",
+        "Biarritz Aquarium (Musee de la Mer)",
+        "Les Halles covered market"
+      ],
+      [
+        "Day trip to San Sebastian, Spain (about 45 min away)",
+        "Basque coastal villages of Saint-Jean-de-Luz and Guethary",
+        "Biarritz Golf Club (one of France's oldest)"
+      ]
+    ],
+    "walk": "Central Biarritz and its beaches are compact and walkable; surf spots along the Cote des Basques are a scenic coastal walk or short bus ride",
+    "safety": {
+      "safety": "Very safe resort town, popular with families and surfers alike",
+      "crime": "Petty theft on crowded beaches is the main concern"
+    },
+    "hood_landmark": {
+      "Grande Plage": "The Grande Plage and Hotel du Palais",
+      "Cote des Basques": "The Cote des Basques surf beach",
+      "Port Vieux": "The sheltered Port Vieux swimming cove",
+      "Les Halles / Town Center": "Biarritz's Les Halles covered market",
+      "Rocher de la Vierge": "The Rocher de la Vierge statue and footbridge"
+    },
+    "hoods": [
+      "Grande Plage",
+      "Cote des Basques",
+      "Port Vieux",
+      "Les Halles / Town Center",
+      "Rocher de la Vierge"
+    ],
+    "hood_desc": [
+      "The grand main beach lined with the historic Hotel du Palais and casino, the postcard image of Biarritz.",
+      "The birthplace of European surfing, with consistent beach breaks and surf schools lining the promenade.",
+      "A small, sheltered cove popular with families for calmer swimming than the open Atlantic beaches.",
+      "The lively market and shopping district just inland from the beaches, with the best everyday dining options.",
+      "A rocky outcrop connected by footbridge, offering dramatic ocean views and a lighthouse-lined coastal walk."
+    ],
+    "hood_tags": [
+      "sights",
+      "nightlife",
+      "quiet",
+      "shopping",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Hotel du Palais",
+        "Regina Experimental Biarritz",
+        "Grande Plage boutique hotels"
+      ],
+      [
+        "Cote des Basques surf hostels",
+        "Beachfront surf lodges",
+        "Surf-school guesthouses"
+      ],
+      [
+        "Port Vieux guesthouses",
+        "Cove-view apartments",
+        "Family-friendly hotels"
+      ],
+      [
+        "Les Halles-district hotels",
+        "Central market-area guesthouses",
+        "Budget Biarritz inns"
+      ],
+      [
+        "Rocher-area boutique hotels",
+        "Coastal viewpoint B&Bs",
+        "Lighthouse-walk guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.0,
+      "beer": 3.5,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "Chronoplus urban bus network (also serves Bayonne and Anglet)",
+      "hours": "Roughly 6am-9pm",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.chronoplus.eu/",
+      "note": "Central Biarritz is very walkable; buses connect to Bayonne, Anglet, and the airport"
+    },
+    "transport": {
+      "air": "Biarritz Pays Basque Airport (BIQ), about 10 min from downtown",
+      "train": "TGV and regional trains connect via Biarritz-La Negresse station to Bordeaux and Paris",
+      "bus": "Regional buses connect to San Sebastian, Spain and other Basque coast towns",
+      "ferry": "",
+      "car": "Well connected via the A63 motorway; parking near the beaches fills quickly in summer"
+    },
+    "airport": {
+      "code": "BIQ",
+      "name": "Biarritz Pays Basque Airport",
+      "distance": "~3 km (10 min) from downtown",
+      "transport": "Bus, taxi, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for surf instructors and guides",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 60,
+      "mid": 155,
+      "luxury": 340
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 65,
+      "museums": 40,
+      "architecture": 60,
+      "nature": 75
+    }
+  },
+  {
+    "city": "Saint-Tropez",
+    "country": "France",
+    "visitors": 3.5,
+    "pop": "~3,600",
+    "lat": 43.2677,
+    "lng": 6.6407,
+    "tagline": "The French Riviera's glamorous yacht harbor, made famous by Brigitte Bardot and jet-set summers",
+    "temps": {
+      "q1": 54,
+      "q2": 66,
+      "q3": 80,
+      "q4": 62
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 45,
+      "q3": 20,
+      "q4": 90
+    },
+    "langs": [
+      "French"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted, including at high-end beach clubs; cash useful for small vendors",
+    "cost": {
+      "hotel": 220,
+      "meal": 35,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$90-150",
+      "h": "$350-1200 (luxury properties much higher)"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, but often high fixed rates in peak season",
+      "fareNote": "Taxis are expensive and scarce in high season; book ahead or use the seasonal shuttle boat from Sainte-Maxime"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "The Old Port and its superyacht harbor",
+        "Place des Lices for pétanque and the daily market",
+        "Musée de l'Annonciade modern art museum"
+      ],
+      [
+        "Pampelonne Beach and its famous beach clubs",
+        "the 16th-century Citadelle de Saint-Tropez",
+        "old town lanes of La Ponche"
+      ],
+      [
+        "Day trip to Port Grimaud ('the Provençal Venice')",
+        "coastal boat tour along the Gulf of Saint-Tropez",
+        "Ramatuelle and Gassin hilltop villages"
+      ]
+    ],
+    "walk": "The old town and port are compact and walkable; Pampelonne Beach is a few km out and best reached by bike, taxi, or the seasonal beach shuttle",
+    "safety": {
+      "safety": "Very safe town, though extremely crowded and expensive in peak summer",
+      "crime": "Petty theft near the port and beach clubs during peak season is the main concern"
+    },
+    "hood_landmark": {
+      "Vieux Port (Old Port)": "The Old Port's superyacht-lined quay",
+      "La Ponche": "La Ponche's pastel fishermen's quarter",
+      "Place des Lices": "Place des Lices' plane-tree-shaded pétanque square and market",
+      "Pampelonne Beach": "Pampelonne Beach's row of exclusive beach clubs",
+      "La Citadelle": "The Citadelle de Saint-Tropez hilltop fortress"
+    },
+    "hoods": [
+      "Vieux Port (Old Port)",
+      "La Ponche",
+      "Place des Lices",
+      "Pampelonne Beach",
+      "La Citadelle"
+    ],
+    "hood_desc": [
+      "The glamorous yacht-lined harbor with cafes made for people-watching; the beating heart of Saint-Tropez.",
+      "The oldest, most photogenic quarter of pastel fishermen's houses and narrow lanes, quieter than the port.",
+      "A shaded square hosting the Saturday market and games of pétanque, ringed by cafes popular with locals.",
+      "A famous sweep of sandy beach a short drive south of town, lined with celebrity-favorite beach clubs and restaurants.",
+      "A hilltop fortress above the old town offering the best panoramic views over the gulf and rooftops."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "hipster",
+      "nightlife",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Hotel Byblos",
+        "Chateau de la Messardiere",
+        "Port-view boutique hotels"
+      ],
+      [
+        "La Ponche Hotel",
+        "Pastel quarter guesthouses",
+        "Fishermen's quarter B&Bs"
+      ],
+      [
+        "Place des Lices-area hotels",
+        "Market-square guesthouses",
+        "Central Saint-Tropez inns"
+      ],
+      [
+        "Club 55",
+        "Nikki Beach",
+        "Pampelonne beachfront resorts"
+      ],
+      [
+        "Citadelle-view guesthouses",
+        "Hilltop boutique stays",
+        "Fortress-area B&Bs"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 6.0,
+      "water": 2.0
+    },
+    "transit": {
+      "sys": "VarLib regional bus and seasonal shuttle boats across the Gulf of Saint-Tropez",
+      "hours": "Roughly 7am-8pm, extended in summer",
+      "pay": "Cash or contactless card on board; boat tickets purchased at the dock",
+      "map": "https://www.varlib.fr/",
+      "note": "The seasonal boat shuttle from Sainte-Maxime avoids notorious summer road traffic into Saint-Tropez"
+    },
+    "transport": {
+      "air": "Nice Cote d'Azur Airport (NCE), about 1.5 hr away; Toulon-Hyeres Airport (TLN) is a closer alternative",
+      "train": "No direct rail; nearest stations are Saint-Raphael or Les Arcs-Draguignan, connected by bus",
+      "bus": "VarLib buses connect to Saint-Raphael, Toulon, and other Riviera towns",
+      "ferry": "Seasonal boats connect to Sainte-Maxime, Nice, and Cannes",
+      "car": "Notorious summer traffic jams on the approach roads; many visitors prefer the boat shuttle"
+    },
+    "airport": {
+      "code": "NCE",
+      "name": "Nice Cote d'Azur Airport",
+      "distance": "~100 km (1.5-2 hr) from Saint-Tropez",
+      "transport": "Shuttle bus/transfer, or helicopter transfer in peak season"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated",
+      "r": "Service is included by law, though rounding up is common at upscale restaurants and beach clubs"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 100,
+      "mid": 260,
+      "luxury": 700
+    },
+    "score": {
+      "nightlife": 80,
+      "restaurants": 75,
+      "museums": 35,
+      "architecture": 55,
+      "nature": 55
+    }
+  },
+  {
+    "city": "Mont-Saint-Michel",
+    "country": "France",
+    "visitors": 3.0,
+    "pop": "~25 (commune; a working abbey and hotel village)",
+    "lat": 48.6361,
+    "lng": -1.5115,
+    "tagline": "A tidal island abbey rising from the sand, France's most-visited landmark outside Paris",
+    "temps": {
+      "q1": 43,
+      "q2": 56,
+      "q3": 68,
+      "q4": 54
+    },
+    "rain": {
+      "q1": 75,
+      "q2": 55,
+      "q3": 55,
+      "q4": 85
+    },
+    "langs": [
+      "French",
+      "English (widely used given international tourism)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small shops on the mount",
+    "cost": {
+      "hotel": 140,
+      "meal": 20,
+      "taxi": 10
+    },
+    "hotel": {
+      "b": "$55-90",
+      "h": "$180-380"
+    },
+    "rides": [
+      "Free shuttle from the mainland parking area",
+      "local taxi companies from nearby towns"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Flat rate typically negotiated for transfers from nearby towns",
+      "fareNote": "Most visitors arrive via the free shuttle from the mainland car park rather than a taxi directly to the mount"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (the abbey remains an active monastic community)"
+    ],
+    "stay": "1",
+    "visit": [
+      [
+        "Mont-Saint-Michel Abbey and its Romanesque church",
+        "the Grande Rue's medieval shops and pastry stalls",
+        "the abbey cloister and ramparts walk"
+      ],
+      [
+        "Walking (or guided crossing) of the bay at low tide",
+        "views of the record 14-meter tidal swing",
+        "Musee Historique and the Archeoscope"
+      ],
+      [
+        "Sunset and night illumination views from across the bay",
+        "nearby Avranches Scriptorial manuscript museum",
+        "kayaking or sand-yachting in the bay (with a guide, due to quicksand and tidal risk)"
+      ]
+    ],
+    "walk": "The mount itself is compact but steep, with a single main pedestrian street and ramparts walk; the surrounding bay must only be crossed with a guide due to dangerous tides and quicksand",
+    "safety": {
+      "safety": "Very safe, though the bay's tides are genuinely dangerous — never walk into the bay without a licensed guide",
+      "crime": "Petty theft in crowded midday periods is the main concern; the real hazard is the tide, not crime"
+    },
+    "hood_landmark": {
+      "The Abbey": "The Mont-Saint-Michel Abbey church and cloister",
+      "Grande Rue": "The Grande Rue's medieval shops and La Mere Poulard restaurant",
+      "Ramparts": "The fortified ramparts walk encircling the village",
+      "Mainland Visitor Village": "The mainland shuttle terminal and visitor center",
+      "Bay Crossing Area": "The tidal bay's guided low-tide walking routes"
+    },
+    "hoods": [
+      "The Abbey",
+      "Grande Rue",
+      "Ramparts",
+      "Mainland Visitor Village",
+      "Bay Crossing Area"
+    ],
+    "hood_desc": [
+      "The Gothic-Romanesque abbey crowning the mount, the reason the site exists and the highlight of any visit.",
+      "The single steep pedestrian street winding up from the gate, lined with souvenir shops, crêperies, and the famous Mère Poulard omelette restaurant.",
+      "The fortified walls circling the base of the mount, offering some of the best photo views back toward the abbey.",
+      "The mainland hub a couple km away with parking, hotels, and the free shuttle bus or footbridge walk to the mount.",
+      "The vast tidal bay surrounding the mount, walkable only with a licensed guide due to fast-moving tides and quicksand."
+    ],
+    "hood_tags": [
+      "sights",
+      "shopping",
+      "sights",
+      "central",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "La Mere Poulard Hotel",
+        "Auberge Saint Pierre",
+        "Abbey-view guesthouses"
+      ],
+      [
+        "Grande Rue boutique hotels",
+        "Historic village inns",
+        "Shop-lined lane guesthouses"
+      ],
+      [
+        "Rampart-view B&Bs",
+        "Wall-adjacent guesthouses",
+        "Village accommodations"
+      ],
+      [
+        "Le Relais du Roy",
+        "Mercure Mont Saint Michel",
+        "Mainland hotels near the shuttle terminal"
+      ],
+      [
+        "Bay-view mainland guesthouses",
+        "Guide-arranged overnight packages",
+        "Nearby coastal B&Bs"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 5.5,
+      "water": 2.0
+    },
+    "transit": {
+      "sys": "Free shuttle bus (navette) between the mainland car park and the mount",
+      "hours": "Roughly 7:30am-midnight, adjusted seasonally",
+      "pay": "Free with mainland parking fee",
+      "map": "https://www.ot-montsaintmichel.com/",
+      "note": "Private cars are not permitted onto the mount itself; visitors park on the mainland and take the shuttle or walk the footbridge"
+    },
+    "transport": {
+      "air": "Rennes Airport (RNS) or Caen-Carpiquet, both roughly 1-1.5 hr away",
+      "train": "Nearest TGV stations are Rennes or Pontorson-Mont-Saint-Michel, connected by shuttle bus",
+      "bus": "Direct shuttle buses run seasonally from Rennes, Saint-Malo, and Pontorson",
+      "ferry": "",
+      "car": "A large mainland car park serves the site; the mount itself is car-free"
+    },
+    "airport": {
+      "code": "RNS",
+      "name": "Rennes Airport (main regional gateway)",
+      "distance": "~65 km (1 hr) from Mont-Saint-Michel",
+      "transport": "Shuttle bus, train plus bus, or rental car"
+    },
+    "net": {
+      "m": "Good 4G coverage on the mount and mainland",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for bay-crossing guides",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 55,
+      "mid": 145,
+      "luxury": 320
+    },
+    "score": {
+      "nightlife": 10,
+      "restaurants": 50,
+      "museums": 55,
+      "architecture": 98,
+      "nature": 60
+    }
+  },
+  {
+    "city": "Sharm El Sheikh",
+    "country": "Egypt",
+    "visitors": 4.0,
+    "pop": "~77,000",
+    "lat": 27.9158,
+    "lng": 34.33,
+    "tagline": "A Red Sea dive capital on the Sinai Peninsula's tip, with coral walls just offshore from all-inclusive resorts",
+    "temps": {
+      "q1": 65,
+      "q2": 82,
+      "q3": 93,
+      "q4": 78
+    },
+    "rain": {
+      "q1": 2,
+      "q2": 1,
+      "q3": 0,
+      "q4": 2
+    },
+    "langs": [
+      "Arabic",
+      "English (widely spoken in resort areas)",
+      "Russian (common due to tourism)"
+    ],
+    "currency": "EGP",
+    "currency_symbol": "ج.م",
+    "currency_name": "Egyptian Pound",
+    "usd_rate": 49,
+    "card": "Widely accepted at hotels and larger restaurants; cash useful for the Old Market and taxis",
+    "cost": {
+      "hotel": 90,
+      "meal": 12,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$35-60",
+      "h": "$140-350 (many all-inclusive)"
+    },
+    "rides": [
+      "Uber (limited)",
+      "Careem",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Negotiated flat rate, as meters are uncommon",
+      "fareNote": "Agree the fare before departure; hotel-arranged transfers are common and reliable"
+    },
+    "emergency": {
+      "police": "122",
+      "medical": "123 (ambulance)",
+      "note": "Tourist police (180) can assist with English-language support"
+    },
+    "religion": [
+      "Islam (Sunni majority)",
+      "Christianity (Coptic minority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Naama Bay's promenade of hotels, restaurants, and shops",
+        "Ras Mohammed National Park snorkeling/diving",
+        "the Old Market (Sharm El Maya)"
+      ],
+      [
+        "Scuba diving at Shark Reef and Yolanda Reef",
+        "Tiran Island snorkeling day trip",
+        "Sharm El Sheikh Museum"
+      ],
+      [
+        "Desert safari or quad-biking excursion",
+        "Colored Canyon day trip",
+        "sunset felucca or glass-bottom boat cruise"
+      ]
+    ],
+    "walk": "Naama Bay and the resort strip are walkable; the Old Market and other neighborhoods require a taxi",
+    "safety": {
+      "safety": "Generally safe in the resort areas, with a strong tourist police presence; check current travel advisories for the wider Sinai region",
+      "crime": "Petty theft and overcharging by unlicensed vendors are the main practical concerns"
+    },
+    "hood_landmark": {
+      "Naama Bay": "Naama Bay's beachfront promenade of hotels and restaurants",
+      "Old Market (Sharm El Maya)": "The Old Market's Bedouin crafts and traditional cafes",
+      "Hadaba": "Hadaba's clifftop resort hotels overlooking the bay",
+      "Nabq Bay": "Nabq Bay's quieter northern resort strip",
+      "Ras Um Sid": "Ras Um Sid's lighthouse dive and snorkel site"
+    },
+    "hoods": [
+      "Naama Bay",
+      "Old Market (Sharm El Maya)",
+      "Hadaba",
+      "Nabq Bay",
+      "Ras Um Sid"
+    ],
+    "hood_desc": [
+      "The lively main resort strip with the highest concentration of hotels, restaurants, dive shops, and nightlife.",
+      "The original town center with traditional souks, spice shops, and a more authentically Egyptian atmosphere.",
+      "A clifftop area of upscale resorts with panoramic Red Sea views, a short drive from Naama Bay's action.",
+      "A quieter, more family-oriented resort area north of the main strip, popular for calmer beaches.",
+      "A rocky headland with excellent house-reef snorkeling and diving, backed by a cluster of resort hotels."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "shopping",
+      "sights",
+      "quiet",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Four Seasons Resort Sharm El Sheikh",
+        "Rixos Sharm El Sheikh",
+        "Naama Bay budget hotels"
+      ],
+      [
+        "Old Market guesthouses",
+        "Sharm El Maya budget hotels",
+        "Traditional Bedouin-style stays"
+      ],
+      [
+        "Reef Oasis Blue Bay Resort",
+        "Renaissance Sharm El Sheikh",
+        "Hadaba clifftop resorts"
+      ],
+      [
+        "Baron Palace Sahl Hasheesh (nearby)",
+        "Nabq Bay family resorts",
+        "Quiet northern strip hotels"
+      ],
+      [
+        "Ras Um Sid dive resorts",
+        "Reef-access boutique hotels",
+        "Snorkel-friendly guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.5,
+      "beer": 3.5,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "No formal municipal bus network; hotel shuttles and taxis are the norm",
+      "hours": "Taxis run around the clock in resort areas",
+      "pay": "Cash to the driver",
+      "map": "Not centrally published; hotels arrange transport and excursions",
+      "note": "Most visitors book excursions and airport transfers through their hotel or a tour operator"
+    },
+    "transport": {
+      "air": "Sharm El Sheikh International Airport (SSH), about 15-20 min from Naama Bay",
+      "train": "No passenger rail service to Sharm El Sheikh",
+      "bus": "Long-distance buses connect to Cairo and other Egyptian cities (long journey)",
+      "ferry": "",
+      "car": "Rental cars are available but most visitors rely on taxis and hotel transfers"
+    },
+    "airport": {
+      "code": "SSH",
+      "name": "Sharm El Sheikh International Airport",
+      "distance": "~12 km (15-20 min) from Naama Bay",
+      "transport": "Hotel shuttle or taxi"
+    },
+    "net": {
+      "m": "Good 4G coverage in resort areas",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Vodafone Egypt, Orange Egypt, Etisalat Misr",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Vodafone or Orange Egypt tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% is customary for dive guides and tour operators",
+      "r": "10% is standard, though often added automatically at resort restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 40,
+      "mid": 100,
+      "luxury": 250
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 55,
+      "museums": 25,
+      "architecture": 30,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Hurghada",
+    "country": "Egypt",
+    "visitors": 9.0,
+    "pop": "~214,000",
+    "lat": 27.2579,
+    "lng": 33.8116,
+    "tagline": "A sprawling Red Sea resort city with reef-fringed islands, diving, and Egypt's largest aquarium",
+    "temps": {
+      "q1": 64,
+      "q2": 82,
+      "q3": 95,
+      "q4": 78
+    },
+    "rain": {
+      "q1": 2,
+      "q2": 1,
+      "q3": 0,
+      "q4": 2
+    },
+    "langs": [
+      "Arabic",
+      "English (widely spoken in resort areas)",
+      "German and Russian (common due to tourism)"
+    ],
+    "currency": "EGP",
+    "currency_symbol": "ج.م",
+    "currency_name": "Egyptian Pound",
+    "usd_rate": 49,
+    "card": "Widely accepted at hotels and larger restaurants; cash useful for El Dahar market and taxis",
+    "cost": {
+      "hotel": 75,
+      "meal": 10,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$25-45",
+      "h": "$110-280 (many all-inclusive)"
+    },
+    "rides": [
+      "Uber (limited)",
+      "Careem",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white/orange",
+      "fare": "Negotiated flat rate, as meters are uncommon",
+      "fareNote": "Agree the fare before departure; hotel-arranged transfers are common"
+    },
+    "emergency": {
+      "police": "122",
+      "medical": "123 (ambulance)",
+      "note": "Tourist police (180) can assist with English-language support"
+    },
+    "religion": [
+      "Islam (Sunni majority)",
+      "Christianity (Coptic minority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Hurghada Grand Aquarium",
+        "El Dahar's traditional bazaars",
+        "Al Mina Mosque"
+      ],
+      [
+        "Giftun Islands snorkeling and diving day trip",
+        "Sekalla (El Saqqala) waterfront promenade",
+        "Hurghada Museum"
+      ],
+      [
+        "Desert safari with Bedouin dinner",
+        "Mahmya Beach island excursion",
+        "submarine or glass-bottom boat tour"
+      ]
+    ],
+    "walk": "Sekalla and El Mamsha waterfront strips are walkable; El Dahar and other districts require a taxi given the city's sprawl",
+    "safety": {
+      "safety": "Generally safe in the resort and tourist zones, with a visible tourist police presence",
+      "crime": "Petty theft and persistent vendors/touts in markets are the main practical concerns"
+    },
+    "hood_landmark": {
+      "El Dahar": "El Dahar's traditional souks and Al Mina Mosque",
+      "Sekalla (El Saqqala)": "Sekalla's busy Sheraton Road hotel and shopping strip",
+      "El Mamsha": "El Mamsha's newer waterfront promenade",
+      "El Ahyaa": "El Ahyaa's residential and mid-range resort area",
+      "Giftun Islands (day-trip)": "The protected Giftun Islands snorkeling reefs"
+    },
+    "hoods": [
+      "El Dahar",
+      "Sekalla (El Saqqala)",
+      "El Mamsha",
+      "El Ahyaa",
+      "Giftun Islands (day-trip)"
+    ],
+    "hood_desc": [
+      "The oldest part of Hurghada, with traditional bazaars, cheaper eats, and the long-distance bus station.",
+      "The historic tourist core along Sheraton Road, packed with hotels, shops, and restaurants.",
+      "A newer waterfront strip north of Sekalla with more contemporary hotels, restaurants, and shops.",
+      "A quieter, more residential district with mid-range and budget resorts, less central than Sekalla.",
+      "A cluster of protected coral islands a short boat ride offshore, essential for snorkeling and diving day trips."
+    ],
+    "hood_tags": [
+      "shopping",
+      "central",
+      "nightlife",
+      "quiet",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "El Dahar budget hotels",
+        "Old town guesthouses",
+        "Traditional market-area inns"
+      ],
+      [
+        "Steigenberger Al Dau Beach Hotel",
+        "Sunrise Grand Select Crystal Bay",
+        "Sekalla budget hotels"
+      ],
+      [
+        "El Mamsha waterfront resorts",
+        "Promenade-view hotels",
+        "Mid-range beach hotels"
+      ],
+      [
+        "El Ahyaa family resorts",
+        "Quiet residential-area hotels",
+        "Budget all-inclusive resorts"
+      ],
+      [
+        "Giftun Island day-trip boats",
+        "Snorkel-tour operators",
+        "Island excursion packages"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.0,
+      "beer": 3.0,
+      "water": 0.4
+    },
+    "transit": {
+      "sys": "Local minibuses along the main coastal road; hotel shuttles common",
+      "hours": "Minibuses run roughly daylight to evening hours",
+      "pay": "Cash to the driver",
+      "map": "Not centrally published; ask locally for minibus routes",
+      "note": "Most visitors rely on taxis or hotel-arranged transport given the city's spread-out layout"
+    },
+    "transport": {
+      "air": "Hurghada International Airport (HRG), about 15-20 min from Sekalla",
+      "train": "No passenger rail service to Hurghada",
+      "bus": "Long-distance buses connect to Cairo, Luxor, and other Egyptian cities",
+      "ferry": "Seasonal boats connect to Sharm El Sheikh across the Red Sea",
+      "car": "Rental cars available; most visitors use taxis and hotel transfers"
+    },
+    "airport": {
+      "code": "HRG",
+      "name": "Hurghada International Airport",
+      "distance": "~6 km (15-20 min) from Sekalla",
+      "transport": "Hotel shuttle or taxi"
+    },
+    "net": {
+      "m": "Good 4G coverage in resort areas",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Vodafone Egypt, Orange Egypt, Etisalat Misr",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Vodafone or Orange Egypt tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% is customary for dive guides and tour operators",
+      "r": "10% is standard, though often added automatically at resort restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 80,
+      "luxury": 200
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 50,
+      "museums": 30,
+      "architecture": 25,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Dahab",
+    "country": "Egypt",
+    "visitors": 0.5,
+    "pop": "~3,200",
+    "lat": 28.5091,
+    "lng": 34.5136,
+    "tagline": "A laid-back Sinai backpacker town famous for the Blue Hole dive site and cheap beachfront cafes",
+    "temps": {
+      "q1": 68,
+      "q2": 82,
+      "q3": 95,
+      "q4": 78
+    },
+    "rain": {
+      "q1": 1,
+      "q2": 0,
+      "q3": 0,
+      "q4": 1
+    },
+    "langs": [
+      "Arabic",
+      "English (widely spoken due to backpacker/diving tourism)"
+    ],
+    "currency": "EGP",
+    "currency_symbol": "ج.م",
+    "currency_name": "Egyptian Pound",
+    "usd_rate": 49,
+    "card": "Accepted at larger dive centers and hotels; cash preferred at beachfront cafes and markets",
+    "cost": {
+      "hotel": 40,
+      "meal": 7,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$12-25",
+      "h": "$60-160"
+    },
+    "rides": [
+      "Local taxi companies",
+      "hotel/dive-center shuttles"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Dahab is small enough to walk or bike between most areas; taxis mainly used for airport transfers or desert excursions"
+    },
+    "emergency": {
+      "police": "122",
+      "medical": "123 (ambulance)",
+      "note": "Tourist police (180) can assist with English-language support"
+    },
+    "religion": [
+      "Islam (Sunni majority)",
+      "Christianity (Coptic minority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "The Blue Hole diving/snorkeling site",
+        "Lighthouse Reef for beginner diving",
+        "Dahab's laid-back beachfront cafe strip"
+      ],
+      [
+        "Windsurfing or kitesurfing at the lagoon",
+        "Bedouin dinner and stargazing in the desert",
+        "Canyon (Wadi Ghazala) day trip"
+      ],
+      [
+        "Freediving courses (Dahab is a major global freediving hub)",
+        "camel trek into the mountains",
+        "day trip to Mount Sinai and St. Catherine's Monastery"
+      ]
+    ],
+    "walk": "Central Dahab (Masbat and Mashraba) is very walkable along the beachfront promenade; the Blue Hole and Canyon require a short taxi ride",
+    "safety": {
+      "safety": "Generally safe and relaxed, popular with solo travelers and long-term digital nomads; check current travel advisories for the wider Sinai region",
+      "crime": "Very low crime; diving safety (especially at the Blue Hole) is the main practical caution"
+    },
+    "hood_landmark": {
+      "Masbat / Asalah": "Masbat's beachfront promenade of cafes and dive shops",
+      "Mashraba": "Mashraba's central restaurant and shopping strip",
+      "Medina": "Medina's quieter residential area",
+      "The Blue Hole": "The famous Blue Hole dive site north of town",
+      "The Lagoon": "The Lagoon's windsurfing and kitesurfing school area"
+    },
+    "hoods": [
+      "Masbat / Asalah",
+      "Mashraba",
+      "Medina",
+      "The Blue Hole",
+      "The Lagoon"
+    ],
+    "hood_desc": [
+      "The bohemian northern beachfront strip of cushion-seated cafes, dive centers, and budget guesthouses, the heart of Dahab's backpacker scene.",
+      "The central strip with the highest concentration of restaurants, shops, and mid-range hotels.",
+      "A quieter, more residential area to the south, popular for longer stays away from the tourist bustle.",
+      "A world-famous (and genuinely hazardous for untrained divers) sinkhole dive site a short drive north of town.",
+      "A shallow lagoon south of town that's one of the world's top windsurfing and kitesurfing destinations."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "central",
+      "quiet",
+      "sights",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Sea Beach Camp",
+        "Nesima Resort",
+        "Masbat beachfront guesthouses"
+      ],
+      [
+        "Bishbishi Garden Village",
+        "Mashraba budget hotels",
+        "Central Dahab guesthouses"
+      ],
+      [
+        "Medina quiet guesthouses",
+        "Long-stay apartment rentals",
+        "Residential-area hotels"
+      ],
+      [
+        "Blue Hole dive camps",
+        "Nearby beachfront guesthouses",
+        "Dive-center accommodations"
+      ],
+      [
+        "Lagoon kite/windsurf camps",
+        "Watersports-school lodging",
+        "Lagoon-view guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 2.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "No formal municipal transit; walking, bikes, and taxis cover the compact town",
+      "hours": "Taxis available around the clock",
+      "pay": "Cash to the driver",
+      "map": "Not applicable; the town is small and easily walkable",
+      "note": "Most excursions (Blue Hole, Canyon, Mount Sinai) are arranged through dive centers or hotels"
+    },
+    "transport": {
+      "air": "Sharm El Sheikh International Airport (SSH), about 1-1.5 hr away, is the nearest major airport",
+      "train": "No passenger rail service to Dahab",
+      "bus": "Long-distance buses connect to Cairo, Sharm El Sheikh, and Nuweiba",
+      "ferry": "",
+      "car": "Rental cars available; taxis and shared minibuses are the more common way to arrive from Sharm El Sheikh"
+    },
+    "airport": {
+      "code": "SSH",
+      "name": "Sharm El Sheikh International Airport (nearest major gateway)",
+      "distance": "~95 km (1-1.5 hr) from Dahab",
+      "transport": "Taxi, shared minibus, or hotel transfer"
+    },
+    "net": {
+      "m": "Moderate 4G coverage in town",
+      "w": "Free wifi standard in cafes and guesthouses",
+      "ops": "Vodafone Egypt, Orange Egypt, Etisalat Misr",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in cafes, popular with digital nomads",
+      "ap": "A Vodafone or Orange Egypt tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% is customary for dive guides and instructors",
+      "r": "10% is appreciated, not always included"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 20,
+      "mid": 55,
+      "luxury": 140
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 45,
+      "museums": 10,
+      "architecture": 20,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Marsa Alam",
+    "country": "Egypt",
+    "visitors": 1.5,
+    "pop": "~9,000",
+    "lat": 25.0687,
+    "lng": 34.8909,
+    "tagline": "A remote southern Red Sea coast nicknamed the 'Egyptian Maldives,' known for dolphins, whale sharks, and untouched reefs",
+    "temps": {
+      "q1": 68,
+      "q2": 84,
+      "q3": 96,
+      "q4": 80
+    },
+    "rain": {
+      "q1": 1,
+      "q2": 0,
+      "q3": 0,
+      "q4": 1
+    },
+    "langs": [
+      "Arabic",
+      "English (widely spoken in resort areas)",
+      "German and Italian (common due to tourism)"
+    ],
+    "currency": "EGP",
+    "currency_symbol": "ج.م",
+    "currency_name": "Egyptian Pound",
+    "usd_rate": 49,
+    "card": "Widely accepted at hotels and larger restaurants; cash useful for smaller shops",
+    "cost": {
+      "hotel": 85,
+      "meal": 12,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$30-55",
+      "h": "$130-320 (many all-inclusive)"
+    },
+    "rides": [
+      "Hotel-arranged transfers",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Negotiated flat rate, as meters are uncommon",
+      "fareNote": "Resorts are spread out along the coast, so most transport is pre-arranged through hotels"
+    },
+    "emergency": {
+      "police": "122",
+      "medical": "123 (ambulance)",
+      "note": "Tourist police (180) can assist with English-language support"
+    },
+    "religion": [
+      "Islam (Sunni majority)",
+      "Christianity (Coptic minority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Diving or snorkeling with dolphins at Sataya (Dolphin) Reef",
+        "Wadi El Gemal National Park",
+        "Abu Dabbab Bay for sea turtles and dugongs"
+      ],
+      [
+        "Whale shark spotting (seasonal)",
+        "Port Ghalib marina and waterfront",
+        "Temple of Seti I at Khanais day trip"
+      ],
+      [
+        "Elphinstone Reef diving (advanced divers)",
+        "desert safari with Ababda Bedouin guides",
+        "Marsa Shagra house-reef snorkeling"
+      ]
+    ],
+    "walk": "Marsa Alam's resorts are spread along the coast and largely self-contained; a car or hotel transfer is needed to move between areas",
+    "safety": {
+      "safety": "Generally safe and low-key; the region is more remote and less developed than Hurghada or Sharm El Sheikh",
+      "crime": "Very low crime; the main practical concern is the remoteness of some resorts from medical facilities"
+    },
+    "hood_landmark": {
+      "Port Ghalib": "Port Ghalib's marina and waterfront promenade",
+      "Marsa Alam Town Center": "Marsa Alam's small central market area",
+      "Abu Dabbab Bay": "Abu Dabbab Bay's sea turtle and dugong feeding grounds",
+      "Marsa Shagra": "Marsa Shagra's renowned house reef",
+      "Wadi El Gemal National Park": "Wadi El Gemal's mangroves and desert wildlife"
+    },
+    "hoods": [
+      "Port Ghalib",
+      "Marsa Alam Town Center",
+      "Abu Dabbab Bay",
+      "Marsa Shagra",
+      "Wadi El Gemal National Park"
+    ],
+    "hood_desc": [
+      "A purpose-built marina resort town north of Marsa Alam, with the area's most hotels, restaurants, and yacht facilities.",
+      "The small original town center, mainly a practical stop for supplies rather than a tourist destination itself.",
+      "A protected bay famous for sea turtle and dugong sightings, ringed by a handful of eco-conscious resorts.",
+      "A dedicated diving village with one of the region's best accessible house reefs right off the beach.",
+      "A vast coastal and desert national park south of town, protecting mangroves, coral reefs, and rare wildlife."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "central",
+      "sights",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Kempinski Hotel Soma Bay (nearby)",
+        "Port Ghalib Resort",
+        "Marina-view hotels"
+      ],
+      [
+        "Town center budget guesthouses",
+        "Local inns",
+        "Basic transit hotels"
+      ],
+      [
+        "Marsa Nakari Eco-Lodge",
+        "Abu Dabbab beachfront resorts",
+        "Turtle Bay eco-lodges"
+      ],
+      [
+        "Marsa Shagra Eco-Camp",
+        "Dive-focused beach lodges",
+        "House-reef guesthouses"
+      ],
+      [
+        "Wadi El Gemal eco-camps",
+        "National park guided-stay tents",
+        "Remote desert-coast lodges"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.5,
+      "beer": 3.5,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "No formal municipal transit; hotel shuttles and pre-arranged transfers are the norm",
+      "hours": "Transfers arranged around flight and excursion schedules",
+      "pay": "Cash or pre-paid through the resort",
+      "map": "Not centrally published; resorts arrange transport and excursions",
+      "note": "Marsa Alam's resorts are spread along roughly 100 km of coastline, so advance transport planning matters"
+    },
+    "transport": {
+      "air": "Marsa Alam International Airport (RMF), serving the resort region directly",
+      "train": "No passenger rail service to Marsa Alam",
+      "bus": "Limited long-distance bus service; most visitors fly in",
+      "ferry": "",
+      "car": "Rental cars available at the airport; distances between resorts and sites can be significant"
+    },
+    "airport": {
+      "code": "RMF",
+      "name": "Marsa Alam International Airport",
+      "distance": "~50 km (45-60 min) from central resorts",
+      "transport": "Hotel shuttle or pre-arranged transfer"
+    },
+    "net": {
+      "m": "Moderate 4G coverage near resorts, weaker in remote areas",
+      "w": "Free wifi standard in hotels",
+      "ops": "Vodafone Egypt, Orange Egypt, Etisalat Misr",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Vodafone or Orange Egypt tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% is customary for dive guides and tour operators",
+      "r": "10% is standard, often added automatically at resort restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 95,
+      "luxury": 240
+    },
+    "score": {
+      "nightlife": 25,
+      "restaurants": 45,
+      "museums": 15,
+      "architecture": 20,
+      "nature": 95
+    }
+  }
+]

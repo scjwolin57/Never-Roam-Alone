@@ -1,0 +1,410 @@
+[
+  [
+    "Istanbul",
+    "Türkiye"
+  ],
+  [
+    "Frankfurt am Main",
+    "Germany"
+  ],
+  [
+    "London",
+    "United Kingdom"
+  ],
+  [
+    "New York City",
+    "United States"
+  ],
+  [
+    "Paris",
+    "France"
+  ],
+  [
+    "Los Angeles",
+    "United States"
+  ],
+  [
+    "Amsterdam",
+    "Netherlands"
+  ],
+  [
+    "San Francisco",
+    "United States"
+  ],
+  [
+    "Tokyo",
+    "Japan"
+  ],
+  [
+    "Sydney",
+    "Australia"
+  ],
+  [
+    "Las Vegas",
+    "United States"
+  ],
+  [
+    "Dubai",
+    "UAE"
+  ],
+  [
+    "Vienna",
+    "Austria"
+  ],
+  [
+    "São Paulo",
+    "Brazil"
+  ],
+  [
+    "Doha",
+    "Qatar"
+  ],
+  [
+    "Toronto",
+    "Canada"
+  ],
+  [
+    "Barcelona",
+    "Spain"
+  ],
+  [
+    "Munich",
+    "Germany"
+  ],
+  [
+    "Bangkok",
+    "Thailand"
+  ],
+  [
+    "Brussels",
+    "Belgium"
+  ],
+  [
+    "Madrid",
+    "Spain"
+  ],
+  [
+    "Vancouver",
+    "Canada"
+  ],
+  [
+    "Shanghai",
+    "China"
+  ],
+  [
+    "Delhi",
+    "India"
+  ],
+  [
+    "Miami",
+    "United States"
+  ],
+  [
+    "Zürich",
+    "Switzerland"
+  ],
+  [
+    "Buenos Aires",
+    "Argentina"
+  ],
+  [
+    "Orlando",
+    "United States"
+  ],
+  [
+    "Mexico City",
+    "Mexico"
+  ],
+  [
+    "Melbourne",
+    "Australia"
+  ],
+  [
+    "Beijing",
+    "China"
+  ],
+  [
+    "Washington, D.C.",
+    "United States"
+  ],
+  [
+    "Singapore",
+    "Singapore"
+  ],
+  [
+    "Montréal",
+    "Canada"
+  ],
+  [
+    "Rome",
+    "Italy"
+  ],
+  [
+    "Santiago",
+    "Chile"
+  ],
+  [
+    "Stockholm",
+    "Sweden"
+  ],
+  [
+    "Berlin",
+    "Germany"
+  ],
+  [
+    "Lima",
+    "Peru"
+  ],
+  [
+    "Helsinki",
+    "Finland"
+  ],
+  [
+    "Cairo",
+    "Egypt"
+  ],
+  [
+    "Athens",
+    "Greece"
+  ],
+  [
+    "Lisbon",
+    "Portugal"
+  ],
+  [
+    "Hong Kong",
+    "Hong Kong (SAR)"
+  ],
+  [
+    "Warsaw",
+    "Poland"
+  ],
+  [
+    "Cancún",
+    "Mexico"
+  ],
+  [
+    "Seoul",
+    "South Korea"
+  ],
+  [
+    "Abu Dhabi",
+    "UAE"
+  ],
+  [
+    "Ho Chi Minh City",
+    "Vietnam"
+  ],
+  [
+    "Copenhagen",
+    "Denmark"
+  ],
+  [
+    "Honolulu",
+    "United States"
+  ],
+  [
+    "Riyadh",
+    "Saudi Arabia"
+  ],
+  [
+    "Fukuoka",
+    "Japan"
+  ],
+  [
+    "Dublin",
+    "Ireland"
+  ],
+  [
+    "Osaka",
+    "Japan"
+  ],
+  [
+    "Denpasar",
+    "Indonesia"
+  ],
+  [
+    "Bologna",
+    "Italy"
+  ],
+  [
+    "Rio de Janeiro",
+    "Brazil"
+  ],
+  [
+    "Prague",
+    "Czechia"
+  ],
+  [
+    "Milan",
+    "Italy"
+  ],
+  [
+    "Edinburgh",
+    "United Kingdom"
+  ],
+  [
+    "Hanoi",
+    "Vietnam"
+  ],
+  [
+    "Tel Aviv",
+    "Israel"
+  ],
+  [
+    "Cape Town",
+    "South Africa"
+  ],
+  [
+    "Budapest",
+    "Hungary"
+  ],
+  [
+    "Antalya",
+    "Türkiye"
+  ],
+  [
+    "Sapporo",
+    "Japan"
+  ],
+  [
+    "Nice",
+    "France"
+  ],
+  [
+    "Busan",
+    "South Korea"
+  ],
+  [
+    "Valencia",
+    "Spain"
+  ],
+  [
+    "Verona",
+    "Italy"
+  ],
+  [
+    "Macau",
+    "Macau (SAR)"
+  ],
+  [
+    "Sevilla",
+    "Spain"
+  ],
+  [
+    "Punta Cana",
+    "Dominican Republic"
+  ],
+  [
+    "Taipei",
+    "Taiwan"
+  ],
+  [
+    "Kraków",
+    "Poland"
+  ],
+  [
+    "Porto",
+    "Portugal"
+  ],
+  [
+    "Vilnius",
+    "Lithuania"
+  ],
+  [
+    "Kuala Lumpur",
+    "Malaysia"
+  ],
+  [
+    "Medina",
+    "Saudi Arabia"
+  ],
+  [
+    "Thessaloníki",
+    "Greece"
+  ],
+  [
+    "Florence",
+    "Italy"
+  ],
+  [
+    "Tallinn",
+    "Estonia"
+  ],
+  [
+    "Tbilisi",
+    "Georgia"
+  ],
+  [
+    "Marrakesh",
+    "Morocco"
+  ],
+  [
+    "Guangzhou",
+    "China"
+  ],
+  [
+    "Kyoto",
+    "Japan"
+  ],
+  [
+    "Mecca",
+    "Saudi Arabia"
+  ],
+  [
+    "Jerusalem",
+    "Israel"
+  ],
+  [
+    "Oslo",
+    "Norway"
+  ],
+  [
+    "Venice",
+    "Italy"
+  ],
+  [
+    "Dadonghai",
+    "China"
+  ],
+  [
+    "Córdoba",
+    "Argentina"
+  ],
+  [
+    "Victoria",
+    "Canada"
+  ],
+  [
+    "George Town",
+    "Cayman Islands"
+  ],
+  [
+    "La Paz",
+    "Mexico"
+  ],
+  [
+    "Pasragad Branch",
+    "Iran"
+  ],
+  [
+    "Mérida",
+    "Venezuela"
+  ],
+  [
+    "Kingston",
+    "Canada"
+  ],
+  [
+    "St. John's",
+    "Canada"
+  ],
+  [
+    "Phuket",
+    "Thailand"
+  ],
+  [
+    "Pattaya",
+    "Thailand"
+  ]
+]

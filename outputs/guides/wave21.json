@@ -1,0 +1,1685 @@
+[
+  {
+    "city": "Mar del Plata",
+    "country": "Argentina",
+    "visitors": 8.0,
+    "pop": "~683,000",
+    "lat": -38.0055,
+    "lng": -57.5426,
+    "tagline": "Argentina's classic Atlantic beach resort, where Porteños have summered for over a century",
+    "temps": {
+      "q1": 68,
+      "q2": 55,
+      "q3": 46,
+      "q4": 60
+    },
+    "rain": {
+      "q1": 90,
+      "q2": 85,
+      "q3": 65,
+      "q4": 90
+    },
+    "langs": [
+      "Spanish"
+    ],
+    "currency": "ARS",
+    "currency_symbol": "$",
+    "currency_name": "Argentine Peso",
+    "usd_rate": 1050,
+    "card": "Widely accepted; cash useful for beach vendors and small shops",
+    "cost": {
+      "hotel": 65,
+      "meal": 10,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$25-45",
+      "h": "$100-260"
+    },
+    "rides": [
+      "Uber",
+      "local taxi/remis companies"
+    ],
+    "taxi": {
+      "color": "black/yellow",
+      "fare": "Metered, standard local rates",
+      "fareNote": "Metered fares are standard; the city is spread out, so taxis or buses are useful for reaching different beaches"
+    },
+    "emergency": {
+      "police": "911",
+      "medical": "107 (ambulance)",
+      "note": "911 is the general emergency line in most of Argentina; 107 specifically reaches medical services"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "Protestant and other Christian denominations (minority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Playa Bristol and the waterfront Rambla",
+        "Casino Central (1939 Art Deco landmark)",
+        "the Sea Lion Colony at Punta Mogotes lighthouse"
+      ],
+      [
+        "Villa Victoria Ocampo cultural center",
+        "Puerto (fishing port) for fresh seafood",
+        "Torre Tanque (Water Tower) viewpoint"
+      ],
+      [
+        "Museo del Mar (Sea Museum)",
+        "Playa Grande's historic chalets and beach clubs",
+        "day trip to nearby Miramar or Necochea beach towns"
+      ]
+    ],
+    "walk": "The Rambla waterfront and downtown are walkable; the city's many beaches are spread out and best reached by bus, taxi, or car",
+    "safety": {
+      "safety": "Generally safe, though standard beach-city caution applies in crowded areas during peak summer (Dec-Feb)",
+      "crime": "Petty theft on crowded beaches in high season is the main concern"
+    },
+    "hood_landmark": {
+      "Playa Bristol / Centro": "Playa Bristol and the Casino Central",
+      "Playa Grande": "Playa Grande's historic beach chalets and clubs",
+      "Puerto (Port)": "Mar del Plata's fishing port and seafood restaurants",
+      "Punta Mogotes": "The Punta Mogotes lighthouse and sea lion colony",
+      "Constitucion Avenue": "Avenida Constitución's nightlife and entertainment strip"
+    },
+    "hoods": [
+      "Playa Bristol / Centro",
+      "Playa Grande",
+      "Puerto (Port)",
+      "Punta Mogotes",
+      "Constitucion Avenue"
+    ],
+    "hood_desc": [
+      "The central beach and downtown core with the iconic casino, main shopping streets, and the busiest beach in summer.",
+      "An upscale beach neighborhood with early-20th-century chalets, private beach clubs, and a quieter atmosphere than Bristol.",
+      "The historic fishing port south of downtown, known for its sea lion colony and dockside seafood restaurants.",
+      "A southern point with a lighthouse and nature reserve, popular for a scenic coastal walk away from the crowds.",
+      "A lively strip of pubs, nightclubs, and late-night entertainment, especially busy during the summer tourist season."
+    ],
+    "hood_tags": [
+      "central",
+      "quiet",
+      "sights",
+      "sights",
+      "nightlife"
+    ],
+    "lodging": [
+      [
+        "Sheraton Mar del Plata Hotel",
+        "Playa Bristol boutique hotels",
+        "Downtown beachfront guesthouses"
+      ],
+      [
+        "Playa Grande beach club hotels",
+        "Historic chalet-style guesthouses",
+        "Quiet upscale B&Bs"
+      ],
+      [
+        "Puerto-area guesthouses",
+        "Port-view hotels",
+        "Seafood-district inns"
+      ],
+      [
+        "Punta Mogotes coastal hotels",
+        "Lighthouse-area guesthouses",
+        "Nature reserve-adjacent stays"
+      ],
+      [
+        "Constitucion Avenue hotels",
+        "Nightlife-strip guesthouses",
+        "Budget entertainment-district inns"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 2.0,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "ETAP urban bus network",
+      "hours": "Roughly 5:30am-1am, with reduced night service",
+      "pay": "SUBE rechargeable transit card",
+      "map": "https://www.mardelplata.gob.ar/transporte",
+      "note": "Buses cover the spread-out beach neighborhoods well; a car is useful for day trips to nearby coastal towns"
+    },
+    "transport": {
+      "air": "Mar del Plata Astor Piazzolla Airport (MDQ), about 15 min from downtown",
+      "train": "Passenger rail connects to Buenos Aires (about 5-6 hr)",
+      "bus": "Frequent long-distance buses connect to Buenos Aires (about 5 hr) and other coastal towns",
+      "ferry": "",
+      "car": "Well connected via National Route 2 from Buenos Aires"
+    },
+    "airport": {
+      "code": "MDQ",
+      "name": "Mar del Plata Astor Piazzolla Airport",
+      "distance": "~8 km (15 min) from downtown",
+      "transport": "Taxi, remis, or airport shuttle"
+    },
+    "net": {
+      "m": "Strong 4G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Movistar, Claro, Personal",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Movistar, Claro, or Personal tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for tour guides",
+      "r": "10% is standard at restaurants"
+    },
+    "region": "s-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 75,
+      "luxury": 190
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 55,
+      "museums": 35,
+      "architecture": 45,
+      "nature": 65
+    }
+  },
+  {
+    "city": "Krabi",
+    "country": "Thailand",
+    "visitors": 3.0,
+    "pop": "~30,000 (Krabi town; province ~470,000)",
+    "lat": 8.0863,
+    "lng": 98.9063,
+    "tagline": "A gateway to dramatic limestone karsts and turquoise Andaman Sea coves, from Railay's cliffs to nearby islands",
+    "temps": {
+      "q1": 84,
+      "q2": 85,
+      "q3": 82,
+      "q4": 82
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 200,
+      "q3": 300,
+      "q4": 150
+    },
+    "langs": [
+      "Thai",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Accepted at larger hotels and restaurants; cash preferred at markets and beach vendors",
+    "cost": {
+      "hotel": 45,
+      "meal": 6,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$18-30",
+      "h": "$70-200"
+    },
+    "rides": [
+      "Grab",
+      "songthaew (shared pickup trucks)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate; Grab available in town",
+      "fareNote": "Longtail boats, not taxis, are the way to reach Railay Beach (no road access)"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)",
+      "Islam (significant minority, especially in southern Thailand)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Railay Beach and its dramatic limestone cliffs (rock climbing hub)",
+        "Ao Nang beachfront promenade",
+        "Krabi Town's night market and river walkway"
+      ],
+      [
+        "Four Islands (Phra Nang, Poda, Chicken, Tup) boat tour",
+        "Phi Phi Islands day trip",
+        "Emerald Pool and Blue Pool (Sa Morakot) in Khao Pra Bang Khram"
+      ],
+      [
+        "Tiger Cave Temple (Wat Tham Sua) hilltop climb",
+        "Ao Thalane sea kayaking through mangroves",
+        "Hong Islands snorkeling day trip"
+      ]
+    ],
+    "walk": "Krabi Town's riverside and night market are walkable; Railay, Ao Nang, and the islands require a longtail boat, songthaew, or organized tour",
+    "safety": {
+      "safety": "Generally safe and tourism-oriented; standard beach and boat-safety precautions apply",
+      "crime": "Petty theft on crowded beaches and overcharging by unlicensed boat operators are the main concerns"
+    },
+    "hood_landmark": {
+      "Krabi Town": "Krabi Town's riverside night market",
+      "Ao Nang": "Ao Nang's beachfront promenade of hotels and dive shops",
+      "Railay Beach": "Railay's sheer limestone cliffs and rock climbing routes",
+      "Tiger Cave Temple Area": "Wat Tham Sua's 1,237-step hilltop stairway",
+      "Hong / Four Islands (boat-trip base)": "The Four Islands' turquoise coves and limestone karsts"
+    },
+    "hoods": [
+      "Krabi Town",
+      "Ao Nang",
+      "Railay Beach",
+      "Tiger Cave Temple Area",
+      "Hong / Four Islands (boat-trip base)"
+    ],
+    "hood_desc": [
+      "The practical provincial capital with the night market, riverside walkway, and long-distance transport hub, less touristy than the beach areas.",
+      "The area's main beach resort strip, packed with hotels, dive shops, and restaurants, and the jumping-off point for island boat tours.",
+      "A stunning cliff-backed peninsula reachable only by boat, world-famous for rock climbing and its beach bars.",
+      "A hilltop temple complex a short drive from town, with a steep climb rewarded by panoramic karst views.",
+      "A cluster of postcard-perfect islands reached by longtail or speedboat from Ao Nang, essential for a day of swimming and snorkeling."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "sights",
+      "sights",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Krabi Town riverside guesthouses",
+        "Boutique hotels near the night market",
+        "Budget backpacker inns"
+      ],
+      [
+        "Centara Grand Beach Resort & Villas Krabi",
+        "Ao Nang budget guesthouses",
+        "Beachfront resort hotels"
+      ],
+      [
+        "Railay Beach cliffside resorts",
+        "Rayavadee",
+        "Climbing-focused guesthouses"
+      ],
+      [
+        "Tiger Cave Temple-area guesthouses",
+        "Rural countryside stays",
+        "Quiet hillside lodges"
+      ],
+      [
+        "Island-hopping tour operators",
+        "Ao Nang-based day-trip stays",
+        "Boat-access-only island resorts"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews (shared pickup trucks) around Krabi Town and to Ao Nang; longtail boats to Railay and the islands",
+      "hours": "Roughly 6am-8pm for songthaews",
+      "pay": "Cash fare",
+      "map": "Not centrally published; songthaews and boats run frequent informal routes",
+      "note": "Railay Beach has no road access; longtail boats from Ao Nang or Krabi Town are the only way in"
+    },
+    "transport": {
+      "air": "Krabi International Airport (KBV), about 20 min from Krabi Town",
+      "train": "No passenger rail service to Krabi",
+      "bus": "Long-distance buses connect to Bangkok (about 12 hr), Phuket, and Surat Thani",
+      "ferry": "Ferries connect Krabi to Phi Phi Islands, Koh Lanta, and Phuket",
+      "car": "Rental cars and scooters available; roads connect Krabi Town and Ao Nang directly"
+    },
+    "airport": {
+      "code": "KBV",
+      "name": "Krabi International Airport",
+      "distance": "~15 km (20 min) from Krabi Town",
+      "transport": "Taxi, Grab, or airport shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage in town and Ao Nang, patchier on remote islands",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for guides and boat operators",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 75,
+      "luxury": 190
+    },
+    "score": {
+      "nightlife": 40,
+      "restaurants": 50,
+      "museums": 15,
+      "architecture": 20,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Ko Samui",
+    "country": "Thailand",
+    "visitors": 2.7,
+    "pop": "~70,000",
+    "lat": 9.512,
+    "lng": 100.0136,
+    "tagline": "A palm-fringed Gulf of Thailand island of coconut plantations, beach clubs, and Buddhist temples",
+    "temps": {
+      "q1": 82,
+      "q2": 84,
+      "q3": 84,
+      "q4": 80
+    },
+    "rain": {
+      "q1": 80,
+      "q2": 150,
+      "q3": 150,
+      "q4": 450
+    },
+    "langs": [
+      "Thai",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Widely accepted at hotels and larger restaurants; cash preferred at markets and small shops",
+    "cost": {
+      "hotel": 65,
+      "meal": 8,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$25-45",
+      "h": "$130-350"
+    },
+    "rides": [
+      "Grab",
+      "songthaew (shared pickup trucks)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or Grab-app fixed price",
+      "fareNote": "Songthaews circle the island's main ring road on informal routes; agree the fare before boarding"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Chaweng Beach and its lively beach club/nightlife strip",
+        "Big Buddha Temple (Wat Phra Yai)",
+        "Fisherman's Village night market in Bophut"
+      ],
+      [
+        "Lamai Beach and the Hin Ta Hin Yai rock formations",
+        "Na Muang Waterfalls",
+        "Ang Thong Marine Park island-hopping day trip"
+      ],
+      [
+        "Overlap Stone viewpoint and Secret Buddha Garden",
+        "Mummified Monk at Wat Khunaram",
+        "cooking class or Thai massage course"
+      ]
+    ],
+    "walk": "Chaweng and Bophut's beach strips are walkable; the island's ring road and outlying attractions require a car, scooter, or Grab",
+    "safety": {
+      "safety": "Generally safe island, popular with families and international tourists",
+      "crime": "Petty theft on crowded beaches is the main concern; scooter accidents are a more common risk than crime"
+    },
+    "hood_landmark": {
+      "Chaweng": "Chaweng Beach's main resort and nightlife strip",
+      "Lamai": "Lamai Beach's quieter resort area and Hin Ta Hin Yai rocks",
+      "Bophut (Fisherman's Village)": "Fisherman's Village's restored wooden shophouse night market",
+      "Nathon": "Nathon, the island's original capital and ferry port",
+      "Mae Nam": "Mae Nam Beach's laid-back, family-friendly coastline"
+    },
+    "hoods": [
+      "Chaweng",
+      "Lamai",
+      "Bophut (Fisherman's Village)",
+      "Nathon",
+      "Mae Nam"
+    ],
+    "hood_desc": [
+      "The island's busiest beach and commercial hub, with the highest concentration of hotels, restaurants, and nightlife.",
+      "A slightly quieter beach south of Chaweng, popular with a mix of families and younger travelers.",
+      "A charming restored fishing village with a popular Friday night walking market and boutique restaurants.",
+      "The original island capital and main ferry port on the west coast, more practical than picturesque.",
+      "A quiet, long beach on the north coast, popular with families and longer-stay visitors wanting fewer crowds."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "sights",
+      "shopping",
+      "central",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Chaweng Beach resorts",
+        "W Koh Samui",
+        "Chaweng budget guesthouses"
+      ],
+      [
+        "Lamai beachfront hotels",
+        "Renaissance Koh Samui Resort & Spa",
+        "Quiet Lamai guesthouses"
+      ],
+      [
+        "Fisherman's Village boutique hotels",
+        "Bophut beachfront guesthouses",
+        "Anantara Bophut Koh Samui Resort"
+      ],
+      [
+        "Nathon port-area guesthouses",
+        "Budget local inns",
+        "Ferry-terminal hotels"
+      ],
+      [
+        "Mae Nam beach resorts",
+        "Family-friendly guesthouses",
+        "Santiburi Koh Samui"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews circling the island's ring road; Grab in tourist areas",
+      "hours": "Roughly 6am-10pm",
+      "pay": "Cash fare or Grab app payment",
+      "map": "Not centrally published; songthaews run informal routes along the ring road",
+      "note": "Renting a scooter is common for visitors comfortable riding; songthaews and Grab otherwise cover the island"
+    },
+    "transport": {
+      "air": "Samui Airport (USM), with direct flights from Bangkok and some international routes",
+      "train": "No passenger rail service (island)",
+      "bus": "Combined bus-ferry tickets connect to Bangkok and other mainland cities via Surat Thani",
+      "ferry": "Ferries connect to Surat Thani on the mainland and to Koh Phangan and Koh Tao",
+      "car": "Rental cars and scooters available; the ring road circles the island"
+    },
+    "airport": {
+      "code": "USM",
+      "name": "Samui Airport",
+      "distance": "~3 km (10 min) from Chaweng",
+      "transport": "Taxi, Grab, or hotel shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage across most of the island",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for tour guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 90,
+      "luxury": 240
+    },
+    "score": {
+      "nightlife": 65,
+      "restaurants": 55,
+      "museums": 15,
+      "architecture": 25,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Chiang Rai",
+    "country": "Thailand",
+    "visitors": 1.5,
+    "pop": "~200,000 (municipal district)",
+    "lat": 19.9105,
+    "lng": 99.8406,
+    "tagline": "Thailand's northernmost major city, home to a dazzling white temple and gateway to the Golden Triangle",
+    "temps": {
+      "q1": 70,
+      "q2": 84,
+      "q3": 80,
+      "q4": 72
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 150,
+      "q3": 250,
+      "q4": 40
+    },
+    "langs": [
+      "Thai",
+      "Northern Thai (Lanna dialect)",
+      "English (moderate in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Accepted at larger hotels and restaurants; cash preferred at markets",
+    "cost": {
+      "hotel": 40,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-28",
+      "h": "$60-160"
+    },
+    "rides": [
+      "Grab",
+      "songthaew (shared pickup trucks)",
+      "tuk-tuks"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or Grab-app fixed price",
+      "fareNote": "Songthaews and tuk-tuks are the standard way around town; Grab is available for longer trips"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)",
+      "Christianity and animist traditions (notable among hill tribe communities)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Wat Rong Khun (the White Temple)",
+        "Wat Rong Suea Ten (the Blue Temple)",
+        "Baan Dam Museum (the Black House)"
+      ],
+      [
+        "Chiang Rai Night Bazaar",
+        "Wat Phra Kaew (former home of the Emerald Buddha)",
+        "Clock Tower light show"
+      ],
+      [
+        "Golden Triangle day trip (Thailand-Laos-Myanmar border)",
+        "Doi Mae Salong hill-tribe tea plantation village",
+        "Singha Park for tea fields and zipline"
+      ]
+    ],
+    "walk": "Central Chiang Rai's temples and night bazaar are walkable; the White Temple, Blue Temple, and Golden Triangle require a car, songthaew, or tour",
+    "safety": {
+      "safety": "Very safe city, popular with independent travelers",
+      "crime": "Petty theft is rare; standard travel caution applies near the Golden Triangle border area"
+    },
+    "hood_landmark": {
+      "City Center / Night Bazaar": "Chiang Rai's Night Bazaar and Clock Tower",
+      "Wat Rong Khun (White Temple)": "Wat Rong Khun's dazzling white contemporary temple",
+      "Wat Rong Suea Ten (Blue Temple)": "Wat Rong Suea Ten's vivid blue temple hall",
+      "Golden Triangle": "The Golden Triangle's Thailand-Laos-Myanmar river confluence",
+      "Doi Mae Salong": "Doi Mae Salong's hilltop tea plantations"
+    },
+    "hoods": [
+      "City Center / Night Bazaar",
+      "Wat Rong Khun (White Temple)",
+      "Wat Rong Suea Ten (Blue Temple)",
+      "Golden Triangle",
+      "Doi Mae Salong"
+    ],
+    "hood_desc": [
+      "The compact downtown with the night bazaar, clock tower, and most hotels and restaurants; the natural base for any visit.",
+      "A striking contemporary all-white temple complex on the edge of town, one of Thailand's most photographed modern landmarks.",
+      "A vividly blue temple a short drive from downtown, a newer but equally photogenic counterpart to the White Temple.",
+      "The historic river confluence where Thailand, Laos, and Myanmar meet, about an hour from the city.",
+      "A hilltop Yunnanese Chinese settlement amid tea plantations, offering cooler air and a distinct cultural feel."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Le Meridien Chiang Rai Resort",
+        "Night Bazaar-area guesthouses",
+        "Downtown boutique hotels"
+      ],
+      [
+        "White Temple-area guesthouses",
+        "Rural countryside hotels",
+        "Budget lodges near Wat Rong Khun"
+      ],
+      [
+        "Blue Temple-area guesthouses",
+        "Nearby boutique stays",
+        "Local inns"
+      ],
+      [
+        "Golden Triangle resorts",
+        "Anantara Golden Triangle Elephant Camp & Resort",
+        "Border-area guesthouses"
+      ],
+      [
+        "Doi Mae Salong tea plantation guesthouses",
+        "Hilltop mountain lodges",
+        "Yunnanese-style stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews and tuk-tuks around town; Grab for longer trips",
+      "hours": "Roughly 6am-9pm",
+      "pay": "Cash fare or Grab app payment",
+      "map": "Not centrally published; songthaews run informal routes",
+      "note": "Renting a scooter or car is common for reaching the temples and Golden Triangle independently"
+    },
+    "transport": {
+      "air": "Mae Fah Luang-Chiang Rai International Airport (CEI), about 15 min from downtown",
+      "train": "No passenger rail service to Chiang Rai",
+      "bus": "Long-distance buses connect to Chiang Mai (about 3 hr) and Bangkok (about 11-12 hr)",
+      "ferry": "",
+      "car": "Rental cars and scooters available; well connected via Highway 1 to Chiang Mai"
+    },
+    "airport": {
+      "code": "CEI",
+      "name": "Mae Fah Luang-Chiang Rai International Airport",
+      "distance": "~8 km (15 min) from downtown",
+      "transport": "Taxi, Grab, or airport shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage in town, patchier in rural hill areas",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for tour guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 22,
+      "mid": 55,
+      "luxury": 140
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 45,
+      "museums": 40,
+      "architecture": 65,
+      "nature": 75
+    }
+  },
+  {
+    "city": "Sukhothai",
+    "country": "Thailand",
+    "visitors": 0.8,
+    "pop": "~35,000 (New Sukhothai town)",
+    "lat": 17.0072,
+    "lng": 99.8236,
+    "tagline": "The 'dawn of happiness,' Thailand's first capital, now a UNESCO park of lotus-ringed temple ruins",
+    "temps": {
+      "q1": 72,
+      "q2": 86,
+      "q3": 82,
+      "q4": 74
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 130,
+      "q3": 200,
+      "q4": 40
+    },
+    "langs": [
+      "Thai",
+      "English (limited, more common with guides)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Accepted at larger hotels; cash preferred at markets and small guesthouses",
+    "cost": {
+      "hotel": 30,
+      "meal": 4,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$12-22",
+      "h": "$45-120"
+    },
+    "rides": [
+      "Songthaew (shared pickup trucks)",
+      "bicycle rental (popular within the historical park)"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Renting a bicycle is the classic way to explore Sukhothai Historical Park's flat, spread-out ruins"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Sukhothai Historical Park's central zone temples (Wat Mahathat, Wat Sri Sawai)",
+        "Wat Si Chum's giant seated Buddha",
+        "Ramkhamhaeng National Museum"
+      ],
+      [
+        "Cycling the historical park's flat network of ancient roads",
+        "Loy Krathong festival (Nov, Sukhothai claims to be its birthplace)",
+        "Sukhothai's traditional pottery and textile shops"
+      ],
+      [
+        "Si Satchanalai Historical Park day trip (a quieter sister site)",
+        "New Sukhothai's night market",
+        "Ramkhamhaeng the Great Monument"
+      ]
+    ],
+    "walk": "The historical park is spread out but flat and best explored by rented bicycle; New Sukhothai town itself is walkable for its market and guesthouses",
+    "safety": {
+      "safety": "Very safe, low-key destination popular with independent travelers",
+      "crime": "Very low crime; standard bicycle and heat precautions apply within the park"
+    },
+    "hood_landmark": {
+      "New Sukhothai (Town)": "New Sukhothai's night market and guesthouse strip",
+      "Sukhothai Historical Park (Central Zone)": "Wat Mahathat's iconic lotus-bud chedi",
+      "Wat Si Chum": "Wat Si Chum's giant seated Buddha peering through a narrow gap",
+      "Ramkhamhaeng National Museum": "The Ramkhamhaeng National Museum's Sukhothai artifacts",
+      "Si Satchanalai (day-trip)": "Si Satchanalai Historical Park's quieter riverside ruins"
+    },
+    "hoods": [
+      "New Sukhothai (Town)",
+      "Sukhothai Historical Park (Central Zone)",
+      "Wat Si Chum",
+      "Ramkhamhaeng National Museum",
+      "Si Satchanalai (day-trip)"
+    ],
+    "hood_desc": [
+      "The modern town about 12km from the ruins, with most guesthouses, restaurants, and the night market.",
+      "The heart of the UNESCO-listed historical park, with the iconic lotus-bud chedi of Wat Mahathat and the largest concentration of ruins.",
+      "A separate temple complex just outside the central zone, famous for its enormous seated Buddha statue.",
+      "A small museum near the park entrance providing context on the Sukhothai Kingdom's art and history.",
+      "A quieter, less-visited sister historical park about an hour away, with riverside ruins and fewer crowds."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "New Sukhothai riverside guesthouses",
+        "Ruean Thai Hotel",
+        "Budget backpacker inns"
+      ],
+      [
+        "Historical park-area resorts",
+        "Legendha Sukhothai Resort",
+        "Bicycle-friendly guesthouses"
+      ],
+      [
+        "Wat Si Chum-area guesthouses",
+        "Rural countryside stays",
+        "Quiet park-adjacent lodges"
+      ],
+      [
+        "Museum-area guesthouses",
+        "Central zone budget hotels",
+        "Park-entrance lodging"
+      ],
+      [
+        "Si Satchanalai guesthouses",
+        "Riverside rural stays",
+        "Day-trip base lodging"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews between New Sukhothai and the historical park; bicycle rental within the park",
+      "hours": "Roughly 7am-6pm",
+      "pay": "Cash fare",
+      "map": "Not centrally published; songthaews run regularly between town and the park",
+      "note": "Bicycle rental at the park entrance is the classic, recommended way to see the ruins"
+    },
+    "transport": {
+      "air": "Sukhothai Airport (THS), about 30 min from New Sukhothai, with flights from Bangkok and Chiang Mai",
+      "train": "No passenger rail service to Sukhothai",
+      "bus": "Long-distance buses connect to Bangkok (about 6-7 hr) and Chiang Mai (about 5 hr)",
+      "ferry": "",
+      "car": "Rental cars available; well connected via Highway 12"
+    },
+    "airport": {
+      "code": "THS",
+      "name": "Sukhothai Airport",
+      "distance": "~27 km (30 min) from New Sukhothai",
+      "transport": "Airport shuttle or taxi"
+    },
+    "net": {
+      "m": "Moderate 4G coverage in town and the historical park",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 18,
+      "mid": 45,
+      "luxury": 110
+    },
+    "score": {
+      "nightlife": 10,
+      "restaurants": 35,
+      "museums": 55,
+      "architecture": 90,
+      "nature": 40
+    }
+  },
+  {
+    "city": "Hua Hin",
+    "country": "Thailand",
+    "visitors": 4.0,
+    "pop": "~66,000",
+    "lat": 12.5684,
+    "lng": 99.9578,
+    "tagline": "Thailand's original royal beach resort, blending a low-key fishing-village pier with golf courses and night markets",
+    "temps": {
+      "q1": 80,
+      "q2": 84,
+      "q3": 82,
+      "q4": 79
+    },
+    "rain": {
+      "q1": 30,
+      "q2": 100,
+      "q3": 150,
+      "q4": 100
+    },
+    "langs": [
+      "Thai",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Widely accepted at hotels and larger restaurants; cash preferred at markets",
+    "cost": {
+      "hotel": 55,
+      "meal": 6,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$20-38",
+      "h": "$110-280"
+    },
+    "rides": [
+      "Grab",
+      "songthaew (shared pickup trucks)",
+      "tuk-tuks"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or Grab-app fixed price",
+      "fareNote": "Songthaews and tuk-tuks cover the town; Grab is widely used for longer trips"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Hua Hin Beach and the fishing pier",
+        "Hua Hin Night Market",
+        "Klai Kangwon Palace grounds (royal summer palace)"
+      ],
+      [
+        "Cicada Market weekend arts and crafts market",
+        "Hua Hin Hills Vineyard tour",
+        "Plearn Wan retro-themed village"
+      ],
+      [
+        "Khao Takiap (Chopstick Hill) monkey temple viewpoint",
+        "Sam Roi Yot National Park caves and marshland",
+        "Hua Hin's many golf courses"
+      ]
+    ],
+    "walk": "Central Hua Hin's beach, pier, and night market are walkable; Sam Roi Yot National Park and outlying golf courses require a car or tour",
+    "safety": {
+      "safety": "Very safe, popular with families, retirees, and the Thai royal family historically",
+      "crime": "Petty theft on crowded beaches and markets is the main concern"
+    },
+    "hood_landmark": {
+      "Hua Hin Beach / Pier": "Hua Hin's fishing pier and beachfront promenade",
+      "Night Market (Dechanuchit Road)": "Hua Hin's bustling night market",
+      "Khao Takiap": "Khao Takiap's hilltop monkey temple and viewpoint",
+      "Cicada Market Area": "The Cicada Market's weekend arts and crafts stalls",
+      "Sam Roi Yot National Park (day-trip)": "Sam Roi Yot's limestone caves and coastal marshland"
+    },
+    "hoods": [
+      "Hua Hin Beach / Pier",
+      "Night Market (Dechanuchit Road)",
+      "Khao Takiap",
+      "Cicada Market Area",
+      "Sam Roi Yot National Park (day-trip)"
+    ],
+    "hood_desc": [
+      "The historic beachfront and fishing pier that gave Hua Hin its start as a resort town, still the heart of the action.",
+      "A lively evening market street with food stalls, souvenirs, and local nightlife, a short walk from the beach.",
+      "A rocky hill south of town topped by a Buddhist temple and a resident troop of monkeys, with sweeping coastal views.",
+      "A stylish weekend market area with art galleries, boutique shops, and live music, popular with a younger crowd.",
+      "A national park south of town protecting limestone caves, wetlands, and coastline, a worthwhile day trip from Hua Hin."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "sights",
+      "shopping",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Centara Grand Beach Resort & Villas Hua Hin",
+        "Beachfront boutique hotels",
+        "Pier-area guesthouses"
+      ],
+      [
+        "Night market-area hotels",
+        "Dechanuchit Road guesthouses",
+        "Budget central inns"
+      ],
+      [
+        "Khao Takiap-area resorts",
+        "Hillside guesthouses",
+        "Viewpoint-adjacent hotels"
+      ],
+      [
+        "Cicada Market-area boutique stays",
+        "Weekend market guesthouses",
+        "Art-district lodging"
+      ],
+      [
+        "Sam Roi Yot eco-lodges",
+        "National park-adjacent guesthouses",
+        "Coastal wetland stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews and tuk-tuks around town; Grab for longer trips",
+      "hours": "Roughly 6am-10pm",
+      "pay": "Cash fare or Grab app payment",
+      "map": "Not centrally published; songthaews and tuk-tuks run informal routes",
+      "note": "Central Hua Hin is compact enough that many visitors walk or use short tuk-tuk hops"
+    },
+    "transport": {
+      "air": "Hua Hin Airport (HHQ) has limited flights; Suvarnabhumi Airport (BKK) in Bangkok is the main gateway, about 3 hr away",
+      "train": "Direct train service from Bangkok to Hua Hin's historic royal railway station (about 4 hr)",
+      "bus": "Frequent long-distance buses and minivans connect to Bangkok (about 3 hr)",
+      "ferry": "",
+      "car": "Well connected via Highway 4/Phetkasem Road from Bangkok"
+    },
+    "airport": {
+      "code": "BKK",
+      "name": "Suvarnabhumi Airport, Bangkok (main gateway)",
+      "distance": "~200 km (2.5-3 hr) from Hua Hin",
+      "transport": "Minivan, bus, private transfer, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for tour guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 28,
+      "mid": 70,
+      "luxury": 180
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 55,
+      "museums": 20,
+      "architecture": 40,
+      "nature": 60
+    }
+  },
+  {
+    "city": "Pai",
+    "country": "Thailand",
+    "visitors": 0.6,
+    "pop": "~2,500 (town; district ~30,000)",
+    "lat": 19.3583,
+    "lng": 98.44,
+    "tagline": "A laid-back mountain valley town beloved by backpackers, ringed by canyons, hot springs, and hill-tribe villages",
+    "temps": {
+      "q1": 62,
+      "q2": 82,
+      "q3": 78,
+      "q4": 66
+    },
+    "rain": {
+      "q1": 10,
+      "q2": 130,
+      "q3": 220,
+      "q4": 30
+    },
+    "langs": [
+      "Thai",
+      "Northern Thai (Lanna dialect)",
+      "English (common in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Rarely accepted; cash is essential",
+    "cost": {
+      "hotel": 25,
+      "meal": 4,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$8-18",
+      "h": "$40-100"
+    },
+    "rides": [
+      "Scooter rental (the dominant way to get around)",
+      "songthaew (shared pickup trucks)"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Renting a scooter is by far the most common way to explore Pai's surrounding sights"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support; medical facilities in Pai are basic"
+    },
+    "religion": [
+      "Buddhism (majority)",
+      "Christianity and animist traditions (among some hill tribe communities)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Pai Canyon at sunset",
+        "Pai Walking Street night market",
+        "Tha Pai Memorial Bridge"
+      ],
+      [
+        "Pai Hot Springs and the Pai Secret Hot Springs",
+        "Mo Paeng and Pam Bok waterfalls",
+        "Yun Lai Viewpoint over the valley"
+      ],
+      [
+        "Santichon Village (Yunnanese Chinese settlement)",
+        "Wat Phra That Mae Yen hilltop temple",
+        "day trip along the winding mountain road to Mae Hong Son"
+      ]
+    ],
+    "walk": "Pai's walking street and town center are compact and walkable; the canyon, waterfalls, and viewpoints are spread out and best reached by rented scooter",
+    "safety": {
+      "safety": "Very safe, relaxed town popular with backpackers and long-term travelers",
+      "crime": "Very low crime; scooter accidents on the winding mountain roads are the more common risk"
+    },
+    "hood_landmark": {
+      "Pai Walking Street": "Pai's Walking Street night market",
+      "Pai Canyon": "Pai Canyon's narrow ridgeline trails",
+      "Tha Pai Hot Springs": "Tha Pai Hot Springs' natural thermal pools",
+      "Yun Lai Viewpoint": "Yun Lai Viewpoint's panorama over the Chinese village and valley",
+      "Wat Phra That Mae Yen": "Wat Phra That Mae Yen's hilltop temple and town view"
+    },
+    "hoods": [
+      "Pai Walking Street",
+      "Pai Canyon",
+      "Tha Pai Hot Springs",
+      "Yun Lai Viewpoint",
+      "Wat Phra That Mae Yen"
+    ],
+    "hood_desc": [
+      "The compact town center that transforms into a lively night market each evening, with most guesthouses and restaurants nearby.",
+      "A striking eroded ridgeline a short scooter ride from town, popular for narrow-trail walks and sunset views.",
+      "A natural hot spring park east of town, a relaxing stop for tired muscles after a day of exploring.",
+      "A hilltop viewpoint over the Chinese settlement of Santichon and the surrounding rice fields and mountains.",
+      "A temple atop a hill overlooking the town, reachable by a steep staircase or scooter, with a giant white Buddha statue."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "sights",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Pai Walking Street guesthouses",
+        "Reverie Siam Resort",
+        "Budget backpacker hostels"
+      ],
+      [
+        "Canyon-area bungalows",
+        "Rural rice-field guesthouses",
+        "Riverside bungalows"
+      ],
+      [
+        "Hot Springs-area resorts",
+        "Thermal pool-adjacent guesthouses",
+        "Countryside spa lodges"
+      ],
+      [
+        "Yun Lai Viewpoint guesthouses",
+        "Chinese village-area stays",
+        "Mountain-view bungalows"
+      ],
+      [
+        "Wat Phra That Mae Yen-area guesthouses",
+        "Hilltop stays",
+        "Temple-view lodging"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Scooter rental (dominant) and songthaews for shared local transport",
+      "hours": "Not applicable for scooters; songthaews run roughly daylight hours",
+      "pay": "Cash fare for songthaews",
+      "map": "Not centrally published; scooter rental shops are everywhere in town",
+      "note": "The mountain road from Chiang Mai to Pai has 762 curves, notorious among first-time riders and drivers"
+    },
+    "transport": {
+      "air": "Pai Airport (PYY) has very limited seasonal flights; Chiang Mai International Airport (CNX) is the main gateway",
+      "train": "No passenger rail service to Pai",
+      "bus": "Minivans connect to Chiang Mai (about 3-4 hr on a winding mountain road)",
+      "ferry": "",
+      "car": "The mountain road from Chiang Mai is scenic but winding; many visitors prefer a minivan or motorbike over self-driving a car"
+    },
+    "airport": {
+      "code": "CNX",
+      "name": "Chiang Mai International Airport (main gateway)",
+      "distance": "~135 km (3-4 hr) from Pai",
+      "transport": "Minivan or motorbike from Chiang Mai"
+    },
+    "net": {
+      "m": "Moderate 4G coverage in town, patchier in surrounding hills",
+      "w": "Free wifi standard in guesthouses and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in cafes",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 15,
+      "mid": 40,
+      "luxury": 100
+    },
+    "score": {
+      "nightlife": 40,
+      "restaurants": 45,
+      "museums": 10,
+      "architecture": 25,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Kanchanaburi",
+    "country": "Thailand",
+    "visitors": 1.2,
+    "pop": "~26,000",
+    "lat": 14.0227,
+    "lng": 99.5328,
+    "tagline": "A river town built around the WWII Bridge on the River Kwai, with waterfalls and caves in the surrounding hills",
+    "temps": {
+      "q1": 78,
+      "q2": 90,
+      "q3": 82,
+      "q4": 78
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 130,
+      "q3": 200,
+      "q4": 40
+    },
+    "langs": [
+      "Thai",
+      "English (moderate in tourist areas)"
+    ],
+    "currency": "THB",
+    "currency_symbol": "฿",
+    "currency_name": "Thai Baht",
+    "usd_rate": 34,
+    "card": "Accepted at larger hotels; cash preferred at markets and small guesthouses",
+    "cost": {
+      "hotel": 32,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$14-25",
+      "h": "$50-140"
+    },
+    "rides": [
+      "Songthaew (shared pickup trucks)",
+      "tuk-tuks",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Hiring a songthaew or car with driver for the day is common for reaching waterfalls and the Death Railway sites"
+    },
+    "emergency": {
+      "police": "191",
+      "medical": "1669 (ambulance)",
+      "note": "Tourist police (1155) can assist with English-language support"
+    },
+    "religion": [
+      "Buddhism (majority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Bridge on the River Kwai and the Death Railway",
+        "Thailand-Burma Railway Centre museum",
+        "JEATH War Museum"
+      ],
+      [
+        "Kanchanaburi War Cemetery",
+        "River Kwai floating raft houses and sunset boat ride",
+        "Death Railway train ride to Wang Pho viaduct"
+      ],
+      [
+        "Erawan National Park's seven-tiered waterfall",
+        "Wat Tham Phu Wa cave temple",
+        "Sai Yok Noi waterfall"
+      ]
+    ],
+    "walk": "The riverside area near the bridge and Walking Street is walkable; Erawan National Park and other waterfalls require a car, songthaew, or tour",
+    "safety": {
+      "safety": "Very safe town, popular with history-focused travelers and day-trippers from Bangkok",
+      "crime": "Very low crime"
+    },
+    "hood_landmark": {
+      "River Kwai / Bridge Area": "The Bridge on the River Kwai",
+      "Death Railway / Thailand-Burma Railway Centre": "The Thailand-Burma Railway Centre museum",
+      "Kanchanaburi War Cemetery": "Kanchanaburi War Cemetery's rows of Allied POW graves",
+      "Erawan National Park (day-trip)": "Erawan Waterfall's seven emerald-pool tiers",
+      "River Kwai Raft Houses": "The River Kwai's floating raft house resorts"
+    },
+    "hoods": [
+      "River Kwai / Bridge Area",
+      "Death Railway / Thailand-Burma Railway Centre",
+      "Kanchanaburi War Cemetery",
+      "Erawan National Park (day-trip)",
+      "River Kwai Raft Houses"
+    ],
+    "hood_desc": [
+      "The town's main historic and tourist hub, centered on the famous WWII bridge and riverside restaurants.",
+      "A well-curated museum providing context on the Death Railway's construction and the POW and forced-labor history behind it.",
+      "A solemn, immaculately kept cemetery for Allied POWs who died building the railway, a short walk from the town center.",
+      "A national park about 90 minutes away with Thailand's most famous multi-tiered waterfall, popular for a swim.",
+      "Floating guesthouses and rafts along the River Kwai, offering a unique overnight stay directly on the water."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "River Kwai bridge-area hotels",
+        "U Inchantree Kanchanaburi",
+        "Riverside guesthouses"
+      ],
+      [
+        "Museum-district guesthouses",
+        "Central Kanchanaburi hotels",
+        "Budget backpacker inns"
+      ],
+      [
+        "War cemetery-area guesthouses",
+        "Quiet residential B&Bs",
+        "History-focused lodging"
+      ],
+      [
+        "Erawan National Park lodges",
+        "Waterfall-area guesthouses",
+        "Rural park-adjacent stays"
+      ],
+      [
+        "River Kwai raft house resorts",
+        "Floating bungalow stays",
+        "River Kwai Jungle Rafts"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Songthaews and tuk-tuks around town",
+      "hours": "Roughly 6am-8pm",
+      "pay": "Cash fare",
+      "map": "Not centrally published; songthaews run informal routes",
+      "note": "Hiring transport for the day is the standard way to combine the bridge, waterfalls, and war sites"
+    },
+    "transport": {
+      "air": "No airport in Kanchanaburi; Suvarnabhumi Airport (BKK) in Bangkok is the main gateway",
+      "train": "The historic Death Railway line connects Kanchanaburi to Nam Tok via the Wang Pho viaduct, plus regular service to/from Bangkok",
+      "bus": "Frequent buses and minivans connect to Bangkok (about 2-2.5 hr)",
+      "ferry": "",
+      "car": "Well connected via Highway 323 from Bangkok"
+    },
+    "airport": {
+      "code": "BKK",
+      "name": "Suvarnabhumi Airport, Bangkok (main gateway)",
+      "distance": "~130 km (2-2.5 hr) from Kanchanaburi",
+      "transport": "Bus, minivan, or rental car"
+    },
+    "net": {
+      "m": "Good 4G coverage in town, patchier near waterfalls",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "AIS, DTAC, TrueMove",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An AIS or DTAC tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for guides",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 20,
+      "mid": 50,
+      "luxury": 130
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 45,
+      "museums": 60,
+      "architecture": 40,
+      "nature": 75
+    }
+  },
+  {
+    "city": "Lalibela",
+    "country": "Ethiopia",
+    "visitors": 0.1,
+    "pop": "~30,000",
+    "lat": 12.0316,
+    "lng": 39.0473,
+    "tagline": "A highland pilgrimage town of eleven medieval churches carved entirely from single blocks of volcanic rock",
+    "temps": {
+      "q1": 62,
+      "q2": 68,
+      "q3": 64,
+      "q4": 62
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 60,
+      "q3": 250,
+      "q4": 30
+    },
+    "langs": [
+      "Amharic",
+      "English (moderate, common with guides)"
+    ],
+    "currency": "ETB",
+    "currency_symbol": "Br",
+    "currency_name": "Ethiopian Birr",
+    "usd_rate": 125,
+    "card": "Rarely accepted; cash is essential throughout",
+    "cost": {
+      "hotel": 45,
+      "meal": 6,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$20-35",
+      "h": "$70-180"
+    },
+    "rides": [
+      "Local taxi (bajaj/tuk-tuk) companies"
+    ],
+    "taxi": {
+      "color": "blue (bajaj three-wheelers)",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Bajaj tuk-tuks are the standard way around town; agree the fare before departure"
+    },
+    "emergency": {
+      "police": "991 (national police emergency line)",
+      "medical": "907 (ambulance)",
+      "note": "English-language emergency support is limited; hotels can assist in arranging help"
+    },
+    "religion": [
+      "Ethiopian Orthodox Christianity (overwhelming majority, the reason for the rock-hewn churches)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Northern Group of rock-hewn churches (Biete Medhane Alem, Biete Maryam)",
+        "Church of Saint George (Biete Giyorgis), the best-preserved and most iconic",
+        "Eastern Group churches (Biete Amanuel, Biete Gabriel-Rufael)"
+      ],
+      [
+        "Lalibela's weekly market for traditional crafts and produce",
+        "Yemrehana Krestos Church (a cave church outside town)",
+        "Ashetan Maryam monastery hike for panoramic highland views"
+      ],
+      [
+        "Local coffee ceremony experience",
+        "traditional injera and wot cooking demonstration",
+        "sunrise or sunset views over the surrounding Lasta highlands"
+      ]
+    ],
+    "walk": "The church complexes are connected by tunnels and walkways and best explored on foot with a licensed guide; outlying sites like Ashetan Maryam require a hike or vehicle",
+    "safety": {
+      "safety": "Generally safe and welcoming to pilgrims and tourists; check current travel advisories for the wider Amhara region before visiting",
+      "crime": "Low crime in the town itself; persistent unofficial guides and vendors are the main hassle"
+    },
+    "hood_landmark": {
+      "Northern Group of Churches": "Biete Medhane Alem, the largest monolithic church in the world",
+      "Church of Saint George (Biete Giyorgis)": "Biete Giyorgis, carved in the shape of a Greek cross",
+      "Eastern Group of Churches": "Biete Amanuel and the Eastern Group's interconnected tunnels",
+      "Lalibela Town Center": "Lalibela's market and main street of guesthouses",
+      "Ashetan Maryam (outlying)": "Ashetan Maryam monastery's highland viewpoint"
+    },
+    "hoods": [
+      "Northern Group of Churches",
+      "Church of Saint George (Biete Giyorgis)",
+      "Eastern Group of Churches",
+      "Lalibela Town Center",
+      "Ashetan Maryam (outlying)"
+    ],
+    "hood_desc": [
+      "The largest cluster of rock-hewn churches, including the massive Biete Medhane Alem, connected by carved tunnels and trenches.",
+      "Standing somewhat apart from the other groups, Ethiopia's most photographed church, carved in a precise cross shape from a single rock.",
+      "A second cluster of churches linked by narrow passageways, still in active use for daily Orthodox worship.",
+      "The modern town with the market, guesthouses, and restaurants, a short walk from the church complexes.",
+      "A remote monastery reached by a steep hike or mule ride above town, rewarding visitors with sweeping highland views."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "sights",
+      "central",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Mezena Lalibela Hotel",
+        "Northern Group-area guesthouses",
+        "Church-adjacent lodging"
+      ],
+      [
+        "Sora Lodge",
+        "Saint George-view guesthouses",
+        "Boutique hilltop hotels"
+      ],
+      [
+        "Eastern Group-area guesthouses",
+        "Central pilgrimage-district lodging",
+        "Local family-run inns"
+      ],
+      [
+        "Town center guesthouses",
+        "Market-area budget hotels",
+        "Main street lodging"
+      ],
+      [
+        "Ashetan Maryam trekking guides' accommodations",
+        "Highland monastery-area stays",
+        "Remote guesthouse lodging"
+      ]
+    ],
+    "drinks": {
+      "coffee": 0.8,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Bajaj (tuk-tuk) taxis around town",
+      "hours": "Roughly daylight to early evening",
+      "pay": "Cash negotiated before the ride",
+      "map": "Not centrally published; hotels arrange guides and transport",
+      "note": "Hiring a licensed local guide is standard practice (and often required) for visiting the church complexes"
+    },
+    "transport": {
+      "air": "Lalibela Airport (LLI), about 25 min from town, with domestic flights from Addis Ababa",
+      "train": "No passenger rail service",
+      "bus": "Long-distance buses connect to Addis Ababa and other northern Ethiopian towns (long, rough journey)",
+      "ferry": "",
+      "car": "Rural mountain roads; most visitors fly in rather than drive from Addis Ababa"
+    },
+    "airport": {
+      "code": "LLI",
+      "name": "Lalibela Airport",
+      "distance": "~23 km (25 min) from town",
+      "transport": "Hotel shuttle or pre-arranged taxi"
+    },
+    "net": {
+      "m": "Limited 3G/4G in town, minimal outside",
+      "w": "Wifi available in most hotels but often slow",
+      "ops": "Ethio Telecom",
+      "gb": "~$3-8 for a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Wifi available in central hotels, though unreliable",
+      "ap": "An Ethio Telecom prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is customary and expected for local guides",
+      "r": "10% is appreciated, not always included"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 65,
+      "luxury": 160
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 30,
+      "museums": 40,
+      "architecture": 98,
+      "nature": 55
+    }
+  }
+]

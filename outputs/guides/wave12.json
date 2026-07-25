@@ -1,0 +1,1791 @@
+[
+  {
+    "city": "Inverness",
+    "country": "United Kingdom",
+    "visitors": 1.5,
+    "pop": "63,000 (Highland Council settlement estimate; ~70,000 in greater urban area)",
+    "lat": 57.4778,
+    "lng": -4.2247,
+    "tagline": "Capital of the Highlands, where the River Ness meets the sea",
+    "temps": {
+      "q1": 39,
+      "q2": 49,
+      "q3": 56,
+      "q4": 42
+    },
+    "rain": {
+      "q1": 25,
+      "q2": 25,
+      "q3": 29,
+      "q4": 29
+    },
+    "langs": [
+      "English",
+      "Scottish Gaelic",
+      "Scots"
+    ],
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "currency_name": "British Pound",
+    "usd_rate": 0.79,
+    "card": "Contactless and card payment are the norm almost everywhere, including buses and small cafes; cash is rarely needed but ATMs are widely available",
+    "cost": {
+      "hotel": 110,
+      "meal": 20,
+      "taxi": 12
+    },
+    "hotel": {
+      "b": "$55-95",
+      "h": "$150-280"
+    },
+    "rides": [
+      "Central Taxis Inverness (phone/app)",
+      "Highland Taxis",
+      "Local private-hire firms (Uber does not operate in Inverness)"
+    ],
+    "taxi": {
+      "color": "No single livery — mix of black cabs and private-hire saloons/estates",
+      "fare": "Flagfall around £3.40 (~$4.30) plus roughly £2/mile metered",
+      "fareNote": "Fixed fares commonly quoted for the airport (~£25/$32) and Loch Ness day trips; book by phone as street hailing is limited"
+    },
+    "emergency": {
+      "police": "999 (emergency) / 101 (non-emergency)",
+      "medical": "999 for emergencies, 111 for NHS non-emergency advice; Raigmore Hospital is the main hospital",
+      "note": "112 also reaches emergency services (EU-standard number, works throughout the UK)"
+    },
+    "religion": [
+      "No religion (~48%)",
+      "Church of Scotland (~30%)",
+      "Roman Catholic (~11%)",
+      "Other Christian (~7%)",
+      "Other religions (~4%)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Inverness Castle viewpoint terrace",
+        "Old Town wynds and Victorian Market",
+        "Leakey's Bookshop in a converted church",
+        "River Ness walk to the Ness Islands",
+        "Inverness Cathedral",
+        "Live folk music at Hootananny"
+      ],
+      [
+        "Culloden Battlefield and visitor centre",
+        "Clava Cairns Bronze Age standing stones",
+        "Drumnadrochit and the Loch Ness Centre",
+        "Urquhart Castle ruins on Loch Ness",
+        "Jacobite Loch Ness boat cruise"
+      ],
+      [
+        "Cawdor Castle and gardens",
+        "Fort George 18th-century fortress",
+        "Chanonry Point for dolphin watching",
+        "Speyside whisky distillery tour",
+        "Craft beer tasting at Uilebheist Distillery & Brewery"
+      ]
+    ],
+    "walk": "Compact, walkable city centre — most sights are within a 15-20 minute walk of each other, linked by footbridges over the River Ness and the pedestrian paths of the Ness Islands",
+    "safety": {
+      "safety": "Very safe overall — Inverness and the Highlands consistently rank among the lowest-crime areas in the UK",
+      "crime": "Violent crime is rare; petty theft is uncommon but standard caution is sensible in the city centre late at night around pubs on weekends"
+    },
+    "hoods": [
+      "City Centre",
+      "Crown",
+      "Merkinch",
+      "Ballifeary",
+      "Culduthel"
+    ],
+    "hood_landmark": {
+      "City Centre": "Inverness Castle & Victorian Market",
+      "Crown": "'The Village' crossroads and Crown Church",
+      "Merkinch": "Merkinch Local Nature Reserve & Carnarc Point",
+      "Ballifeary": "Ness Islands footbridges & Eden Court Theatre",
+      "Culduthel": "Culduthel Woods"
+    },
+    "hood_desc": [
+      "The compact heart of Inverness on the east bank of the River Ness, packed with the castle, cathedral, Victorian Market arcades, and most restaurants, pubs and shops within easy walking distance.",
+      "A hillside Victorian and Edwardian conservation area just south of the centre, historically linked to the old castle lands, now a quiet, affluent residential neighborhood centred on a small crossroads of cafes and pubs.",
+      "A traditionally working-class district on a former island between the Caledonian Canal and the River Ness, with a strong community identity, riverside walks, and the Merkinch Local Nature Reserve.",
+      "A leafy riverside residential area on the west bank near the Ness Islands, home to Eden Court Theatre and several of the city's guesthouses in converted Victorian villas.",
+      "A hillside residential suburb south of the centre with woodland walks, mostly modern housing, and a handful of guesthouses popular with drivers arriving via the A9."
+    ],
+    "hood_tags": [
+      "central",
+      "quiet",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Columba Hotel Inverness",
+        "Waterside Inverness",
+        "Glenmoriston Town House Hotel"
+      ],
+      [
+        "Ardconnel House",
+        "Craigside Lodge",
+        "Crown Hotel Guest House"
+      ],
+      [
+        "Ho Ho Hostel",
+        "Bazpackers Backpackers Hostel",
+        "Black Isle Bar & Rooms"
+      ],
+      [
+        "Ballifeary House Hotel",
+        "Trafford Bank Guest House",
+        "Craigmonie Hotel"
+      ],
+      [
+        "Rocpool Reserve Hotel",
+        "Kingsmills Hotel",
+        "Culduthel Guest House"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4,
+      "beer": 6.5,
+      "water": 1.5
+    },
+    "transit": {
+      "sys": "Stagecoach Highlands city and regional buses (no rail metro or tram)",
+      "hours": "Roughly 06:00-23:30 on main routes, with a reduced Sunday timetable",
+      "pay": "Contactless card/phone tap, the Stagecoach app, or cash on board",
+      "map": "Stagecoach Highlands Inverness zone map covers the city and surrounding villages such as Culloden, Smithton and the airport",
+      "note": "The city centre is small enough to walk entirely; buses are mainly useful for outlying suburbs, the airport, and day trips to Loch Ness or Culloden"
+    },
+    "transport": {
+      "air": "Inverness Airport (INV) has direct flights from London (Heathrow, Gatwick, Luton), Amsterdam, Dublin, Belfast and other UK/European cities",
+      "train": "ScotRail direct trains from Edinburgh (~3.5 hrs), Glasgow (~3.25 hrs) and Aberdeen (~2 hrs); the Caledonian Sleeper runs overnight from London Euston",
+      "bus": "Scottish Citylink and Megabus coaches connect Inverness Bus Station with Edinburgh, Glasgow, Aberdeen and other Scottish cities",
+      "ferry": "No direct ferry into Inverness; nearest ferry terminals are Ullapool (to Stornoway, Isle of Lewis) and Scrabster (to Orkney), each about a 1-2 hour drive",
+      "car": "A9 from Perth/Edinburgh in the south, A96 from Aberdeen, A82 from Fort William and Glasgow along Loch Ness"
+    },
+    "airport": {
+      "code": "INV",
+      "name": "Inverness Airport",
+      "distance": "9 miles (15 km) northeast of the city centre, at Dalcross",
+      "transport": "Stagecoach service 11/11A/11B, about 40 minutes, roughly $6 (£5); taxi about 20 minutes, roughly $32 (£25) for up to 4 passengers"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage in Inverness itself; coverage gets patchy in rural Highland glens",
+      "w": "Widely available in cafes, pubs, hotels and the public library",
+      "ops": "EE, O2, Vodafone, Three",
+      "gb": "Around $15-20 for a 15-20GB pay-as-you-go SIM bundle",
+      "fw": true,
+      "fwn": "Free wifi is standard with a purchase at cafes like Velocity Cafe and Black Isle Bar, plus free access at Inverness Public Library",
+      "ap": "Buy a pay-as-you-go SIM (EE, Three or Vodafone) at a supermarket or the airport on arrival, or set up an eSIM before the trip"
+    },
+    "tip": {
+      "s": "Not obligatory for taxis or general services; rounding up or adding a small amount for good service is appreciated but not expected",
+      "r": "10-12% for table service if not already added; always check the bill for an included 'service charge' before tipping again"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 70,
+      "mid": 150,
+      "luxury": 300
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 60,
+      "museums": 55,
+      "architecture": 65,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Windermere",
+    "country": "United Kingdom",
+    "visitors": 6.5,
+    "pop": "8,900 (combined Windermere & Bowness-on-Windermere civil parish, 2021 census; Windermere town alone: 4,826)",
+    "lat": 54.3701,
+    "lng": -2.9067,
+    "tagline": "England's largest lake, one grand fell-top view at a time",
+    "temps": {
+      "q1": 40,
+      "q2": 51,
+      "q3": 57,
+      "q4": 44
+    },
+    "rain": {
+      "q1": 35,
+      "q2": 29,
+      "q3": 34,
+      "q4": 41
+    },
+    "langs": [
+      "English"
+    ],
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "currency_name": "British Pound",
+    "usd_rate": 0.75,
+    "card": "Widely accepted, contactless is standard in shops, cafes, pubs, and even on Windermere Lake Cruises boats. Carry a little cash for rural B&Bs, market stalls, or small fell-side tea rooms.",
+    "cost": {
+      "hotel": 150,
+      "meal": 25,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$70–130",
+      "h": "$250–500+"
+    },
+    "rides": [
+      "Local pre-booked taxi firms (Lakes Taxis, Applecabs, Fellrunner Taxis)",
+      "Uber/Bolt do not operate in the Lake District",
+      "Hotel-arranged private transfers"
+    ],
+    "taxi": {
+      "color": "No standard livery, mostly private saloons and estate cars",
+      "fare": "Roughly £3.20 flagfall plus £2.50–3/mile",
+      "fareNote": "Most journeys are phone- or app-pre-booked rather than hailed on the street; agree a fixed price for longer runs (e.g., to Kendal or the airport)."
+    },
+    "emergency": {
+      "police": "999 (or 112); non-emergency 101",
+      "medical": "999 for emergencies; nearest A&E is Westmorland General Hospital, Kendal (about 9 miles away)",
+      "note": "Mountain Rescue (Kendal MRT / Langdale-Ambleside MRT) responds to fell and hiking incidents — always dial 999 and ask for Police then Mountain Rescue."
+    },
+    "religion": [
+      "Christian (~54%)",
+      "No religion (~37%)",
+      "Not stated (~6%)",
+      "Other faiths (~2%)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Bowness Bay promenade",
+        "Windermere Lake Cruises Islands (Blue) Cruise",
+        "The World of Beatrix Potter",
+        "Windermere Jetty Museum of Boats, Steam & Stories"
+      ],
+      [
+        "Cross-lake ferry from Ferry Nab to Far Sawrey",
+        "Hill Top (Beatrix Potter's farmhouse, Near Sawrey)",
+        "Hawkshead village",
+        "Wray Castle"
+      ],
+      [
+        "Orrest Head viewpoint walk from Windermere town",
+        "Blackwell, The Arts & Crafts House",
+        "Brockhole – The Lake District Visitor Centre",
+        "Troutbeck village and Townend farmhouse"
+      ],
+      [
+        "Day trip to Ambleside: Bridge House and Stock Ghyll Force waterfall",
+        "Grasmere village and Dove Cottage (Wordsworth's home)",
+        "Rydal Water lakeside walk"
+      ]
+    ],
+    "walk": "Bowness-on-Windermere is compact and pedestrian-friendly along the bay, and it connects to Windermere town by a signed 25-30 minute uphill footpath. Beyond the two centers, pavements thin out fast on rural lanes, so sturdy shoes are needed for fell walks, and the terrain is genuinely hilly.",
+    "safety": {
+      "safety": "Very safe; Cumbria consistently has one of the lowest crime rates in England and Windermere/Bowness feel comfortable to walk after dark.",
+      "crime": "Petty theft is the main risk — car break-ins at remote fell-side car parks and unattended bags at busy lake piers in summer. Violent crime is rare. Fell/hiking mishaps are a bigger practical safety concern than crime."
+    },
+    "hoods": [
+      "Bowness-on-Windermere",
+      "Windermere town",
+      "Troutbeck",
+      "Ambleside",
+      "Storrs / Storrs Park"
+    ],
+    "hood_landmark": {
+      "Bowness-on-Windermere": "Bowness Bay piers and Windermere Lake Cruises terminal",
+      "Windermere town": "Orrest Head viewpoint and the 1847 railway station",
+      "Troutbeck": "Townend, a 17th-century National Trust farmhouse",
+      "Ambleside": "Bridge House over Stock Ghyll",
+      "Storrs / Storrs Park": "Storrs Hall and Storrs Temple on the lakeshore"
+    },
+    "hood_desc": [
+      "The bustling lakeside hub with the cruise piers, ice cream stalls, pubs and The World of Beatrix Potter — the tourist heart of Windermere.",
+      "The quieter hilltop town that grew up around the 1847 railway terminus, with independent shops and cafes and an easy walk up to the classic fell-top view at Orrest Head.",
+      "A largely unspoiled Lakeland farming village of slate-roofed cottages strung along a valley just north of Windermere, home to the historic Townend farmhouse.",
+      "A lively outdoor-adventure town at the lake's northern tip, packed with hiking-gear shops, cafes and waterfall walks, a short bus or boat ride from Bowness.",
+      "A genteel, wooded stretch of lakeshore south of Bowness lined with grand Victorian hotels and historic estates, good for a quiet lakeside stroll away from the crowds."
+    ],
+    "hood_tags": [
+      "central",
+      "shopping",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "The Belsfield Hotel",
+        "Burnside Hotel & Lodges",
+        "Linthwaite House Hotel"
+      ],
+      [
+        "Cedar Manor Hotel & Restaurant",
+        "Applegarth Villa",
+        "Number 80"
+      ],
+      [
+        "The Mortal Man Inn",
+        "Queens Head Hotel Troutbeck",
+        "Broadoaks Country House"
+      ],
+      [
+        "Waterhead Hotel",
+        "Rothay Manor",
+        "Ambleside Salutation Hotel"
+      ],
+      [
+        "Storrs Hall Hotel",
+        "Langdale Chase Hotel",
+        "Beech Hill Hotel & Spa"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4.5,
+      "beer": 6.5,
+      "water": 2.2
+    },
+    "transit": {
+      "sys": "Windermere Lake Cruises ferry network plus Stagecoach Cumbria buses; no local rail beyond the Windermere branch-line terminus",
+      "hours": "Cruises run roughly 9:45am–5:30pm; buses generally run about 7am–11pm",
+      "pay": "Buses: tap card or cash on board; cruises: buy at the pier kiosk or online. Day passes exist for both.",
+      "map": "Route maps posted at Windermere Lake Cruises piers and on the Stagecoach Cumbria and Traveline websites",
+      "note": "A separate small car-and-passenger chain ferry crosses the lake year-round at Ferry Nab to Far Sawrey — handy for reaching Hill Top and Hawkshead without driving around the lake."
+    },
+    "transport": {
+      "air": "Nearest airport is Manchester Airport (MAN), about 90 miles away; Liverpool John Lennon and Newcastle are secondary options.",
+      "train": "Windermere railway station is the terminus of a branch line with roughly hourly trains to/from Manchester Airport and Manchester Piccadilly (about 2 hours); London Euston connects via Oxenholme on the West Coast Main Line in about 3.5–4 hours.",
+      "bus": "National Express coaches link major UK cities to Kendal/Windermere; local Stagecoach Cumbria buses connect Windermere/Bowness with Ambleside, Grasmere, Kendal and the wider national park.",
+      "ferry": "No international ferry service; Windermere Lake Cruises and the small Ferry Nab car ferry handle only on-lake, local travel.",
+      "car": "Via the M6 (Junction 36) then the A591, about 2.5–3 hours from Manchester or Liverpool. Parking in central Bowness and Windermere is limited and expensive in peak season."
+    },
+    "airport": {
+      "code": "MAN",
+      "name": "Manchester Airport",
+      "distance": "About 90 miles / 145 km (roughly 2–2.5 hours by train or car)",
+      "transport": "Direct or one-change trains run from Manchester Airport station to Windermere roughly hourly (~2 hours); pre-booked private transfers cost roughly $180–250 one-way and take about 2 hours"
+    },
+    "net": {
+      "m": "4G is generally reliable in the Bowness and Windermere town centers but drops out frequently on fells, in valleys, and around villages like Troutbeck; 5G coverage is limited.",
+      "w": "Free Wi-Fi is common in cafes, pubs and hotels in town; coverage is patchier at rural attractions and on the trails.",
+      "ops": "EE, O2, Vodafone, Three",
+      "gb": "About $15–25 for a 15–20GB tourist SIM or eSIM",
+      "fw": true,
+      "fwn": "Most cafes, hotels and the Brockhole National Park Visitor Centre offer free Wi-Fi to customers",
+      "ap": "SIM cards available at Manchester Airport and phone shops in Windermere/Ambleside; eSIMs can be activated before arrival"
+    },
+    "tip": {
+      "s": "Tipping is not obligatory anywhere in the UK. Rounding up a taxi fare or leaving small change at a cafe is appreciated but not expected.",
+      "r": "In restaurants and pubs with table service, 10–12.5% is typical if a service charge isn't already added to the bill."
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 100,
+      "mid": 200,
+      "luxury": 420
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 62,
+      "museums": 55,
+      "architecture": 55,
+      "nature": 97
+    }
+  },
+  {
+    "city": "Zhangjiajie",
+    "country": "China",
+    "visitors": 76.5,
+    "pop": "~1.5 million (Zhangjiajie prefecture-level city, spanning Yongding District, Wulingyuan District, Cili County and Sangzhi County)",
+    "lat": 29.1274,
+    "lng": 110.4787,
+    "tagline": "Where the sandstone pillars of Avatar's Pandora rise straight out of the mist",
+    "temps": {
+      "q1": 47,
+      "q2": 70,
+      "q3": 80,
+      "q4": 55
+    },
+    "rain": {
+      "q1": 34,
+      "q2": 46,
+      "q3": 34,
+      "q4": 24
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Xiang (Hunan) dialect",
+      "Tujia language",
+      "Miao language"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Chinese Yuan (Renminbi)",
+    "usd_rate": 7.15,
+    "card": "Cash and mobile QR payments (Alipay, WeChat Pay) dominate almost every transaction, from noodle stalls to scenic-area ticket booths; foreign Visa/Mastercard are accepted only at large international hotels like the InterContinental or Pullman. Set up Alipay's Tour Pass or link a foreign card to WeChat Pay before arrival, and carry some cash as backup.",
+    "cost": {
+      "hotel": 28,
+      "meal": 6,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$12–$30/night",
+      "h": "$90–$260/night"
+    },
+    "rides": [
+      "Didi Chuxing"
+    ],
+    "taxi": {
+      "color": "teal/green with white roof",
+      "fare": "¥6–8 (~$0.85–$1.10) flag-fall",
+      "fareNote": "About ¥1.8–2/km after the first 2–3 km; drivers rarely speak English so have your destination written in Chinese characters or use Didi's in-app translation"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120",
+      "note": "Fire is 119. Tourist police booths are stationed at the entrances of Zhangjiajie National Forest Park and Tianmen Mountain; hotel front desks are often the fastest way to get help translated."
+    },
+    "religion": [
+      "Folk religion / non-religious (majority)",
+      "Buddhism",
+      "Taoism",
+      "Christianity (small minority)",
+      "Tujia and Miao ethnic folk traditions"
+    ],
+    "stay": 4,
+    "visit": [
+      [
+        "Zhangjiajie National Forest Park",
+        "Golden Whip Stream",
+        "Bailong (Hundred Dragons) Elevator",
+        "Yuanjiajie / Avatar Hallelujah Mountain"
+      ],
+      [
+        "Tianzi Mountain cable car",
+        "Xianren Qiao (Immortals' Bridge)",
+        "Ten-Mile Gallery (Shili Hualang)",
+        "Yuanjiajie's First Bridge Under Heaven"
+      ],
+      [
+        "Tianmen Mountain cable car ride from downtown",
+        "Heaven's Gate (Tianmen Cave)",
+        "Cliffside glass skywalk",
+        "99-bend Tongtian Avenue"
+      ],
+      [
+        "Zhangjiajie Grand Canyon Glass Bridge",
+        "Baofeng Lake boat ride",
+        "Wulingyuan old town / Suoxiyu village stroll"
+      ]
+    ],
+    "walk": "Not a stroll-around city — Zhangjiajie is a hiking and cable-car destination built into vertical sandstone-pillar terrain. Expect thousands of stone steps, steep switchback trails, and long walkways through the national forest park; shuttle buses, cable cars, and the Bailong Elevator handle the big elevation changes. Downtown Yongding District is flat and walkable.",
+    "safety": {
+      "safety": "Very safe for solo travelers by international standards; violent crime against tourists is extremely rare. The main risks are trail-related — steep drop-offs, slick stone steps in rain or fog, and getting lost off marked paths.",
+      "crime": "Petty theft is uncommon but not unheard of at peak-season entrances; standard vigilance with valuables is enough. Overcharging by unlicensed tour touts and off-app taxi drivers is the more common annoyance."
+    },
+    "hoods": [
+      "Yongding District (Downtown Zhangjiajie)",
+      "Wulingyuan District",
+      "Suoxiyu (Suoxi Valley)",
+      "Tianzi Mountain Area",
+      "Zhangjiajie Grand Canyon Area (Cili County)"
+    ],
+    "hood_landmark": {
+      "Yongding District (Downtown Zhangjiajie)": "Tianmen Mountain cable car base station",
+      "Wulingyuan District": "Zhangjiajie National Forest Park & Golden Whip Stream",
+      "Suoxiyu (Suoxi Valley)": "Baofeng Lake & Ten-Mile Gallery",
+      "Tianzi Mountain Area": "Yuanjiajie / Avatar Hallelujah Mountain",
+      "Zhangjiajie Grand Canyon Area (Cili County)": "Zhangjiajie Grand Canyon Glass Bridge"
+    },
+    "hood_desc": [
+      "The prefecture's urban core, with the train and long-distance bus stations, the bulk of mid-range hotels, restaurants, and the world's longest cable car line climbing straight out of the city to Tianmen Mountain.",
+      "The gateway town to the core UNESCO scenic area, packed with guesthouses just outside the National Forest Park gate; this is the launch point for Golden Whip Stream and the Bailong Elevator.",
+      "A quieter valley within Wulingyuan Scenic Area centered on Baofeng Lake's jade-green water and the pillar-lined Ten-Mile Gallery, popular for an easier-paced day away from the busiest trails.",
+      "Home to the park's most photographed pillar formations, including the cliffs said to have inspired the floating Hallelujah Mountains of Pandora in Avatar.",
+      "An adventure-tourism hub built around the record-breaking glass bridge spanning the Zhangjiajie Grand Canyon, with zip-lining and bungee add-ons for thrill-seekers."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "sights",
+      null
+    ],
+    "lodging": [
+      [
+        "Landison Plaza Hotel Zhangjiajie",
+        "Zhangjiajie Sunshine Hotel",
+        "Zhangjiajie Yusheng International Hotel"
+      ],
+      [
+        "InterContinental Zhangjiajie",
+        "Pullman Zhangjiajie",
+        "Zhangjiajie Yudu International Youth Hostel"
+      ],
+      [
+        "Baofeng Lake Resort Hotel",
+        "Suoxiyu Grand Hotel",
+        "Zhangjiajie Suoxi Valley Inn"
+      ],
+      [
+        "Tianzishan Hotel",
+        "Yuanjiajie Villa Hotel",
+        "Zhangjiajie Tianzi International Hotel"
+      ],
+      [
+        "Zhangjiajie Grand Canyon Resort",
+        "Cili Sunshine Hotel",
+        "Zhangjiajie Canyon Glass Bridge Hotel"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 1.5,
+      "water": 0.35
+    },
+    "transit": {
+      "sys": "No metro or tram; city buses run downtown, and mandatory eco-friendly shuttle buses (fare included in the park ticket) move visitors between trailheads inside Zhangjiajie National Forest Park and Wulingyuan Scenic Area.",
+      "hours": "City buses roughly 6:30am–7pm; park shuttles run from park opening (~7am) to around 6pm, earlier in winter",
+      "pay": "Cash, Alipay, or WeChat Pay on city buses; scenic-area shuttles are covered by your entrance ticket",
+      "map": "Amap (Gaode Ditu) or Baidu Maps for navigation; free paper trail maps handed out at park entrance gates",
+      "note": "Cable cars, the Bailong Elevator, and the Tianmen Mountain cable car all require separate paid tickets on top of park admission."
+    },
+    "transport": {
+      "air": "Zhangjiajie Hehua International Airport (DYG) has direct flights from Beijing, Shanghai, Guangzhou, Chengdu, Xi'an, and other major Chinese hubs, plus seasonal charters from a handful of Southeast Asian cities.",
+      "train": "Zhangjiajie West high-speed rail station puts Changsha about 2 hours away and links onward to the national high-speed network; the older Zhangjiajie railway station handles slower conventional trains.",
+      "bus": "Long-distance coaches connect Zhangjiajie's bus stations to Changsha, Fenghuang Ancient Town, and other Hunan destinations.",
+      "ferry": "None — Zhangjiajie is deep inland in mountainous northwestern Hunan with no navigable ferry routes.",
+      "car": "Self-driving is possible via the Changsha–Zhangjiajie and Zhangjiajie–Jishou expressways, but requires a Chinese driving permit; mountain roads within the scenic areas are best left to shuttle buses or a hired driver."
+    },
+    "airport": {
+      "code": "DYG",
+      "name": "Zhangjiajie Hehua International Airport",
+      "distance": "~7 miles (11 km) south of downtown Zhangjiajie (Yongding District)",
+      "transport": "Taxi ~$8–12 (20–25 min); airport shuttle bus to city center for around $1.50; no direct rail link"
+    },
+    "net": {
+      "m": "China Mobile, China Unicom, and China Telecom all sell prepaid tourist SIMs with data at the airport and downtown shops; eSIM options from international providers also work well",
+      "w": "Free Wi-Fi is common in hotels and many cafes downtown, but weaker to nonexistent deep inside the scenic parks",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "$3–6 per GB on a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Google, Gmail, Maps, Facebook, Instagram, WhatsApp, and most Western news sites are blocked; install a reliable VPN before you arrive",
+      "ap": "Cell signal is generally solid even on cable cars and ridgelines, though it can drop in valley trails and cave sections like Tianmen Cave"
+    },
+    "tip": {
+      "s": "Tipping is not customary anywhere in China, including for taxi drivers, hotel staff, or tour guides; attempting to tip can even cause confusion.",
+      "r": "Restaurants do not expect tips and never add a service charge at local eateries; only some high-end international hotel restaurants may quietly include one."
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 75,
+      "luxury": 180
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 55,
+      "museums": 28,
+      "architecture": 42,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Boracay",
+    "country": "Philippines",
+    "visitors": 1.75,
+    "pop": "~37,000",
+    "lat": 11.9674,
+    "lng": 121.9248,
+    "tagline": "Powder-white sand, turquoise water, and a sunset over Willy's Rock",
+    "temps": {
+      "q1": 80,
+      "q2": 82,
+      "q3": 81,
+      "q4": 80
+    },
+    "rain": {
+      "q1": 20,
+      "q2": 33,
+      "q3": 57,
+      "q4": 44
+    },
+    "langs": [
+      "Filipino (Tagalog)",
+      "English",
+      "Aklanon"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 61.7,
+    "card": "Widely accepted at hotels, resorts, dive shops and larger restaurants; small beachfront eateries, sari-sari stores, tricycles and market stalls are cash-only — keep PHP on hand for daily spending.",
+    "cost": {
+      "hotel": 90,
+      "meal": 8,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-35",
+      "h": "$180-450"
+    },
+    "rides": [
+      "E-trike (main mode on-island)",
+      "Tricycle",
+      "Grab (Caticlan/Kalibo mainland only)",
+      "Bicycle rental",
+      "Habal-habal (motorbike, mainland)"
+    ],
+    "taxi": {
+      "color": "blue/white or yellow e-trikes",
+      "fare": "₱25-50 shared per person along the main road; ₱150-300 chartered",
+      "fareNote": "Boracay banned private cars and vans on the main road in 2018 — official blue/white e-trikes and tricycles are the only motorized transport on the island itself; agree on price before boarding if unmetered."
+    },
+    "emergency": {
+      "police": "911 (national emergency line) or Boracay Police Station (Station 2): (036) 288-3061",
+      "medical": "911 or Boracay Community Hospital / Ciriaco B. Tirol Memorial District Hospital in Kalibo for serious cases",
+      "note": "Serious trauma cases are typically airlifted or ferried to Kalibo or Iloilo City; Department of Tourism hotline is 1-386 (domestic) for tourist assistance."
+    },
+    "religion": [
+      "Roman Catholic 79%",
+      "Other Christian 12%",
+      "Muslim 6%",
+      "Other/None 3%"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Arrive via Caticlan jetty port, check in at your Station",
+        "Walk White Beach at sunset near Willy's Rock (Station 1)",
+        "Dinner and people-watching at D'Mall (Station 2)"
+      ],
+      [
+        "Island-hopping tour: Crystal Cove Island, Crocodile Island, Magic Island snorkeling stop",
+        "Lunch on a deserted sandbar",
+        "Sunset paraw sailing cruise"
+      ],
+      [
+        "Kitesurfing or windsurfing lesson at Bulabog Beach",
+        "Spa treatment or massage on the beach",
+        "Ariel's Point cliff-jumping and BBQ boat trip (seasonal)"
+      ],
+      [
+        "Sunrise hike or ATV ride to Mt. Luho viewpoint",
+        "Puka Shell Beach for a quieter swim and fresh buko shake",
+        "Motag Living Museum and Boracay handicraft shopping at D'Mall before departure"
+      ]
+    ],
+    "walk": "White Beach's beachfront path and Station 2's D'Mall are extremely walkable and barefoot-friendly; the island is long and narrow (~7km) so tricycles or e-trikes are used for cross-island trips, especially in midday heat.",
+    "safety": {
+      "safety": "Generally very safe for solo travelers, including women",
+      "crime": "Violent crime against tourists is rare; petty theft (unattended bags/phones on the beach, occasional overcharging by unlicensed tricycles) is the main risk — use officially marked tricycles and secure valuables."
+    },
+    "hood_landmark": {
+      "Station 1": "Willy's Rock",
+      "Station 2": "D'Mall",
+      "Station 3": "Boracay Jetty Port / floating dock",
+      "Bulabog Beach": "Kitesurfing & windsurfing launch area",
+      "Diniwid Beach": "Hidden cove cliffside footpath from Station 1"
+    },
+    "hoods": [
+      "Station 1",
+      "Station 2",
+      "Station 3",
+      "Bulabog Beach",
+      "Diniwid Beach"
+    ],
+    "hood_desc": [
+      "Boracay's most scenic and upscale stretch of White Beach, home to Willy's Rock grotto, wide soft sand and higher-end resorts, with a quieter, more relaxed vibe than Station 2.",
+      "The bustling heart of the island, anchored by D'Mall's maze of restaurants, bars, souvenir shops and travel agencies; loud, crowded and walkable, with the widest range of budgets and the liveliest nightlife strip.",
+      "The narrower, quieter southern end of White Beach popular with backpackers and budget travelers, with fewer crowds and a more local, laid-back feel.",
+      "The island's east-coast windward beach, the Philippines' top kitesurfing and windsurfing spot thanks to steady onshore winds; rockier and not swimmable at low tide but full of watersports schools and chill beach bars.",
+      "A small, secluded cove just north of Station 1 reached by a cliffside footpath, known for calmer water, a rustic laid-back crowd, and some of the island's best sunset viewing away from the main strip."
+    ],
+    "hood_tags": [
+      "sights",
+      "central",
+      "quiet",
+      "hipster",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Discovery Shores Boracay",
+        "Henann Crystal Sands Resort",
+        "The Lind Boracay"
+      ],
+      [
+        "Henann Regency Resort & Spa",
+        "Boracay Regency Beach Resort",
+        "Frendz Hostel Boracay"
+      ],
+      [
+        "Kommons by Kamino",
+        "Ocean Breeze Inn",
+        "Le Soleil de Boracay"
+      ],
+      [
+        "Aqua Boracay",
+        "7Stones Boracay Suites",
+        "Isla Sunset Beach Resort"
+      ],
+      [
+        "Nami Resort Boracay",
+        "Spider House Resort",
+        "Boracay Ocean Club Beach Resort"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3,
+      "beer": 2.5,
+      "water": 1
+    },
+    "transit": {
+      "sys": "E-trikes and tricycles on the single main road; pump boats (bangkas) for inter-island and mainland transfers",
+      "hours": "E-trikes run roughly 5am-midnight; jetty boats to Caticlan operate about 5am-8pm regularly, with limited service later",
+      "pay": "Cash (PHP) paid directly to the driver or boatman; agree on fare before boarding for unmetered chartered trips",
+      "map": "No formal transit map — the island has one main beachfront path (White Beach) and one inland concrete road (Boracay Main Road) running its length",
+      "note": "Private cars and vans have been banned from the main road since a 2018 island rehabilitation closure; only permitted e-trikes, tricycles and bicycles operate on-island."
+    },
+    "transport": {
+      "air": "Fly into Godofredo P. Ramos Airport (Caticlan, code MPH), a 10-min tricycle ride plus 15-min boat from the island; Kalibo International Airport (KLO) is a further ~1.5-2 hr van/bus ride to Caticlan and serves more international carriers.",
+      "train": "No rail service anywhere on Panay island; nearest rail options are in Manila.",
+      "bus": "Overnight buses (e.g. Ceres Bus Lines) run from Manila to Caticlan (~12-14 hrs) via the Nabas/RORO ferry route, then a short boat crossing to Boracay.",
+      "ferry": "Frequent pump boats cross the Tabon Strait between Caticlan Jetty Port and Boracay's Cagban or Tambisaan jetty in 10-15 minutes, roughly every 30-60 minutes.",
+      "car": "No private car rentals are usable on Boracay itself; visitors drive/rent only for reaching Caticlan or Kalibo on Panay island, then leave the vehicle before the boat crossing."
+    },
+    "airport": {
+      "code": "MPH",
+      "name": "Godofredo P. Ramos Airport (Caticlan)",
+      "distance": "~2km from Boracay Island: 10-min tricycle to Caticlan Jetty Port + 15-min boat crossing + short tricycle to your hotel",
+      "transport": "₱500-700 DIY door-to-door via tricycle+terminal fee+environmental fee+boat+tricycle; ₱950-1,050 for a pre-booked private transfer; alt airport Kalibo (KLO), ~1.5-2 hr drive to Caticlan Jetty Port"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage across the island from Globe and Smart; speeds can slow during peak season crowds",
+      "w": "Free wifi is common in hotels, resorts and cafes but can be slow/unreliable — many travelers rely on mobile data instead",
+      "ops": "Globe Telecom, Smart (PLDT), DITO Telecommunity",
+      "gb": "Prepaid tourist SIM with ~5-8GB data runs about ₱500-800 (~$8-13)",
+      "fw": true,
+      "fwn": "Networks are usually named after the establishment (e.g. hotel/resort wifi), password given at check-in or on menus",
+      "ap": "SIM cards sold at both airports and at kiosks/malls along D'Mall in Station 2"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated — round up or leave ₱50-100 for hotel staff, boatmen and tour guides for good service",
+      "r": "A 10% service charge is often already added to the bill at resorts/restaurants; if not, 10% is a welcome tip for good service"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 90,
+      "luxury": 250
+    },
+    "score": {
+      "nightlife": 75,
+      "restaurants": 80,
+      "museums": 15,
+      "architecture": 25,
+      "nature": 92
+    }
+  },
+  {
+    "city": "El Nido",
+    "country": "Philippines",
+    "visitors": 0.55,
+    "pop": "~51,000",
+    "lat": 11.1797,
+    "lng": 119.4038,
+    "tagline": "Limestone cliffs, hidden lagoons, and the edge of Bacuit Bay",
+    "temps": {
+      "q1": 80,
+      "q2": 82,
+      "q3": 80,
+      "q4": 80
+    },
+    "rain": {
+      "q1": 6,
+      "q2": 16,
+      "q3": 19,
+      "q4": 17
+    },
+    "langs": [
+      "Filipino (Tagalog)",
+      "English",
+      "Cuyonon",
+      "Visayan"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 58.5,
+    "card": "Cash (PHP) is essential — many small resorts, tour boats, and eateries are cash-only. Larger hotels and some restaurants take cards (often with a 3-5% surcharge). ATMs exist in El Nido town and at Lio but occasionally run out of cash, especially on weekends.",
+    "cost": {
+      "hotel": 65,
+      "meal": 8,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-35",
+      "h": "$180-450"
+    },
+    "rides": [
+      "Tricycle (main local transport)",
+      "Habal-habal (motorbike taxi)",
+      "Rented scooter/motorbike",
+      "Private van/shuttle transfers",
+      "Island-hopping bangka boats"
+    ],
+    "taxi": {
+      "color": "No metered taxis — El Nido runs on open-air tricycles (motorbike with sidecar), usually white or brightly painted",
+      "fare": "₱50-150 (~$1-3) for short hops within town or to Corong-Corong",
+      "fareNote": "Fares are negotiated upfront, not metered; a tricycle to Nacpan Beach (round trip) runs about ₱600-800 (~$10-14)"
+    },
+    "emergency": {
+      "police": "911 (national emergency hotline); El Nido Municipal Police Station in Poblacion",
+      "medical": "El Nido has a small district hospital/rural health unit for minor issues; serious cases are transferred to Ospital ng Palawan or Palawan Adventist Hospital in Puerto Princesa (~5 hrs by road)",
+      "note": "DOT Tourist Assistance hotline: 1343 (domestic); get travel insurance with medevac coverage given the distance to major hospitals"
+    },
+    "religion": [
+      "Roman Catholic 80%",
+      "Other Christian 12%",
+      "Islam 3%",
+      "Other/None 5%"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Arrive via El Nido/Lio Airport (ENI) or van transfer from Puerto Princesa",
+        "Check in around El Nido Town/Poblacion or Corong-Corong",
+        "Stroll the town pier and Calle Hama/Real Street",
+        "Sunset at Corong-Corong Beach or a Las Cabanas floating bar"
+      ],
+      [
+        "Island Hopping Tour A: Big Lagoon, Small Lagoon (Secret Lagoon), 7 Commando Beach, Shimizu Island, Payong-Payong Island",
+        "Evening drinks at a beach bar in town"
+      ],
+      [
+        "Island Hopping Tour C: Hidden Beach, Secret Beach, Helicopter Island, Matinloc Shrine, Talisay Beach",
+        "Sunset from a rooftop bar or Art Cafe in town"
+      ],
+      [
+        "Day trip to Nacpan Beach and Calitang (Twin Beach)",
+        "Beach hammocks, coconut stands, and swimming",
+        "Optional Taraw Peak/Taraw Cliff sunrise or sunset hike above town"
+      ]
+    ],
+    "walk": "El Nido Town/Poblacion itself is compact and walkable corner to corner in 10-15 minutes, but Corong-Corong, Lio, Las Cabanas, and Nacpan require a tricycle, scooter, or van — roads outside the center are often unpaved and unlit at night.",
+    "safety": {
+      "safety": "Generally very safe for solo travelers, including women; locals are used to independent tourists and tour groups create built-in social safety",
+      "crime": "Low violent crime; petty theft of unattended valuables on beaches and occasional tour/overcharging scams are the main risks; roads outside town have no streetlights after dark"
+    },
+    "hood_landmark": {
+      "El Nido Town / Poblacion": "El Nido Pier and Taraw Cliff (Taraw Peak) viewpoint",
+      "Corong-Corong": "Corong-Corong Beach sunset strip",
+      "Las Cabanas / Marimegmeg Beach": "Las Cabanas floating sunset bars",
+      "Lio Beach": "Lio Tourism Estate and Art Park",
+      "Nacpan Beach": "Nacpan-Calitang Twin Beach"
+    },
+    "hoods": [
+      "El Nido Town / Poblacion",
+      "Corong-Corong",
+      "Las Cabanas / Marimegmeg Beach",
+      "Lio Beach",
+      "Nacpan Beach"
+    ],
+    "hood_desc": [
+      "The bustling town center where every tour boat departs — narrow lanes packed with dive shops, souvenir stalls, budget guesthouses, and the restaurant strip along Calle Hama and Real Street.",
+      "A quieter beachfront barangay just south of town with a long sandy stretch, boutique resorts, and some of the best unobstructed sunset views over Bacuit Bay.",
+      "A postcard cove south of Corong-Corong known for its floating sunset bar, calm swimming waters, and views of Cadlao Island — popular for a golden-hour drink.",
+      "A master-planned tourism estate by the airport with manicured paths, an outdoor art park, upscale cafes, and a long white-sand beach — a polished contrast to the town.",
+      "A remote, still-developing double beach about 40 minutes north of town, framed by coconut palms and largely free of the crowds found closer to El Nido proper."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "sights",
+      "hipster",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Sea Cocoon Hotel",
+        "The Funny Lion El Nido",
+        "Frendz Hostel"
+      ],
+      [
+        "Vellago Resort",
+        "Panorama Beach Club & Resort",
+        "Last Frontier Beach Resort"
+      ],
+      [
+        "Alavera Beach Resort",
+        "Sea Nomad Beachfront Resort",
+        "Palm Beach Villas El Nido"
+      ],
+      [
+        "Seda Lio Resort",
+        "Piece Lio",
+        "Lakwa Motel"
+      ],
+      [
+        "ANGKLA Boutique Resort",
+        "Nacpan Glamping",
+        "Mad Monkey Hostel El Nido"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.5,
+      "beer": 2,
+      "water": 0.8
+    },
+    "transit": {
+      "sys": "No formal public transit — tricycles, habal-habal motorbikes, and shared/private vans cover local trips; boats (bangkas) handle inter-island and beach transport",
+      "hours": "Roughly 6am-10pm for tricycles/vans; island-hopping boats run 9am-5pm",
+      "pay": "Cash only, fares negotiated on the spot",
+      "map": "No formal transit map — distances are short and drivers/boatmen know all beaches and resorts by name",
+      "note": "Renting a scooter (~₱500-600/day) is popular for reaching Nacpan and Las Cabanas independently"
+    },
+    "transport": {
+      "air": "El Nido/Lio Airport (ENI) has direct flights from Manila via AirSWIFT (~2h20m-2h50m); most travelers instead fly into Puerto Princesa (PPS), which has far more flights",
+      "train": "No rail service anywhere in Palawan",
+      "bus": "No direct long-distance bus from Manila; shared vans/shuttles run the 5-5.5 hour Puerto Princesa to El Nido route",
+      "ferry": "Weekly Manila-Coron-Puerto Princesa passenger ferries; no scheduled ferry directly serves El Nido",
+      "car": "Rental scooters/motorbikes and private vans are available in town; roads to Nacpan and San Vicente are partly unpaved and best driven in daylight"
+    },
+    "airport": {
+      "code": "ENI",
+      "name": "El Nido Airport (Lio Airport)",
+      "distance": "~4 km / 10 min from El Nido town center, adjacent to Lio Beach",
+      "transport": "Puerto Princesa International Airport (PPS) is the main gateway, followed by a 5-5.5 hr van transfer (~$12-14)"
+    },
+    "net": {
+      "m": "Globe and Smart are the two main mobile carriers; DITO has limited coverage",
+      "w": "Hotel/resort wifi is common but often slow and unreliable, especially in wet season or on outer islands",
+      "ops": "Globe, Smart/TNT, DITO",
+      "gb": "₱500-800 (~$9-14) for a ~15-20GB prepaid data pack valid 30 days",
+      "fw": true,
+      "fwn": "Free wifi at most cafes, restaurants, and hotels, though speeds vary widely by location",
+      "ap": "Puerto Princesa and Manila airports sell tourist SIMs; El Nido town has several small phone-load/SIM shops"
+    },
+    "tip": {
+      "s": "Not obligatory but appreciated for tricycle drivers, tour guides, and boat crews — round up or add ₱50-100 per person for a full-day tour",
+      "r": "A 10% service charge is often already included at resorts and larger restaurants; where it isn't, 10% is a generous, appreciated tip"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 90,
+      "luxury": 300
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 60,
+      "museums": 12,
+      "architecture": 28,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Coron",
+    "country": "Philippines",
+    "visitors": 0.3,
+    "pop": "~69,000",
+    "lat": 11.9988,
+    "lng": 120.205,
+    "tagline": "Limestone cliffs, hidden lagoons, and sunken warships in the Calamian Islands",
+    "temps": {
+      "q1": 82,
+      "q2": 86,
+      "q3": 84,
+      "q4": 83
+    },
+    "rain": {
+      "q1": 6,
+      "q2": 12,
+      "q3": 20,
+      "q4": 14
+    },
+    "langs": [
+      "English",
+      "Filipino (Tagalog)",
+      "Cuyonon",
+      "Tagbanwa"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 58,
+    "card": "Cash is essential — tricycles, market stalls, small eateries, and island-hopping boat crews are cash-only. Larger hotels, dive shops, and a few restaurants along the waterfront accept cards (often with a 3-5% surcharge). Only a handful of ATMs exist in town and they occasionally run out of cash.",
+    "cost": {
+      "hotel": 45,
+      "meal": 8,
+      "taxi": 2
+    },
+    "hotel": {
+      "b": "$15-35",
+      "h": "$150-350"
+    },
+    "rides": [
+      "Tricycle (motorized sidecar)",
+      "Habal-habal (motorbike taxi)",
+      "Rental scooter/motorbike",
+      "Multicab",
+      "Bangka (outrigger boat) for island transfers"
+    ],
+    "taxi": {
+      "color": "open-air motorized tricycles (no metered taxis exist)",
+      "fare": "₱10-50 (~$0.20-0.90) for short trips within town",
+      "fareNote": "Fares are flat-rate or negotiated up front, not metered; a full tricycle charter runs roughly ₱150-300/hour, and habal-habal rides to outlying beaches cost ₱100-300"
+    },
+    "emergency": {
+      "police": "911 (national emergency hotline); Coron Municipal Police Station",
+      "medical": "Coron District Hospital; Maria Elena Hospital also serves the town",
+      "note": "The nearest hyperbaric recompression chamber is in Puerto Princesa or Manila; for serious trauma, medevac to Manila or Cebu is often required"
+    },
+    "religion": [
+      "Roman Catholic 85%",
+      "Other Christian 10%",
+      "Islam 2%",
+      "Other/None 3%"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Mt. Tapyas sunset hike (721 steps, panoramic view of Coron Bay)",
+        "Coron Public Market",
+        "Maquinit Hot Spring (saltwater, jungle-fringed pools)"
+      ],
+      [
+        "Tour A: Kayangan Lake (voted Asia's cleanest lake)",
+        "Barracuda Lake (thermocline dive/snorkel)",
+        "Twin Lagoon"
+      ],
+      [
+        "Tour C: Banol Beach",
+        "Skeleton Wreck snorkeling",
+        "CYC Beach and Malawig Bay island hopping"
+      ],
+      [
+        "Tour D/wreck diving: Japanese WWII shipwrecks (Akitsushima, Okikawa Maru, Kogyo Maru)",
+        "Relax at a Marina waterfront café",
+        "Coron Town food crawl and sunset drinks"
+      ]
+    ],
+    "walk": "Coron Town Proper (Poblacion) is compact and walkable end to end in about 15-20 minutes, with the market, pier, and Mt. Tapyas staircase all in range. Nearly everything outside downtown — the lakes, lagoons, wrecks, and outer beaches — requires a boat tour or tricycle/habal-habal ride.",
+    "safety": {
+      "safety": "Generally safe for solo travelers, including women traveling alone; the town is small, friendly, and used to tourists",
+      "crime": "Violent crime is rare; the main risks are overpriced or unlicensed tour operators, tricycle drivers overcharging tourists, and opportunistic theft of phones/bags left unattended. Always confirm tour operators are DOT-accredited."
+    },
+    "hood_landmark": {
+      "Coron Town Proper (Poblacion)": "Mt. Tapyas",
+      "Marina / Waterfront": "Coron Public Pier and Market",
+      "Banol Beach & San Nicolas": "Banol Beach",
+      "Coron Bulwagan (San Jose)": "Maquinit Hot Spring",
+      "Coron Island (Tagbanwa Ancestral Domain)": "Kayangan Lake"
+    },
+    "hoods": [
+      "Coron Town Proper (Poblacion)",
+      "Marina / Waterfront",
+      "Banol Beach & San Nicolas",
+      "Coron Bulwagan (San Jose)",
+      "Coron Island (Tagbanwa Ancestral Domain)"
+    ],
+    "hood_desc": [
+      "The commercial heart of Coron — Real Street and the public market are lined with travel agencies, dive shops, souvenir stalls, and the base of the Mt. Tapyas staircase. Most budget guesthouses and the bulk of restaurants are here.",
+      "The strip along Coron Bay near the municipal pier where island-hopping bangkas depart each morning; by night it turns into the town's bar and restaurant row, with rooftop spots overlooking the water.",
+      "A quieter, more residential stretch northeast of downtown fronting a calm swimming beach, popular with backpackers and long-stay divers who want a short tricycle ride from the action rather than being in the middle of it.",
+      "A mixed residential-tourism barangay south of downtown near the jungle path to Maquinit Hot Spring, with mid-range resorts set back from the noise of the town center.",
+      "The limestone karst island across the bay, ancestral domain of the Tagbanwa people, home to Kayangan Lake, Barracuda Lake and Twin Lagoon — visited on day tours rather than stayed in, though a few private-island luxury resorts sit just offshore."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "quiet",
+      "quiet",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Corto del Mar Hotel",
+        "Dianna's Inn",
+        "Sunburn Suites and Rooftop Bar"
+      ],
+      [
+        "Darayonan Lodge",
+        "Sea Dive Resort",
+        "Nesta Coron"
+      ],
+      [
+        "Sophia's Garden Resort",
+        "Coron Soleil Garden Resort",
+        "Coron Ecolodge"
+      ],
+      [
+        "Coron Westown Resort",
+        "Nichols Hotel Coron",
+        "Coron Village Lodge"
+      ],
+      [
+        "Two Seasons Coron Island Resort & Spa",
+        "Huma Island Resort & Spa",
+        "Club Paradise Palawan"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2,
+      "beer": 1.5,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "Tricycles and habal-habal motorbikes for town/land routes; bangka (outrigger boats) for island-hopping and inter-island transfers",
+      "hours": "Tricycles run roughly 6am-10pm; island-hopping boats depart 8-9am and return by 4-5pm",
+      "pay": "Cash (PHP) only, fares are negotiated or flat-rate",
+      "map": "No formal transit map exists; the town is small enough that any tricycle driver or hotel staff can direct you",
+      "note": "There is no public bus, jeepney, or ride-hailing app network in Coron — tricycles, habal-habal, and chartered boats are the only options, and Grab does not operate here"
+    },
+    "transport": {
+      "air": "Fly into Francisco B. Reyes Airport (USU) on Busuanga Island via AirSWIFT, Cebgo/PAL Express, or Sunlight Air — about 1 hour from Manila and under 1.5 hours from Cebu",
+      "train": "No rail service anywhere in Palawan",
+      "bus": "No direct long-distance bus reaches Coron; local vans and multicabs shuttle between the airport and town, and rough-road van/habal-habal trips connect to El Nido (5-6 hours)",
+      "ferry": "2GO Travel runs a weekly passenger ferry between Manila and Coron (roughly 13-15 hours); smaller RORO and outrigger routes connect Coron to Puerto Princesa, El Nido, and Culion",
+      "car": "Self-drive rentals are uncommon; most visitors hire a habal-habal, tricycle, or private van with driver for overland trips"
+    },
+    "airport": {
+      "code": "USU",
+      "name": "Francisco B. Reyes Airport (Busuanga Airport)",
+      "distance": "~25 km / 40-50 minutes from Coron town proper by shared van or private transfer",
+      "transport": "Airport shuttle vans (~₱400-600 per person) meet every flight; private transfers and hotel pickups also available; no public bus service"
+    },
+    "net": {
+      "m": "Globe, Smart, and DITO all have coverage in Coron town, but signal drops out quickly on the water and around outer islands and lakes",
+      "w": "Most hotels, hostels, and cafés offer free wifi, though speeds are often slow and inconsistent given the island's limited bandwidth",
+      "ops": "Globe Telecom, Smart Communications, DITO Telecommunity",
+      "gb": "Prepaid tourist SIM with 5-10GB data typically costs ₱300-500 ($5-9)",
+      "fw": true,
+      "fwn": "SIM cards and load are sold at the airport kiosk on arrival and at Globe/Smart outlets and convenience stores along the main road in town",
+      "ap": "SIM cards and load are sold at the airport kiosk on arrival and at Globe/Smart outlets"
+    },
+    "tip": {
+      "s": "Tipping isn't obligatory but is increasingly expected and appreciated; ₱20-50 for tricycle drivers, boatmen, and tour guides is customary for good service",
+      "r": "A 10% service charge is often already added at larger resorts and restaurants; where it isn't, rounding up or leaving about 10% is generous and welcome"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 80,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 35,
+      "restaurants": 55,
+      "museums": 10,
+      "architecture": 20,
+      "nature": 97
+    }
+  },
+  {
+    "city": "Siargao",
+    "country": "Philippines",
+    "visitors": 0.6,
+    "pop": "General Luna (main hub): 22,853 (2020 census); whole Siargao Island: ~117,000",
+    "lat": 9.8017,
+    "lng": 126.1417,
+    "tagline": "Where the waves end and the island wilderness begins",
+    "temps": {
+      "q1": 78,
+      "q2": 82,
+      "q3": 82,
+      "q4": 81
+    },
+    "rain": {
+      "q1": 64,
+      "q2": 46,
+      "q3": 42,
+      "q4": 62
+    },
+    "langs": [
+      "Filipino (Tagalog)",
+      "English",
+      "Surigaonon",
+      "Cebuano (Bisaya)"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 61.7,
+    "card": "Cash is king in Siargao. Most homestays, tricycles, habal-habal drivers, and small eateries are cash-only; only larger resorts and a handful of restaurants in General Luna accept cards. ATMs are limited to a few machines in General Luna and Dapa and can run out of cash on weekends. GCash mobile wallet is widely accepted as a cash alternative.",
+    "cost": {
+      "hotel": 45,
+      "meal": 8,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$10-25",
+      "h": "$80-250"
+    },
+    "rides": [],
+    "taxi": {
+      "color": "n/a — no metered taxis exist on the island",
+      "fare": "Tricycle in-town: ₱20-30/person day, ₱50/person night; habal-habal short trip (5-10km): ₱50-100; medium (10-30km): ₱100-200; long (30km+): ₱300-400/person",
+      "fareNote": "All fares are informally negotiated flat-rate by distance, not metered — agree on price before boarding. Renting a scooter (₱350-600/day) is the most common way solo travelers get around."
+    },
+    "emergency": {
+      "police": "911 (national emergency hotline) or General Luna Municipal Police Station",
+      "medical": "Coastal Community Hospital / Lopez General Luna Community Hospital for basic care; serious cases are referred to Surigao City or Cebu",
+      "note": "911 works nationally but response times are slow due to limited island infrastructure. Reef cuts and scooter accidents are the most common tourist injuries — travel insurance with medevac coverage is strongly recommended."
+    },
+    "religion": [
+      "Roman Catholic ~60%",
+      "Iglesia Filipina Independiente (Aglipayan) ~30%",
+      "Protestant / other Christian ~10%"
+    ],
+    "stay": "6",
+    "visit": [
+      [
+        "Sayak Airport arrival",
+        "Settle into General Luna",
+        "Sunset at the Cloud 9 boardwalk",
+        "Dinner in town"
+      ],
+      [
+        "Surf lesson or session at Cloud 9",
+        "Explore General Luna town and boardwalk cafes"
+      ],
+      [
+        "Island Hopping tour: Naked Island",
+        "Daku Island",
+        "Guyam Island (banca boat trip)"
+      ],
+      [
+        "Sugba Lagoon (Del Carmen)",
+        "Maasin River kayaking/paddleboarding"
+      ],
+      [
+        "Magpupungko Rock Pools (low tide)",
+        "Tayangban Cave Pool"
+      ],
+      [
+        "Sohoton Cove day tour (Bucas Grande)",
+        "Tojoman Lagoon jellyfish sanctuary",
+        "Hagukan Cave"
+      ],
+      [
+        "Pacifico and Alegria beaches",
+        "Salvacion waterfalls before departure"
+      ]
+    ],
+    "walk": "General Luna's town center and the Cloud 9 boardwalk are walkable/bikeable, but Siargao overall is not a walking destination — attractions are spread across the island, so most visitors rely on rented scooters, habal-habal, or tricycles. Roads outside the main strip can be unpaved, especially after rain.",
+    "safety": {
+      "safety": "Generally safe for solo travelers, including women — Siargao has a large, established surfer and digital-nomad community used to visitors. Main risks are road accidents on rented scooters and ocean hazards (reef cuts, rip currents) rather than crime.",
+      "crime": "Violent crime against tourists is rare. Petty theft from resort rooms and parked bikes does occur — use accommodations with lockers/safes and avoid leaving belongings unattended on beaches."
+    },
+    "hoods": [
+      "General Luna",
+      "Cloud 9",
+      "Catangnan",
+      "Pacifico",
+      "Dapa"
+    ],
+    "hood_landmark": {
+      "General Luna": "Cloud 9 Boardwalk and town plaza",
+      "Cloud 9": "Cloud 9 surf break and wooden watchtower",
+      "Catangnan": "AFAM Bridge sunset spot",
+      "Pacifico": "Pacifico Beach",
+      "Dapa": "Dapa Port ferry terminal"
+    },
+    "hood_desc": [
+      "The island's main tourist hub — General Luna ('GL') is where most restaurants, bars, dive shops, and accommodation cluster along the coastal road leading to the Cloud 9 boardwalk.",
+      "The world-famous surf break and its wooden boardwalk over the reef — a compact strip of surf camps, board rentals, and beachfront cafes built right around the wave.",
+      "A quieter, greener area just north of Cloud 9, known for the AFAM sunset bridge and rice-paddy backroads, favored by high-end hideaway resorts and long-term nomads.",
+      "A remote, uncrowded beach on the northeastern coast, roughly an hour from General Luna over rough roads — popular with surfers seeking less-crowded breaks.",
+      "The functional gateway town — home to the ferry port connecting to Surigao City and close to Sayak Airport, with basic lodging and eateries for transiting travelers."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "quiet",
+      null
+    ],
+    "lodging": [
+      [
+        "Bravo Beach Resort",
+        "Discovery Siargao",
+        "Isla Cabana"
+      ],
+      [
+        "Cloud 9 Surf Resort",
+        "Sagana Resort",
+        "Harana Surf Resort"
+      ],
+      [
+        "Nay Palad Hideaway",
+        "Blue Ocean 101",
+        "Ferdz Pension House"
+      ],
+      [
+        "Beach Houses Pacifico",
+        "Kermit Pacifico Surf Camp",
+        "Greenview Pacifico Resort"
+      ],
+      [
+        "Almont Inland Resort",
+        "GL Homestay Dapa",
+        "Islander's Inn Dapa"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2,
+      "beer": 1.5,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "No formal public transit system exists on Siargao",
+      "hours": "Tricycles and habal-habal generally operate 6am-10pm; night rides cost more and become scarce late",
+      "pay": "Cash only, paid directly to the driver, fare negotiated up front",
+      "map": "n/a — no route map; drivers are hailed on the street or arranged via accommodation/Facebook groups",
+      "note": "Most independent travelers rent their own scooter (₱350-600/day) for flexibility since tricycles don't run fixed routes."
+    },
+    "transport": {
+      "air": "Fly into Sayak Airport (IAO), connecting via Cebu (Cebgo, Philippine Airlines, Sunlight Air) or Clark; limited/seasonal direct Manila service.",
+      "train": "None — no rail service to Mindanao/Siargao",
+      "bus": "No direct bus to Siargao; buses/vans connect Surigao City to other Mindanao points, then ferry to Dapa",
+      "ferry": "Fastcraft/RORO ferries run from Surigao City to Dapa port, roughly 3 daily departures, journey 2-4 hours",
+      "car": "No car rental culture on the island — nearly everyone gets around by rented scooter, habal-habal, or tricycle; some operators offer private van transfers"
+    },
+    "airport": {
+      "code": "IAO",
+      "name": "Sayak Airport",
+      "distance": "~40 km / 45-60 minutes by road to General Luna and Cloud 9",
+      "transport": "Shared van (~$5-7, 45-60 min), private van (~$35-45), or pre-arranged hotel transfer"
+    },
+    "net": {
+      "m": "Good coverage in General Luna and Cloud 9, weaker in remote areas like Pacifico and Sohoton",
+      "w": "Most resorts, cafes, and restaurants in General Luna and Cloud 9 offer free wifi, though speed and reliability vary",
+      "ops": "Globe Telecom, Smart Communications",
+      "gb": "$3-8",
+      "fw": true,
+      "fwn": "Free wifi common at accommodations and cafes in the main tourist strip",
+      "ap": "Local SIM (Globe or Smart) recommended, sold in General Luna town"
+    },
+    "tip": {
+      "s": "Tipping is not deeply ingrained but increasingly appreciated in the tourism sector — rounding up or leaving 10% at restaurants is welcomed",
+      "r": "For habal-habal drivers, tour guides, surf instructors, and boat crews, a small tip (₱50-200) is customary and appreciated"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 70,
+      "luxury": 180
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 68,
+      "museums": 8,
+      "architecture": 15,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Panglao",
+    "country": "Philippines",
+    "visitors": 1.0,
+    "pop": "41,760 (2024 census, Panglao municipality)",
+    "lat": 9.579,
+    "lng": 123.745,
+    "tagline": "Powder-white sands, dive-worthy reefs, and Bohol's laid-back island soul",
+    "temps": {
+      "q1": 80,
+      "q2": 84,
+      "q3": 82,
+      "q4": 81
+    },
+    "rain": {
+      "q1": 40,
+      "q2": 35,
+      "q3": 45,
+      "q4": 55
+    },
+    "langs": [
+      "Filipino (Tagalog)",
+      "English",
+      "Cebuano (Boholano)"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 61.7,
+    "card": "Larger resorts and restaurants along Alona Beach accept cards, but tricycles, small eateries, and dive shops are often cash-only. ATMs are available around Alona Beach and in Tagbilaran City.",
+    "cost": {
+      "hotel": 55,
+      "meal": 7,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-35",
+      "h": "$100-300"
+    },
+    "rides": [],
+    "taxi": {
+      "color": "n/a — no metered taxis; tricycles and habal-habal only",
+      "fare": "Tricycle short ride: ₱20-50 per person; habal-habal or multicab to Tagbilaran (~12km): ₱100-150",
+      "fareNote": "Fares are negotiated/flat-rate; resorts also arrange private van transfers for tours and the airport"
+    },
+    "emergency": {
+      "police": "911 (national emergency hotline) or Panglao Municipal Police Station",
+      "medical": "Governor Celestino Gallares Memorial Hospital and Ramiro Community Hospital in Tagbilaran City (~20km) are the main referral hospitals",
+      "note": "For diving injuries, the nearest hyperbaric chamber is in Cebu City — dive operators carry evacuation protocols. Travel insurance with medevac coverage is recommended."
+    },
+    "religion": [
+      "Roman Catholic 78.8%",
+      "Islam 6.4%",
+      "Evangelical 4.8%",
+      "Protestant 2.8%",
+      "Iglesia ni Cristo 2.6%",
+      "Other 4.6%"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Arrive via Bohol-Panglao International Airport",
+        "Settle into Alona Beach",
+        "Sunset walk along the beach strip",
+        "Dinner at a beachfront restaurant"
+      ],
+      [
+        "Snorkeling and beach time at Alona Beach",
+        "Bohol Bee Farm lunch and organic garden tour"
+      ],
+      [
+        "Balicasag Island snorkeling/diving with sea turtles",
+        "Virgin Island sandbar stop"
+      ],
+      [
+        "Chocolate Hills day trip (Carmen)",
+        "Philippine Tarsier Sanctuary (Corella)",
+        "Loboc River floating lunch cruise"
+      ],
+      [
+        "Doljo Beach sunset snorkeling",
+        "Hinagdanan Cave swim",
+        "Panglao Church (Our Lady of the Assumption)"
+      ]
+    ],
+    "walk": "Alona Beach's main strip is walkable and packed with restaurants, dive shops, and bars, but Panglao island overall is spread out — reaching Doljo, Momo Beach, or the Bee Farm requires a tricycle, habal-habal, or rented scooter.",
+    "safety": {
+      "safety": "Very safe for solo travelers, including women — Panglao is a well-established, resort-driven tourist destination with a strong dive and hospitality community.",
+      "crime": "Petty theft (unattended valuables on the beach or in unlocked rooms) is the main risk; violent crime against tourists is rare."
+    },
+    "hoods": [
+      "Alona Beach (Tawala)",
+      "Doljo Beach",
+      "Momo Beach / Danao",
+      "Panglao Poblacion (Town Proper)",
+      "Dumaluan / Bikini Beach (Bolod)"
+    ],
+    "hood_landmark": {
+      "Alona Beach (Tawala)": "Alona Beach strip and dive shops",
+      "Doljo Beach": "Doljo Point snorkeling reef",
+      "Momo Beach / Danao": "Bluewater Panglao Beach Resort",
+      "Panglao Poblacion (Town Proper)": "Our Lady of the Assumption Parish Church",
+      "Dumaluan / Bikini Beach (Bolod)": "Dumaluan Beach"
+    },
+    "hood_desc": [
+      "Panglao's busiest tourist strip — a lively stretch of dive shops, beachfront restaurants, massage stalls, and bars right on the white sand, with the widest range of budget-to-mid lodging.",
+      "A quieter beach on the island's west side, known for calm, shallow snorkeling reefs and a mellower, less commercial vibe than Alona.",
+      "A relaxed stretch of coast anchored by upscale beach resorts and calm swimming waters, popular with couples and families seeking a quieter alternative to Alona.",
+      "The municipal center of Panglao, home to the historic Spanish-era church and watchtower, the public market, and everyday local life away from the beach crowds.",
+      "A long, wide stretch of white sand favored by resort guests for its calm waters and gentle slope — quieter and more spread out than Alona Beach."
+    ],
+    "hood_tags": [
+      "central",
+      "quiet",
+      "quiet",
+      "sights",
+      null
+    ],
+    "lodging": [
+      [
+        "Amorita Resort",
+        "Henann Resort Alona Beach",
+        "Alona Vida Beach Resort"
+      ],
+      [
+        "Eskaya Beach Resort & Spa",
+        "Be Grand Resort Bohol",
+        "South Point Bohol"
+      ],
+      [
+        "Bluewater Panglao Beach Resort",
+        "Ananyana Beach Resort",
+        "Nature's Vault Boutique Resort"
+      ],
+      [
+        "Mithi Resort & Spa",
+        "Isla Sur Resort",
+        "Panglao Regents Park Resort"
+      ],
+      [
+        "Bohol Beach Club",
+        "South Palms Resort Panglao",
+        "Be Resort Panglao"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2,
+      "beer": 1.5,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "No formal public transit system exists on Panglao",
+      "hours": "Tricycles and habal-habal generally operate 6am-9pm",
+      "pay": "Cash only, fare negotiated or flat-rate up front",
+      "map": "n/a — no fixed routes; hail tricycles on the street or arrange through your resort",
+      "note": "Resorts commonly arrange private van transfers for island tours and the airport; renting a scooter is common for independent travelers."
+    },
+    "transport": {
+      "air": "Fly into Bohol-Panglao International Airport (TAG), with direct flights from Manila and Cebu on Philippine Airlines, Cebu Pacific, and AirAsia",
+      "train": "None — no rail service in the region",
+      "bus": "Buses/vans connect Tagbilaran to other Bohol towns and the Chocolate Hills; no direct bus service from Manila",
+      "ferry": "OceanJet fastcraft from Cebu Pier 1 to Tagbilaran Pier, about 2 hours, multiple daily departures, then a 20-30 minute tricycle or van to Panglao",
+      "car": "Rental cars and vans available in Tagbilaran; most visitors rely on resort transfers, habal-habal, or a rented scooter"
+    },
+    "airport": {
+      "code": "TAG",
+      "name": "Bohol-Panglao International Airport",
+      "distance": "~2-7 km from most Panglao resorts (5-15 minutes)",
+      "transport": "Resort shuttle, tricycle, or private van transfer; no metered taxis"
+    },
+    "net": {
+      "m": "Good coverage across Panglao from both national carriers",
+      "w": "Most resorts and restaurants along Alona Beach offer free wifi; speeds vary and can slow during peak season",
+      "ops": "Globe Telecom, Smart Communications",
+      "gb": "$2-6",
+      "fw": true,
+      "fwn": "Free wifi common at resorts and restaurants along Alona Beach",
+      "ap": "Prepaid tourist SIMs widely available"
+    },
+    "tip": {
+      "s": "Tipping is not mandatory but increasingly common at resorts and restaurants — 10% is appreciated where no service charge is included",
+      "r": "Dive guides, boat crews, and tricycle/habal-habal drivers appreciate a small tip (₱50-150) for good service"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 80,
+      "luxury": 200
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 62,
+      "museums": 10,
+      "architecture": 20,
+      "nature": 88
+    }
+  },
+  {
+    "city": "Vigan",
+    "country": "Philippines",
+    "visitors": 1.2,
+    "pop": "53,935 (2020 census, city proper)",
+    "lat": 17.5747,
+    "lng": 120.3869,
+    "tagline": "Cobblestones, kalesa bells, and candlelight over Calle Crisologo",
+    "temps": {
+      "q1": 79,
+      "q2": 84,
+      "q3": 82,
+      "q4": 81
+    },
+    "rain": {
+      "q1": 5,
+      "q2": 20,
+      "q3": 65,
+      "q4": 28
+    },
+    "langs": [
+      "Ilocano",
+      "Filipino (Tagalog)",
+      "English"
+    ],
+    "currency": "PHP",
+    "currency_symbol": "₱",
+    "currency_name": "Philippine Peso",
+    "usd_rate": 61.7,
+    "card": "Cards are accepted at larger hotels and a few upscale restaurants in the heritage core, but most tricycles, kalesa rides, small eateries, and the public market are cash-only. ATMs (BDO, Landbank, Metrobank) cluster around Plaza Salcedo and downtown.",
+    "cost": {
+      "hotel": 45,
+      "meal": 4,
+      "taxi": 1
+    },
+    "hotel": {
+      "b": "$25-45",
+      "h": "$75-150"
+    },
+    "rides": [
+      "Tricycles (motorized sidecar)",
+      "Kalesa (horse-drawn carriage)",
+      "Jeepneys",
+      "Multicabs"
+    ],
+    "taxi": {
+      "color": "No standardized color scheme — tricycles are independently owned and painted",
+      "fare": "₱15-20 minimum tricycle fare; ₱150-300 for a 30-45 minute kalesa heritage-district tour",
+      "fareNote": "Agree on the kalesa fare before boarding — rates are per carriage (up to 3-4 people), not per person; tricycles are unmetered, so confirm price for longer trips"
+    },
+    "emergency": {
+      "police": "911 (national) / Vigan City PNP",
+      "medical": "Gabriela Silang General Hospital (city-run) and Metro Vigan Community Hospital are the two main hospitals serving Vigan",
+      "note": "Serious trauma cases are sometimes referred to larger facilities in Laoag or San Fernando; travel insurance is recommended"
+    },
+    "religion": [
+      "Roman Catholic ~75%",
+      "Iglesia ni Cristo ~8%",
+      "Aglipayan / Philippine Independent Church ~5%",
+      "Other Christian / Other ~12%"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Calle Crisologo cobblestone heritage street",
+        "Syquia Mansion Museum",
+        "Plaza Salcedo dancing fountain show (evening)",
+        "Vigan Public Market for lunch"
+      ],
+      [
+        "St. Paul Metropolitan Cathedral (Vigan Cathedral)",
+        "Padre Burgos House / National Museum branch",
+        "Pagburnayan pottery jar-making district",
+        "Hidden Garden",
+        "Crisologo Museum"
+      ],
+      [
+        "Kalesa city tour",
+        "Baluarte Zoo",
+        "Bantay Bell Tower (Nueva Segovia)",
+        "Hotel Luna art collection",
+        "Mindoro / Long Beach coastal stretch"
+      ]
+    ],
+    "walk": "Very walkable — the UNESCO heritage core around Calle Crisologo and Plaza Salcedo is compact, flat, and pedestrian-friendly (parts of Calle Crisologo close to vehicles in the evening). Most major sights are within a 15-20 minute walk of each other.",
+    "safety": {
+      "safety": "Very safe for solo travelers, including women — Vigan is a small, tourism-oriented heritage city with a strong local police and tourism-police presence around Calle Crisologo and Plaza Salcedo, especially in the evenings.",
+      "crime": "Petty crime is low; standard precautions apply (watch belongings in the public market, use licensed tricycles at night, agree fares upfront)."
+    },
+    "hoods": [
+      "Calle Crisologo / Mestizo District",
+      "Plaza Salcedo / Downtown Poblacion",
+      "Pagburnayan (Pottery District)",
+      "Bantay (Bell Tower area)",
+      "Barangay Mindoro (Coastal / Long Beach)"
+    ],
+    "hood_landmark": {
+      "Calle Crisologo / Mestizo District": "Calle Crisologo cobblestone street",
+      "Plaza Salcedo / Downtown Poblacion": "Plaza Salcedo dancing fountain and Vigan Cathedral",
+      "Pagburnayan (Pottery District)": "Pagburnayan burnay jar kilns",
+      "Bantay (Bell Tower area)": "Bantay Bell Tower (Nueva Segovia)",
+      "Barangay Mindoro (Coastal / Long Beach)": "Long Beach / Vigan coastline"
+    },
+    "hood_desc": [
+      "The UNESCO-listed heart of Vigan — ancestral Spanish-Chinese mestizo houses, antique shops, and horse-drawn kalesa clattering over cobblestones.",
+      "Vigan's civic and religious core, anchored by the baroque cathedral, the archbishop's palace, and the nightly light-and-water show at Plaza Salcedo.",
+      "A working artisan quarter where centuries-old burnay pottery is still hand-thrown and fired in wood-burning kilns.",
+      "A quiet hilltop across the Mestizo River famous for its historic bell tower with sweeping views over Vigan and the surrounding rice fields.",
+      "The coastal fringe near the airport and Long Beach, offering a low-key seaside break from the heritage-district crowds."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "shopping",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Luna",
+        "Villa Angela Heritage House",
+        "Vigan Traversa Hotel"
+      ],
+      [
+        "Grand Hotel Vigan",
+        "Hotel Veneto De Vigan",
+        "Paradores de Vigan"
+      ],
+      [
+        "Grandpa's Inn",
+        "Cordillera Inn",
+        "Cocina de Tia Nena Hometel"
+      ],
+      [
+        "LaVie Hotel",
+        "Hotel Mercante",
+        "Fern Rose Pensionne House"
+      ],
+      [
+        "Airport View Hotel Vigan",
+        "West Loch Park Hotel Vigan",
+        "NSCC Casa De Vigan"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 1.2,
+      "water": 0.4
+    },
+    "transit": {
+      "sys": "No formal public transit system — tricycles, kalesa, and jeepneys handle local movement; multicabs run longer routes to nearby towns",
+      "hours": "Roughly 5am-10pm; kalesa mainly operate daytime through early evening",
+      "pay": "Cash only (pesos)",
+      "map": "No official transit map — routes are informal; ask hotel staff for jeepney routes to outlying barangays",
+      "note": "Calle Crisologo restricts motor vehicles in the evening, becoming a pedestrian and kalesa-only heritage walk"
+    },
+    "transport": {
+      "air": "Laoag International Airport (LAO), about 85 km / 1.5-2 hours north, is the main gateway with Cebu Pacific and PAL Express flights from Manila; a small local Vigan Airport has limited regional service",
+      "train": "No passenger rail service to Vigan or the region",
+      "bus": "Partas, Farinas Trans, and Dominion operate direct overnight/day buses from Manila to Vigan, roughly 8-9 hours",
+      "ferry": "No direct passenger ferry service to Vigan",
+      "car": "Drive via NLEX to TPLEX to the MacArthur Highway/Ilocos coastal roads from Manila, roughly 7-8 hours"
+    },
+    "airport": {
+      "code": "LAO",
+      "name": "Laoag International Airport",
+      "distance": "~85 km / 1.5-2 hour drive north of Vigan",
+      "transport": "Van/shuttle transfers, private car hire, or bus connections from Laoag city to Vigan"
+    },
+    "net": {
+      "m": "Good coverage in Vigan from both national carriers",
+      "w": "Most cafes, restaurants near Calle Crisologo, and hotels offer free wifi",
+      "ops": "Globe Telecom, Smart Communications (including TNT/TM prepaid sub-brands)",
+      "gb": "$1.60-4.85",
+      "fw": true,
+      "fwn": "Free wifi common at cafes and hotels near the heritage core",
+      "ap": "Prepaid SIMs widely available from local shops"
+    },
+    "tip": {
+      "s": "Tipping is not mandatory but appreciated — round up or leave 5-10% at restaurants without an existing service charge",
+      "r": "For kalesa drivers and tricycle rides, a small tip (₱10-20) for good service is a nice gesture, not expected"
+    },
+    "region": "philippines",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 60,
+      "luxury": 150
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 58,
+      "museums": 82,
+      "architecture": 95,
+      "nature": 35
+    }
+  }
+]

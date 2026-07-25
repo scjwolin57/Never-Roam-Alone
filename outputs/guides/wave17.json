@@ -1,0 +1,1688 @@
+[
+  {
+    "city": "Tamanrasset",
+    "country": "Algeria",
+    "visitors": 0.15,
+    "pop": "~141,000",
+    "lat": 22.785,
+    "lng": 5.5228,
+    "tagline": "The Tuareg capital of the Sahara, gateway to the volcanic peaks of the Hoggar mountains",
+    "temps": {
+      "q1": 62,
+      "q2": 82,
+      "q3": 90,
+      "q4": 68
+    },
+    "rain": {
+      "q1": 3,
+      "q2": 5,
+      "q3": 15,
+      "q4": 5
+    },
+    "langs": [
+      "Arabic",
+      "Tamahaq (Tuareg Berber)",
+      "French (widely used)"
+    ],
+    "currency": "DZD",
+    "currency_symbol": "د.ج",
+    "currency_name": "Algerian Dinar",
+    "usd_rate": 134,
+    "card": "Rarely accepted; cash is essential throughout the region",
+    "cost": {
+      "hotel": 35,
+      "meal": 6,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-25",
+      "h": "$55-130"
+    },
+    "rides": [
+      "Local taxi companies",
+      "hotel-arranged 4x4 desert transport"
+    ],
+    "taxi": {
+      "color": "yellow/orange",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Multi-day Hoggar excursions to Assekrem are typically arranged through a licensed desert guide, not a standard taxi"
+    },
+    "emergency": {
+      "police": "17",
+      "medical": "14 (civil protection/ambulance)",
+      "note": "Dial 17 for police and 14 for medical/fire emergencies; French is more useful than English with dispatchers"
+    },
+    "religion": [
+      "Islam (Sunni majority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Museum of the Hoggar (Tuareg culture and history)",
+        "Tamanrasset's central market",
+        "Charles de Foucauld's hermitage"
+      ],
+      [
+        "Multi-day 4x4 excursion to Assekrem plateau for sunrise/sunset views",
+        "the Hoggar (Ahaggar) volcanic mountain range",
+        "traditional Tuareg tea ceremony with a nomad guide"
+      ],
+      [
+        "Camel trekking into the surrounding desert",
+        "stargazing in the dark-sky Sahara",
+        "visiting nearby Tuareg villages"
+      ]
+    ],
+    "walk": "Central Tamanrasset is walkable for markets and the museum; the Hoggar mountains and Assekrem require a 4x4 and licensed guide over several days",
+    "safety": {
+      "safety": "Requires advance planning and often a registered guide for excursions outside town; check current travel advisories for southern Algeria before visiting",
+      "crime": "Low street crime in town; the main risks are desert travel logistics (heat, remoteness) rather than crime"
+    },
+    "hood_landmark": {
+      "Town Center": "Tamanrasset's central market and Museum of the Hoggar",
+      "Assekrem Plateau (day-trip base)": "Assekrem's sunrise viewpoint over the Hoggar peaks",
+      "Foucauld Hermitage Area": "Charles de Foucauld's stone hermitage",
+      "Outskirts / Tuareg Camps": "Traditional Tuareg encampments on the town's edge",
+      "Airport Road District": "Tamanrasset's newer residential and administrative quarter"
+    },
+    "hoods": [
+      "Town Center",
+      "Assekrem Plateau (day-trip base)",
+      "Foucauld Hermitage Area",
+      "Outskirts / Tuareg Camps",
+      "Airport Road District"
+    ],
+    "hood_desc": [
+      "The commercial core with the market, museum, and most hotels; the practical base before heading into the Hoggar.",
+      "A multi-day excursion base deep in the Hoggar mountains, reached only by 4x4, famous for its sunrise and sunset views.",
+      "A quiet hilltop area a short drive from town, home to the hermitage of Charles de Foucauld and sweeping desert views.",
+      "Semi-permanent Tuareg camps on the edge of town where visitors can experience traditional nomadic hospitality.",
+      "A newer, quieter residential district with government buildings and the road out to the airport."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Tahat",
+        "Hotel Tinhinan",
+        "Hotel Marhaba"
+      ],
+      [
+        "Assekrem refuge huts (guide-arranged)",
+        "Hoggar desert camps",
+        "CAT (Club Alpin) mountain refuge"
+      ],
+      [
+        "Foucauld-area guesthouses",
+        "Small local inns",
+        "Tamanrasset hotels with day-trip transport"
+      ],
+      [
+        "Tuareg desert camps (tent stays)",
+        "Nomad-hosted overnight stays",
+        "Guide-arranged bivouacs"
+      ],
+      [
+        "Hotel Zeribas Tinhinane",
+        "Airport-area business hotels",
+        "Local guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.0,
+      "beer": 0.0,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Local taxis and guide-arranged 4x4 vehicles; no formal bus network",
+      "hours": "Daylight hours; desert travel after dark is avoided",
+      "pay": "Cash to the driver or guide",
+      "map": "Not centrally published; hotels and tour agencies arrange transport",
+      "note": "A licensed desert guide is effectively required for any trip into the Hoggar mountains or Assekrem"
+    },
+    "transport": {
+      "air": "Tamanrasset Airport (TMR) with domestic flights from Algiers",
+      "train": "No passenger rail service",
+      "bus": "Long-distance buses run along the Trans-Sahara Highway to Algiers (multi-day journey)",
+      "ferry": "",
+      "car": "The Trans-Sahara Highway connects Tamanrasset to northern Algeria; a guide is recommended for any off-highway desert travel"
+    },
+    "airport": {
+      "code": "TMR",
+      "name": "Tamanrasset Airport",
+      "distance": "~7 km (15 min) from town",
+      "transport": "Taxi or hotel transfer"
+    },
+    "net": {
+      "m": "Moderate 3G/4G in town, no coverage in the deep desert",
+      "w": "Wifi available in some hotels but often slow",
+      "ops": "Mobilis, Djezzy, Ooredoo",
+      "gb": "~$5-10 for a prepaid tourist SIM (passport required to register)",
+      "fw": true,
+      "fwn": "Wifi available in central hotels, though unreliable",
+      "ap": "A Mobilis or Djezzy prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is customary and appreciated for desert guides",
+      "r": "Rounding up or 5-10% is appreciated, not obligatory"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 55,
+      "luxury": 130
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 25,
+      "museums": 35,
+      "architecture": 40,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Timimoun",
+    "country": "Algeria",
+    "visitors": 0.08,
+    "pop": "~33,000",
+    "lat": 29.2639,
+    "lng": 0.2306,
+    "tagline": "A red-ochre Saharan oasis town of mudbrick architecture, palm groves, and a shimmering salt lake",
+    "temps": {
+      "q1": 60,
+      "q2": 88,
+      "q3": 100,
+      "q4": 72
+    },
+    "rain": {
+      "q1": 2,
+      "q2": 2,
+      "q3": 3,
+      "q4": 2
+    },
+    "langs": [
+      "Arabic",
+      "Zenati Berber (local dialect)",
+      "French (widely used)"
+    ],
+    "currency": "DZD",
+    "currency_symbol": "د.ج",
+    "currency_name": "Algerian Dinar",
+    "usd_rate": 134,
+    "card": "Rarely accepted; cash is essential",
+    "cost": {
+      "hotel": 30,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$12-20",
+      "h": "$50-110"
+    },
+    "rides": [
+      "Local taxi companies",
+      "hotel-arranged desert excursions"
+    ],
+    "taxi": {
+      "color": "yellow/orange",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Most sightseeing is arranged as a half or full-day tour rather than metered taxi rides"
+    },
+    "emergency": {
+      "police": "17",
+      "medical": "14 (civil protection/ambulance)",
+      "note": "Dial 17 for police and 14 for medical/fire emergencies; French is more useful than English with dispatchers"
+    },
+    "religion": [
+      "Islam (Sunni majority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Timimoun's red ochre ksar (old town) architecture",
+        "the palm oasis and traditional irrigation (foggara) system",
+        "the town's covered market"
+      ],
+      [
+        "Sebkha (salt lake) viewpoint at sunset",
+        "the Great Western Erg sand dunes nearby",
+        "Ouled Said and other nearby red-clay ksour villages"
+      ],
+      [
+        "Camel or 4x4 excursion into the surrounding erg (dune sea)",
+        "traditional Gnawa music performance",
+        "photographing the town's distinctive Sudanese-Sahelian architecture"
+      ]
+    ],
+    "walk": "The ksar and market area are walkable; the salt lake viewpoint and surrounding dune villages require a car or organized tour",
+    "safety": {
+      "safety": "Generally calm and welcoming to visitors, though remote; check current travel advisories for southern Algeria before visiting",
+      "crime": "Low crime; main risks relate to desert heat and remoteness rather than crime"
+    },
+    "hood_landmark": {
+      "Old Ksar (Red Town)": "Timimoun's red ochre mudbrick old town",
+      "Sebkha Viewpoint": "The shimmering salt lake sunset viewpoint",
+      "Palm Oasis": "The palm grove and traditional foggara irrigation channels",
+      "Market Area": "Timimoun's central covered market",
+      "Ouled Said (nearby village)": "Ouled Said's red-clay ksar architecture"
+    },
+    "hoods": [
+      "Old Ksar (Red Town)",
+      "Sebkha Viewpoint",
+      "Palm Oasis",
+      "Market Area",
+      "Ouled Said (nearby village)"
+    ],
+    "hood_desc": [
+      "The town's iconic red mudbrick old quarter, with distinctive Sudanese-influenced architecture found nowhere else in Algeria.",
+      "The dramatic salt lake bordering the oasis, best visited at sunset when the white crust glows pink and orange.",
+      "The palm grove sustaining the town, still watered by an ancient underground foggara canal system.",
+      "The commercial center with the covered market and most hotels and restaurants.",
+      "A nearby red-clay village a short drive away, similar in style to Timimoun but far less visited."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "quiet",
+      "central",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Gourara",
+        "Ksar-style boutique guesthouses",
+        "Auberge Timimoun"
+      ],
+      [
+        "Sebkha-view guesthouses",
+        "Small family-run inns",
+        "Desert camp stays"
+      ],
+      [
+        "Oasis-edge guesthouses",
+        "Palm grove eco-lodges",
+        "Local homestays"
+      ],
+      [
+        "Hotel Oasis Rouge",
+        "Central market-area guesthouses",
+        "Timimoun budget hotels"
+      ],
+      [
+        "Ouled Said guesthouses",
+        "Village homestays",
+        "Timimoun-based day trips"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.0,
+      "beer": 0.0,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Local taxis and guide-arranged vehicles; no formal bus network",
+      "hours": "Daylight hours",
+      "pay": "Cash to the driver or guide",
+      "map": "Not centrally published; hotels and tour agencies arrange transport",
+      "note": "A local guide is recommended for dune excursions and visits to outlying ksour villages"
+    },
+    "transport": {
+      "air": "Timimoun Airport (TMX), about 5 km from town",
+      "train": "No passenger rail service",
+      "bus": "Long-distance buses connect to Adrar and onward to Algiers",
+      "ferry": "",
+      "car": "The N51 highway connects Timimoun to the regional road network"
+    },
+    "airport": {
+      "code": "TMX",
+      "name": "Timimoun Airport",
+      "distance": "~5 km (10 min) from town",
+      "transport": "Taxi or hotel transfer"
+    },
+    "net": {
+      "m": "Moderate 3G/4G in town, no coverage in the surrounding desert",
+      "w": "Wifi available in some hotels but often slow",
+      "ops": "Mobilis, Djezzy, Ooredoo",
+      "gb": "~$5-10 for a prepaid tourist SIM (passport required to register)",
+      "fw": true,
+      "fwn": "Wifi available in central hotels, though unreliable",
+      "ap": "A Mobilis or Djezzy prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is customary and appreciated for desert guides",
+      "r": "Rounding up or 5-10% is appreciated, not obligatory"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 20,
+      "mid": 45,
+      "luxury": 110
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 20,
+      "museums": 25,
+      "architecture": 80,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Djanet",
+    "country": "Algeria",
+    "visitors": 0.05,
+    "pop": "~19,000",
+    "lat": 24.5547,
+    "lng": 9.4844,
+    "tagline": "A remote oasis at the edge of Tassili n'Ajjer, home to some of the world's oldest and largest collections of prehistoric rock art",
+    "temps": {
+      "q1": 65,
+      "q2": 88,
+      "q3": 95,
+      "q4": 72
+    },
+    "rain": {
+      "q1": 1,
+      "q2": 1,
+      "q3": 2,
+      "q4": 1
+    },
+    "langs": [
+      "Arabic",
+      "Tamahaq (Tuareg Berber)",
+      "French (widely used)"
+    ],
+    "currency": "DZD",
+    "currency_symbol": "د.ج",
+    "currency_name": "Algerian Dinar",
+    "usd_rate": 134,
+    "card": "Rarely accepted; cash is essential",
+    "cost": {
+      "hotel": 30,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$12-20",
+      "h": "$50-110"
+    },
+    "rides": [
+      "Local taxi companies",
+      "licensed 4x4 desert guides"
+    ],
+    "taxi": {
+      "color": "yellow/orange",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Tassili n'Ajjer excursions require a licensed guide and permit, arranged in advance through a tour agency"
+    },
+    "emergency": {
+      "police": "17",
+      "medical": "14 (civil protection/ambulance)",
+      "note": "Dial 17 for police and 14 for medical/fire emergencies; French is more useful than English with dispatchers"
+    },
+    "religion": [
+      "Islam (Sunni majority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Djanet's old town and palm oasis",
+        "the local market",
+        "Tuareg craft workshops"
+      ],
+      [
+        "Multi-day trek into Tassili n'Ajjer National Park to see Neolithic rock art",
+        "the Tadrart Rouge sandstone formations",
+        "Sefar and Jabbaren rock art sites"
+      ],
+      [
+        "Camel trekking through the erg dunes",
+        "overnight desert camping under the stars",
+        "visiting a Kel Ajjer Tuareg community"
+      ]
+    ],
+    "walk": "The oasis town itself is small and walkable; Tassili n'Ajjer and the Tadrart require a multi-day guided trek or 4x4 expedition",
+    "safety": {
+      "safety": "Requires a licensed guide and permits for Tassili n'Ajjer excursions; check current travel advisories for far southeastern Algeria before visiting",
+      "crime": "Low crime in town; the main risks are desert travel logistics and remoteness",
+      "note": "Djanet is popular with adventure travelers, but trip planning here is more involved than in most of Algeria"
+    },
+    "hood_landmark": {
+      "Djanet Old Town": "Djanet's palm-shaded old town and market",
+      "Tassili n'Ajjer Park Entrance": "The gateway trailhead into Tassili n'Ajjer National Park",
+      "Tadrart Rouge": "The red sandstone arches and formations of the Tadrart",
+      "Sefar Rock Art Site": "The Sefar plateau's dense concentration of prehistoric paintings",
+      "Erg Admer (dunes)": "The Erg Admer dune sea south of town"
+    },
+    "hoods": [
+      "Djanet Old Town",
+      "Tassili n'Ajjer Park Entrance",
+      "Tadrart Rouge",
+      "Sefar Rock Art Site",
+      "Erg Admer (dunes)"
+    ],
+    "hood_desc": [
+      "The small palm-oasis town center with most hotels, the market, and Tuareg craft shops; the base for organizing any expedition.",
+      "The trailhead into one of the world's largest concentrations of prehistoric rock art, a UNESCO World Heritage site.",
+      "A dramatic red sandstone wilderness of natural arches and dunes southeast of Djanet, reached by multi-day 4x4 expedition.",
+      "A remote plateau within Tassili n'Ajjer holding thousands of Neolithic paintings and engravings, reached only on foot with a guide.",
+      "A sand sea south of town popular for camel trekking and overnight desert camping."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Zeribas Tin Hinane",
+        "Hotel Aicha",
+        "Djanet guesthouses"
+      ],
+      [
+        "Tour-agency lodges at the park entrance",
+        "Guide-arranged accommodation",
+        "Djanet-based expedition outfitters"
+      ],
+      [
+        "Desert camps within the Tadrart (guide-arranged)",
+        "Bivouac tent stays",
+        "Multi-day trek camps"
+      ],
+      [
+        "Sefar-area guide camps",
+        "Trek-based overnight stays",
+        "Guide-arranged bivouacs"
+      ],
+      [
+        "Erg Admer desert camps",
+        "Camel trek overnight stays",
+        "Guide-arranged bivouacs"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.0,
+      "beer": 0.0,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "No formal transit; travel is by licensed 4x4 guide vehicles",
+      "hours": "Daylight hours; desert travel is carefully planned around heat and light",
+      "pay": "Arranged in advance with a tour agency, typically pre-paid",
+      "map": "Not applicable; all excursions are guide-led",
+      "note": "Visiting Tassili n'Ajjer legally requires a registered guide and park permit"
+    },
+    "transport": {
+      "air": "Djanet Inedbirene Airport (VVZ), about 30 km from town, with domestic flights from Algiers",
+      "train": "No passenger rail service",
+      "bus": "Very limited long-distance bus service; most visitors fly in",
+      "ferry": "",
+      "car": "Remote desert roads; independent driving without a guide is not recommended"
+    },
+    "airport": {
+      "code": "VVZ",
+      "name": "Djanet Inedbirene Airport",
+      "distance": "~30 km (40 min) from town",
+      "transport": "Pre-arranged guide or hotel transfer"
+    },
+    "net": {
+      "m": "Limited 3G in town, no coverage in Tassili n'Ajjer",
+      "w": "Wifi available in a few hotels but often slow or absent",
+      "ops": "Mobilis, Djezzy, Ooredoo",
+      "gb": "~$5-10 for a prepaid tourist SIM (passport required to register)",
+      "fw": true,
+      "fwn": "Wifi limited to a handful of hotels",
+      "ap": "A Mobilis or Djezzy prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10-15% is customary and expected for trekking guides",
+      "r": "Rounding up or 5-10% is appreciated, not obligatory"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 55,
+      "luxury": 130
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 20,
+      "museums": 30,
+      "architecture": 35,
+      "nature": 95
+    }
+  },
+  {
+    "city": "San Andrés",
+    "country": "Colombia",
+    "visitors": 1.0,
+    "pop": "~60,000",
+    "lat": 12.5847,
+    "lng": -81.7006,
+    "tagline": "A Caribbean island escape of turquoise 'sea of seven colors' waters and Raizal island culture",
+    "temps": {
+      "q1": 80,
+      "q2": 83,
+      "q3": 84,
+      "q4": 82
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 90,
+      "q3": 130,
+      "q4": 300
+    },
+    "langs": [
+      "Spanish",
+      "San Andrés-Providencia Creole English",
+      "English"
+    ],
+    "currency": "COP",
+    "currency_symbol": "$",
+    "currency_name": "Colombian Peso",
+    "usd_rate": 4100,
+    "card": "Widely accepted at hotels and larger restaurants; cash useful for beach vendors and small shops",
+    "cost": {
+      "hotel": 90,
+      "meal": 12,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$35-60",
+      "h": "$140-320"
+    },
+    "rides": [
+      "InDriver",
+      "local taxi companies (fixed island-wide fares)"
+    ],
+    "taxi": {
+      "color": "yellow",
+      "fare": "Fixed zone-based fares rather than metered",
+      "fareNote": "San Andrés taxis charge set rates by zone; confirm the fare before departure"
+    },
+    "emergency": {
+      "police": "123",
+      "medical": "123 (national unified emergency line)",
+      "note": "123 connects to police, fire, and medical services across Colombia"
+    },
+    "religion": [
+      "Christianity (Roman Catholic majority, strong Protestant/Baptist presence tied to Raizal heritage)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "San Andrés town center and the pedestrian Peatonal shopping strip",
+        "Johnny Cay boat excursion",
+        "El Acuario and Haynes Cay snorkeling"
+      ],
+      [
+        "San Luis beaches on the island's quieter east coast",
+        "West View snorkeling and cliff-jumping spot",
+        "Hoyo Soplador blowhole"
+      ],
+      [
+        "Scuba diving the surrounding coral reef (part of the Seaflower Biosphere Reserve)",
+        "La Loma hilltop viewpoint and Baptist church",
+        "island-hopping day trip to Providencia"
+      ]
+    ],
+    "walk": "The town center (El Centro) is walkable, but San Luis, West View, and La Loma require a golf cart, moto-taxi, or car to reach",
+    "safety": {
+      "safety": "Generally safe and tourism-oriented; standard beach-destination precautions apply",
+      "crime": "Petty theft on crowded beaches is the main concern"
+    },
+    "hood_landmark": {
+      "El Centro (Town Center)": "The Peatonal pedestrian shopping street",
+      "San Luis": "San Luis's quieter east-coast beaches",
+      "West View": "West View's cliff-jumping and snorkeling cove",
+      "La Loma": "La Loma's hilltop First Baptist Church",
+      "Sound Bay / North End Beaches": "The main North End tourist beach strip"
+    },
+    "hoods": [
+      "El Centro (Town Center)",
+      "San Luis",
+      "West View",
+      "La Loma",
+      "Sound Bay / North End Beaches"
+    ],
+    "hood_desc": [
+      "The compact commercial hub with shops, restaurants, and the main hotel strip; the natural base for most visitors.",
+      "A quieter stretch of beach on the island's east side, popular with locals and travelers wanting fewer crowds.",
+      "A rocky cove on the island's west side known for cliff-jumping and calm snorkeling waters.",
+      "A hilltop Raizal community with island views and a historic Baptist church, offering a glimpse of local culture beyond the beach resorts.",
+      "The lively main tourist beach along the North End, lined with hotels, bars, and water-sports operators."
+    ],
+    "hood_tags": [
+      "central",
+      "quiet",
+      "sights",
+      "sights",
+      "nightlife"
+    ],
+    "lodging": [
+      [
+        "Hotel Casablanca",
+        "Sunrise Beach Hotel",
+        "Portobelo Hotel"
+      ],
+      [
+        "Sunset Hotel San Luis",
+        "Coral Palm Beach House",
+        "San Luis beachfront cabañas"
+      ],
+      [
+        "West View eco-lodges",
+        "Cliffside guesthouses",
+        "Boutique dive lodges"
+      ],
+      [
+        "La Loma homestays",
+        "Hilltop guesthouses",
+        "Raizal family-run inns"
+      ],
+      [
+        "Decameron Isleño",
+        "GHL Relax Hotel Isleño",
+        "Casa Harb Hotel Boutique"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 1.8,
+      "water": 0.6
+    },
+    "transit": {
+      "sys": "Golf cart rentals, moto-taxis, and small buses circling the island's ring road",
+      "hours": "Roughly 6am-10pm",
+      "pay": "Cash fares for buses and moto-taxis; golf carts rented by the day",
+      "map": "Not centrally published; the island's single ring road makes navigation simple",
+      "note": "Renting a golf cart is the most popular way for visitors to get around the island"
+    },
+    "transport": {
+      "air": "Gustavo Rojas Pinilla International Airport (ADZ), about 10 min from town",
+      "train": "No passenger rail service",
+      "bus": "Small local buses circle the island's ring road",
+      "ferry": "Catamaran ferry service to Providencia island",
+      "car": "Rental cars, scooters, and golf carts are available for the island's compact ring road"
+    },
+    "airport": {
+      "code": "ADZ",
+      "name": "Gustavo Rojas Pinilla International Airport",
+      "distance": "~3 km (10 min) from town center",
+      "transport": "Taxi or hotel shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage across the island",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Claro, Movistar, Tigo",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Claro or Movistar tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is often added automatically ('propina voluntaria') at restaurants; check the bill",
+      "r": "10% is customary if not already included"
+    },
+    "region": "s-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 110,
+      "luxury": 260
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 55,
+      "museums": 20,
+      "architecture": 25,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Leticia",
+    "country": "Colombia",
+    "visitors": 0.15,
+    "pop": "~34,000",
+    "lat": -4.2153,
+    "lng": -69.9406,
+    "tagline": "A tri-border Amazon gateway where Colombia, Brazil, and Peru meet along the world's largest river",
+    "temps": {
+      "q1": 79,
+      "q2": 79,
+      "q3": 79,
+      "q4": 79
+    },
+    "rain": {
+      "q1": 320,
+      "q2": 300,
+      "q3": 220,
+      "q4": 280
+    },
+    "langs": [
+      "Spanish",
+      "Portuguese (common due to Brazilian border)",
+      "indigenous languages (Ticuna and others)"
+    ],
+    "currency": "COP",
+    "currency_symbol": "$",
+    "currency_name": "Colombian Peso",
+    "usd_rate": 4100,
+    "card": "Accepted at larger hotels; cash is essential for markets, boats, and small eateries",
+    "cost": {
+      "hotel": 55,
+      "meal": 8,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$20-40",
+      "h": "$90-220"
+    },
+    "rides": [
+      "Moto-taxis",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or fixed short-hop rates",
+      "fareNote": "Moto-taxis are the fastest way around the small town center"
+    },
+    "emergency": {
+      "police": "123",
+      "medical": "123 (national unified emergency line)",
+      "note": "123 connects to police, fire, and medical services across Colombia"
+    },
+    "religion": [
+      "Christianity (Roman Catholic majority)",
+      "indigenous spiritual traditions (practiced alongside Christianity in some communities)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Santander Park and the Cathedral of Leticia",
+        "Leticia's riverfront malecón",
+        "Mercado de Abastos river market"
+      ],
+      [
+        "Amacayacu National Park rainforest excursion",
+        "Isla de los Micos (Monkey Island) boat trip",
+        "Lago Tarapoto to spot pink river dolphins"
+      ],
+      [
+        "Crossing into Tabatinga, Brazil or Santa Rosa, Peru (a short walk or boat ride across the tri-border area)",
+        "indigenous Ticuna community visit",
+        "sunset boat cruise on the Amazon River"
+      ]
+    ],
+    "walk": "Central Leticia is small and walkable; reaching the rainforest reserves, Monkey Island, or Tabatinga (Brazil) requires a boat, taxi, or short walk across the unmarked border",
+    "safety": {
+      "safety": "Generally safe in the town center; exercise standard caution near the borders and when traveling by boat after dark",
+      "crime": "Petty theft can occur in markets; most visitors experience no issues traveling with a reputable tour operator"
+    },
+    "hood_landmark": {
+      "Town Center / Santander Park": "Santander Park and the Cathedral of Leticia",
+      "Malecón (Riverfront)": "Leticia's Amazon River waterfront promenade",
+      "Tabatinga Border (Brazil)": "The open land border crossing into Tabatinga, Brazil",
+      "Km 11 (Reserva Natural Tanimboca area)": "The Tanimboca canopy and rainforest reserve outside town",
+      "Amacayacu National Park (day-trip base)": "Amacayacu National Park's rainforest trails"
+    },
+    "hoods": [
+      "Town Center / Santander Park",
+      "Malecón (Riverfront)",
+      "Tabatinga Border (Brazil)",
+      "Km 11 (Reserva Natural Tanimboca area)",
+      "Amacayacu National Park (day-trip base)"
+    ],
+    "hood_desc": [
+      "The compact commercial core around Santander Park, with the cathedral, most hotels, and restaurants; the natural base for exploring the region.",
+      "The Amazon River waterfront, where cargo boats, tour operators, and river-market vendors set the rhythm of daily life.",
+      "The seamless, unmarked border crossing into Brazil, a short walk or moto-taxi ride away, worth a stroll for the tri-border novelty.",
+      "A rainforest reserve just outside town offering canopy walkways and overnight jungle lodges without a long river journey.",
+      "A national park reached by river boat, protecting primary Amazon rainforest and offering multi-day guided treks."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Waira Suites Hotel",
+        "Hotel Anaconda",
+        "Amazon B&B Colombia"
+      ],
+      [
+        "Malecón riverfront guesthouses",
+        "Casa Selva Amazonica",
+        "Riverside boutique hotels"
+      ],
+      [
+        "Tabatinga budget hotels (Brazil side)",
+        "Border-area guesthouses",
+        "Cross-border day-trip stays"
+      ],
+      [
+        "Tanimboca Reserve treehouse cabins",
+        "Canopy lodge stays",
+        "Rainforest eco-lodges"
+      ],
+      [
+        "Amacayacu jungle lodges",
+        "Multi-day expedition camps",
+        "River-access eco-cabins"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 1.8,
+      "water": 0.6
+    },
+    "transit": {
+      "sys": "Moto-taxis and small local buses within town; river boats connect to outlying reserves and villages",
+      "hours": "Roughly 6am-9pm for local transit; river boat schedules vary",
+      "pay": "Cash fares",
+      "map": "Not centrally published; hotels and tour agencies arrange river transport",
+      "note": "There are no roads connecting Leticia to the rest of Colombia; all overland routes are by river or air"
+    },
+    "transport": {
+      "air": "Alfredo Vásquez Cobo International Airport (LET), about 10 min from town, with flights from Bogotá",
+      "train": "No passenger rail service",
+      "bus": "No long-distance road connections to the rest of Colombia (surrounded by rainforest and rivers)",
+      "ferry": "Riverboats connect Leticia to Iquitos, Peru and other Amazon river towns (multi-day journey)",
+      "car": "Not applicable for reaching Leticia; local roads within town are limited"
+    },
+    "airport": {
+      "code": "LET",
+      "name": "Alfredo Vásquez Cobo International Airport",
+      "distance": "~1.5 km (10 min) from town center",
+      "transport": "Taxi or moto-taxi"
+    },
+    "net": {
+      "m": "Moderate 3G/4G in town, minimal coverage on the river or in the rainforest",
+      "w": "Wifi available in most hotels",
+      "ops": "Claro, Movistar, Tigo",
+      "gb": "~$8-15 for a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Wifi available in hotels, though speeds are modest",
+      "ap": "A Claro or Movistar tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for jungle guides and boat operators",
+      "r": "10% if not already included in the bill"
+    },
+    "region": "s-america",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 80,
+      "luxury": 190
+    },
+    "score": {
+      "nightlife": 25,
+      "restaurants": 40,
+      "museums": 20,
+      "architecture": 20,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Sokcho",
+    "country": "South Korea",
+    "visitors": 1.2,
+    "pop": "~81,000",
+    "lat": 38.207,
+    "lng": 128.5918,
+    "tagline": "A coastal gateway to Seoraksan National Park, with East Sea beaches and Korea's famous soft tofu cuisine",
+    "temps": {
+      "q1": 35,
+      "q2": 55,
+      "q3": 78,
+      "q4": 55
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 100,
+      "q3": 280,
+      "q4": 70
+    },
+    "langs": [
+      "Korean",
+      "English (moderate in tourist areas)"
+    ],
+    "currency": "KRW",
+    "currency_symbol": "₩",
+    "currency_name": "South Korean Won",
+    "usd_rate": 1370,
+    "card": "Very widely accepted, including small shops; cash rarely needed",
+    "cost": {
+      "hotel": 70,
+      "meal": 9,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$30-55",
+      "h": "$110-260"
+    },
+    "rides": [
+      "Kakao T (Korea's dominant ride-hailing app)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white/orange",
+      "fare": "Metered, roughly ₩4,800 base fare plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable; Kakao T makes ordering easy without much Korean"
+    },
+    "emergency": {
+      "police": "112",
+      "medical": "119 (fire and ambulance)",
+      "note": "112 for police, 119 for medical/fire emergencies; English-language support is available on both lines"
+    },
+    "religion": [
+      "No religious affiliation (largest group)",
+      "Buddhism",
+      "Christianity (Protestant and Roman Catholic)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Seoraksan National Park cable car and hiking trails",
+        "Sinheungsa Temple",
+        "Ulsanbawi Rock viewpoint hike"
+      ],
+      [
+        "Sokcho Beach and the Expo Tower",
+        "Abai Village and its famous sundae (Korean sausage)",
+        "Daepo Harbor sea fountain and cable car"
+      ],
+      [
+        "Sokcho Central Market seafood stalls",
+        "Yeongrangho Lake walking trail",
+        "Cheongchoho Lake yacht tour"
+      ]
+    ],
+    "walk": "Central Sokcho and the beach areas are walkable; Seoraksan National Park requires a bus or car",
+    "safety": {
+      "safety": "Very safe city with low crime, popular with domestic and international tourists alike",
+      "crime": "Petty theft is rare even in crowded markets"
+    },
+    "hood_landmark": {
+      "Sokcho Beach": "Sokcho Beach's Expo Tower and boardwalk",
+      "Abai Village": "Abai Village's famous sundae sausage alley",
+      "Seoraksan Entrance (Soraksan-dong)": "The cable car base station into Seoraksan National Park",
+      "Daepo-dong (Harbor)": "Daepo Harbor's sea fountain and beach cable car",
+      "Sokcho Central Market": "Sokcho Jungang Market's fresh and dried seafood stalls"
+    },
+    "hoods": [
+      "Sokcho Beach",
+      "Abai Village",
+      "Seoraksan Entrance (Soraksan-dong)",
+      "Daepo-dong (Harbor)",
+      "Sokcho Central Market"
+    ],
+    "hood_desc": [
+      "The main city beach lined with cafes and the iconic Expo Tower, popular for sunrise views over the East Sea.",
+      "A distinctive community founded by North Korean refugees, reached by a hand-pulled ferry, now known for its signature blood-sausage dish.",
+      "The gateway to Seoraksan National Park's cable car and hiking trails, lined with motels and restaurants for hikers.",
+      "The working harbor area with a sea fountain, cable car, and fresh catch restaurants.",
+      "A historic covered market dating to 1953, the best place for fresh seafood and local street food."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "central",
+      "sights",
+      "shopping"
+    ],
+    "lodging": [
+      [
+        "Sokcho Beach Hotel",
+        "Hotel Sono Felice Sokcho",
+        "Kensington Beach Hotel Sokcho"
+      ],
+      [
+        "Abai Village guesthouses",
+        "Local minbak (homestays)",
+        "Harborside inns"
+      ],
+      [
+        "Seorak Beach Tower Hotel",
+        "Hanwha Resort Seorak Sorano",
+        "Hotel Seorak Park"
+      ],
+      [
+        "Daepo Harbor guesthouses",
+        "Seafood-district motels",
+        "Harbor-view lodgings"
+      ],
+      [
+        "Central Market-area guesthouses",
+        "Budget motels",
+        "Sokcho backpacker hostels"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 3.0,
+      "water": 0.8
+    },
+    "transit": {
+      "sys": "Sokcho city bus network, including routes to Seoraksan National Park",
+      "hours": "Roughly 6am-10pm",
+      "pay": "T-money rechargeable transit card or cash",
+      "map": "https://www.sokcho.go.kr (city transit info)",
+      "note": "Buses run regularly from downtown to the Seoraksan cable car base"
+    },
+    "transport": {
+      "air": "Yangyang International Airport (YNY), about 30 min away, with limited domestic and some international flights",
+      "train": "KTX-Eumseong high-speed rail line connects Seoul to nearby Gangneung/Sokcho area stations",
+      "bus": "Frequent intercity buses connect Sokcho to Seoul (about 2-2.5 hr)",
+      "ferry": "",
+      "car": "Well connected via the Seoul-Yangyang Expressway"
+    },
+    "airport": {
+      "code": "YNY",
+      "name": "Yangyang International Airport",
+      "distance": "~24 km (30 min) from Sokcho",
+      "transport": "Airport bus or taxi"
+    },
+    "net": {
+      "m": "Excellent 5G/4G coverage nationwide, among the fastest in the world",
+      "w": "Free wifi widely available in cafes, hotels, and public areas",
+      "ops": "SK Telecom, KT, LG U+",
+      "gb": "~$15-25 for an unlimited-data tourist SIM",
+      "fw": true,
+      "fwn": "Free public wifi widely available",
+      "ap": "An SK Telecom, KT, or LG U+ tourist SIM or eSIM, or a portable wifi egg rental"
+    },
+    "tip": {
+      "s": "Not customary; tipping can even cause confusion",
+      "r": "Not expected; service charge is never added at typical restaurants"
+    },
+    "region": "korea",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 100,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 65,
+      "museums": 25,
+      "architecture": 30,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Avignon",
+    "country": "France",
+    "visitors": 4.5,
+    "pop": "~92,000",
+    "lat": 43.9493,
+    "lng": 4.8055,
+    "tagline": "The walled 'City of Popes,' with a monumental Gothic palace and the legendary broken Pont Saint-Bénézet",
+    "temps": {
+      "q1": 46,
+      "q2": 62,
+      "q3": 80,
+      "q4": 60
+    },
+    "rain": {
+      "q1": 55,
+      "q2": 55,
+      "q3": 35,
+      "q4": 75
+    },
+    "langs": [
+      "French"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small market stalls",
+    "cost": {
+      "hotel": 100,
+      "meal": 18,
+      "taxi": 8
+    },
+    "hotel": {
+      "b": "$40-65",
+      "h": "$140-320"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €3.50 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Palais des Papes (Palace of the Popes)",
+        "Pont Saint-Bénézet (the 'Avignon Bridge')",
+        "Rocher des Doms garden viewpoint"
+      ],
+      [
+        "Place de l'Horloge and the old town's medieval streets",
+        "Musée du Petit Palais",
+        "the ramparts encircling the old city"
+      ],
+      [
+        "Avignon Festival (July, major theater festival)",
+        "day trip to the Luberon villages or Châteauneuf-du-Pape vineyards",
+        "Les Halles covered market"
+      ]
+    ],
+    "walk": "The walled old town is compact and entirely walkable; a car or bus is useful for day trips into Provence",
+    "safety": {
+      "safety": "Very safe city, popular with visitors of all ages",
+      "crime": "Petty theft near the Palais des Papes and train station is the main concern"
+    },
+    "hood_landmark": {
+      "Intra-Muros (Walled Old Town)": "The Palais des Papes and Place de l'Horloge",
+      "Pont Saint-Bénézet Area": "The Pont Saint-Bénézet bridge over the Rhône",
+      "Rocher des Doms": "The Rocher des Doms garden overlooking the Rhône",
+      "Les Halles / Market District": "Les Halles d'Avignon covered food market",
+      "Île de la Barthelasse": "The Île de la Barthelasse riverside park island"
+    },
+    "hoods": [
+      "Intra-Muros (Walled Old Town)",
+      "Pont Saint-Bénézet Area",
+      "Rocher des Doms",
+      "Les Halles / Market District",
+      "Île de la Barthelasse"
+    ],
+    "hood_desc": [
+      "The entire historic city within its medieval ramparts, home to the Palais des Papes and most restaurants and hotels; the natural base for any visit.",
+      "The riverfront area around the famous half-bridge, popular for photos and river walks at sunset.",
+      "A hilltop garden just north of the Palais des Papes with sweeping views over the Rhône and Villeneuve-lès-Avignon.",
+      "The market quarter with Les Halles and a lively cafe scene, good for food-focused visitors.",
+      "A rural river island just across the Rhône, offering cycling paths, farms, and a quiet green escape from the walled city."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "shopping",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "La Mirande",
+        "Hotel d'Europe",
+        "Hotel de Blauvac"
+      ],
+      [
+        "Bridge-view boutique hotels",
+        "Riverside guesthouses",
+        "Pont Saint-Bénézet area B&Bs"
+      ],
+      [
+        "Rocher des Doms-area guesthouses",
+        "Hilltop B&Bs",
+        "Garden-view apartments"
+      ],
+      [
+        "Les Halles-district hotels",
+        "Market-area guesthouses",
+        "Central Avignon budget hotels"
+      ],
+      [
+        "Île de la Barthelasse campsites",
+        "Riverside eco-lodges",
+        "Rural guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 3.0,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "Orizo (formerly TCRA) urban bus and tram network",
+      "hours": "Roughly 6am-8:30pm, reduced evening service",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.orizo.fr/",
+      "note": "The walled old town is pedestrian-friendly; buses mainly serve outlying neighborhoods and the TGV station"
+    },
+    "transport": {
+      "air": "Avignon-Provence Airport (AVN) has limited flights; Marseille Provence (MRS) is a larger option about 1 hr away",
+      "train": "TGV high-speed rail connects Avignon to Paris (under 3 hr) and Marseille",
+      "bus": "Regional buses connect to Luberon villages and other Provence towns",
+      "ferry": "",
+      "car": "Well connected via the A7 motorway; the old town is best explored on foot"
+    },
+    "airport": {
+      "code": "MRS",
+      "name": "Marseille Provence Airport (main regional gateway)",
+      "distance": "~90 km (1 hr) from Avignon",
+      "transport": "Train via Marseille Saint-Charles, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 50,
+      "mid": 130,
+      "luxury": 280
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 65,
+      "museums": 60,
+      "architecture": 90,
+      "nature": 35
+    }
+  },
+  {
+    "city": "Colmar",
+    "country": "France",
+    "visitors": 3.5,
+    "pop": "~67,000",
+    "lat": 48.0794,
+    "lng": 7.3585,
+    "tagline": "A storybook Alsatian town of half-timbered houses, flower-lined canals, and Christmas-market fame",
+    "temps": {
+      "q1": 40,
+      "q2": 58,
+      "q3": 76,
+      "q4": 55
+    },
+    "rain": {
+      "q1": 40,
+      "q2": 55,
+      "q3": 55,
+      "q4": 45
+    },
+    "langs": [
+      "French",
+      "Alsatian (regional dialect, still spoken by some)",
+      "German (widely understood due to proximity)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small market stalls",
+    "cost": {
+      "hotel": 95,
+      "meal": 16,
+      "taxi": 7
+    },
+    "hotel": {
+      "b": "$40-60",
+      "h": "$130-290"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €3.50 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "Protestant (notable Alsatian minority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "La Petite Venise (Little Venice) canal district",
+        "Unterlinden Museum and the Isenheim Altarpiece",
+        "Saint Martin's Church"
+      ],
+      [
+        "Colmar's Christmas markets (late Nov-Dec)",
+        "Musée Bartholdi (birthplace of the Statue of Liberty sculptor)",
+        "the half-timbered old town streets"
+      ],
+      [
+        "Alsace Wine Route day trip through nearby villages (Eguisheim, Riquewihr)",
+        "canal boat ride through Little Venice",
+        "Ancienne Douane historic customs house"
+      ]
+    ],
+    "walk": "The compact old town is entirely walkable and one of the best-preserved in France; a car is useful for the surrounding Alsace Wine Route villages",
+    "safety": {
+      "safety": "Very safe town, popular with visitors of all ages",
+      "crime": "Petty theft in crowded market season is the main concern"
+    },
+    "hood_landmark": {
+      "La Petite Venise (Little Venice)": "La Petite Venise's canal-side half-timbered houses",
+      "Old Town Center": "Saint Martin's Church and the Ancienne Douane",
+      "Unterlinden Quarter": "The Unterlinden Museum and Isenheim Altarpiece",
+      "Krutenau": "The Krutenau district's former fishmonger and tanner streets",
+      "Christmas Market Squares": "Place Jeanne d'Arc and Place des Dominicains market squares"
+    },
+    "hoods": [
+      "La Petite Venise (Little Venice)",
+      "Old Town Center",
+      "Unterlinden Quarter",
+      "Krutenau",
+      "Christmas Market Squares"
+    ],
+    "hood_desc": [
+      "The postcard canal district of flower-draped half-timbered houses, best explored by a short boat ride or a stroll along the Lauch river.",
+      "The pedestrianized medieval core with the largest church and most shops and restaurants; the natural base for any visit.",
+      "Home to Colmar's top museum, housed in a former convent, with an easy walk to the surrounding old streets.",
+      "A historic working-class quarter of the old town, quieter than the main tourist core but just as picturesque.",
+      "The squares that host Colmar's famous Christmas markets each winter, ringed by mulled-wine stalls and crafts."
+    ],
+    "hood_tags": [
+      "sights",
+      "central",
+      "sights",
+      "quiet",
+      "shopping"
+    ],
+    "lodging": [
+      [
+        "Hotel Le Colombier",
+        "La Maison des Têtes",
+        "Petite Venise boutique guesthouses"
+      ],
+      [
+        "Hotel Saint Martin",
+        "Grand Hotel Bristol",
+        "Old Town guesthouses"
+      ],
+      [
+        "Unterlinden-area hotels",
+        "Museum-quarter B&Bs",
+        "Central Colmar guesthouses"
+      ],
+      [
+        "Krutenau district guesthouses",
+        "Quiet old-town apartments",
+        "Local B&Bs"
+      ],
+      [
+        "Market-square hotels",
+        "Central Colmar inns",
+        "Christmas-season boutique stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 3.0,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "Trace Colmar Agglomération urban bus network",
+      "hours": "Roughly 6am-8:30pm",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.trace-colmar.fr/",
+      "note": "The old town is pedestrian-friendly; a car is useful for the Alsace Wine Route villages"
+    },
+    "transport": {
+      "air": "Basel-Mulhouse-Freiburg EuroAirport (BSL/MLH), about 45 min away; Strasbourg Airport is a further alternative",
+      "train": "Direct TGV/TER rail connections to Strasbourg (35 min) and Paris (under 3 hr)",
+      "bus": "Regional buses connect to Alsace Wine Route villages",
+      "ferry": "",
+      "car": "Well connected via the A35 motorway; the old town is best explored on foot"
+    },
+    "airport": {
+      "code": "BSL",
+      "name": "Basel-Mulhouse-Freiburg EuroAirport",
+      "distance": "~65 km (45-50 min) from Colmar",
+      "transport": "Train via Mulhouse, shuttle bus, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 120,
+      "luxury": 260
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 65,
+      "museums": 55,
+      "architecture": 90,
+      "nature": 30
+    }
+  },
+  {
+    "city": "Annecy",
+    "country": "France",
+    "visitors": 3.0,
+    "pop": "~132,000",
+    "lat": 45.8992,
+    "lng": 6.1294,
+    "tagline": "The 'Venice of the Alps,' where a canal-laced old town meets one of Europe's cleanest lakes",
+    "temps": {
+      "q1": 38,
+      "q2": 56,
+      "q3": 74,
+      "q4": 52
+    },
+    "rain": {
+      "q1": 90,
+      "q2": 100,
+      "q3": 90,
+      "q4": 100
+    },
+    "langs": [
+      "French"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small market stalls",
+    "cost": {
+      "hotel": 110,
+      "meal": 18,
+      "taxi": 8
+    },
+    "hotel": {
+      "b": "$45-70",
+      "h": "$150-350"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €3.50 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "17 or 112",
+      "medical": "15 (SAMU) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Palais de l'Isle and the old town canals",
+        "Château d'Annecy museum",
+        "Pont des Amours (Lovers' Bridge)"
+      ],
+      [
+        "Lake Annecy swimming, paddleboarding, or boat cruise",
+        "cycling the lakeside Vélo Bleu path",
+        "Semnoz mountain paragliding over the lake"
+      ],
+      [
+        "Annecy International Animated Film Festival (June)",
+        "day trip to Talloires or Menthon-Saint-Bernard villages on the lake",
+        "Basilique de la Visitation hilltop viewpoint"
+      ]
+    ],
+    "walk": "The old town canal district is compact and very walkable; the lakeside promenade extends further and is best explored on foot or by bike",
+    "safety": {
+      "safety": "Very safe city with a relaxed, family-friendly atmosphere",
+      "crime": "Petty theft near the old town and lakefront in peak summer is the main concern"
+    },
+    "hood_landmark": {
+      "Vieille Ville (Old Town)": "The Palais de l'Isle on the Thiou river",
+      "Lakefront (Bord du Lac)": "The Pont des Amours and lakeside gardens",
+      "Château Quarter": "The Château d'Annecy museum on the hill above town",
+      "Le Pâquier": "Le Pâquier lakeside park and swimming area",
+      "Vélo Bleu / Cycling Path (toward Talloires)": "The lakeside cycling path toward Talloires"
+    },
+    "hoods": [
+      "Vieille Ville (Old Town)",
+      "Lakefront (Bord du Lac)",
+      "Château Quarter",
+      "Le Pâquier",
+      "Vélo Bleu / Cycling Path (toward Talloires)"
+    ],
+    "hood_desc": [
+      "The canal-laced medieval core with the Palais de l'Isle and pastel-colored buildings; the natural base for any visit.",
+      "The lake's edge promenade with gardens, swimming spots, and the romantic Pont des Amours, a short walk from the old town.",
+      "A hilltop quarter above the old town with the historic château and sweeping views over the lake and mountains.",
+      "A popular lakeside park for swimming, picnics, and lounging, especially lively in summer.",
+      "The scenic lakeside cycling and walking path leading south toward Talloires and other lake villages, ideal for a longer active day out."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel du Palais de l'Isle",
+        "Splendid Hotel Annecy",
+        "Hotel Les Terrasses"
+      ],
+      [
+        "Lakefront boutique hotels",
+        "Bord du Lac guesthouses",
+        "Lake-view apartments"
+      ],
+      [
+        "Château-quarter B&Bs",
+        "Hilltop guesthouses",
+        "Views-over-the-lake stays"
+      ],
+      [
+        "Le Pâquier-area hotels",
+        "Lakeside campgrounds",
+        "Family-friendly guesthouses"
+      ],
+      [
+        "Talloires lakeside hotels",
+        "Cycling-route inns",
+        "Village guesthouses along the lake"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.0,
+      "beer": 3.2,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "SIBRA urban bus network",
+      "hours": "Roughly 6am-8:30pm, reduced evening service",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.sibra.fr/",
+      "note": "The old town and lakefront are best explored on foot or bike; buses serve outlying neighborhoods"
+    },
+    "transport": {
+      "air": "Geneva Airport (GVA, Switzerland), about 45 min away; Lyon-Saint Exupéry (LYS) is a further alternative",
+      "train": "TGV and regional trains connect to Lyon, Geneva, and Paris",
+      "bus": "Regional buses connect to alpine villages and ski resorts",
+      "ferry": "Seasonal lake boat services connect Annecy to Talloires and other lakeside villages",
+      "car": "Well connected via the A41 motorway; the old town is pedestrian-friendly"
+    },
+    "airport": {
+      "code": "GVA",
+      "name": "Geneva Airport (main regional gateway)",
+      "distance": "~45 km (45 min) from Annecy",
+      "transport": "Train, shuttle bus, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Orange, SFR, Bouygues",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "An Orange, SFR, or Bouygues tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "Service is included by law; rounding up is a nice gesture, not expected"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 55,
+      "mid": 140,
+      "luxury": 300
+    },
+    "score": {
+      "nightlife": 40,
+      "restaurants": 65,
+      "museums": 45,
+      "architecture": 75,
+      "nature": 80
+    }
+  }
+]

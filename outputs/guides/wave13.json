@@ -1,0 +1,1721 @@
+[
+  {
+    "city": "Huangshan",
+    "country": "China",
+    "visitors": 3.3,
+    "pop": "1.47 million (prefecture); ~410,000 urban (Tunxi District)",
+    "lat": 29.7143,
+    "lng": 118.3376,
+    "tagline": "Where granite peaks vanish into seas of cloud and Ming-dynasty villages sleep in the valleys below.",
+    "temps": {
+      "q1": 47,
+      "q2": 72,
+      "q3": 82,
+      "q4": 56
+    },
+    "rain": {
+      "q1": 43,
+      "q2": 47,
+      "q3": 34,
+      "q4": 27
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Huizhou (Hui) dialect",
+      "limited English in tourist areas"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside international hotels; WeChat Pay and Alipay are used for almost everything — set up mobile payment before arrival and carry some cash as backup",
+    "cost": {
+      "hotel": 50,
+      "meal": 8,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$18-40",
+      "h": "$70-200"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered street taxis",
+      "hotel/tour driver hire"
+    ],
+    "taxi": {
+      "color": "mixed liveries, mostly silver/green sedans",
+      "fare": "~¥8 flag fall + ¥2/km",
+      "fareNote": "Insist on the meter; airport and Tangkou (mountain base) drivers often push flat 'special' fares — agree a price upfront if they refuse to use it"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Huangshan Second People's Hospital in Tunxi",
+      "note": "Mountain rescue teams patrol Huangshan's main trails; English is rare on emergency lines — have a Mandarin speaker or your hotel call for you"
+    },
+    "religion": [
+      "Buddhism and Taoism (mixed folk practice)",
+      "majority nonreligious / ancestor veneration",
+      "small Christian minority"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Tunxi Old Street",
+        "Huangshan Museum",
+        "Zhen Hai Bridge",
+        "Li Sheng Firm heritage house"
+      ],
+      [
+        "Mount Huangshan sunrise hike",
+        "Lotus Peak or Bright Summit",
+        "Beihai Sea of Clouds viewpoint",
+        "cable car descent"
+      ],
+      [
+        "Hongcun ancient village",
+        "Xidi ancient village",
+        "Yi County countryside lanes"
+      ],
+      [
+        "Shexian ancient town",
+        "Tangyue Memorial Archways",
+        "Doushan Street",
+        "Qiyun Mountain Taoist temples"
+      ]
+    ],
+    "walk": "Tunxi's Old Street and riverside areas are very walkable; the mountain itself demands serious hiking or cable cars, and the ancient villages are best explored on foot along cobblestone lanes",
+    "safety": {
+      "safety": "Very safe for solo travelers, including women; petty crime is rare",
+      "crime": "Low — occasional overcharging by unlicensed taxis or tour touts near the mountain entrance is the main annoyance"
+    },
+    "hood_landmark": {
+      "Tunxi Old Street": "Zhen Hai Bridge and the Ming-Qing shopping street",
+      "Huangshan Scenic Area": "Mount Huangshan's granite peaks and Sea of Clouds",
+      "Hongcun & Xidi Ancient Villages": "Hongcun's Moon Pond and South Lake",
+      "Shexian Ancient Town": "Tangyue Memorial Archways",
+      "Qiyun Mountain": "Taoist cliffside temples of Qiyunshan"
+    },
+    "hoods": [
+      "Tunxi Old Street",
+      "Huangshan Scenic Area",
+      "Hongcun & Xidi Ancient Villages",
+      "Shexian Ancient Town",
+      "Qiyun Mountain"
+    ],
+    "hood_desc": [
+      "A pedestrian Ming-and-Qing-dynasty street of black-tile, white-wall shophouses selling Huizhou ink, tea, and carved inkstones — the city's most walkable, central base.",
+      "The granite spine of Mount Huangshan itself — pine-clad peaks, cloud seas, and sunrise views reached by cable car or a punishing stone-step climb from Tangkou village.",
+      "Twin UNESCO-listed Huizhou villages of whitewashed courtyard homes reflected in ox-shaped ponds, a short bus ride from Tunxi.",
+      "The old Huizhou prefectural capital, its stone memorial archways and Doushan Street preserving 500 years of merchant-clan history.",
+      "A quieter Taoist sacred mountain south of the city, its cliffside temples and grottoes drawing far fewer crowds than Huangshan itself."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Huangshan International Hotel",
+        "Old Street Boutique Courtyard Inn",
+        "7 Days Premium Tunxi Old Street"
+      ],
+      [
+        "Xihai Hotel (on-mountain)",
+        "Beihai Hotel (on-mountain)",
+        "Yungu Hotel (cable car base station)"
+      ],
+      [
+        "Pig's Heaven Inn, Xidi",
+        "South Lake Homestay, Hongcun",
+        "Hongcun Yita Boutique Inn"
+      ],
+      [
+        "Shexian Ancient City Hotel",
+        "Doushan Street Heritage Guesthouse",
+        "Huizhou Merchant House Inn"
+      ],
+      [
+        "Qiyunshan Taoist Mountain Guesthouse",
+        "Xiuning Hot Spring Resort",
+        "Qiyunshan Scenic Homestay"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "City buses (Huangshan Bus Group) plus scenic-area shuttle buses",
+      "hours": "~6:30am-6:30pm",
+      "pay": "Cash or QR code (WeChat/Alipay) on buses; no unified transit card for tourists",
+      "map": "Routes aren't on Google/Apple Maps — use Baidu Maps or Amap (Gaode)",
+      "note": "Most sights outside Tunxi require taxis, Didi, or tour buses; there is no rail/metro system in the city"
+    },
+    "transport": {
+      "air": "Huangshan Tunxi International Airport (TXN), ~7 km from Tunxi, with flights to Shanghai, Beijing, Guangzhou, and other major Chinese cities",
+      "train": "Huangshan North railway station sits on the Hefei–Fuzhou and Shanghai–Kunming high-speed lines — about 3 hrs from Shanghai, 1.5 hrs from Hangzhou",
+      "bus": "Long-distance buses connect Huangshan to Hangzhou, Shanghai, and Nanjing; local buses run from Tunxi to Tangkou (mountain base) and the ancient villages",
+      "ferry": "None — Huangshan is inland with no scheduled passenger ferry service",
+      "car": "Self-driving or a hired car is common for reaching Hongcun, Xidi, and Shexian; roads are good but mountain-area driving and parking get congested in peak season"
+    },
+    "airport": {
+      "code": "TXN",
+      "name": "Huangshan Tunxi International Airport",
+      "distance": "~7 km (15 min) from Tunxi/Old Street",
+      "transport": "Taxi ~$8-10 metered fare into town; airport shuttle bus to central Tunxi also available"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage in Tunxi and along main roads; patchy on remote mountain trails",
+      "w": "Free wifi in most hotels and cafes, though speeds vary",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB on a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "The Great Firewall blocks Google, WhatsApp, Instagram, and Facebook — install a VPN before arrival",
+      "ap": "Buy a SIM or eSIM at Shanghai/Hangzhou airport before onward travel; Tunxi Airport's counter has limited stock"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture and can even confuse staff",
+      "r": "No tipping at restaurants; a service charge is occasionally added automatically at upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 70,
+      "luxury": 180
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 55,
+      "museums": 35,
+      "architecture": 85,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Wuyishan",
+    "country": "China",
+    "visitors": 8.5,
+    "pop": "259,668 (2020 census)",
+    "lat": 27.7566,
+    "lng": 118.0357,
+    "tagline": "Misty tea mountains and a bamboo raft down the Nine-Bend River, where Da Hong Pao legends grow on sheer red cliffs.",
+    "temps": {
+      "q1": 53,
+      "q2": 73,
+      "q3": 82,
+      "q4": 61
+    },
+    "rain": {
+      "q1": 45,
+      "q2": 55,
+      "q3": 38,
+      "q4": 27
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Min Bei (Northern Min) dialect",
+      "limited English"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside a few international-standard hotels; WeChat Pay and Alipay dominate — set up mobile payment before arrival and keep some cash as backup",
+    "cost": {
+      "hotel": 45,
+      "meal": 7,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$20-40",
+      "h": "$65-180"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered taxis (limited numbers)",
+      "scenic-area shuttle buses"
+    ],
+    "taxi": {
+      "color": "white and blue sedans",
+      "fare": "~¥8 flag fall + ¥2/km",
+      "fareNote": "Few taxis circulate — Didi is more reliable than street-hailing, especially near the scenic area entrance"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Wuyishan City Hospital",
+      "note": "Scenic-area staff carry radios for trail emergencies; English support is minimal — keep your hotel's number handy"
+    },
+    "religion": [
+      "Buddhism and Taoism (folk practice)",
+      "majority nonreligious / ancestor veneration",
+      "small Christian minority"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Nine-Bend River bamboo raft ride",
+        "Tianyou Peak sunrise hike",
+        "Wuyi Palace ruins"
+      ],
+      [
+        "Da Hong Pao mother tea bushes",
+        "tea-tasting in Xingcun",
+        "Shuiliandong (Water Curtain Cave)"
+      ],
+      [
+        "Xiamei Ancient Village",
+        "Han-dynasty Min Yue King City ruins, Chengcun",
+        "Wuyi Square and Wuyishan City Museum"
+      ]
+    ],
+    "walk": "The scenic core is a trail-and-raft park, not a walkable city grid — you shuttle between trailheads by park bus, then hike; the low-rise city center itself is compact and easy on foot",
+    "safety": {
+      "safety": "Very safe, low crime, a popular domestic tea-tourism and honeymoon destination",
+      "crime": "Minimal — the main risk is overpaying unlicensed drivers or high-pressure tea-tasting sales pitches"
+    },
+    "hood_landmark": {
+      "Wuyi Mountain Scenic Area": "Tianyou Peak and the Nine-Bend River",
+      "Wuyishan City Center": "Wuyi Square",
+      "Xingcun": "The original Da Hong Pao mother tea bushes",
+      "Chengcun": "Min Yue Kingdom walled-city ruins",
+      "Xiamei Ancient Village": "Zou Family Grand House and the Meixi Canal"
+    },
+    "hoods": [
+      "Wuyi Mountain Scenic Area",
+      "Wuyishan City Center",
+      "Xingcun",
+      "Chengcun",
+      "Xiamei Ancient Village"
+    ],
+    "hood_desc": [
+      "The UNESCO core of red sandstone peaks and the Nine-Bend River, explored by bamboo raft and cliffside trail up to Tianyou Peak.",
+      "The modern town of Wuyi Avenue and Wuyi Square, home to the region's transit hubs, restaurants, and tea shops.",
+      "A working tea-trading town at the scenic area's southern gate, home to the original Da Hong Pao mother bushes and rows of tea-tasting houses.",
+      "Site of the 2,000-year-old Min Yue Kingdom's walled capital ruins, plus the region's biggest wholesale tea market.",
+      "A canal-laced Qing-dynasty merchant village of carved courtyard houses a short drive from town, far off the main tour-bus route."
+    ],
+    "hood_tags": [
+      "sights",
+      "central",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Wuyishan Resort (Wuyi Shanzhuang)",
+        "Xihui Hotel Wuyishan",
+        "riverside eco-lodge near Wuyi Palace"
+      ],
+      [
+        "Wuyishan Grand Hotel",
+        "Ibis Wuyishan",
+        "Wuyi Mountain International Youth Hostel"
+      ],
+      [
+        "Xingcun tea-farm homestay",
+        "Da Hong Pao Tea Lodge",
+        "Nine-Bend riverside guesthouse"
+      ],
+      [
+        "Chengcun Han City boutique inn",
+        "tea-market courtyard guesthouse",
+        "Chengcun riverside inn"
+      ],
+      [
+        "Xiamei Ancient Village homestay",
+        "Zou family courtyard guesthouse",
+        "Meixi Canal boutique inn"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Local buses plus a free electric scenic shuttle/tram inside Wuyishan National Park",
+      "hours": "~6:30am-6pm (park shuttle runs park hours)",
+      "pay": "Cash or QR code; the scenic-area multi-day pass includes shuttle rides",
+      "map": "Use Amap (Gaode) or Baidu Maps and download offline",
+      "note": "The park shuttle bus is included in the scenic-area entrance ticket and is the main way to reach trailheads"
+    },
+    "transport": {
+      "air": "Wuyishan Airport (WUS), ~8 km from the city, with domestic flights to Shanghai, Beijing, Guangzhou, Xiamen, and other major cities",
+      "train": "Wuyishan East and Wuyishan-Beibus high-speed stations on the Hefei–Fuzhou and Nanping–Wuyishan lines — about 6 hrs from Shanghai, 3-4 hrs from Fuzhou or Xiamen",
+      "bus": "Regional buses link Wuyishan to Nanping, Fuzhou, and Jiangxi's Shangrao; local buses and park shuttles connect the scenic area to town",
+      "ferry": "None scheduled — bamboo rafting on the Nine-Bend River is recreational, not a transport link",
+      "car": "A car or driver is useful for reaching Xiamei Village and outlying tea plantations; the scenic area's interior is closed to private cars, shuttle only"
+    },
+    "airport": {
+      "code": "WUS",
+      "name": "Wuyishan Airport",
+      "distance": "~8 km (15-20 min) from Wuyishan city center",
+      "transport": "Taxi ~$8-10 fare into town; Didi or hotel pickup recommended given limited airport shuttle service"
+    },
+    "net": {
+      "m": "Solid 4G in town and along the high-speed rail corridor; weaker inside the scenic area's deeper trails",
+      "w": "Free wifi in hotels and tea houses in town",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB",
+      "fw": true,
+      "fwn": "VPN needed for Google, WhatsApp, Instagram, and Facebook — install before arrival",
+      "ap": "Buy a SIM or eSIM in Fuzhou or Xiamen before heading to Wuyishan; local shops have limited tourist SIM stock"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture and can even confuse staff",
+      "r": "No tipping at restaurants; a service charge is occasionally added automatically at upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 28,
+      "mid": 65,
+      "luxury": 170
+    },
+    "score": {
+      "nightlife": 15,
+      "restaurants": 50,
+      "museums": 25,
+      "architecture": 55,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Jinghong",
+    "country": "China",
+    "visitors": 20,
+    "pop": "642,737 (2020 census)",
+    "lat": 22.0017,
+    "lng": 100.7977,
+    "tagline": "Dai temples, elephant-crossed jungles, and Mekong sunsets in China's tropical southern frontier.",
+    "temps": {
+      "q1": 70,
+      "q2": 81,
+      "q3": 81,
+      "q4": 72
+    },
+    "rain": {
+      "q1": 10,
+      "q2": 45,
+      "q3": 60,
+      "q4": 21
+    },
+    "langs": [
+      "Mandarin Chinese (Yunnanese dialect)",
+      "Dai (Tai Lü)",
+      "Hani, Jinuo, Bulang, and other minority languages",
+      "limited English"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside international-brand hotels; WeChat Pay and Alipay are used for nearly everything — set up mobile payment before arrival",
+    "cost": {
+      "hotel": 40,
+      "meal": 6,
+      "taxi": 2.5
+    },
+    "hotel": {
+      "b": "$15-35",
+      "h": "$55-160"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered taxis",
+      "electric three-wheelers in outlying villages"
+    ],
+    "taxi": {
+      "color": "green sedans",
+      "fare": "~¥7 flag fall + ¥1.8/km",
+      "fareNote": "Meters are standard in town, but drivers to outlying villages or the botanical garden usually quote a flat round-trip fare"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Xishuangbanna Dai Autonomous Prefecture People's Hospital in Jinghong",
+      "note": "Heat exhaustion and river-current incidents are the most common tourist emergencies; English support is limited outside major hotels"
+    },
+    "religion": [
+      "Theravada Buddhism (predominant among the Dai)",
+      "folk animism among hill minorities",
+      "Han Chinese majority nonreligious or Mahayana Buddhist/Taoist"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Manting Park (Chunhuan Park)",
+        "Xishuangbanna Dai Autonomous Prefecture Museum",
+        "Mekong River (Lancang Jiang) waterfront promenade"
+      ],
+      [
+        "Xishuangbanna Tropical Botanical Garden, Menglun",
+        "Wild Elephant Valley"
+      ],
+      [
+        "Ganlanba (Olive Basin) Dai villages",
+        "Dai Minority Garden",
+        "Manfeilong Pagodas"
+      ],
+      [
+        "Jinuo Mountain ethnic village",
+        "tea trekking near the Six Great Tea Mountains"
+      ]
+    ],
+    "walk": "Jinghong's riverside core and night-market streets are pleasant on foot, but most major sights — the botanical garden, elephant valley, Dai villages — require a car, bus, or Didi ride out of town",
+    "safety": {
+      "safety": "Very safe, relaxed resort-town atmosphere popular with solo Chinese travelers",
+      "crime": "Low — biggest risks are heat/sun exposure, river currents, and tourist-market overcharging"
+    },
+    "hood_landmark": {
+      "Jinghong City Center": "Mekong River promenade and Peacock Lake",
+      "Manting Park District": "Manting Park's royal Dai gardens",
+      "Gaozhuang Night Market": "Gaozhuang International Trade City night market",
+      "Ganlanba (Olive Basin)": "Dai Minority Garden (Dai Yuan)",
+      "Menglun": "Xishuangbanna Tropical Botanical Garden"
+    },
+    "hoods": [
+      "Jinghong City Center",
+      "Manting Park District",
+      "Gaozhuang Night Market",
+      "Ganlanba (Olive Basin)",
+      "Menglun"
+    ],
+    "hood_desc": [
+      "The Mekong-side core of wide boulevards and palm trees, with the riverside promenade, prefecture museum, and Peacock Lake nearby.",
+      "Home to Manting Park's royal Dai gardens and Buddhist temples, a green, templed pocket just east of downtown.",
+      "Jinghong's after-dark hub of skewer stalls, fruit vendors, and bars, busiest after sunset when the heat breaks.",
+      "A cluster of traditional Dai stilt-house villages and the Dai Minority Garden theme park, downstream along the Mekong.",
+      "Home to the Xishuangbanna Tropical Botanical Garden, a riverbend peninsula of rainforest about an hour from the city."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "nightlife",
+      "quiet",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Banna Hotel Jinghong",
+        "Crowne Plaza Xishuangbanna Resort",
+        "Jinghong riverside boutique hotel"
+      ],
+      [
+        "Dai Garden Hotel",
+        "Manting Park view guesthouse",
+        "Xishuangbanna Garden Resort"
+      ],
+      [
+        "Gaozhuang backpacker hostel",
+        "night-market boutique inn",
+        "7 Days Inn Jinghong Gaozhuang"
+      ],
+      [
+        "Dai village homestay, Ganlanba",
+        "Olive Basin eco-lodge",
+        "Menghan riverside guesthouse"
+      ],
+      [
+        "botanical garden guesthouse, Menglun",
+        "Menglun riverside inn",
+        "tropical garden eco-lodge"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "City buses plus long-distance minibuses to Dai villages and Menglun",
+      "hours": "~6:30am-9pm in town",
+      "pay": "Cash or QR code",
+      "map": "Use Amap (Gaode) or Baidu Maps",
+      "note": "No metro; Didi ride-hailing covers the city well, but rural villages and gardens need buses or a hired driver"
+    },
+    "transport": {
+      "air": "Xishuangbanna Gasa International Airport (JHG), ~6 km from downtown Jinghong, with flights to Kunming, other major Chinese cities, and a handful of Southeast Asia routes",
+      "train": "Xishuangbanna (Jinghong) railway station on the China–Laos Railway — direct high-speed service to Kunming (~3.5 hrs) and onward to Vientiane, Laos",
+      "bus": "Long-distance buses connect Jinghong to Kunming (~8-10 hrs by road) and cross-border routes toward Laos and Myanmar",
+      "ferry": "Seasonal Mekong River cargo/passenger boats run toward Laos, though scheduled tourist ferry service is limited",
+      "car": "Self-driving or a hired driver is useful for reaching Dai villages, tea mountains, and the botanical garden, which are spread across the prefecture"
+    },
+    "airport": {
+      "code": "JHG",
+      "name": "Xishuangbanna Gasa International Airport",
+      "distance": "6 km (15 min) from downtown Jinghong",
+      "transport": "Taxi ~$5-8 metered fare into town; airport shuttle bus to the city center also available"
+    },
+    "net": {
+      "m": "Good 4G/5G in Jinghong city; coverage thins out in remote Dai villages and tea-mountain areas",
+      "w": "Free wifi at hotels and cafes in the city center",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB",
+      "fw": true,
+      "fwn": "VPN required for Google, WhatsApp, Instagram, Facebook, and most Western apps",
+      "ap": "SIM/eSIM is easiest to buy in Kunming before flying or training in; Jinghong airport has a China Mobile counter"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture and can even confuse staff",
+      "r": "No tipping at restaurants; a service charge is occasionally added automatically at upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 60,
+      "luxury": 150
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 65,
+      "museums": 30,
+      "architecture": 50,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Zhoushan",
+    "country": "China",
+    "visitors": 45,
+    "pop": "~1.18 million (prefecture-level city, archipelago of ~1,390 islands)",
+    "lat": 30.0163,
+    "lng": 122.2072,
+    "tagline": "China's only island-built city — a Buddhist sea kingdom, nine sand beaches, and 1,390 islands scattered across the East China Sea",
+    "temps": {
+      "q1": 46,
+      "q2": 66,
+      "q3": 81,
+      "q4": 58
+    },
+    "rain": {
+      "q1": 40,
+      "q2": 44,
+      "q3": 38,
+      "q4": 30
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Wu (Zhoushan/Ningbo dialect)",
+      "limited English"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside international-standard hotels; WeChat Pay and Alipay dominate nearly every transaction — set up mobile payment before arrival and carry some cash as backup.",
+    "cost": {
+      "hotel": 45,
+      "meal": 7,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$20-40",
+      "h": "$70-200"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered street taxis"
+    ],
+    "taxi": {
+      "color": "mixed liveries, mostly blue/white sedans",
+      "fare": "~¥10 flag fall + ¥2.5/km",
+      "fareNote": "Meters are standard within Dinghai and Putuo; inter-island trips are usually flat-rate — agree the price before boarding"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Zhoushan Hospital in Dinghai",
+      "note": "Fire is 119. English support is minimal outside major hotels — have your hotel call for you in an emergency."
+    },
+    "religion": [
+      "Buddhism (Mt. Putuo is one of China's four sacred Buddhist mountains, drawing pilgrims islandwide)",
+      "Taoism and folk religion",
+      "majority nonreligious / ancestor veneration"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Mt. Putuo ferry crossing",
+        "Puji Temple",
+        "Fayu Temple",
+        "Guanyin statue at Nanhai (South China Sea Guanyin)"
+      ],
+      [
+        "Zhujiajian Island's Dajiao and Nanguo Bay beaches",
+        "sand-sculpture displays (seasonal)",
+        "seafood dinner in Zhujiajian town"
+      ],
+      [
+        "Dinghai Old Town's Qing-dynasty lanes",
+        "Zhoushan Museum",
+        "Renmin Road waterfront"
+      ]
+    ],
+    "walk": "Dinghai Old Town and the Mt. Putuo pilgrim paths are compact and walkable; the archipelago overall requires ferries and buses to move between islands, so plan around boat schedules rather than expecting to walk between sights.",
+    "safety": {
+      "safety": "Very safe for solo travelers; a popular domestic pilgrimage and beach destination with low crime",
+      "crime": "Minimal — occasional overcharging by unlicensed ferry touts or souvenir vendors near Mt. Putuo's temples is the main annoyance"
+    },
+    "hood_landmark": {
+      "Dinghai Old Town": "Zhoushan Museum and the Qing-dynasty lanes",
+      "Mt. Putuo (Putuoshan)": "Nanhai Guanyin statue and Puji Temple",
+      "Zhujiajian Island": "Dajiao Bay's sand-sculpture beaches",
+      "Shenjiamen (Putuo District)": "Shenjiamen fishing port and seafood market",
+      "Taohua Island": "Taohua Peak lighthouse and film-location coves"
+    },
+    "hoods": [
+      "Dinghai Old Town",
+      "Mt. Putuo (Putuoshan)",
+      "Zhujiajian Island",
+      "Shenjiamen (Putuo District)",
+      "Taohua Island"
+    ],
+    "hood_desc": [
+      "The archipelago's historic administrative seat — a walkable grid of Qing-dynasty stone lanes, canal bridges, and the city museum, with the widest choice of everyday hotels and restaurants.",
+      "A dedicated pilgrimage island reached by a short ferry, packed with Buddhist temples, monasteries, and quiet beaches — overnight stays are in temple guesthouses or hillside hotels rather than a town center.",
+      "A resort island famous for its long sand beaches and seafood restaurants, popular with mainland Chinese beachgoers in summer and connected to the mainland by bridge.",
+      "Zhoushan's largest fishing port and commercial fleet base, with a lively seafood market and ferry terminals to the outer islands.",
+      "A quieter, less-developed island known for dramatic sea cliffs and as a filming location for classic Chinese cinema, reached by ferry from Shenjiamen."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "shopping",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Zhoushan International Hotel",
+        "Dinghai Old Town Boutique Inn",
+        "7 Days Premium Dinghai"
+      ],
+      [
+        "Putuoshan Zhixin Hotel (pilgrim guesthouse)",
+        "Sanshengtang Hotel",
+        "Putuoshan Hotel"
+      ],
+      [
+        "Zhujiajian Sunshine Coast Resort",
+        "Dajiao Bay Beach Hotel",
+        "Nanguo Bay Seaview Inn"
+      ],
+      [
+        "Shenjiamen Harbor Hotel",
+        "Putuo Fisherman's Hotel",
+        "Shenjiamen Business Inn"
+      ],
+      [
+        "Taohua Island Guesthouse",
+        "Taohua Peak Homestay",
+        "Island Cliffside Inn"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "City buses on the main islands plus inter-island ferries (the primary way to travel between Zhoushan's islands)",
+      "hours": "~6am-6:30pm for ferries; buses roughly 6am-9pm",
+      "pay": "Cash or QR code (WeChat/Alipay)",
+      "map": "Use Amap (Gaode) or Baidu Maps — not on Google Maps",
+      "note": "Bridges now connect the main island cluster (Dinghai, Zhujiajian) but Mt. Putuo and Taohua remain ferry-only, so budget extra time around boat schedules"
+    },
+    "transport": {
+      "air": "Zhoushan Putuoshan Airport (HSN) on Zhujiajian Island has domestic flights to Shanghai, Beijing, Guangzhou and other major cities",
+      "train": "No direct rail to the islands; nearest high-speed rail is Ningbo, connected onward by a 1.5-2 hour bus/bridge crossing",
+      "bus": "Long-distance buses and bridge crossings connect Zhoushan to Ningbo, Shanghai and Hangzhou via the Zhoushan Cross-Sea Bridge",
+      "ferry": "Frequent passenger ferries link Dinghai, Mt. Putuo, Zhujiajian, Shenjiamen and the outer islands — the essential way to island-hop",
+      "car": "Self-driving works well for the bridge-linked main islands (Dinghai to Zhujiajian); Mt. Putuo and Taohua require leaving the car and taking a ferry"
+    },
+    "airport": {
+      "code": "HSN",
+      "name": "Zhoushan Putuoshan Airport",
+      "distance": "On Zhujiajian Island, ~45 min by bridge/ferry combo to Dinghai",
+      "transport": "Airport shuttle bus to Dinghai and Shenjiamen; taxi/Didi also available"
+    },
+    "net": {
+      "m": "Good 4G/5G in Dinghai, Zhujiajian and Shenjiamen; signal weakens on Mt. Putuo's forested trails and remote outer islands",
+      "w": "Free wifi common in hotels and cafes on the main islands",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB on a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "The Great Firewall blocks Google, WhatsApp, Instagram and Facebook — install a VPN before arrival",
+      "ap": "Buy a SIM or eSIM in Shanghai, Hangzhou or Ningbo before heading to the islands; local stock is limited"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture",
+      "r": "No tipping at restaurants; a service charge is occasionally added automatically at upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 28,
+      "mid": 65,
+      "luxury": 170
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 60,
+      "museums": 30,
+      "architecture": 45,
+      "nature": 88
+    }
+  },
+  {
+    "city": "Enshi",
+    "country": "China",
+    "visitors": 30,
+    "pop": "~740,000 urban (Enshi Tujia and Miao Autonomous Prefecture seat; prefecture-wide ~4 million)",
+    "lat": 30.2762,
+    "lng": 109.4886,
+    "tagline": "China's Grand Canyon, carved through Tujia and Miao mountain country in southwestern Hubei",
+    "temps": {
+      "q1": 46,
+      "q2": 68,
+      "q3": 78,
+      "q4": 55
+    },
+    "rain": {
+      "q1": 42,
+      "q2": 52,
+      "q3": 40,
+      "q4": 30
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Tujia and Miao languages (mostly ceremonial/minority use)",
+      "limited English"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside a few international-standard hotels; WeChat Pay and Alipay are used for nearly everything — set up mobile payment before arrival and keep some cash as backup.",
+    "cost": {
+      "hotel": 35,
+      "meal": 6,
+      "taxi": 2.5
+    },
+    "hotel": {
+      "b": "$15-30",
+      "h": "$55-150"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered taxis"
+    ],
+    "taxi": {
+      "color": "mixed liveries, mostly green and white sedans",
+      "fare": "~¥6 flag fall + ¥1.8/km",
+      "fareNote": "Meters are standard in town; trips to the Grand Canyon or Tenglong Cave scenic areas are usually flat-rate — agree the price upfront"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Enshi State Central Hospital",
+      "note": "Fire is 119. English support is minimal — hotel staff can help translate in an emergency."
+    },
+    "religion": [
+      "Folk religion and ancestor veneration (Tujia and Miao traditions)",
+      "Buddhism and Taoism",
+      "small Christian minority"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Enshi Grand Canyon: Yunlong Ground Fissure and the glass skywalk",
+        "One Line Sky (Yixiantian) cliff trail"
+      ],
+      [
+        "Tenglong Cave, one of China's largest karst caves",
+        "Tujia ethnic dance performance inside the cave"
+      ],
+      [
+        "Qingjiang Chuangtan river rafting (48 rapids)",
+        "Yumu Village traditional Tujia stilt houses"
+      ]
+    ],
+    "walk": "Downtown Enshi is compact and walkable, but the Grand Canyon, Tenglong Cave and Qingjiang rafting sites are all outside town and require a bus, tour van, or taxi/Didi ride — expect significant stair-climbing and cliffside walkways at the canyon itself.",
+    "safety": {
+      "safety": "Very safe for solo travelers; a growing domestic eco-tourism destination with low crime",
+      "crime": "Minimal — the main risks are trail-related (steep steps, cliffside walkways) rather than crime"
+    },
+    "hood_landmark": {
+      "Enshi City Center": "Enshi State Central Hospital area and the pedestrian shopping street",
+      "Enshi Grand Canyon Scenic Area": "Yunlong Ground Fissure glass skywalk",
+      "Tenglong Cave Scenic Area": "Tenglong Cave's underground waterfall chamber",
+      "Qingjiang Chuangtan": "The 48-rapid rafting course on the Qing River",
+      "Yumu Village": "Traditional Tujia diaojiaolou stilt houses"
+    },
+    "hoods": [
+      "Enshi City Center",
+      "Enshi Grand Canyon Scenic Area",
+      "Tenglong Cave Scenic Area",
+      "Qingjiang Chuangtan",
+      "Yumu Village"
+    ],
+    "hood_desc": [
+      "The functional prefecture capital with the bus stations, hospitals, and everyday hotels and restaurants — the practical base for exploring the surrounding canyon country.",
+      "A dramatic limestone gorge about an hour from downtown, with a glass-floored skywalk and cliffside trails above the Yunlong ground fissure.",
+      "Home to one of China's largest karst cave systems, with an underground river and nightly Tujia cultural performances inside the cavern.",
+      "A rafting stretch of the Qing River known for 48 rapids, popular with domestic adventure tourists in summer.",
+      "A preserved Tujia minority village of traditional wooden stilt houses, offering a quieter look at the region's ethnic heritage."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Enshi Grand Hotel",
+        "Home Inn Enshi",
+        "7 Days Premium Enshi"
+      ],
+      [
+        "Enshi Grand Canyon Resort Hotel",
+        "Canyon-view guesthouse",
+        "Grand Canyon Scenic Lodge"
+      ],
+      [
+        "Tenglong Cave Hotel",
+        "Karst Cave Inn",
+        "Tenglong Scenic Guesthouse"
+      ],
+      [
+        "Qingjiang Riverside Lodge",
+        "Chuangtan Rafting Base Guesthouse",
+        "Qing River Inn"
+      ],
+      [
+        "Yumu Village Tujia Homestay",
+        "Diaojiaolou Guesthouse",
+        "Ethnic Village Inn"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3,
+      "beer": 1.3,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "City buses plus scenic-area shuttle buses",
+      "hours": "~6:30am-6:30pm",
+      "pay": "Cash or QR code (WeChat/Alipay)",
+      "map": "Use Amap (Gaode) or Baidu Maps",
+      "note": "Tour buses and shuttles run from downtown to the Grand Canyon and Tenglong Cave; a private driver or Didi is the easiest way to combine multiple sites in a day"
+    },
+    "transport": {
+      "air": "Enshi Xujiaping Airport (ENH), ~5 km from downtown, with domestic flights to Beijing, Shanghai, Guangzhou, Xi'an and other major cities",
+      "train": "Enshi railway station on the Yichang-Wanzhou line connects to Wuhan (~4-5 hrs) and Chongqing",
+      "bus": "Long-distance buses connect Enshi to Wuhan, Chongqing, and Zhangjiajie; local buses and scenic shuttles serve the canyon and cave",
+      "ferry": "None — Enshi is inland mountain terrain with no scheduled passenger ferry service",
+      "car": "Self-driving or a hired driver is useful for combining the Grand Canyon, Tenglong Cave, and Yumu Village in one trip; mountain roads are winding but well paved to the main sites"
+    },
+    "airport": {
+      "code": "ENH",
+      "name": "Enshi Xujiaping Airport",
+      "distance": "~5 km (10-15 min) from downtown Enshi",
+      "transport": "Airport shuttle bus to the city center; taxi/Didi also available"
+    },
+    "net": {
+      "m": "Good 4G in downtown Enshi and along main roads; patchy inside the canyon and cave scenic areas",
+      "w": "Free wifi in most hotels and cafes",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB on a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "The Great Firewall blocks Google, WhatsApp, Instagram and Facebook — install a VPN before arrival",
+      "ap": "Buy a SIM or eSIM in Wuhan or another major hub before traveling to Enshi; local stock is limited"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture",
+      "r": "No tipping at restaurants; rarely a service charge outside upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 22,
+      "mid": 55,
+      "luxury": 140
+    },
+    "score": {
+      "nightlife": 15,
+      "restaurants": 50,
+      "museums": 25,
+      "architecture": 40,
+      "nature": 96
+    }
+  },
+  {
+    "city": "Manzhouli",
+    "country": "China",
+    "visitors": 15,
+    "pop": "~300,000",
+    "lat": 49.5833,
+    "lng": 117.4333,
+    "tagline": "China's busiest land port, where Russian onion domes, Mongolian grasslands, and a 30-meter Matryoshka doll collide",
+    "temps": {
+      "q1": 4,
+      "q2": 46,
+      "q3": 66,
+      "q4": 20
+    },
+    "rain": {
+      "q1": 8,
+      "q2": 18,
+      "q3": 28,
+      "q4": 10
+    },
+    "langs": [
+      "Mandarin Chinese",
+      "Mongolian",
+      "Russian (widely spoken/displayed for cross-border trade)",
+      "limited English"
+    ],
+    "currency": "CNY",
+    "currency_symbol": "¥",
+    "currency_name": "Renminbi (Chinese Yuan)",
+    "usd_rate": 7.15,
+    "card": "Credit cards are rarely accepted outside international-standard hotels; WeChat Pay and Alipay dominate — set up mobile payment before arrival. Russian rubles are informally accepted in some border-trade shops but yuan is standard.",
+    "cost": {
+      "hotel": 40,
+      "meal": 7,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$18-35",
+      "h": "$60-160"
+    },
+    "rides": [
+      "Didi Chuxing",
+      "metered taxis"
+    ],
+    "taxi": {
+      "color": "mixed liveries, mostly red and white sedans",
+      "fare": "~¥8 flag fall + ¥2/km",
+      "fareNote": "Meters are standard in town; trips to Hulun Lake or the border-crossing tourist area are usually flat-rate — agree the price upfront"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "120 (ambulance); Manzhouli People's Hospital",
+      "note": "Fire is 119. English support is minimal — Russian is more commonly understood than English due to cross-border trade."
+    },
+    "religion": [
+      "Buddhism (Tibetan/Mongolian lamaism among ethnic Mongolians)",
+      "folk religion and ancestor veneration",
+      "small Russian Orthodox and Christian minority"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Matryoshka Square and the giant nesting-doll landmarks",
+        "Russian-style architecture along the main boulevards",
+        "night light show on Manzhouli's landmark buildings"
+      ],
+      [
+        "Hulun Lake (Dalai Nur) scenic area and grassland drive",
+        "birdwatching (swans, cranes, wild ducks) on the lakeshore"
+      ],
+      [
+        "China-Russia border crossing viewing area",
+        "Manzhouli Museum",
+        "Russian goods market for border-trade shopping"
+      ]
+    ],
+    "walk": "Central Manzhouli's main boulevards (Erdaojie area) are walkable and lined with distinctive Russian-influenced architecture; Hulun Lake and the border crossing require a taxi, Didi, or tour bus.",
+    "safety": {
+      "safety": "Very safe for solo travelers; a well-policed border-trade city with low crime",
+      "crime": "Minimal — standard caution around border-market bargaining and currency exchange is enough"
+    },
+    "hood_landmark": {
+      "Central Manzhouli (Erdaojie)": "Matryoshka Square and the Russian-style boulevard architecture",
+      "China-Russia Border Trade Zone": "China-Russia Border Crossing viewing platform",
+      "Hulun Lake (Dalai Nur) Area": "Hulun Lake's grassland shoreline and birdwatching spots",
+      "Railway Station District": "Manzhouli's historic Russian-built railway station",
+      "Xingfu (Happiness) District": "Local residential streets and everyday markets"
+    },
+    "hoods": [
+      "Central Manzhouli (Erdaojie)",
+      "China-Russia Border Trade Zone",
+      "Hulun Lake (Dalai Nur) Area",
+      "Railway Station District",
+      "Xingfu (Happiness) District"
+    ],
+    "hood_desc": [
+      "The city's showpiece core, where candy-colored Russian-revival buildings, the giant Matryoshka doll landmarks, and nightly illuminated light shows draw domestic tourists after dark.",
+      "The working border-crossing zone where Chinese and Russian traders exchange goods, with markets selling Russian chocolate, vodka, and souvenirs alongside customs facilities.",
+      "A grassland lake area about 45 minutes from downtown, popular for birdwatching, horseback riding, and Mongolian-style yurt stays in summer.",
+      "The historic railway quarter built during the Russian-administered Chinese Eastern Railway era, with the city's oldest surviving station architecture.",
+      "A quieter residential district away from the tourist core, with everyday shops and local eateries for a look at ordinary Manzhouli life."
+    ],
+    "hood_tags": [
+      "central",
+      "shopping",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Shangri-La Hotel Manzhouli",
+        "Manzhouli International Hotel",
+        "7 Days Premium Manzhouli"
+      ],
+      [
+        "Border Trade Hotel",
+        "Erdaojie Boutique Inn",
+        "Manzhouli Friendship Hotel"
+      ],
+      [
+        "Hulun Lake Grassland Yurt Camp",
+        "Dalai Nur Lakeside Lodge",
+        "Grassland Eco-Resort"
+      ],
+      [
+        "Railway Station Guesthouse",
+        "Old Manzhouli Heritage Inn",
+        "Station District Hotel"
+      ],
+      [
+        "Xingfu District Business Hotel",
+        "Local Homestay Manzhouli",
+        "Happiness District Inn"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "City buses cover the compact downtown core",
+      "hours": "~7am-7pm",
+      "pay": "Cash or QR code (WeChat/Alipay)",
+      "map": "Use Amap (Gaode) or Baidu Maps",
+      "note": "Manzhouli's core is small and walkable; buses and Didi cover Hulun Lake and the border zone"
+    },
+    "transport": {
+      "air": "Manzhouli Xijiao International Airport (NZH), ~12 km from downtown, with domestic flights to Beijing, Hohhot, Harbin and other cities",
+      "train": "Manzhouli railway station, a historic stop on the Chinese Eastern Railway, connects to Harbin, Beijing, and cross-border toward Zabaykalsk, Russia",
+      "bus": "Long-distance buses and cross-border coaches connect Manzhouli to Hailar and, via the border crossing, to Zabaykalsk, Russia",
+      "ferry": "None — Manzhouli is a landlocked border city with no passenger ferry service",
+      "car": "Self-driving or a hired car is useful for reaching Hulun Lake and the surrounding grasslands; Highway 301 links Manzhouli to Hailar and the wider Hulunbuir region"
+    },
+    "airport": {
+      "code": "NZH",
+      "name": "Manzhouli Xijiao International Airport",
+      "distance": "~12 km (20 min) from downtown Manzhouli",
+      "transport": "Airport shuttle bus to the city center; taxi/Didi also available"
+    },
+    "net": {
+      "m": "Good 4G in downtown Manzhouli; weaker out on the Hulun Lake grasslands",
+      "w": "Free wifi common in hotels and cafes downtown",
+      "ops": "China Mobile, China Unicom, China Telecom",
+      "gb": "~$3-5 per GB on a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "The Great Firewall blocks Google, WhatsApp, Instagram and Facebook — install a VPN before arrival",
+      "ap": "Buy a SIM or eSIM in Beijing or Harbin before traveling to Manzhouli; local stock is limited"
+    },
+    "tip": {
+      "s": "Not expected — tipping isn't part of Chinese service culture",
+      "r": "No tipping at restaurants; rarely a service charge outside upscale hotel restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 60,
+      "luxury": 150
+    },
+    "score": {
+      "nightlife": 35,
+      "restaurants": 50,
+      "museums": 30,
+      "architecture": 60,
+      "nature": 80
+    }
+  },
+  {
+    "city": "Baden-Baden",
+    "country": "Germany",
+    "visitors": 3.5,
+    "pop": "~55,000",
+    "lat": 48.7606,
+    "lng": 8.24,
+    "tagline": "A belle-époque spa town on the edge of the Black Forest, where thermal baths and a grand casino have drawn European royalty for two centuries",
+    "temps": {
+      "q1": 40,
+      "q2": 55,
+      "q3": 65,
+      "q4": 45
+    },
+    "rain": {
+      "q1": 20,
+      "q2": 20,
+      "q3": 22,
+      "q4": 22
+    },
+    "langs": [
+      "German",
+      "English (widely spoken in tourist areas)",
+      "French"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.88,
+    "card": "Contactless and card payment are the norm at hotels, restaurants, and the casino; small cafes, market stalls, and some spa facilities may prefer cash, so carry a little euros.",
+    "cost": {
+      "hotel": 140,
+      "meal": 22,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$70-120",
+      "h": "$220-500+"
+    },
+    "rides": [
+      "Taxi Baden-Baden (phone/app dispatch)",
+      "FreeNow",
+      "Uber (limited availability)"
+    ],
+    "taxi": {
+      "color": "Cream/beige, standard German taxi livery",
+      "fare": "€4 flagfall plus roughly €2.20/km",
+      "fareNote": "Metered fares are standard; airport transfers to Karlsruhe/Baden-Baden Airport or Stuttgart are usually flat-rate — confirm before boarding"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "112 (ambulance/fire); Klinikum Mittelbaden hospital",
+      "note": "112 is the EU-wide emergency number and reaches English-speaking dispatchers in most cases"
+    },
+    "religion": [
+      "Roman Catholic ~40%",
+      "Protestant ~25%",
+      "Unaffiliated/none ~28%",
+      "Other faiths ~7%"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Friedrichsbad Roman-Irish bathing ritual",
+        "Kurhaus and Casino Baden-Baden",
+        "Lichtentaler Allee riverside promenade"
+      ],
+      [
+        "Caracalla Therme modern spa",
+        "Baden-Baden Museum (Stadtmuseum)",
+        "New Castle (Neues Schloss) hilltop viewpoint",
+        "Old Town lanes and the Stiftskirche"
+      ],
+      [
+        "Merkur mountain funicular and hiking trails",
+        "Black Forest day drive",
+        "Baden-Baden Racecourse (Iffezheim) if timed with a race meeting"
+      ]
+    ],
+    "walk": "The compact spa-town core between the Kurhaus, casino, and Lichtentaler Allee is entirely walkable and pedestrian-friendly; the Old Town's hillside lanes involve some gentle climbing, and Merkur mountain is reached by a short funicular rather than on foot.",
+    "safety": {
+      "safety": "Very safe; Baden-Baden is a genteel resort town with very low crime and is comfortable for solo travelers at any hour",
+      "crime": "Petty theft is rare; the main caution is standard care with valuables in busy tourist areas like the casino and spa lockers"
+    },
+    "hood_landmark": {
+      "Kurgebiet (Spa Quarter)": "Kurhaus and Casino Baden-Baden",
+      "Altstadt (Old Town)": "Stiftskirche and the New Castle hillside",
+      "Lichtental": "Lichtentaler Allee promenade and Kloster Lichtenthal abbey",
+      "Weststadt / Rebland": "Vineyard slopes toward the Rhine valley",
+      "Ebersteinburg": "Ebersteinburg's hilltop castle ruin views"
+    },
+    "hoods": [
+      "Kurgebiet (Spa Quarter)",
+      "Altstadt (Old Town)",
+      "Lichtental",
+      "Weststadt / Rebland",
+      "Ebersteinburg"
+    ],
+    "hood_desc": [
+      "The elegant heart of the spa town, centered on the Kurhaus, casino, and grand 19th-century hotels — the natural base for most visitors and home to the thermal baths.",
+      "The hillside medieval core above the spa quarter, with narrow lanes, the Stiftskirche, and the New Castle offering panoramic views over the town.",
+      "A quiet, leafy district along the Lichtentaler Allee promenade, anchored by the historic Cistercian abbey and rose gardens — a peaceful, residential contrast to the casino district.",
+      "The wine-growing fringe toward the Rhine valley, dotted with vineyards and a more local, less touristy pace.",
+      "A hilltop village a short drive or hike above town, known for its ruined castle and sweeping Black Forest views."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Brenners Park-Hotel & Spa",
+        "Hotel Belle Epoque",
+        "Hotel am Sophienpark"
+      ],
+      [
+        "Hotel Rathausglöckel",
+        "Heliopark Bad Hotel Zum Hirsch",
+        "Am Markt Hotel"
+      ],
+      [
+        "Der Kleine Prinz Hotel",
+        "Villa Marie",
+        "Blauer Reiter Hotel"
+      ],
+      [
+        "Rebland Hotel & Spa",
+        "Winzerhof Rebland Guesthouse",
+        "Weinstube Pension"
+      ],
+      [
+        "Ebersteinburg Berghotel",
+        "Schlossblick Guesthouse",
+        "Waldhotel Ebersteinburg"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 4.5,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "Stadtwerke Baden-Baden city buses",
+      "hours": "Roughly 5:30am-midnight, reduced late-night/weekend frequency",
+      "pay": "Contactless card, KVV app, or cash on board; day tickets available",
+      "map": "Route maps at kvv.de and posted at bus stops",
+      "note": "The compact center is easily walkable; buses mainly serve outlying districts like Ebersteinburg and Rebland"
+    },
+    "transport": {
+      "air": "Baden-Baden Karlsruhe Airport (FKB), ~10 km away, with flights on Ryanair and others to European cities; Stuttgart Airport (STR) is a larger alternative about 1 hour away",
+      "train": "Baden-Baden station has ICE high-speed connections to Frankfurt (~1.5 hrs), Basel, and Karlsruhe; the station is about 15 minutes from the town center by bus or taxi",
+      "bus": "FlixBus and regional coaches connect Baden-Baden to Stuttgart, Karlsruhe, and Strasbourg",
+      "ferry": "None — Baden-Baden is inland with no ferry service",
+      "car": "Easily reached via the A5 autobahn; parking in the compact center is limited, so many hotels offer valet or garage parking"
+    },
+    "airport": {
+      "code": "FKB",
+      "name": "Baden-Baden Karlsruhe Airport",
+      "distance": "~10 km (15-20 min) from town center",
+      "transport": "Airport shuttle bus timed to flights; taxi transfer roughly €25-35"
+    },
+    "net": {
+      "m": "Excellent 4G/5G coverage throughout Baden-Baden and the surrounding Black Forest foothills",
+      "w": "Free wifi standard in hotels, cafes, and the Kurhaus",
+      "ops": "Deutsche Telekom, Vodafone, O2",
+      "gb": "~€15-25 for a 15-20GB prepaid SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in cafes and public spaces in the town center",
+      "ap": "EU roaming covers most European visitors; a prepaid German SIM or eSIM is easy to buy at the airport or a phone shop for others"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up or a small tip for spa attendants and hotel staff is appreciated",
+      "r": "5-10% is customary if service isn't already included — hand the tip directly to the server rather than leaving it on the table"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 90,
+      "mid": 180,
+      "luxury": 400
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 65,
+      "museums": 45,
+      "architecture": 80,
+      "nature": 65
+    }
+  },
+  {
+    "city": "Bamberg",
+    "country": "Germany",
+    "visitors": 4.0,
+    "pop": "~77,600",
+    "lat": 49.8988,
+    "lng": 10.9028,
+    "tagline": "A UNESCO-listed island town of half-timbered houses, smoked beer, and a cathedral rising over the River Regnitz",
+    "temps": {
+      "q1": 37,
+      "q2": 53,
+      "q3": 64,
+      "q4": 42
+    },
+    "rain": {
+      "q1": 19,
+      "q2": 21,
+      "q3": 22,
+      "q4": 21
+    },
+    "langs": [
+      "German",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.88,
+    "card": "Contactless and card payment are widely accepted at hotels, restaurants, and shops; some traditional beer cellars and market stalls in the Altstadt prefer cash, so carry a little euros.",
+    "cost": {
+      "hotel": 110,
+      "meal": 18,
+      "taxi": 12
+    },
+    "hotel": {
+      "b": "$60-100",
+      "h": "$180-350"
+    },
+    "rides": [
+      "FreeNow",
+      "local Bamberg taxi firms (phone dispatch)"
+    ],
+    "taxi": {
+      "color": "Cream/beige, standard German taxi livery",
+      "fare": "€3.80 flagfall plus roughly €2.10/km",
+      "fareNote": "Metered fares are standard; the Altstadt's pedestrian zones mean taxis often drop off at the edge of the historic core"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "112 (ambulance/fire); Sozialstiftung Bamberg hospital",
+      "note": "112 is the EU-wide emergency number and typically reaches English-speaking dispatchers"
+    },
+    "religion": [
+      "Roman Catholic ~45%",
+      "Protestant ~20%",
+      "Unaffiliated/none ~30%",
+      "Other faiths ~5%"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Altes Rathaus (Old Town Hall) on its river-island bridge",
+        "Little Venice (Klein Venedig) fishermen's quarter",
+        "Grüner Markt morning market"
+      ],
+      [
+        "Bamberg Cathedral (Bamberger Dom) and the Bamberg Rider statue",
+        "Neue Residenz palace and Rose Garden viewpoint",
+        "New Residence gardens"
+      ],
+      [
+        "Schlenkerla and other historic Rauchbier (smoked beer) taverns on a self-guided brewery crawl",
+        "Altenburg Castle hilltop hike",
+        "Gärtnerstadt (Gardener's District) UNESCO market gardens"
+      ]
+    ],
+    "walk": "Extremely walkable — the compact UNESCO-listed island town center can be crossed end to end in about 20 minutes, with cobblestone lanes linking the Altes Rathaus, cathedral hill, and Little Venice; a bit of climbing is required for the cathedral and Altenburg Castle viewpoints.",
+    "safety": {
+      "safety": "Very safe; Bamberg is a low-crime university and heritage town comfortable for solo travelers at any hour",
+      "crime": "Petty theft is rare; standard caution applies around the train station and busy beer-festival crowds (e.g., Sandkerwa in August)"
+    },
+    "hood_landmark": {
+      "Altstadt / Island Town": "Altes Rathaus and Klein Venedig",
+      "Cathedral Hill (Domberg)": "Bamberg Cathedral and Neue Residenz",
+      "Sandgebiet (Sand District)": "Schlenkerla smoked-beer tavern",
+      "Gärtnerstadt (Gardener's District)": "UNESCO-listed market-garden plots",
+      "Bahnhofsgebiet (Station District)": "Bamberg Hauptbahnhof"
+    },
+    "hoods": [
+      "Altstadt / Island Town",
+      "Cathedral Hill (Domberg)",
+      "Sandgebiet (Sand District)",
+      "Gärtnerstadt (Gardener's District)",
+      "Bahnhofsgebiet (Station District)"
+    ],
+    "hood_desc": [
+      "The postcard core of Bamberg, built on an island in the River Regnitz, with the iconic Altes Rathaus straddling two bridges and the pastel fishermen's houses of Little Venice along the water.",
+      "The ecclesiastical high point of the city, crowned by the four-towered cathedral and the Prince-Bishops' Neue Residenz, with sweeping rooftop views from the Rose Garden.",
+      "A bohemian, student-favored quarter across the river from the Altstadt, home to Bamberg's smoke-beer breweries and a livelier bar and cafe scene.",
+      "A UNESCO-protected market-gardening district where family plots still supply the city's produce, offering a quieter, greener side of Bamberg.",
+      "The practical gateway near the train station, with everyday shops and budget-friendly hotels a short walk from the historic core."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "hipster",
+      "quiet",
+      "shopping"
+    ],
+    "lodging": [
+      [
+        "Hotel Nepomuk",
+        "Hotel Alt Bamberg",
+        "Ibis Styles Bamberg"
+      ],
+      [
+        "Hotel Residenzschloss Bamberg",
+        "Domicil Hotel am Dom",
+        "Hotel Sankt Nepomuk"
+      ],
+      [
+        "Backpackers Bamberg Hostel",
+        "Hotel Schlenkerla",
+        "Zum Sternla Guesthouse"
+      ],
+      [
+        "Gärtnerstadt Pension",
+        "Villa Gartenstadt",
+        "Market Garden Inn"
+      ],
+      [
+        "Best Western Plus Hotel Bamberg",
+        "Station Hotel Bamberg",
+        "Ibis Bamberg Nord"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.2,
+      "beer": 4,
+      "water": 2.2
+    },
+    "transit": {
+      "sys": "Stadtwerke Bamberg (Stadtbus) city bus network",
+      "hours": "Roughly 5am-midnight, reduced weekend/night frequency",
+      "pay": "Contactless card, VGN app, or cash on board; day tickets available",
+      "map": "Route maps at stadtwerke-bamberg.de and posted at bus stops",
+      "note": "The Altstadt is fully walkable; buses mainly serve outlying residential areas and the train station"
+    },
+    "transport": {
+      "air": "Nearest major airport is Nuremberg (NUE), about 60 km / 50 minutes by car or train; Frankfurt is a larger international option about 2.5 hours away",
+      "train": "Bamberg Hauptbahnhof has frequent regional and ICE connections to Nuremberg (~40 min), Würzburg, Leipzig, and Berlin",
+      "bus": "FlixBus and regional coaches connect Bamberg to Nuremberg, Munich, and other Bavarian cities",
+      "ferry": "None — Bamberg is inland with no scheduled passenger ferry, though the Main-Danube Canal passes nearby",
+      "car": "Reachable via the A73 autobahn; the Altstadt is largely pedestrianized, so park at the edge and walk in"
+    },
+    "airport": {
+      "code": "NUE",
+      "name": "Nuremberg Airport",
+      "distance": "~60 km (50 min by car or train)",
+      "transport": "Direct train connections via Nuremberg Hauptbahnhof; taxi transfer roughly €80-100"
+    },
+    "net": {
+      "m": "Excellent 4G/5G coverage throughout Bamberg and the surrounding Franconia region",
+      "w": "Free wifi standard in hotels, cafes, and many public squares",
+      "ops": "Deutsche Telekom, Vodafone, O2",
+      "gb": "~€15-25 for a 15-20GB prepaid SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in cafes and the Altstadt's public spaces",
+      "ap": "EU roaming covers most European visitors; a prepaid German SIM or eSIM is easy to buy at Nuremberg Airport or a phone shop"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up or a small tip for good service is appreciated",
+      "r": "5-10% is customary if service isn't already included — hand the tip directly to the server rather than leaving it on the table"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 65,
+      "mid": 140,
+      "luxury": 300
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 68,
+      "museums": 50,
+      "architecture": 92,
+      "nature": 40
+    }
+  },
+  {
+    "city": "Weimar",
+    "country": "Germany",
+    "visitors": 3.0,
+    "pop": "~65,500",
+    "lat": 50.9795,
+    "lng": 11.3235,
+    "tagline": "The intellectual capital of German Classicism, where Goethe and Schiller once walked and the Bauhaus was born",
+    "temps": {
+      "q1": 36,
+      "q2": 53,
+      "q3": 64,
+      "q4": 41
+    },
+    "rain": {
+      "q1": 18,
+      "q2": 20,
+      "q3": 21,
+      "q4": 19
+    },
+    "langs": [
+      "German",
+      "English (widely spoken in tourist and museum areas)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.88,
+    "card": "Contactless and card payment are standard at hotels, restaurants, and museums; small cafes and the weekly market may prefer cash, so carry a little euros.",
+    "cost": {
+      "hotel": 95,
+      "meal": 16,
+      "taxi": 10
+    },
+    "hotel": {
+      "b": "$50-90",
+      "h": "$150-300"
+    },
+    "rides": [
+      "FreeNow",
+      "local Weimar taxi firms (phone dispatch)"
+    ],
+    "taxi": {
+      "color": "Cream/beige, standard German taxi livery",
+      "fare": "€3.50 flagfall plus roughly €2/km",
+      "fareNote": "Metered fares are standard; the compact Altstadt is largely pedestrian, so taxis drop off at the edge of the historic core"
+    },
+    "emergency": {
+      "police": "110",
+      "medical": "112 (ambulance/fire); Sophien- und Hufeland-Klinikum hospital",
+      "note": "112 is the EU-wide emergency number and typically reaches English-speaking dispatchers"
+    },
+    "religion": [
+      "Unaffiliated/none ~65% (Thuringia is one of Germany's least religious regions)",
+      "Protestant ~20%",
+      "Roman Catholic ~8%",
+      "Other faiths ~7%"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Goethe's House and National Museum",
+        "Schiller's House",
+        "Duchess Anna Amalia Library's Rococo Hall",
+        "Theaterplatz and the Goethe-Schiller Monument"
+      ],
+      [
+        "Bauhaus Museum Weimar",
+        "Park an der Ilm landscaped park",
+        "Liszt House",
+        "Weimar's historic cemetery and the Fürstengruft royal crypt"
+      ],
+      [
+        "Belvedere Palace and gardens",
+        "Ettersburg Castle",
+        "Buchenwald Memorial (former concentration camp, a somber but historically essential half-day visit)"
+      ]
+    ],
+    "walk": "Highly walkable — the compact Altstadt links Goethe's House, Schiller's House, Theaterplatz, and the Anna Amalia Library within a 15-20 minute walk; Park an der Ilm and Belvedere require a bit more walking or a short bus ride, and Buchenwald is reached by bus or car outside town.",
+    "safety": {
+      "safety": "Very safe; Weimar is a low-crime university and heritage town comfortable for solo travelers at any hour",
+      "crime": "Petty theft is rare; standard caution applies in crowded museum queues and around the train station"
+    },
+    "hood_landmark": {
+      "Altstadt (Historic Center)": "Goethe's House and Theaterplatz",
+      "Park an der Ilm": "Goethe's Garden House in the landscaped park",
+      "Bauhaus Quarter": "Bauhaus Museum Weimar",
+      "Weimar-West": "Modernist residential district (less touristy, everyday Weimar)",
+      "Ettersberg (Buchenwald area)": "Buchenwald Memorial"
+    },
+    "hoods": [
+      "Altstadt (Historic Center)",
+      "Park an der Ilm",
+      "Bauhaus Quarter",
+      "Weimar-West",
+      "Ettersberg (Buchenwald area)"
+    ],
+    "hood_desc": [
+      "The compact historic core packed with Goethe- and Schiller-era landmarks, the Anna Amalia Library, and Theaterplatz — the obvious base for exploring Weimar Classicism on foot.",
+      "A sweeping English-style landscaped park along the River Ilm, dotted with follies, Goethe's rustic Garden House, and quiet riverside paths just steps from the Altstadt.",
+      "The modern counterpart to Weimar's classical heritage, centered on the Bauhaus Museum and sites tied to the founding of the influential 20th-century design movement.",
+      "A quieter residential district west of the center, offering a look at everyday, non-touristy Weimar and more budget-friendly lodging.",
+      "The wooded hilltop north of town holding the Buchenwald concentration camp memorial — a solemn, historically vital half-day visit reached by bus."
+    ],
+    "hood_tags": [
+      "central",
+      "quiet",
+      "sights",
+      "quiet",
+      null
+    ],
+    "lodging": [
+      [
+        "Hotel Elephant Weimar",
+        "Hotel Anna Amalia",
+        "Hotel Kaiserin Augusta"
+      ],
+      [
+        "Parkhotel Weimar",
+        "Ilm-Park Guesthouse",
+        "Villa an der Ilm"
+      ],
+      [
+        "Design Hotel Bauhaus",
+        "Hotel am Bauhaus Museum",
+        "Bauhaus Quarter Apartments"
+      ],
+      [
+        "Ibis Weimar",
+        "Weimar-West Pension",
+        "Budget Inn Weimar-West"
+      ],
+      [
+        "Ettersberg Guesthouse",
+        "Buchenwald Memorial Visitor Lodge",
+        "Ettersburg Castle Inn"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3,
+      "beer": 3.8,
+      "water": 2
+    },
+    "transit": {
+      "sys": "Stadtwirtschaft Weimar (SWG) city bus network",
+      "hours": "Roughly 5am-midnight, reduced weekend/night frequency",
+      "pay": "Contactless card, VMT app, or cash on board; day tickets available",
+      "map": "Route maps at swg-weimar.de and posted at bus stops",
+      "note": "The Altstadt is fully walkable; buses are mainly useful for Buchenwald, Belvedere, and outlying residential districts"
+    },
+    "transport": {
+      "air": "Nearest airports are Erfurt-Weimar (ERF), about 20 km / 25 minutes away with limited flights, and Leipzig/Halle (LEJ), a larger option about 1.5 hours away",
+      "train": "Weimar Hauptbahnhof has frequent regional and ICE connections to Erfurt (~15 min), Leipzig, and Frankfurt",
+      "bus": "FlixBus and regional coaches connect Weimar to Erfurt, Leipzig, and other German cities; local buses serve Buchenwald and outlying sites",
+      "ferry": "None — Weimar is inland with no ferry service",
+      "car": "Reachable via the A4 autobahn; the Altstadt is largely pedestrianized, so park at the edge and walk in"
+    },
+    "airport": {
+      "code": "ERF",
+      "name": "Erfurt-Weimar Airport",
+      "distance": "~20 km (25 min) from town center",
+      "transport": "Taxi transfer roughly €35-45; regional train via Erfurt Hauptbahnhof is a cheaper alternative"
+    },
+    "net": {
+      "m": "Excellent 4G/5G coverage throughout Weimar and the surrounding Thuringia region",
+      "w": "Free wifi standard in hotels, cafes, and most museums",
+      "ops": "Deutsche Telekom, Vodafone, O2",
+      "gb": "~€15-25 for a 15-20GB prepaid SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in cafes and museum lobbies",
+      "ap": "EU roaming covers most European visitors; a prepaid German SIM or eSIM is easy to buy at Leipzig/Halle Airport or a phone shop"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up or a small tip for good service is appreciated",
+      "r": "5-10% is customary if service isn't already included — hand the tip directly to the server rather than leaving it on the table"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 55,
+      "mid": 120,
+      "luxury": 260
+    },
+    "score": {
+      "nightlife": 30,
+      "restaurants": 60,
+      "museums": 85,
+      "architecture": 88,
+      "nature": 55
+    }
+  }
+]

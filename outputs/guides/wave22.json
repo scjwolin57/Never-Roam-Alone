@@ -1,0 +1,1683 @@
+[
+  {
+    "city": "Axum",
+    "country": "Ethiopia",
+    "visitors": 0.08,
+    "pop": "~95,000",
+    "lat": 14.1213,
+    "lng": 38.7269,
+    "tagline": "The ancient capital of the Aksumite Empire, home to towering carved obelisks and the legendary resting place of the Ark of the Covenant",
+    "temps": {
+      "q1": 64,
+      "q2": 68,
+      "q3": 66,
+      "q4": 64
+    },
+    "rain": {
+      "q1": 10,
+      "q2": 40,
+      "q3": 200,
+      "q4": 20
+    },
+    "langs": [
+      "Tigrinya",
+      "Amharic",
+      "English (limited, more common with guides)"
+    ],
+    "currency": "ETB",
+    "currency_symbol": "Br",
+    "currency_name": "Ethiopian Birr",
+    "usd_rate": 125,
+    "card": "Rarely accepted; cash is essential throughout",
+    "cost": {
+      "hotel": 35,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-25",
+      "h": "$55-140"
+    },
+    "rides": [
+      "Local taxi (bajaj/tuk-tuk) companies"
+    ],
+    "taxi": {
+      "color": "blue (bajaj three-wheelers)",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Bajaj tuk-tuks are the standard way around town; agree the fare before departure"
+    },
+    "emergency": {
+      "police": "991 (national police emergency line)",
+      "medical": "907 (ambulance)",
+      "note": "English-language emergency support is limited; hotels can assist in arranging help"
+    },
+    "religion": [
+      "Ethiopian Orthodox Christianity (overwhelming majority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Northern Stelae Park's ancient granite obelisks (including the 24m Obelisk of Axum)",
+        "Church of Our Lady Mary of Zion complex",
+        "the Chapel of the Tablet (viewed from outside; entry restricted to a single guardian monk)"
+      ],
+      [
+        "Queen of Sheba's Bath (Mai Shum reservoir)",
+        "Dungur Palace ruins ('Queen of Sheba's Palace')",
+        "the Ezana Stone with its ancient trilingual inscription"
+      ],
+      [
+        "Gudit Stelae Field",
+        "Axum Archaeological Museum",
+        "day trip to the rock-hewn churches near Adwa"
+      ]
+    ],
+    "walk": "Central Axum's stelae parks and churches are within walking distance of each other; outlying sites like Dungur Palace require a short taxi ride",
+    "safety": {
+      "safety": "Generally safe for visitors, though check current travel advisories for the Tigray region given recent regional instability before planning a trip",
+      "crime": "Low crime in the town itself; standard travel caution is warranted given the region's recent history"
+    },
+    "hood_landmark": {
+      "Northern Stelae Park": "The Obelisk of Axum and the Great Stele",
+      "Church of Our Lady Mary of Zion": "The chapel believed to house the Ark of the Covenant",
+      "Queen of Sheba's Bath": "The Mai Shum reservoir, a traditional gathering spot",
+      "Dungur Palace ('Queen of Sheba's Palace')": "The ruins of the Dungur palace complex",
+      "Gudit Stelae Field": "The Gudit Stelae Field's older, undecorated stone monuments"
+    },
+    "hoods": [
+      "Northern Stelae Park",
+      "Church of Our Lady Mary of Zion",
+      "Queen of Sheba's Bath",
+      "Dungur Palace ('Queen of Sheba's Palace')",
+      "Gudit Stelae Field"
+    ],
+    "hood_desc": [
+      "The town's archaeological centerpiece, a cluster of towering 1,700-year-old granite obelisks marking royal tombs; the essential first stop for any visit.",
+      "Ethiopia's most sacred church complex, believed by the Ethiopian Orthodox Church to house the biblical Ark of the Covenant.",
+      "A large stone reservoir traditionally linked to the Queen of Sheba, still used by locals and a pleasant spot to rest between sites.",
+      "The ruins of an ancient palace complex a short drive from the center, offering a quieter, less-visited archaeological stop.",
+      "An older stelae field on the town's western edge, with rougher, undecorated stones predating the Northern Stelae Park's carved monuments."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "quiet",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Sabean International Hotel",
+        "Northern Stelae Park-area guesthouses",
+        "Central Axum hotels"
+      ],
+      [
+        "Church-district guesthouses",
+        "Pilgrimage-area lodging",
+        "Central town inns"
+      ],
+      [
+        "Mai Shum-area guesthouses",
+        "Quiet residential B&Bs",
+        "Local family-run inns"
+      ],
+      [
+        "Dungur Palace-area guesthouses",
+        "Rural outskirts lodging",
+        "Budget local stays"
+      ],
+      [
+        "Gudit Stelae Field-area guesthouses",
+        "Western Axum budget hotels",
+        "Quiet local inns"
+      ]
+    ],
+    "drinks": {
+      "coffee": 0.8,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Bajaj (tuk-tuk) taxis around town",
+      "hours": "Roughly daylight to early evening",
+      "pay": "Cash negotiated before the ride",
+      "map": "Not centrally published; hotels arrange guides and transport",
+      "note": "Hiring a licensed local guide is recommended for understanding the historical and religious significance of the sites"
+    },
+    "transport": {
+      "air": "Axum Airport (AXU), about 10 min from town, with domestic flights from Addis Ababa",
+      "train": "No passenger rail service",
+      "bus": "Long-distance buses connect to Gondar, Mekelle, and other northern Ethiopian towns",
+      "ferry": "",
+      "car": "Rural mountain roads; most visitors fly in rather than drive from Addis Ababa"
+    },
+    "airport": {
+      "code": "AXU",
+      "name": "Axum Airport",
+      "distance": "~6 km (10 min) from town",
+      "transport": "Hotel shuttle or pre-arranged taxi"
+    },
+    "net": {
+      "m": "Limited 3G/4G in town, minimal outside",
+      "w": "Wifi available in some hotels but often slow",
+      "ops": "Ethio Telecom",
+      "gb": "~$3-8 for a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Wifi available in central hotels, though unreliable",
+      "ap": "An Ethio Telecom prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is customary and expected for local guides",
+      "r": "10% is appreciated, not always included"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 22,
+      "mid": 50,
+      "luxury": 120
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 30,
+      "museums": 55,
+      "architecture": 85,
+      "nature": 40
+    }
+  },
+  {
+    "city": "Harar",
+    "country": "Ethiopia",
+    "visitors": 0.1,
+    "pop": "~150,000",
+    "lat": 9.3125,
+    "lng": 42.1258,
+    "tagline": "A fourth 'holy city' of Islam behind ancient walls, famous for its 82 mosques and nightly hyena-feeding tradition",
+    "temps": {
+      "q1": 68,
+      "q2": 74,
+      "q3": 72,
+      "q4": 68
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 60,
+      "q3": 140,
+      "q4": 30
+    },
+    "langs": [
+      "Harari",
+      "Amharic",
+      "Oromo",
+      "English (limited, more common with guides)"
+    ],
+    "currency": "ETB",
+    "currency_symbol": "Br",
+    "currency_name": "Ethiopian Birr",
+    "usd_rate": 125,
+    "card": "Rarely accepted; cash is essential throughout",
+    "cost": {
+      "hotel": 30,
+      "meal": 5,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$14-24",
+      "h": "$50-130"
+    },
+    "rides": [
+      "Local taxi (bajaj/tuk-tuk) companies"
+    ],
+    "taxi": {
+      "color": "blue (bajaj three-wheelers)",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Bajaj tuk-tuks are the standard way around town; agree the fare before departure"
+    },
+    "emergency": {
+      "police": "991 (national police emergency line)",
+      "medical": "907 (ambulance)",
+      "note": "English-language emergency support is limited; hotels can assist in arranging help"
+    },
+    "religion": [
+      "Islam (Sunni majority, historically one of Islam's holiest cities)",
+      "Ethiopian Orthodox Christianity (minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Jugol, the walled Old City (UNESCO World Heritage Site)",
+        "Harar's famous nightly hyena feeding",
+        "Ferez Magala square and its surrounding mosques"
+      ],
+      [
+        "Arthur Rimbaud House museum",
+        "Jami Mosque (16th century)",
+        "Harar National Museum"
+      ],
+      [
+        "Harar's five historic city gates",
+        "traditional Harari basket-weaving and silverwork workshops",
+        "Kondudo mountain plateau day trip (home to wild horses)"
+      ]
+    ],
+    "walk": "The walled Old City (Jugol) is a maze of narrow lanes best explored slowly on foot; outlying sites like Kondudo require a car",
+    "safety": {
+      "safety": "Generally safe and welcoming to visitors; the hyena feeding is conducted by experienced local handlers",
+      "crime": "Low crime in the old city; persistent unofficial guides are the main hassle"
+    },
+    "hood_landmark": {
+      "Jugol (Walled Old City)": "Jugol's maze of narrow lanes and colorful traditional houses",
+      "Ferez Magala Square": "Ferez Magala, the square at the heart of Harar's mosque cluster",
+      "Hyena Feeding Site (Old City Gates)": "The nightly hyena feeding spectacle at the city walls",
+      "Arthur Rimbaud House": "The former residence-turned-museum of poet Arthur Rimbaud",
+      "Harar National Museum Area": "Harar National Museum's ethnographic collections"
+    },
+    "hoods": [
+      "Jugol (Walled Old City)",
+      "Ferez Magala Square",
+      "Hyena Feeding Site (Old City Gates)",
+      "Arthur Rimbaud House",
+      "Harar National Museum Area"
+    ],
+    "hood_desc": [
+      "The historic walled core of Harar, a UNESCO-listed maze of narrow alleys, colorful houses, and dozens of mosques and shrines.",
+      "The bustling square at the heart of the old city, ringed by mosques and a good base for wandering the surrounding lanes.",
+      "Just outside the city walls, where handlers feed wild spotted hyenas by hand each evening in a tradition dating back generations.",
+      "A restored merchant house associated with the French poet Arthur Rimbaud, now a small museum on 19th-century Harar.",
+      "A museum covering Harari culture, crafts, and history, useful context before exploring the old city itself."
+    ],
+    "hood_tags": [
+      "sights",
+      "central",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Heritage Plaza Hotel Harar",
+        "Jugol old town guesthouses",
+        "Traditional Harari house stays"
+      ],
+      [
+        "Ferez Magala-area guesthouses",
+        "Central old city inns",
+        "Mosque-district lodging"
+      ],
+      [
+        "Hyena feeding site-area guesthouses",
+        "Old city gate lodging",
+        "Budget local inns"
+      ],
+      [
+        "Rimbaud House-area guesthouses",
+        "Old city boutique stays",
+        "Historic quarter lodging"
+      ],
+      [
+        "Museum-district guesthouses",
+        "Central Harar hotels",
+        "Cultural quarter lodging"
+      ]
+    ],
+    "drinks": {
+      "coffee": 0.8,
+      "beer": 1.5,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Bajaj (tuk-tuk) taxis around town",
+      "hours": "Roughly daylight to late evening (the hyena feeding happens after dark)",
+      "pay": "Cash negotiated before the ride",
+      "map": "Not centrally published; hotels arrange guides and transport",
+      "note": "A local guide is recommended for navigating the maze-like lanes of the old walled city"
+    },
+    "transport": {
+      "air": "Dire Dawa Aba Tenna Dejazmach Yilma International Airport (DIR), about 1 hr away, is the nearest airport",
+      "train": "No passenger rail service to Harar",
+      "bus": "Long-distance buses connect to Addis Ababa (about 9-10 hr) and Dire Dawa",
+      "ferry": "",
+      "car": "Well connected via road from Dire Dawa; most international visitors fly into Dire Dawa and drive"
+    },
+    "airport": {
+      "code": "DIR",
+      "name": "Dire Dawa Aba Tenna Dejazmach Yilma International Airport",
+      "distance": "~50 km (1 hr) from Harar",
+      "transport": "Taxi or pre-arranged transfer"
+    },
+    "net": {
+      "m": "Moderate 3G/4G in town",
+      "w": "Wifi available in some hotels but often slow",
+      "ops": "Ethio Telecom",
+      "gb": "~$3-8 for a prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Wifi available in central hotels, though unreliable",
+      "ap": "An Ethio Telecom prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is customary and expected for local guides and hyena-feeding handlers",
+      "r": "10% is appreciated, not always included"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 20,
+      "mid": 48,
+      "luxury": 115
+    },
+    "score": {
+      "nightlife": 15,
+      "restaurants": 35,
+      "museums": 45,
+      "architecture": 90,
+      "nature": 35
+    }
+  },
+  {
+    "city": "Bamyan",
+    "country": "Afghanistan",
+    "visitors": 0.02,
+    "pop": "~104,000",
+    "lat": 34.8167,
+    "lng": 67.825,
+    "tagline": "A high-altitude Hazarajat valley of towering empty Buddha niches and the impossibly blue lakes of Band-e-Amir",
+    "temps": {
+      "q1": 22,
+      "q2": 55,
+      "q3": 75,
+      "q4": 42
+    },
+    "rain": {
+      "q1": 25,
+      "q2": 30,
+      "q3": 5,
+      "q4": 10
+    },
+    "langs": [
+      "Dari (Persian)",
+      "Hazaragi dialect",
+      "English (very limited)"
+    ],
+    "currency": "AFN",
+    "currency_symbol": "؋",
+    "currency_name": "Afghan Afghani",
+    "usd_rate": 70,
+    "card": "Not accepted; cash is essential throughout",
+    "cost": {
+      "hotel": 25,
+      "meal": 4,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$10-20",
+      "h": "$40-90"
+    },
+    "rides": [
+      "Local taxi companies (limited availability)"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Hiring a car and driver for multi-day travel to Band-e-Amir is standard practice"
+    },
+    "emergency": {
+      "police": "119 (where functioning)",
+      "medical": "102 (where functioning)",
+      "note": "Emergency infrastructure is limited and inconsistent; travel with an experienced local fixer or guide is strongly advised"
+    },
+    "religion": [
+      "Islam (Shia majority in Bamyan, reflecting the Hazara population; Sunni Islam elsewhere in Afghanistan)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "The Buddha niches and surrounding cave complexes (statues destroyed in 2001, niches remain)",
+        "Shahr-e Gholghola ('City of Sighs') hilltop ruins",
+        "Bamyan's central bazaar"
+      ],
+      [
+        "Band-e-Amir National Park's chain of vivid blue lakes (Afghanistan's first national park)",
+        "Kakrak Valley's cave complex",
+        "Shahr-e Zohak ('Red City') fortress ruins"
+      ],
+      [
+        "Foladi Valley scenic drive",
+        "traditional Hazara handicrafts",
+        "Bamyan's cultural museum"
+      ]
+    ],
+    "walk": "Central Bamyan and the Buddha niche cliffside are walkable; Band-e-Amir and other sites require a car and driver",
+    "safety": {
+      "safety": "Travel to Afghanistan requires careful, current research on the security and political situation; Bamyan has historically been considered relatively calmer than other regions, but conditions change and official government travel advisories should be consulted before any visit",
+      "crime": "Security conditions are highly variable; independent travel is not recommended without extensive local knowledge and support"
+    },
+    "hood_landmark": {
+      "Buddha Niches / Cliff Complex": "The towering empty niches where the Buddhas of Bamyan once stood",
+      "Shahr-e Gholghola ('City of Sighs')": "The ruined hilltop fortress overlooking the valley",
+      "Bamyan Bazaar": "Bamyan's central market and main street",
+      "Band-e-Amir National Park (day-trip)": "Band-e-Amir's chain of brilliant blue travertine lakes",
+      "Shahr-e Zohak ('Red City')": "The red mudbrick fortress ruins guarding the valley's eastern approach"
+    },
+    "hoods": [
+      "Buddha Niches / Cliff Complex",
+      "Shahr-e Gholghola ('City of Sighs')",
+      "Bamyan Bazaar",
+      "Band-e-Amir National Park (day-trip)",
+      "Shahr-e Zohak ('Red City')"
+    ],
+    "hood_desc": [
+      "The valley's defining landmark, the cliff face where two colossal 6th-century Buddha statues stood until their destruction in 2001; the surrounding caves remain accessible.",
+      "A ruined fortress city on a hill above Bamyan, destroyed by the Mongols in the 13th century and steeped in legend.",
+      "The practical town center with the market and most guesthouses, a modest but functional base for exploring the valley.",
+      "Afghanistan's first national park, about two hours away, protecting a stunning series of deep blue lakes formed by mineral deposits.",
+      "A dramatic red mudbrick fortress complex east of town, one of several ancient defensive sites guarding the Bamyan valley."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "central",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Buddha cliff-area guesthouses",
+        "Local family-run inns",
+        "Basic tourist lodges"
+      ],
+      [
+        "Shahr-e Gholghola-area guesthouses",
+        "Hilltop lodging",
+        "Rural outskirts stays"
+      ],
+      [
+        "Bamyan Bazaar guesthouses",
+        "Central town hotels",
+        "Basic budget inns"
+      ],
+      [
+        "Band-e-Amir lakeside guesthouses",
+        "National park-area lodging",
+        "Rural lake-view stays"
+      ],
+      [
+        "Shahr-e Zohak-area guesthouses",
+        "Eastern valley lodging",
+        "Basic rural stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 0.5,
+      "beer": 0.0,
+      "water": 0.2
+    },
+    "transit": {
+      "sys": "Local taxis and hired cars with drivers; no formal public transit",
+      "hours": "Daylight hours only recommended",
+      "pay": "Cash negotiated before the trip",
+      "map": "Not applicable; hiring a trusted local driver/guide is essential",
+      "note": "Independent travel planning should include current, verified security guidance given Afghanistan's fluid situation"
+    },
+    "transport": {
+      "air": "Bamyan Airport has limited domestic flights from Kabul, when operating",
+      "train": "No passenger rail service in Afghanistan",
+      "bus": "Shared vehicles connect to Kabul (about 4-6 hr on mountain roads)",
+      "ferry": "",
+      "car": "The road from Kabul via Maidan Shar takes roughly 4-6 hours depending on conditions"
+    },
+    "airport": {
+      "code": "BIN",
+      "name": "Bamyan Airport (when operating)",
+      "distance": "~8 km (15 min) from town",
+      "transport": "Pre-arranged taxi or guide transfer"
+    },
+    "net": {
+      "m": "Very limited 3G in town, minimal to none elsewhere",
+      "w": "Wifi rare outside a handful of guesthouses",
+      "ops": "Etisalat Afghanistan, Roshan, MTN Afghanistan (network reliability varies)",
+      "gb": "Data purchase best arranged with local assistance",
+      "fw": true,
+      "fwn": "Wifi limited to a small number of guesthouses",
+      "ap": "A local SIM arranged through a trusted contact or guide"
+    },
+    "tip": {
+      "s": "10% is appreciated for guides and drivers",
+      "r": "Not obligatory; rounding up is appreciated"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 18,
+      "mid": 42,
+      "luxury": 100
+    },
+    "score": {
+      "nightlife": 0,
+      "restaurants": 20,
+      "museums": 30,
+      "architecture": 60,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Lamu",
+    "country": "Kenya",
+    "visitors": 0.1,
+    "pop": "~25,000",
+    "lat": -2.2717,
+    "lng": 40.902,
+    "tagline": "East Africa's oldest and best-preserved Swahili town, a car-free island of coral-stone alleys and donkey traffic",
+    "temps": {
+      "q1": 82,
+      "q2": 80,
+      "q3": 78,
+      "q4": 80
+    },
+    "rain": {
+      "q1": 30,
+      "q2": 200,
+      "q3": 80,
+      "q4": 100
+    },
+    "langs": [
+      "Swahili",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "KES",
+    "currency_symbol": "KSh",
+    "currency_name": "Kenyan Shilling",
+    "usd_rate": 129,
+    "card": "Accepted at larger hotels; cash and M-Pesa mobile money preferred elsewhere",
+    "cost": {
+      "hotel": 55,
+      "meal": 8,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$20-40",
+      "h": "$100-280"
+    },
+    "rides": [
+      "Dhow boats (for inter-island transport)",
+      "donkeys (the island's main form of local transport)"
+    ],
+    "taxi": {
+      "color": "not applicable (no motorized vehicles on the island)",
+      "fare": "Boat and donkey transport negotiated locally",
+      "fareNote": "Lamu Island bans cars; getting around is by foot, donkey, or dhow boat"
+    },
+    "emergency": {
+      "police": "999 or 112",
+      "medical": "999 or 112",
+      "note": "999/112 reaches police, fire, and ambulance across Kenya; medical facilities on Lamu are basic, with Mombasa as the nearest major hospital"
+    },
+    "religion": [
+      "Islam (Sunni majority, reflecting Swahili coastal heritage)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Lamu Old Town's UNESCO-listed coral-stone alleys",
+        "Lamu Fort and Lamu Museum",
+        "Riyadha Mosque and the annual Maulidi Festival (if timing aligns)"
+      ],
+      [
+        "Shela village and its long sandy beach",
+        "dhow sunset sailing trip",
+        "the Lamu donkey sanctuary"
+      ],
+      [
+        "Manda Island and Takwa ruins day trip",
+        "Kipungani village on Lamu's quieter southern tip",
+        "traditional Swahili woodcarving workshops"
+      ]
+    ],
+    "walk": "Lamu Old Town is entirely car-free and walkable, though narrow and maze-like; Shela and other beaches are a walk or short dhow ride away",
+    "safety": {
+      "safety": "Generally safe within Lamu town and Shela; check current travel advisories for mainland areas near the Kenya-Somalia border before planning travel to the wider region",
+      "crime": "Low crime on the island itself; standard coastal-destination caution applies"
+    },
+    "hood_landmark": {
+      "Lamu Old Town": "Lamu Fort and the winding coral-stone alleys of the old town",
+      "Shela": "Shela's long sandy beach and boutique guesthouses",
+      "Lamu Waterfront (Harbor)": "The dhow-lined waterfront promenade",
+      "Kipungani": "Kipungani's quiet southern-tip beaches and mangroves",
+      "Manda Island (day-trip)": "Manda Island's Takwa ruins and Manda Bay beaches"
+    },
+    "hoods": [
+      "Lamu Old Town",
+      "Shela",
+      "Lamu Waterfront (Harbor)",
+      "Kipungani",
+      "Manda Island (day-trip)"
+    ],
+    "hood_desc": [
+      "The UNESCO-listed heart of Lamu, a maze of narrow coral-stone lanes lined with carved wooden doors and centuries-old houses; the essential base for any visit.",
+      "A short walk or donkey ride from Lamu town, a quieter village with a long beach and Lamu's most upscale guesthouses.",
+      "The bustling dhow-lined harbor where boats arrive and depart, lined with cafes and a good spot to watch daily island life.",
+      "A remote, sparsely populated stretch on the island's southern tip, reached by boat, offering total quiet and mangrove scenery.",
+      "A neighboring island reached by dhow, home to the Takwa ruins and quieter beaches than Lamu's own."
+    ],
+    "hood_tags": [
+      "sights",
+      "quiet",
+      "central",
+      "quiet",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Lamu House Hotel",
+        "Old Town coral-stone guesthouses",
+        "Petley's Inn"
+      ],
+      [
+        "Peponi Hotel",
+        "Shela beachfront guesthouses",
+        "Boutique Shela lodges"
+      ],
+      [
+        "Waterfront guesthouses",
+        "Harbor-view hotels",
+        "Central Lamu inns"
+      ],
+      [
+        "Kipungani Explorer",
+        "Remote southern-tip eco-lodges",
+        "Mangrove-view guesthouses"
+      ],
+      [
+        "Manda Bay Lodge",
+        "Takwa-area guesthouses",
+        "Manda Island beach lodges"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 2.0,
+      "water": 0.4
+    },
+    "transit": {
+      "sys": "Donkeys and foot traffic within Lamu town; dhow boats between islands",
+      "hours": "Daylight hours for dhow transport",
+      "pay": "Cash or M-Pesa mobile money for boat fares",
+      "map": "Not applicable given the car-free island layout",
+      "note": "Lamu Island has no cars; donkeys and dhows are the primary modes of transport, a rarity in the modern world"
+    },
+    "transport": {
+      "air": "Manda Airport (LAU), reached by a short dhow crossing to Lamu Island, with domestic flights from Nairobi and Mombasa",
+      "train": "No passenger rail service to Lamu",
+      "bus": "Long-distance buses connect to Mombasa (about 6-8 hr) via mainland roads",
+      "ferry": "Dhow and speedboat transfers connect Manda Airport to Lamu Island",
+      "car": "Not applicable; Lamu Island itself has no cars"
+    },
+    "airport": {
+      "code": "LAU",
+      "name": "Manda Airport",
+      "distance": "Short dhow crossing (10-15 min) from Lamu town",
+      "transport": "Dhow or speedboat transfer, arranged by hotels"
+    },
+    "net": {
+      "m": "Moderate 3G/4G coverage on the island",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Safaricom, Airtel Kenya",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Safaricom tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for boat operators and guides",
+      "r": "10% is standard, though often added automatically at resort restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 85,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 45,
+      "museums": 40,
+      "architecture": 90,
+      "nature": 60
+    }
+  },
+  {
+    "city": "Sigiriya",
+    "country": "Sri Lanka",
+    "visitors": 1.0,
+    "pop": "~5,000 (village; broader area much smaller than a town)",
+    "lat": 7.957,
+    "lng": 80.7603,
+    "tagline": "A 5th-century sky palace atop a sheer 180-meter granite monolith, ringed by ancient water gardens and frescoes",
+    "temps": {
+      "q1": 78,
+      "q2": 84,
+      "q3": 82,
+      "q4": 78
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 150,
+      "q3": 120,
+      "q4": 250
+    },
+    "langs": [
+      "Sinhala",
+      "Tamil",
+      "English (moderate in tourist areas)"
+    ],
+    "currency": "LKR",
+    "currency_symbol": "Rs",
+    "currency_name": "Sri Lankan Rupee",
+    "usd_rate": 300,
+    "card": "Accepted at larger hotels; cash preferred at small guesthouses and vendors",
+    "cost": {
+      "hotel": 45,
+      "meal": 6,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$18-32",
+      "h": "$70-200"
+    },
+    "rides": [
+      "Tuk-tuks",
+      "local taxi companies",
+      "hotel-arranged drivers"
+    ],
+    "taxi": {
+      "color": "yellow/black (tuk-tuks)",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Tuk-tuks are the standard local transport; hiring a driver for the day is common for combining Sigiriya with nearby sites"
+    },
+    "emergency": {
+      "police": "119",
+      "medical": "1990 (Suwa Seriya ambulance)",
+      "note": "1990 is a free national ambulance service covering most of Sri Lanka"
+    },
+    "religion": [
+      "Buddhism (majority, reflecting the site's historical monastic use)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Sigiriya Rock Fortress climb to the summit palace ruins",
+        "the ancient frescoes ('Sigiriya Damsels') along the rock face",
+        "the Mirror Wall's centuries-old visitor poetry"
+      ],
+      [
+        "Sigiriya's water gardens, boulder gardens, and terraced gardens at the rock's base",
+        "the Lion's Paw entrance staircase",
+        "Sigiriya Museum at the site entrance"
+      ],
+      [
+        "Pidurangala Rock hike for the classic sunrise view of Sigiriya itself",
+        "Dambulla Cave Temple day trip",
+        "Minneriya National Park elephant safari (seasonal 'gathering')"
+      ]
+    ],
+    "walk": "The rock fortress climb involves significant stairs and is best done early morning to avoid heat and crowds; Pidurangala and Dambulla require a tuk-tuk or car",
+    "safety": {
+      "safety": "Very safe, well-managed UNESCO site popular with families and history enthusiasts",
+      "crime": "Very low crime; the main caution is the exposed, sometimes vertigo-inducing summit staircase"
+    },
+    "hood_landmark": {
+      "Sigiriya Rock Summit": "The ruined summit palace atop the 180m granite monolith",
+      "Water Gardens": "Sigiriya's ancient symmetrical water gardens at the rock's base",
+      "Fresco Gallery (Mirror Wall)": "The surviving Sigiriya frescoes and the polished Mirror Wall",
+      "Sigiriya Village": "The small village of guesthouses and restaurants near the site entrance",
+      "Pidurangala Rock": "Pidurangala Rock, the classic sunrise viewpoint of Sigiriya"
+    },
+    "hoods": [
+      "Sigiriya Rock Summit",
+      "Water Gardens",
+      "Fresco Gallery (Mirror Wall)",
+      "Sigiriya Village",
+      "Pidurangala Rock"
+    ],
+    "hood_desc": [
+      "The dramatic summit of the rock fortress, with the ruined palace foundations and sweeping views over the surrounding jungle plains.",
+      "The elaborate 5th-century water gardens at the base of the rock, among the oldest surviving landscaped gardens in the world.",
+      "A protected gallery partway up the rock face displaying the remaining Sigiriya frescoes, alongside the famous inscribed Mirror Wall.",
+      "The small settlement near the site entrance with most guesthouses, restaurants, and the site museum.",
+      "A neighboring rock a short drive or tuk-tuk ride away, climbed mainly for its unobstructed sunrise view of Sigiriya itself."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "sights",
+      "central",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Sigiriya Rock summit-view lodges",
+        "Water Garden-adjacent guesthouses",
+        "Heritage-area hotels"
+      ],
+      [
+        "Water Gardens-area guesthouses",
+        "Garden-view boutique stays",
+        "Site-entrance lodging"
+      ],
+      [
+        "Fresco Gallery-area guesthouses",
+        "Mid-rock-access lodging",
+        "Heritage boutique stays"
+      ],
+      [
+        "Sigiriya Village Hotel",
+        "Jetwing Vil Uyana",
+        "Village guesthouses and homestays"
+      ],
+      [
+        "Pidurangala-area guesthouses",
+        "Sunrise-view lodges",
+        "Rural budget stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.2,
+      "beer": 2.0,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Tuk-tuks around the village and to nearby sites",
+      "hours": "Roughly 6am-7pm",
+      "pay": "Cash negotiated before the ride",
+      "map": "Not centrally published; tuk-tuks and hired drivers cover the area",
+      "note": "Hiring a driver for the day is common for combining Sigiriya, Pidurangala, and Dambulla"
+    },
+    "transport": {
+      "air": "Bandaranaike International Airport (CMB) near Colombo, about 3.5-4 hr away, is the main international gateway",
+      "train": "Nearest train station is Habarana, about 20 min away, connected by tuk-tuk",
+      "bus": "Buses connect to Dambulla, Kandy, and Colombo",
+      "ferry": "",
+      "car": "Well connected via the A6 and A11 highways; a private driver is a popular way to combine Sigiriya with the Cultural Triangle"
+    },
+    "airport": {
+      "code": "CMB",
+      "name": "Bandaranaike International Airport, Colombo (main gateway)",
+      "distance": "~170 km (3.5-4 hr) from Sigiriya",
+      "transport": "Private car/driver, or train via Habarana plus tuk-tuk"
+    },
+    "net": {
+      "m": "Moderate 4G coverage in the area",
+      "w": "Free wifi standard in hotels",
+      "ops": "Dialog, Mobitel, Airtel Lanka",
+      "gb": "~$5-10 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "A Dialog or Mobitel tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for guides and drivers",
+      "r": "10% is standard, often added automatically at larger restaurants"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 65,
+      "luxury": 170
+    },
+    "score": {
+      "nightlife": 5,
+      "restaurants": 35,
+      "museums": 45,
+      "architecture": 95,
+      "nature": 70
+    }
+  },
+  {
+    "city": "Chefchaouen",
+    "country": "Morocco",
+    "visitors": 1.2,
+    "pop": "~46,000",
+    "lat": 35.1688,
+    "lng": -5.2636,
+    "tagline": "Morocco's 'Blue Pearl,' a Rif Mountain medina where every wall is washed in shades of blue",
+    "temps": {
+      "q1": 50,
+      "q2": 62,
+      "q3": 78,
+      "q4": 58
+    },
+    "rain": {
+      "q1": 130,
+      "q2": 60,
+      "q3": 5,
+      "q4": 110
+    },
+    "langs": [
+      "Arabic",
+      "Tamazight (Berber)",
+      "Spanish (common given historic ties to Spain)",
+      "French"
+    ],
+    "currency": "MAD",
+    "currency_symbol": "DH",
+    "currency_name": "Moroccan Dirham",
+    "usd_rate": 9.3,
+    "card": "Accepted at larger hotels and riads; cash preferred in the medina's shops and cafes",
+    "cost": {
+      "hotel": 45,
+      "meal": 6,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$18-32",
+      "h": "$60-160"
+    },
+    "rides": [
+      "Petit taxis (blue, local)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "blue (petit taxis)",
+      "fare": "Metered where available; often negotiated",
+      "fareNote": "Petit taxis are the local standard; agree the fare before departure if the meter isn't used"
+    },
+    "emergency": {
+      "police": "19",
+      "medical": "15 (ambulance/SAMU)",
+      "note": "Tourist police can assist in major destinations; response times vary in smaller towns"
+    },
+    "religion": [
+      "Islam (Sunni majority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Wandering the blue-washed medina's alleys",
+        "Uta el-Hammam (Plaza Uta el Hammam) main square",
+        "the Kasbah fortress and museum"
+      ],
+      [
+        "Spanish Mosque hilltop hike for sunset views over the town",
+        "Ras el-Ma waterfall and spring at the medina's edge",
+        "traditional wool and weaving workshops"
+      ],
+      [
+        "Akchour waterfalls day trip in Talassemtane National Park",
+        "Great Mosque (Grand Mosque)",
+        "local goat cheese and honey shopping"
+      ]
+    ],
+    "walk": "The medina is compact, hilly, and entirely walkable (car-free in the historic core); Akchour waterfalls require a car or organized tour",
+    "safety": {
+      "safety": "Very safe town, popular with independent travelers and photographers",
+      "crime": "Persistent unofficial guides and occasional hashish offers (illegal) in the surrounding hills are the main hassle, not violent crime"
+    },
+    "hood_landmark": {
+      "Medina (Blue Old Town)": "Chefchaouen's blue-washed medina alleys",
+      "Uta el-Hammam Square": "Plaza Uta el Hammam and the Kasbah fortress",
+      "Spanish Mosque Hill": "The Spanish Mosque's hilltop sunset viewpoint",
+      "Ras el-Ma": "Ras el-Ma spring and waterfall at the medina's edge",
+      "Talassemtane National Park (day-trip)": "The Akchour waterfalls and God's Bridge rock arch"
+    },
+    "hoods": [
+      "Medina (Blue Old Town)",
+      "Uta el-Hammam Square",
+      "Spanish Mosque Hill",
+      "Ras el-Ma",
+      "Talassemtane National Park (day-trip)"
+    ],
+    "hood_desc": [
+      "The famous blue-painted old town, a maze of photogenic alleys, dye shops, and guesthouses; the essential base for any visit.",
+      "The medina's lively central square, ringed by the Kasbah fortress, cafes, and the Grand Mosque.",
+      "A short uphill walk from the medina to a ruined mosque with the best panoramic sunset view over the blue town.",
+      "A natural spring and waterfall at the edge of the medina, traditionally used for washing wool, now a scenic stop.",
+      "A national park about 45 minutes away with waterfalls and hiking trails through the Rif Mountains."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Lina Ryad & Spa",
+        "Dar Meziana",
+        "Medina riad guesthouses"
+      ],
+      [
+        "Uta el-Hammam-area riads",
+        "Central square guesthouses",
+        "Kasbah-view stays"
+      ],
+      [
+        "Spanish Mosque-area guesthouses",
+        "Hilltop viewpoint lodging",
+        "Sunset-view riads"
+      ],
+      [
+        "Ras el-Ma-area guesthouses",
+        "Spring-adjacent lodging",
+        "Quiet medina-edge stays"
+      ],
+      [
+        "Akchour-area rural guesthouses",
+        "National park lodges",
+        "Talassemtane trailside stays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 3.0,
+      "water": 0.4
+    },
+    "transit": {
+      "sys": "Petit taxis around town; the medina itself is car-free",
+      "hours": "Roughly 7am-9pm",
+      "pay": "Cash, metered or negotiated",
+      "map": "Not centrally published; the medina is compact enough to navigate on foot",
+      "note": "Most visitors arrive by grand taxi or bus from Tangier, Tetouan, or Fes and explore the town entirely on foot"
+    },
+    "transport": {
+      "air": "Tangier Ibn Battouta Airport (TNG), about 2 hr away, is the nearest major airport",
+      "train": "No direct rail to Chefchaouen; nearest station is Tetouan, connected by bus/taxi",
+      "bus": "CTM and local buses connect to Tangier, Tetouan, and Fes",
+      "ferry": "",
+      "car": "Well connected via mountain roads from Tangier and Tetouan; grand taxis are a common shared-transport option"
+    },
+    "airport": {
+      "code": "TNG",
+      "name": "Tangier Ibn Battouta Airport",
+      "distance": "~110 km (2 hr) from Chefchaouen",
+      "transport": "Grand taxi, bus, or private transfer"
+    },
+    "net": {
+      "m": "Good 4G coverage in town",
+      "w": "Free wifi standard in riads and cafes",
+      "ops": "Maroc Telecom, Orange Morocco, Inwi",
+      "gb": "~$5-12 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in riads",
+      "ap": "A Maroc Telecom or Orange Morocco tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for guides",
+      "r": "10% is standard, not always included"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 25,
+      "mid": 60,
+      "luxury": 150
+    },
+    "score": {
+      "nightlife": 20,
+      "restaurants": 45,
+      "museums": 25,
+      "architecture": 90,
+      "nature": 65
+    }
+  },
+  {
+    "city": "Santorini",
+    "country": "Greece",
+    "visitors": 3.4,
+    "pop": "~15,500",
+    "lat": 36.3932,
+    "lng": 25.4615,
+    "tagline": "A volcanic Cycladic island crowned by whitewashed clifftop villages overlooking a dramatic caldera",
+    "temps": {
+      "q1": 55,
+      "q2": 68,
+      "q3": 82,
+      "q4": 65
+    },
+    "rain": {
+      "q1": 50,
+      "q2": 15,
+      "q3": 2,
+      "q4": 60
+    },
+    "langs": [
+      "Greek",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small shops and beach tavernas",
+    "cost": {
+      "hotel": 180,
+      "meal": 25,
+      "taxi": 12
+    },
+    "hotel": {
+      "b": "$70-120",
+      "h": "$280-800 (caldera-view suites much higher)"
+    },
+    "rides": [
+      "Local taxi companies (limited, book ahead)"
+    ],
+    "taxi": {
+      "color": "grey",
+      "fare": "Metered, though scarce and often booked well in advance",
+      "fareNote": "Taxis are limited on the island; renting a car or ATV is the more common way to get around"
+    },
+    "emergency": {
+      "police": "100 or 112",
+      "medical": "166 (ambulance) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Greek Orthodox (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Oia village at sunset, the island's most photographed view",
+        "Fira's caldera-edge cliffside walkway",
+        "the Skaros Rock hike from Imerovigli"
+      ],
+      [
+        "Akrotiri archaeological site ('the Minoan Pompeii')",
+        "Ancient Thera ruins on the Mesa Vouno ridge",
+        "wine tasting at a Santorini volcanic-soil vineyard"
+      ],
+      [
+        "Red Beach and Kamari's black-sand beach",
+        "boat trip to the Nea Kameni volcanic islet and hot springs",
+        "the village of Pyrgos for a quieter, less touristy hilltop base"
+      ]
+    ],
+    "walk": "Fira and Oia's clifftop lanes are walkable but very hilly with many stairs; getting between villages requires a bus, car, or ATV",
+    "safety": {
+      "safety": "Very safe island, extremely crowded with day-trippers and cruise passengers in peak season",
+      "crime": "Petty theft in crowded sunset-viewing spots is the main concern"
+    },
+    "hood_landmark": {
+      "Fira": "Fira's clifftop caldera-edge walkway and cable car",
+      "Oia": "Oia's iconic blue-domed churches and sunset viewpoint",
+      "Imerovigli": "Imerovigli's Skaros Rock and quieter caldera views",
+      "Akrotiri": "The Akrotiri archaeological site, a Bronze Age town preserved in volcanic ash",
+      "Kamari / Perissa": "Kamari and Perissa's black volcanic-sand beaches"
+    },
+    "hoods": [
+      "Fira",
+      "Oia",
+      "Imerovigli",
+      "Akrotiri",
+      "Kamari / Perissa"
+    ],
+    "hood_desc": [
+      "The island's capital and busiest town, with the highest concentration of hotels, shops, and restaurants along the caldera rim.",
+      "The postcard village at the island's northern tip, famous for its sunset and considered the most romantic (and crowded) base.",
+      "A quieter clifftop village between Fira and Oia, offering equally dramatic caldera views with fewer crowds.",
+      "The site of Santorini's best-preserved ancient ruins, a Bronze Age settlement buried and preserved by volcanic ash.",
+      "The island's main black-sand beach resorts on the southeastern coast, a lower-key, more affordable base than the caldera villages."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Fira caldera-view boutique hotels",
+        "Central Fira guesthouses",
+        "Cable car-area hotels"
+      ],
+      [
+        "Canaves Oia",
+        "Oia sunset-view suites",
+        "Cliffside cave hotels"
+      ],
+      [
+        "Imerovigli caldera-view hotels",
+        "Skaros Rock-area guesthouses",
+        "Quiet clifftop stays"
+      ],
+      [
+        "Akrotiri-area guesthouses",
+        "Archaeological site-adjacent stays",
+        "Rural southern guesthouses"
+      ],
+      [
+        "Kamari beachfront hotels",
+        "Perissa black-sand resorts",
+        "Budget beach guesthouses"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.0,
+      "beer": 5.5,
+      "water": 1.5
+    },
+    "transit": {
+      "sys": "KTEL local bus network connecting the island's villages",
+      "hours": "Roughly 7am-11pm, more frequent in peak season",
+      "pay": "Cash fare on board",
+      "map": "https://ktel-santorini.gr/",
+      "note": "Renting an ATV or car is popular given limited taxi availability and the island's spread-out layout"
+    },
+    "transport": {
+      "air": "Santorini (Thira) National Airport (JTR), about 20 min from Fira, with direct flights from Athens and seasonal international routes",
+      "train": "No passenger rail service (island)",
+      "bus": "KTEL buses connect the airport, Fira, Oia, and other villages",
+      "ferry": "Ferries connect to Athens (Piraeus), Mykonos, and other Cycladic islands",
+      "car": "Rental cars and ATVs are popular; roads are narrow and can be congested in peak season"
+    },
+    "airport": {
+      "code": "JTR",
+      "name": "Santorini (Thira) National Airport",
+      "distance": "~7 km (20 min) from Fira",
+      "transport": "Taxi, bus, or hotel shuttle"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage on the island",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Cosmote, Vodafone Greece, Nova",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Cosmote or Vodafone Greece tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 80,
+      "mid": 210,
+      "luxury": 500
+    },
+    "score": {
+      "nightlife": 50,
+      "restaurants": 65,
+      "museums": 35,
+      "architecture": 80,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Mykonos",
+    "country": "Greece",
+    "visitors": 2.0,
+    "pop": "~10,700",
+    "lat": 37.4467,
+    "lng": 25.3289,
+    "tagline": "A whitewashed Cycladic party island of windmills, Little Venice sunsets, and glamorous beach clubs",
+    "temps": {
+      "q1": 56,
+      "q2": 68,
+      "q3": 80,
+      "q4": 64
+    },
+    "rain": {
+      "q1": 45,
+      "q2": 15,
+      "q3": 2,
+      "q4": 55
+    },
+    "langs": [
+      "Greek",
+      "English (widely spoken in tourist areas)"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted, including at beach clubs; cash useful for small tavernas",
+    "cost": {
+      "hotel": 220,
+      "meal": 30,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$90-150",
+      "h": "$350-1000 (beach club-adjacent suites much higher)"
+    },
+    "rides": [
+      "Local taxi companies (very limited, book well ahead)"
+    ],
+    "taxi": {
+      "color": "grey",
+      "fare": "Metered, though notoriously scarce in peak season",
+      "fareNote": "Taxis are extremely limited; renting an ATV or booking a private transfer in advance is strongly recommended"
+    },
+    "emergency": {
+      "police": "100 or 112",
+      "medical": "166 (ambulance) or 112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Greek Orthodox (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Chora (Mykonos Town)'s whitewashed alleys and Little Venice",
+        "the Kato Mili windmills",
+        "Panagia Paraportiani church"
+      ],
+      [
+        "Paradise Beach and Super Paradise Beach beach clubs",
+        "Ornos and Platys Gialos family-friendly beaches",
+        "Mykonos Archaeological Museum"
+      ],
+      [
+        "Boat trip to Delos, the sacred UNESCO-listed ancient island",
+        "Ano Mera village for a quieter, more traditional visit",
+        "Armenistis Lighthouse sunset viewpoint"
+      ]
+    ],
+    "walk": "Chora's old town is compact, car-free, and walkable; the island's beaches are spread out and require a bus, ATV, taxi, or boat",
+    "safety": {
+      "safety": "Very safe island, extremely crowded and expensive in peak summer",
+      "crime": "Petty theft in crowded nightlife areas is the main concern"
+    },
+    "hood_landmark": {
+      "Chora (Mykonos Town)": "Little Venice's waterfront houses and the Kato Mili windmills",
+      "Paradise Beach": "Paradise Beach's famous beach clubs and party scene",
+      "Ornos": "Ornos Beach's calmer, family-friendly waterfront",
+      "Platys Gialos": "Platys Gialos's organized beach with water taxi connections",
+      "Ano Mera": "Ano Mera village's traditional, non-touristy square"
+    },
+    "hoods": [
+      "Chora (Mykonos Town)",
+      "Paradise Beach",
+      "Ornos",
+      "Platys Gialos",
+      "Ano Mera"
+    ],
+    "hood_desc": [
+      "The island's main town and nightlife hub, a maze of whitewashed lanes, boutiques, and the iconic Little Venice waterfront.",
+      "The island's most famous party beach, lined with beach clubs that transition from day lounging to all-night dancing.",
+      "A calmer, more sheltered beach south of Chora, popular with families and a good base for a quieter stay.",
+      "An organized beach with water taxi links to Paradise and Super Paradise, popular for its range of beachfront restaurants.",
+      "An inland village largely untouched by tourism, offering a glimpse of everyday Mykonian life away from the beach scene."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "nightlife",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Chora boutique hotels",
+        "Little Venice guesthouses",
+        "Cavo Tagoo Mykonos"
+      ],
+      [
+        "Paradise Beach resorts",
+        "Beach club-adjacent hotels",
+        "Party-strip guesthouses"
+      ],
+      [
+        "Ornos beachfront hotels",
+        "Santa Marina Resort",
+        "Family-friendly guesthouses"
+      ],
+      [
+        "Platys Gialos beach hotels",
+        "Organized beach resorts",
+        "Water taxi-access lodging"
+      ],
+      [
+        "Ano Mera village guesthouses",
+        "Traditional inland stays",
+        "Quiet countryside inns"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 6.5,
+      "water": 1.8
+    },
+    "transit": {
+      "sys": "KTEL local bus network connecting Chora to the island's beaches",
+      "hours": "Roughly 7am-1am in peak season",
+      "pay": "Cash fare on board",
+      "map": "https://mykonosbus.com/",
+      "note": "Renting an ATV or booking private transfers is popular given the extreme scarcity of taxis in peak season"
+    },
+    "transport": {
+      "air": "Mykonos Island National Airport (JMK), about 15 min from Chora, with direct flights from Athens and seasonal international routes",
+      "train": "No passenger rail service (island)",
+      "bus": "KTEL buses connect the airport, Chora, and the main beaches",
+      "ferry": "Ferries connect to Athens (Piraeus), Santorini, and other Cycladic islands",
+      "car": "Rental cars and ATVs are popular; roads can be congested in peak season"
+    },
+    "airport": {
+      "code": "JMK",
+      "name": "Mykonos Island National Airport",
+      "distance": "~4 km (15 min) from Chora",
+      "transport": "Taxi (book ahead), bus, or hotel shuttle"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage on the island",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Cosmote, Vodafone Greece, Nova",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Cosmote or Vodafone Greece tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "5-10% is appreciated, not always included"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 90,
+      "mid": 240,
+      "luxury": 620
+    },
+    "score": {
+      "nightlife": 90,
+      "restaurants": 65,
+      "museums": 25,
+      "architecture": 75,
+      "nature": 65
+    }
+  },
+  {
+    "city": "San Pedro de Atacama",
+    "country": "Chile",
+    "visitors": 0.4,
+    "pop": "~5,000",
+    "lat": -22.9087,
+    "lng": -68.1997,
+    "tagline": "An adobe desert oasis town ringed by geysers, salt flats, and the otherworldly Valle de la Luna",
+    "temps": {
+      "q1": 68,
+      "q2": 58,
+      "q3": 55,
+      "q4": 62
+    },
+    "rain": {
+      "q1": 8,
+      "q2": 2,
+      "q3": 1,
+      "q4": 3
+    },
+    "langs": [
+      "Spanish",
+      "Kunza (nearly extinct Atacameño language, largely ceremonial)"
+    ],
+    "currency": "CLP",
+    "currency_symbol": "$",
+    "currency_name": "Chilean Peso",
+    "usd_rate": 950,
+    "card": "Widely accepted at hotels and tour agencies; cash useful for small shops",
+    "cost": {
+      "hotel": 90,
+      "meal": 12,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$30-55",
+      "h": "$150-400"
+    },
+    "rides": [
+      "Local taxi companies",
+      "tour-agency shuttle transport"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated flat rate",
+      "fareNote": "Most sightseeing (Valle de la Luna, El Tatio geysers, salt flats) is done via organized tour rather than taxi"
+    },
+    "emergency": {
+      "police": "133",
+      "medical": "131 (ambulance)",
+      "note": "133 for police, 131 for medical emergencies; response times can be slower given the town's remoteness"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "Indigenous Atacameño spiritual traditions (practiced alongside Christianity by some)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Valle de la Luna (Valley of the Moon) at sunset",
+        "San Pedro's adobe church and main plaza",
+        "R.P. Gustavo Le Paige Archaeological Museum"
+      ],
+      [
+        "El Tatio geyser field at sunrise (one of the world's highest geyser fields)",
+        "Salar de Atacama salt flat and its flamingo-filled lagoons",
+        "Laguna Cejar and the Ojos del Salar sinkholes for swimming"
+      ],
+      [
+        "Piedras Rojas and the high-altitude Altiplanic lagoons",
+        "stargazing tour (some of the world's clearest night skies)",
+        "Machuca village and Licancabur volcano viewpoint"
+      ]
+    ],
+    "walk": "San Pedro's small adobe town center is walkable; nearly all major attractions (Valle de la Luna, geysers, salt flats) require an organized tour or rental vehicle",
+    "safety": {
+      "safety": "Very safe town, though the surrounding desert and high-altitude sites demand preparation for sun, cold nights, and altitude",
+      "crime": "Very low crime; the main risks are altitude sickness and extreme desert temperature swings"
+    },
+    "hood_landmark": {
+      "San Pedro Town Center": "San Pedro's adobe church and central plaza",
+      "Valle de la Luna (day-trip)": "The moon-like eroded salt formations of Valle de la Luna",
+      "El Tatio Geysers (day-trip)": "El Tatio's steaming high-altitude geyser field",
+      "Salar de Atacama (day-trip)": "The Salar de Atacama's flamingo-filled salt lagoons",
+      "Laguna Cejar / Altiplanic Lagoons (day-trip)": "Laguna Cejar's dense, buoyant swimming waters"
+    },
+    "hoods": [
+      "San Pedro Town Center",
+      "Valle de la Luna (day-trip)",
+      "El Tatio Geysers (day-trip)",
+      "Salar de Atacama (day-trip)",
+      "Laguna Cejar / Altiplanic Lagoons (day-trip)"
+    ],
+    "hood_desc": [
+      "The compact adobe town with most hotels, restaurants, and tour agencies; the practical base for the entire Atacama region.",
+      "A surreal lunar-like desert landscape a short drive from town, best visited at sunset when the colors intensify.",
+      "One of the world's highest-altitude geyser fields, best visited near sunrise when the steam plumes are most dramatic against the cold air.",
+      "A vast salt flat south of town, home to flamingo colonies and some of the clearest reflections in the Atacama.",
+      "A cluster of salt lagoons near San Pedro so dense with minerals that swimmers float effortlessly, popular for a late-afternoon dip."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "sights",
+      "sights"
+    ],
+    "lodging": [
+      [
+        "Tierra Atacama Hotel & Spa",
+        "San Pedro adobe guesthouses",
+        "Central plaza-area hotels"
+      ],
+      [
+        "Valle de la Luna-area eco-lodges",
+        "Desert-view guesthouses",
+        "Sunset-tour base hotels"
+      ],
+      [
+        "El Tatio-area lodges (pre-dawn departure hotels)",
+        "High-altitude guesthouses",
+        "Geyser tour-adjacent stays"
+      ],
+      [
+        "Salar de Atacama-area guesthouses",
+        "Salt flat-view lodges",
+        "Flamingo-lagoon-adjacent stays"
+      ],
+      [
+        "Laguna Cejar-area guesthouses",
+        "Altiplanic lagoon tour bases",
+        "Desert oasis lodges"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2.0,
+      "beer": 2.5,
+      "water": 0.6
+    },
+    "transit": {
+      "sys": "Tour agency shuttles and local taxis; no formal public bus network within the desert sites",
+      "hours": "Tours often depart pre-dawn (for geysers) or late afternoon (for sunset sites)",
+      "pay": "Tours booked and paid through agencies in town",
+      "map": "Not centrally published; dozens of tour agencies line San Pedro's main street",
+      "note": "Renting a 4x4 is possible for independent travel, but most visitors join organized tours given the remoteness and altitude"
+    },
+    "transport": {
+      "air": "El Loa Airport (CJC) in Calama, about 1.5 hr away, with domestic flights from Santiago",
+      "train": "No passenger rail service",
+      "bus": "Long-distance buses connect to Calama and onward to Santiago (about 20+ hr) or into Bolivia and Argentina",
+      "ferry": "",
+      "car": "Rental cars (ideally 4x4) available in Calama; many sites also require high-altitude driving experience"
+    },
+    "airport": {
+      "code": "CJC",
+      "name": "El Loa Airport, Calama",
+      "distance": "~100 km (1.5 hr) from San Pedro de Atacama",
+      "transport": "Shuttle bus or pre-arranged transfer from Calama"
+    },
+    "net": {
+      "m": "Moderate 4G coverage in town, minimal at remote desert sites",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Entel, Movistar Chile, Claro Chile",
+      "gb": "~$8-15 for a 10-15GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels",
+      "ap": "An Entel or Movistar Chile tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is appreciated for tour guides",
+      "r": "10% is standard at restaurants"
+    },
+    "region": "s-america",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 110,
+      "luxury": 280
+    },
+    "score": {
+      "nightlife": 15,
+      "restaurants": 45,
+      "museums": 30,
+      "architecture": 40,
+      "nature": 98
+    }
+  }
+]

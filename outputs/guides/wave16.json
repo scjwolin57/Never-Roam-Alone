@@ -1,0 +1,1689 @@
+[
+  {
+    "city": "Niagara Falls",
+    "country": "Canada",
+    "visitors": 14.0,
+    "pop": "~94,000",
+    "lat": 43.0896,
+    "lng": -79.0849,
+    "tagline": "Thundering falls, neon-lit Clifton Hill, and Niagara wine country right next door",
+    "temps": {
+      "q1": 28,
+      "q2": 52,
+      "q3": 75,
+      "q4": 52
+    },
+    "rain": {
+      "q1": 75,
+      "q2": 80,
+      "q3": 75,
+      "q4": 75
+    },
+    "langs": [
+      "English",
+      "French (official Canadian second language, limited local use)"
+    ],
+    "currency": "CAD",
+    "currency_symbol": "$",
+    "currency_name": "Canadian Dollar",
+    "usd_rate": 1.37,
+    "card": "Widely accepted everywhere, including tap-to-pay; cash mainly useful for small vendors",
+    "cost": {
+      "hotel": 150,
+      "meal": 20,
+      "taxi": 8
+    },
+    "hotel": {
+      "b": "$90-140",
+      "h": "$220-500 (Fallsview rooms cost more)"
+    },
+    "rides": [
+      "Uber",
+      "Lyft",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies by company",
+      "fare": "Metered, roughly CAD $3.25 flag fall plus per-km rate",
+      "fareNote": "Rides between Clifton Hill and Fallsview hotels are short; agree a flat rate for trips to the wine region"
+    },
+    "emergency": {
+      "police": "911",
+      "medical": "911",
+      "note": "911 reaches police, fire, and ambulance across Canada"
+    },
+    "religion": [
+      "Christianity (Roman Catholic and Protestant majority)",
+      "no religious affiliation (growing share)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Table Rock and the Horseshoe Falls viewing platforms",
+        "Journey Behind the Falls",
+        "Niagara SkyWheel"
+      ],
+      [
+        "Clifton Hill entertainment strip",
+        "Niagara Fallsview Casino Resort",
+        "Whirlpool Aero Car"
+      ],
+      [
+        "Niagara-on-the-Lake wine region day trip",
+        "Butterfly Conservatory",
+        "Niagara Glen nature trails"
+      ]
+    ],
+    "walk": "Central Fallsview and Clifton Hill are very walkable along the Falls; reaching Niagara-on-the-Lake wineries or Chippawa requires a car, bus, or WEGO shuttle",
+    "safety": {
+      "safety": "Very safe, well-patrolled tourist zone with heavy foot traffic day and night",
+      "crime": "Petty tourist scams and overpriced attractions are the main risk, not violent crime"
+    },
+    "hood_landmark": {
+      "Clifton Hill": "Clifton Hill's neon arcades and haunted houses",
+      "Fallsview": "Niagara Fallsview Casino Resort overlooking the Horseshoe Falls",
+      "Queen Street (Downtown)": "Queen Street's emerging arts and antiques district",
+      "Chippawa": "Historic Chippawa village on the upper Niagara River",
+      "Niagara Parkway / Dufferin Islands": "Dufferin Islands Nature Area along the scenic parkway"
+    },
+    "hoods": [
+      "Clifton Hill",
+      "Fallsview",
+      "Queen Street (Downtown)",
+      "Chippawa",
+      "Niagara Parkway / Dufferin Islands"
+    ],
+    "hood_desc": [
+      "The carnival-bright entertainment strip of arcades, wax museums, and mini-golf a short walk from the Falls; suits families and first-time visitors wanting everything within stumbling distance.",
+      "The high-rise hotel and casino district with the best direct Falls views from guest rooms and restaurants; suits travelers prioritizing the view over budget.",
+      "A quieter revitalizing downtown with antique shops, cafes, and the VIA Rail station, a short drive or bus ride from the Falls themselves.",
+      "A historic riverside village upstream from the Falls with War of 1812 heritage sites and a slower pace; suits those wanting to escape the tourist crowds.",
+      "A green, walkable stretch of parkland and gardens along the upper river, good for cycling and a break from the casino strip."
+    ],
+    "hood_tags": [
+      "nightlife",
+      "sights",
+      "shopping",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Days Inn by Wyndham Fallsview",
+        "Four Points by Sheraton Niagara Falls",
+        "Hilton Garden Inn Niagara Falls"
+      ],
+      [
+        "Niagara Fallsview Casino Resort",
+        "Sheraton Fallsview Hotel",
+        "Marriott Niagara Falls Fallsview"
+      ],
+      [
+        "Wyndham Garden Niagara Falls Fallsview",
+        "The Oakes Hotel Overlooking the Falls",
+        "Riverside Inn"
+      ],
+      [
+        "Chippawa Inn",
+        "Riverside B&B",
+        "Old Stone Inn Boutique Hotel"
+      ],
+      [
+        "Doubletree Fallsview Resort & Spa",
+        "Sterling Inn and Spa",
+        "Great Wolf Lodge Niagara Falls"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.0,
+      "beer": 6.5,
+      "water": 2.0
+    },
+    "transit": {
+      "sys": "WEGO shuttle buses linking hotels, attractions, and the Falls; Niagara Region Transit for wider area",
+      "hours": "WEGO runs roughly 9am-11pm (extended in peak summer)",
+      "pay": "Cash or tap card on WEGO buses; day passes available",
+      "map": "https://niagarafalls.ca/wego",
+      "note": "The Falls area itself is very walkable; a car is useful for wine country or Niagara-on-the-Lake"
+    },
+    "transport": {
+      "air": "Toronto Pearson International (YYZ), about 1.5 hr; Buffalo Niagara International (BUF, USA) is closer at 25-30 min",
+      "train": "VIA Rail station with service to Toronto and connections onward",
+      "bus": "GO Transit and Megabus connect to Toronto and other Ontario cities",
+      "ferry": "",
+      "car": "Easy via the QEW highway from Toronto; parking at Falls-area lots and garages"
+    },
+    "airport": {
+      "code": "YYZ",
+      "name": "Toronto Pearson International Airport",
+      "distance": "~130 km (1.5 hr) from Niagara Falls",
+      "transport": "Airport shuttles, GO Transit/bus combinations, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage throughout",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Rogers, Bell, Telus",
+      "gb": "~$30-45 for a 10GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Canadian prepaid SIM or eSIM from Rogers/Bell/Telus"
+    },
+    "tip": {
+      "s": "10-15% is standard for tours and guided experiences",
+      "r": "15-18% is expected at restaurants; often added automatically for larger groups"
+    },
+    "region": "n-america",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 70,
+      "mid": 180,
+      "luxury": 400
+    },
+    "score": {
+      "nightlife": 60,
+      "restaurants": 55,
+      "museums": 35,
+      "architecture": 30,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Whistler",
+    "country": "Canada",
+    "visitors": 2.5,
+    "pop": "~14,000 (permanent; swells seasonally with resort staff and visitors)",
+    "lat": 50.1163,
+    "lng": -122.9574,
+    "tagline": "Canada's premier ski resort, a pedestrian village beneath twin Olympic peaks",
+    "temps": {
+      "q1": 23,
+      "q2": 45,
+      "q3": 70,
+      "q4": 45
+    },
+    "rain": {
+      "q1": 280,
+      "q2": 120,
+      "q3": 60,
+      "q4": 220
+    },
+    "langs": [
+      "English",
+      "French (official Canadian second language, limited local use)"
+    ],
+    "currency": "CAD",
+    "currency_symbol": "$",
+    "currency_name": "Canadian Dollar",
+    "usd_rate": 1.37,
+    "card": "Widely accepted everywhere including tap-to-pay; cash rarely needed",
+    "cost": {
+      "hotel": 250,
+      "meal": 30,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$120-200",
+      "h": "$350-900 (peak ski season)"
+    },
+    "rides": [
+      "Uber",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies by company",
+      "fare": "Metered; flat rates common for airport/Vancouver transfers",
+      "fareNote": "Whistler Village itself is pedestrian-only, so taxis are mainly for outlying accommodations and Vancouver transfers"
+    },
+    "emergency": {
+      "police": "911",
+      "medical": "911",
+      "note": "911 reaches police, fire, and ambulance across Canada"
+    },
+    "religion": [
+      "Christianity (Roman Catholic and Protestant)",
+      "no religious affiliation (large share)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Whistler Village pedestrian core",
+        "Peak 2 Peak Gondola between Whistler and Blackcomb",
+        "Scandinave Spa"
+      ],
+      [
+        "Skiing or snowboarding Whistler Blackcomb (winter)",
+        "mountain biking the Whistler Bike Park (summer)",
+        "Whistler Sliding Centre"
+      ],
+      [
+        "Alta Lake and Lost Lake hiking/canoeing",
+        "Whistler Olympic Park cross-country trails",
+        "Squamish day trip via the Sea to Sky Highway"
+      ]
+    ],
+    "walk": "Whistler Village is fully pedestrian and very walkable; Creekside and Function Junction require the free Whistler transit bus or a car",
+    "safety": {
+      "safety": "Very safe resort town with a strong tourism infrastructure",
+      "crime": "Minimal crime; main risks are mountain/backcountry related rather than urban",
+      "note": "Standard alpine safety precautions (avalanche awareness, sun/altitude exposure) apply for backcountry activities"
+    },
+    "hood_landmark": {
+      "Whistler Village": "Whistler Village Gondola base and pedestrian plazas",
+      "Upper Village (Blackcomb)": "Blackcomb Excalibur Gondola base",
+      "Creekside": "Creekside Gondola, the original 1966 base area",
+      "Function Junction": "Function Junction's industrial-turned-craft-brewery district",
+      "Alta Lake / Lakeside": "Alta Lake's beaches and canoe launches"
+    },
+    "hoods": [
+      "Whistler Village",
+      "Upper Village (Blackcomb)",
+      "Creekside",
+      "Function Junction",
+      "Alta Lake / Lakeside"
+    ],
+    "hood_desc": [
+      "The bustling pedestrian heart of the resort with most shops, restaurants, and both main gondola bases; suits first-timers who want everything car-free.",
+      "A quieter cluster of ski-in/ski-out hotels directly beneath Blackcomb Mountain, a short walk or shuttle from the main village.",
+      "The original, more local base area a short drive south, with its own gondola, fewer crowds, and lower-key restaurants.",
+      "An industrial park turned craft-brewery and local-food hub south of the village, popular with residents and beer enthusiasts.",
+      "A residential lakeside area with beaches, canoe rentals, and mountain views, good for a quieter stay away from the village bustle."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "hipster",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Pan Pacific Whistler Village Centre",
+        "Crystal Lodge & Suites",
+        "Adara Hotel"
+      ],
+      [
+        "Fairmont Chateau Whistler",
+        "Summit Lodge & Spa",
+        "Delta Hotels Whistler Village Suites"
+      ],
+      [
+        "Nita Lake Lodge",
+        "Creekside Village Suites",
+        "Legends Whistler by CLIQUE"
+      ],
+      [
+        "Whistler Hostel (HI)",
+        "Riverside Resort",
+        "Cedar Springs Bed & Breakfast"
+      ],
+      [
+        "Alta Lake Lodge",
+        "Edgewater Lodge",
+        "Alpine Chalet Rentals"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 7.5,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "Whistler Transit System (free within-resort routes plus paid regional routes)",
+      "hours": "Roughly 6am-2am on core routes",
+      "pay": "Free on village routes; cash or Compass-style fare on regional routes",
+      "map": "https://www.bctransit.com/whistler",
+      "note": "Whistler Village is pedestrian-only; the free shuttle covers Creekside, Upper Village, and Function Junction"
+    },
+    "transport": {
+      "air": "Vancouver International Airport (YVR), about 2 hr via the Sea to Sky Highway",
+      "train": "Rocky Mountaineer seasonal luxury rail service from Vancouver (not a commuter option)",
+      "bus": "Whistler Snowbus, Epic Rides, and YVR Skylynx shuttles run from Vancouver and the airport",
+      "ferry": "",
+      "car": "Scenic but occasionally snowy drive along Highway 99 (Sea to Sky Highway) from Vancouver"
+    },
+    "airport": {
+      "code": "YVR",
+      "name": "Vancouver International Airport",
+      "distance": "~120 km (2 hr) from Whistler",
+      "transport": "YVR Skylynx shuttle, private transfer, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G in the village, patchier in the backcountry",
+      "w": "Free wifi standard in hotels, cafes, and the village core",
+      "ops": "Rogers, Bell, Telus",
+      "gb": "~$30-45 for a 10GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in the village",
+      "ap": "A Canadian prepaid SIM or eSIM from Rogers/Bell/Telus"
+    },
+    "tip": {
+      "s": "10-15% for ski instructors, guides, and spa staff",
+      "r": "15-18% is expected at restaurants"
+    },
+    "region": "n-america",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 100,
+      "mid": 280,
+      "luxury": 600
+    },
+    "score": {
+      "nightlife": 65,
+      "restaurants": 60,
+      "museums": 20,
+      "architecture": 35,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Charlottetown",
+    "country": "Canada",
+    "visitors": 0.8,
+    "pop": "~40,500",
+    "lat": 46.2382,
+    "lng": -63.1311,
+    "tagline": "Canada's 'Birthplace of Confederation,' with Victorian streets and Anne of Green Gables lore nearby",
+    "temps": {
+      "q1": 19,
+      "q2": 45,
+      "q3": 74,
+      "q4": 48
+    },
+    "rain": {
+      "q1": 100,
+      "q2": 90,
+      "q3": 85,
+      "q4": 110
+    },
+    "langs": [
+      "English",
+      "French (official Canadian second language, limited local use)"
+    ],
+    "currency": "CAD",
+    "currency_symbol": "$",
+    "currency_name": "Canadian Dollar",
+    "usd_rate": 1.37,
+    "card": "Widely accepted everywhere including tap-to-pay; cash rarely needed",
+    "cost": {
+      "hotel": 130,
+      "meal": 18,
+      "taxi": 7
+    },
+    "hotel": {
+      "b": "$80-120",
+      "h": "$180-350"
+    },
+    "rides": [
+      "Uber (limited availability)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies by company",
+      "fare": "Metered, roughly CAD $3.50 flag fall plus per-km rate",
+      "fareNote": "Downtown is compact enough to walk; taxis mainly useful for the airport or beaches outside town"
+    },
+    "emergency": {
+      "police": "911",
+      "medical": "911",
+      "note": "911 reaches police, fire, and ambulance across Canada"
+    },
+    "religion": [
+      "Christianity (Roman Catholic and Protestant majority)",
+      "no religious affiliation (growing share)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Province House National Historic Site",
+        "Confederation Centre of the Arts",
+        "Peake's Wharf waterfront"
+      ],
+      [
+        "Victoria Row pedestrian street dining",
+        "Founders' Hall interactive museum",
+        "St. Dunstan's Basilica"
+      ],
+      [
+        "Cavendish and Green Gables Heritage Place day trip",
+        "Victoria Park waterfront walk",
+        "PEI National Park red-sand beaches"
+      ]
+    ],
+    "walk": "Downtown Charlottetown is compact and very walkable; a car or tour is useful for Cavendish, Green Gables, or PEI's north-shore beaches",
+    "safety": {
+      "safety": "Very safe small city with low crime and a relaxed pace",
+      "crime": "Petty theft is rare; violent crime is uncommon"
+    },
+    "hood_landmark": {
+      "Downtown / Peake's Wharf": "Peake's Wharf waterfront boardwalk",
+      "Victoria Row": "Victoria Row's pedestrian dining street",
+      "Brighton": "Brighton's tree-lined Victorian residential streets",
+      "Spring Park": "Spring Park's quiet residential lanes",
+      "Sherwood": "Sherwood's suburban shopping strip"
+    },
+    "hoods": [
+      "Downtown / Peake's Wharf",
+      "Victoria Row",
+      "Brighton",
+      "Spring Park",
+      "Sherwood"
+    ],
+    "hood_desc": [
+      "The historic waterfront core with Province House, museums, and the marina; the natural base for most visitors.",
+      "A closed-to-traffic block of restaurant patios and boutiques just off the main downtown grid, lively on summer evenings.",
+      "An affluent, tree-lined Victorian neighborhood west of downtown with grand heritage homes; good for a quieter, walkable stay.",
+      "A quiet residential area near the university, suited to longer stays or those wanting a local, non-touristy feel.",
+      "A suburban commercial strip with shopping centers and chain hotels, convenient for drivers and budget travelers."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "quiet",
+      "quiet",
+      "shopping"
+    ],
+    "lodging": [
+      [
+        "The Great George",
+        "Rodd Charlottetown",
+        "Delta Hotels Prince Edward"
+      ],
+      [
+        "Fairholm Inn",
+        "Shipwright Inn",
+        "Charlotte's Rose Inn"
+      ],
+      [
+        "Elmwood Heritage Inn",
+        "Heritage Harbour House",
+        "Brighton House B&B"
+      ],
+      [
+        "Holland College Residences (seasonal)",
+        "University-area guesthouses",
+        "Spring Park B&Bs"
+      ],
+      [
+        "Holiday Inn Express Charlottetown",
+        "Comfort Inn Charlottetown",
+        "Sherwood Motel"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.0,
+      "beer": 6.5,
+      "water": 2.0
+    },
+    "transit": {
+      "sys": "T3 Transit city bus network",
+      "hours": "Roughly 6:30am-9pm on weekdays, reduced weekend service",
+      "pay": "Cash fare or day pass on board",
+      "map": "https://www.t3transit.ca/",
+      "note": "Downtown is best explored on foot; a car is recommended for exploring the rest of PEI"
+    },
+    "transport": {
+      "air": "Charlottetown Airport (YYG), about 10 min from downtown",
+      "train": "No passenger rail service on Prince Edward Island",
+      "bus": "Maritime Bus connects Charlottetown to Moncton and onward to the rest of the Maritimes",
+      "ferry": "Northumberland Ferries seasonal service to Nova Scotia from Wood Islands",
+      "car": "Confederation Bridge links PEI to New Brunswick; a car is the easiest way to explore the island"
+    },
+    "airport": {
+      "code": "YYG",
+      "name": "Charlottetown Airport",
+      "distance": "~5 km (10 min) from downtown",
+      "transport": "Taxi, rental car, or hotel shuttle"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage in the city, patchier in rural PEI",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Bell, Rogers, Telus",
+      "gb": "~$30-45 for a 10GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available downtown",
+      "ap": "A Canadian prepaid SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% for tours and guides",
+      "r": "15-18% is expected at restaurants"
+    },
+    "region": "n-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 65,
+      "mid": 150,
+      "luxury": 320
+    },
+    "score": {
+      "nightlife": 40,
+      "restaurants": 55,
+      "museums": 55,
+      "architecture": 60,
+      "nature": 50
+    }
+  },
+  {
+    "city": "Tofino",
+    "country": "Canada",
+    "visitors": 0.6,
+    "pop": "~2,500 (swells many times over in summer)",
+    "lat": 49.153,
+    "lng": -125.9066,
+    "tagline": "A remote surf town on Vancouver Island's storm-battered west coast, gateway to Pacific Rim National Park",
+    "temps": {
+      "q1": 44,
+      "q2": 52,
+      "q3": 66,
+      "q4": 52
+    },
+    "rain": {
+      "q1": 900,
+      "q2": 250,
+      "q3": 80,
+      "q4": 700
+    },
+    "langs": [
+      "English"
+    ],
+    "currency": "CAD",
+    "currency_symbol": "$",
+    "currency_name": "Canadian Dollar",
+    "usd_rate": 1.37,
+    "card": "Widely accepted; cash useful for small surf shacks and food trucks",
+    "cost": {
+      "hotel": 220,
+      "meal": 28,
+      "taxi": 12
+    },
+    "hotel": {
+      "b": "$120-190",
+      "h": "$300-700 (oceanfront resorts)"
+    },
+    "rides": [
+      "Tofino Taxi (limited availability, book ahead)"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Flat or metered depending on operator",
+      "fareNote": "Taxis are scarce; many visitors rent a car or bike between town and the beaches"
+    },
+    "emergency": {
+      "police": "911",
+      "medical": "911",
+      "note": "911 reaches police, fire, and ambulance; nearest hospital is in Tofino General with limited services, larger facilities in Nanaimo"
+    },
+    "religion": [
+      "Christianity (minority practicing)",
+      "no religious affiliation (majority)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Long Beach in Pacific Rim National Park Reserve",
+        "surfing lessons at Cox Bay or Chesterman Beach",
+        "Tofino Botanical Gardens"
+      ],
+      [
+        "Whale-watching or bear-watching boat tour in Clayoquot Sound",
+        "hot springs cove boat/floatplane excursion",
+        "Meares Island ancient rainforest boardwalk"
+      ],
+      [
+        "Freedom Cove floating art gallery tour",
+        "storm-watching (winter)",
+        "kayaking Clayoquot Sound"
+      ]
+    ],
+    "walk": "Downtown Tofino is small and walkable, but the surf beaches (Chesterman, Cox Bay, MacKenzie) are a few km out and best reached by bike, car, or the local shuttle",
+    "safety": {
+      "safety": "Very safe small town, though remote with limited emergency services",
+      "crime": "Minimal crime; main risks are ocean/surf conditions and storm-watching safety rather than crime"
+    },
+    "hood_landmark": {
+      "Downtown Tofino": "Tofino's harbor-front main street of shops and eateries",
+      "Chesterman Beach": "Chesterman Beach's long sandy surf break",
+      "Cox Bay": "Cox Bay's big-wave surf competitions",
+      "MacKenzie Beach": "MacKenzie Beach's sheltered family-friendly cove",
+      "Clayoquot Sound / Around Tofino": "Clayoquot Sound's old-growth rainforest and hot springs"
+    },
+    "hoods": [
+      "Downtown Tofino",
+      "Chesterman Beach",
+      "Cox Bay",
+      "MacKenzie Beach",
+      "Clayoquot Sound / Around Tofino"
+    ],
+    "hood_desc": [
+      "The small harbor-front core with the fish market, surf shops, and most restaurants; the walkable base for exploring.",
+      "A popular surf beach a short drive south of town, lined with resorts and known for tide pools at low tide.",
+      "A big-wave surf break further south, home to the annual Rip Curl Pro competition and quieter resorts.",
+      "A calmer, more sheltered beach popular with families and beginner surfers, close to campgrounds.",
+      "The wider wilderness surrounding Tofino, reached by boat or floatplane, with hot springs, whale-watching, and ancient rainforest."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Tofino Resort + Marina",
+        "Blue Heron Inn",
+        "Tofino Harbour House"
+      ],
+      [
+        "Wickaninnish Inn",
+        "Chesterman Beach's Bed and Breakfast",
+        "Ocean Village Resort"
+      ],
+      [
+        "Long Beach Lodge Resort",
+        "Pacific Sands Beach Resort",
+        "Cox Bay Beach Resort"
+      ],
+      [
+        "Middle Beach Lodge",
+        "MacKenzie Beach Resort",
+        "Ocean's Edge Resort"
+      ],
+      [
+        "Clayoquot Wilderness Resort",
+        "Hot Springs Cove eco-lodges",
+        "Meares Island backcountry cabins"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3.5,
+      "beer": 7.0,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "Tofino Bus (regional) and a small local shuttle in peak season",
+      "hours": "Limited; most visitors rely on bikes or cars",
+      "pay": "Cash or card fare on regional buses",
+      "map": "https://tofinobus.com/",
+      "note": "There is no public transit network within town; renting a bike or car is the norm for reaching the beaches"
+    },
+    "transport": {
+      "air": "Tofino/Long Beach Airport (YAZ) with seasonal flights from Vancouver; most visitors fly into Victoria or Vancouver and drive",
+      "train": "No passenger rail service",
+      "bus": "Tofino Bus operates scheduled coach service from Victoria and Nanaimo",
+      "ferry": "BC Ferries connects Vancouver to Vancouver Island (Nanaimo/Victoria), then a scenic drive to Tofino",
+      "car": "A roughly 4-4.5 hr drive from Victoria via Highway 4, the only road in"
+    },
+    "airport": {
+      "code": "YAZ",
+      "name": "Tofino/Long Beach Airport",
+      "distance": "~10 km (15 min) from town",
+      "transport": "Taxi or rental car; many visitors instead fly into Vancouver/Victoria and drive"
+    },
+    "net": {
+      "m": "Decent 4G in town, weak or absent in Clayoquot Sound backcountry",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Telus, Rogers, Bell",
+      "gb": "~$30-45 for a 10GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in town",
+      "ap": "A Canadian prepaid SIM or eSIM"
+    },
+    "tip": {
+      "s": "10-15% for surf instructors and boat tour guides",
+      "r": "15-18% is expected at restaurants"
+    },
+    "region": "n-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 90,
+      "mid": 240,
+      "luxury": 500
+    },
+    "score": {
+      "nightlife": 35,
+      "restaurants": 55,
+      "museums": 20,
+      "architecture": 25,
+      "nature": 95
+    }
+  },
+  {
+    "city": "Santiago de Compostela",
+    "country": "Spain",
+    "visitors": 3.0,
+    "pop": "~101,000",
+    "lat": 42.8782,
+    "lng": -8.5448,
+    "tagline": "The pilgrimage endpoint of the Camino de Santiago, crowned by a baroque cathedral holding the apostle's relics",
+    "temps": {
+      "q1": 48,
+      "q2": 57,
+      "q3": 70,
+      "q4": 58
+    },
+    "rain": {
+      "q1": 220,
+      "q2": 150,
+      "q3": 60,
+      "q4": 220
+    },
+    "langs": [
+      "Spanish",
+      "Galician"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small pilgrim albergues and market stalls",
+    "cost": {
+      "hotel": 75,
+      "meal": 14,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$25-45 (pilgrim albergues)",
+      "h": "$100-220"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white",
+      "fare": "Metered, roughly €3.90 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "091 (national police) or 112",
+      "medical": "112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority, reinforced by the pilgrimage tradition)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Cathedral of Santiago de Compostela and the Pórtico da Gloria",
+        "Praza do Obradoiro",
+        "Hostal dos Reis Católicos"
+      ],
+      [
+        "Mercado de Abastos food market",
+        "Parque da Alameda",
+        "Museo do Pobo Galego"
+      ],
+      [
+        "Walking the final stage of the Camino de Santiago into the city",
+        "Monte do Gozo pilgrim viewpoint",
+        "day trip to the coast at Fisterra ('the end of the world')"
+      ]
+    ],
+    "walk": "The old town is compact, pedestrianized, and very walkable; the cathedral square is the natural center of any visit",
+    "safety": {
+      "safety": "Very safe city, popular with solo pilgrims and travelers of all ages",
+      "crime": "Petty theft near the cathedral and train station is the main concern"
+    },
+    "hood_landmark": {
+      "Casco Histórico (Old Town)": "Praza do Obradoiro and the Cathedral of Santiago",
+      "Zona Nova (New Town / Ensanche)": "Rúa do Franco's shopping and dining strip",
+      "San Lázaro": "The Palacio de Congresos and modern convention district",
+      "Zona Universitaria": "University of Santiago de Compostela's historic campus buildings",
+      "Fontiñas": "Fontiñas' modern residential blocks and local markets"
+    },
+    "hoods": [
+      "Casco Histórico (Old Town)",
+      "Zona Nova (New Town / Ensanche)",
+      "San Lázaro",
+      "Zona Universitaria",
+      "Fontiñas"
+    ],
+    "hood_desc": [
+      "The granite-paved medieval core around the cathedral, packed with pilgrim albergues, tapas bars, and souvenir shops; the natural base for nearly every visitor.",
+      "The 19th-century commercial expansion just beyond the old walls, with wider streets, department stores, and everyday local life.",
+      "A modern district anchored by the convention center, mainly of interest for business travelers rather than sightseers.",
+      "The historic university quarter with grand academic buildings and a young, lively student atmosphere.",
+      "A residential, largely local neighborhood with little tourist infrastructure, useful mainly for longer stays or budget apartments."
+    ],
+    "hood_tags": [
+      "central",
+      "shopping",
+      "quiet",
+      "hipster",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hostal dos Reis Católicos (Parador)",
+        "Hotel Costa Vella",
+        "Altair Hotel"
+      ],
+      [
+        "Exe Congress Santiago",
+        "NH Collection Santiago de Compostela",
+        "Hotel Compostela"
+      ],
+      [
+        "Ibis Santiago de Compostela",
+        "Eurostars Araguaney",
+        "AC Hotel Palacio del Carmen"
+      ],
+      [
+        "Hotel Universitario Santiago",
+        "Casa Grande do Bachao (nearby)",
+        "Residencia Universitaria (seasonal)"
+      ],
+      [
+        "Apartamentos Fontiñas",
+        "Local guesthouses",
+        "Budget business hotels"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.5,
+      "beer": 2.5,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "Tranvías de Santiago urban bus network",
+      "hours": "Roughly 6:30am-11:30pm",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.tranviasdesantiago.es/",
+      "note": "The old town is pedestrian-only, so buses mainly serve outlying neighborhoods and the airport"
+    },
+    "transport": {
+      "air": "Santiago-Rosalía de Castro Airport (SCQ), about 20 min from the city",
+      "train": "Renfe high-speed and regional trains connect to A Coruña, Vigo, and Madrid",
+      "bus": "ALSA and Monbus coaches connect to Galician towns and the rest of Spain",
+      "ferry": "",
+      "car": "Well connected via the AP-9 motorway; not needed for the old town itself"
+    },
+    "airport": {
+      "code": "SCQ",
+      "name": "Santiago-Rosalía de Castro Airport",
+      "distance": "~11 km (20 min) from downtown",
+      "transport": "Airport bus (Line 6A) or taxi"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Movistar, Vodafone, Orange",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Movistar, Vodafone, or Orange tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "5-10% for good service, not expected at casual bars"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 40,
+      "mid": 100,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 65,
+      "museums": 60,
+      "architecture": 90,
+      "nature": 45
+    }
+  },
+  {
+    "city": "Girona",
+    "country": "Spain",
+    "visitors": 1.8,
+    "pop": "~106,000",
+    "lat": 41.9794,
+    "lng": 2.8214,
+    "tagline": "A Catalan medieval jewel of pastel riverside houses, Jewish quarter alleys, and Game of Thrones filming spots",
+    "temps": {
+      "q1": 46,
+      "q2": 60,
+      "q3": 80,
+      "q4": 60
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 70,
+      "q3": 40,
+      "q4": 80
+    },
+    "langs": [
+      "Catalan",
+      "Spanish"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.92,
+    "card": "Widely accepted; cash useful for small old-town shops and markets",
+    "cost": {
+      "hotel": 95,
+      "meal": 16,
+      "taxi": 7
+    },
+    "hotel": {
+      "b": "$35-55",
+      "h": "$130-280"
+    },
+    "rides": [
+      "Free Now",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "white with red stripe",
+      "fare": "Metered, roughly €3.40 flag fall plus per-km rate",
+      "fareNote": "Metered fares are standard and reliable"
+    },
+    "emergency": {
+      "police": "091 (national police) or 112",
+      "medical": "112",
+      "note": "112 is the general EU-style emergency number that connects to police, fire, and ambulance"
+    },
+    "religion": [
+      "Roman Catholic (majority)",
+      "no religious affiliation (growing minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Girona Cathedral and its Gothic vault",
+        "Barri Vell (Old Town) alleys",
+        "the colorful Onyar riverside houses"
+      ],
+      [
+        "Call Jueu (Jewish Quarter) and the Museum of Jewish History",
+        "Passeig de la Muralla city walls walk",
+        "Sant Feliu church"
+      ],
+      [
+        "Day trip to the Costa Brava coastline",
+        "Dali Theatre-Museum in Figueres day trip",
+        "Rambla de la Llibertat cafe strolling"
+      ]
+    ],
+    "walk": "The old town is compact, hilly in places, and very walkable; most sights are within a 20-minute walk of each other",
+    "safety": {
+      "safety": "Very safe city, popular for day trips and short stays",
+      "crime": "Petty theft in crowded tourist spots is the main concern"
+    },
+    "hood_landmark": {
+      "Barri Vell (Old Town)": "Girona Cathedral and its 90-step Baroque staircase",
+      "Call Jueu (Jewish Quarter)": "Centre Bonastruc ça Porta, home of the Girona Museum of Jewish History",
+      "Mercadal": "Plaça de la Independència's neoclassical arcades",
+      "Eixample": "Girona's 19th-century residential expansion district",
+      "Pedret": "The Romanesque Sant Pere de Galligants monastery"
+    },
+    "hoods": [
+      "Barri Vell (Old Town)",
+      "Call Jueu (Jewish Quarter)",
+      "Mercadal",
+      "Eixample",
+      "Pedret"
+    ],
+    "hood_desc": [
+      "The hilltop medieval core with the cathedral, city walls, and narrow stone lanes; the essential base for any visit and a Game of Thrones filming location.",
+      "One of Europe's best-preserved medieval Jewish quarters, a maze of narrow alleys within the old town, rich with historical museums.",
+      "The lively 19th-century civic center across the river, with cafes, shops, and the colorful Onyar riverside facades.",
+      "A quieter residential expansion beyond the old town, useful for longer stays and local-feeling apartments.",
+      "A low-key riverside area northeast of the old town with the Romanesque Sant Pere monastery, mostly of interest to history-focused visitors."
+    ],
+    "hood_tags": [
+      "sights",
+      "sights",
+      "shopping",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Nord 1901",
+        "Bellmirall Boutique Hotel",
+        "Llegendes de Girona Catedral"
+      ],
+      [
+        "Call Girona Guesthouse",
+        "Pensió Bellmirall",
+        "Museu Hotel"
+      ],
+      [
+        "Hotel Ciutat de Girona",
+        "NH Ciutat de Girona",
+        "Hotel Carlemany"
+      ],
+      [
+        "Hotel Ultonia",
+        "Eixample apartment rentals",
+        "Girona Aparthotel"
+      ],
+      [
+        "Pedret riverside guesthouses",
+        "Sant Pere area B&Bs",
+        "Budget local pensions"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.6,
+      "beer": 2.8,
+      "water": 1.0
+    },
+    "transit": {
+      "sys": "TMG (Transports Municipals de Girona) urban bus network",
+      "hours": "Roughly 6am-11pm",
+      "pay": "Cash or contactless card on board; rechargeable travel card available",
+      "map": "https://www.girona.cat/tmg/",
+      "note": "The old town is best explored on foot; buses mainly serve outlying neighborhoods and the train/bus station"
+    },
+    "transport": {
+      "air": "Girona-Costa Brava Airport (GRO), about 15 min away; Barcelona El Prat (BCN) is a larger option roughly 1.5 hr away",
+      "train": "High-speed AVE and regional Rodalies trains connect to Barcelona (under 40 min) and France",
+      "bus": "Sagalés and ALSA coaches connect to Barcelona, the Costa Brava, and the Pyrenees",
+      "ferry": "",
+      "car": "Easy via the AP-7 motorway; the old town is pedestrian-only"
+    },
+    "airport": {
+      "code": "GRO",
+      "name": "Girona-Costa Brava Airport",
+      "distance": "~13 km (15 min) from downtown",
+      "transport": "Airport bus, taxi, or rental car"
+    },
+    "net": {
+      "m": "Strong 4G/5G coverage citywide",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Movistar, Vodafone, Orange",
+      "gb": "~€10-20 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available",
+      "ap": "A Movistar, Vodafone, or Orange tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "Not obligatory; rounding up is appreciated for guides and tours",
+      "r": "5-10% for good service, not expected at casual bars"
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 120,
+      "luxury": 260
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 65,
+      "museums": 60,
+      "architecture": 90,
+      "nature": 40
+    }
+  },
+  {
+    "city": "Knysna",
+    "country": "South Africa",
+    "visitors": 0.5,
+    "pop": "~76,000",
+    "lat": -34.0363,
+    "lng": 23.047,
+    "tagline": "A lagoon town on the Garden Route framed by dramatic sandstone Heads and ancient indigenous forest",
+    "temps": {
+      "q1": 75,
+      "q2": 68,
+      "q3": 63,
+      "q4": 70
+    },
+    "rain": {
+      "q1": 60,
+      "q2": 55,
+      "q3": 50,
+      "q4": 90
+    },
+    "langs": [
+      "English",
+      "Afrikaans",
+      "Xhosa"
+    ],
+    "currency": "ZAR",
+    "currency_symbol": "R",
+    "currency_name": "South African Rand",
+    "usd_rate": 18.5,
+    "card": "Widely accepted in town; cash useful for markets and smaller township eateries",
+    "cost": {
+      "hotel": 70,
+      "meal": 12,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$25-45",
+      "h": "$110-260"
+    },
+    "rides": [
+      "Uber",
+      "Bolt",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or metered depending on operator",
+      "fareNote": "Confirm the fare or use a ride-hailing app rather than hailing an unmarked taxi"
+    },
+    "emergency": {
+      "police": "10111",
+      "medical": "10177 (ambulance) or 112 from a mobile phone",
+      "note": "112 from any mobile phone reaches all emergency services"
+    },
+    "religion": [
+      "Christianity (majority, various denominations)",
+      "traditional African beliefs (minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Knysna Heads viewpoints on both the eastern and western headlands",
+        "Thesen Islands waterfront",
+        "Knysna Lagoon boat cruise"
+      ],
+      [
+        "Knysna Elephant Park",
+        "Featherbed Nature Reserve boat and eco-tour",
+        "Millwood Goldfields historic trail"
+      ],
+      [
+        "Garden Route day trips to Wilderness or Plettenberg Bay",
+        "Knysna Forest canopy tours and hiking",
+        "oyster tasting at the harbor"
+      ]
+    ],
+    "walk": "The waterfront and central Knysna are walkable; the Heads, forests, and outlying beaches require a car or organized tour",
+    "safety": {
+      "safety": "Generally safe for tourists in the central and waterfront areas, though petty crime occurs as in most South African towns",
+      "crime": "Avoid isolated areas after dark and secure valuables; township areas require a local guide"
+    },
+    "hood_landmark": {
+      "Knysna Central / Waterfront": "The Knysna Quays waterfront shopping and dining complex",
+      "Thesen Islands": "Thesen Islands' canal-front marina district",
+      "Leisure Isle": "Leisure Isle's lagoon-front beaches and sailing club",
+      "The Heads": "The Western and Eastern Heads lookout points over the lagoon mouth",
+      "Brenton-on-Sea": "Brenton-on-Sea's beach and Featherbed Nature Reserve views"
+    },
+    "hoods": [
+      "Knysna Central / Waterfront",
+      "Thesen Islands",
+      "Leisure Isle",
+      "The Heads",
+      "Brenton-on-Sea"
+    ],
+    "hood_desc": [
+      "The commercial heart of town along the lagoon, with the Knysna Quays complex, restaurants, and oyster bars; the natural base for most visitors.",
+      "A upscale canal-front marina development a short drive from downtown, popular for its restaurants and waterfront apartments.",
+      "A residential peninsula jutting into the lagoon with quiet beaches and lawn-fringed streets, good for a calmer stay.",
+      "The dramatic sandstone cliffs flanking the lagoon's narrow entrance to the sea, essential for photos and sunset views.",
+      "A small beach village west of Knysna with dramatic coastal views over the Featherbed Nature Reserve, better for a peaceful coastal stay than nightlife."
+    ],
+    "hood_tags": [
+      "central",
+      "hipster",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "St James of Knysna",
+        "The Turbine Hotel & Spa",
+        "Knysna Quays Hotel"
+      ],
+      [
+        "Thesen Islands Boutique Hotel",
+        "Island Vibe Knysna",
+        "Marina villas"
+      ],
+      [
+        "Leisure Isle Lodge",
+        "Lagoon-view guesthouses",
+        "Sandpiper Cottages"
+      ],
+      [
+        "The Heads Guest House",
+        "Eastern Head B&Bs",
+        "Coastal viewpoint lodges"
+      ],
+      [
+        "Brenton-on-Sea guesthouses",
+        "Beachfront self-catering cottages",
+        "Featherbed Bay chalets"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 1.7,
+      "water": 0.6
+    },
+    "transit": {
+      "sys": "No formal municipal bus network; minibus taxis serve local routes",
+      "hours": "Minibus taxis run roughly daylight hours",
+      "pay": "Cash to the driver",
+      "map": "Not centrally published; ask locally for minibus taxi routes",
+      "note": "Most visitors rent a car, since Garden Route sights are spread out along the N2"
+    },
+    "transport": {
+      "air": "George Airport (GRJ), about 1 hr drive; Cape Town International (CPT) is roughly 5 hr away by car",
+      "train": "No passenger rail service to Knysna",
+      "bus": "Greyhound, Intercape, and Baz Bus (backpacker hop-on-hop-off) connect along the Garden Route",
+      "ferry": "",
+      "car": "A rental car is strongly recommended for exploring the Garden Route; driving is on the left"
+    },
+    "airport": {
+      "code": "GRJ",
+      "name": "George Airport",
+      "distance": "~65 km (1 hr) from Knysna",
+      "transport": "Rental car, pre-booked transfer, or shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage in town, patchier in forest areas",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Vodacom, MTN, Cell C",
+      "gb": "~$8-15 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels and cafes",
+      "ap": "A Vodacom or MTN tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is customary for tour guides and drivers",
+      "r": "10-15% is standard at restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 90,
+      "luxury": 200
+    },
+    "score": {
+      "nightlife": 40,
+      "restaurants": 60,
+      "museums": 25,
+      "architecture": 30,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Plettenberg Bay",
+    "country": "South Africa",
+    "visitors": 0.4,
+    "pop": "~64,000",
+    "lat": -34.0527,
+    "lng": 23.3716,
+    "tagline": "Garden Route beach town with white-sand bays, seal colonies, and Big Five safari lodges nearby",
+    "temps": {
+      "q1": 75,
+      "q2": 68,
+      "q3": 63,
+      "q4": 70
+    },
+    "rain": {
+      "q1": 55,
+      "q2": 50,
+      "q3": 45,
+      "q4": 85
+    },
+    "langs": [
+      "English",
+      "Afrikaans",
+      "Xhosa"
+    ],
+    "currency": "ZAR",
+    "currency_symbol": "R",
+    "currency_name": "South African Rand",
+    "usd_rate": 18.5,
+    "card": "Widely accepted in town; cash useful for markets and beach vendors",
+    "cost": {
+      "hotel": 90,
+      "meal": 14,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$30-50",
+      "h": "$130-320"
+    },
+    "rides": [
+      "Uber (limited availability)",
+      "Bolt",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "varies",
+      "fare": "Negotiated or metered depending on operator",
+      "fareNote": "Confirm the fare upfront or use a ride-hailing app"
+    },
+    "emergency": {
+      "police": "10111",
+      "medical": "10177 (ambulance) or 112 from a mobile phone",
+      "note": "112 from any mobile phone reaches all emergency services"
+    },
+    "religion": [
+      "Christianity (majority, various denominations)",
+      "traditional African beliefs (minority)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Robberg Nature Reserve coastal hike",
+        "Robberg Beach ('Millionaire's Row')",
+        "Central Beach and the harbor"
+      ],
+      [
+        "Birds of Eden free-flight aviary",
+        "Monkeyland Primate Sanctuary",
+        "Keurbooms River canoe or lagoon cruise"
+      ],
+      [
+        "Big Five safari day trip to a nearby Garden Route game reserve",
+        "whale and dolphin watching (Jul-Nov)",
+        "Nelson Bay Cave archaeological site"
+      ]
+    ],
+    "walk": "Central Plett and the main beach are walkable; Robberg, Keurbooms, and the game reserves require a car",
+    "safety": {
+      "safety": "Generally safe for tourists in central and beach areas, though petty crime occurs as in most South African towns",
+      "crime": "Avoid isolated beach areas after dark and secure valuables in vehicles"
+    },
+    "hood_landmark": {
+      "Central Plett / Main Beach": "Central Beach and the Plettenberg Bay harbor",
+      "Robberg Beach (Millionaire's Row)": "Robberg Beach's exclusive clifftop homes",
+      "Keurbooms": "The Keurbooms River estuary and lagoon",
+      "Lookout Area": "The Lookout Rocks whale-watching viewpoint",
+      "The Crags": "Monkeyland and Birds of Eden sanctuaries"
+    },
+    "hoods": [
+      "Central Plett / Main Beach",
+      "Robberg Beach (Millionaire's Row)",
+      "Keurbooms",
+      "Lookout Area",
+      "The Crags"
+    ],
+    "hood_desc": [
+      "The compact town center and main beach with restaurants, shops, and the harbor; the natural base for most visitors.",
+      "An upscale beachfront strip of clifftop homes and holiday villas along a wide sandy bay, popular for swimming and sunbathing.",
+      "A quieter riverside area east of town with the Keurbooms estuary, popular for canoeing and lagoon cruises.",
+      "A scenic headland just outside the center known for whale-watching from the rocks in season.",
+      "A forested area outside town home to Monkeyland and Birds of Eden wildlife sanctuaries, more a day-trip stop than a place to stay."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "sights",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "The Plettenberg Hotel",
+        "Beacon Island Resort",
+        "Central Beach guesthouses"
+      ],
+      [
+        "Robberg Beach Lodge",
+        "Milkwood Manor on Sea",
+        "Clifftop villas"
+      ],
+      [
+        "Keurbooms River Lodge",
+        "Bitou River Lodge",
+        "Riverside self-catering cottages"
+      ],
+      [
+        "Whale Rock Luxury Lodge",
+        "Lookout Rocks B&Bs",
+        "Coastal viewpoint guesthouses"
+      ],
+      [
+        "The Crags farm cottages",
+        "Monkeyland-area guesthouses",
+        "Garden Route forest lodges"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 1.7,
+      "water": 0.6
+    },
+    "transit": {
+      "sys": "No formal municipal bus network; minibus taxis serve local routes",
+      "hours": "Minibus taxis run roughly daylight hours",
+      "pay": "Cash to the driver",
+      "map": "Not centrally published; ask locally for minibus taxi routes",
+      "note": "Most visitors rent a car, since Garden Route sights are spread out along the N2"
+    },
+    "transport": {
+      "air": "Plettenberg Bay Airport (PBZ) has limited seasonal flights; George Airport (GRJ) roughly 45 min away has more regular service",
+      "train": "No passenger rail service to Plettenberg Bay",
+      "bus": "Greyhound, Intercape, and Baz Bus (backpacker hop-on-hop-off) connect along the Garden Route",
+      "ferry": "",
+      "car": "A rental car is strongly recommended for exploring the Garden Route; driving is on the left"
+    },
+    "airport": {
+      "code": "GRJ",
+      "name": "George Airport (main regional gateway)",
+      "distance": "~45 km (45-50 min) from Plettenberg Bay",
+      "transport": "Rental car, pre-booked transfer, or shuttle"
+    },
+    "net": {
+      "m": "Good 4G coverage in town, patchier in outlying nature reserves",
+      "w": "Free wifi standard in hotels and cafes",
+      "ops": "Vodacom, MTN, Cell C",
+      "gb": "~$8-15 for a 10-20GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Free wifi widely available in hotels and cafes",
+      "ap": "A Vodacom or MTN tourist SIM or eSIM"
+    },
+    "tip": {
+      "s": "10% is customary for tour guides and drivers",
+      "r": "10-15% is standard at restaurants"
+    },
+    "region": "africa",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 40,
+      "mid": 100,
+      "luxury": 230
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 60,
+      "museums": 15,
+      "architecture": 25,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Ghardaïa",
+    "country": "Algeria",
+    "visitors": 0.1,
+    "pop": "~100,000",
+    "lat": 32.4841,
+    "lng": 3.6738,
+    "tagline": "A UNESCO-listed Saharan oasis of five fortified ochre-and-white M'Zab valley towns",
+    "temps": {
+      "q1": 58,
+      "q2": 88,
+      "q3": 104,
+      "q4": 75
+    },
+    "rain": {
+      "q1": 15,
+      "q2": 20,
+      "q3": 5,
+      "q4": 15
+    },
+    "langs": [
+      "Arabic",
+      "Mozabite Berber (Tumzabt)",
+      "French (widely used in business and signage)"
+    ],
+    "currency": "DZD",
+    "currency_symbol": "د.ج",
+    "currency_name": "Algerian Dinar",
+    "usd_rate": 134,
+    "card": "Rarely accepted outside major hotels; cash is essential throughout the M'Zab valley",
+    "cost": {
+      "hotel": 35,
+      "meal": 6,
+      "taxi": 3
+    },
+    "hotel": {
+      "b": "$15-25",
+      "h": "$60-140"
+    },
+    "rides": [
+      "Yassir (Algerian ride-hailing app, limited coverage)",
+      "local taxi companies"
+    ],
+    "taxi": {
+      "color": "yellow/orange",
+      "fare": "Negotiated flat rate, as meters are uncommon",
+      "fareNote": "Agree the fare before departure; hiring a taxi with a local guide for the day is common for touring the five ksour"
+    },
+    "emergency": {
+      "police": "17",
+      "medical": "14 (civil protection/ambulance)",
+      "note": "Dial 17 for police and 14 for medical/fire emergencies; English is rarely spoken by dispatchers, French is more useful"
+    },
+    "religion": [
+      "Islam (Sunni majority, with a significant Ibadi Muslim community distinctive to the M'Zab valley)"
+    ],
+    "stay": "2",
+    "visit": [
+      [
+        "Ghardaïa's 10th-century mosque and medina souks",
+        "Ghardaïa Mosque viewpoint over the valley",
+        "the central market and palm grove"
+      ],
+      [
+        "Beni Isguen's walled old town (entry only with a resident guide, closes to outsiders at sunset)",
+        "Melika's hilltop cemetery and views",
+        "Bou Noura's fortified ksar"
+      ],
+      [
+        "El Atteuf's ancient mosque, said to have inspired Le Corbusier",
+        "M'Zab valley overview from a panoramic viewpoint",
+        "traditional Mozabite pottery and rug workshops"
+      ]
+    ],
+    "walk": "Each of the five ksour (walled towns) is walkable on its own steep, maze-like streets, but distances between them require a taxi or car",
+    "safety": {
+      "safety": "Generally safe for visitors traveling with a local guide, though Algeria's south requires more planning than typical tourist destinations",
+      "crime": "Violent crime against tourists is rare; the bigger practical challenges are limited English, cash-only transactions, and conservative local customs to respect (modest dress, guide requirements in Beni Isguen)"
+    },
+    "hood_landmark": {
+      "Ghardaïa Medina": "The 10th-century Ghardaïa Mosque and its pyramidal minaret",
+      "Beni Isguen": "Beni Isguen's strictly preserved walled old town",
+      "Melika": "Melika's hilltop cemetery overlooking the valley",
+      "Bou Noura": "Bou Noura's fortified hilltop ksar",
+      "El Atteuf": "El Atteuf's ancient mosque, an architectural precursor to modernist design"
+    },
+    "hoods": [
+      "Ghardaïa Medina",
+      "Beni Isguen",
+      "Melika",
+      "Bou Noura",
+      "El Atteuf"
+    ],
+    "hood_desc": [
+      "The largest and richest of the five M'Zab towns, with the main market, mosque, and most hotels; the practical base for exploring the valley.",
+      "The most conservative and best-preserved of the five ksour, still closing its gates to non-residents at night; visits require a local guide.",
+      "A smaller hilltop town known for its panoramic cemetery and sweeping views over the whole M'Zab valley.",
+      "One of the smaller, quieter ksour with a compact fortified core, less visited than Ghardaïa or Beni Isguen.",
+      "The oldest of the five towns, its 11th-century mosque cited as an influence on modernist architect Le Corbusier."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel El Djanoub",
+        "Hotel Marhaba Ghardaïa",
+        "Douar Ghardaïa"
+      ],
+      [
+        "Guesthouses within Beni Isguen (guide-arranged)",
+        "Dar Diaf traditional houses",
+        "Local family homestays"
+      ],
+      [
+        "Melika viewpoint guesthouses",
+        "Small family-run inns",
+        "Ghardaïa-based day trips"
+      ],
+      [
+        "Bou Noura basic guesthouses",
+        "Ghardaïa hotels with day-trip transport",
+        "Local family homestays"
+      ],
+      [
+        "El Atteuf basic guesthouses",
+        "Ghardaïa hotels with day-trip transport",
+        "Local family homestays"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.0,
+      "beer": 0.0,
+      "water": 0.3
+    },
+    "transit": {
+      "sys": "Local shared taxis and minibuses connecting the five ksour towns",
+      "hours": "Roughly daylight hours; travel after dark is uncommon",
+      "pay": "Cash to the driver",
+      "map": "Not centrally published; hotels and guides arrange transport between towns",
+      "note": "Alcohol is not sold locally (Beni Isguen and much of the valley is dry); a licensed local guide is required to enter Beni Isguen's old town"
+    },
+    "transport": {
+      "air": "Noumérat - Moufdi Zakaria Airport (GHA), serving Ghardaïa with domestic flights from Algiers",
+      "train": "No passenger rail service to Ghardaïa",
+      "bus": "Long-distance buses connect Ghardaïa to Algiers (roughly 6-7 hr) and other southern Algerian towns",
+      "ferry": "",
+      "car": "The N1 highway connects Ghardaïa to Algiers; a guide or organized tour is recommended for independent travelers"
+    },
+    "airport": {
+      "code": "GHA",
+      "name": "Noumérat - Moufdi Zakaria Airport",
+      "distance": "~12 km (20 min) from central Ghardaïa",
+      "transport": "Taxi or pre-arranged hotel/guide transfer"
+    },
+    "net": {
+      "m": "Moderate 3G/4G coverage in town, weaker in the surrounding desert",
+      "w": "Wifi available in hotels but often slow",
+      "ops": "Mobilis, Djezzy, Ooredoo",
+      "gb": "~$5-10 for a prepaid tourist SIM (foreign registration can require passport and patience)",
+      "fw": true,
+      "fwn": "Wifi available in most hotels, though connection quality varies",
+      "ap": "A Mobilis or Djezzy prepaid SIM, registered with your passport"
+    },
+    "tip": {
+      "s": "10% is appreciated for local guides, required for entry to Beni Isguen",
+      "r": "Rounding up or 5-10% is appreciated, not obligatory"
+    },
+    "region": "africa",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 20,
+      "mid": 50,
+      "luxury": 120
+    },
+    "score": {
+      "nightlife": 10,
+      "restaurants": 30,
+      "museums": 40,
+      "architecture": 85,
+      "nature": 60
+    }
+  }
+]

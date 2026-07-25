@@ -1,0 +1,1758 @@
+[
+  {
+    "city": "Baracoa",
+    "country": "Cuba",
+    "visitors": "~50K",
+    "pop": "~42,000",
+    "lat": 20.3486,
+    "lng": -74.5106,
+    "tagline": "Cuba's first city, walled in by El Yunque and the sea, where the cacao rivers run to the Caribbean's wildest coast",
+    "temps": {
+      "q1": 74,
+      "q2": 78,
+      "q3": 81,
+      "q4": 77
+    },
+    "rain": {
+      "q1": 37,
+      "q2": 45,
+      "q3": 54,
+      "q4": 50
+    },
+    "langs": [
+      "Spanish"
+    ],
+    "currency": "CUP",
+    "currency_symbol": "$",
+    "currency_name": "Cuban Peso",
+    "usd_rate": 670,
+    "card": "US-issued credit and debit cards do not work anywhere in Cuba due to the embargo, and this applies fully in Baracoa. Even non-US Visa/Mastercard have almost no acceptance here — Hotel El Castillo and Hotel Porto Santo are the only spots that occasionally process foreign cards, and outages are common. Bring all the cash you'll need for your entire stay; casas particulares, paladares, bici-taxis, and excursions are cash-only.",
+    "cost": {
+      "hotel": 30,
+      "meal": 8,
+      "taxi": 4
+    },
+    "hotel": {
+      "b": "$15–25",
+      "h": "$55–100"
+    },
+    "rides": [
+      "State taxis (Cubataxi)",
+      "Private \"particular\" taxis (classic American cars/Ladas, negotiated fare)",
+      "Bici-taxis (pedal rickshaws)",
+      "Shared colectivo taxis to Guantánamo/Santiago",
+      "Horse-drawn coches for short local trips"
+    ],
+    "taxi": {
+      "color": "No uniform livery — private taxis are typically unmarked 1950s American classics or Soviet-era Ladas; the rare state Cubataxi is marked with company decals",
+      "fare": "$1–3 for a ride across town, $25–35 per person for the shared 5-hour trip to Santiago de Cuba over La Farola",
+      "fareNote": "Meters essentially don't exist — always agree on the price in cash before getting in, and confirm whether it's quoted in USD or CUP"
+    },
+    "emergency": {
+      "police": "106",
+      "medical": "104",
+      "note": "Fire brigade is 105. Baracoa's Hospital General Docente 'Ciro Redondo García' handles routine and emergency care, but serious cases are transferred to Santiago de Cuba, roughly 4-5 hours away via La Farola — factor this into any remote hiking or diving plans."
+    },
+    "religion": [
+      "Roman Catholicism (~60%, largely nominal)",
+      "Santería / Regla de Ocha (Afro-Cuban syncretism)",
+      "Protestant/Evangelical minority",
+      "Espiritismo and other folk-spiritist practices",
+      "Non-religious/atheist"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Parque Independencia and the Catedral de Nuestra Señora de la Asunción (home to the Cruz de la Parra)",
+        "Fuerte Matachín / Museo Municipal on the Malecón",
+        "Sunset walk along the Malecón to Fuerte de la Punta",
+        "Chocolate tasting at the Casa del Chocolate / Fábrica de Chocolate"
+      ],
+      [
+        "Guided hike up El Yunque (4-5 hours round trip with a licensed guide)",
+        "Finca Duaba for a cacao and coconut demonstration with lunch",
+        "Swim in the Río Duaba"
+      ],
+      [
+        "Day trip to Playa Maguana (22 km north) for beach time",
+        "Boat trip up the Río Toa with local Toa community guides",
+        "Stop at Playa Blanquita or Playa Alta on the return drive"
+      ],
+      [
+        "Excursion to Boca de Yumurí and the Yumurí Canyon",
+        "Small dugout-canoe ride on the Río Yumurí",
+        "Sunset at the Hotel El Castillo mirador on Loma del Paraíso"
+      ]
+    ],
+    "walk": "The historic core is small and flat — you can cross it end to end on foot in about 20 minutes along Calle José Martí and the Malecón. Sidewalks are narrow and cobblestones uneven, and street lighting thins out fast once you leave the center, so a flashlight helps after dark.",
+    "safety": {
+      "safety": "Baracoa is widely considered one of the safest towns in Cuba for solo travelers — violent crime against visitors is rare and locals are famously welcoming and protective of guests staying in casas particulares.",
+      "crime": "The real risks are petty and opportunistic: unattended bags on Playa Maguana, unlocked casa windows, and jineteros steering tourists toward commission-paying casas, tours, or overpriced 'guides' for El Yunque. Normal precautions are enough."
+    },
+    "hood_landmark": {
+      "Casco Histórico": "Catedral de Nuestra Señora de la Asunción",
+      "El Malecón": "Fuerte Matachín (Museo Municipal)",
+      "El Paraíso": "Hotel El Castillo mirador (Castillo de Seboruco)",
+      "Playa de Miel": "Río Miel river mouth and black-sand beach",
+      "Zona del Mercado / Terminal": "Fuerte de la Punta y el Mercado Agropecuario"
+    },
+    "hoods": [
+      "Casco Histórico",
+      "El Malecón",
+      "El Paraíso",
+      "Playa de Miel",
+      "Zona del Mercado / Terminal"
+    ],
+    "hood_desc": [
+      "The compact colonial grid around Parque Independencia — Baracoa's oldest streets, the cathedral holding the Cruz de la Parra, and the highest concentration of paladares and casas particulares.",
+      "The seafront promenade linking the two old Spanish forts, lined with pastel houses, a scattering of bars and the Casa de la Trova; this is where the whole town turns out at sunset.",
+      "A steep residential hillside above downtown, home to Hotel El Castillo's panoramic terrace and quieter casas with sweeping views over the bay and El Yunque.",
+      "A short walk south of center, where the Río Miel meets the sea at a black-volcanic-sand beach — a low-key, mostly local spot to swim away from the crowds.",
+      "The workaday north end of town near the bus terminal and produce market, with cheaper casas, the Cadeca exchange office, and onward transport to Guantánamo and the airport."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "quiet",
+      "sights",
+      "shopping"
+    ],
+    "lodging": [
+      [
+        "Hotel La Rusa (Gran Caribe, Máximo Gómez 161)",
+        "Casa Alejandro y Susana (Calle 1ro de Abril 55)",
+        "Villa Paradiso (Moncada 92B)"
+      ],
+      [
+        "Hostal Munar (Malecón waterfront)",
+        "Casa Nilson y Yamilet (Malecón)",
+        "Casa Colonial Vista al Mar (Malecón)"
+      ],
+      [
+        "Hotel El Castillo (Gran Caribe, Loma del Paraíso)",
+        "Villa Gaviota Baracoa (hillside pool and views)",
+        "Casa El Mirador (El Paraíso)"
+      ],
+      [
+        "Casa Yodanka (quiet, near Playa de Miel)",
+        "Casa Clara Silot y Víctor (Libertad 28-A)",
+        "Villa Río Miel (guesthouse near the river mouth)"
+      ],
+      [
+        "Hotel Porto Santo (Gaviota, across the bay near the airport road)",
+        "Hostal Nilzza (near the bus terminal)",
+        "Casa El Mercado (Calle Céspedes)"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1,
+      "beer": 1.5,
+      "water": 1
+    },
+    "transit": {
+      "sys": "No formal public transit system exists",
+      "hours": "Informal transport (bici-taxis, coches) runs roughly dawn to 10pm",
+      "pay": "Cash only, fare negotiated per ride — USD, EUR, or CUP",
+      "map": "No transit map; the town is small enough to navigate with a basic sketch map from your casa host",
+      "note": "Getting around means walking, flagging a bici-taxi (about $1 in town), or hiring a horse-cart or private car for excursions like El Yunque or Playa Maguana. There are no buses, metros, or ride-hailing apps of any kind."
+    },
+    "transport": {
+      "air": "Gustavo Rizo Airport (BCA), 2 km north of town, has had no reliable scheduled service since Cubana suspended its Havana route in 2018; occasional charter or seasonal Aerogaviota flights appear and disappear, so treat flying as a bonus, not a plan.",
+      "train": "No rail line reaches Baracoa or anywhere else in eastern Guantánamo province.",
+      "bus": "Víazul runs a daily coach from Santiago de Cuba via Guantánamo City and La Farola (about 5 hours) plus a long-haul Havana route (16-18 hours); book several days ahead in high season since seats sell out fast.",
+      "ferry": "No scheduled ferry or boat service connects Baracoa to any other Cuban port.",
+      "car": "Self-drive or a hired car over La Farola — the dramatic 55 km mountain highway to Guantánamo City, one of Cuba's highest paved roads — is the classic overland route; a shared colectivo taxi covers the same road for roughly $25-35 per person."
+    },
+    "airport": {
+      "code": "BCA",
+      "name": "Gustavo Rizo Airport",
+      "distance": "2 km (1.2 mi) north of downtown Baracoa",
+      "transport": "No fixed shuttle or taxi rank — arrange a private taxi in advance or have your casa host send a driver (roughly $3-5 into town), since flights are infrequent and irregular."
+    },
+    "net": {
+      "m": "ETECSA is Cuba's sole mobile carrier; buy a short-term tourist SIM or top up a Nauta account at the ETECSA office near Parque Independencia. 3G/4G works in the town center but drops out quickly once you head toward El Yunque, Maguana, or Yumurí.",
+      "w": "There is no home-style broadband here — even hotel 'wifi' typically runs on the same public Nauta hotspot cards used in the parks, and Hotel El Castillo's signal is often the strongest in town.",
+      "ops": "ETECSA (state monopoly)",
+      "gb": "$1-2/hour for Nauta wifi-hotspot cards; mobile data bundles run roughly $10-30 for a few GB, best bought in advance through the ETECSA app",
+      "fw": true,
+      "fwn": "Nauta wifi-hotspot cards are the closest thing to 'free' wifi and are sold at the ETECSA office or by street resellers; connect at Parque Independencia or the Malecón wifi zones",
+      "ap": "A physical ETECSA/Nauta SIM is essential for foreign phones — there's no roaming onto Cuba's closed network, so buy one at the airport or the ETECSA office and expect to rely on prepaid data or wifi-hotspot cards rather than continuous coverage."
+    },
+    "tip": {
+      "s": "10% for tour guides, hike leaders, and bici-taxi drivers is appreciated; round up small change for casa staff who cook or clean for you.",
+      "r": "Leave about 10% in cash at paladares and casas particulares — card tipping doesn't exist here, and staff at state-run restaurants rely on tips far more than their official wages."
+    },
+    "region": "n-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 35,
+      "mid": 65,
+      "luxury": 130
+    },
+    "score": {
+      "nightlife": 25,
+      "restaurants": 45,
+      "museums": 35,
+      "architecture": 60,
+      "nature": 92
+    }
+  },
+  {
+    "city": "Bentota",
+    "country": "Sri Lanka",
+    "visitors": "~300K",
+    "pop": "~37,000",
+    "lat": 6.4204,
+    "lng": 80.0,
+    "tagline": "Where Geoffrey Bawa's gardens spill down to a golden river-mouth beach",
+    "temps": {
+      "q1": 85,
+      "q2": 87,
+      "q3": 84,
+      "q4": 83
+    },
+    "rain": {
+      "q1": 10,
+      "q2": 36,
+      "q3": 34,
+      "q4": 38
+    },
+    "langs": [
+      "Sinhala",
+      "Tamil",
+      "English"
+    ],
+    "currency": "LKR",
+    "currency_symbol": "Rs.",
+    "currency_name": "Sri Lankan Rupee",
+    "usd_rate": 337,
+    "card": "Credit/debit cards are accepted at resorts, hotels, spas, and larger restaurants (Visa/Mastercard most common), but tuk-tuks, small eateries, roadside stalls, and the turtle hatcheries are cash-only, so carry LKR for daily spending.",
+    "cost": {
+      "hotel": 60,
+      "meal": 8,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$15–35",
+      "h": "$150–450+"
+    },
+    "rides": [
+      "PickMe (app-based tuk-tuks and cars)",
+      "Uber (limited, mainly Colombo-area pickups)",
+      "Street-hailed tuk-tuks (three-wheelers)",
+      "Hotel-arranged private drivers"
+    ],
+    "taxi": {
+      "color": "Yellow-roofed three-wheelers (tuk-tuks) are the default ride; sedans and vans serve airport/long-distance transfers",
+      "fare": "Roughly Rs. 100–150 (~$0.30–0.45) per km by tuk-tuk; a short hop within Bentota/Aluthgama runs $1–3",
+      "fareNote": "Most tuk-tuks are unmetered — agree on a price before departure, or book through the PickMe app for a fixed, fairer metered fare"
+    },
+    "emergency": {
+      "police": "119",
+      "medical": "1990 (Suwa Seriya free government ambulance service)",
+      "note": "Tourist Police hotline: 1912. Fire & rescue: 110. Bentota has a small police post on Galle Road; the nearest hospitals with real capacity are in Aluthgama and Kalutara, with Colombo (National Hospital) roughly 1.5–2 hours away for serious cases."
+    },
+    "religion": [
+      "Buddhism (majority, roughly 65–70%)",
+      "Islam (~15%, historic Moor communities centered in nearby Aluthgama and Beruwala)",
+      "Christianity (~10%, mostly Catholic, common along the southwest coast)",
+      "Hinduism (~5%, largely Tamil estate and fishing communities)"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Bentota Beach",
+        "Bentota water sports center (jet skiing, banana boat, parasailing, windsurfing)",
+        "Bentota Lighthouse",
+        "Sunset walk along the Golden Mile"
+      ],
+      [
+        "Bentota River boat safari through the mangroves and Dedduwa Lake",
+        "Kosgoda Sea Turtle Hatchery",
+        "Brief Garden (Bevis Bawa's estate)",
+        "Galapata Raja Maha Vihara temple"
+      ],
+      [
+        "Day trip to Lunuganga (Geoffrey Bawa's country estate)",
+        "Induruwa turtle nesting beach",
+        "Ayurveda spa treatment or river cruise on Cinnamon/Getambe Island",
+        "Aluthgama fish market and bridge"
+      ]
+    ],
+    "walk": "The town itself is small and walkable along Galle Road and the beach strip, but Bentota, Aluthgama, and Induruwa are spread out over several kilometers, so tuk-tuks are the practical way to move between the beach, river, and town areas.",
+    "safety": {
+      "safety": "Bentota is one of the more relaxed, tourist-friendly stretches of coast and is generally considered safe for solo travelers, including women, though normal precautions apply after dark on quiet beach paths.",
+      "crime": "Violent crime against tourists is rare; the real risks are petty theft from unattended beach bags, overcharging by unlicensed tuk-tuk drivers and touts near the railway station, and occasional water-safety issues (rip currents) rather than crime."
+    },
+    "hoods": [
+      "Bentota Town / Galle Road",
+      "Bentota River & Dedduwa Lake",
+      "Golden Mile Beach Strip",
+      "Aluthgama",
+      "Induruwa"
+    ],
+    "hood_landmark": {
+      "Bentota Town / Galle Road": "Bentota Railway Station",
+      "Bentota River & Dedduwa Lake": "Cinnamon (Getambe) Island river safari launch",
+      "Golden Mile Beach Strip": "Bentota Beach water sports center",
+      "Aluthgama": "Aluthgama Bridge and fish market",
+      "Induruwa": "Induruwa/Kosgoda Sea Turtle Hatchery"
+    },
+    "hood_desc": [
+      "The commercial heart of Bentota along the A2 (Galle Road), with the train station, shops, banks, and everyday restaurants — the natural base for exploring in every direction.",
+      "The river mouth and inland lake are where Bentota's boat safaris, mangrove tours, and Cinnamon Island cinnamon-processing demo depart from — lush, green, and much quieter than the beach.",
+      "The main resort strip south of the river mouth, lined with beachfront hotels from budget guesthouses to five-star resorts, plus most of the water sports operators.",
+      "A busier working town just across the Bentota River bridge, with a lively fish market, bus stand, and more local (non-resort) atmosphere and prices.",
+      "A low-key beach village a few kilometers south, best known for its turtle hatcheries and a calmer, less developed shoreline than central Bentota."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "nightlife",
+      "shopping",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Avani Bentota Resort",
+        "Hotel Global Towers Bentota",
+        "Susantha's Guest House"
+      ],
+      [
+        "Centara Ceysands Resort & Spa Bentota",
+        "The Doornberg",
+        "Kumu Bentota Boutique Villa"
+      ],
+      [
+        "Cinnamon Bentota Beach",
+        "Vivanta Bentota",
+        "Saman Villas"
+      ],
+      [
+        "Club Hotel Dolphin",
+        "Royal Palms Beach Hotel",
+        "Bentota Beach Guest House"
+      ],
+      [
+        "Heritance Ayurveda Maha Gedara",
+        "Induruwa Beach Resort",
+        "Turtle Beach Villa Induruwa"
+      ]
+    ],
+    "drinks": {
+      "coffee": 2,
+      "beer": 3,
+      "water": 0.5
+    },
+    "transit": {
+      "sys": "No formal city transit; Sri Lanka Railways' coastal line (Colombo Fort–Galle–Matara) stops at Bentota Railway Station, and SLTB/private buses run the length of Galle Road (A2).",
+      "hours": "Trains run roughly 4:30am–9:30pm; buses along Galle Road run frequently from early morning until around 8–9pm.",
+      "pay": "Cash (LKR) for both trains and buses — fares are very cheap, typically $1–4 for train tickets and under $1 for local bus hops.",
+      "map": "Bentota Railway Station sits centrally on Galle Road; buses stop along the same road rather than at fixed shelters.",
+      "note": "Reserved observation-class or 1st-class seats are worth booking in advance for the scenic Colombo–Galle run; ordinary 2nd/3rd class carriages can be crowded but are an authentic, cheap way to travel."
+    },
+    "transport": {
+      "air": "Bandaranaike International Airport (CMB) near Colombo is the main gateway, about 65 km / 1.5–2 hours north via the Southern Expressway; some visitors use seaplane or helicopter charters direct from CMB.",
+      "train": "Sri Lanka Railways' coastal line connects Colombo Fort to Bentota Railway Station in roughly 2–2.5 hours, continuing on to Galle and Matara.",
+      "bus": "Frequent SLTB and private intercity buses run from Colombo (Bastian Mawatha/Makumbura) to Bentota along Galle Road or via the Southern Expressway, taking about 2 hours.",
+      "ferry": "No scheduled passenger ferries; small boats operate only for river and lagoon safaris on the Bentota River and Dedduwa Lake.",
+      "car": "Self-drive or hired car via the Southern Expressway (E01), exiting at the Welipenna or Aluthgama interchange, takes about 1.5 hours from Colombo."
+    },
+    "airport": {
+      "code": "CMB",
+      "name": "Bandaranaike International Airport (Colombo)",
+      "distance": "~65 km / 1.5–2 hours by road",
+      "transport": "Pre-booked private taxi or hotel transfer ($25–45), PickMe app car, or a combination of the airport expressway bus/taxi plus the coastal train."
+    },
+    "net": {
+      "m": "Dialog and Mobitel offer the strongest, most consistent 4G coverage along the south coast, including Bentota; Hutch and Airtel Lanka are usable backups.",
+      "w": "Wifi is standard in hotels, guesthouses, and beachfront cafes, though speeds can dip during peak season or storms.",
+      "ops": "Dialog, Mobitel, Hutch, Airtel Lanka",
+      "gb": "A tourist SIM or eSIM with 20–30GB typically costs $5–10, available at CMB airport arrivals or shops in Aluthgama/Bentota town.",
+      "fw": true,
+      "fwn": "Most hotels and resorts include free wifi for guests; cafes generally offer it free with a purchase.",
+      "ap": "A local SIM or eSIM (Dialog or Mobitel, bought at the airport or in Aluthgama/Bentota town) is recommended — hotel wifi is reliable, but a cheap prepaid data plan makes getting around by tuk-tuk and visiting turtle hatcheries or Lunuganga much easier."
+    },
+    "tip": {
+      "s": "Tipping isn't obligatory but is increasingly expected; Rs. 100–300 for tuk-tuk drivers, porters, spa therapists, and tour guides is appreciated.",
+      "r": "Many hotels and resorts already add a 10% service charge to the bill; if not included, leaving 10% in cash is standard at sit-down restaurants."
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 30,
+      "mid": 80,
+      "luxury": 250
+    },
+    "score": {
+      "nightlife": 22,
+      "restaurants": 52,
+      "museums": 18,
+      "architecture": 48,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Savonlinna",
+    "country": "Finland",
+    "visitors": "~600K",
+    "pop": "31,012",
+    "lat": 61.8681,
+    "lng": 28.8861,
+    "tagline": "A 15th-century castle rising mid-lake, sopranos singing from its ramparts every July, and 14,000 islands waiting in the mist beyond.",
+    "temps": {
+      "q1": 21,
+      "q2": 48,
+      "q3": 59,
+      "q4": 32
+    },
+    "rain": {
+      "q1": 26,
+      "q2": 25,
+      "q3": 28,
+      "q4": 27
+    },
+    "langs": [
+      "Finnish",
+      "Swedish",
+      "English"
+    ],
+    "currency": "EUR",
+    "currency_symbol": "€",
+    "currency_name": "Euro",
+    "usd_rate": 0.88,
+    "card": "Finland is one of the most cashless countries in Europe — contactless Visa/Mastercard/mobile pay is accepted everywhere, from hotels and restaurants to market stalls and sauna kiosks; carrying cash is rarely necessary.",
+    "cost": {
+      "hotel": 140,
+      "meal": 20,
+      "taxi": 15
+    },
+    "hotel": {
+      "b": "$75–110",
+      "h": "$180–320"
+    },
+    "rides": [
+      "Uber (dispatches local partner taxis)",
+      "Taksi Savonlinna (phone/app dispatch)",
+      "02 Taksi",
+      "Menevä taxi ordering app"
+    ],
+    "taxi": {
+      "color": "White cars with a yellow 'TAKSI' roof sign — standard Finnish taxi livery",
+      "fare": "€8–12 starting fare plus roughly €1.50/km",
+      "fareNote": "Fixed-price app quotes are common; expect surcharges on nights, weekends and during the July Opera Festival when demand spikes"
+    },
+    "emergency": {
+      "police": "112",
+      "medical": "112",
+      "note": "112 is Finland's single number for all emergencies (police, fire, ambulance); English-speaking operators are available and the free 112 Suomi app can share your GPS location"
+    },
+    "religion": [
+      "Evangelical Lutheran ~60%",
+      "Unaffiliated/none ~35%",
+      "Orthodox Christian ~2%",
+      "Other ~3%"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Olavinlinna Castle guided tour",
+        "Lunch at Kauppatori market square",
+        "Riihisaari – Savonlinna Museum (maritime & natural history, on its own harbor island)",
+        "Evening stroll along Linnankatu esplanade"
+      ],
+      [
+        "Savonlinna Opera Festival performance inside Olavinlinna's medieval courtyard (July only)",
+        "Lake Saimaa steamship cruise aboard the historic S/S Punkaharju or S/S Salama",
+        "Savonlinna Cathedral and the old wooden-house streets of Kirkkokatu",
+        "Traditional lakeside smoke sauna and swim"
+      ],
+      [
+        "Day trip to Kerimäki Church, the world's largest wooden church (~24 km)",
+        "Punkaharju ridge scenic drive along the pine esplanade between two lakes",
+        "Lusto — The Finnish Forest Museum, Punkaharju",
+        "Sunset picnic on a Saimaa archipelago island reachable by rental boat or kayak"
+      ]
+    ],
+    "walk": "Highly walkable core — the rail station, Kauppatori market square, Olavinkatu shopping street and Olavinlinna Castle all sit within a 15–20 minute walk of each other, connected by bridges over narrow lake channels; a car or bus is only needed for day trips to Kerimäki or Punkaharju.",
+    "safety": {
+      "safety": "Very high — Finland ranks among the safest countries in the world year after year; solo travelers, including women walking alone at night, consistently report feeling secure.",
+      "crime": "Petty theft and violent crime are both rare. The main real-world hazards are icy sidewalks and low winter light rather than crime."
+    },
+    "hood_landmark": {
+      "Keskusta": "Kauppatori (Market Square) and Olavinkatu",
+      "Kyrönniemi": "Olavinlinna Castle",
+      "Kasinonsaari": "Spahotel Casino and Sulosaari park",
+      "Talvisalo": "Savonlinna National Urban Park waterfront trails",
+      "Pihlajaniemi": "Pihlajaniemi lakeshore and forest trails"
+    },
+    "hoods": [
+      "Keskusta",
+      "Kyrönniemi",
+      "Kasinonsaari",
+      "Talvisalo",
+      "Pihlajaniemi"
+    ],
+    "hood_desc": [
+      "The compact heart of Savonlinna, packed with shops, cafes, the lakeside Kauppatori market and the pedestrian Olavinkatu — home base for most visitors and the launch point for lake cruises.",
+      "The peninsula wrapping around Olavinlinna Castle, alive with opera-goers and cruise passengers in July, otherwise a quiet residential neighborhood with marina views straight onto the fortress.",
+      "A green island just off downtown, linked by footbridge, centered on the historic casino-spa complex and Sulosaari nature park — a peaceful escape minutes from the action.",
+      "A leafy, mostly residential district within Savonlinna's National Urban Park, laced with waterfront walking paths and early-1900s wooden villas.",
+      "A quiet lakeside residential area west of downtown, popular with locals for its swimming beach, forest trails and riding stables."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Original Sokos Hotel Seurahuone",
+        "Scandic Savonlinna",
+        "Hotelli Tott"
+      ],
+      [
+        "Lossiranta Lifestyle Hotel",
+        "Kesähotelli Kyrönniemi (summer-only student residence hotel)",
+        "Familia Apartments Kyrönniemi"
+      ],
+      [
+        "Original Sokos Hotel Casino Spa Vuorilinna",
+        "Kasinonsaari Villa B&B",
+        "Lakeside Casino Park Apartments"
+      ],
+      [
+        "Villa Talvisalo Guesthouse",
+        "Talvisalo Lake Apartments",
+        "Wanha Villa B&B"
+      ],
+      [
+        "Hostel Malakias (summer only)",
+        "Pihlajaniemi Lakeside Cottages",
+        "Camping Vuohisaari Cabins"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4,
+      "beer": 8,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "No trains, trams or metro within town — local Savonlinja town/regional buses plus a compact walkable core",
+      "hours": "Local buses run roughly 6:00–19:00 on weekdays with sparse weekend service",
+      "pay": "Cash or contactless card on board; a Waltti card pays off only for frequent regional bus use",
+      "map": "Savonlinja/Matkahuolto regional timetables published online — no metro-style transit map exists or is needed",
+      "note": "Most visitors never ride a bus — downtown, the castle, harbor and market square are all walkable; buses mainly serve outlying districts like Kellarpelto, Nojanmaa and the airport"
+    },
+    "transport": {
+      "air": "Savonlinna Airport (SVL) offers seasonal flights to Helsinki (about 55 minutes) on small regional carriers, mainly timed around the July Opera Festival; most travelers instead fly into Helsinki-Vantaa (HEL) and continue by train or bus",
+      "train": "VR runs several daily direct or connecting trains from Helsinki (some changing at Parikkala) in roughly 4–4.5 hours, with fares from about €17–40 one-way",
+      "bus": "OnniBus and Matkahuolto/Savonlinja coaches connect Helsinki, Turku, Jyväskylä and Kuopio to Savonlinna, with Helsinki taking about 4.5–5.5 hours",
+      "ferry": "Seasonal lake steamships (S/S Punkaharju, S/S Salama and others) link Savonlinna to Punkaharju and other Saimaa towns from May to September — a scenic experience rather than a primary way to arrive",
+      "car": "About 335 km / 4 hours from Helsinki via highways 5 and 14; useful for independent day trips to Kerimäki and Punkaharju but unnecessary within town"
+    },
+    "airport": {
+      "code": "SVL",
+      "name": "Savonlinna Airport",
+      "distance": "~15 km / 20 minutes north of downtown",
+      "transport": "Airport taxi or pre-booked transfer (no scheduled public bus to the terminal); given SVL's limited seasonal schedule, most travelers fly into Helsinki-Vantaa and connect by a roughly 4-hour train ride instead"
+    },
+    "net": {
+      "m": "Excellent 4G/5G coverage across town and most of the lake archipelago",
+      "w": "Free wifi is standard in hotels, cafes, the library and the ferry terminal",
+      "ops": "Elisa, Telia, DNA",
+      "gb": "~€15–20 for a 20–30GB prepaid tourist SIM",
+      "fw": true,
+      "fwn": "Nearly every cafe, hotel lobby, and public building offers free wifi, so you're rarely without a signal downtown",
+      "ap": "Not essential thanks to widespread free wifi and EU roaming for European visitors, but a cheap prepaid or eSIM plan from Elisa, Telia or DNA (sold at R-Kioski and supermarkets) is easy to grab for continuous coverage on day trips to Kerimäki or Punkaharju"
+    },
+    "tip": {
+      "s": "Not expected — service is built into listed prices and wages",
+      "r": "Rounding up the bill or leaving 5–10% for exceptional service is appreciated but never obligatory"
+    },
+    "region": "eurasia",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 75,
+      "mid": 160,
+      "luxury": 320
+    },
+    "score": {
+      "nightlife": 25,
+      "restaurants": 55,
+      "museums": 55,
+      "architecture": 75,
+      "nature": 92
+    }
+  },
+  {
+    "city": "Pucón",
+    "country": "Chile",
+    "visitors": "~250K",
+    "pop": "~28K",
+    "lat": -39.2833,
+    "lng": -71.9667,
+    "tagline": "Adventure capital of the Chilean Lake District, in the shadow of an active volcano",
+    "temps": {
+      "q1": 60,
+      "q2": 47,
+      "q3": 42,
+      "q4": 52
+    },
+    "rain": {
+      "q1": 19,
+      "q2": 36,
+      "q3": 39,
+      "q4": 29
+    },
+    "langs": [
+      "Spanish",
+      "English (tourist businesses)",
+      "Mapudungun (indigenous minority)"
+    ],
+    "currency": "CLP",
+    "currency_symbol": "$",
+    "currency_name": "Chilean Peso",
+    "usd_rate": 910,
+    "card": "Widely accepted at hotels, tour operators, and mid-range restaurants; small cafés, artisan stalls, colectivos, and rural termas are often cash-only, so carry CLP",
+    "cost": {
+      "hotel": 70,
+      "meal": 12,
+      "taxi": 5
+    },
+    "hotel": {
+      "b": "$18-40",
+      "h": "$180-500"
+    },
+    "rides": [
+      "Uber",
+      "Cabify",
+      "DiDi"
+    ],
+    "taxi": {
+      "color": "Black with a yellow roof-mounted sign (\"TAXI\")",
+      "fare": "$2-3 base plus ~$1/km in town",
+      "fareNote": "Meters are inconsistent in Pucón; agree on a fixed price before longer trips (e.g., to Caburgua or the volcano base) since many rides are negotiated flat fares"
+    },
+    "emergency": {
+      "police": "133 (Carabineros)",
+      "medical": "131 (ambulance/SAMU)",
+      "note": "Fire: 132. There's a small public hospital (Hospital de Pucón) and a Carabineros station on Av. O'Higgins; a seasonal Volcano/Mountain Rescue (CONAF/GOPE) team monitors Villarrica ascents"
+    },
+    "religion": [
+      "Roman Catholic ~55%",
+      "Evangelical/Protestant ~15%",
+      "Unaffiliated/None ~25%",
+      "Mapuche traditional beliefs (regional minority)"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Plaza de Armas de Pucón",
+        "Av. O'Higgins main street",
+        "Playa Grande sunset",
+        "Artisan market"
+      ],
+      [
+        "Volcán Villarrica crater climb (guided ascent)",
+        "Gran Hotel Pucón viewpoint",
+        "Casino de Pucón area"
+      ],
+      [
+        "Huerquehue National Park (Lago Chico & Los Patos trails)",
+        "Lago Tinquilco"
+      ],
+      [
+        "Ojos del Caburgua waterfalls",
+        "Lago Caburgua beaches",
+        "Termas Geométricas or Los Pozones hot springs"
+      ]
+    ],
+    "walk": "The town center is compact and very walkable — most restaurants, shops, and the lakefront cluster within a 10-15 minute walk along Av. O'Higgins — but the volcano, national parks, waterfalls, and hot springs are all outside town and require a rental car, tour van, or taxi/colectivo",
+    "safety": {
+      "safety": "Very safe — regularly rated one of the safest and most solo-traveler-friendly towns in Chile",
+      "crime": "Petty theft (unattended bags on the beach, valuables left in parked rental cars) is the main risk; violent crime against tourists is rare. Bigger real risks are outdoor/adventure hazards — volcanic activity, sudden weather changes, and river currents"
+    },
+    "hood_landmark": {
+      "Centro (Downtown Pucón)": "Plaza de Armas & Av. O'Higgins",
+      "La Poza": "Playa Grande & the Río Claro–Lago Villarrica confluence",
+      "Quelhue": "Ecoreserva Quelhue lakeside lodges",
+      "Camino a Villarrica": "Hotel Antumalal & the lakeshore road toward Villarrica",
+      "Villa Las Peñas": "Residential hillside streets near the Fresia hostel row"
+    },
+    "hoods": [
+      "Centro (Downtown Pucón)",
+      "La Poza",
+      "Quelhue",
+      "Camino a Villarrica",
+      "Villa Las Peñas"
+    ],
+    "hood_desc": [
+      "The compact core of town, packed onto and around Av. O'Higgins — outdoor outfitters, currency exchanges, restaurants, artisan markets, and the church-lined plaza. Base for most visitors.",
+      "The lakefront district where the Río Claro meets Lago Villarrica; home to Playa Grande beach, boat launches, and views of the volcano across the water. A short walk from the center.",
+      "A quieter lakeside residential pocket east of town toward Caburgua, known for eco-lodges, cabañas, and lake access away from the crowds.",
+      "The scenic road linking Pucón and Villarrica along the lakeshore, dotted with boutique and design-forward hotels tucked into the araucaria forest.",
+      "A hillside residential neighborhood a few blocks back from O'Higgins, popular with backpackers for its cluster of hostels and cheaper cabañas, with volcano views from the upper streets."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "hipster",
+      null
+    ],
+    "lodging": [
+      [
+        "Gran Hotel Pucón",
+        "La Posada Plaza Pucón",
+        "Hostal ¡école!"
+      ],
+      [
+        "Hotel del Lago Pucón",
+        "Wanaku Lodge",
+        "Cabañas Playa Grande"
+      ],
+      [
+        "Ecoreserva Quelhue Lodge y Cabañas",
+        "Ruka Malal Lodge",
+        "Quelhue Lakeside Cabins"
+      ],
+      [
+        "Hotel Antumalal",
+        "Refugia Pucón",
+        "Origen Alto de Pucón"
+      ],
+      [
+        "¡école! Annex Villa Las Peñas",
+        "Hostal Backpackers Las Peñas",
+        "Chili Kiwi Lakefront"
+      ]
+    ],
+    "drinks": {
+      "coffee": 3,
+      "beer": 4,
+      "water": 1.5
+    },
+    "transit": {
+      "sys": "No formal municipal public transit; local colectivos (shared taxis) and infrequent regional buses link Pucón to Villarrica, Caburgua, and outlying trailheads",
+      "hours": "Colectivos and rural buses generally run roughly 7am-9pm, thinner service on weekends and in winter shoulder season",
+      "pay": "Cash (CLP) paid directly to the driver; no transit card",
+      "map": "No official route map — ask your hotel or the tourist info kiosk on the plaza for current colectivo stops",
+      "note": "Nearly everyone walks the town center and uses tour vans, rental cars, or taxis/rideshare apps for the volcano, parks, and hot springs"
+    },
+    "transport": {
+      "air": "Fly into Temuco's La Araucanía International Airport (ZCO), about 100 km / 1-1.5 hr away, with daily domestic flights from Santiago (LATAM, Sky, JetSmart); Pucón's own small airport (ZPC) has only very limited seasonal flights",
+      "train": "No passenger rail serves Pucón or the surrounding Araucanía region",
+      "bus": "Frequent long-distance buses (Turbus, Pullman, JAC) connect Pucón to Temuco, Santiago (9-10 hrs), and Valdivia via the main bus terminal on Av. O'Higgins/Palguín",
+      "ferry": "No ferry service — Lago Villarrica is used for recreational and tour boats only, not scheduled transport",
+      "car": "Renting a car in Temuco or Pucón is the easiest way to reach Huerquehue, Caburgua, and the termas independently; roads are paved to major sights but can be gravel/unpaved further out"
+    },
+    "airport": {
+      "code": "ZCO",
+      "name": "La Araucanía International Airport (Temuco)",
+      "distance": "~100 km / 1-1.5 hr drive from Pucón",
+      "transport": "Regular shuttle/bus transfers and regional buses run between Temuco airport/bus terminal and Pucón; rental cars available at Temuco airport; pre-booked taxi transfers run roughly $60-90 USD"
+    },
+    "net": {
+      "m": "Entel, Movistar, Claro, and WOM all have coverage in Pucón town; signal can drop in national parks and near the volcano",
+      "w": "Wifi is standard in hotels, hostels, and most cafés/restaurants in the center",
+      "ops": "Entel, Movistar, Claro, WOM",
+      "gb": "$8-15 for a prepaid tourist SIM with several GB of data",
+      "fw": true,
+      "fwn": "Standard open internet access; wifi widely available in hotels and cafes",
+      "ap": "eSIMs from Holafly or Airalo work well and can be activated before arrival"
+    },
+    "tip": {
+      "s": "Tipping guides, drivers, and tour operators ~10% is customary and appreciated but not obligatory",
+      "r": "Restaurants often add a voluntary 10% service charge to the bill automatically; you can ask to remove it, and it's polite to leave it or round up for good service"
+    },
+    "region": "s-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 40,
+      "mid": 90,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 35,
+      "restaurants": 55,
+      "museums": 12,
+      "architecture": 22,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Tórshavn",
+    "country": "Faroe Islands",
+    "visitors": "~130K",
+    "pop": "~14,200",
+    "lat": 62.0097,
+    "lng": -6.7716,
+    "tagline": "The world's smallest capital, wrapped in turf roofs and fog",
+    "temps": {
+      "q1": 38,
+      "q2": 45,
+      "q3": 51,
+      "q4": 42
+    },
+    "rain": {
+      "q1": 41,
+      "q2": 26,
+      "q3": 31,
+      "q4": 43
+    },
+    "langs": [
+      "Faroese",
+      "Danish",
+      "English"
+    ],
+    "currency": "Faroese króna (pegged 1:1 to Danish krone)",
+    "currency_symbol": "kr",
+    "currency_name": "Faroese króna",
+    "usd_rate": 6.54,
+    "card": "Extremely card-friendly — contactless and chip cards are accepted almost everywhere, including small cafés, public restrooms, and buses; cash (Faroese krónur or Danish kroner) is rarely needed.",
+    "cost": {
+      "hotel": 180,
+      "meal": 35,
+      "taxi": 18
+    },
+    "hotel": {
+      "b": "$100-160",
+      "h": "$220-350"
+    },
+    "rides": [
+      "No Uber or Bolt available",
+      "Taxi.fo (local taxi company with online/phone booking)",
+      "Sam Ringar Taxi (phone booking only)"
+    ],
+    "taxi": {
+      "color": "Unmarked private sedans/minivans (no standard livery color)",
+      "fare": "~$15-20 for a short ride within central Tórshavn",
+      "fareNote": "Metered fares in town; airport transfers to/from Vágar are typically flat-rate, around $100-130 for the 45-minute trip"
+    },
+    "emergency": {
+      "police": "112 (emergency); 114 for non-emergency police",
+      "medical": "112",
+      "note": "Landssjúkrahúsið (National Hospital) is in Tórshavn; 112 covers police, fire, and ambulance for the entire country"
+    },
+    "religion": [
+      "Evangelical Lutheran (Church of the Faroe Islands) ~80%",
+      "Christian Brethren/Plymouth Brethren ~10%",
+      "Other Christian denominations ~5%",
+      "Unaffiliated or other ~5%"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Tinganes (historic parliament peninsula)",
+        "Tórshavn Cathedral (Havnar Kirkja)",
+        "Reyn old town lanes",
+        "Skansin fort & lighthouse",
+        "National Museum of the Faroe Islands (Tjóðsavnið)",
+        "Viðarlund park and National Gallery (Listasavn Føroya)"
+      ],
+      [
+        "Kirkjubøur village and Kirkjubøargarður/St. Magnus Cathedral ruin (20 min drive)",
+        "Mühlarendi viewpoint near Kirkjubøur",
+        "Saksun village and tidal lagoon (1 hr drive)",
+        "Vestmanna bird cliffs boat tour (45 min drive plus 2 hr boat trip)"
+      ],
+      [
+        "Day trip to Mykines by ferry or helicopter for puffins and sea-cliff hiking (weather dependent, book ahead)",
+        "Alternative: Gásadalur village and Múlafossur waterfall (near Vágar Airport, ~1 hr drive)",
+        "Sørvágsvatn/Leitisvatn and the Trælanípa cliff-top hike",
+        "Bøsdalafossur waterfall viewpoint"
+      ]
+    ],
+    "walk": "Central Tórshavn — Tinganes, the harbor, Reyn, and Vaglið — is compact and fully walkable in 20-30 minutes end to end, though streets are hilly and cobbled. Outlying highlights like Kirkjubøur, Saksun, Vestmanna, Gásadalur, and Mykines require a rental car, guided tour, or the SSL bus/ferry network.",
+    "safety": {
+      "safety": "Extremely safe — consistently ranks among the safest capitals in the world; violent crime is virtually nonexistent and police are unarmed.",
+      "crime": "Petty theft and pickpocketing are rare; locals often leave doors and bikes unlocked. The real risks for visitors are weather- and terrain-related — sudden fog, strong winds, and unfenced sea cliffs — rather than crime."
+    },
+    "hoods": [
+      "Tinganes & Reyn (Old Town)",
+      "Undir Ryggi",
+      "Vaglið",
+      "Viðarlund",
+      "Argir"
+    ],
+    "hood_landmark": {
+      "Tinganes & Reyn (Old Town)": "Tinganes peninsula and Tórshavn Cathedral (Havnar Kirkja)",
+      "Undir Ryggi": "Harborside bar strip near Vestara Bryggja",
+      "Vaglið": "Vaglið square and the Niels Finsens gøta shopping street",
+      "Viðarlund": "Viðarlund town park and the National Gallery of the Faroe Islands",
+      "Argir": "Argir Church (Argir kirkja) and the seaside promenade"
+    },
+    "hood_desc": [
+      "The postcard heart of the city — turf-roofed black wooden buildings housing the Faroese parliament (Løgting), narrow lanes, and a working harbor where fishing boats moor beside government ministries.",
+      "A tightly packed cluster of pubs, cafés, and late-night bars just above the harbor — the closest thing Tórshavn has to a nightlife strip, lively on weekends.",
+      "The pedestrian square and main shopping street, lined with boutiques, bakeries, and cafés; the natural gathering point in the city center.",
+      "A leafy park and cultural pocket a short walk from downtown, with duck ponds, walking paths, and the country's national art gallery.",
+      "A quiet residential suburb across the fjord from downtown, popular with families, with a seafront path connecting back to central Tórshavn."
+    ],
+    "hood_tags": [
+      "sights",
+      "nightlife",
+      "central",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Hotel Tórshavn",
+        "Hafnia Hotel",
+        "Tórshavn City Hostel"
+      ],
+      [
+        "Hotel Streym",
+        "Hotel Aurora",
+        "Guesthouse Kósin"
+      ],
+      [
+        "Hilton Garden Inn Tórshavn",
+        "Hotel Brandan",
+        "SMS Guesthouse"
+      ],
+      [
+        "Hotel Føroyar",
+        "Havgrím Seaside Hotel",
+        "Bládýpi Youth Hostel"
+      ],
+      [
+        "Argir Guesthouse",
+        "Sjóvinnuhúsið B&B",
+        "Airbnb apartments in Argir"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4.5,
+      "beer": 9,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "Bussleiðin (free local city buses within Tórshavn) plus the national SSL bus and ferry network (Strandfaraskip Landsins)",
+      "hours": "Local buses run roughly 6:30am-11:30pm on weekdays with reduced weekend service; national SSL routes vary by line",
+      "pay": "Local Tórshavn city buses are entirely FREE — no ticket needed; national SSL buses and ferries charge fares (roughly $3-25 depending on distance), payable by card or the App SSL",
+      "map": "Route maps and schedules at torshavn.fo and ssl.fo",
+      "note": "There are no trains. A rental car or organized tour is generally needed to reach outlying villages and trailheads not served by bus, such as Saksun and Gásadalur."
+    },
+    "transport": {
+      "air": "Vágar Airport (FAE) is the only airport in the Faroe Islands, about 45 minutes by car or bus from Tórshavn. Atlantic Airways and partner carriers fly from Copenhagen, Billund, Reykjavík, Edinburgh, Bergen, and other seasonal hubs.",
+      "train": "None — the Faroe Islands have no railway network.",
+      "bus": "SSL long-distance buses link all major towns via a network of undersea tunnels and bridges; local Tórshavn city buses are free to ride.",
+      "ferry": "Smyril Line's MS Norröna sails weekly between Hirtshals, Denmark and Tórshavn (about 2 days), continuing on to Seyðisfjörður, Iceland; domestic SSL ferries connect outer islands such as Nólsoy, Hestur, Sandoy, and Suðuroy.",
+      "car": "Rental cars are available at Vágar Airport and in Tórshavn; roads are well maintained but many routes pass through single-lane or toll subsea tunnels, so GPS or offline maps are recommended."
+    },
+    "airport": {
+      "code": "FAE",
+      "name": "Vágar Airport",
+      "distance": "~30 mi (48 km) from Tórshavn, about 45 minutes by car or bus",
+      "transport": "SSL Bus 300 connects Vágar Airport to Tórshavn (~$12-15, about 1 hour with stops); taxi transfer runs ~$100-130; rental car counters (Avis, Europcar, 62N and others) are available at the airport terminal"
+    },
+    "net": {
+      "m": "Föroya Tele and Hey (Vodafone) sell tourist SIM cards for about $25-35, available at the airport and shops in Tórshavn",
+      "w": "Free WiFi is common in cafés, hotels, and the public library; coverage is patchier in remote villages",
+      "ops": "Föroya Tele, Hey, and Nema are the main mobile operators",
+      "gb": "Prepaid tourist SIMs typically offer 5-20GB for around $25-40",
+      "fw": true,
+      "fwn": "4G/LTE covers Tórshavn and the main road network reliably; signal can drop inside subsea tunnels and on remote hiking trails such as Mykines and Kalsoy",
+      "ap": "eSIMs from Föroya Tele or international providers (Airalo, Holafly) can be activated before arrival"
+    },
+    "tip": {
+      "s": "No tipping is expected for services such as taxis or hotel staff — prices already reflect fair wages.",
+      "r": "Rounding up the bill or leaving 5-10% for exceptional service is appreciated but never required, even at destination restaurants like KOKS."
+    },
+    "region": "faroe",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 120,
+      "mid": 220,
+      "luxury": 450
+    },
+    "score": {
+      "nightlife": 25,
+      "restaurants": 65,
+      "museums": 40,
+      "architecture": 70,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Stanley",
+    "country": "Falkland Islands",
+    "visitors": "~76,000/year",
+    "pop": "2,974",
+    "lat": -51.695,
+    "lng": -57.8508,
+    "tagline": "Red phone boxes, roaring winds, and king penguins just past the last streetlamp",
+    "temps": {
+      "q1": 51,
+      "q2": 41,
+      "q3": 38,
+      "q4": 48
+    },
+    "rain": {
+      "q1": 44,
+      "q2": 42,
+      "q3": 38,
+      "q4": 38
+    },
+    "langs": [
+      "English"
+    ],
+    "currency": "Falkland Islands Pound",
+    "currency_symbol": "£",
+    "currency_name": "Falkland Islands Pound (FKP), pegged 1:1 to British Pound Sterling (GBP), which also circulates",
+    "usd_rate": 0.75,
+    "card": "Visa/Mastercard widely accepted at hotels, the Malvina House Hotel, larger restaurants, and shops in Stanley; carry FKP or GBP cash (they're interchangeable) for taxis, pubs, and small vendors — US dollars aren't used locally and must be exchanged at Stanley's bank",
+    "cost": {
+      "hotel": 200,
+      "meal": 35,
+      "taxi": 10
+    },
+    "hotel": {
+      "b": "$120–190",
+      "h": "$220–380"
+    },
+    "rides": [
+      "None — no Uber, Lyft, or ride-hailing apps operate in the Falklands; call a local taxi firm directly (Stanley Cabs, Bonners Taxis, Town Taxis, or Simon's Taxis)"
+    ],
+    "taxi": {
+      "color": "Unmarked private cars/minivans, no standard livery or roof light",
+      "fare": "~$8–12 flat fare for most trips within Stanley",
+      "fareNote": "No meters — fares are fixed or agreed in advance; a transfer to/from Mount Pleasant Airport runs roughly $110–150 one-way and should be booked ahead"
+    },
+    "emergency": {
+      "police": "999 (islands-wide emergency number for police, fire, and ambulance)",
+      "medical": "999 for emergencies; King Edward VII Memorial Hospital in Stanley for routine and urgent care",
+      "note": "Crime is exceptionally rare; 999 is answered locally and response is fast given the small population"
+    },
+    "religion": [
+      "Christian (Anglican/Church of England, largest denomination) ~60%",
+      "Roman Catholic ~10%",
+      "Other Christian (United Free, Lutheran, Jehovah's Witness, etc.) ~10%",
+      "No religion/unaffiliated ~15%",
+      "Other faiths <5%"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Stanley waterfront & Ross Road",
+        "Christ Church Cathedral & Whalebone Arch",
+        "Government House",
+        "Falkland Islands Museum (Historic Dockyard)",
+        "1982 Liberation Memorial",
+        "Historic shipwrecks in Stanley Harbour"
+      ],
+      [
+        "Gypsy Cove & Yorke Bay (Magellanic penguins)",
+        "Battle of the Falklands 1914 Memorial",
+        "Bertha's Beach"
+      ],
+      [
+        "Full-day excursion to Volunteer Point (king penguin colony, by 4x4)"
+      ]
+    ],
+    "walk": "Stanley is small and entirely walkable — the town center along Ross Road can be crossed end to end in under 20 minutes, and nearly every waterfront sight, pub, and shop sits within a few blocks of the harbour.",
+    "safety": {
+      "safety": "One of the safest places in the world to travel; violent crime against visitors is essentially unheard of",
+      "crime": "Extremely low; petty theft is rare, many residents leave doors unlocked, and there is no history of crime targeting tourists"
+    },
+    "hood_landmark": {
+      "Stanley Waterfront / Ross Road": "Whalebone Arch & Christ Church Cathedral",
+      "Ross Road East / Government House": "Government House",
+      "East Stanley (Historic Dockyard)": "Falkland Islands Museum",
+      "West Stanley": "Stanley Cemetery & St. Mary's Catholic Church",
+      "Gypsy Cove & Stanley Common": "Gypsy Cove penguin colony"
+    },
+    "hoods": [
+      "Stanley Waterfront / Ross Road",
+      "Ross Road East / Government House",
+      "East Stanley (Historic Dockyard)",
+      "West Stanley",
+      "Gypsy Cove & Stanley Common"
+    ],
+    "hood_desc": [
+      "The compact harbourfront core, lined with brightly painted cottages, pubs, gift shops, and the town's main jetty where cruise tenders land.",
+      "The genteel eastern stretch of Ross Road facing the harbour, home to the Governor's residence and several of Stanley's guesthouses.",
+      "The quieter dockyard quarter east of downtown, anchored by the Falkland Islands Museum and old naval buildings, with harbor views.",
+      "A residential hillside area west of the center with the cemetery, church, and modest houses climbing away from the water.",
+      "The town's outer edge toward the airport road, gateway to Gypsy Cove, Yorke Bay, and the wider camp (countryside) beyond."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "sights",
+      "quiet",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Malvina House Hotel",
+        "The Waterfront Boutique Hotel",
+        "Shorty's Motel"
+      ],
+      [
+        "Lafone Guest House",
+        "The Ark Stanley",
+        "Tu Guesthouse"
+      ],
+      [
+        "Anchors Aweigh",
+        "Kay McCullum's B&B",
+        "Lookout Lodge"
+      ],
+      [
+        "International Tours & Travel self-catering cottages",
+        "Stanley Guest House",
+        "Sound View Cottage"
+      ],
+      [
+        "Sparrow Hawk Farm Cottage",
+        "Yorke Bay Cottage",
+        "Murrell Farm Cottage"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4.5,
+      "beer": 7,
+      "water": 2.5
+    },
+    "transit": {
+      "sys": "None — Stanley has no public bus, tram, or rail system",
+      "hours": "N/A",
+      "pay": "N/A — get around on foot, by private taxi, or rental 4x4",
+      "map": "N/A",
+      "note": "There is no formal public transit in Stanley or anywhere in the Falklands; the town is small enough to walk everywhere, and local taxi firms (plus rental cars) cover trips beyond downtown, including the long haul out to Mount Pleasant Airport."
+    },
+    "transport": {
+      "air": "The only practical way in: fly to RAF Mount Pleasant Airport (MPN), about 35 mi/58 km from Stanley — served by a weekly LATAM flight from Punta Arenas, Chile (via Santiago), and a twice-weekly RAF/civilian charter from RAF Brize Norton, UK, routing via Ascension Island.",
+      "train": "No railways exist anywhere in the Falkland Islands.",
+      "bus": "No scheduled public bus service in Stanley; a coach/shuttle meets international flights at Mount Pleasant to transfer passengers to Stanley.",
+      "ferry": "No scheduled passenger ferry service to Stanley; the harbour is a major Antarctic and South American cruise-ship stop, with passengers tendered ashore at the Public Jetty and FIPASS.",
+      "car": "Rental cars and 4x4s are available in Stanley and are essential for reaching Gypsy Cove, Volunteer Point, and other outlying sights, since most roads outside town are unpaved gravel tracks."
+    },
+    "airport": {
+      "code": "MPN",
+      "name": "RAF Mount Pleasant Airport (Mount Pleasant Complex)",
+      "distance": "~35 miles (58 km) southwest of Stanley, about 1–1.5 hours by road",
+      "transport": "Pre-booked private transfer/taxi (roughly $110–150 one-way) or a coach shuttle timed to flight arrivals; rental car pickup available at the airport terminal; no walk-up taxi rank or public bus at MPA"
+    },
+    "net": {
+      "m": "Sure South Atlantic is the sole mobile operator; 4G covers Stanley and nearby areas, with prepaid SIM cards sold locally",
+      "w": "Wi-Fi is available at hotels, guesthouses, and cafés in Stanley but is often slow and data-capped",
+      "ops": "Sure South Atlantic (the territory's only telecom and internet provider)",
+      "gb": "Mobile data is costly and sold in small bundles, roughly $15–25 per GB",
+      "fw": false,
+      "fwn": "Connectivity runs via a 2013 subsea fibre link supplemented by satellite capacity; free wifi is limited outside hotels",
+      "ap": "Overseas roaming is very expensive; buying a local Sure SIM on arrival at Stanley or the airport is the practical option"
+    },
+    "tip": {
+      "s": "Tipping is not customary or expected anywhere in the Falkland Islands, in keeping with British practice.",
+      "r": "Restaurants: rounding up or adding 5–10% for standout service is appreciated but never required; taxis are never tipped."
+    },
+    "region": "falklands",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 110,
+      "mid": 230,
+      "luxury": 480
+    },
+    "score": {
+      "nightlife": 10,
+      "restaurants": 38,
+      "museums": 48,
+      "architecture": 52,
+      "nature": 98
+    }
+  },
+  {
+    "city": "Cuiabá",
+    "country": "Brazil",
+    "visitors": "~300K",
+    "pop": "691,875 (metro ~1.09M)",
+    "lat": -15.5958,
+    "lng": -56.0969,
+    "tagline": "Brazil's steamy geographic heart, where the Cerrado, Amazon, and Pantanal collide.",
+    "temps": {
+      "q1": 83,
+      "q2": 80,
+      "q3": 81,
+      "q4": 83
+    },
+    "rain": {
+      "q1": 69,
+      "q2": 24,
+      "q3": 13,
+      "q4": 56
+    },
+    "langs": [
+      "Portuguese"
+    ],
+    "currency": "BRL",
+    "currency_symbol": "R$",
+    "currency_name": "Brazilian Real",
+    "usd_rate": 5.08,
+    "card": "Widely accepted in hotels, malls, and mid-range/upscale restaurants in the center and Goiabeiras; carry cash for markets, street food, small bars, and rural Pantanal/Chapada lodges where card machines are unreliable.",
+    "cost": {
+      "hotel": 45,
+      "meal": 8,
+      "taxi": 6
+    },
+    "hotel": {
+      "b": "$25-$45",
+      "h": "$75-$180"
+    },
+    "rides": [
+      "Uber",
+      "99"
+    ],
+    "taxi": {
+      "color": "White, with rooftop taxi sign and red municipal plate",
+      "fare": "Flag drop R$6.00 plus ~R$4.30/km (Bandeira 1), rising to R$6.00/km at night/Bandeira 2",
+      "fareNote": "A short 3-5 km ride across downtown runs roughly $5-9; agree on or confirm the meter is running, especially from the airport or bus terminal."
+    },
+    "emergency": {
+      "police": "190",
+      "medical": "192 (SAMU)",
+      "note": "193 covers fire and rescue (Corpo de Bombeiros). Operators typically speak only Portuguese, so having a local contact or translation app ready helps in an emergency."
+    },
+    "religion": [
+      "Roman Catholic 56.8%",
+      "Protestant/Evangelical 26.9%",
+      "No religion 9.3%",
+      "Spiritist 1.8%",
+      "Afro-Brazilian religions 1.1%"
+    ],
+    "stay": "4",
+    "visit": [
+      [
+        "Praça da República and Catedral Basílica do Senhor Bom Jesus",
+        "Palácio da Instrução",
+        "Museu Rondon de Etnologia e Arqueologia",
+        "Museu de Arte Sacra de Mato Grosso"
+      ],
+      [
+        "Mercado do Porto riverside market",
+        "Museu do Rio Cuiabá",
+        "stroll the Porto district waterfront on the Rio Cuiabá",
+        "Centro Geodésico da América do Sul (South America's geographic center marker)"
+      ],
+      [
+        "Parque Mãe Bonifácia nature walk",
+        "Sesc Arsenal cultural center",
+        "lunch and shopping at Goiabeiras Shopping",
+        "evening bars and botecos in Araés"
+      ],
+      [
+        "Full-day trip to Chapada dos Guimarães National Park: Véu de Noiva waterfall, Mirante Geodésico viewpoint, Cidade de Pedra rock formations"
+      ]
+    ],
+    "walk": "The historic center around Praça da República is compact and walkable, but Cuiabá's brutal heat (often 95°F+) and sprawling newer districts (Goiabeiras, CPA, Araés) make walking between neighborhoods impractical; most visitors pair short walks downtown with taxis or rideshare for everything else.",
+    "safety": {
+      "safety": "Moderate, uneven safety - daytime in the center, CPA, and Jardim das Américas is generally fine with normal urban precautions, but conditions deteriorate after dark and in outlying bairros.",
+      "crime": "Notable concern over robbery and property crime; nighttime walking safety is rated low. Stick to busy, well-lit streets after dark, keep valuables out of sight, use registered taxis or Uber/99 rather than walking or riding late buses at night, and avoid Pedregal and Jardim Vitória, which locals flag as higher-crime areas."
+    },
+    "hood_landmark": {
+      "Centro Histórico": "Praça da República",
+      "Porto": "Mercado do Porto",
+      "CPA / Jardim das Américas": "Parque Mãe Bonifácia",
+      "Goiabeiras": "Goiabeiras Shopping",
+      "Araés": "Base Aérea de Cuiabá (former city airfield)"
+    },
+    "hoods": [
+      "Centro Histórico",
+      "Porto",
+      "CPA / Jardim das Américas",
+      "Goiabeiras",
+      "Araés"
+    ],
+    "hood_desc": [
+      "Cuiabá's colonial-era core, anchored by Praça da República where the Catedral Basílica do Senhor Bom Jesus, the Palácio da Instrução, and the Museu Rondon cluster around leafy gardens; narrow streets radiate out with government offices, budget hotels, and everyday capital-city bustle.",
+      "The old river port on the Rio Cuiabá, once the 18th-century gold-rush gateway to Mato Grosso, now home to the Mercado do Porto food stalls, the Museu do Rio Cuiabá, and riverside walkways where fishing boats still tie up at dusk.",
+      "A leafy, well-off swath of wide avenues and gated condos surrounding Parque Mãe Bonifácia's cerrado trails; widely cited as the city's safest, quietest base, popular with business travelers visiting the nearby state government complex.",
+      "A fast-growing commercial district built around Goiabeiras Shopping and the UFMT university campus, packed with chain hotels, malls, and restaurants aimed at business and transit travelers.",
+      "A central, traffic-heavy neighborhood that grew up around Cuiabá's old city airfield; after dark its side streets fill with botecos, live-music bars, and late-night kitchens, making it the city's go-to strip for a night out."
+    ],
+    "hood_tags": [
+      "central",
+      "sights",
+      "quiet",
+      "shopping",
+      "nightlife"
+    ],
+    "lodging": [
+      [
+        "Mato Grosso Palace Hotel",
+        "Hotel Panorama",
+        "Amazon Plaza Hotel"
+      ],
+      [
+        "Pousada Rio Manso",
+        "Apoema Hotel",
+        "Hotel Beira Rio"
+      ],
+      [
+        "Pousada CPA",
+        "Serras Hotel",
+        "Le Soleil Residence Hotel"
+      ],
+      [
+        "Hotel Deville Prime Cuiabá",
+        "Gran Odara Hotel",
+        "ibis Cuiabá Shopping"
+      ],
+      [
+        "Hotel Inter Cuiabá",
+        "Delmond Hotel",
+        "Amazon Aeroporto Hotel"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 1.7,
+      "water": 0.7
+    },
+    "transit": {
+      "sys": "Consórcio Cuiabá municipal bus network (regulated by ARSEC)",
+      "hours": "Roughly 5:00am-11:00pm on most lines; service is sparse late at night",
+      "pay": "Cash or the rechargeable Cuiabá Card (bilhete único) tapped on boarding; flat fare is R$4.60 (~$0.90) per ride",
+      "map": "No robust official real-time app; Moovit is the most commonly used third-party tool for route planning",
+      "note": "Buses can be crowded and infrequent off-peak; not recommended for tourists after dark. Ride-hailing (Uber/99) is faster, cheap, and generally the safer choice for visitors."
+    },
+    "transport": {
+      "air": "Marechal Rondon International Airport (CGB), ~8km/20-40 min from downtown in neighboring Várzea Grande, with frequent domestic flights from São Paulo, Brasília, Rio de Janeiro, and other Brazilian hubs; no scheduled direct international flights.",
+      "train": "None - Brazil has no functioning long-distance passenger rail service reaching Cuiabá.",
+      "bus": "Rodoviária de Cuiabá (long-distance terminal) links to Campo Grande, São Paulo, Brasília, and other regional cities; overland journeys are long (24+ hours to São Paulo).",
+      "ferry": "None scheduled - Cuiabá is inland; recreational river/flotel trips run into the Pantanal but aren't a transit option.",
+      "car": "Reachable via the BR-364 and BR-163 highways; a rental car helps for day trips to Chapada dos Guimarães and the Transpantaneira but isn't needed within the compact center."
+    },
+    "airport": {
+      "code": "CGB",
+      "name": "Marechal Rondon International Airport",
+      "distance": "~8 km (5 mi) / 20-40 minutes from downtown, located in Várzea Grande",
+      "transport": "Airport taxis and Uber/99 both operate curbside; a taxi downtown runs roughly $10-18 depending on traffic; public buses connect the airport to the city bus terminal as the cheapest but slowest option"
+    },
+    "net": {
+      "m": "Good 4G coverage across the city center and main corridors; signal weakens quickly once outside town toward the Pantanal or Chapada dos Guimarães",
+      "w": "Free wifi is common in hotels, cafes, malls (Goiabeiras Shopping, Shopping Pantanal), and the airport; less reliable at budget guesthouses",
+      "ops": "Vivo, Claro, TIM",
+      "gb": "About $12-30/month for a prepaid plan with 20-50GB, or from around $5 for a short-term tourist eSIM bundle",
+      "fw": true,
+      "fwn": "Airport, shopping malls, and most mid-range/upscale hotels; wifi in the historic center's public squares is inconsistent",
+      "ap": "A local SIM or eSIM (TIM or Claro) is advisable if traveling independently or heading toward the Pantanal/Chapada, since maps and translation apps are essential"
+    },
+    "tip": {
+      "s": "A 10% service charge ('taxa de serviço') is often already added to restaurant bills; if not included, leaving 10% is customary and appreciated but not obligatory.",
+      "r": "Round up or leave small change for taxi drivers, bartenders, and hotel staff; Pantanal/Chapada tour guides are commonly tipped around $5-10 per day per person."
+    },
+    "region": "s-america",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 45,
+      "mid": 100,
+      "luxury": 220
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 55,
+      "museums": 40,
+      "architecture": 35,
+      "nature": 90
+    }
+  },
+  {
+    "city": "Guarujá",
+    "country": "Brazil",
+    "visitors": "~2M",
+    "pop": "~305K",
+    "lat": -23.9936,
+    "lng": -46.2564,
+    "tagline": "The Pearl of the Atlantic — 27 beaches where São Paulo comes up for air",
+    "temps": {
+      "q1": 82,
+      "q2": 76,
+      "q3": 72,
+      "q4": 77
+    },
+    "rain": {
+      "q1": 54,
+      "q2": 28,
+      "q3": 24,
+      "q4": 44
+    },
+    "langs": [
+      "Portuguese",
+      "limited English in tourist areas"
+    ],
+    "currency": "BRL",
+    "currency_symbol": "R$",
+    "currency_name": "Brazilian Real",
+    "usd_rate": 5.08,
+    "card": "Visa/Mastercard widely accepted at hotels, mid-range restaurants, and shops in Pitangueiras/Enseada; carry cash (R$) for beach kiosks (quiosques), small vendors, buses, and taxis, which often don't take cards",
+    "cost": {
+      "hotel": 90,
+      "meal": 15,
+      "taxi": 8
+    },
+    "hotel": {
+      "b": "$35-$75",
+      "h": "$150-$450"
+    },
+    "rides": [
+      "Uber",
+      "99",
+      "inDrive"
+    ],
+    "taxi": {
+      "color": "White (standard São Paulo state livery, unlike Rio's yellow cabs)",
+      "fare": "R$6-8 flag drop (bandeirada) plus ~R$3-4/km",
+      "fareNote": "Metered (taxímetro); a short beachfront hop runs R$15-30 (~$3-6); ride-hailing apps are usually cheaper and easier"
+    },
+    "emergency": {
+      "police": "190",
+      "medical": "192 (SAMU)",
+      "note": "Fire/rescue: 193; Municipal Guard (GCM) tourist support: 153. Main beach zones see heavy summer police presence; petty theft (phone/bag snatching) on crowded beaches is the top risk"
+    },
+    "religion": [
+      "Catholic ~57%",
+      "Evangelical/Protestant ~27%",
+      "No religion ~9%",
+      "Spiritist ~2%",
+      "Other/Afro-Brazilian faiths ~5%"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Praia das Pitangueiras boardwalk",
+        "Acqua Mundo aquarium",
+        "Rua Mário Ribeiro shopping & dining strip",
+        "Sunset at Praia das Astúrias"
+      ],
+      [
+        "Praia da Enseada 5.6km beachfront walk",
+        "Fortaleza de Santo Amaro da Barra Grande (historic fort)",
+        "Mar Casado tidal beach merger at Praia de Pernambuco",
+        "Dinner at a Pernambuco quiosque"
+      ],
+      [
+        "Praia do Tombo (Blue Flag, surfing)",
+        "Morro do Maluf viewpoint / paragliding",
+        "Boat trip to Ilha de Santo Amaro or Praia do Góes",
+        "Praia do Guaiúba"
+      ]
+    ],
+    "walk": "The main beach strip (Pitangueiras-Astúrias-Enseada) is flat and highly walkable along a continuous beachfront calçadão (promenade), but Guarujá stretches over 25km of coastline, so reaching outlying beaches like Tombo, Guaiúba, or Góes requires a bus, taxi, or rideshare.",
+    "safety": {
+      "safety": "The core tourist beach zones (Pitangueiras, Enseada, Astúrias, Tombo, Pernambuco) are generally safe by day and evening, with visible police/GCM patrols during summer high season; the biggest realistic risk is petty theft on crowded sand.",
+      "crime": "Some inland/outskirt neighborhoods (parts of Vicente de Carvalho, Vila Baiana, Sítio Conceiçãozinha) have higher rates of drug-trafficking-related violent crime and are not tourist areas — solo travelers should stick to the beachfront districts and avoid wandering into unfamiliar inland streets after dark."
+    },
+    "hood_landmark": {
+      "Pitangueiras": "Praia das Pitangueiras & Rua Mário Ribeiro",
+      "Enseada": "Praia da Enseada (5.6 km waterfront promenade)",
+      "Astúrias": "Pedra do Presidente rock outcrop",
+      "Pernambuco": "Mar Casado & Fortaleza de Santo Amaro da Barra Grande",
+      "Tombo": "Praia do Tombo (Blue Flag beach)"
+    },
+    "hoods": [
+      "Pitangueiras",
+      "Enseada",
+      "Astúrias",
+      "Pernambuco",
+      "Tombo"
+    ],
+    "hood_desc": [
+      "The bustling heart of Guarujá — a lively central beach lined with shopping galleries, bars, and the city's densest cluster of restaurants, all steps from the sand.",
+      "Guarujá's longest beach at 5.6km, backed by the biggest concentration of hotels and everyday commerce — markets, pharmacies, casual eateries — making it the practical, family-friendly base.",
+      "A calmer, more traditional stretch beside Pitangueiras, prized for gentle waters, family appeal, and the photogenic rocky outcrops framing the shoreline.",
+      "An upscale, tree-lined enclave of gated condos and golf courses where two beaches merge at low tide (Mar Casado); Guarujá's most exclusive, tranquil address.",
+      "A Blue Flag-certified beach favored by surfers and a younger crowd, with an energetic strip of bars overlooking the swell — Guarujá's closest thing to a nightlife district."
+    ],
+    "hood_tags": [
+      "central",
+      "shopping",
+      "sights",
+      "quiet",
+      "nightlife"
+    ],
+    "lodging": [
+      [
+        "Ferraretto Guarujá Hotel & Spa",
+        "Grand Hotel Guarujá",
+        "Hotel Casarão Pitangueiras"
+      ],
+      [
+        "Casa Grande Hotel Resort & Spa",
+        "Hotel Ilhas do Caribe",
+        "Charme Hotel Guarujá"
+      ],
+      [
+        "Astúrias Praia Hotel",
+        "Hotel Nacional Inn Guarujá",
+        "Astúrias Mall & Suites"
+      ],
+      [
+        "Jequitimar Guarujá Resort & Spa by Accor",
+        "Sorocotuba Pousada",
+        "Pousada da Praia II"
+      ],
+      [
+        "Strand Hotel Guarujá",
+        "Senses Praia Hotel",
+        "Pousada Praia do Tombo"
+      ]
+    ],
+    "drinks": {
+      "coffee": 1.8,
+      "beer": 3,
+      "water": 1
+    },
+    "transit": {
+      "sys": "City Mais municipal buses (successor to COOPERGUARU) cover the beaches and inland neighborhoods",
+      "hours": "~5am-midnight on most routes, reduced late-night frequency",
+      "pay": "Cash or rechargeable Bilhete Único card, roughly R$4.40-4.90 (~$0.90-1) per ride",
+      "map": "No unified live-tracking app; check Moovit or the Prefeitura de Guarujá transport page for routes/schedules",
+      "note": "The classic scenic alternative is the balsa (ferry) to/from Santos rather than a bus"
+    },
+    "transport": {
+      "air": "No commercial airport in Guarujá itself; nearest options are São Paulo's Guarulhos Intl (GRU) and Congonhas (CGH), each roughly 90km / 1.5-2.5 hrs by road via the Rodovia dos Imigrantes/Anchieta",
+      "train": "No direct passenger rail link; travelers connect via São Paulo's metro/CPTM to a bus terminal, then bus or car onward",
+      "bus": "Frequent intercity coaches run from São Paulo's Tietê and Jabaquara terminals to Guarujá's rodoviária, about 1.5-2 hrs and roughly $10-20",
+      "ferry": "The Santos-Guarujá balsa crosses the Porto de Santos channel every 15-30 minutes, ~24 hours a day; free for pedestrians and cyclists, R$12.30 for cars",
+      "car": "Via the Rodovia dos Imigrantes/Anchieta from São Paulo (~80km, 1-1.5 hrs outside rush hour), then the ferry or the coastal SP-055 highway"
+    },
+    "airport": {
+      "code": "GRU/CGH",
+      "name": "São Paulo/Guarulhos Intl (GRU) or São Paulo/Congonhas (CGH)",
+      "distance": "~88-90 km (~1h10 by car, ~2h55 by bus)",
+      "transport": "Private transfer/taxi ~$90-110 one-way (CGH); intercity bus via Jabaquara ~$10-19; rental car ~1h10 self-drive"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage from Vivo, Claro, and TIM across the main beach areas; can weaken in inland/hilly pockets",
+      "w": "Free Wi-Fi common in hotels, cafes, and shopping areas; less reliable on the open beach",
+      "ops": "Vivo, Claro, TIM, Oi",
+      "gb": "~$10-20 for a 10-20GB prepaid SIM/eSIM plan",
+      "fw": true,
+      "fwn": "Available at many hotels, cafes, and malls (e.g., Praiamar Shopping); free public Wi-Fi is limited outside hotels/cafes",
+      "ap": "A local prepaid SIM (Vivo/Claro/TIM kiosks) or an eSIM purchased before arrival is advisable for reliable data and Uber/99 use"
+    },
+    "tip": {
+      "s": "10% service charge is often included on restaurant bills as 'taxa de serviço' (technically optional, generally paid); round up for taxis and small tips for bellhops/informal beach service are appreciated but not obligatory",
+      "r": "If service isn't included, 10% is standard; nothing extra is expected at casual quiosques"
+    },
+    "region": "s-america",
+    "coastal": true,
+    "dailyCost": {
+      "budget": 50,
+      "mid": 120,
+      "luxury": 300
+    },
+    "score": {
+      "nightlife": 45,
+      "restaurants": 60,
+      "museums": 20,
+      "architecture": 35,
+      "nature": 85
+    }
+  },
+  {
+    "city": "Durham",
+    "country": "United Kingdom",
+    "visitors": "~4M",
+    "pop": "~50,500",
+    "lat": 54.76786,
+    "lng": -1.56581,
+    "tagline": "A Norman cathedral crowning a wooded river peninsula, where medieval stone meets student life.",
+    "temps": {
+      "q1": 40,
+      "q2": 51,
+      "q3": 58,
+      "q4": 44
+    },
+    "rain": {
+      "q1": 23,
+      "q2": 22,
+      "q3": 25,
+      "q4": 29
+    },
+    "langs": [
+      "English"
+    ],
+    "currency": "GBP",
+    "currency_symbol": "£",
+    "currency_name": "British Pound Sterling",
+    "usd_rate": 0.75,
+    "card": "Card and contactless payment (including Apple/Google Pay) is the norm almost everywhere, from cafes to buses; cash is rarely needed but useful for small independent stalls at the indoor market.",
+    "cost": {
+      "hotel": 135,
+      "meal": 18,
+      "taxi": 10
+    },
+    "hotel": {
+      "b": "$70-$170",
+      "h": "$220-$475"
+    },
+    "rides": [
+      "Uber (limited availability)",
+      "Bolt",
+      "Durham City Cabs (local app/phone booking)",
+      "A2B Taxis"
+    ],
+    "taxi": {
+      "color": "No mandated uniform colour — mostly black, silver, or white saloon/estate hackney carriages licensed by Durham County Council",
+      "fare": "£4.90 flagfall (covers first mile/8 min) + ~£2.40/mile daytime; £6.30 flagfall + ~£3.30/mile nights (10pm-7am), Sundays and bank holidays",
+      "fareNote": "Taxis are exempt from the city centre's congestion charge; fixed fare to Newcastle Airport is roughly £45-50 (~$60-67 USD)"
+    },
+    "emergency": {
+      "police": "999 (emergency) / 101 (non-emergency police)",
+      "medical": "999 (emergency) / 111 (NHS non-emergency health advice)",
+      "note": "Durham is consistently ranked among the UK's safer cities. Main risks are petty theft (bikes, unattended bags) and weekend alcohol-related disorder around the Walkergate/Elvet bar area; violent crime against visitors is rare."
+    },
+    "religion": [
+      "Christian 53.5%",
+      "No religion 39.3%",
+      "Not stated 5.2%",
+      "Muslim 0.7%",
+      "Other religions 1.3%"
+    ],
+    "stay": "3",
+    "visit": [
+      [
+        "Durham Cathedral",
+        "Palace Green",
+        "Durham Castle (University College)",
+        "Wander the Bailey",
+        "Sunset over Framwellgate Bridge"
+      ],
+      [
+        "Crook Hall and Gardens",
+        "Durham University Botanic Garden",
+        "Oriental Museum",
+        "River Wear rowing boat hire or Prince Bishop River Cruiser",
+        "Kingsgate Bridge",
+        "Elvet Bridge"
+      ],
+      [
+        "Museum of Archaeology (Palace Green Library)",
+        "Durham Indoor Market",
+        "Wharton Park and Durham Town Hall",
+        "Prebends Bridge viewpoint",
+        "Day trip to Beamish Museum or the Durham Dales"
+      ]
+    ],
+    "walk": "Compact and highly walkable — the historic core sits on a wooded peninsula formed by a horseshoe bend of the River Wear, with the Cathedral and Castle crowning the top. Expect steep cobbled lanes and stairs since Durham is built on hills, but nearly every major sight is within a 15-20 minute walk of Market Place. Vehicle access to the peninsula is restricted (congestion charge for cars), keeping the centre pedestrian-friendly.",
+    "safety": {
+      "safety": "Durham is regularly rated one of the safest cities in the UK, with crime well below the national average, and is popular with solo travelers, students, and families.",
+      "crime": "Petty theft (bike theft, unattended bags) and alcohol-related disorder around the Walkergate/Elvet nightlife strip on weekend nights are the main concerns; violent crime against tourists is rare. Use standard precautions after dark near the station underpass and pub-crawl routes."
+    },
+    "hood_landmark": {
+      "City Centre & The Bailey": "Durham Cathedral",
+      "Elvet": "Elvet Bridge / Walkergate",
+      "Crossgate & Framwellgate": "Framwellgate Bridge",
+      "Gilesgate": "St Giles' Church",
+      "Neville's Cross": "Neville's Cross Battle Memorial"
+    },
+    "hoods": [
+      "City Centre & The Bailey",
+      "Elvet",
+      "Crossgate & Framwellgate",
+      "Gilesgate",
+      "Neville's Cross"
+    ],
+    "hood_desc": [
+      "The medieval heart of Durham, occupying the peninsula almost entirely owned by the University and Cathedral. Cobbled lanes, Palace Green, the Castle, and the Cathedral itself dominate this pedestrianised core — the obvious base for first-time visitors.",
+      "Across the river via Elvet Bridge, this area (including Walkergate and Old Elvet) is Durham's main nightlife and dining district, home to student pubs, Klute nightclub, and riverside restaurants, plus the county courts and Dunelm House.",
+      "A quieter, largely residential conservation area west of the river with independent cafes, vintage/arts spaces like the Empty Shop, and views back across the Wear to the Cathedral from the Victorian viaduct.",
+      "A mixed residential and retail neighbourhood east of the centre, home to the medieval St Giles' Church, the Gilesgate retail park, and Sainsbury's superstore — practical rather than picturesque.",
+      "A leafy residential suburb southwest of the centre, near the site of the 1346 Battle of Neville's Cross, within walking distance of Durham University's Botanic Garden and Observatory — a calm, green alternative base."
+    ],
+    "hood_tags": [
+      "central",
+      "nightlife",
+      "hipster",
+      "shopping",
+      "quiet"
+    ],
+    "lodging": [
+      [
+        "Durham Castle – University College B&B stays",
+        "Cathedral View Guest House",
+        "Hotel Indigo Durham"
+      ],
+      [
+        "Durham Marriott Hotel Royal County",
+        "Gadds Townhouse",
+        "Radisson Blu Hotel Durham"
+      ],
+      [
+        "Castle View Guest House",
+        "Victorian Town House",
+        "The Bridge Guest House"
+      ],
+      [
+        "Premier Inn Durham City Centre (Freemans Reach)",
+        "ibis Durham",
+        "Travelodge Durham Central"
+      ],
+      [
+        "Farnley Tower Hotel",
+        "Kingslodge Hotel",
+        "Cairn Durham"
+      ]
+    ],
+    "drinks": {
+      "coffee": 4.4,
+      "beer": 5.3,
+      "water": 1.9
+    },
+    "transit": {
+      "sys": "Arriva North East and Go North East operate local buses; Durham also runs a dedicated Park & Ride service (Belmont, Howlands, and Sniperley sites) feeding the city centre",
+      "hours": "Local buses generally run about 6am-11pm (reduced Sunday service); Park & Ride roughly 7:15am-8pm Monday-Saturday",
+      "pay": "Contactless card/Apple Pay tap-and-go on buses with daily fare caps, or a Park & Ride return ticket (around £3) bought on-site or via app",
+      "map": "Traveline North East app/website for journey planning, plus individual Arriva and Go North East apps",
+      "note": "The historic peninsula has restricted vehicle access and a congestion charge for cars entering the centre; walking or using the Park & Ride is strongly recommended over driving in."
+    },
+    "transport": {
+      "air": "Nearest airport is Newcastle International (NCL), about 20 miles north, roughly 45-60 minutes away via Tyne and Wear Metro plus train, or by taxi/car",
+      "train": "Durham station sits on the East Coast Main Line with frequent LNER services: London King's Cross in about 2h50m-3h, Edinburgh in about 1h45m, and Newcastle in just 10-15 minutes",
+      "bus": "National Express coaches connect Durham to London (roughly 6-7 hours) and other major UK cities; regional buses run from Durham bus station on North Road via Arriva and Go North East",
+      "ferry": "N/A — Durham is inland with no ferry access; the nearest ferry port is at North Shields near Newcastle (DFDS to Amsterdam), about 20 miles away",
+      "car": "Durham sits just off the A1(M) motorway; the central peninsula has restricted, charged vehicle access, so park at a Park & Ride site or city car park and walk in"
+    },
+    "airport": {
+      "code": "NCL",
+      "name": "Newcastle International Airport",
+      "distance": "~20 miles (32 km) north of Durham",
+      "transport": "Tyne and Wear Metro links the airport directly to Newcastle Central Station (about 25 minutes), then a mainline train to Durham (about 12-15 minutes); direct taxi/private hire fixed fare is roughly £45-50 (~$60-67 USD), about 30-35 minutes"
+    },
+    "net": {
+      "m": "Good 4G/5G coverage across the city centre and peninsula from all major networks, though signal can weaken on rural approach roads",
+      "w": "Widely available free wifi in cafes, pubs, the university library, and Durham's public libraries; most hotels and B&Bs include free wifi",
+      "ops": "EE, O2, Vodafone, Three",
+      "gb": "A 1-month PAYG SIM with 10-20GB typically costs $15-25 (£12-20)",
+      "fw": true,
+      "fwn": "Free wifi is common in cafes, pubs, and public buildings; ask staff for the network password",
+      "ap": "A UK/EU eSIM or local PAYG SIM (available at Newcastle Airport or supermarkets) is advisable for stays longer than a few days"
+    },
+    "tip": {
+      "s": "Tipping isn't obligatory in the UK; rounding up or leaving 5-10% for good service (bars, taxis, cafes) is appreciated but never expected.",
+      "r": "10-12.5% is standard for sit-down restaurant service if a service charge isn't already added — check the bill first, as many Durham restaurants add it automatically for groups."
+    },
+    "region": "eurasia",
+    "coastal": false,
+    "dailyCost": {
+      "budget": 75,
+      "mid": 160,
+      "luxury": 320
+    },
+    "score": {
+      "nightlife": 55,
+      "restaurants": 60,
+      "museums": 55,
+      "architecture": 95,
+      "nature": 75
+    }
+  }
+]
