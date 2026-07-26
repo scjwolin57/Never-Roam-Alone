@@ -31,6 +31,104 @@ import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.t
 const SITE = "https://neverroamalone.com";
 
 const CITY_META = {
+  "ahmedabad": {"city":"Ahmedabad","slug":"ahmedabad","tagline":"India's first UNESCO World Heritage city — Gandhi's ashram, carved-wood pols, and Gujarati street food."},
+  "ibadan": {"city":"Ibadan","slug":"ibadan","tagline":"Nigeria's vast Yoruba metropolis of rust-red rooftops, cocoa-trade history, and its first university."},
+  "kano": {"city":"Kano","slug":"kano","tagline":"Ancient Sahel trading city of mud-walled markets, indigo dye pits, and Hausa heritage."},
+  "luxembourg city": {
+    "city": "Luxembourg City",
+    "slug": "luxembourg-city",
+    "tagline": "A fairy-tale fortress capital of cliffs, valleys and EU power."
+  },
+  "kotor": {
+    "city": "Kotor",
+    "slug": "kotor",
+    "tagline": "Medieval walls cradling the Adriatic's most dramatic bay."
+  },
+  "nicosia": {
+    "city": "Nicosia",
+    "slug": "nicosia",
+    "tagline": "Europe's last divided capital, ringed by Venetian walls."
+  },
+  "kuwait city": {
+    "city": "Kuwait City",
+    "slug": "kuwait-city",
+    "tagline": "Gulf skyscrapers, ancient souks, and desert heat on the coast."
+  },
+  "ulaanbaatar": {
+    "city": "Ulaanbaatar",
+    "slug": "ulaanbaatar",
+    "tagline": "Nomadic soul meets rising skyline beneath endless steppe sky."
+  },
+  "paramaribo": {
+    "city": "Paramaribo",
+    "slug": "paramaribo",
+    "tagline": "Dutch colonial charm meets Amazon gateway on the Suriname River."
+  },
+  "tarawa": {
+    "city": "Tarawa",
+    "slug": "tarawa",
+    "tagline": "A slender coral atoll on the frontline of climate change."
+  },
+  "majuro": {
+    "city": "Majuro",
+    "slug": "majuro",
+    "tagline": "A slender coral necklace of a capital, ringing an impossibly blue lagoon."
+  },
+  "weno": {
+    "city": "Weno",
+    "slug": "weno",
+    "tagline": "Gateway to the sunken WWII fleets of Truk Lagoon."
+  },
+  "yaren": {
+    "city": "Yaren",
+    "slug": "yaren",
+    "tagline": "The world's smallest island republic on a coral atoll."
+  },
+  "koror": {
+    "city": "Koror",
+    "slug": "koror",
+    "tagline": "Rock Islands rise from turquoise lagoons around a diver's paradise."
+  },
+  "funafuti": {
+    "city": "Funafuti",
+    "slug": "funafuti",
+    "tagline": "A sliver of coral where the runway doubles as Main Street."
+  },
+  "moroni": {
+    "city": "Moroni",
+    "slug": "moroni",
+    "tagline": "Where volcano meets sea in the heart of the Indian Ocean."
+  },
+  "djibouti city": {
+    "city": "Djibouti City",
+    "slug": "djibouti-city",
+    "tagline": "Where the Red Sea meets the Horn of Africa's volcanic edge."
+  },
+  "malabo": {
+    "city": "Malabo",
+    "slug": "malabo",
+    "tagline": "Oil-boom capital on Bioko Island where colonial Spain meets equatorial jungle."
+  },
+  "banjul": {
+    "city": "Banjul",
+    "slug": "banjul",
+    "tagline": "River meets ocean at Africa's smallest mainland capital."
+  },
+  "bissau": {
+    "city": "Bissau",
+    "slug": "bissau",
+    "tagline": "Faded colonial charm at the gateway to the Bijagós Islands."
+  },
+  "maseru": {
+    "city": "Maseru",
+    "slug": "maseru",
+    "tagline": "Gateway to Lesotho's Mountain Kingdom, high above Africa."
+  },
+  "monrovia": {
+    "city": "Monrovia",
+    "slug": "monrovia",
+    "tagline": "Atlantic surf meets resilient history on Liberia's coast."
+  },
   "pristina": {"city":"Pristina","slug":"pristina","tagline":"Europe's youngest capital, a fast-changing city of Ottoman-era mosques, Yugoslav-era monuments, and a buzzing cafe scene"},
   "san pedro de atacama": {"city":"San Pedro de Atacama","slug":"san-pedro-de-atacama","tagline":"An adobe desert oasis town ringed by geysers, salt flats, and the otherworldly Valle de la Luna"},
   "mykonos": {"city":"Mykonos","slug":"mykonos","tagline":"A whitewashed Cycladic party island of windmills, Little Venice sunsets, and glamorous beach clubs"},
