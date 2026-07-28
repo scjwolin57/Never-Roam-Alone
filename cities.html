@@ -808,7 +808,6 @@ const CITIES = [
   {"city":"Irkutsk","country":"Russia","visitors":1.5,"tagline":"Siberia's wooden-laced 'Paris', gateway to Lake Baikal and the Decembrists' exile.","cost":{"hotel":55,"meal":10,"taxi":4}},
   {"city":"Sochi","country":"Russia","visitors":7.0,"tagline":"Russia's subtropical Black Sea resort, from palm-lined beaches to Olympic ski slopes.","cost":{"hotel":70,"meal":12,"taxi":5}},
   {"city":"Santa Cruz de la Sierra","country":"Bolivia","visitors":0.9,"tagline":"Bolivia's booming tropical lowland hub, ringed by plazas and the gateway to the Jesuit Missions.","cost":{"hotel":55,"meal":7,"taxi":3}},
-  {"city":"Jeddah","country":"Saudi Arabia","visitors":9.0,"tagline":"Red Sea gateway to Mecca, where a coral-stone old town meets the world's tallest fountain.","cost":{"hotel":165,"meal":15,"taxi":8}},
   {"city":"Kuching","country":"Malaysia","visitors":1.5,"tagline":"Borneo's cat city — riverfront heritage and a gateway to orangutans and rainforest.","cost":{"hotel":45,"meal":5,"taxi":5}},
   {"city":"Nouméa","country":"New Caledonia","visitors":0.12,"tagline":"A French-Pacific city wrapped around the world's largest lagoon.","cost":{"hotel":180,"meal":30,"taxi":20}},
   {"city":"Las Palmas de Gran Canaria","country":"Spain","visitors":3.0,"tagline":"Year-round spring on an Atlantic city beach, with a colonial old town at its back.","cost":{"hotel":95,"meal":15,"taxi":8}},
@@ -1365,12 +1364,20 @@ function aliasTerms(query) {
 function applyFilters() {
   const q = document.getElementById("city-search").value.trim().toLowerCase();
   const extra = aliasTerms(q);
+  const isAbbrQuery = Object.prototype.hasOwnProperty.call(NRA_ALIASES, q);
   const mode = document.getElementById("city-sort").value;
   let list = CITIES;
   if (q) {
     list = CITIES.filter(c => {
       const text = (c.city + " " + c.country + " " + c.tagline).toLowerCase();
-      return text.includes(q) || extra.some(t => text.includes(t));
+      const countryText = c.country.toLowerCase();
+      // Abbreviations (UAE, KSA, etc.) only stand in for a country name —
+      // match them against the country field, not the whole description,
+      // so a coincidental substring in a tagline (e.g. "ksa" inside
+      // "Seoraksan") can't fake a match. This applies whether the
+      // abbreviation was typed directly or reached via aliasTerms().
+      return (isAbbrQuery ? countryText.includes(q) : text.includes(q))
+        || extra.some(t => countryText.includes(t));
     });
   }
   buildCards(sortList(list, mode));

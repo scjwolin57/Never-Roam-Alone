@@ -13,7 +13,7 @@ The fix is a two-phase process: **research** the city into one JSON record, then
 
 If the city name is ambiguous (there's more than one real place with that name, e.g. "Springfield" or "Valencia" could mean more than one country) or the user hasn't said which country, ask before doing any research — cheap to clarify up front, expensive to research the wrong city.
 
-Check whether the city is already live: search `city.html` for `city:"Name"` or `"city":"Name"`. If it's already there, tell the user and ask if they meant something else (a refresh of existing data, a different city) rather than silently re-adding.
+Check whether the city is already live: search `city.html` **and** `cities.html` for `city:"Name"` or `"city":"Name"` (check both quoted and unquoted forms — `cities.html` mixes both styles, which is exactly how a duplicate Jeddah entry slipped in on 2026-07-27; `add_city.py`'s own dup check now matches both too, but don't rely on that alone). If it's already there, tell the user and ask if they meant something else (a refresh of existing data, a different city) rather than silently re-adding.
 
 ## Phase 1: Research
 

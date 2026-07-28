@@ -414,6 +414,8 @@
      with the container's own border on the true last one) */
   .nra-seg span:hover{color:var(--ink)}
   .nra-seg span.on{background:var(--coral);color:#fff}
+  .nra-seg span.off{opacity:.4;cursor:not-allowed;background:var(--sand);color:var(--muted)}
+  .nra-seg span.off:hover{color:var(--muted)}
   .nra-chips{display:flex;gap:8px;flex-wrap:wrap}
   .nra-chips .lchip{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:8px 15px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:.15s}
   .nra-chips .lchip:hover{color:var(--ink);border-color:var(--teal)}
@@ -1479,6 +1481,7 @@ function updateModeAvailability(){
     o.disabled = !avail[UI_MODE_KEY[o.value]];
     if(o.disabled) anyDisabled = true;
   });
+  travelByEl.dispatchEvent(new Event("availabilitychange"));  // let the visible pill buttons re-gray themselves
   if(UI_MODE_KEY[travelByEl.value] && !avail[UI_MODE_KEY[travelByEl.value]]){
     travelByEl.value = "cheapest";       // current pick became impossible
     updateOriginModeUI();
@@ -2558,7 +2561,15 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
    the existing <select>s (kept in the DOM, just hidden) so all finder logic
    that reads those values and listens for their 'change' keeps working. */
 (function(){
-  function reflect(sel, nodes){ nodes.forEach(function(n){ n.classList.toggle('on', n.dataset.val===sel.value); }); }
+  function reflect(sel, nodes){
+    nodes.forEach(function(n){
+      var opt = sel.querySelector('option[value="'+n.dataset.val+'"]');
+      var off = !!(opt && opt.disabled);
+      n.classList.toggle('on', n.dataset.val===sel.value);
+      n.classList.toggle('off', off);
+      if(off) n.setAttribute('aria-disabled','true'); else n.removeAttribute('aria-disabled');
+    });
+  }
   function build(id, items, cls, chip, wrapId){
     var sel=document.getElementById(id); if(!sel) return;
     var host=sel.closest('.select-wrap')||sel;
@@ -2567,7 +2578,11 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
       var b=document.createElement('span'); if(chip) b.className='lchip';
       b.textContent=it.label; b.dataset.val=it.value;
       b.tabIndex=0; b.setAttribute('role','button');
-      var pick=function(){ sel.value=it.value; reflect(sel,nodes); sel.dispatchEvent(new Event('change',{bubbles:true})); };
+      var pick=function(){
+        var opt = sel.querySelector('option[value="'+it.value+'"]');
+        if(opt && opt.disabled) return;   // no real route exists — ignore the click
+        sel.value=it.value; reflect(sel,nodes); sel.dispatchEvent(new Event('change',{bubbles:true}));
+      };
       b.addEventListener('click',pick);
       b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
       nodes.push(b); wrap.appendChild(b);
@@ -2576,6 +2591,7 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
     host.parentNode.insertBefore(wrap, host.nextSibling);
     reflect(sel,nodes);
     sel.addEventListener('change',function(){ reflect(sel,nodes); });  // stay in sync if logic resets the value
+    sel.addEventListener('availabilitychange',function(){ reflect(sel,nodes); });  // stay in sync when routes become (un)available
   }
   function init(){
     build('travelBy',[{value:'cheapest',label:'Cheapest'},{value:'fastest',label:'Fastest'},{value:'Plane',label:'Plane'},{value:'Train',label:'Train'},{value:'Bus',label:'Bus'},{value:'Car',label:'Car'},{value:'Boat',label:'Boat'}],'nra-seg',false,'travelBySeg');
