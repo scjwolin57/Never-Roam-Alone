@@ -1384,6 +1384,18 @@ function buildCitySuggestions(q) {
   if (!query) return [];
   const extra = aliasTerms(query);
   const seen = new Set(), out = [];
+
+  // Country matches go first: "All Cities, [Country]" selects every city in that country.
+  const seenCountries = new Set();
+  for (const c of CITIES) {
+    const countryText = c.country.toLowerCase();
+    if (countryText.includes(query) || extra.some(t => countryText.includes(t))) {
+      if (seenCountries.has(c.country)) continue;
+      seenCountries.add(c.country);
+      out.push({ label: "All Cities", sub: c.country, value: c.country });
+    }
+  }
+
   for (const c of CITIES) {
     const text = (c.city + " " + c.country).toLowerCase();
     if (text.includes(query) || extra.some(t => text.includes(t))) {
@@ -1421,7 +1433,7 @@ document.getElementById("city-search").addEventListener("keydown", (e) => {
   if (citySearchList.hidden) return;
   if (e.key === "ArrowDown") { citySuggestIndex = Math.min(citySuggestIndex + 1, citySuggestItems.length - 1); e.preventDefault(); }
   else if (e.key === "ArrowUp") { citySuggestIndex = Math.max(citySuggestIndex - 1, 0); e.preventDefault(); }
-  else if (e.key === "Enter") { if (citySuggestIndex >= 0) { selectCitySuggestion(citySuggestItems[citySuggestIndex]); e.preventDefault(); } return; }
+  else if (e.key === "Enter") { if (citySuggestIndex >= 0) { selectCitySuggestion(citySuggestItems[citySuggestIndex]); } else { citySearchList.hidden = true; } e.preventDefault(); return; }
   else if (e.key === "Escape") { citySearchList.hidden = true; return; }
   else return;
   [...citySearchList.children].forEach((li, i) => li.classList.toggle("active", i === citySuggestIndex));
