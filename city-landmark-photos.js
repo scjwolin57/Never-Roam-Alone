@@ -1,0 +1,81 @@
+/* Never Roam Alone — real photos for individual landmarks (not just the city
+   as a whole), aligned by array index with NRA_LANDMARKS in city-landmarks.js.
+   Local files under images/landmarks/, downloaded from Wikimedia Commons —
+   each entry is a photo of that SPECIFIC landmark, not a generic city shot.
+   page = file page for credit. Pilot batch (July 2026): a handful of cities
+   only — most cities have no entry here yet and simply show no photo on the
+   landmark card until this is scaled up. */
+window.NRA_LANDMARK_PHOTOS = {
+  "Paris": [
+    {img:"images/landmarks/paris-eiffel-tower.jpg", page:"https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_(cropped).jpg"},
+    {img:"images/landmarks/paris-louvre-museum.jpg", page:"https://commons.wikimedia.org/wiki/File:Louvre_Museum_Wikimedia_Commons.jpg"},
+    {img:"images/landmarks/paris-notre-dame-cathedral.jpg", page:"https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris,_4_October_2017.jpg"},
+    {img:"images/landmarks/paris-arc-de-triomphe.jpg", page:"https://commons.wikimedia.org/wiki/File:Arc_de_Triomphe,_Paris_21_October_2010.jpg"},
+    {img:"images/landmarks/paris-sacre-coeur-basilica.jpg", page:"https://commons.wikimedia.org/wiki/File:Le_sacre_coeur.jpg"},
+    {img:"images/landmarks/paris-champs-elysees.jpg", page:"https://commons.wikimedia.org/wiki/File:Avenue_des_Champs-Élysées_July_24,_2009_N1.jpg"},
+    {img:"images/landmarks/paris-palace-of-versailles.jpg", page:"https://commons.wikimedia.org/wiki/File:Vue_aérienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_081_(cropped).jpg"},
+    {img:"images/landmarks/paris-musee-dorsay.jpg", page:"https://commons.wikimedia.org/wiki/File:MuseeDOrsay.jpg"},
+    {img:"images/landmarks/paris-pantheon.jpg", page:"https://commons.wikimedia.org/wiki/File:Pantheon_of_Paris_007.JPG"},
+    {img:"images/landmarks/paris-pont-alexandre-iii.jpg", page:"https://commons.wikimedia.org/wiki/File:Pont_Alexandre_III_depuis_pont_de_la_Concorde_Paris.jpg"},
+  ],
+  "Rome": [
+    {img:"images/landmarks/rome-colosseum.jpg", page:"https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg"},
+    {img:"images/landmarks/rome-roman-forum.jpg", page:"https://commons.wikimedia.org/wiki/File:Foro_Romano_Musei_Capitolini_Roma.jpg"},
+    {img:"images/landmarks/rome-pantheon.jpg", page:"https://commons.wikimedia.org/wiki/File:Pantheon_(Rome)_-_Right_side_and_front.jpg"},
+    {img:"images/landmarks/rome-trevi-fountain.jpg", page:"https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg"},
+    {img:"images/landmarks/rome-st-peters-basilica.jpg", page:"https://commons.wikimedia.org/wiki/File:Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg"},
+    {img:"images/landmarks/rome-sistine-chapel.jpg", page:"https://commons.wikimedia.org/wiki/File:Sistina-interno.jpg"},
+    {img:"images/landmarks/rome-spanish-steps.jpg", page:"https://commons.wikimedia.org/wiki/File:Piazza_di_Spagna_(Rome)_0004.jpg"},
+    {img:"images/landmarks/rome-piazza-navona.jpg", page:"https://commons.wikimedia.org/wiki/File:Piazza_Navona_(Rome)_at_night.jpg"},
+    {img:"images/landmarks/rome-castel-santangelo.jpg", page:"https://commons.wikimedia.org/wiki/File:Castel_Sant'Angelo_at_Night.jpg"},
+    {img:"images/landmarks/rome-vatican-museums.jpg", page:"https://commons.wikimedia.org/wiki/File:Museums_in_the_Vatican_City.jpg"},
+  ],
+  "Tokyo": [
+    {img:"images/landmarks/tokyo-tokyo-skytree.jpg", page:"https://commons.wikimedia.org/wiki/File:Tokyo_Skytree_2014_Ⅲ.jpg"},
+    {img:"images/landmarks/tokyo-senso-ji-temple.jpg", page:"https://commons.wikimedia.org/wiki/File:Sensoji_2023.jpg"},
+    {img:"images/landmarks/tokyo-shibuya-crossing.jpg", page:"https://commons.wikimedia.org/wiki/File:Shibuya_Crossing,_Aerial.jpg"},
+    {img:"images/landmarks/tokyo-meiji-shrine.jpg", page:"https://commons.wikimedia.org/wiki/File:Meiji_Jingu_2023-3.jpg"},
+    {img:"images/landmarks/tokyo-tokyo-tower.jpg", page:"https://commons.wikimedia.org/wiki/File:Tokyo_Tower_2023.jpg"},
+    {img:"images/landmarks/tokyo-shinjuku-gyoen.jpg", page:"https://commons.wikimedia.org/wiki/File:Shinjuku_Gyoen_National_Garden_-_sakura_3.JPG"},
+    {img:"images/landmarks/tokyo-imperial-palace.jpg", page:"https://commons.wikimedia.org/wiki/File:Seimon_Ishibashi.JPG"},
+    {img:"images/landmarks/tokyo-takeshita-street.jpg", page:"https://commons.wikimedia.org/wiki/File:Takeshita_Street.jpg"},
+    {img:"images/landmarks/tokyo-teamlab-planets.jpg", page:"https://commons.wikimedia.org/wiki/File:At_teamLab_Planets_(48277798316).jpg"},
+    {img:"images/landmarks/tokyo-ginza.jpg", page:"https://commons.wikimedia.org/wiki/File:Ginza-WAKO_at_night.jpg"},
+  ],
+  "Istanbul": [
+    {img:"images/landmarks/istanbul-hagia-sophia.jpg", page:"https://commons.wikimedia.org/wiki/File:Hagia_Sophia_(228968325).jpeg"},
+    {img:"images/landmarks/istanbul-blue-mosque.jpg", page:"https://commons.wikimedia.org/wiki/File:Exterior_of_Sultan_Ahmed_I_Mosque_in_Istanbul,_Turkey_002.jpg"},
+    {img:"images/landmarks/istanbul-topkapi-palace.jpg", page:"https://commons.wikimedia.org/wiki/File:Topkapı_-_01.jpg"},
+    {img:"images/landmarks/istanbul-basilica-cistern.jpg", page:"https://commons.wikimedia.org/wiki/File:Cisterna_Basílica,_Estambul,_Turquía,_2024-09-28,_DD_58-60_HDR.jpg"},
+    {img:"images/landmarks/istanbul-grand-bazaar.jpg", page:"https://commons.wikimedia.org/wiki/File:Istanbul_asv2021-11_img41_Grand_Bazaar.jpg"},
+    {img:"images/landmarks/istanbul-galata-tower.jpg", page:"https://commons.wikimedia.org/wiki/File:Galata_tower_01_23.jpg"},
+    {img:"images/landmarks/istanbul-dolmabahce-palace.jpg", page:"https://commons.wikimedia.org/wiki/File:Dolmabahce_Istanbul_Turkey.jpg"},
+    {img:"images/landmarks/istanbul-suleymaniye-mosque.jpg", page:"https://commons.wikimedia.org/wiki/File:SüleymaniyeMosqueIstanbul_(cropped).jpg"},
+    {img:"images/landmarks/istanbul-maidens-tower.jpg", page:"https://commons.wikimedia.org/wiki/File:Istanbul_Kız_Kulesi_(54511155871)_(cropped).jpg"},
+    {img:"images/landmarks/istanbul-spice-bazaar.jpg", page:"https://commons.wikimedia.org/wiki/File:Spice_Bazaar_Istanbul_Feb_2020,_img_2.jpg"},
+  ],
+  "Marrakech": [
+    {img:"images/landmarks/marrakech-jemaa-el-fnaa.jpg", page:"https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna.jpg"},
+    {img:"images/landmarks/marrakech-koutoubia-mosque.jpg", page:"https://commons.wikimedia.org/wiki/File:Koutoubia_Mosque_1.jpg"},
+    {img:"images/landmarks/marrakech-bahia-palace.jpg", page:"https://commons.wikimedia.org/wiki/File:Bahia_Palace_large_court.jpg"},
+    {img:"images/landmarks/marrakech-jardin-majorelle.jpg", page:"https://commons.wikimedia.org/wiki/File:Le_jardin_des_majorelle_40.JPG"},
+    {img:"images/landmarks/marrakech-saadian-tombs.jpg", page:"https://commons.wikimedia.org/wiki/File:Saadian_Tombs_1044-HDR.jpg"},
+    {img:"images/landmarks/marrakech-medina-souks.jpg", page:"https://commons.wikimedia.org/wiki/File:Medina_of_Marrakesh_(35199965555).jpg"},
+    {img:"images/landmarks/marrakech-el-badi-palace.jpg", page:"https://commons.wikimedia.org/wiki/File:Κεντρική_αυλή_Ελ_Μπαντί_1127.jpg"},
+    {img:"images/landmarks/marrakech-ben-youssef-madrasa.jpg", page:"https://commons.wikimedia.org/wiki/File:Marrakesh_Ben_Youssef_Madrasa_courtyard_1.jpg"},
+    {img:"images/landmarks/marrakech-menara-gardens.jpg", page:"https://commons.wikimedia.org/wiki/File:Pavillon_Menaragärten.jpg"},
+    {img:"images/landmarks/marrakech-museum-of-marrakesh.jpg", page:"https://commons.wikimedia.org/wiki/File:Museum_of_Marrakech.JPG"},
+  ],
+  "Jeddah": [
+    {img:"images/landmarks/jeddah-king-fahds-fountain.jpg", page:"https://commons.wikimedia.org/wiki/File:King_Fahd’s_Fountain.jpg"},
+    {img:"images/landmarks/jeddah-al-balad.jpg", page:"https://commons.wikimedia.org/wiki/File:Old_Jeddah_(Al_Balad)_architecture_3_Feb_2022.jpg"},
+    {img:"images/landmarks/jeddah-corniche.jpg", page:"https://commons.wikimedia.org/wiki/File:Jeddah_Corniche_36.jpg"},
+    {img:"images/landmarks/jeddah-al-rahma-mosque.jpg", page:"https://commons.wikimedia.org/wiki/File:Al-Rahmah_Mosque_1.jpg"},
+    null,
+    {img:"images/landmarks/jeddah-fakieh-aquarium.jpg", page:"https://commons.wikimedia.org/wiki/File:Fakieh_Aquarium_(1).jpg"},
+    {img:"images/landmarks/jeddah-naseef-house.jpg", page:"https://commons.wikimedia.org/wiki/File:Bayt_Nasif,_1872,_old_Jeddah,_Saudi_Arabia_(5)_(50703484406).jpg"},
+    null,
+    {img:"images/landmarks/jeddah-red-sea-mall.jpg", page:"https://commons.wikimedia.org/wiki/File:Red_Sea_Mall_1_Jeddah.jpg"},
+    {img:"images/landmarks/jeddah-al-shallal-theme-park.jpg", page:"https://commons.wikimedia.org/wiki/File:Al_Shallal_Roller_Coaster_as_seen_from_the_AlShallal_Marine_Lake.jpg"},
+  ],
+};

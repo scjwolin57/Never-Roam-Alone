@@ -737,8 +737,12 @@
     box-shadow:0 2px 8px rgba(0,0,0,.35);cursor:pointer;transition:transform .15s,background .15s}
   .lmk-pin.is-active{background:#C04020;transform:scale(1.3);z-index:5}
   .lmk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .lmk-card{display:flex;gap:12px;background:var(--card,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:14px 16px;align-items:flex-start;transition:border-color .15s,box-shadow .15s}
+  .lmk-card{display:flex;flex-direction:column;background:var(--card,#fff);border:1px solid rgba(0,0,0,.08);border-radius:12px;overflow:hidden;transition:border-color .15s,box-shadow .15s}
   .lmk-card.is-active{border-color:#C04020;box-shadow:0 4px 14px rgba(192,64,32,.18)}
+  .lmk-photo{width:100%;height:130px;background-size:cover;background-position:center;position:relative;flex:none}
+  .lmk-photo-credit{position:absolute;bottom:4px;right:8px;font-size:.62rem;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.7)}
+  .lmk-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
+  .lmk-card-row{display:flex;gap:12px;align-items:flex-start;padding:14px 16px}
   .lmk-num{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:#556B2F;color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
   .lmk-name{font-weight:700;color:#2f3b22;text-decoration:none;border-bottom:1px dotted #556B2F}
   .lmk-name:hover{color:#C04020;border-bottom-color:#C04020}
@@ -814,6 +818,7 @@
 <script src="city-landmarks.js"></script>
 <script src="city-phrases.js"></script>
 <script src="city-landmark-coords.js"></script>
+<script src="city-landmark-photos.js"></script>
 <script>
 /* Starter city dataset (shared with the map; will be unified into one source
    when we move to the production build). visitors = approx. annual international
@@ -28490,16 +28495,22 @@ if(!c){
   const dt = (window.NRA_DAYTRIPS || {})[c.city];
   const lmks = (window.NRA_LANDMARKS && NRA_LANDMARKS[c.city]) || [];
   const lmkCoords = (window.NRA_LANDMARK_COORDS && NRA_LANDMARK_COORDS[c.city]) || [];
+  const lmkPhotos = (window.NRA_LANDMARK_PHOTOS && NRA_LANDMARK_PHOTOS[c.city]) || [];
   const landmarksHTML = !lmks.length ? "" : `
       <div class="lmk-grid">` + lmks.map((l, i) => {
         const p = lmkCoords[i];
         const mapHref = p ? `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
+        const photo = lmkPhotos[i];
+        const photoHTML = photo ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${photo.page ? `<span class="lmk-photo-credit"><a href="${photo.page}" target="_blank" rel="noopener">Photo</a></span>` : ''}</div>` : '';
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
-          <div class="lmk-num">${i + 1}</div>
-          <div class="lmk-body">
-            <a class="lmk-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>
-            <p class="lmk-desc">${l[1]}</p>
+          ${photoHTML}
+          <div class="lmk-card-row">
+            <div class="lmk-num">${i + 1}</div>
+            <div class="lmk-body">
+              <a class="lmk-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>
+              <p class="lmk-desc">${l[1]}</p>
+            </div>
           </div>
         </div>`;
       }).join('') + `
