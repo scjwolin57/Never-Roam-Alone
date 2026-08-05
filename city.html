@@ -265,6 +265,24 @@
   .tap-water-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   .water-more-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;vertical-align:middle}
 
+  /* Local food & drink recommendations (meal cost card + modal) */
+  .food-recs-btn{display:inline-flex;align-items:center;gap:5px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);width:100%;background:none;border-left:none;border-right:none;border-bottom:none;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;text-align:left}
+  .food-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .food-item{display:block;width:100%;text-align:left;background:#faf7f0;border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:10px 12px;font-family:inherit;cursor:pointer;transition:border-color .15s}
+  .food-item:hover{border-color:var(--green)}
+  .food-item-name{font-weight:700;color:var(--ink,#222);font-size:.92rem}
+  .food-item-tag{display:inline-block;margin-left:7px;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--green);border-radius:999px;padding:1px 8px;vertical-align:middle}
+  .food-item-tag.food-tag-drink{background:var(--coral,#C04020)}
+  .food-item-desc{margin:3px 0 0;font-size:.8rem;color:var(--muted);line-height:1.4}
+  .food-item-hint{margin:4px 0 0;font-size:.72rem;font-weight:700;color:var(--green)}
+  .food-back-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0 0 10px;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .food-place{border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:10px 12px;margin-top:10px;background:#faf7f0}
+  .food-place-name{font-weight:700;font-size:.92rem}
+  .food-place-area{font-size:.78rem;color:var(--muted);margin-left:6px}
+  .food-place-note{margin:4px 0 0;font-size:.8rem;color:var(--muted);line-height:1.4}
+  .food-place-map{display:inline-block;margin-top:6px;font-size:.78rem;font-weight:700;color:var(--green);text-decoration:underline;text-underline-offset:2px}
+  .food-src-note{margin:12px 0 0;font-size:.72rem;font-style:italic;color:var(--muted)}
+
   /* Transportation section */
   .transport-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:6px}
   .tcard{background:var(--card);border-radius:14px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;
@@ -819,6 +837,7 @@
 <script src="city-phrases.js"></script>
 <script src="city-landmark-coords.js"></script>
 <script src="city-landmark-photos.js"></script>
+<script src="city-food-index.js"></script>
 <script>
 /* Starter city dataset (shared with the map; will be unified into one source
    when we move to the production build). visitors = approx. annual international
@@ -28362,6 +28381,7 @@ if(!c){
           <div class="v">${fmtPrice(cost.meal, code)}</div>
           <div class="cost-note">sit-down restaurant</div>
           ${tipHTML}
+          ${typeof CITY_FOOD_INDEX !== "undefined" && CITY_FOOD_INDEX[c.city] ? `<button type="button" class="food-recs-btn" onmouseenter="loadFoodData()" onclick="openModal('Local food &amp; drink')">${INFO_ICON} Local food &amp; drink recommendations</button>` : ""}
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
@@ -29472,6 +29492,55 @@ if(!c){
     return `<p class="rt-intro">${w.note}</p>`;
   }
 
+  /* city-food.js is large, so it is fetched only when the visitor asks for it
+     (on hover, or on click of the meal card's food link). */
+  let foodDataPromise = null;
+  function loadFoodData() {
+    if (typeof CITY_FOOD !== "undefined") return Promise.resolve();
+    if (!foodDataPromise) {
+      foodDataPromise = new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = "city-food.js";
+        s.onload = resolve;
+        s.onerror = () => { foodDataPromise = null; reject(new Error("city-food.js failed to load")); };
+        document.head.appendChild(s);
+      });
+    }
+    return foodDataPromise;
+  }
+
+  /* Local food & drink recommendations — first view: dish/drink list */
+  function buildFoodModal() {
+    const items = (typeof CITY_FOOD !== "undefined" && CITY_FOOD[c.city]) || null;
+    if (!items) return `<p class="modal-placeholder">No food & drink recommendations on file for ${c.city}.</p>`;
+    return `<p class="rt-intro">Local dishes and drinks worth seeking out in ${c.city}. Tap any item to see the best-reviewed places to try it.</p>
+      <div class="food-list">${items.map((it, i) => `
+        <button type="button" class="food-item" onclick="showFoodPlaces(${i})">
+          <span class="food-item-name">${it.name}</span><span class="food-item-tag${it.type === "drink" ? " food-tag-drink" : ""}">${it.type === "drink" ? "Drink" : "Dish"}</span>
+          <p class="food-item-desc">${it.desc}</p>
+          <p class="food-item-hint">Where to try it &rsaquo;</p>
+        </button>`).join("")}
+      </div>`;
+  }
+  /* Second view: best places for one dish/drink */
+  function showFoodPlaces(idx) {
+    const items = (typeof CITY_FOOD !== "undefined" && CITY_FOOD[c.city]) || null;
+    const it = items && items[idx];
+    if (!it) return;
+    modalTitle.textContent = `${it.name} — ${c.city}`;
+    modalBody.innerHTML = `
+      <button type="button" class="food-back-btn" onclick="openModal('Local food &amp; drink')">&lsaquo; All food &amp; drink</button>
+      <p class="rt-intro">${it.desc}</p>
+      ${it.places.map(p => `
+      <div class="food-place">
+        <span class="food-place-name">${p.name}</span><span class="food-place-area">${p.area}</span>
+        <p class="food-place-note">${p.note}</p>
+        <a class="food-place-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ", " + p.area + ", " + c.city)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+      </div>`).join("")}
+      <p class="food-src-note">Picks are based on recent traveler reviews and food articles — hours and quality can change, so double-check before you go.</p>`;
+    modalBody.scrollTop = 0;
+  }
+
   function openModal(title) {
     modalTitle.textContent = `${title} — ${c.city}`;
     if (title === "Major airports" && CITY_AIRPORT[c.city]) {
@@ -29492,6 +29561,16 @@ if(!c){
       modalBody.innerHTML = buildTaxiTipModal();
     } else if (title === "Common phrases") {
       modalBody.innerHTML = buildPhrasesModal();
+    } else if (title === "Local food & drink") {
+      if (typeof CITY_FOOD !== "undefined") {
+        modalBody.innerHTML = buildFoodModal();
+      } else {
+        modalBody.innerHTML = `<p class="modal-placeholder">Loading local food picks…</p>`;
+        const forCity = c.city;
+        loadFoodData()
+          .then(() => { if (!modal.hidden && modalTitle.textContent === `${title} — ${forCity}`) modalBody.innerHTML = buildFoodModal(); })
+          .catch(() => { if (!modal.hidden) modalBody.innerHTML = `<p class="modal-placeholder">Couldn't load the food recommendations. Please check your connection and try again.</p>`; });
+      }
     } else {
       // Placeholder content — detailed info to be filled in later.
       modalBody.innerHTML = `<p class="modal-placeholder">More information about ${title.toLowerCase()} in ${c.city} is coming soon.</p>`;
