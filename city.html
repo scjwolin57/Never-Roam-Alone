@@ -765,7 +765,25 @@
   .lmk-name{font-weight:700;color:#2f3b22;text-decoration:none;border-bottom:1px dotted #556B2F}
   .lmk-name:hover{color:#C04020;border-bottom-color:#C04020}
   .lmk-desc{margin:6px 0 0;font-size:.88rem;color:var(--muted,#666);line-height:1.45}
+  /* Pin hover -> enlarged card floating over the grid (desktop) */
+  .lmk-cards-col{position:relative;min-width:0}
+  .lmk-big{position:fixed;z-index:40;pointer-events:none;background:var(--card,#fff);
+    border:1px solid rgba(0,0,0,.10);border-left:4px solid #C04020;border-radius:14px;overflow:hidden;
+    box-shadow:0 18px 44px rgba(43,36,23,.30);opacity:0;transform:translateY(10px);
+    transition:opacity .16s ease,transform .16s ease}
+  .lmk-big.is-open{opacity:1;transform:translateY(0)}
+  .lmk-big-photo{width:100%;height:200px;background-size:cover;background-position:center}
+  .lmk-big-body{padding:16px 20px 18px}
+  .lmk-big-row{display:flex;gap:12px;align-items:flex-start}
+  .lmk-big-num{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:#C04020;color:#fff;
+    font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .lmk-big-name{font-weight:700;font-size:1.12rem;color:#2f3b22;display:block;line-height:1.25}
+  .lmk-big-desc{margin:8px 0 0;font-size:.94rem;color:var(--muted,#555);line-height:1.5}
+  /* Pin tap -> card jumps to the top of the list (mobile) */
+  .lmk-card.is-lifted{border-color:#C04020;box-shadow:0 10px 26px rgba(192,64,32,.26);animation:lmkPop .45s ease}
+  @keyframes lmkPop{0%{transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
   @media(max-width:860px){
+    .lmk-big{display:none!important}
     .lmk-layout{grid-template-columns:1fr}
     .lmk-map-col{position:static}
     .lmk-map{height:340px}
@@ -28368,6 +28386,14 @@ if(!c){
           </div>`;
     return `
         <div class="fact cost-card">
+          <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
+          <div class="k">Taxi / Uber &middot; 10 km</div>
+          <div class="v">${fmtPrice(cost.taxi, code)}</div>
+          <div class="cost-note">typical fare</div>
+          ${ridesHTML}
+          ${taxiTipHTML}
+        </div>
+        <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
           <div class="k">Hotel &middot; per night</div>
           <div class="v">${fmtPrice(cost.hotel, code)}</div>
@@ -28382,14 +28408,6 @@ if(!c){
           <div class="cost-note">sit-down restaurant</div>
           ${tipHTML}
           ${typeof CITY_FOOD_INDEX !== "undefined" && CITY_FOOD_INDEX[c.city] ? `<button type="button" class="food-recs-btn" onmouseenter="loadFoodData()" onclick="openModal('Local food &amp; drink')">${INFO_ICON} Local food &amp; drink recommendations</button>` : ""}
-        </div>
-        <div class="fact cost-card">
-          <span class="cost-icon" aria-hidden="true">${COST_ICONS.taxi}</span>
-          <div class="k">Taxi / Uber &middot; 10 km</div>
-          <div class="v">${fmtPrice(cost.taxi, code)}</div>
-          <div class="cost-note">typical fare</div>
-          ${ridesHTML}
-          ${taxiTipHTML}
         </div>
         ${drinks == null ? "" : `
         <div class="fact cost-card">
@@ -28517,6 +28535,7 @@ if(!c){
   const lmkCoords = (window.NRA_LANDMARK_COORDS && NRA_LANDMARK_COORDS[c.city]) || [];
   const lmkPhotos = (window.NRA_LANDMARK_PHOTOS && NRA_LANDMARK_PHOTOS[c.city]) || [];
   const landmarksHTML = !lmks.length ? "" : `
+      <div class="lmk-cards-col">
       <div class="lmk-grid">` + lmks.map((l, i) => {
         const p = lmkCoords[i];
         const mapHref = p ? `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
@@ -28534,6 +28553,8 @@ if(!c){
           </div>
         </div>`;
       }).join('') + `
+      </div>
+      <div class="lmk-big" id="lmk-big" hidden></div>
       </div>`;
 
   const dayTripsHTML = !dt || (!dt.half.length && !dt.full.length) ? "" : `
@@ -28667,7 +28688,7 @@ if(!c){
     <section style="padding-top:0">
       ${plate("05","Landmarks")}
       <h2 class="sec-head">Top sights in <em>${c.city}</em></h2>
-      ${landmarksHTML ? `<p class="hood-intro">The ${lmks.length} landmarks and sights most worth your time in ${c.city} — hover a card to find it on the map.</p>
+      ${landmarksHTML ? `<p class="hood-intro">The ${lmks.length} landmarks and sights most worth your time in ${c.city} — hover a card to find it on the map, or hover a pin (tap on mobile) to see that landmark.</p>
       <div class="lmk-layout">
         <div class="lmk-map-col"><div id="lmk-map" class="lmk-map"></div></div>
         ${landmarksHTML}
@@ -29636,8 +29657,9 @@ if(!c){
       const marker = new mapboxgl.Marker({ element: el }).setLngLat([p.lng, p.lat]).addTo(lmkMap);
       pins[i] = { el, marker };
       bounds.extend([p.lng, p.lat]);
-      el.addEventListener("mouseenter", () => setActiveLmk(i));
-      el.addEventListener("mouseleave", () => setActiveLmk(null));
+      el.addEventListener("mouseenter", () => { if (isTouch()) return; setActiveLmk(i); showBig(i); });
+      el.addEventListener("mouseleave", () => { if (isTouch()) return; setActiveLmk(null); hideBig(); });
+      el.addEventListener("click", ev => { ev.stopPropagation(); if (isTouch()) liftCard(i); });
     });
     lmkMap.on("load", () => {
       if (lmkCoords.length > 1) lmkMap.fitBounds(bounds, { padding: 50, maxZoom: 15, duration: 0 });
@@ -29649,6 +29671,59 @@ if(!c){
         card.classList.toggle("is-active", Number(card.dataset.lmkIdx) === i);
       });
     }
+
+    /* --- Pin -> card preview. Desktop: big floating card. Mobile: lift card to top. --- */
+    const cardsColEl = document.querySelector(".lmk-cards-col");
+    const bigEl = document.getElementById("lmk-big");
+    const gridElL = document.querySelector(".lmk-grid");
+    const lmkOrder = gridElL ? Array.prototype.slice.call(gridElL.children) : [];
+    let bigTimer = null, liftedIdx = null;
+    const isTouch = () => window.matchMedia("(hover:none), (max-width:860px)").matches;
+
+    function showBig(i) {
+      if (!bigEl || !cardsColEl || !lmks[i]) return;
+      const ph = lmkPhotos[i];
+      bigEl.innerHTML =
+        (ph ? `<div class="lmk-big-photo" style="background-image:url('${ph.img}')"></div>` : "") +
+        `<div class="lmk-big-body"><div class="lmk-big-row"><div class="lmk-big-num">${i + 1}</div>` +
+        `<div><span class="lmk-big-name">${lmks[i][0]}</span>` +
+        `<p class="lmk-big-desc">${lmks[i][1]}</p></div></div></div>`;
+      clearTimeout(bigTimer);
+      bigEl.hidden = false;
+      const col = cardsColEl.getBoundingClientRect();
+      const w = Math.min(460, col.width);
+      bigEl.style.left = (col.left + (col.width - w) / 2) + "px";
+      bigEl.style.width = w + "px";
+      const mr = mapEl.getBoundingClientRect();
+      bigEl.style.top = Math.max(12, Math.min(mr.top + 24, window.innerHeight - 440)) + "px";
+      requestAnimationFrame(() => bigEl.classList.add("is-open"));
+    }
+    function hideBig() {
+      if (!bigEl || bigEl.hidden) return;
+      bigEl.classList.remove("is-open");
+      clearTimeout(bigTimer);
+      bigTimer = setTimeout(() => { bigEl.hidden = true; }, 200);
+    }
+    function restoreLmkOrder() {
+      if (liftedIdx == null || !gridElL) return;
+      gridElL.querySelectorAll(".lmk-card.is-lifted").forEach(el => el.classList.remove("is-lifted"));
+      lmkOrder.forEach(el => gridElL.appendChild(el));
+      liftedIdx = null;
+    }
+    function liftCard(i) {
+      if (!gridElL) return;
+      if (liftedIdx === i) { restoreLmkOrder(); setActiveLmk(null); return; }
+      restoreLmkOrder();
+      const card = gridElL.querySelector('.lmk-card[data-lmk-idx="' + i + '"]');
+      if (!card) return;
+      gridElL.insertBefore(card, gridElL.firstChild);
+      card.classList.add("is-lifted");
+      liftedIdx = i;
+      setActiveLmk(i);
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    lmkMap.on("movestart", hideBig);
+    window.addEventListener("scroll", hideBig, { passive: true });
 
     const cardsEl = document.querySelector(".lmk-grid");
     if (cardsEl) {
