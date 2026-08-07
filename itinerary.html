@@ -223,13 +223,17 @@
   .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
   .ig-view-switch button.active{background:var(--green);color:#fff}
-  .ig-table{margin-top:4px;margin-left:-16px;margin-right:-16px}
-  .ig-table .trip-table{table-layout:fixed;border:1px solid transparent}
+  .ig-table{margin-top:4px;margin-left:-16px;margin-right:-16px;max-width:calc(100% + 32px);overflow-x:hidden}
+  .ig-table .trip-table{table-layout:fixed;width:100%;max-width:100%;border:1px solid transparent}
   .ig-table .trip-table .trow-main td{border-bottom:none;padding-bottom:2px}
-  .ig-table .trip-table .tcountry{white-space:nowrap}
+  /* percentage column widths so the row can never add up to more than 100% of the table,
+     no matter how narrow the screen is (fixed px widths could force it wider than its box) */
+  .ig-table .trip-table th.tnum,.ig-table .trip-table td.tnum{width:9%}
+  .ig-table .trip-table th.tcountry,.ig-table .trip-table td.tcountry{width:34%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ig-table .trip-table th.tnights,.ig-table .trip-table td.tnights{width:14%}
   .ig-table .trip-table .tdates{
-    color:var(--muted);font-weight:600;font-size:.78rem;white-space:nowrap;
-    padding-top:0;padding-bottom:11px;
+    color:var(--muted);font-weight:600;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    padding-top:0;padding-bottom:11px;max-width:100%;
   }
 
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
@@ -300,7 +304,7 @@
 
   .itin-group{
     border:1px solid transparent;border-radius:0;padding:16px 16px 6px;margin-top:16px;background:#fff;
-    margin-left:-28px;margin-right:-28px;
+    margin-left:-28px;margin-right:-28px;max-width:calc(100% + 56px);overflow-x:hidden;
   }
   .ig-badge{
     display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
@@ -1299,7 +1303,7 @@
       <tr class="trow-dates"><td class="tdates" colspan="4">${esc(dateRange(p.arrive, p.depart))}</td></tr>`;
     });
     return `<table class="trip-table">
-      <thead><tr><th style="width:26px">#</th><th>City</th><th style="width:150px">Country</th><th style="width:50px">Nights</th></tr></thead>
+      <thead><tr><th class="tnum">#</th><th class="tcity">City</th><th class="tcountry">Country</th><th class="tnights">Nights</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
   }
 
