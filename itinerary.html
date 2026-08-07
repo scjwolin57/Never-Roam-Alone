@@ -222,14 +222,14 @@
   .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
   .ig-view-switch button.active{background:var(--green);color:#fff}
-  .ig-table{margin-top:4px;margin-left:-16px;margin-right:-16px;max-width:calc(100% + 32px);overflow-x:hidden}
+  .ig-table{margin-top:4px;margin-left:-16px;margin-right:-8px;max-width:calc(100% + 24px);overflow-x:hidden}
   .ig-table .trip-table{table-layout:fixed;width:100%;max-width:100%;border:1px solid transparent}
   .ig-table .trip-table .trow-main td{border-bottom:none;padding-bottom:2px}
   /* percentage column widths so the row can never add up to more than 100% of the table,
      no matter how narrow the screen is (fixed px widths could force it wider than its box) */
   .ig-table .trip-table th.tnum,.ig-table .trip-table td.tnum{width:9%}
   .ig-table .trip-table th.tcountry,.ig-table .trip-table td.tcountry{width:34%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .ig-table .trip-table th.tnights,.ig-table .trip-table td.tnights{width:14%}
+  .ig-table .trip-table th.tnights,.ig-table .trip-table td.tnights{width:14%;padding-right:16px}
   .ig-table .trip-table .tdates{
     color:var(--muted);font-weight:600;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     padding-top:0;padding-bottom:11px;max-width:100%;
