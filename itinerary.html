@@ -19,7 +19,10 @@
 <!-- Flatpickr (calendar date picker, replaces native <input type="date">) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<!-- Perf: the flatpickr script moved to the bottom of <body> so the page
+     paints before it downloads (it still runs before the inline script
+     that uses it). -->
 
 <style>
   :root{
@@ -289,7 +292,7 @@
   .itin-new-row button:disabled{opacity:.6;cursor:default}
 
   .itin-group{border:1px solid rgba(63,81,56,.18);border-radius:16px;padding:16px 16px 6px;margin-top:16px;background:#fff}
-  .ig-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
   .ig-name{
     flex:1;font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--ink);
     border:2px solid transparent;border-radius:10px;padding:6px 8px;background:transparent;outline:none;transition:.15s;
@@ -393,6 +396,8 @@
     .suggest{right:0}
     .ig-stop{flex-wrap:wrap}
     .wish-stop{flex-wrap:wrap}
+    .ig-head{flex-basis:100%}
+    .ig-name{flex-basis:100%}
   }
 
   /* ================= EXPLORER form dossier (generic) ================= */
@@ -423,7 +428,7 @@
   .ig-del,.ig-share,.share-modal,.share-modal .sm-yes,.share-modal .sm-no,.wish-actions button,
   .wish-move,.ig-stop .drag,.chip,.suggest,.ig-name{border-radius:0!important}
 </style>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/site-fonts.css">
 </head>
 <body>
 
@@ -519,17 +524,21 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
 <script src="trip-add.js"></script>
 <script src="destinations.js"></script>
-<script src="city-routes.js"></script>
+<!-- Perf: the two biggest data files are deferred — they download in parallel
+     but no longer block the page. Both are only read at interaction time
+     (autocomplete keystrokes / "Suggest next stop"). -->
+<script src="city-routes.js" defer></script>
 <script src="transport.js"></script>
 <script src="city-scores.js"></script>
 <script src="city-seasons.js"></script>
 <script src="city-photos.js"></script>
 <script src="upcoming-cities.js"></script>
-<script src="world-cities.js"></script>
+<script src="world-cities.js" defer></script>
 <script>
 /* ==================================================================
    ITINERARY PAGE — past & upcoming trip lists.
@@ -922,8 +931,10 @@
   const input = $("place-input"), sug = $("suggest");
   let hlIndex = -1;
   function closeSug(){ sug.classList.remove("open"); sug.innerHTML = ""; hlIndex = -1; }
-  const WORLD = window.NRA_WORLD_CITIES || [];
-  const CNAMES = window.NRA_COUNTRY_NAMES || {};
+  /* world-cities.js is deferred (big file), so read it at lookup time —
+     by the first keystroke it has long since arrived. */
+  const WORLD_ = () => window.NRA_WORLD_CITIES || [];
+  const CNAMES_ = () => window.NRA_COUNTRY_NAMES || {};
   // accent-insensitive: "malaga" matches "Málaga", "zurich" matches "Zürich"
   const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[øœæłđðþ]/g,c=>({"ø":"o","œ":"oe","æ":"ae","ł":"l","đ":"d","ð":"d","þ":"th"}[c])).replace(/ß/g,"ss").replace(/ı/g,"i").trim();
   function openSug(q){
@@ -941,6 +952,7 @@
     });
     // then the full world list: name-starts-with first, then name/country contains
     const starts = [], contains = [];
+    const WORLD = WORLD_(), CNAMES = CNAMES_();
     for (let i = 0; i < WORLD.length; i++){
       const r = WORLD[i], nl = norm(r[0]), country = CNAMES[r[1]] || r[1];
       if (nl.startsWith(needle)) starts.push([r[0], country]);
@@ -1638,9 +1650,12 @@
       };
       const minForArrive = () => prevMin();
       const minForDepart = () => { const pm = prevMin(); return (a && a.value && a.value > pm) ? a.value : pm; };
-      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForArrive(),
+      // don't set minDate at load time — if a box already holds a saved date earlier
+      // than today, flatpickr would refuse to display it. Apply the limit only once
+      // the calendar is opened, so it blocks new picks without hiding old dates.
+      const fpA = (a && window.flatpickr) ? flatpickr(a, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y",
         onOpen: (sd, ds, inst) => inst.set("minDate", minForArrive()) }) : null;
-      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", minDate: minForDepart(),
+      const fpD = (d && window.flatpickr) ? flatpickr(d, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y",
         onOpen: (sd, ds, inst) => inst.set("minDate", minForDepart()) }) : null;
       // flag empty date boxes light red (flatpickr shows a visible "altInput"; fall back to the real field)
       const emptyEl = (fp, el) => (fp && fp.altInput) ? fp.altInput : el;

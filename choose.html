@@ -26,12 +26,15 @@
 <meta name="twitter:description" content="Find your next destination: compare 123 cities by budget, travel time, season, visa and more.">
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>Help Me Choose — Never Roam Alone</title>
-<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="stylesheet" href="fonts/site-fonts.css">
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<link rel="preconnect" href="https://unpkg.com">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<!-- Perf: maplibre + flatpickr scripts moved to the bottom of <body> so the
+     page paints before they download (they still run before the inline
+     script that uses them). -->
 <style>
   :root{
     --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
@@ -850,6 +853,8 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="iso-countries.js"></script>
 <script src="destinations.js"></script>
 <script src="city-photos.js"></script>

@@ -727,7 +727,7 @@ const CITY_META = {
   "calgary": {"city":"Calgary","slug":"calgary","tagline":"Cowboy heart of the Rockies - Stampede spirit and the gateway to Banff."},
   "phoenix": {"city":"Phoenix","slug":"phoenix","tagline":"Valley of the Sun capital of desert hikes, Southwestern flavor, and resort sprawl."},
   "adelaide": {"city":"Adelaide","slug":"adelaide","tagline":"Elegant City of Churches, with festivals, food, and famous wine at the doorstep."},
-  "palma": {"city":"Palma","slug":"palma","tagline":"Mediterranean island capital of light and cathedrals."},
+  "palma": 
   "manchester": {"city":"Manchester","slug":"manchester","tagline":"England's music-mad, football-crazy powerhouse of the industrial north."},
   "marseille": {"city":"Marseille","slug":"marseille","tagline":"France's rugged Mediterranean port — bouillabaisse, calanques, and salty soul."},
   "houston": {"city":"Houston","slug":"houston","tagline":"Sprawling, diverse, and hungry - space city with a world of food."},

@@ -626,7 +626,7 @@ window.NRA_SEASON = {
   "Calgary": {"t":[32,60,73,40],"r":[14,33,30,16],"ev":[{"m":[7],"l":"Calgary Stampede (early-mid Jul) — hotels spike, huge crowds"}]},
   "Phoenix": {"t":[72,95,104,77],"r":[11,3,11,8],"ev":[{"m":[2,3],"l":"Cactus League spring training — hotel prices spike"},{"m":[2],"l":"WM Phoenix Open golf — huge crowds in Scottsdale area"},{"m":[6,7,8],"l":"Extreme heat season — regularly over 110°F"}]},
   "Adelaide": {"t":[82,66,61,76],"r":[58,178,203,100],"ev":[{"m":[2,3],"l":"'Mad March' — Adelaide Fringe, Adelaide Festival and WOMADelaide pack the city"},{"m":[1],"l":"Santos Tour Down Under — road closures and cycling crowds"}]},
-  "Palma": {"t":[61,74,84,68],"r":[16,11,7,19],"ev":[{"m":[1],"l":"Sant Sebastià festival — concerts and bonfires citywide"},{"m":[6],"l":"Nit de Foc / Sant Joan bonfires (Jun 23) — packed seafront"},{"m":[7,8],"l":"High summer — peak crowds and prices"}]},
+  
   "Manchester": {"t":[46,57,68,55],"r":[44,33,34,41],"ev":[{"m":[11,12],"l":"Christmas Markets — city-centre crowds and premium hotel rates"},{"m":[8,9,10,11,12,1,2,3,4,5],"l":"Football match days (Aug–May) — hotels and transport surge around United/City fixtures"},{"m":[6],"l":"Parklife Festival weekend — accommodation spikes"}]},
   "Marseille": {"t":[55,70,83,62],"r":[14,14,8,17],"ev":[{"m":[7,8],"l":"Summer peak — calanques and Vieux-Port crowds, intense heat"},{"m":[6],"l":"Fête du Panier street festival — packed old quarter"}]},
   "Houston": {"t":[67,85,93,73],"r":[26,24,28,24],"ev":[{"m":[2,3],"l":"Houston Livestock Show and Rodeo — hotels and traffic surge"},{"m":[8,9],"l":"Peak hurricane season — flooding risk and possible disruption"},{"m":[6,7,8],"l":"Extreme summer heat and humidity — plan indoor midday breaks"}]},

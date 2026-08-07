@@ -683,7 +683,7 @@ window.NRA_CITY_PHOTO = {
   "Padang": { img:"images/cities/padang.jpg", page:"https://commons.wikimedia.org/wiki/File:Kota_Padang_Indah.jpg" },
   "Pai": { img:"images/cities/pai.jpg", page:"https://commons.wikimedia.org/wiki/File:View_of_Pai_3.jpg" },
   "Palermo": { img:"images/cities/palermo.jpg", page:"https://commons.wikimedia.org/wiki/File:Sicilia_Palermo5_tango7174.jpg" },
-  "Palma": { img:"images/cities/palma.jpg", page:"https://commons.wikimedia.org/wiki/File:Kathedrale_von_Palma.jpg" },
+  
   "Pamplona": { img:"images/cities/pamplona.jpg", page:"https://commons.wikimedia.org/wiki/File:Monumento_a_los_Fueros_%28Pamplona%29.jpg" },
   "Panglao": { img:"images/cities/panglao.jpg", page:"https://commons.wikimedia.org/wiki/File:Panglao_Island_from_air_%28Bohol%3B_08-11-2023%29.jpg" },
   "Papeete": { img:"images/cities/papeete.jpg", page:"https://commons.wikimedia.org/wiki/File:Papeete_-_Marina_Taina.JPG" },

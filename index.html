@@ -29,14 +29,14 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="fonts/site-fonts.css" />
 
 <!-- MapLibre GL (free, open-source map engine — no API key needed) -->
 <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script src="city-photos.js"></script>
-<script src="posts.js"></script>
+<link rel="preconnect" href="https://unpkg.com">
+<!-- Perf: the MapLibre / data scripts moved to the bottom of <body> so the
+     page paints before they download (they still run before the inline
+     script that uses them). -->
 
 <style>
   :root{
@@ -406,6 +406,9 @@
   <small class="foot-disclosure" style="display:block;width:100%;color:#d8d0b8">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> Details in our <a href="privacy.html" style="text-decoration:underline;color:#d8d0b8">Privacy Policy</a>.</small>
 </footer>
 
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="city-photos.js"></script>
+<script src="posts.js"></script>
 <script>
 /* ---------------------------------------------------------
    STARTER CITY DATA
@@ -1038,7 +1041,7 @@ const CITIES = [
   {"city":"Heraklion","country":"Greece","lng":25.1442,"lat":35.3387,"visitors":2.5},
   {"city":"Rhodes","country":"Greece","lng":28.2176,"lat":36.4349,"visitors":2.4},
   {"city":"Adelaide","country":"Australia","lng":138.6007,"lat":-34.9285,"visitors":0.4},
-  {"city":"Palma","country":"Spain","lng":2.6502,"lat":39.5696,"visitors":3.4},
+  
   {"city":"Manchester","country":"United Kingdom","lng":-2.2426,"lat":53.4808,"visitors":1.5},
   {"city":"Marseille","country":"France","lng":5.3698,"lat":43.2965,"visitors":1.8},
   {"city":"Houston","country":"United States","lng":-95.3698,"lat":29.7604,"visitors":1.9},
@@ -1348,6 +1351,9 @@ const geojson = {
   }))
 };
 
+/* Perf: the WebGL globe is heavy to start, so it only initializes when the
+   map area is on (or near) the screen — immediately if it's already visible. */
+function initGlobe(){
 const map = new maplibregl.Map({
   container:"map",
   style:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
@@ -1464,7 +1470,18 @@ map.on("load", () => {
     if(!hit.length){ pinned=false; popup.remove(); if(!isTouch) map.getCanvas().style.cursor=""; }
   });
 });
+}
 
+(function watchGlobe(){
+  const mapEl = document.getElementById("map");
+  if (!mapEl || typeof maplibregl === "undefined") return;
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+      if (entries.some(en => en.isIntersecting)) { io.disconnect(); initGlobe(); }
+    }, { rootMargin: "400px 0px" });
+    io.observe(mapEl);
+  } else { initGlobe(); }
+})();
 </script>
 <script>
 /* ---- Latest stories: newest 3 posts from posts.js ----

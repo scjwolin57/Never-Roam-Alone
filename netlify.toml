@@ -46,3 +46,30 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
     Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://cdnjs.cloudflare.com https://emrld.ltd https://*.emrld.ltd; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://oferixjdgwwjpstowqis.supabase.co https://picsum.photos https://fastly.picsum.photos https://images.unsplash.com https://plus.unsplash.com https://upload.wikimedia.org https://commons.wikimedia.org https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://emrld.ltd https://*.emrld.ltd; connect-src 'self' https://oferixjdgwwjpstowqis.supabase.co wss://oferixjdgwwjpstowqis.supabase.co https://cdn.jsdelivr.net https://photon.komoot.io https://overpass-api.de https://overpass.kumi.systems https://api.transitous.org https://open.er-api.com https://davidmegginson.github.io https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com https://unpkg.com https://emrld.ltd https://*.emrld.ltd https://api.mapbox.com https://events.mapbox.com; frame-src https://emrld.ltd https://*.emrld.ltd; worker-src 'self' blob:; child-src blob:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+
+# ---------------------------------------------------------------------
+# Browser caching (performance).
+# In plain English: tells returning visitors' browsers "you already have
+# this photo/font — don't download it again." Without these rules the
+# browser re-checks every single image on every visit.
+#  - Photos: kept for 7 days (if a photo is ever replaced under the SAME
+#    filename, visitors may see the old one for up to a week — fine here,
+#    since photos are added rather than replaced).
+#  - Fonts: kept for a year (they never change).
+# HTML and .js files are deliberately NOT cached this way, so code
+# updates still reach everyone immediately after each deploy.
+# ---------------------------------------------------------------------
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/logo.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

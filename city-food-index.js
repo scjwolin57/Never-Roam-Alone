@@ -23,7 +23,7 @@ const CITY_FOOD_INDEX = {
   "Warsaw":1,"Moscow":1,"Minsk":1,"Tbilisi":1,"Heraklion":1,"Rhodes":1,
   "Santorini":1,"Seville":1,"Porto":1,"Palma de Mallorca":1,"Ibiza":1,"Nice":1,
   "Marne-la-Vallée":1,"Mumbai":1,"Sydney":1,"Melbourne":1,"Auckland":1,"Johannesburg":1,
-  "Toronto":1,"Vancouver":1,"Montreal":1,"Palma":1,"Yokohama":1,"Nagoya":1,
+  "Toronto":1,"Vancouver":1,"Montreal":1,"Yokohama":1,"Nagoya":1,
   "Kamakura":1,"Jeju City":1,"Kaohsiung":1,"Taichung":1,"Malacca":1,"Hoi An":1,
   "Chengdu":1,"Hangzhou":1,"Suzhou":1,"Harbin":1,"Guilin":1,"Zhangjiajie":1,
   "Krabi":1,"Vientiane":1,"Washington, D.C.":1,"Houston":1,"Boston":1,"Chicago":1,

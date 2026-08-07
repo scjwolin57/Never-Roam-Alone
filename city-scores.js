@@ -629,7 +629,7 @@ window.NRA_CITY_SCORES = {
   "Calgary": { nightlife:55, restaurants:70, museums:60, architecture:58, nature:90 },
   "Phoenix": { nightlife:55, restaurants:72, museums:68, architecture:58, nature:88 },
   "Adelaide": { nightlife:58, restaurants:78, museums:72, architecture:68, nature:80 },
-  "Palma": { nightlife:68, restaurants:62, museums:48, architecture:62, nature:85 },
+  
   "Manchester": { nightlife:90, restaurants:80, museums:72, architecture:74, nature:45 },
   "Marseille": { nightlife:62, restaurants:82, museums:72, architecture:75, nature:88 },
   "Houston": { nightlife:74, restaurants:90, museums:82, architecture:62, nature:48 },
