@@ -30,12 +30,12 @@
 <link rel="stylesheet" href="fonts/site-fonts.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
-<link href="https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.css" rel="stylesheet" />
 <link rel="preconnect" href="https://unpkg.com">
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<!-- Perf: mapbox-gl + flatpickr scripts moved to the bottom of <body> so the
-     page paints before they download (they still run before the inline
-     script that uses them). -->
+<!-- Perf: the mapbox-gl library + CSS (~800 KB) are lazy-loaded together with
+     the landmark data when the visitor scrolls near the Landmarks section
+     (see loadLmkDtData in the inline script). The flatpickr script was moved
+     to the bottom of <body> so the page paints before it downloads. -->
 <style>
   :root{
     --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
@@ -855,7 +855,6 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="city-photos.js"></script>
 <script src="hood-photos.js"></script>
@@ -29775,6 +29774,17 @@ if(!c){
       document.head.appendChild(s);
     });
   }
+  function loadCssOnce(href){
+    return new Promise((resolve) => {
+      if (document.querySelector(`link[href="${href}"]`)) return resolve();
+      const l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.href = href;
+      l.onload = resolve;
+      l.onerror = resolve; // missing styling shouldn't block the section
+      document.head.appendChild(l);
+    });
+  }
   let lmkDtStarted = false;
   function loadLmkDtData(){
     if (lmkDtStarted) return; lmkDtStarted = true;
@@ -29782,7 +29792,10 @@ if(!c){
       loadScriptOnce("city-landmarks.js"),
       loadScriptOnce("city-landmark-coords.js"),
       loadScriptOnce("city-landmark-photos.js"),
-      loadScriptOnce("day-trips.js")
+      loadScriptOnce("day-trips.js"),
+      // The map library itself is only needed for this section's pin map
+      loadScriptOnce("https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.js"),
+      loadCssOnce("https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.css")
     ]).then(() => {
       dt = (window.NRA_DAYTRIPS || {})[c.city];
       lmks = (window.NRA_LANDMARKS && NRA_LANDMARKS[c.city]) || [];

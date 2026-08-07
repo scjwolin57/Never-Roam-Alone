@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex">
+<meta name="description" content="A shared trip itinerary on Never Roam Alone — stops, dates and city guides.">
+<title>Shared Trip — Never Roam Alone</title>
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="stylesheet" href="fonts/site-fonts.css">
+<style>
+  :root{
+    --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
+    --coral:#b5492c;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--sand);line-height:1.65}
+  h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
+  a{color:inherit;text-decoration:none}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
+  .brand .logo{flex-shrink:0;display:block}
+  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  nav.links a{margin-left:24px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
+  nav.links a.active{color:var(--green);border-color:var(--green)}
+
+  main{max-width:760px;margin:0 auto;padding:0 22px}
+
+  .trip-head{text-align:center;padding:56px 0 10px}
+  .trip-head .compass{font-size:2.8rem;line-height:1;margin-bottom:4px}
+  .trip-head h1{font-size:clamp(1.8rem,5vw,2.5rem);margin:0 0 6px;color:var(--green)}
+  .trip-head .byline{color:var(--muted);font-size:.98rem;margin:0 0 6px}
+  .trip-head .dates{font-family:'Fraunces',Georgia,serif;font-style:italic;color:var(--muted);font-size:.92rem}
+
+  .stops{list-style:none;margin:28px 0 10px;padding:0}
+  .stop{background:var(--card);border:1px solid var(--ink);border-radius:3px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:14px;padding:14px 16px;margin-bottom:12px}
+  .stop .num{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem}
+  .stop .what{flex:1;min-width:0}
+  .stop .place{font-weight:700;font-size:1.05rem}
+  .stop .country{color:var(--muted);font-size:.86rem}
+  .stop .when{color:var(--muted);font-size:.85rem;margin-top:2px}
+  .stop a.guide{flex-shrink:0;background:var(--green);color:#fff;font-weight:700;font-size:.8rem;
+    padding:8px 14px;border-radius:0;transition:.2s}
+  .stop a.guide:hover{background:var(--coral)}
+
+  .state{text-align:center;color:var(--muted);padding:60px 0}
+  .state h2{color:var(--green)}
+  .state a{color:var(--coral);text-decoration:underline}
+
+  /* ---- "join us" prompt for visitors without an account ---- */
+  .join{background:var(--card);border:1px solid var(--ink);border-radius:3px;box-shadow:var(--shadow);
+    text-align:center;padding:26px 22px;margin:34px 0 10px}
+  .join h2{margin:0 0 8px;color:var(--green);font-size:1.35rem}
+  .join p{color:var(--muted);max-width:480px;margin:0 auto 18px;font-size:.95rem}
+  .join a.cta{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.95rem;
+    padding:13px 24px;border-radius:0;transition:.2s}
+  .join a.cta:hover{background:var(--coral)}
+  .join a.more{display:inline-block;margin-left:14px;color:var(--green);font-weight:700;font-size:.95rem;
+    padding:13px 10px;border-bottom:2px solid rgba(63,81,56,.3)}
+  .join a.more:hover{color:var(--coral);border-color:var(--coral)}
+
+  footer{background:#5c6933;color:#dfeee7;text-align:center;padding:40px 22px;margin-top:60px}
+  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+  footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0}
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+  header.nav{border-bottom:1px solid var(--ink)}
+  .brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
+  nav.links a:hover{color:var(--coral);border-color:#b0802f}
+  footer{background:#5c6933;border-top:5px solid #b0802f}
+  footer .brand{color:#c99a45}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<main>
+  <div id="trip-loading" class="state"><p>Loading this trip…</p></div>
+
+  <div id="trip-missing" class="state" hidden>
+    <h2>Hmm, we can't find that trip</h2>
+    <p>The link may be incomplete or the trip may have been deleted.<br>
+       Ask the person who sent it to share it again — or <a href="choose.html">plan your own trip</a>.</p>
+  </div>
+
+  <div id="trip-view" hidden>
+    <div class="trip-head">
+      <div class="compass">🧭</div>
+      <h1 id="trip-name">Trip</h1>
+      <p class="byline">Shared by <strong id="trip-owner">a Roamer</strong> on Never Roam Alone</p>
+      <p class="dates" id="trip-dates" hidden></p>
+    </div>
+    <ol class="stops" id="trip-stops"></ol>
+
+    <div class="join">
+      <h2>Plan your own adventure</h2>
+      <p>Never Roam Alone is free to join — build itineraries like this one, explore
+         900+ city guides, compare destinations, and connect with fellow Roamers.</p>
+      <a class="cta" href="index.html">Join free</a>
+      <a class="more" href="cities.html">Browse city guides</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="best-time-to-visit.html">Where to Go This Month</a>
+    <a href="choose.html">Destination Finder</a>
+    <a href="cities.html">City Guides</a>
+    <a href="compare.html">Compare Cities</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="community.html">Community Contributions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="destinations.js"></script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+<script>
+(function(){
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  /* cities that have a full guide page (same lookup itinerary.html uses) */
+  const FEATURED = (window.NRA_DESTINATIONS || []).map(d => d.city.toLowerCase());
+  const hasGuide = name => FEATURED.includes(String(name || "").trim().toLowerCase());
+
+  function fmtDate(d){
+    if (!d) return "";
+    const dt = new Date(d + "T12:00:00");
+    if (isNaN(dt)) return "";
+    return dt.toLocaleDateString(undefined, { month:"short", day:"numeric", year:"numeric" });
+  }
+
+  function show(which){
+    $("trip-loading").hidden = which !== "loading";
+    $("trip-missing").hidden = which !== "missing";
+    $("trip-view").hidden    = which !== "view";
+  }
+
+  function render(trip){
+    $("trip-name").textContent  = trip.name || "My itinerary";
+    $("trip-owner").textContent = trip.owner || "a Roamer";
+    document.title = (trip.name || "Shared Trip") + " — Never Roam Alone";
+
+    const stops = Array.isArray(trip.stops) ? trip.stops : [];
+    const first = stops.map(s => s.arrive).filter(Boolean).sort()[0];
+    const last  = stops.map(s => s.depart || s.arrive).filter(Boolean).sort().pop();
+    if (first && last){
+      $("trip-dates").textContent = fmtDate(first) + " – " + fmtDate(last);
+      $("trip-dates").hidden = false;
+    }
+
+    const ol = $("trip-stops");
+    ol.innerHTML = stops.map((s, i) => {
+      const when = [fmtDate(s.arrive), fmtDate(s.depart)].filter(Boolean).join(" → ");
+      const guide = hasGuide(s.place)
+        ? `<a class="guide" href="city.html?city=${encodeURIComponent(s.place)}">City guide</a>` : "";
+      return `<li class="stop">
+        <span class="num">${i + 1}</span>
+        <span class="what">
+          <span class="place">${esc(s.place)}</span>
+          ${s.country ? `<span class="country"> — ${esc(s.country)}</span>` : ""}
+          ${when ? `<div class="when">🗓️ ${when}</div>` : ""}
+        </span>
+        ${guide}
+      </li>`;
+    }).join("");
+    show("view");
+  }
+
+  async function load(){
+    const code = new URLSearchParams(location.search).get("t") || "";
+    if (code.length < 16){ show("missing"); return; }
+    try{
+      await NRA_AUTH.ready();
+      const sb = NRA_AUTH.client();
+      if (!sb) throw new Error("no client");
+      const { data, error } = await sb.rpc("get_shared_trip", { code });
+      if (error) throw error;
+      if (!data){ show("missing"); return; }
+      render(data);
+    }catch(e){ show("missing"); }
+  }
+  load();
+})();
+</script>
+</body>
+</html>

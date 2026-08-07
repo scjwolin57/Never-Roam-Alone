@@ -470,6 +470,7 @@
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="share.js" defer></script>
 <script src="posts.js"></script>
 <script src="destinations.js"></script>
 <script src="upcoming-cities.js"></script>
@@ -797,6 +798,10 @@
     const pid = new URLSearchParams(location.search).get("id") || "";
     const shareUrl = location.origin + location.pathname + (pid ? "?id=" + encodeURIComponent(pid) : "");
     const who = ($("r-name").textContent || "this Roamer").trim();
+    if (window.NRAShare){
+      NRAShare.open({ title: who + " — Never Roam Alone", text: "Check out " + who + "'s Roamer profile", url: shareUrl });
+      return;
+    }
     if (navigator.share){
       try{ await navigator.share({ title: who + " — Never Roam Alone", text: "Check out " + who + "'s Roamer profile", url: shareUrl }); }
       catch(e){ /* they closed the share sheet — nothing to do */ }

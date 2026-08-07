@@ -569,6 +569,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="share.js" defer></script>
 <script src="trip-add.js"></script>
 <script src="destinations.js"></script>
 <!-- Perf: the two biggest data files are deferred — they download in parallel
@@ -1630,7 +1631,7 @@
         const tripName = ((card && card.querySelector(".ig-name")) || {}).value || "";
         const isOn = btn.classList.contains("on");
         if (isOn){
-          openShareSheet(tripName);   // already shared — just pop the share options again
+          openShareSheet(tripName, id);   // already shared — just pop the share options again
           return;
         }
         const p = (window.NRA_AUTH && NRA_AUTH.profile && NRA_AUTH.profile()) || null;
@@ -1640,7 +1641,7 @@
             await setTripPublic(id, true);
             status("Trip shared — you'll now appear in “Roamers in town” on the city pages on this route.", "ok");
             renderItineraries();
-            openShareSheet(tripName);
+            openShareSheet(tripName, id);
           }
           catch(e){ btn.disabled = false; status("Couldn't share that — please try again.", "err"); }
           return;
@@ -1832,12 +1833,35 @@
 
   /* ---- pop the actual share options: the phone's native share sheet
      (Messages, WhatsApp, email…), or on a computer, copy the link ---- */
-  async function openShareSheet(tripName){
+  /* Each trip gets a long secret code the first time it's shared; the link
+     opens trip.html — a read-only page ANYONE can view, no account needed.
+     (Requires trip-share-setup.sql. If that hasn't been run yet, we fall
+     back to the old profile link so sharing never breaks.) */
+  async function ensureShareCode(tripId){
+    const sb = NRA_AUTH.client();
+    const { data, error } = await sb.from("itineraries").select("share_code").eq("id", tripId).single();
+    if (error) throw error;
+    if (data && data.share_code) return data.share_code;
+    const abc = "abcdefghijklmnopqrstuvwxyz0123456789";
+    const code = Array.from(crypto.getRandomValues(new Uint8Array(24)), b => abc[b % 36]).join("");
+    const r = await sb.from("itineraries").update({ share_code: code }).eq("id", tripId);
+    if (r.error) throw r.error;
+    return code;
+  }
+  async function openShareSheet(tripName, tripId){
     const u = (window.NRA_AUTH && NRA_AUTH.user && NRA_AUTH.user()) || null;
     if (!u){ status("Sign in to get a shareable link.", "err"); return; }
-    const shareUrl = location.origin + "/roamer.html?id=" + encodeURIComponent(u.id);
+    let shareUrl = location.origin + "/roamer.html?id=" + encodeURIComponent(u.id);
+    if (tripId){
+      try{ shareUrl = location.origin + "/trip.html?t=" + encodeURIComponent(await ensureShareCode(tripId)); }
+      catch(e){ /* trip-share-setup.sql not run yet — old profile link still works */ }
+    }
     const title = (tripName ? tripName + " — " : "") + "Never Roam Alone";
     const text = "Check out my trip" + (tripName ? " “" + tripName + "”" : "") + " on Never Roam Alone:";
+    if (window.NRAShare){
+      NRAShare.open({ title, text, url: shareUrl });
+      return;
+    }
     if (navigator.share){
       try{ await navigator.share({ title, text, url: shareUrl }); }
       catch(e){ /* they closed the share sheet — nothing to do */ }
@@ -1881,7 +1905,7 @@
       closeShareModal();
       status("Your public profile is on and this trip is shared — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
       renderItineraries();
-      openShareSheet(tripName);
+      openShareSheet(tripName, tripId);
     }catch(e){
       yes.disabled = false;
       status("Couldn't turn that on — please try again.", "err");
