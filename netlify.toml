@@ -80,6 +80,14 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Per-city guide data (citydata/<slug>.json). Kept for 1 hour — long enough
+# that browsing several pages doesn't re-download the index, short enough
+# that data fixes reach visitors the same day.
+[[headers]]
+  for = "/citydata/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
 [[headers]]
   for = "/logo.svg"
   [headers.values]
