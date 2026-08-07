@@ -226,14 +226,14 @@
   .ig-table{margin-top:4px}
 
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
-  .ig-foot{display:flex;justify-content:flex-start;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
+  .ig-foot{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
   .ig-tips{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;color:#82755b;cursor:pointer;user-select:none}
   .ig-tips input{accent-color:#5c6933;width:15px;height:15px;cursor:pointer;margin:0}
   .ig-tips-msg{font-size:.78rem;font-weight:600;color:#5c6933}
   .ig-tips-msg.err{color:#b5492c}
-  .ig-suggest{border:1.5px solid var(--green);background:#fff;color:var(--green);font-family:inherit;
+  .ig-suggest{border:1.5px solid var(--coral);background:rgba(181,73,44,.12);color:var(--coral);font-family:inherit;
     font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:20px;cursor:pointer;transition:background .2s,color .2s}
-  .ig-suggest:hover,.ig-suggest.open{background:var(--green);color:#fff}
+  .ig-suggest:hover,.ig-suggest.open{background:var(--coral);color:#fff}
   .ns-panel{border-top:1px dashed rgba(63,81,56,.3);margin:0 -4px;padding:12px 4px 14px}
   .ns-title{font-weight:800;font-size:.95rem;margin:0 0 8px;color:var(--ink)}
   .ns-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
@@ -278,9 +278,9 @@
   footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ---------- My Itineraries tab ---------- */
-  .itin-new-row{display:flex;gap:10px;margin-bottom:8px}
+  .itin-new-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
   .itin-new-row input{
-    flex:1;padding:12px 14px;border:2px solid rgba(63,81,56,.22);border-radius:14px;
+    flex:1;min-width:0;padding:12px 14px;border:2px solid rgba(63,81,56,.22);border-radius:14px;
     background:#fff;font-size:1rem;color:var(--ink);font-family:inherit;outline:none;transition:.15s;
   }
   .itin-new-row input:focus{border-color:var(--teal);box-shadow:0 4px 16px rgba(63,81,56,.14)}
@@ -292,6 +292,12 @@
   .itin-new-row button:disabled{opacity:.6;cursor:default}
 
   .itin-group{border:1px solid rgba(63,81,56,.18);border-radius:16px;padding:16px 16px 6px;margin-top:16px;background:#fff}
+  .ig-badge{
+    display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
+    padding:4px 10px;border-radius:12px;margin-bottom:8px;
+  }
+  .ig-badge.is-current{background:rgba(92,105,51,.15);color:var(--green)}
+  .ig-badge.is-upcoming{background:rgba(181,73,44,.12);color:var(--coral)}
   .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
   .ig-name{
     flex:1;font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--ink);
@@ -313,6 +319,11 @@
   .ig-share.on{background:var(--green);border-color:var(--green);color:#fff}
   .ig-share.on:hover{background:var(--teal-dark)}
   .ig-share:disabled{opacity:.6;cursor:default}
+  .ig-edit-btn{
+    border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
+    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
+  }
+  .ig-edit-btn:hover{background:rgba(63,81,56,.1)}
 
   /* ---------- "public profile needed" popup ---------- */
   .share-overlay{
@@ -346,13 +357,22 @@
   }
   .ig-stop .info{flex:1;min-width:0}
   .ig-stop .place{font-weight:700;font-size:1rem}
+  .ig-stop .where{font-weight:600;color:var(--muted);font-size:.85rem}
+  .ig-stop .dates{display:flex;flex-direction:column;gap:4px;margin-top:6px}
+  .ig-stop .dates label{display:flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--muted);white-space:nowrap}
   .ig-empty{color:var(--muted);font-size:.9rem;padding:8px 4px 12px}
+  .ig-stop-controls{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0}
   .ig-stop .drag{
     flex-shrink:0;cursor:grab;color:var(--muted);font-size:1.1rem;line-height:1;
     padding:6px 2px;border-radius:8px;touch-action:none;user-select:none;
   }
   .ig-stop .drag:hover{color:var(--teal);background:rgba(63,81,56,.08)}
   .ig-stop.dragging{opacity:.6;background:rgba(63,81,56,.06);border-radius:12px}
+  .ig-stop .rm-btn{
+    display:flex;flex-direction:column;align-items:center;gap:1px;
+    font-size:1rem;padding:4px 6px;
+  }
+  .ig-stop .rm-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
   .ig-warn{
     display:none;margin:10px 0 6px;padding:9px 12px;border-radius:10px;
     background:rgba(168,72,42,.12);border:1px solid rgba(168,72,42,.4);
@@ -398,6 +418,8 @@
     .wish-stop{flex-wrap:wrap}
     .ig-head{flex-basis:100%}
     .ig-name{flex-basis:100%}
+    .itin-new-row input{flex-basis:100%}
+    .itin-new-row button{flex-basis:100%}
   }
 
   /* ================= EXPLORER form dossier (generic) ================= */
@@ -670,7 +692,7 @@
   const status = (text, kind) => { const m = $("status"); m.textContent = text || ""; m.className = "status-msg" + (kind ? " "+kind : ""); };
 
   /* ---- header + toggle ---- */
-  const TITLES = { past: "My Travels", upcoming: "My Travels", favorite: "My Travels", wishlist: "My Travels" };
+  const TITLES = { past: "My Travels", upcoming: "Current & Upcoming Trips", favorite: "My Travels", wishlist: "My Travels" };
   const SUBS = {
     past: "Everywhere you've already roamed — keep the memories on the map.",
     upcoming: "Your named trips — group cities, set dates, and add more from any city guide.",
@@ -838,6 +860,17 @@
     if (!a || !dep) return "—";
     const n = Math.round((Date.parse(dep + "T00:00:00") - Date.parse(a + "T00:00:00")) / 86400000);
     return (isNaN(n) || n < 0) ? "—" : String(n);
+  }
+  /* ---- "Current Trip" vs "Upcoming Trip" badge for a named trip's cards ---- */
+  function tripStatus(cities){
+    const todayISO = new Date().toISOString().slice(0,10);
+    const current = (cities || []).some(p => {
+      if (p.arrive && p.depart) return p.arrive <= todayISO && todayISO <= p.depart;
+      if (p.arrive && !p.depart) return p.arrive === todayISO;
+      if (!p.arrive && p.depart) return todayISO <= p.depart;
+      return false;
+    });
+    return current ? "Current Trip" : "Upcoming Trip";
   }
   function renderTable(items){
     const el = $("table-view");
@@ -1164,33 +1197,35 @@
           const g = guideOf(p.place);
           const where = esc(p.country || (g && g.country) || "");
           const nameHtml = g
-            ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)} <span class="arrow">&rarr;</span></a>`
+            ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)}</a>`
             : esc(p.place);
           return `<div class="ig-stop" data-pid="${esc(String(p.id))}">
-            <span class="drag" title="Drag to reorder" aria-label="Drag to reorder">⠿</span>
+            <div class="ig-stop-controls">
+              <span class="drag" title="Drag to reorder" aria-label="Drag to reorder">⠿</span>
+              <button class="rm-btn" data-rmp="${esc(String(p.id))}" title="Remove" aria-label="Remove ${esc(p.place)}">
+                <span class="rm-icon" aria-hidden="true">✕</span><span class="rm-label">Delete</span>
+              </button>
+            </div>
             <span class="num">${i+1}</span>
-            <span class="info"><span class="place">${nameHtml}</span>
-              <span class="where">${where || "&mdash;"}</span>
+            <span class="info"><span class="place">${nameHtml}${where ? ` <span class="where">(${where})</span>` : ""}</span>
               <span class="dates">
                 <label>Arrive <input type="text" class="date-field" data-pa value="${esc(p.arrive||"")}" placeholder="Pick a date"></label>
                 <label>Depart <input type="text" class="date-field" data-pd value="${esc(p.depart||"")}" placeholder="Pick a date"></label>
               </span></span>
-            <button class="rm-btn" data-rmp="${esc(String(p.id))}" title="Remove" aria-label="Remove ${esc(p.place)}">✕</button>
           </div>`;
         }).join("");
       }
-      const cardView = tripCardView[it.id] || "edit";
+      const cardView = tripCardView[it.id] || "table";
       const tableHtml = buildTripTable(cities);
+      const badge = tripStatus(cities);
       card.innerHTML = `
+        <div class="ig-badge ${badge === "Current Trip" ? "is-current" : "is-upcoming"}">${badge}</div>
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
           ${shareOK ? `<button class="ig-share${it.is_public ? " on" : ""}" type="button" data-share="${esc(String(it.id))}"
-            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — click to make it private" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "Shared ✓" : "Share"}</button>` : ""}
-          <div class="ig-view-switch" role="tablist" aria-label="Switch trip view">
-            <button type="button" data-view="edit" class="${cardView === "edit" ? "active" : ""}">Edit</button>
-            <button type="button" data-view="table" class="${cardView === "table" ? "active" : ""}">Table</button>
-          </div>
-          <button class="ig-del" type="button" data-del="${esc(String(it.id))}">Delete</button>
+            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — click to make it private" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "✅ Shared" : "📤 Share trip"}</button>` : ""}
+          <button class="ig-edit-btn" type="button" data-view-toggle="${esc(String(it.id))}">${cardView === "table" ? "✏️ Edit trip" : "📋 View table"}</button>
+          <button class="ig-del" type="button" data-del="${esc(String(it.id))}">🗑️ Delete trip</button>
         </div>
         <div class="ig-stops" style="display:${cardView === "table" ? "none" : ""}">${rows}</div>
         <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
@@ -1536,13 +1571,12 @@
 
   function wireItinEvents(){
     const groups = $("itin-groups");
-    /* per-trip Edit/Table toggle */
-    groups.querySelectorAll(".ig-view-switch button").forEach(b => {
+    /* per-trip Edit trip / View table toggle button */
+    groups.querySelectorAll(".ig-edit-btn").forEach(b => {
       b.addEventListener("click", () => {
         const card = b.closest(".itin-group");
         const id = card.dataset.id;
-        if ((tripCardView[id] || "edit") === b.dataset.view) return;
-        tripCardView[id] = b.dataset.view;
+        tripCardView[id] = (tripCardView[id] || "table") === "table" ? "edit" : "table";
         renderItineraries();
       });
     });
@@ -1628,7 +1662,7 @@
     groups.querySelectorAll(".ig-del").forEach(btn => {
       let armed = false, t = null;
       btn.addEventListener("click", async () => {
-        if (!armed){ armed = true; btn.textContent = "Really delete?"; btn.classList.add("armed"); t = setTimeout(() => { armed = false; btn.textContent = "Delete"; btn.classList.remove("armed"); }, 4000); return; }
+        if (!armed){ armed = true; btn.textContent = "🗑️ Really delete?"; btn.classList.add("armed"); t = setTimeout(() => { armed = false; btn.textContent = "🗑️ Delete trip"; btn.classList.remove("armed"); }, 4000); return; }
         clearTimeout(t); btn.disabled = true;
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itineraries").delete().eq("id", btn.dataset.del); if (error) throw error; status("Trip deleted.", "ok"); renderItineraries(); }
         catch(e){ btn.disabled = false; status("Couldn't delete that — try again.", "err"); }
