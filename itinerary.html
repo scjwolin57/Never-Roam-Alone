@@ -226,6 +226,7 @@
   .ig-table{margin-top:4px;margin-left:-16px;margin-right:-16px}
   .ig-table .trip-table{table-layout:fixed;width:calc(100% + 32px);border:1px solid transparent}
   .ig-table .trip-table .trow-main td{border-bottom:none;padding-bottom:2px}
+  .ig-table .trip-table .tcountry{white-space:nowrap}
   .ig-table .trip-table .tdates{
     color:var(--muted);font-weight:600;font-size:.78rem;white-space:nowrap;
     padding-top:0;padding-bottom:11px;
@@ -1292,13 +1293,13 @@
       rows += `<tr class="trow-main">
         <td class="tnum">${i+1}</td>
         <td class="tcity">${nameHtml}</td>
-        <td>${country || "—"}</td>
+        <td class="tcountry">${country || "—"}</td>
         <td class="tnights">${esc(nights(p.arrive, p.depart))}</td>
       </tr>
       <tr class="trow-dates"><td class="tdates" colspan="4">${esc(dateRange(p.arrive, p.depart))}</td></tr>`;
     });
     return `<table class="trip-table">
-      <thead><tr><th style="width:26px">#</th><th>City</th><th style="width:74px">Country</th><th style="width:56px">Nights</th></tr></thead>
+      <thead><tr><th style="width:26px">#</th><th>City</th><th style="width:150px">Country</th><th style="width:50px">Nights</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
   }
 
