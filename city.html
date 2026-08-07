@@ -28,10 +28,8 @@
 <title>Never Roam Alone — City</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 <link rel="stylesheet" href="fonts/site-fonts.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+<link rel="stylesheet" href="vendor/flatpickr-4.6.13.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <!-- Perf: the mapbox-gl library + CSS (~800 KB) are lazy-loaded together with
      the landmark data when the visitor scrolls near the Landmarks section
      (see loadLmkDtData in the inline script). The flatpickr script was moved
@@ -855,7 +853,7 @@
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+<script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="city-photos.js"></script>
 <script src="hood-photos.js"></script>
 <script src="city-phrases.js"></script>
@@ -29794,8 +29792,8 @@ if(!c){
       loadScriptOnce("city-landmark-photos.js"),
       loadScriptOnce("day-trips.js"),
       // The map library itself is only needed for this section's pin map
-      loadScriptOnce("https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.js"),
-      loadCssOnce("https://unpkg.com/mapbox-gl@3.7.0/dist/mapbox-gl.css")
+      loadScriptOnce("vendor/mapbox-gl-3.7.0.js"),
+      loadCssOnce("vendor/mapbox-gl-3.7.0.css")
     ]).then(() => {
       dt = (window.NRA_DAYTRIPS || {})[c.city];
       lmks = (window.NRA_LANDMARKS && NRA_LANDMARKS[c.city]) || [];

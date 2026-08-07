@@ -41,7 +41,7 @@ window.NRA_AUTH = (function(){
     return new Promise((res, rej) => {
       if (window.supabase && window.supabase.createClient) return res();
       const s = document.createElement("script");
-      s.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js";
+      s.src = "vendor/supabase-js-2.min.js";
       s.onload = () => res();
       s.onerror = () => rej(new Error("supabase lib failed to load"));
       document.head.appendChild(s);
