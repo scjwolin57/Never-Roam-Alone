@@ -85,11 +85,11 @@
   /* ---------- Trip type toggle ---------- */
   .trip-toggle{display:flex;justify-content:center;gap:10px;margin-top:22px}
   .trip-toggle button{
-    border:2px solid rgba(255,255,255,.55);background:transparent;color:#fff;
-    font-weight:700;font-size:.9rem;font-family:inherit;padding:9px 22px;border-radius:24px;cursor:pointer;transition:.2s;
+    border:2px solid var(--green);background:transparent;color:var(--green);
+    font-weight:700;font-size:.9rem;font-family:inherit;padding:9px 8px;border-radius:24px;cursor:pointer;transition:.2s;
   }
-  .trip-toggle button.active{background:#fff;color:var(--green);border-color:#fff}
-  .trip-toggle button:hover:not(.active){border-color:#fff}
+  .trip-toggle button.active{background:#fff;color:var(--green);border-color:var(--green)}
+  .trip-toggle button:hover:not(.active){border-color:var(--green)}
 
   /* ---------- Card ---------- */
   .wrap{max-width:720px;margin:-28px auto 60px;padding:0 22px}
@@ -224,6 +224,11 @@
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
   .ig-view-switch button.active{background:var(--green);color:#fff}
   .ig-table{margin-top:4px}
+  .ig-table .trip-table{table-layout:fixed;border:1px solid rgba(63,81,56,.18);border-radius:0}
+  .ig-table .trip-table .tdates{
+    display:block;color:var(--muted);font-weight:600;font-size:.78rem;margin-top:2px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
 
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
   .ig-foot{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
@@ -471,7 +476,7 @@
   <h1 id="hero-title">My Travels</h1>
   <p id="hero-sub">Build your route — add the cities and places you're planning to roam.</p>
   <div class="trip-toggle" role="tablist">
-    <button type="button" id="tab-upcoming" data-type="upcoming">Upcoming trips</button>
+    <button type="button" id="tab-upcoming" data-type="upcoming">Current & Upcoming</button>
     <button type="button" id="tab-wishlist" data-type="wishlist">Wishlist</button>
     <button type="button" id="tab-past" data-type="past">Past trips</button>
     <button type="button" id="tab-favorite" data-type="favorite">♥ Favorites</button>
@@ -1282,14 +1287,13 @@
         : esc(p.place);
       rows += `<tr>
         <td class="tnum">${i+1}</td>
-        <td class="tcity">${nameHtml}</td>
+        <td class="tcity">${nameHtml}<span class="tdates">${esc(dateRange(p.arrive, p.depart))}</span></td>
         <td>${country || "—"}</td>
-        <td>${esc(dateRange(p.arrive, p.depart))}</td>
         <td class="tnights">${esc(nights(p.arrive, p.depart))}</td>
       </tr>`;
     });
     return `<table class="trip-table">
-      <thead><tr><th>#</th><th>City</th><th>Country</th><th>Dates</th><th>Nights</th></tr></thead>
+      <thead><tr><th style="width:26px">#</th><th>City</th><th style="width:74px">Country</th><th style="width:56px">Nights</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
   }
 
