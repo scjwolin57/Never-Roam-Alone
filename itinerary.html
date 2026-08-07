@@ -333,6 +333,12 @@
   .ig-share.on{background:var(--green);border-color:var(--green);color:#fff}
   .ig-share.on:hover{background:var(--teal-dark)}
   .ig-share:disabled{opacity:.6;cursor:default}
+  .ig-unshare{
+    border:none;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;
+    font-weight:600;font-size:.72rem;font-family:inherit;padding:6px 4px;flex-shrink:0;
+  }
+  .ig-unshare:hover{color:#b34a3a}
+  .ig-unshare:disabled{opacity:.6;cursor:default}
   .ig-edit-btn{
     border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
     font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
@@ -1237,7 +1243,8 @@
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
           ${shareOK ? `<button class="ig-share${it.is_public ? " on" : ""}" type="button" data-share="${esc(String(it.id))}"
-            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — click to make it private" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "✅ Shared" : "📤 Share trip"}</button>` : ""}
+            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — tap to share the link again" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "✅ Shared" : "📤 Share trip"}</button>
+            ${it.is_public ? `<button class="ig-unshare" type="button" data-unshare="${esc(String(it.id))}">Make private</button>` : ""}` : ""}
           <button class="ig-edit-btn" type="button" data-view-toggle="${esc(String(it.id))}">${cardView === "table" ? "✏️ Edit trip" : "📋 View table"}</button>
           <button class="ig-del" type="button" data-del="${esc(String(it.id))}">🗑️ Delete trip</button>
         </div>
@@ -1613,25 +1620,41 @@
         nsRenderPanel(card);
       }
     });
-    /* share / unshare a trip (public profile required — popup handles that) */
+    /* share a trip: pop the share options (native share sheet / copy link).
+       Making the trip public (so it can appear in "Roamers in town") happens
+       first if it isn't already, then the share sheet opens right after. */
     groups.querySelectorAll("[data-share]").forEach(btn => {
       btn.addEventListener("click", async () => {
         const id = btn.dataset.share;
+        const card = btn.closest(".itin-group");
+        const tripName = ((card && card.querySelector(".ig-name")) || {}).value || "";
         const isOn = btn.classList.contains("on");
         if (isOn){
-          btn.disabled = true;
-          try{ await setTripPublic(id, false); status("This trip is private again.", "ok"); renderItineraries(); }
-          catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
+          openShareSheet(tripName);   // already shared — just pop the share options again
           return;
         }
         const p = (window.NRA_AUTH && NRA_AUTH.profile && NRA_AUTH.profile()) || null;
         if (p && p.is_public){
           btn.disabled = true;
-          try{ await setTripPublic(id, true); status("Trip shared — you'll now appear in “Roamers in town” on the city pages on this route.", "ok"); renderItineraries(); }
+          try{
+            await setTripPublic(id, true);
+            status("Trip shared — you'll now appear in “Roamers in town” on the city pages on this route.", "ok");
+            renderItineraries();
+            openShareSheet(tripName);
+          }
           catch(e){ btn.disabled = false; status("Couldn't share that — please try again.", "err"); }
           return;
         }
-        openShareModal(id);   // profile isn't public yet — ask first
+        openShareModal(id, tripName);   // profile isn't public yet — ask first
+      });
+    });
+    /* stop sharing a trip (separate small control so Share always pops options) */
+    groups.querySelectorAll("[data-unshare]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.unshare;
+        btn.disabled = true;
+        try{ await setTripPublic(id, false); status("This trip is private again.", "ok"); renderItineraries(); }
+        catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
       });
     });
     /* ✉️ Email me tips — save the choice; when it's turned ON, send the email */
@@ -1807,14 +1830,37 @@
     if (error) throw error;
   }
 
+  /* ---- pop the actual share options: the phone's native share sheet
+     (Messages, WhatsApp, email…), or on a computer, copy the link ---- */
+  async function openShareSheet(tripName){
+    const u = (window.NRA_AUTH && NRA_AUTH.user && NRA_AUTH.user()) || null;
+    if (!u){ status("Sign in to get a shareable link.", "err"); return; }
+    const shareUrl = location.origin + "/roamer.html?id=" + encodeURIComponent(u.id);
+    const title = (tripName ? tripName + " — " : "") + "Never Roam Alone";
+    const text = "Check out my trip" + (tripName ? " “" + tripName + "”" : "") + " on Never Roam Alone:";
+    if (navigator.share){
+      try{ await navigator.share({ title, text, url: shareUrl }); }
+      catch(e){ /* they closed the share sheet — nothing to do */ }
+      return;
+    }
+    try{
+      await navigator.clipboard.writeText(shareUrl);
+      status("Link copied — paste it anywhere to share your trip.", "ok");
+    }catch(e){
+      window.prompt("Copy this link to share your trip:", shareUrl);
+    }
+  }
+
   /* ---- "public profile needed" popup ----
      Sharing a trip requires the user's public Roamer profile to be on,
      so other travelers can see who they are. If it's off we ask:
        1. turn the public profile on (we flip it for them) and share, or
        2. dismiss — trip stays private, profile stays hidden.       */
   let shareModalTripId = null;
-  function openShareModal(tripId){
+  let shareModalTripName = "";
+  function openShareModal(tripId, tripName){
     shareModalTripId = tripId;
+    shareModalTripName = tripName || "";
     const yes = $("share-modal-yes");
     yes.disabled = false;
     $("share-overlay").classList.add("open");
@@ -1825,6 +1871,7 @@
   }
   $("share-modal-yes").addEventListener("click", async () => {
     const tripId = shareModalTripId;
+    const tripName = shareModalTripName;
     if (!tripId){ closeShareModal(); return; }
     const yes = $("share-modal-yes"); yes.disabled = true;
     try{
@@ -1834,6 +1881,7 @@
       closeShareModal();
       status("Your public profile is on and this trip is shared — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
       renderItineraries();
+      openShareSheet(tripName);
     }catch(e){
       yes.disabled = false;
       status("Couldn't turn that on — please try again.", "err");
