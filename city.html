@@ -830,7 +830,9 @@
   </div>
 </header>
 
-<main id="content"><!-- filled by JS --></main>
+<!-- min-height keeps the footer below the first screen while the city data
+     loads, so it doesn't jump down when the guide renders (layout shift). -->
+<main id="content" style="min-height:100vh"><!-- filled by JS --></main>
 
 <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">&uarr;</a>
 
@@ -861,6 +863,23 @@
 
 <script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="city-photos.js"></script>
+<script>
+/* Perf: start downloading the hero photo NOW, in parallel with the city's
+   data files — it's the page's largest visible element (LCP), and without
+   this it could only begin downloading after the data had arrived. */
+(function(){
+  try {
+    var want = (new URLSearchParams(location.search).get("city") || "").toLowerCase();
+    if (!want || !window.NRA_CITY_PHOTO) return;
+    var key = Object.keys(NRA_CITY_PHOTO).find(function(k){ return k.toLowerCase() === want; });
+    var rec = key && NRA_CITY_PHOTO[key];
+    if (!rec || !rec.img) return;
+    var l = document.createElement("link");
+    l.rel = "preload"; l.as = "image"; l.href = rec.img;
+    document.head.appendChild(l);
+  } catch (e) { /* purely an optimization — never break the page */ }
+})();
+</script>
 <script src="hood-photos.js"></script>
 <script src="city-phrases.js"></script>
 <!-- Perf: this page loads NO per-city catalog files at all anymore. Food,
@@ -1751,10 +1770,21 @@ function lazyBgObserve(root){
 async function loadCityData(){
   const want = (new URLSearchParams(location.search).get("city") || "").toLowerCase();
   if (!want) return;
-  const idx = await (await fetch("citydata/_index.json")).json();
-  const nameKey = Object.keys(idx.slug).find(n => n.toLowerCase() === want);
-  if (!nameKey) return;
-  const rec = await (await fetch("citydata/" + idx.slug[nameKey] + ".json")).json();
+  /* Fast path: derive the data filename from the city name directly (same
+     slug rules as the build tools), skipping the extra round trip through
+     _index.json. If the guess misses (unusual spelling), fall back to the
+     index lookup exactly as before. */
+  const guess = want.normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[øœæłđðþß]/g, ch => ({"ø":"o","œ":"oe","æ":"ae","ł":"l","đ":"d","ð":"d","þ":"th","ß":"ss"}[ch]))
+    .replace(/ı/g, "i").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  let res = guess ? await fetch("citydata/" + guess + ".json").catch(() => null) : null;
+  if (!res || !res.ok) {
+    const idx = await (await fetch("citydata/_index.json")).json();
+    const nameKey = Object.keys(idx.slug).find(n => n.toLowerCase() === want);
+    if (!nameKey) return;
+    res = await fetch("citydata/" + idx.slug[nameKey] + ".json");
+  }
+  const rec = await res.json();
   const nm = rec.c.city;
   CITIES = [rec.c];
   const fill = (tbl, v) => { if (v !== undefined) tbl[nm] = v; };
@@ -2855,7 +2885,8 @@ if(!c){
       const name = el.dataset.hood;
       const local = localHoods[name];
       if (local) {
-        el.dataset.bg = local.img;
+        // hood banners display ~1000px wide at most — use the 960px "-sm" copy
+        el.dataset.bg = local.img.replace(/\.webp$/, "-sm.webp");
         lazyBgObserve(el.parentElement);
         const creditEl = el.querySelector('.hood-credit');
         if (creditEl && local.page) creditEl.innerHTML = `Photo: <a href="${local.page}" target="_blank" rel="noopener">${local.src || "Wikimedia Commons"}</a>`;

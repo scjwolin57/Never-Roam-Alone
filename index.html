@@ -1315,7 +1315,12 @@ const CITIES = [
   ];
   function ph(name){
     var rec = (window.NRA_CITY_PHOTO || {})[name];
-    return (rec && rec.img) ? rec.img : "";
+    var img = (rec && rec.img) ? rec.img : "";
+    // The four featured cards are shown small and sit above the fold — use the
+    // 640px "-sm" thumbnails (generated alongside the full-size photos) so the
+    // page's largest visible image loads in a fraction of the time.
+    if (img) img = img.replace(/\.webp$/, "-sm.webp");
+    return img;
   }
   function find(name){
     if (typeof CITIES === "undefined") return null;
@@ -1341,8 +1346,11 @@ const CITIES = [
         + '</figcaption></a>';
     }).join("");
   }
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", render);
-  else render();
+  // Render immediately — this script sits below the #featured-cities div and
+  // everything it needs is already loaded. Waiting for DOMContentLoaded made
+  // these above-the-fold cards (the page's largest visible content) paint
+  // seconds late on slow connections.
+  render();
 })();
 
 
