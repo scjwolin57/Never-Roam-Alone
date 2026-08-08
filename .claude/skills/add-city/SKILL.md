@@ -44,6 +44,7 @@ It's safe to re-run — already-present entries are skipped, not duplicated. Rea
 
 Before telling the user it's finished:
 - Confirm `citydata/<slug>.json` was written and the city’s name→slug entry landed in `citydata/_index.json` (that is what city.html fetches at runtime — without the index entry the guide page shows "city not found").
+- Confirm the same file also carries the folded catalog keys (`routes`, `daytrips`, `landmarks`, `lmk_coords`, `lmk_photos`, `food`, `food_photos`) — `add_city.py` runs `_guidebuild/extend_citydata.py` at the end to sync them from the catalog `.js` files. If any catalog `.js` file is ever edited BY HAND (not through add_city.py), re-run `python3 _guidebuild/extend_citydata.py` afterwards, or city.html will show stale routes/landmarks/day-trips/food for the edited cities.
 - Run `_guidebuild/checkjs.py` against `city.html`, `index.html`, and `cities.html` (checks every inline `<script>` for syntax errors).
 - Run `node --check` on the plain `.js` files the script touched (`destinations.js`, `city-seasons.js`, `city-routes.js`, `day-trips.js`, `city-scores.js`, `city-landmarks.js`, `netlify/edge-functions/city-meta.js`).
 - Confirm the new row landed in `NRA-MASTER.xlsx` (Live Cities tab) and note its blank columns to the user.

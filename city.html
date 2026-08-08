@@ -857,14 +857,13 @@
 <script src="city-photos.js"></script>
 <script src="hood-photos.js"></script>
 <script src="city-phrases.js"></script>
-<script src="city-food-index.js"></script>
-<script src="city-food-photos.js"></script>
-<!-- Perf: city-routes.js, day-trips.js, city-landmarks.js, city-landmark-coords.js
-     and city-landmark-photos.js (~4.8 MB combined) are NOT loaded here anymore.
-     They are fetched lazily by the inline script below — the landmark/day-trip
-     files when the visitor scrolls near the Landmarks section (loadLmkDtData),
-     and city-routes.js when a train/bus/ferry modal is opened (loadRoutesData),
-     the same pattern city-food.js already uses. -->
+<!-- Perf: this page loads NO per-city catalog files at all anymore. Food,
+     food photos, routes, landmarks, landmark coords/photos and day trips all
+     arrive inside citydata/<slug>.json (kept in sync by
+     _guidebuild/extend_citydata.py — re-run it after editing any catalog .js).
+     The full catalog files still exist for other pages and as a fallback:
+     loadFoodData / loadRoutesData / loadLmkDtData download them only when the
+     city's JSON is missing the corresponding keys. -->
 <script>
 /* Starter city dataset (shared with the map; will be unified into one source
    when we move to the production build). visitors = approx. annual international
@@ -1769,6 +1768,27 @@ async function loadCityData(){
   fill(CITY_TRANSPORT, rec.transport); fill(CITY_AIRPORT, rec.airport);
   fill(CITY_NET, rec.net);             fill(CITY_ESIM, rec.esim);
   fill(CITY_TIP, rec.tip);
+  /* The five heavy catalogs (food, landmarks, routes, day trips) are folded
+     into this city's JSON too (_guidebuild/extend_citydata.py keeps them in
+     sync). Setting their globals here lets the page's lazy loaders find the
+     data already present and skip the multi-MB catalog downloads entirely.
+     If a key is missing (citydata not re-synced after a catalog edit), the
+     old full-catalog downloads still kick in as a fallback. */
+  if ("food" in rec) {
+    window.CITY_FOOD = {}; if (rec.food) window.CITY_FOOD[nm] = rec.food;
+    window.CITY_FOOD_INDEX = rec.food ? {[nm]: 1} : {};
+    window.NRA_FOOD_PHOTOS = {}; if (rec.food_photos) window.NRA_FOOD_PHOTOS[nm] = rec.food_photos;
+  }
+  if ("routes" in rec) {
+    window.NRA_ROUTES = {}; if (rec.routes) window.NRA_ROUTES[nm] = rec.routes;
+    CITY_ROUTES = window.NRA_ROUTES;
+  }
+  if ("landmarks" in rec) {
+    window.NRA_LANDMARKS = {[nm]: rec.landmarks || []};
+    window.NRA_LANDMARK_COORDS = {[nm]: rec.lmk_coords || []};
+    window.NRA_LANDMARK_PHOTOS = {[nm]: rec.lmk_photos || []};
+    window.NRA_DAYTRIPS = {}; if (rec.daytrips) window.NRA_DAYTRIPS[nm] = rec.daytrips;
+  }
 }
 loadCityData().catch(e => console.error("City data failed to load:", e)).then(function(){
 
@@ -3464,15 +3484,20 @@ if(!c){
   let lmkDtStarted = false;
   function loadLmkDtData(){
     if (lmkDtStarted) return; lmkDtStarted = true;
-    Promise.all([
+    const need = [
+      // The map library is only needed for this section's pin map
+      loadScriptOnce("vendor/mapbox-gl-3.7.0.js"),
+      loadCssOnce("vendor/mapbox-gl-3.7.0.css")
+    ];
+    // Landmark/day-trip data normally arrives inside citydata/<slug>.json;
+    // only fall back to the full catalog files if it wasn't there.
+    if (!window.NRA_LANDMARKS) need.push(
       loadScriptOnce("city-landmarks.js"),
       loadScriptOnce("city-landmark-coords.js"),
       loadScriptOnce("city-landmark-photos.js"),
-      loadScriptOnce("day-trips.js"),
-      // The map library itself is only needed for this section's pin map
-      loadScriptOnce("vendor/mapbox-gl-3.7.0.js"),
-      loadCssOnce("vendor/mapbox-gl-3.7.0.css")
-    ]).then(() => {
+      loadScriptOnce("day-trips.js")
+    );
+    Promise.all(need).then(() => {
       dt = (window.NRA_DAYTRIPS || {})[c.city];
       lmks = (window.NRA_LANDMARKS && NRA_LANDMARKS[c.city]) || [];
       lmkCoords = (window.NRA_LANDMARK_COORDS && NRA_LANDMARK_COORDS[c.city]) || [];
