@@ -24,10 +24,20 @@
 
   if (getChoice() === 'accepted') loadTP();
 
+  /* Run as soon as <body> exists rather than waiting for DOMContentLoaded —
+     DOMContentLoaded only fires after every script on the page has run, which
+     made the banner appear seconds late (and register as the page's "largest
+     contentful paint" in Lighthouse). The banner is position:fixed, so
+     injecting it early causes no layout shift. */
   function ready(fn) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', fn);
-    } else { fn(); }
+    var done = false;
+    function once() { if (!done) { done = true; fn(); } }
+    if (document.body) { once(); return; }
+    var mo = new MutationObserver(function () {
+      if (document.body) { mo.disconnect(); once(); }
+    });
+    mo.observe(document.documentElement, { childList: true });
+    document.addEventListener('DOMContentLoaded', function () { mo.disconnect(); once(); });
   }
 
   var COOKIE_SVG = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +

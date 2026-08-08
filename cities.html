@@ -27,6 +27,12 @@
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>City Guides — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="stylesheet" href="fonts/site-fonts.css">
+<!-- Perf: preload above-the-fold fonts so text renders in the real fonts on
+     first paint instead of swapping later and shifting the layout. -->
+<link rel="preload" href="fonts/fraunces-normal-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/amatic-sc-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   :root{
     --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;

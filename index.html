@@ -30,12 +30,17 @@
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 <link rel="stylesheet" href="fonts/site-fonts.css" />
+<!-- Perf: preload the fonts used above the fold so text renders in the real
+     fonts on first paint instead of swapping later and shifting the layout
+     (the font swap was pushing the map down — the page's biggest CLS). -->
+<link rel="preload" href="fonts/fraunces-normal-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/amatic-sc-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 
-<!-- MapLibre GL (free, open-source map engine — no API key needed) -->
-<link href="vendor/maplibre-gl-4.7.1.css" rel="stylesheet" />
-<!-- Perf: the MapLibre / data scripts moved to the bottom of <body> so the
-     page paints before they download (they still run before the inline
-     script that uses them). -->
+<!-- MapLibre GL (free, open-source map engine — no API key needed).
+     Perf: its CSS + JS load with the globe itself (see watchGlobe at the
+     bottom) so neither blocks the page's first paint. -->
 
 <style>
   :root{
@@ -366,7 +371,7 @@
     <h2>About <em>Me</em></h2>
   </div>
   <div class="about">
-    <div class="photo-frame"><img src="pyramids-web.jpg" alt="Jeff at the Pyramids of Giza" /></div>
+    <div class="photo-frame"><img src="pyramids-web-sm.webp" alt="Jeff at the Pyramids of Giza" width="560" height="420" loading="lazy" /></div>
     <div>
       <h3>Hi, I'm Jeff</h3>
       <p class="handle">Founder &amp; chief roamer &middot; 60+ countries</p>
@@ -1474,12 +1479,24 @@ map.on("load", () => {
 (function watchGlobe(){
   const mapEl = document.getElementById("map");
   if (!mapEl || typeof maplibregl === "undefined") return;
+  let started = false;
+  function startGlobe(){
+    if (started) return; started = true;
+    // The MapLibre stylesheet is loaded here (not in <head>) so it never
+    // blocks the page's first paint; the globe starts once it has arrived.
+    const l = document.createElement("link");
+    l.rel = "stylesheet";
+    l.href = "vendor/maplibre-gl-4.7.1.css";
+    l.onload = initGlobe;
+    l.onerror = initGlobe; // style is nice-to-have; the map itself still works
+    document.head.appendChild(l);
+  }
   if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(entries => {
-      if (entries.some(en => en.isIntersecting)) { io.disconnect(); initGlobe(); }
+      if (entries.some(en => en.isIntersecting)) { io.disconnect(); startGlobe(); }
     }, { rootMargin: "400px 0px" });
     io.observe(mapEl);
-  } else { initGlobe(); }
+  } else { startGlobe(); }
 })();
 </script>
 <script>
