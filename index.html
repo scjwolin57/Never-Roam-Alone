@@ -101,6 +101,14 @@
   .map-wrap{
     position:relative;max-width:var(--maxw);margin:0 auto 10px;padding:0 22px;
   }
+  /* "Tap to explore" pill shown over the static map picture on phones */
+  #map-tap-hint{
+    position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:5;
+    background:var(--green,#556B2F);color:#fff;border:none;border-radius:999px;
+    padding:11px 20px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:.92rem;
+    box-shadow:0 6px 18px rgba(43,36,23,.35);cursor:pointer;white-space:nowrap;
+  }
+  #map{position:relative}
   #map{
     width:100%;height:560px;border-radius:18px;overflow:hidden;
     box-shadow:var(--shadow);border:1px solid rgba(85,107,47,.18);
@@ -410,7 +418,9 @@
   <small class="foot-disclosure" style="display:block;width:100%;color:#d8d0b8">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> Details in our <a href="privacy.html" style="text-decoration:underline;color:#d8d0b8">Privacy Policy</a>.</small>
 </footer>
 
-<script src="vendor/maplibre-gl-4.7.1.js"></script>
+<!-- Perf: the MapLibre engine is no longer loaded here — watchGlobe (below)
+     loads it on demand: automatically on desktop when the map scrolls into
+     view, and on phones only after the visitor taps the map picture. -->
 <script src="city-photos.js"></script>
 <script src="posts.js"></script>
 <script>
@@ -1486,20 +1496,50 @@ map.on("load", () => {
 
 (function watchGlobe(){
   const mapEl = document.getElementById("map");
-  if (!mapEl || typeof maplibregl === "undefined") return;
+  if (!mapEl) return;
   let started = false;
+  function loadOnce(tag, attrs){
+    return new Promise((resolve, reject) => {
+      const el = document.createElement(tag);
+      Object.assign(el, attrs);
+      el.onload = resolve;
+      el.onerror = reject;
+      document.head.appendChild(el);
+    });
+  }
   function startGlobe(){
     if (started) return; started = true;
-    // The MapLibre stylesheet is loaded here (not in <head>) so it never
-    // blocks the page's first paint; the globe starts once it has arrived.
-    const l = document.createElement("link");
-    l.rel = "stylesheet";
-    l.href = "vendor/maplibre-gl-4.7.1.css";
-    l.onload = initGlobe;
-    l.onerror = initGlobe; // style is nice-to-have; the map itself still works
-    document.head.appendChild(l);
+    /* Engine + stylesheet load on demand so they never block first paint —
+       and on phones they aren't downloaded at all unless the map is tapped. */
+    Promise.all([
+      loadOnce("script", { src: "vendor/maplibre-gl-4.7.1.js" }),
+      loadOnce("link", { rel: "stylesheet", href: "vendor/maplibre-gl-4.7.1.css" }).catch(() => {})
+    ]).then(() => {
+      const hint = document.getElementById("map-tap-hint");
+      if (hint) hint.remove();
+      // the placeholder picture stays as the backdrop while tiles stream in
+      initGlobe();
+    }).catch(e => console.warn("Map engine failed to load:", e));
   }
-  if ("IntersectionObserver" in window) {
+  const mobile = window.matchMedia("(max-width: 880px)").matches;
+  if (mobile) {
+    /* Phones: show a pre-rendered picture of this exact map view (generated
+       from the live map — regenerate images/map-placeholder-mobile.webp if
+       the bubbles change dramatically). The live globe starts on first tap. */
+    mapEl.style.backgroundImage = "url('images/map-placeholder-mobile.webp')";
+    mapEl.style.backgroundSize = "cover";
+    mapEl.style.backgroundPosition = "center";
+    const hint = document.createElement("button");
+    hint.id = "map-tap-hint";
+    hint.type = "button";
+    hint.innerHTML = "Tap to explore the live globe &rarr;";
+    mapEl.appendChild(hint);
+    // listen on the whole map area (not just the map itself) so taps landing
+    // on the legend overlay also wake the globe
+    const wakeArea = mapEl.closest(".map-wrap") || mapEl;
+    wakeArea.addEventListener("click", startGlobe, { once: true });
+    wakeArea.addEventListener("touchstart", startGlobe, { once: true, passive: true });
+  } else if ("IntersectionObserver" in window) {
     const io = new IntersectionObserver(entries => {
       if (entries.some(en => en.isIntersecting)) { io.disconnect(); startGlobe(); }
     }, { rootMargin: "400px 0px" });
