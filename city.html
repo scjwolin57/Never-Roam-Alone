@@ -34,6 +34,8 @@
 <link rel="preload" href="fonts/amatic-sc-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/work-sans-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/work-sans-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/work-sans-normal-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-italic-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="vendor/flatpickr-4.6.13.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
 <!-- Perf: the mapbox-gl library + CSS (~800 KB) are lazy-loaded together with
@@ -411,6 +413,16 @@
   .tr-map-btn{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
     padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap}
   .tr-map-btn:hover{background:var(--coral)}
+  .tr-micro-btn{background:transparent;color:var(--green);border:2px solid var(--green);font-family:inherit;
+    font-weight:700;font-size:.85rem;padding:6px 16px;border-radius:22px;cursor:pointer;white-space:nowrap}
+  .tr-micro-btn:hover{background:var(--green);color:#fff}
+  .micro-list{margin:14px 0 0;padding:0;list-style:none}
+  .micro-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.08)}
+  .micro-row:last-child{border-bottom:0}
+  .micro-name{font-weight:700;font-size:.95rem}
+  .micro-link{margin-left:auto;font-weight:700;font-size:.82rem;color:var(--green);text-decoration:none;white-space:nowrap}
+  .micro-link:hover{color:var(--coral);text-decoration:underline}
+  .micro-note{margin:14px 0 0;font-size:.8rem;line-height:1.5;opacity:.75}
   .tr-sys-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
   .tr-sys-row .rides-k{margin-bottom:0}
   .tr-chip{display:inline-flex;align-items:baseline;gap:7px;background:rgba(63,81,56,.1);color:var(--teal);
@@ -596,6 +608,24 @@
   .lodge-tier{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 0;border-radius:20px;color:#fff;width:84px;text-align:center}
   .lodge-name{font-size:.86rem;color:var(--muted);font-style:italic}
+
+  /* Bar / drinks picks inside a neighborhood card */
+  .hood-bars{border-top:1px solid rgba(0,0,0,.07);padding-top:14px;margin-top:16px;
+    display:flex;flex-direction:column;gap:10px}
+  .hood-bars-head{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+    color:var(--muted);margin:0}
+  .bar-row{display:flex;align-items:baseline;gap:10px}
+  .bar-kind{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
+    padding:3px 8px;border-radius:20px;background:rgba(85,107,47,.1);color:#556B2F;
+    width:104px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .bar-info{font-size:.86rem;line-height:1.45}
+  .bar-name{color:#556B2F;font-weight:600;text-decoration:none;border-bottom:1px solid transparent}
+  .bar-name:hover{color:#C04020;border-bottom-color:currentColor}
+  .bar-note{color:var(--muted);font-style:italic}
+  @media(max-width:520px){
+    .bar-row{flex-direction:column;gap:3px}
+    .bar-kind{width:auto;align-self:flex-start;padding:2px 8px}
+  }
 
   .sec-head{font-size:1.8rem;margin:0 0 22px}
   .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -991,17 +1021,24 @@ const VISIT_TIERS = [
   { label:"Deeper dive",         blurb:"Time for hidden gems, local neighborhoods, and day trips." },
   { label:"Live like a local",   blurb:"Settle in and soak up everyday life at your own rhythm." }
 ];
+/* Beach and resort cities: tier 1 measures sightseeing only, which is genuinely
+   short, so the stock "scratch the surface" wording makes a ½-day figure look
+   like a mistake. These get a clearer tier-1 card instead. */
+const RESORT_TIER1 = { label:"Just the sights",
+  blurb:"Sightseeing is quick here — longer stays are for beach and boat days." };
+const RESORT_STAY = new Set(["Alanya","Alicante","Aqaba","Batumi","Biarritz","Bodrum","Boracay","Bridgetown","Cancún","Cockburn Town","Da Nang","Durban","Durrës","Fethiye","Guarujá","Houmt El Souk","Hua Hin","Hurghada","Ibiza","Ko Samui","Krabi","Kuşadası","La Romana","Las Palmas de Gran Canaria","Malé","Marbella","Marmaris","Mazatlán","Montego Bay","Mykonos","Nassau","Nha Trang","Panglao","Paphos","Pattaya-Chonburi","Pemba","Phu Quoc","Playa del Carmen","Puerto Plata","Puerto Vallarta","Punta Cana","Rhodes","Rimini","Road Town","Roseau","San Andrés","Santorini","Scottsdale","Sihanoukville","Sousse","Varna","Viña del Mar","Weno","Willemstad","Zanzibar City","Çeşme"]);
 function visitRangeText(r){
   const [lo,hi] = r;
-  const n = lo === hi ? String(lo) : lo + "–" + hi;
-  const unit = (lo === hi && lo === 1) ? "day" : "days";
+  const f = v => (v === 0.5 ? "½" : String(v));
+  const n = lo === hi ? f(lo) : f(lo) + "–" + f(hi);
+  const unit = (hi <= 1) ? "day" : "days";
   return { n, unit };
 }
 function buildVisitSection(cityName){
   const tiers = CITY_VISIT[cityName];
   if (!tiers) return "";
   const cards = tiers.map((r,i)=>{
-    const t = VISIT_TIERS[i];
+    const t = (i === 0 && RESORT_STAY.has(cityName)) ? RESORT_TIER1 : VISIT_TIERS[i];
     const { n, unit } = visitRangeText(r);
     return `
       <div class="stay-card">
@@ -1064,6 +1101,23 @@ let CITY_ADVISORY = {};
 let CITY_AVOID = {};
 
 let CITY_HOODS = {};
+
+/* Bar picks per neighborhood, aligned to CITY_HOODS order.
+   Each hood is an array of up to three {k, n, d} entries:
+     k = dive | party | cocktail | pub  (places that serve alcohol)
+         cafe | hangout | mocktail      (places where alcohol isn't sold)
+     n = venue name, d = one-line note. An empty array means no picks yet. */
+let CITY_BARS = {};
+
+const BAR_KIND_META = {
+  dive:     { label: "Dive / local bar",  emoji: "\u{1F37A}" },
+  party:    { label: "Party bar",         emoji: "\u{1F3B6}" },
+  cocktail: { label: "Cocktail bar",      emoji: "\u{1F378}" },
+  pub:      { label: "Pub / casual bar",  emoji: "\u{1F37B}" },
+  cafe:     { label: "Coffee house",      emoji: "☕" },
+  hangout:  { label: "Late-night hangout",emoji: "\u{1F319}" },
+  mocktail: { label: "Juice & mocktails", emoji: "\u{1F379}" }
+};
 
 /* Neighborhood quality labels — one best-fit tag per hood, aligned to CITY_HOODS order.
    Value is a HOOD_TAG_META key, or null for no clear match (no overlay shown).
@@ -1799,6 +1853,7 @@ async function loadCityData(){
   fill(CITY_ADVISORY, rec.advisory);   fill(CITY_AVOID, rec.avoid);
   fill(CITY_HOODS, rec.hoods);         fill(CITY_HOOD_TAG, rec.hood_tag);
   fill(CITY_HOOD_DESC, rec.hood_desc); fill(CITY_LODGING, rec.lodging);
+  fill(CITY_BARS, rec.bars);
   fill(CITY_RAIN, rec.rain);           fill(CITY_WATER, rec.water);
   fill(CITY_DRINKS, rec.drinks);       fill(CITY_TRANSIT, rec.transit);
   fill(CITY_TRANSPORT, rec.transport); fill(CITY_AIRPORT, rec.airport);
@@ -1895,10 +1950,23 @@ if(!c){
   /* Build temperature rows for the seasonal card */
   /* Neighborhood guide (real names, placeholder descriptions + lodging) */
   const hoods = CITY_HOODS[c.city] || [];
+  const escB = s => String(s == null ? "" : s).replace(/[&<>"']/g, ch => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[ch]));
   const hoodsHTML = hoods.map((name, i) => {
     const tagKey = (CITY_HOOD_TAG[c.city] && CITY_HOOD_TAG[c.city][i]) || null;
     const tm = tagKey && HOOD_TAG_META[tagKey];
     const tagHTML = tm ? `<span class="hood-tag" title="Best for: ${tm.label}"><span class="hood-tag-emoji">${tm.emoji}</span><span class="hood-tag-label">${tm.label}</span></span>` : '';
+    /* Bar picks for this hood — omitted entirely when we have no verified venues. */
+    const barList = (CITY_BARS[c.city] && CITY_BARS[c.city][i]) || [];
+    const dryHood = barList.length > 0 && !barList.some(b => b.k === 'dive' || b.k === 'party' || b.k === 'cocktail' || b.k === 'pub');
+    const barsHTML = barList.length ? `
+            <div class="hood-bars">
+              <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
+              ${barList.map(b => {
+                const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
+                const q = encodeURIComponent(b.n + ', ' + name + ', ' + c.city);
+                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}</span></div>`;
+              }).join('')}
+            </div>` : '';
     return `
         <div class="hood">
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
@@ -1911,7 +1979,7 @@ if(!c){
             <p class="hood-desc">${(CITY_HOOD_DESC[c.city] && CITY_HOOD_DESC[c.city][i]) ? CITY_HOOD_DESC[c.city][i] : `Placeholder — a short overview of ${name} will go here: the vibe, who it suits, and what's nearby.`}</p>
             <div class="hood-lodging">
               ${LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${(CITY_LODGING[c.city] && CITY_LODGING[c.city][i] && CITY_LODGING[c.city][i][ti]) ? CITY_LODGING[c.city][i][ti] : 'Recommendation coming soon'}</span></div>`).join('')}
-            </div>
+            </div>${barsHTML}
           </div>
         </div>`;
   }).join('');
@@ -2253,7 +2321,7 @@ if(!c){
       <div class="lmk-cards-col">
       <div class="lmk-grid">` + lmks.map((l, i) => {
         const p = lmkCoords[i];
-        const mapHref = p ? `https://www.google.com/maps/search/?api=1&query=${p.lat},${p.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
+        const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
         const photo = lmkPhotos[i];
         const photoHTML = photo ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${photo.page ? `<span class="lmk-photo-credit"><a href="${photo.page}" target="_blank" rel="noopener">${photo.credit ? String(photo.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>` : ''}</div>` : '';
         return `
@@ -2989,6 +3057,7 @@ if(!c){
           <span class="cost-icon" aria-hidden="true">${TRANSPORT_ICONS.train}</span>
           <div class="k">Getting around the city</div>
           ${mapBtn}
+          <button type="button" class="tr-micro-btn" id="micro-open-btn">Bikes &amp; scooters</button>
         </div>
         ${noteHTML}
         <div class="tr-sys-row">
@@ -3242,6 +3311,38 @@ if(!c){
     return foodDataPromise;
   }
 
+  /* city-micromobility.js (shared bikes / e-scooters) is fetched only when the
+     "Bikes & scooters" button in the transit card is opened or hovered. */
+  let microDataPromise = null;
+  function loadMicroData() {
+    if (window.NRA_MICRO) return Promise.resolve();
+    if (!microDataPromise) {
+      microDataPromise = new Promise((resolve, reject) => {
+        const s = document.createElement("script");
+        s.src = "city-micromobility.js";
+        s.onload = resolve;
+        s.onerror = () => { microDataPromise = null; reject(new Error("city-micromobility.js failed to load")); };
+        document.head.appendChild(s);
+      });
+    }
+    return microDataPromise;
+  }
+  function buildMicroModal() {
+    const list = (window.NRA_MICRO || {})[c.city] || [];
+    if (!list.length) {
+      return `<p class="modal-placeholder">We haven't found a shared bike or e-scooter service operating in ${c.city}. Local shops usually rent bikes and scooters by the hour or day &mdash; ask at your hotel or the tourist office.</p>`;
+    }
+    const rows = list.map(m => `
+      <li class="micro-row">
+        <span class="micro-name">${m.n}</span>
+        ${m.u ? `<a class="micro-link" href="${m.u}" target="_blank" rel="noopener">Visit site &nearr;</a>` : ``}
+      </li>`).join("");
+    return `
+      <p class="rt-intro">Shared bikes, e-bikes and e-scooters you can unlock yourself in ${c.city}. Most need the operator's app plus a card, so download it before you land.</p>
+      <ul class="micro-list">${rows}</ul>
+      <p class="micro-note">Operators come and go, and coverage can be limited to the city centre &mdash; check the app's map before you rely on one. Helmet rules, minimum age and pavement-riding bans vary by city.</p>`;
+  }
+
   /* city-routes.js is likewise large (~1.3 MB), so it is fetched only when a
      train / bus / ferry "more info" modal is opened (or its card is hovered). */
   let routesDataPromise = null;
@@ -3334,6 +3435,16 @@ if(!c){
           .then(() => { if (!modal.hidden && modalTitle.textContent === `${title} — ${forCity}`) modalBody.innerHTML = buildFoodModal(); })
           .catch(() => { if (!modal.hidden) modalBody.innerHTML = `<p class="modal-placeholder">Couldn't load the food recommendations. Please check your connection and try again.</p>`; });
       }
+    } else if (title === "Bike & scooter share") {
+      if (window.NRA_MICRO) {
+        modalBody.innerHTML = buildMicroModal();
+      } else {
+        modalBody.innerHTML = `<p class="modal-placeholder">Loading shared bikes &amp; scooters…</p>`;
+        const forCity = c.city;
+        loadMicroData()
+          .then(() => { if (!modal.hidden && modalTitle.textContent === `${title} — ${forCity}`) modalBody.innerHTML = buildMicroModal(); })
+          .catch(() => { if (!modal.hidden) modalBody.innerHTML = `<p class="modal-placeholder">Couldn't load the bike &amp; scooter options. Please check your connection and try again.</p>`; });
+      }
     } else {
       // Placeholder content — detailed info to be filled in later.
       modalBody.innerHTML = `<p class="modal-placeholder">More information about ${title.toLowerCase()} in ${c.city} is coming soon.</p>`;
@@ -3364,6 +3475,16 @@ if(!c){
       if (e.key !== "Enter" && e.key !== " ") return;
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) { e.preventDefault(); openModal(card.dataset.info); }
+    });
+  }
+
+  /* ---------- "Bikes & scooters" button inside the transit card ---------- */
+  if (transitEl) {
+    transitEl.addEventListener("mouseover", e => {
+      if (e.target.closest("#micro-open-btn")) loadMicroData().catch(() => {});
+    });
+    transitEl.addEventListener("click", e => {
+      if (e.target.closest("#micro-open-btn")) openModal("Bike & scooter share");
     });
   }
 

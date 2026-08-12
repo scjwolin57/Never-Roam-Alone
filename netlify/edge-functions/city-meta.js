@@ -34,11 +34,7 @@ const CITY_META = {
   "ahmedabad": {"city":"Ahmedabad","slug":"ahmedabad","tagline":"India's first UNESCO World Heritage city — Gandhi's ashram, carved-wood pols, and Gujarati street food."},
   "ibadan": {"city":"Ibadan","slug":"ibadan","tagline":"Nigeria's vast Yoruba metropolis of rust-red rooftops, cocoa-trade history, and its first university."},
   "kano": {"city":"Kano","slug":"kano","tagline":"Ancient Sahel trading city of mud-walled markets, indigo dye pits, and Hausa heritage."},
-  "luxembourg city": {
-    "city": "Luxembourg City",
-    "slug": "luxembourg-city",
-    "tagline": "A fairy-tale fortress capital of cliffs, valleys and EU power."
-  },
+  
   "kotor": {
     "city": "Kotor",
     "slug": "kotor",
@@ -342,7 +338,7 @@ const CITY_META = {
   "vladivostok": {"city":"Vladivostok","slug":"vladivostok","tagline":"Russia's Pacific gateway — end of the Trans-Siberian, city of bays, bridges and seafood."},
   "odessa": {"city":"Odessa","slug":"odessa","tagline":"Ukraine's sun-soaked Black Sea port of grand staircases, opera and seaside swagger."},
   "bursa": {"city":"Bursa","slug":"bursa","tagline":"First Ottoman capital, cradled by Mount Uludağ and steaming with silk and thermal springs."},
-  "ulan bator": {"city":"Ulan Bator","slug":"ulan-bator","tagline":"The world's coldest capital and Mongolia's gateway to the steppe."},
+  
   "islamabad": {"city":"Islamabad","slug":"islamabad","tagline":"Pakistan's calm, green planned capital beneath the Margalla Hills."},
   "pretoria": {"city":"Pretoria","slug":"pretoria","tagline":"South Africa's jacaranda-shaded administrative capital of monuments and embassies."},
   "jamestown": {"city":"Jamestown","slug":"jamestown","tagline":"One of Earth's most remote capitals - Georgian streets, 699 steps, Napoleon's exile."},
@@ -705,7 +701,7 @@ const CITY_META = {
   "dallas": {"city":"Dallas","slug":"dallas","tagline":"Big Texas ambition — arts, sports, barbecue and JFK history under a wide sky."},
   "cairns": {"city":"Cairns","slug":"cairns","tagline":"Tropical gateway to the Great Barrier Reef and the Daintree rainforest."},
   "christchurch": {"city":"Christchurch","slug":"christchurch","tagline":"Garden City reborn — a low-slung, creative gateway to the Southern Alps."},
-  "woodlands": {"city":"Woodlands","slug":"woodlands","tagline":"Singapore's northern gateway town - the Causeway to Malaysia, malls, and waterfront parks."},
+  
   "surabaya": {"city":"Surabaya","slug":"surabaya","tagline":"Indonesia's City of Heroes - old harbor quarters, monuments, and the bridge to Madura."},
   "makassar": {"city":"Makassar","slug":"makassar","tagline":"Sulawesi's seafront gateway of sunsets, spice-trade forts, and grilled fish."},
   "vatican city": {"city":"Vatican City","slug":"vatican-city","tagline":"The world's smallest state, home to the Pope and the greatest art on Earth."},

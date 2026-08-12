@@ -5,7 +5,7 @@
    Pages fall back to a picsum placeholder for any city missing here
    (there should be none as of 2026-07-25). */
 window.NRA_CITY_PHOTO = {
-  "Luxembourg City": { img:"images/cities/luxembourg-city.webp", page:"https://commons.wikimedia.org/wiki/File:Luxembourg_Grand_Ducal_Palace_01.jpg" },
+  
   "Kotor": { img:"images/cities/kotor.webp", page:"https://commons.wikimedia.org/wiki/File:20090719_Crkva_Gospa_od_Zdravlja_Kotor_Bay_Montenegro.jpg" },
   "Nicosia": { img:"images/cities/nicosia.webp", page:"https://en.wikipedia.org/wiki/File:Nicosia's_skyline_2024.jpg" },
   "Kuwait City": { img:"images/cities/kuwait-city.webp", page:"https://en.wikipedia.org/wiki/File:Kuwait_City_Skyline_1.jpg" },
@@ -854,7 +854,7 @@ window.NRA_CITY_PHOTO = {
   "Turpan": { img:"images/cities/turpan.webp", page:"https://commons.wikimedia.org/wiki/File:Turpan-jiaohe-ruinas-d16.jpg" },
   "Tórshavn": { img:"images/cities/t-rshavn.webp", page:"https://commons.wikimedia.org/wiki/File:Is03002-Torshavn.jpg" },
   "Udaipur": { img:"images/cities/udaipur.webp", page:"https://commons.wikimedia.org/wiki/File:Evening_view%2C_City_Palace%2C_Udaipur.jpg" },
-  "Ulan Bator": { img:"images/cities/ulan-bator.webp", page:"https://commons.wikimedia.org/wiki/File:UB_downtown.jpg" },
+  
   "Ulm": { img:"images/cities/ulm.webp", page:"https://commons.wikimedia.org/wiki/File:Ulm_Panorama_01.jpg" },
   "Urganch": { img:"images/cities/urganch.webp", page:"https://commons.wikimedia.org/wiki/File:Waterfront_of_Shavat_canal_in_Urganch.jpg" },
   "Ushuaia": { img:"images/cities/ushuaia.webp", page:"https://commons.wikimedia.org/wiki/File:Ushuaia_aerial_panorama.jpg" },
@@ -876,7 +876,7 @@ window.NRA_CITY_PHOTO = {
   "Willemstad": { img:"images/cities/willemstad.webp", page:"https://commons.wikimedia.org/wiki/File:Handelskade_in_Willemstad.jpg" },
   "Windermere": { img:"images/cities/windermere.webp", page:"https://commons.wikimedia.org/wiki/File:Prime_Minister_Sir_Keir_Starmer_Official_Portrait_%28cropped%29.jpg" },
   "Winnipeg": { img:"images/cities/winnipeg.webp", page:"https://commons.wikimedia.org/wiki/File:Winnipeg%2C_Manitoba_skyline_%28cropped%29.jpg" },
-  "Woodlands": { img:"images/cities/woodlands.webp", page:"https://commons.wikimedia.org/wiki/File:RepublicPolytechnic-CulturalCentre-20070205.jpg" },
+  
   "Wrocław": { img:"images/cities/wroc-aw.webp", page:"https://commons.wikimedia.org/wiki/File:Wroclaw-_Most_Grunwaldzki.jpg" },
   "Wuyishan": { img:"images/cities/wuyishan.webp", page:"https://commons.wikimedia.org/wiki/File:Wuyi_Mountains_Sea_of_clouds_4.jpg" },
   "Würzburg": { img:"images/cities/w-rzburg.webp", page:"https://commons.wikimedia.org/wiki/File:Marienberg_wuerzburg.jpg" },

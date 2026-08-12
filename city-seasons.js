@@ -5,7 +5,7 @@
    r  = rainy days per quarter (same source)
    ev = well-known recurring events / peak periods, by month number */
 window.NRA_SEASON = {
-  "Luxembourg City": {"t":[45,64,71,48],"r":[26,25,24,28]},
+  
   "Kotor": {"t":[57,74,86,64],"r":[51,33,26,63]},
   "Nicosia": {"t":[62,83,95,72],"r":[52,12,3,43]},
   "Kuwait City": {"t":[74,104,113,82],"r":[15,3,0,10]},
@@ -240,7 +240,7 @@ window.NRA_SEASON = {
   "Vladivostok": {"t":[22,55,72,40],"r":[8,18,30,12],"ev":[{"m":[9],"l":"Eastern Economic Forum — hotels booked solid, security tight"},{"m":[7,8],"l":"Short summer high season — best weather, most visitors"},{"m":[9],"l":"Pacific Meridian film festival — busy downtown"}]},
   "Odessa": {"t":[40,68,82,52],"r":[30,22,18,28],"ev":[{"m":[6,7,8],"l":"Summer beach season — busy despite wartime restrictions"},{"m":[9],"l":"City Day (Sept 2) — celebrations, scale depends on war situation"}]},
   "Bursa": {"t":[50,72,86,60],"r":[40,25,8,33],"ev":[{"m":[12,1,2,3],"l":"Uludag ski season — weekend crowds, cable car queues"},{"m":[6,7],"l":"Bursa Festival — concerts and busy evenings"}]},
-  "Ulan Bator": {"t":[20,62,68,28],"r":[2,7,12,3],"ev":[{"m":[7],"l":"Naadam festival (Jul 11-13) — city books out, offices close"},{"m":[2],"l":"Tsagaan Sar lunar new year — widespread closures for several days"},{"m":[12,1,2],"l":"Extreme winter cold and heavy smog season"}]},
+  
   "Islamabad": {"t":[68,95,93,72],"r":[7,6,12,3],"ev":[{"m":[2,3],"l":"Ramadan (dates shift) — daytime dining limited, festive nights"},{"m":[8],"l":"Independence Day (Aug 14) — rallies, road closures"},{"m":[7,8],"l":"Monsoon — heavy downpours, urban flooding possible"}]},
   "Pretoria": {"t":[82,70,73,80],"r":[33,12,6,28],"ev":[{"m":[10,11],"l":"Jacaranda bloom — peak sightseeing period"},{"m":[12,1],"l":"December school holidays — busy travel season"}]},
   "Jamestown": {"t":[80,76,70,76],"r":[12,18,20,14],"ev":[{"m":[5],"l":"St Helena's Day (May 21) — island-wide celebrations"},{"m":[12,1,2,3],"l":"Whale shark season — peak visitor period, limited lodging fills"}]},
@@ -604,7 +604,7 @@ window.NRA_SEASON = {
   "Dallas": {"t":[62,84,94,70],"r":[18,24,14,18],"ev":[{"m":[9,10],"l":"State Fair of Texas — huge crowds around Fair Park for a month"},{"m":[7,8],"l":"Peak summer heat (38°C+) — outdoor sightseeing tough midday"},{"m":[1],"l":"Cotton Bowl and NYE events — hotel spikes downtown"}]},
   "Cairns": {"t":[90,84,79,88],"r":[20,13,8,12],"ev":[{"m":[6,7,8,9,10],"l":"Dry-season high season — reef tours and rooms book out"},{"m":[8,9],"l":"Cairns Festival — parades and busy Esplanade"},{"m":[11,12,1,2,3,4,5],"l":"Stinger season — ocean swimming restricted to nets"}]},
   "Christchurch": {"t":[72,60,53,64],"r":[16,19,20,18],"ev":[{"m":[1],"l":"World Buskers Festival (Bread & Circus) — lively central-city crowds"},{"m":[11],"l":"Cup and Show Week — hotels busy, race-day crowds"},{"m":[12,1,2],"l":"Summer high season — peak prices and demand"}]},
-  "Woodlands": {"t":[87,89,88,87],"r":[40,38,38,52],"ev":[{"m":[1,2],"l":"Chinese New Year — shop closures, severe Causeway jams"},{"m":[6,12],"l":"School holidays — heavy cross-border Causeway congestion"}]},
+  
   "Surabaya": {"t":[88,89,89,89],"r":[55,25,6,35],"ev":[{"m":[5],"l":"City anniversary festivities incl. Rujak Uleg festival (late May)"},{"m":[2,3,4],"l":"Ramadan and Eid (dates shift yearly) — daytime closures, transport packed at Eid"}]},
   "Makassar": {"t":[88,89,88,88],"r":[65,30,6,45],"ev":[{"m":[3,4],"l":"Eid al-Fitr (dates shift) — flights and ferries jammed with mudik travel"},{"m":[8,9],"l":"Makassar F8 international festival — Losari waterfront packed"}]},
   "Vatican City": {"t":[57,75,88,66],"r":[22,16,9,28],"ev":[{"m":[3,4],"l":"Holy Week and Easter — enormous crowds, ticketed ceremonies"},{"m":[12],"l":"Christmas season — midnight Mass and packed square"},{"m":[6,7,8],"l":"Summer peak — long museum lines; note Wednesday papal audiences year-round"}]},

@@ -25,6 +25,8 @@ For the **optional** sections (`routes`, `daytrips`, `score`), include them if y
 
 Don't forget `hood_tags` — the neighborhood "best for" banners. After you've written the 5 `hoods` and `hood_desc`, classify each hood into one of the six banner categories (see the rubric in `CITY_SCHEMA.md`) and put them in `hood_tags`, in the same order as `hoods`. This is a quick read of the descriptions you just wrote, not extra research, but it's easy to forget — Ibiza originally shipped with no banners because this step was skipped. Fill all 5 (use `null` only for a hood with genuinely no clear fit).
 
+Also fill `bars` — up to 3 real bar picks per neighborhood, same order as `hoods` (see `CITY_SCHEMA.md` for the exact shape). One `dive` (neighborhood local's bar), one `party` (lively nightlife bar) and one `cocktail` (craft cocktail bar) per hood. **Web-search every venue** — a made-up or long-closed bar is worse than an empty slot, so omit rather than guess, and use `[]` for a hood with nothing verifiable. Where alcohol isn't sold (Saudi Arabia, Kuwait, Iran, Brunei, Indian dry states, or a dry neighborhood in an otherwise wet city), switch to the alcohol-free kinds `cafe` / `hangout` / `mocktail` instead — the card then reads "Where to go out (alcohol-free)". Never list go-go bars or any venue tied to prostitution, even in destinations known for them.
+
 Assemble one JSON file per batch of cities (a single object, or a list of objects for multiple cities at once) matching the schema exactly — field names and types matter, `add_city.py` won't guess.
 
 ## Phase 2: Install

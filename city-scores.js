@@ -9,7 +9,7 @@
    Local data: no network lookup needed.
 ----------------------------------------------------------*/
 window.NRA_CITY_SCORES = {
-  "Luxembourg City": { nightlife:40, restaurants:55, museums:50, architecture:60, nature:82 },
+  
   "Kotor": { nightlife:45, restaurants:48, museums:45, architecture:72, nature:92 },
   "Nicosia": { nightlife:45, restaurants:50, museums:48, architecture:50, nature:60 },
   "Kuwait City": { nightlife:18, restaurants:48, museums:40, architecture:45, nature:35 },
@@ -243,7 +243,7 @@ window.NRA_CITY_SCORES = {
   "Vladivostok": { nightlife:50, restaurants:66, museums:52, architecture:55, nature:78 },
   "Odessa": { nightlife:68, restaurants:62, museums:55, architecture:72, nature:55 },
   "Bursa": { nightlife:45, restaurants:62, museums:55, architecture:78, nature:72 },
-  "Ulan Bator": { nightlife:55, restaurants:50, museums:68, architecture:45, nature:82 },
+  
   "Islamabad": { nightlife:25, restaurants:60, museums:45, architecture:62, nature:78 },
   "Pretoria": { nightlife:55, restaurants:60, museums:62, architecture:58, nature:60 },
   "Jamestown": { nightlife:20, restaurants:40, museums:55, architecture:60, nature:85 },
@@ -607,7 +607,7 @@ window.NRA_CITY_SCORES = {
   "Dallas": { nightlife:62, restaurants:68, museums:60, architecture:62, nature:30 },
   "Cairns": { nightlife:45, restaurants:55, museums:40, architecture:35, nature:97 },
   "Christchurch": { nightlife:45, restaurants:60, museums:62, architecture:58, nature:88 },
-  "Woodlands": { nightlife:30, restaurants:55, museums:25, architecture:40, nature:60 },
+  
   "Surabaya": { nightlife:45, restaurants:65, museums:55, architecture:55, nature:45 },
   "Makassar": { nightlife:40, restaurants:68, museums:45, architecture:45, nature:60 },
   "Vatican City": { nightlife:20, restaurants:55, museums:100, architecture:98, nature:40 },

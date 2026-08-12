@@ -21,7 +21,7 @@
    ===================================================================== */
 
 window.NRA_DESTINATIONS = [
-  {city:"Luxembourg City", country:"Luxembourg", lat:49.6116, lng:6.1319, region:"eurasia", visitors:1.2, est:true, coastal:false, dailyCost:{budget:95, mid:230, luxury:645}, tagline:"A fairy-tale fortress capital of cliffs, valleys and EU power."},
+  
   {city:"Kotor", country:"Montenegro", lat:42.4247, lng:18.7712, region:"eurasia", visitors:1.5, est:true, dailyCost:{budget:50, mid:130, luxury:395}, tagline:"Medieval walls cradling the Adriatic's most dramatic bay."},
   {city:"Nicosia", country:"Cyprus", lat:35.1856, lng:33.3823, region:"cyprus", visitors:1.2, est:true, dailyCost:{budget:55, mid:140, luxury:410}, tagline:"Europe's last divided capital, ringed by Venetian walls."},
   {city:"Kuwait City", country:"Kuwait", lat:29.3759, lng:47.9774, region:"eurasia", visitors:1.3, est:true, dailyCost:{budget:85, mid:205, luxury:595}, tagline:"Gulf skyscrapers, ancient souks, and desert heat on the coast."},
@@ -256,7 +256,7 @@ window.NRA_DESTINATIONS = [
   {city:"Vladivostok", country:"Russia", lat:43.1155, lng:131.8855, region:"eurasia", visitors:1.0, est:true, coastal:true, dailyCost:{budget:35, mid:80, luxury:220}, tagline:"Russia's Pacific gateway — end of the Trans-Siberian, city of bays, bridges and seafood."},
   {city:"Odessa", country:"Ukraine", lat:46.4825, lng:30.7233, region:"eurasia", visitors:1.2, est:true, coastal:true, dailyCost:{budget:28, mid:65, luxury:180}, tagline:"Ukraine's sun-soaked Black Sea port of grand staircases, opera and seaside swagger."},
   {city:"Bursa", country:"Türkiye", lat:40.1885, lng:29.061, region:"eurasia", visitors:2.5, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"First Ottoman capital, cradled by Mount Uludağ and steaming with silk and thermal springs."},
-  {city:"Ulan Bator", country:"Mongolia", lat:47.9186, lng:106.9176, region:"eurasia", visitors:0.6, est:true, coastal:false, dailyCost:{budget:35, mid:85, luxury:230}, tagline:"The world's coldest capital and Mongolia's gateway to the steppe."},
+  
   {city:"Islamabad", country:"Pakistan", lat:33.6844, lng:73.0479, region:"eurasia", visitors:1.2, est:true, coastal:false, dailyCost:{budget:30, mid:75, luxury:220}, tagline:"Pakistan's calm, green planned capital beneath the Margalla Hills."},
   {city:"Pretoria", country:"South Africa", lat:-25.7479, lng:28.2293, region:"africa", visitors:1.0, est:true, coastal:false, dailyCost:{budget:40, mid:95, luxury:280}, tagline:"South Africa's jacaranda-shaded administrative capital of monuments and embassies."},
   {city:"Jamestown", country:"Saint Helena", lat:-15.9251, lng:-5.7179, region:"st-helena", visitors:0.01, est:true, coastal:true, dailyCost:{budget:90, mid:170, luxury:350}, tagline:"One of Earth's most remote capitals - Georgian streets, 699 steps, Napoleon's exile."},
@@ -619,7 +619,7 @@ window.NRA_DESTINATIONS = [
   {city:"Dallas", country:"United States", lat:32.7767, lng:-96.797, region:"n-america", visitors:27, est:true, coastal:false, dailyCost:{budget:90, mid:210, luxury:520}, tagline:"Big Texas ambition — arts, sports, barbecue and JFK history under a wide sky."},
   {city:"Cairns", country:"Australia", lat:-16.9203, lng:145.771, region:"oceania", visitors:2.9, est:true, coastal:true, dailyCost:{budget:75, mid:175, luxury:480}, tagline:"Tropical gateway to the Great Barrier Reef and the Daintree rainforest."},
   {city:"Christchurch", country:"New Zealand", lat:-43.5321, lng:172.6362, region:"nz", visitors:0.9, est:true, coastal:true, dailyCost:{budget:70, mid:160, luxury:460}, tagline:"Garden City reborn — a low-slung, creative gateway to the Southern Alps."},
-  {city:"Woodlands", country:"Singapore", lat:1.4363, lng:103.7867, region:"eurasia", visitors:3.0, est:true, coastal:true, dailyCost:{budget:60, mid:150, luxury:400}, tagline:"Singapore's northern gateway town - the Causeway to Malaysia, malls, and waterfront parks."},
+  
   {city:"Surabaya", country:"Indonesia", lat:-7.2458, lng:112.7378, region:"java", visitors:1.5, est:true, coastal:true, dailyCost:{budget:28, mid:70, luxury:200}, tagline:"Indonesia's City of Heroes - old harbor quarters, monuments, and the bridge to Madura."},
   {city:"Makassar", country:"Indonesia", lat:-5.1331, lng:119.4136, region:"sulawesi", visitors:1.0, est:true, coastal:true, dailyCost:{budget:25, mid:65, luxury:190}, tagline:"Sulawesi's seafront gateway of sunsets, spice-trade forts, and grilled fish."},
   {city:"Vatican City", country:"Vatican", lat:41.9029, lng:12.4534, region:"eurasia", visitors:6.8, est:true, coastal:false, dailyCost:{budget:80, mid:190, luxury:480}, tagline:"The world's smallest state, home to the Pope and the greatest art on Earth."},
