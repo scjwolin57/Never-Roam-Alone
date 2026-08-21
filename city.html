@@ -229,6 +229,11 @@
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
   .ride-chip{font-size:.74rem;font-weight:600;color:var(--green);background:rgba(63,81,56,.08);
     border:1px solid rgba(63,81,56,.18);border-radius:20px;padding:3px 10px}
+  /* Chips we can send to the App Store / Play Store. Plain chips stay as they were. */
+  a.ride-chip{text-decoration:none;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+  a.ride-chip::after{content:"\2197";margin-left:4px;font-weight:700;opacity:.55}
+  a.ride-chip:hover,a.ride-chip:focus-visible{background:var(--green);border-color:var(--green);color:#fff}
+  a.ride-chip:hover::after,a.ride-chip:focus-visible::after{opacity:1}
   .rides-none{font-size:.8rem;color:var(--muted)}
   .taxi-tip{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   .taxi-tip-btn{display:block;width:100%;margin-top:10px;padding:10px 0 0;border:0;border-top:1px solid rgba(0,0,0,.08);
@@ -420,6 +425,10 @@
   .micro-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px 0;border-bottom:1px solid rgba(0,0,0,.08)}
   .micro-row:last-child{border-bottom:0}
   .micro-name{font-weight:700;font-size:.95rem}
+  /* Operator name links to its App Store / Play Store listing when we have one. */
+  a.micro-app{color:var(--green);text-decoration:none}
+  a.micro-app::after{content:"\2197";margin-left:4px;font-size:.8em;opacity:.6}
+  a.micro-app:hover,a.micro-app:focus-visible{color:var(--coral);text-decoration:underline}
   .micro-link{margin-left:auto;font-weight:700;font-size:.82rem;color:var(--green);text-decoration:none;white-space:nowrap}
   .micro-link:hover{color:var(--coral);text-decoration:underline}
   .micro-note{margin:14px 0 0;font-size:.8rem;line-height:1.5;opacity:.75}
@@ -912,6 +921,9 @@
 </script>
 <script src="hood-photos.js"></script>
 <script src="city-phrases.js"></script>
+<!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
+     Provides window.nraAppLink(name, country). -->
+<script src="app-store-links.js"></script>
 <!-- Perf: this page loads NO per-city catalog files at all anymore. Food,
      food photos, routes, landmarks, landmark coords/photos and day trips all
      arrive inside citydata/<slug>.json (kept in sync by
@@ -2082,7 +2094,14 @@ if(!c){
           <div class="rides">
             <span class="rides-k">Ride-share apps</span>
             ${rides.length
-              ? `<div class="rides-list">${rides.map(r => `<span class="ride-chip">${r}</span>`).join('')}</div>`
+              ? `<div class="rides-list">${rides.map(r => {
+                    /* Real apps become a link to the store for this device;
+                       entries like "local taxi companies" stay plain text. */
+                    const appUrl = window.nraAppLink ? window.nraAppLink(r, c.country) : null;
+                    return appUrl
+                      ? `<a class="ride-chip" href="${appUrl}" target="_blank" rel="noopener" title="Get the ${r} app">${r}</a>`
+                      : `<span class="ride-chip">${r}</span>`;
+                  }).join('')}</div>`
               : `<span class="rides-none">Local taxis — no major apps</span>`}
           </div>`;
   const tx = CITY_TAXI[c.city];
@@ -3332,11 +3351,18 @@ if(!c){
     if (!list.length) {
       return `<p class="modal-placeholder">We haven't found a shared bike or e-scooter service operating in ${c.city}. Local shops usually rent bikes and scooters by the hour or day &mdash; ask at your hotel or the tourist office.</p>`;
     }
-    const rows = list.map(m => `
+    const rows = list.map(m => {
+      /* The operator name links to the app store when we have a verified
+         listing; the "Visit site" link stays either way. */
+      const appUrl = window.nraAppLink ? window.nraAppLink(m.n, c.country) : null;
+      return `
       <li class="micro-row">
-        <span class="micro-name">${m.n}</span>
+        ${appUrl
+          ? `<a class="micro-name micro-app" href="${appUrl}" target="_blank" rel="noopener" title="Get the ${m.n} app">${m.n}</a>`
+          : `<span class="micro-name">${m.n}</span>`}
         ${m.u ? `<a class="micro-link" href="${m.u}" target="_blank" rel="noopener">Visit site &nearr;</a>` : ``}
-      </li>`).join("");
+      </li>`;
+    }).join("");
     return `
       <p class="rt-intro">Shared bikes, e-bikes and e-scooters you can unlock yourself in ${c.city}. Most need the operator's app plus a card, so download it before you land.</p>
       <ul class="micro-list">${rows}</ul>

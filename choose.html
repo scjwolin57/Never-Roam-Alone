@@ -865,6 +865,8 @@
 <script src="destinations.js"></script>
 <script src="city-photos.js"></script>
 <script src="city-seasons.js"></script>
+<script src="city-holidays.js"></script>
+<script src="holiday-banner.js"></script>
 <!-- Perf: city-routes.js (~1.3 MB) is deferred — it downloads in parallel without
      blocking the page, and transport.js only reads it at interaction time
      ("Compare all ways to get there"). -->
@@ -1367,6 +1369,16 @@ function gFlightsLink(geo, c){
   return "https://www.google.com/travel/flights?q=" + encodeURIComponent(q);
 }
 
+/* "Things may be closed" notice for a result card — only appears once the
+   traveller has picked dates, and only when those dates actually collide
+   with a holiday that shuts businesses down. See city-holidays.js. */
+function holBannerFor(c){
+  if(!window.NRA_HOLIDAY_BANNER) return "";
+  const dd = departDateVal(); if(!dd) return "";
+  return NRA_HOLIDAY_BANNER.html(c.country, c.city, dd, returnDateVal() || dd,
+                                 { compact:true, max:2 });
+}
+
 /* "time to visit" bubble: events/peak periods first, then weather extremes,
    then an "ideal" nod — blank when there's nothing worth saying or no date */
 function seasonPillFor(c){
@@ -1447,6 +1459,7 @@ function finderCardHTML(r, rank, actLabel, budget){
         </div>
         <p>${c.tagline}</p>
         ${why.length ? `<div class="why">${why.join("")}</div>` : ""}
+        ${holBannerFor(c)}
         ${r.cmp && r.cmp.modes.length > 1 ? `
           <button type="button" class="cmp-toggle" aria-expanded="false"><span>Compare all ways to get there</span> ▾</button>
           <div class="cmp-modes" hidden>${r.cmp.modes.map(m=>`

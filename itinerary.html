@@ -578,6 +578,8 @@
 <script src="transport.js"></script>
 <script src="city-scores.js"></script>
 <script src="city-seasons.js"></script>
+<script src="city-holidays.js"></script>
+<script src="holiday-banner.js"></script>
 <script src="city-photos.js"></script>
 <script src="upcoming-cities.js"></script>
 <script src="world-cities.js" defer></script>
@@ -620,6 +622,28 @@
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
   const UPCOMING = (window.NRA_UPCOMING || []).map(d => ({city:d.city, country:d.country}));
   const guideOf = name => FEATURED.find(f => f.city.toLowerCase() === String(name||"").trim().toLowerCase()) || null;
+
+  /* ---- "things may be closed" notice ----
+     Fills the <span data-hol> slot inside a stop row whenever that stop's
+     dates land on a holiday that actually shuts businesses. Silent when
+     there's nothing to say, or when the holiday files aren't loaded. */
+  function paintHol(row){
+    if (!row) return;
+    const slot = row.querySelector("[data-hol]");
+    if (!slot || !window.NRA_HOLIDAY_BANNER) return;
+    const place = row.dataset.holPlace || "", country = row.dataset.holCountry || "";
+    const a = row.querySelector("[data-arrive],[data-pa]");
+    const d = row.querySelector("[data-depart],[data-pd]");
+    const g = guideOf(place);
+    NRA_HOLIDAY_BANNER.render(
+      slot,
+      country || (g && g.country) || "",
+      g ? g.city : place,
+      (a && a.value) || "",
+      (d && d.value) || "",
+      { compact: true, max: 2 }
+    );
+  }
 
   /* ---- local (browser) storage ---- */
   const LS_KEY = "nra_itinerary_v1";
@@ -781,6 +805,8 @@
       const row = document.createElement("div");
       row.className = "stop";
       row.dataset.id = String(it.id);
+      row.dataset.holPlace = it.place || "";
+      row.dataset.holCountry = it.country || "";
       const where = esc(it.country || (g && g.country) || "");
       const nameHtml = g
         ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)} <span class="arrow">&rarr;</span></a>`
@@ -793,12 +819,13 @@
           ${type === "favorite" ? "" : `<span class="dates">
             <label>Arrive <input type="text" class="date-field" data-arrive value="${esc(it.arrive||"")}" placeholder="Pick a date"></label>
             <label>Depart <input type="text" class="date-field" data-depart value="${esc(it.depart||"")}" placeholder="Pick a date"></label>
-          </span>`}</span>
+          </span>`}<span data-hol></span></span>
         ${g ? "" : (requested(it.place)
             ? `<button class="req-btn" disabled>Guide requested ✓</button>`
             : `<button class="req-btn" data-req="${esc(it.place)}" data-ctry="${esc(it.country||"")}">Request city guide</button>`)}
         <button class="rm-btn" data-rm="${esc(String(it.id))}" title="Remove" aria-label="Remove ${esc(it.place)}">✕</button>`;
       listEl.appendChild(row);
+      paintHol(row);
     });
 
     checkChrono();
@@ -813,6 +840,7 @@
         if (fpD) fpD.set("minDate", aEl.value || null);   // depart can't be before arrive
         if (aEl.value && dEl.value && dEl.value < aEl.value){ dEl.value = aEl.value; if (fpD) fpD.setDate(aEl.value, false); }
         checkChrono();
+        paintHol(row);
         try{ await updateDates(id, aEl.value, dEl.value); }
         catch(e){ status("Couldn't save that date — please try again.", "err"); }
       };
@@ -1219,7 +1247,7 @@
           const nameHtml = g
             ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)}</a>`
             : esc(p.place);
-          return `<div class="ig-stop" data-pid="${esc(String(p.id))}">
+          return `<div class="ig-stop" data-pid="${esc(String(p.id))}" data-hol-place="${esc(p.place||"")}" data-hol-country="${esc(p.country||"")}">
             <div class="ig-stop-controls">
               <span class="drag" title="Drag to reorder" aria-label="Drag to reorder">⠿</span>
               <button class="rm-btn" data-rmp="${esc(String(p.id))}" title="Remove" aria-label="Remove ${esc(p.place)}">
@@ -1231,7 +1259,7 @@
               <span class="dates">
                 <label>Arrive <input type="text" class="date-field" data-pa value="${esc(p.arrive||"")}" placeholder="Pick a date"></label>
                 <label>Depart <input type="text" class="date-field" data-pd value="${esc(p.depart||"")}" placeholder="Pick a date"></label>
-              </span></span>
+              </span><span data-hol></span></span>
           </div>`;
         }).join("");
       }
@@ -1736,10 +1764,12 @@
         if (ed) ed.classList.toggle("date-empty", !(d && d.value));
       };
       markEmpty();
+      paintHol(row);
       const onDate = async () => {
         if (fpD) fpD.set("minDate", minForDepart());
         if (a && d && a.value && d.value && d.value < a.value){ d.value = a.value; if (fpD) fpD.setDate(a.value, false); }
         markEmpty();
+        paintHol(row);
         checkTripChrono(row.closest(".itin-group"));
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").update({ arrive:(a&&a.value)||null, depart:(d&&d.value)||null }).eq("id", pid); if (error) throw error; }
         catch(e){ status("Couldn't save that date — try again.", "err"); }

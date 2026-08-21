@@ -200,6 +200,79 @@ window.NRA_AUTH = (function(){
     }
   }
 
+  /* ---- "Current city": the stop in your trips that today falls inside.
+     Checks the named trips (itinerary_places) first, then the older
+     Upcoming/Past lists (itinerary_items), and only offers the link if that
+     city actually has a guide page. Cached per browser session so it costs
+     one lookup, not one on every page. ---- */
+  const CURCITY_KEY = "nra_current_city_v1";
+  const CURCITY_TTL = 30 * 60 * 1000; // re-check at most every 30 minutes
+
+  function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+  /* same rule as the "Current Trip" badge on itinerary.html */
+  function stopIsNow(p, t){
+    if (p.arrive && p.depart) return p.arrive <= t && t <= p.depart;
+    if (p.arrive && !p.depart) return p.arrive === t;
+    if (!p.arrive && p.depart) return t <= p.depart;
+    return false;
+  }
+
+  function curCityCached(uid){
+    try{
+      const d = JSON.parse(sessionStorage.getItem(CURCITY_KEY));
+      if (!d || d.uid !== uid || d.day !== todayISO()) return undefined;
+      if (Date.now() - d.ts > CURCITY_TTL) return undefined;
+      return d.city;   // "" means we looked and there's nothing on today
+    }catch(e){ return undefined; }
+  }
+  function curCityCache(uid, city){
+    try{ sessionStorage.setItem(CURCITY_KEY, JSON.stringify({ uid, city: city || "", day: todayISO(), ts: Date.now() })); }catch(e){}
+  }
+
+  /* stops from one table whose dates cover today, newest arrival first */
+  async function stopsCoveringToday(table, t){
+    try{
+      const { data, error } = await sb.from(table)
+        .select("place,arrive,depart")
+        .or(`depart.gte.${t},arrive.eq.${t}`)
+        .limit(50);
+      if (error) return [];
+      return (data || []).filter(p => stopIsNow(p, t))
+        .sort((a, b) => String(b.arrive || "").localeCompare(String(a.arrive || "")));
+    }catch(e){ return []; }
+  }
+
+  /* Does this place have a guide page? citydata/_index.json lists every one.
+     Returns the guide's exact city name (for the ?city= link), or "". */
+  async function guideNameFor(place){
+    const want = String(place || "").trim().toLowerCase();
+    if (!want) return "";
+    try{
+      const idx = await (await fetch("citydata/_index.json")).json();
+      return Object.keys(idx.slug || {}).find(n => n.toLowerCase() === want) || "";
+    }catch(e){ return ""; }
+  }
+
+  async function findCurrentCity(){
+    if (!sb || !session) return "";
+    const uid = session.user.id;
+    const cached = curCityCached(uid);
+    if (cached !== undefined) return cached;
+    let city = "";
+    try{
+      const t = todayISO();
+      const [named, older] = await Promise.all([
+        stopsCoveringToday("itinerary_places", t),
+        stopsCoveringToday("itinerary_items", t)
+      ]);
+      const stop = named[0] || older[0];
+      if (stop) city = await guideNameFor(stop.place);
+    }catch(e){ city = ""; }
+    curCityCache(uid, city);
+    return city;
+  }
+
   /* ---- Compact nav-bar version: sign-in button, or initials circle → profile.html.
      Lives in the shared header (see nav.js), so it shows up on every page. ---- */
   function renderNavWidget(){
@@ -213,7 +286,7 @@ window.NRA_AUTH = (function(){
       el.innerHTML = `<div class="nra-nav-wrap">
         <button class="nra-nav-avatar" id="nra-nav-avatar-btn" aria-haspopup="true" aria-expanded="false" title="${esc(name)} — account menu">${esc(initials(name))}</button>
         <div class="nra-nav-menu" id="nra-nav-menu" hidden>
-          <a href="profile.html">Edit profile</a>
+          <a href="#" id="nra-nav-current-city" hidden></a>
           <a href="roamer.html?id=${uid}">View profile</a>
           <a href="messages.html">Messages</a>
           <a href="itinerary.html">Trips</a>
@@ -255,6 +328,18 @@ window.NRA_AUTH = (function(){
         const ADMIN_EMAILS = ["jcwolinsky@gmail.com"];
         const myEmail = ((session.user && session.user.email) || "").toLowerCase();
         link.hidden = !ADMIN_EMAILS.includes(myEmail);
+      })();
+      /* Show "Current city" only if a trip stop covers today AND that city
+         has a guide page — otherwise the link would lead nowhere. */
+      (function revealCurrentCity(){
+        const link = el.querySelector("#nra-nav-current-city");
+        if (!link) return;
+        findCurrentCity().then(function(city){
+          if (!city || !link.isConnected) return;
+          link.href = "city.html?city=" + encodeURIComponent(city) + "&from=guides";
+          link.textContent = "Current city: " + city;
+          link.hidden = false;
+        });
       })();
     } else {
       renderNavWidget._admin = null; // forget admin status on sign-out so the next sign-in re-checks
