@@ -299,7 +299,10 @@
         moreBtn.hidden = rows.length < PAGE;
         if (fresh) loadTags(sb);
       });
-    }).catch(function () {
+    }).catch(function (e) {
+      // the real reason goes to the console — usually "function
+      // city_connections does not exist", i.e. the SQL hasn't been run
+      console.warn("[connections] couldn't load:", (e && (e.message || e.hint)) || e);
       state.busy = false;
       listEl.innerHTML = '<p class="rc-note">Couldn\'t load the board right now — please try again later.</p>';
     });
@@ -588,10 +591,25 @@
     }
   }
 
+  /* city.html doesn't exist yet when this file loads: the guide is drawn
+     only after citydata/<slug>.json comes back. So wait for the card to
+     appear instead of giving up at DOMContentLoaded. */
+  function waitForCard() {
+    var tries = 0;
+    (function poll() {
+      if (document.getElementById("rc-card")) { boot(); return; }
+      if (tries++ > 300) return;            // ~30s, then stop looking
+      setTimeout(poll, 100);
+    })();
+  }
+
+  var booted = false;
   function boot() {
+    if (booted) return;
     card = document.getElementById("rc-card");
     CITY = (card && card.dataset.city) || window.NRA_RC_CITY || null;
     if (!CITY || !card) return;
+    booted = true;
     injectCss();
     if ("IntersectionObserver" in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -606,8 +624,8 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", boot);
+    document.addEventListener("DOMContentLoaded", waitForCard);
   } else {
-    boot();
+    waitForCard();
   }
 })();
