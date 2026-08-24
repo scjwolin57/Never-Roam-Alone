@@ -21,7 +21,8 @@ window.NRA_HOOD_PHOTO = {
     "Barri Antic (Centre Històric)": { img:"images/hoods/andorra-la-vella--barri-antic-centre-historic.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall_4.JPG" },
     "Escaldes-Engordany": { img:"images/hoods/andorra-la-vella--escaldes-engordany.webp", page:"https://commons.wikimedia.org/wiki/File:Caldea_spa_resort%2C_May_2016.jpg" },
     "Avinguda Meritxell": { img:"images/hoods/andorra-la-vella--avinguda-meritxell.webp", page:"https://commons.wikimedia.org/wiki/File:Avinguda_Meritxell_Andorra_la_Vella_20231008_123955.jpg" },
-    "Santa Coloma": { img:"images/hoods/andorra-la-vella--santa-coloma.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Coloma%2C_Andorra_la_Vella%2C_mapping.jpg" }
+    "Santa Coloma": { img:"images/hoods/andorra-la-vella--santa-coloma.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Coloma%2C_Andorra_la_Vella%2C_mapping.jpg" },
+    "Prat de la Creu": { img:"images/hoods/andorra-la-vella--prat-de-la-creu.webp" }
   },
   "Antalya": {
     "Lara": { img:"images/hoods/antalya--lara.webp", page:"https://commons.wikimedia.org/wiki/File:Antalya_Lara_T%C3%BCrkiye_-_panoramio.jpg" },
@@ -76,7 +77,8 @@ window.NRA_HOOD_PHOTO = {
     "Santo Stefano": { img:"images/hoods/bologna--santo-stefano.webp", page:"https://commons.wikimedia.org/wiki/File:Piazza_Santo_Stefano_(east_2).jpg" },
     "Quadrilatero": { img:"images/hoods/bologna--quadrilatero.webp", page:"https://commons.wikimedia.org/wiki/File:Quadrilatero%2C_Bologna%2C_Italy_-_panoramio_(5).jpg" },
     "Saragozza": { img:"images/hoods/bologna--saragozza.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna%2C_porta_saragozza_02.JPG" },
-    "San Donato": { img:"images/hoods/bologna--san-donato.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Porta_San_Donato_087.jpg" }
+    "San Donato": { img:"images/hoods/bologna--san-donato.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Porta_San_Donato_087.jpg" },
+    "Bolognina": { img:"images/hoods/bologna--bolognina.webp" }
   },
   "Bratislava": {
     "Old Town (Staré Mesto)": { img:"images/hoods/bratislava--old-town-stare-mesto.webp", page:"https://commons.wikimedia.org/wiki/File:Hlavn%C3%A9_n%C3%A1mestie-The_napoleonic_soldier%2C_Old_Town_Hall_and_Roland_Fountain-Bratislava.JPG" },

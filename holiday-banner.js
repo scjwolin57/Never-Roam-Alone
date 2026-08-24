@@ -46,6 +46,7 @@
     ".nra-hol.sev0{background:#F2F5EC;border-color:#556B2F;color:#3A4720}",
     ".nra-hol-head{font-weight:700;display:flex;gap:7px;align-items:baseline}",
     ".nra-hol-head .ic{flex:0 0 auto}",
+    ".nra-hol-head .hd{flex:1 1 auto;min-width:0}",
     ".nra-hol-item{margin-top:7px}",
     ".nra-hol-item:first-of-type{margin-top:5px}",
     ".nra-hol-name{font-weight:700}",
@@ -53,7 +54,20 @@
     ".nra-hol-note{display:block;margin-top:1px}",
     ".nra-hol-more{margin-top:6px;opacity:.8;font-style:italic}",
     ".nra-hol.compact{padding:8px 10px;font-size:.82rem;margin:8px 0}",
-    "@media (max-width:520px){.nra-hol-when{white-space:normal}}"
+    /* Show/hide toggle. Inherits the banner's own colour so it reads as
+       part of the notice rather than a stray control. */
+    ".nra-hol-toggle{flex:0 0 auto;background:none;border:0;padding:2px 4px;",
+    "margin:-2px -4px -2px 0;font:inherit;font-size:.78rem;font-weight:700;",
+    "color:inherit;opacity:.75;cursor:pointer;border-radius:5px;",
+    "display:inline-flex;align-items:center;gap:4px;white-space:nowrap}",
+    ".nra-hol-toggle:hover,.nra-hol-toggle:focus-visible{opacity:1;",
+    "background:rgba(0,0,0,.06)}",
+    ".nra-hol-toggle .cv{display:inline-block;transition:transform .15s ease}",
+    ".nra-hol.is-collapsed .nra-hol-toggle .cv{transform:rotate(-90deg)}",
+    ".nra-hol.is-collapsed .nra-hol-item,",
+    ".nra-hol.is-collapsed .nra-hol-more{display:none}",
+    "@media (max-width:520px){.nra-hol-when{white-space:normal}",
+    ".nra-hol-toggle .tx{display:none}}"
   ].join("");
 
   function injectCss() {
@@ -62,6 +76,34 @@
     s.id = STYLE_ID;
     s.textContent = CSS;
     (document.head || document.documentElement).appendChild(s);
+  }
+
+  /* ---- the Hide / Show toggle ----
+     One click listener on the document handles every banner on the page,
+     however many there are and whenever they appear. That matters on the
+     trip planner, where banners are rebuilt each time a date changes —
+     wiring a listener per banner would leak them.
+
+     Collapsing folds away the detail but ALWAYS leaves the heading
+     visible, so a warning can be tidied out of the way but never lost.
+     The state is per banner and resets on reload, deliberately: a
+     remembered "hidden" could hide a serious closure someone never saw. */
+  var uid = 0;
+  var toggleWired = false;
+
+  function wireToggle() {
+    if (toggleWired || !document.addEventListener) return;
+    toggleWired = true;
+    document.addEventListener("click", function (e) {
+      var btn = e.target && e.target.closest && e.target.closest("[data-hol-toggle]");
+      if (!btn) return;
+      var banner = btn.closest(".nra-hol");
+      if (!banner) return;
+      var collapsed = banner.classList.toggle("is-collapsed");
+      btn.setAttribute("aria-expanded", collapsed ? "false" : "true");
+      var label = btn.querySelector(".tx");
+      if (label) label.textContent = collapsed ? "Show" : "Hide";
+    });
   }
 
   function esc(s) {
@@ -105,12 +147,22 @@
     /* The banner takes the colour of its most serious holiday. */
     var top = LEVELS[shown[0].sev] || LEVELS[0];
 
+    /* Each banner needs its own id so the toggle button can point at the
+       part it controls, for screen readers. */
+    uid += 1;
+    var bodyId = "nra-hol-body-" + uid;
+
     var parts = [];
     parts.push('<div class="nra-hol ' + top.cls + (opts.compact ? " compact" : "") +
       '" role="note">');
     parts.push('<div class="nra-hol-head"><span class="ic" aria-hidden="true">' +
-      top.icon + '</span><span>' + esc(top.lead) +
-      (city ? " in " + esc(city) : "") + "</span></div>");
+      top.icon + '</span><span class="hd">' + esc(top.lead) +
+      (city ? " in " + esc(city) : "") + "</span>" +
+      '<button type="button" class="nra-hol-toggle" data-hol-toggle' +
+      ' aria-expanded="true" aria-controls="' + bodyId + '">' +
+      '<span class="tx">Hide</span><span class="cv" aria-hidden="true">▾</span>' +
+      "</button></div>");
+    parts.push('<div id="' + bodyId + '">');
 
     shown.forEach(function (h) {
       var when = prettyRange(h.start, h.end);
@@ -125,8 +177,10 @@
         (hidden === 1 ? "" : "s") + " in this window.</div>");
     }
 
-    parts.push("</div>");
+    parts.push("</div>");   /* close the collapsible body */
+    parts.push("</div>");   /* close the banner */
     injectCss();
+    wireToggle();
     return parts.join("");
   }
 

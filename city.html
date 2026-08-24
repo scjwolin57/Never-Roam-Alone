@@ -337,6 +337,9 @@
   .events-row{display:flex;gap:24px;align-items:flex-start;justify-content:center}
   .events-row .cal-wrap{flex:1 1 420px;margin:0;min-width:0}
   .roamers-card{flex:0 0 300px;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:18px 18px 20px}
+  /* left column: Roamers in town with Roamer's Connections stacked under it */
+  .events-side{flex:0 0 300px;min-width:0;display:flex;flex-direction:column;gap:24px}
+  .events-side>*{flex:0 0 auto}
   .rm-head{margin:0 0 4px;font-size:1.15rem;color:var(--green)}
   .rm-sub{margin:0 0 10px;color:var(--muted);font-size:.82rem;line-height:1.5}
   .rm-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid rgba(63,81,56,.12)}
@@ -356,6 +359,7 @@
     .events-row{flex-direction:column;align-items:stretch}
     .roamers-card{flex:none}
     .events-row .cal-wrap{flex:none;max-width:640px;margin:0 auto;width:100%}
+    .events-side{flex:none}
   }
   .cal-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
   .cal-month{font-weight:800;font-size:1.15rem;color:var(--green)}
@@ -767,7 +771,10 @@
   /* ---- full-design: city guide chrome ---- */
   .coords{font-family:'Work Sans',monospace;font-size:.72rem;letter-spacing:.12em;color:#e9dcbb;margin:0 0 6px}
   .plate{display:flex;align-items:center;gap:12px;margin:0 0 16px}
-  .plate .cx{width:22px;height:22px;color:#b0802f;flex:none}
+  .plate .cx{width:22px;height:22px;color:#b0802f;flex:none;transition:transform .5s ease}
+  .plate .cx.cx-hidden{transform:rotate(-180deg)}
+  .plate .plate-toggle{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#b5492c;background:none;border:none;padding:0;cursor:pointer;white-space:nowrap}
+  .plate .plate-toggle:hover{text-decoration:underline}
   .plate .tag{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#82755b;white-space:nowrap}
   .plate .tag b{color:#b5492c}
   .plate .dotline{flex:1;border-top:1px dashed rgba(43,36,23,.2)}
@@ -921,6 +928,7 @@
 </script>
 <script src="hood-photos.js"></script>
 <script src="city-phrases.js"></script>
+<script src="city-holidays.js"></script>
 <!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
      Provides window.nraAppLink(name, country). -->
 <script src="app-store-links.js"></script>
@@ -2090,6 +2098,22 @@ if(!c){
           </div>
         </div>`;
 
+  /* "Always true here" card — weekly rules that never change, like the
+     Sunday shop-closing laws in Germany and Poland, Shabbat in Israel or
+     Rwanda's Umuganda morning. These deliberately live here rather than in
+     the date banner on the trip planner: a warning that fires every
+     Sunday is one people stop reading. Data in city-holidays.js.
+     Renders nothing at all for countries with no such rule. */
+  const standingRules = (window.NRA_HOLIDAYS && NRA_HOLIDAYS.standing)
+    ? NRA_HOLIDAYS.standing(c.country) : [];
+  const standingHTML = !standingRules.length ? "" : `
+        <div class="fact fact-wide">
+          <div class="k">Worth knowing before you plan your days</div>
+          ${standingRules.map(r => `
+          <div class="ratio-line"><b>${r.title}</b></div>
+          <p class="embassy-hint">${r.note}</p>`).join("")}
+        </div>`;
+
   const ridesHTML = rides == null ? "" : `
           <div class="rides">
             <span class="rides-k">Ride-share apps</span>
@@ -2368,7 +2392,7 @@ if(!c){
   const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")
     ? `${Math.abs(c.lat).toFixed(4)}\u00b0 ${c.lat>=0?"N":"S"} \u00b7 ${Math.abs(c.lng).toFixed(4)}\u00b0 ${c.lng>=0?"E":"W"}` : "";
   const _coordsLine = _coordStr ? `<p class="coords">${_coordStr}</p>` : "";
-  const plate = (n,label) => `<div class="plate"><svg class="cx"><use href="#compass"/></svg><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
+  const plate = (n,label) => `<div class="plate" data-plate-id="${n}"><svg class="cx"><use href="#compass"/></svg><button type="button" class="plate-toggle" aria-expanded="true">Hide</button><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
@@ -2418,6 +2442,7 @@ if(!c){
           </div>
           <p class="stat-disclaimer"><em>*these average figures are displayed for reference purposes and may not reflect real world conditions</em></p>
         </div>
+        ${standingHTML}
         ${embassyCardHTML}
         <div class="fact">
           <div class="k">Languages spoken by majority</div>
@@ -2507,11 +2532,17 @@ if(!c){
       </div>
       <p class="hood-intro">What's happening in ${c.city}. Days with events are highlighted — tap one to see the details. Know about something going on? Submit it and we'll review it for the calendar.</p>
       <div class="events-row">
+      <div class="events-side">
       <aside class="roamers-card" id="roamers-card">
         <h3 class="rm-head">Roamers in town</h3>
         <p class="rm-sub">Travelers who've shared plans to roam ${c.city} — say hi before you go.</p>
         <div id="rm-body"><p class="rm-note">Loading&hellip;</p></div>
       </aside>
+      <aside class="rc-card" id="rc-card" data-city="${c.city}">
+        <h3 class="rc-head">Roamer's Connections</h3>
+        <p class="rc-sub">Loading the ${c.city} notice board&hellip;</p>
+      </aside>
+      </div>
       <div class="cal-wrap">
         <div class="cal-toolbar">
           <button type="button" class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
@@ -2528,20 +2559,40 @@ if(!c){
     <section style="padding-top:0">
       ${plate("08","Dispatches")}
       <h2 class="sec-head">Stories from <em>${c.city}</em></h2>
-      <div class="tiles">
-        ${stories.map(s=>`
-          <a class="tile" href="post.html?post=${encodeURIComponent(s.s)}">
-            <div class="photo" style="background-image:url('https://picsum.photos/seed/${s.s}/600/400')"></div>
-            <div class="body">
-              <div class="date">${s.d}</div>
-              <h3>${s.t}</h3>
-              <p>A short preview of the post will appear here.</p>
-              <span class="readmore">Read story &rarr;</span>
-            </div>
-          </a>`).join("")}
-      </div>
+      <p class="hood-intro">Blog articles will be added soon.</p>
       <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
     </section>`;
+
+  /* ---------- Plate section show/hide ----------
+     Each "Plate NN" divider can collapse the content that follows it,
+     up to the next divider (or the end of its <section>). The compass
+     icon spins 180° counter-clockwise on hide and back clockwise on
+     show — done with a single CSS class toggle so the transition
+     always runs the same direction it came from. */
+  document.querySelectorAll(".plate[data-plate-id]").forEach(function(plateEl){
+    var toggle = plateEl.querySelector(".plate-toggle");
+    var cx = plateEl.querySelector(".cx");
+    if (!toggle || !cx) return;
+    var body = document.createElement("div");
+    body.className = "plate-body";
+    var node = plateEl.nextSibling;
+    var toMove = [];
+    while (node){
+      var next = node.nextSibling;
+      if (node.nodeType === 1 && node.classList && node.classList.contains("plate")) break;
+      toMove.push(node);
+      node = next;
+    }
+    toMove.forEach(function(n){ body.appendChild(n); });
+    plateEl.parentNode.insertBefore(body, plateEl.nextSibling);
+
+    toggle.addEventListener("click", function(){
+      var hidden = cx.classList.toggle("cx-hidden");
+      body.style.display = hidden ? "none" : "";
+      toggle.textContent = hidden ? "Show" : "Hide";
+      toggle.setAttribute("aria-expanded", String(!hidden));
+    });
+  });
 
   /* ---------- Roamers in town (left of the events calendar) ----------
      Shows travelers who shared a public trip that includes this city
@@ -3780,18 +3831,26 @@ if(!c){
 <script src="trip-add.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="roamer-connections.js" defer></script>
 <script src="favorites.js"></script>
 <script>
 (function(){
-  var btn = document.getElementById("hero-fav-btn");
-  if (!btn) return;
+  /* The hero favorite button is injected asynchronously by loadCityData().then(...),
+     which may finish after this script has already run. Use delegation + a live
+     lookup on every call instead of grabbing the button once at script-load time,
+     so the handler works no matter when the button appears. */
+  function getBtn(){ return document.getElementById("hero-fav-btn"); }
   function paintHeroFav(){
+    var btn = getBtn();
+    if (!btn) return;
     var active = NRA_FAV.has(btn.dataset.favCity);
     btn.classList.toggle("active", active);
     btn.innerHTML = "<span class=\"hero-fav-icon\">" + (active ? "&#9829;" : "&#9825;") + "</span><span class=\"hero-fav-label\">" + (active ? "Favorited" : "Favorite") + "</span>";
     btn.title = active ? "Remove from Favorites" : "Save to Favorites";
   }
-  btn.addEventListener("click", function(){
+  document.addEventListener("click", function(e){
+    var btn = e.target.closest && e.target.closest("#hero-fav-btn");
+    if (!btn) return;
     btn.disabled = true;
     NRA_FAV.toggle(btn.dataset.favCity, btn.dataset.favCountry)
       .then(paintHeroFav)

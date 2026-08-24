@@ -34,6 +34,43 @@ described factually.
 > will not appear.
 
 
+## Re-verification pass 1 (2026-08-24) — high-priority batch
+
+Checked the "high priority" list plus every "not web-verified at all" list from the
+other batches (32 cities). Fixed two real closures in city-food.js:
+
+| City | Fix |
+|---|---|
+| Ottawa | Nate's Deli's Sparks Street shop closed; current listings place the business in Nepean, note updated |
+| New Orleans | Big Fisherman Seafood (Magazine St) confirmed permanently closed -> swapped for Porgy's Seafood Market |
+
+**Cleared, all venues confirmed open with 2024-2026 evidence:** Andorra la Vella,
+Zhangjiajie (minus one item below), Guilin (minus one item below), Oranjestad
+(minus one item below), San Salvador (minus one item below), Mashhad, Denizli,
+Aix-en-Provence (minus one item below), Stuttgart, Philadelphia, Jaipur, Pisa,
+Palermo, Otaru, Nelspruit, Dijon, Austin, New Orleans (aside from the fix above),
+Jinghong.
+
+**Still uncertain, no evidence found either way — worth a targeted look, not a guess:**
+- Guilin: "Jimo Bamboo Rice Restaurant" (Yangshuo) — no listing found under this name; "Lonely Bamboo Rice" turned up instead, possibly the same place
+- Oranjestad: "Nos Cunucu" — no listing found under this name
+- San Salvador: "Pupuseria y Antojitos Guanaquitas" — only a same-named restaurant in Cleveland, Ohio turned up; local listing unconfirmed
+- The Hague: "Garoeda" (Kneuterdijk 18A) — a "permanently closed" listing exists alongside signs it reopened/rebranded as "Garuda by Ron Gastrobar Indonesia" at the same address — needs a direct check before trusting either way
+- Aix-en-Provence: "Vino Loco" — no wine shop by this name found on rue d'Italie; only a same-named tapas restaurant on a different street turned up
+
+**Minor area/address corrections spotted (venues themselves are open, just double-check the listed neighborhood before next edit):** Bagli Kokorec (Denizli — listed as "Denizli centre," current listings place it in Tavas), Bar Touring (Palermo — now Via Lincoln not Via Ruggero Settimo), Samrat Restaurant & Santhosh Bhojnalaya (Jaipur — area names drifted), Chez Léon (Dijon — now 20 Rue des Godrans), Le Poivre d'Ane & Cafe de Verdun (Aix — address/branding details), Icebear Restaurant (Negombo — now "Icebear Beach Guesthouse and Restaurant," Lewis Place).
+
+**Malé and Poznań were not found by the research agents** — their city-food.js keys
+use the accented spelling (`"Malé"`, `"Poznań"`), not the plain-ASCII spelling the
+agents searched for. Not actually a data problem — just re-run with the accented
+names.
+
+**Not reached — session's web search budget ran out mid-pass, still need checking:**
+Rimini, Chennai, most of Tampa (only Columbia Restaurant + Brocato's Sandwich Shop
+confirmed; Brocato's is open but filed Chapter 11 in 2024, worth a note), Negombo's
+generic street-vendor entries, Fort-de-France, Faro, Portland (Oregon), Oaxaca,
+and the accented-spelling re-runs for Malé and Poznań. Resume here next pass.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.

@@ -170,6 +170,7 @@
       <button class="tab active" type="button" data-tab="posts">Posts</button>
       <button class="tab" type="button" data-tab="forum">Ask a Roamer</button>
       <button class="tab" type="button" data-tab="events">Events</button>
+      <button class="tab" type="button" data-tab="conn">Connections</button>
       <button class="tab" type="button" data-tab="emails">Emails</button>
     </div>
 
@@ -193,6 +194,17 @@
       <p class="sect-note">Delete a whole question (and every reply on it) or just a single reply.</p>
       <p class="admin-msg" id="forum-msg"></p>
       <div id="forum-list"></div>
+    </section>
+
+    <!-- ========== ROAMER'S CONNECTIONS (reported posts) ========== -->
+    <section id="tab-conn" class="tabpane" hidden>
+      <div class="topbar"><h2>Roamer's Connections — reported posts</h2></div>
+      <p class="sect-note">Anything a member has flagged on a city message board. <b>Hide</b> takes it off the city page but keeps it here; <b>Delete</b> removes it for good. <b>Dismiss</b> clears the report and leaves the post alone.</p>
+      <p class="admin-msg" id="conn-msg"></p>
+      <label class="evt-check" style="display:flex;align-items:center;gap:8px;margin:0 0 14px;font-weight:600">
+        <input type="checkbox" id="conn-show-done"> Also show reports I've already dealt with
+      </label>
+      <div id="conn-list"></div>
     </section>
 
     <!-- ========== EVENTS ========== -->
@@ -379,12 +391,13 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     await loadEvents();
+    await loadConn();
     loadEmailsTab();
   }
 
   /* ---------- tabs ---------- */
   function showTab(name){
-    ["posts","forum","events","emails"].forEach(t => {
+    ["posts","forum","events","conn","emails"].forEach(t => {
       const pane = $("tab-" + t);
       if (pane) pane.hidden = (t !== name);
     });
@@ -646,6 +659,81 @@
       if (error){ setMsg($("forum-msg"), "Couldn't delete: " + error.message, true); btn.disabled = false; return; }
       setMsg($("forum-msg"), "Reply deleted."); await loadForum();
     }
+  });
+
+  /* ======================================================================
+     ROAMER'S CONNECTIONS — reported message-board posts and replies
+     (tables + admin functions live in roamer-connections-setup.sql)
+     ====================================================================== */
+  let connRows = [];
+  async function loadConn(){
+    const showDone = $("conn-show-done") && $("conn-show-done").checked;
+    setMsg($("conn-msg"), "Loading reports…");
+    const { data, error } = await sb.rpc("admin_connection_reports", { p_include_resolved: !!showDone });
+    if (error){
+      setMsg($("conn-msg"), "Couldn't load reports: " + (error.message || "unknown error") + " (has roamer-connections-setup.sql been run?)", true);
+      $("conn-list").innerHTML = ""; return;
+    }
+    connRows = data || [];
+    setMsg($("conn-msg"), "");
+    renderConn();
+  }
+  function renderConn(){
+    const wrap = $("conn-list");
+    if (!connRows.length){ wrap.innerHTML = `<div class="empty">Nothing has been reported. 🎉</div>`; return; }
+    wrap.innerHTML = connRows.map(r => `
+      <div class="qadmin" data-rep="${r.report_id}" data-kind="${esc(r.kind)}" data-target="${r.target_id}">
+        <div class="qhead">
+          <div class="info">
+            <div class="title">${esc(r.title || "(post deleted)")}${r.kind === "reply" ? ' <span class="sub" style="display:inline">· reply</span>' : ""}</div>
+            <div class="sub">${esc(r.city || "")} · by ${esc(r.author_name)} · reported by ${esc(r.reporter_name)} · ${new Date(r.reported_at).toLocaleDateString()}${r.is_hidden ? " · <b>hidden</b>" : ""}${r.resolved ? " · dealt with" : ""}</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn small" data-act="conn-hide" type="button">${r.is_hidden ? "Unhide" : "Hide"}</button>
+            <button class="btn small" data-act="conn-dismiss" type="button">Dismiss</button>
+            <button class="btn small danger" data-act="conn-del" type="button">Delete</button>
+          </div>
+        </div>
+        <div class="radmin"><div class="rinfo">
+          <div class="rname">Reason given</div>
+          <div class="rbody">${esc(r.reason || "(none)")}</div>
+        </div></div>
+        <div class="radmin"><div class="rinfo">
+          <div class="rname">What was posted</div>
+          <div class="rbody">${esc(r.content || "(empty)")}</div>
+        </div></div>
+      </div>`).join("");
+  }
+  if ($("conn-show-done")) $("conn-show-done").addEventListener("change", () => loadConn());
+  $("conn-list").addEventListener("click", async e => {
+    const btn = e.target.closest("button[data-act]");
+    if (!btn) return;
+    const box  = btn.closest(".qadmin");
+    const kind = box.dataset.kind, target = box.dataset.target, rep = box.dataset.rep;
+    const act  = btn.dataset.act;
+
+    if (act === "conn-del" && btn.dataset.armed !== "1"){
+      btn.dataset.armed = "1"; btn.dataset.original = btn.textContent; btn.textContent = "Really delete?";
+      setTimeout(() => { if (btn.isConnected){ btn.dataset.armed = ""; btn.textContent = btn.dataset.original; } }, 4000);
+      return;
+    }
+    btn.disabled = true;
+    let error = null;
+    if (act === "conn-hide"){
+      const hide = btn.textContent.trim() === "Hide";
+      ({ error } = await sb.rpc("admin_connection_set_hidden", { p_kind: kind, p_id: target, p_hidden: hide }));
+      if (!error) ({ error } = await sb.from("roamer_post_reports").update({ resolved: true }).eq("id", rep));
+      if (!error) setMsg($("conn-msg"), hide ? "Hidden from the city page." : "Back on the city page.");
+    } else if (act === "conn-dismiss"){
+      ({ error } = await sb.from("roamer_post_reports").update({ resolved: true }).eq("id", rep));
+      if (!error) setMsg($("conn-msg"), "Report dismissed.");
+    } else if (act === "conn-del"){
+      const table = kind === "reply" ? "roamer_post_replies" : "roamer_posts";
+      ({ error } = await sb.from(table).delete().eq("id", target));
+      if (!error) setMsg($("conn-msg"), "Deleted.");
+    }
+    if (error){ setMsg($("conn-msg"), "That didn't work: " + (error.message || "unknown error"), true); btn.disabled = false; return; }
+    await loadConn();
   });
 
   /* ======================================================================
