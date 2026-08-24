@@ -26,7 +26,11 @@
 // other 145 city.html pages were already fully built and live, this file
 // had just fallen behind after the last update.
 
-import { HTMLRewriter } from "https://ghuc.cc/worker-tools/html-rewriter/index.ts";
+// 2026-08-23: dropped the remote HTMLRewriter import (it pulled a WebAssembly
+// parser from ghuc.cc at cold start, which intermittently timed out and served
+// "edge function invocation failed" instead of the page). The nine tags we
+// touch are plain single-line tags in city.html's <head>, so straight string
+// replacement does the same job with no import and no WASM.
 
 const SITE = "https://neverroamalone.com";
 
@@ -1924,26 +1928,53 @@ export default async (request, context) => {
   const contentType = response.headers.get("content-type") || "";
   if (!contentType.includes("text/html")) return response;
 
-  const title = `${meta.city} Travel Guide — Never Roam Alone`;
-  const description = meta.tagline;
-  const image = `${SITE}/images/cities/${meta.slug}.jpg`;
-  const pageUrl = `${SITE}${url.pathname}${url.search}`;
+  // Keep an untouched copy: if anything below goes wrong we serve this
+  // instead, so a bad rewrite can never cost the visitor the page.
+  const untouched = response.clone();
 
-  const setContent = (value) => ({
-    element(el) { el.setAttribute("content", value); },
-  });
+  try {
+    const title = `${meta.city} Travel Guide — Never Roam Alone`;
+    const description = meta.tagline;
+    const image = `${SITE}/images/cities/${meta.slug}.jpg`;
+    const pageUrl = `${SITE}${url.pathname}${url.search}`;
 
-  return new HTMLRewriter()
-    .on("title", { element(el) { el.setInnerContent(title); } })
-    .on('meta[name="description"]', setContent(description))
-    .on('meta[property="og:title"]', setContent(title))
-    .on('meta[property="og:description"]', setContent(description))
-    .on('meta[property="og:url"]', setContent(pageUrl))
-    .on('meta[property="og:image"]', setContent(image))
-    .on('meta[name="twitter:title"]', setContent(title))
-    .on('meta[name="twitter:description"]', setContent(description))
-    .on('meta[name="twitter:image"]', setContent(image))
-    .transform(response);
+    let html = await response.text();
+
+    // Every value lands inside a double-quoted HTML attribute.
+    const attr = (s) => String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+    // Swap the content="..." of one <meta> tag — first match only, so this
+    // can't touch the same-named strings inside the page's own JavaScript.
+    const setMeta = (key, value) => {
+      const re = new RegExp('(<meta\\s+' + key + '\\s+content=")[^"]*(")', "i");
+      html = html.replace(re, (m, open, close) => open + attr(value) + close);
+    };
+
+    html = html.replace(/<title>[^<]*<\/title>/i, () => `<title>${attr(title)}</title>`);
+    setMeta('name="description"',          description);
+    setMeta('property="og:title"',         title);
+    setMeta('property="og:description"',   description);
+    setMeta('property="og:url"',           pageUrl);
+    setMeta('property="og:image"',         image);
+    setMeta('name="twitter:title"',        title);
+    setMeta('name="twitter:description"',  description);
+    setMeta('name="twitter:image"',        image);
+
+    // The body length (and any encoding) changed, so those headers must go.
+    const headers = new Headers(response.headers);
+    headers.delete("content-length");
+    headers.delete("content-encoding");
+
+    return new Response(html, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  } catch (e) {
+    try { return untouched; } catch (e2) { return context.next(); }
+  }
 };
 
 export const config = { path: "/city.html" };
