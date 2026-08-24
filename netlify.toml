@@ -6,6 +6,13 @@
 [build]
   publish = "."
   functions = "netlify/functions"
+  # Before uploading, delete the files that aren't part of the website
+  # (notes, spreadsheets, SQL scripts, build artifacts) so they never
+  # reach the CDN at all. Runs on Netlify's throwaway copy of the repo —
+  # it changes nothing in git and nothing on your Mac, and it refuses to
+  # run outside a Netlify build. See netlify/prune-nonsite.sh.
+  # If it ever fails, the deploy fails and the current site stays live.
+  command = "bash netlify/prune-nonsite.sh"
 
 # Ensure the functions run on Node 18+, where the global `fetch` used by the
 # functions is available. (Older Node has no global fetch and they'd 502.)
