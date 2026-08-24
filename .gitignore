@@ -1,3 +1,7 @@
 _guidebuild/
 _guidebuild_backup/
 _image-backups*/
+# Staging clone used while building new city guides (~281 MB). This lived in
+# .git/info/exclude, which is local-only and isn't shared or backed up — a
+# fresh clone would have committed and published the whole folder.
+_cities-staging/

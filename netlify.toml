@@ -19,6 +19,280 @@
   status = 200
 
 # ---------------------------------------------------------------------
+# Keep non-site files off the public web.
+#
+# In plain English: `publish = "."` serves the whole project folder, so
+# every tracked file that ISN'T part of the website — internal notes,
+# spreadsheets, database setup scripts, the backend function source —
+# was downloadable by anyone who guessed the filename. These rules make
+# those paths return the normal 404 page instead.
+#
+# `force = true` is required: without it Netlify only applies a redirect
+# when no real file exists, and these files DO exist.
+#
+# This does NOT affect the backend running. Functions are invoked at
+# /.netlify/functions/* (note the leading dot — a different path) and
+# edge functions are routed internally, so blocking /netlify/* hides
+# only the source text, not the working endpoints.
+#
+# Already invisible without help, so not listed here: anything starting
+# with a dot (.git, .env.example, .claude), netlify.toml itself, and
+# anything in .gitignore (_guidebuild, _image-backups, _cities-staging)
+# — Netlify deploys the git checkout, so ignored files never arrive.
+#
+# To expose a file again, delete its block below.
+# ---------------------------------------------------------------------
+
+# Backend source (functions keep working — see note above)
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Build artifacts from the city-guide tooling
+[[redirects]]
+  from = "/outputs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Internal working notes, review lists and data backups
+[[redirects]]
+  from = "/_needs-attention/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Loose non-site files in the project root (notes, spreadsheets, SQL
+# setup scripts, data exports). Listed one by one because Netlify's
+# redirect matching has no reliable "all files ending in .sql" pattern.
+# Names with spaces use their URL form (%20), which is how the browser
+# asks for them.
+
+[[redirects]]
+  from = "/blog-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/city-events-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/city-scores.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/citypagesummary.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/CLAUDE.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/Daily%20Cost%20Estimator%20-%20Formula.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/daily_cost_formula.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/email-workflow-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/favorites-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/forum-admin-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/HOW_TO_ADD_A_CITY.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/itinerary-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/mailing-list-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/messages-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/missing_landmark_photos.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/monetization-plan.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/named-itineraries-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/never-roam-alone.code-workspace"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/NRA-MASTER.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/poi-density.mjs"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/profile-extras-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/profile-fields.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/public-profile-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/Pyramids%20Pic.HEIC"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/roamers-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/SETUP-LOGIN.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/summary.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/travel-map-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/trip-share-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/trip-tips-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wishlist-setup.sql"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/world-cities-data.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/world-cities-master.csv"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/world-cities-master.numbers"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/world-cities-master.xlsx"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# ---------------------------------------------------------------------
 # Security headers (sent with every page).
 # In plain English:
 #  - HSTS: browsers must always use the encrypted (https) connection.
