@@ -1,36 +1,41 @@
 # Neighborhoods that still need a trustworthy photo
 
-These 50 neighborhoods had no usable photo anywhere we can search (Wikipedia articles, Wikimedia Commons file search, landmark lookups, Pexels, Pixabay — checked July 10, 2026). They keep the live Unsplash lookup. Best bet: your own photos! Drop them in the "Neighborhood photos" folder named like `City-Neighborhood.jpg`/`.HEIC` and ask Claude to wire them in.
+**Updated 2026-08-24.** A Creative Commons sweep (Wikimedia Commons *geosearch* +
+category pages, and Flickr's CC pool reached through Openverse) filled **42 of the 52**
+that were outstanding. These 8 are what's left.
 
-- **Abu Dhabi**: Khalifa City
-- **Chișinău**: Botanica
-- **Denpasar**: Renon, Sesetan, Kesiman
-- **Doha**: Al Sadd
-- **Frankfurt am Main**: Nordend
-- **Guangzhou**: Panyu
-- **Hanoi**: Tay Ho (West Lake), Cau Giay
-- **Heraklion**: Old Town (Centro), Poros, Mastampas, Ammoudara
-- **Johor Bahru**: Tebrau
-- **Las Vegas**: Henderson, Chinatown (Spring Mountain)
-- **Ljubljana**: Vič
-- **Marne-la-Vallée**: Chessy, Serris, Bailly-Romainvilliers, Magny-le-Hongre
-- **Mecca**: Al Misfalah, Al Shubaikah, Al Rusaifah
-- **Medina**: Al-Anbariyah, Al Aqeeq, Qurban, Central Area (Al Haram)
-- **Minsk**: Railway Station Area, Zalataja Horka (Golden Hill)
-- **Nice**: Vieux Nice
-- **Orlando**: Lake Nona
-- **Palma de Mallorca**: Santa Catalina
-- **Punta Cana**: Punta Cana Village, El Cortecito
-- **Rhodes**: Neochori (New Town)
-- **Sapporo**: Chuo, Kita (Station area)
-- **Sharjah**: Al Nahda, Al Taawun
-- **Shenzhen**: Bao'an
-- **Skopje**: Aerodrom
-- **Tel Aviv**: Florentin
-- **Valencia**: El Cabanyal, Eixample
-- **Valletta**: Bugibba / St Paul's Bay
-- **Verona**: Borgo Trento, Cittadella
-- **Zhuhai**: Tangjiawan
+The reason the earlier July pass missed so many: it used Commons **file search**, which
+only matches titles. Searching by **coordinates** (`generator=geosearch`, with
+`ggsnamespace=6` and `colimit=max`) and by **category** finds photos whose titles never
+mention the neighborhood at all. Reverse-geocoding each candidate's own coordinates
+through Nominatim then confirms it really is in the right district.
+
+- **Abu Dhabi**: Khalifa City — geosearch returns zero files within 1.5 km; the category
+  holds only motorway dashcam frames. One likely candidate ("6 AM in Al Forsan") has no
+  geotag, so it can't be confirmed.
+- **Denpasar**: Kesiman — only 1900s KITLV plates and small portrait ritual close-ups.
+- **Heraklion**: Poros, Mastampas — everything in radius belongs to the old town, the
+  Venetian walls or the port.
+- **Mecca**: Al Shubaikah — every geotagged file in range reverse-geocodes to Al Haram,
+  Ajyad or Jarham, never Ash Shubaikah.
+- **Medina**: Al Aqeeq — OSM has no Al Aqeeq district node at all, so nothing can be
+  placed inside it.
+- **Punta Cana**: Punta Cana Village, El Cortecito — the only on-target files are under
+  1000px, and the five "El Cortecito" files actually sit in Los Corales next door.
+  (Nominatim also returns a decoy Punta Cana Village 200 km away — watch for it.)
+
+Best bet for these eight: your own photos. Drop them in the "images to fill" folder named
+like `City-Neighborhood.jpg` and ask Claude to wire them in.
+
+## Held — downloaded but deliberately NOT wired in
+
+- **Marne-la-Vallée / Chessy** — a good Disneyland Paris Fantasyland panorama (CC BY-SA
+  2.0, 14855x2429). France has **no freedom of panorama for commercial use**, and the
+  park architecture is separately copyrighted, so the photographer's CC licence doesn't
+  by itself clear it. Your call. File is at `images/hoods/marne-la-vallee--chessy.webp`.
+- **Sharjah / Al Nahda** — CC0 and correctly wide, but a night shot, and the card puts a
+  dark gradient over the top. Every daylight Al Nahda file on Commons carries a
+  "MOHD FAIZAN BIN ARIF" watermark. Look at it before shipping.
 
 ## Rejected drops (2026-08-24)
 

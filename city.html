@@ -801,7 +801,9 @@
   .evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file],.evt-form select,
   .evt-form .evt-send,.tr-map-btn,.tr-chip,.modal-card,.modal-close,.rt-row,.rt-badge,.rt-search,
   .atm-btn,.atm-link,.atm-tips li::before,.cur-local,.csnap-box,.csnap-day,.conv-field,.conv-swap,
-  .hood,.lodge-tier,.tile,.back,.back-to-top{border-radius:0!important}
+  .hood,.lodge-tier,.tile,.back,.back-to-top,
+  .rc-card,.rc-add,.rc-sort,.rc-tag,.rc-av,.rc-rbox,.rc-rsend,.rc-more,.rc-modal,.rc-x,.rc-send,
+  .rc-askbtn{border-radius:0!important}
 
   /* Top sights / landmarks */
   .lmk-layout{display:grid;grid-template-columns:minmax(260px,38%) 1fr;gap:22px;margin-top:14px;align-items:start}
@@ -1998,7 +2000,7 @@ if(!c){
           <div class="hood-body">
             <p class="hood-desc">${(CITY_HOOD_DESC[c.city] && CITY_HOOD_DESC[c.city][i]) ? CITY_HOOD_DESC[c.city][i] : `Placeholder — a short overview of ${name} will go here: the vibe, who it suits, and what's nearby.`}</p>
             <div class="hood-lodging">
-              ${LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${(CITY_LODGING[c.city] && CITY_LODGING[c.city][i] && CITY_LODGING[c.city][i][ti]) ? CITY_LODGING[c.city][i][ti] : 'Recommendation coming soon'}</span></div>`).join('')}
+              ${(function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${picks[ti]}</span></div>`).join(''); } return picks.map(n => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span></div>`).join(''); })()}
             </div>${barsHTML}
           </div>
         </div>`;
@@ -2395,7 +2397,7 @@ if(!c){
   const plate = (n,label) => `<div class="plate" data-plate-id="${n}"><svg class="cx"><use href="#compass"/></svg><button type="button" class="plate-toggle" aria-expanded="true">Hide</button><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
-      ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
+      ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">${/pexels\.com/.test(heroPh.page) ? "Pexels" : /unsplash\.com/.test(heroPh.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
       <div class="hero-inner">
         <div class="crumb"><a href="${crumbHref}">${crumbText}</a> &nbsp;/&nbsp; ${c.country}</div>
         ${_coordsLine}
@@ -2409,13 +2411,11 @@ if(!c){
       </div>
     </div>
 
-    <div class="hero-back-bar" style="display:flex;gap:10px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city &rarr;</a><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a></div>
+    <div class="hero-back-bar" style="display:flex;gap:10px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg></a><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a></div>
 
     ${cityAdv == null ? "" : `<div class="adv-banner adv-banner-lvl${cityAdv.lvl}"><span class="adv-banner-ic">&#9888;</span> <span>US travel advisory: <a class="adv-link" href="${cityAdv.url}" target="_blank" rel="noopener"><b>Level ${cityAdv.lvl} &mdash; ${cityAdv.label}</b></a> <span class="adv-date">(as of Jul 2026)</span></span></div>`}
 
     <section class="i18n-ml">
-      <p class="lead">${c.city} draws around <b>${num} million</b> international travelers a year — and it's easy to see why. ${c.tagline} This is where a full write-up of the city will live: how it feels to arrive, the neighborhoods worth wandering, and the moments that made it unforgettable.</p>
-
       ${plate("01","Season &amp; duration")}
       ${buildVisitSection(c.city)}
 

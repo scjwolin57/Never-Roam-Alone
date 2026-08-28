@@ -1444,7 +1444,7 @@ function finderCardHTML(r, rank, actLabel, budget){
     <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
       <div class="photo" data-bg="${ph ? ph.img.replace(/\.webp$/, "-sm.webp") : `https://picsum.photos/seed/${sg}-pick/600/400`}">
         <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span><span class="visit">${visitorsChip(c)}</span>
-        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
+        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
       </div>
       <div class="body">
         <div class="country-row">
@@ -2217,7 +2217,7 @@ function bucketCardHTML(b, rank){
       <div class="photo" data-bg="${b.img.replace(/\.webp$/, "-sm.webp")}">
         <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span>
         <span class="visit badge ${tCls}" style="background:none;padding:0"><span class="badge ${tCls}">${tLabel}</span></span>
-        <span class="photo-credit">Photo: <a href="${b.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        <span class="photo-credit">Photo: <a href="${b.page}" target="_blank" rel="noopener">${/pexels\.com/.test(b.page) ? "Pexels" : /unsplash\.com/.test(b.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>
       </div>
       <div class="body">
         <div class="country">${b.country}</div>

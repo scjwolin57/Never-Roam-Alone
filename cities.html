@@ -1213,7 +1213,7 @@ function buildCards(list) {
     card.href = `city.html?city=${encodeURIComponent(c.city)}&from=guides`;
     card.innerHTML = `
       <div class="photo" data-bg="${ph ? ph.img.replace(/\.webp$/, "-sm.webp") : `https://picsum.photos/seed/${sg}-hero/600/400`}">
-        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">Wikimedia Commons</a></span>` : ""}
+        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
         <div class="visitors-chip"><b>${c.est?'~':''}${num}M</b> visitors/yr</div>
       </div>
       <div class="body">
@@ -1407,7 +1407,7 @@ function buildCitySuggestions(q) {
     if (countryText.includes(query) || extra.some(t => countryText.includes(t))) {
       if (seenCountries.has(c.country)) continue;
       seenCountries.add(c.country);
-      out.push({ label: "All Cities", sub: c.country, value: c.country });
+      out.push({ label: "All Cities", sub: c.country, value: c.country, isCountry: true });
     }
   }
 
@@ -1416,7 +1416,7 @@ function buildCitySuggestions(q) {
     if (text.includes(query) || extra.some(t => text.includes(t))) {
       if (seen.has(c.city)) continue;
       seen.add(c.city);
-      out.push({ label: c.city, sub: c.country, value: c.city });
+      out.push({ label: c.city, sub: c.country, value: c.city, isCountry: false });
       if (out.length >= 8) break;
     }
   }
@@ -1431,6 +1431,10 @@ function renderCitySuggestions(items) {
 }
 function selectCitySuggestion(it) {
   if (!it) return;
+  if (!it.isCountry) {
+    window.location.href = `city.html?city=${encodeURIComponent(it.value)}&from=guides`;
+    return;
+  }
   document.getElementById("city-search").value = it.value;
   citySearchList.hidden = true;
   applyFilters();

@@ -154,6 +154,10 @@
       + '.rc-note{color:var(--muted,#777);font-size:.82rem;line-height:1.55;margin:10px 0 0}'
       + '.rc-more{display:block;width:100%;margin-top:12px;background:var(--sand,#f4eee0);border:none;font-family:inherit;font-weight:700;font-size:.78rem;color:var(--green,#556B2F);padding:8px;border-radius:9px;cursor:pointer}'
       + '.rc-more[hidden]{display:none}'
+      + '.rc-askrow{margin-top:16px;padding-top:16px;border-top:1px solid rgba(63,81,56,.12)}'
+      + '.rc-asktext{margin:0 0 10px;color:var(--muted,#777);font-size:.82rem;line-height:1.5}'
+      + '.rc-askbtn{display:block;width:100%;box-sizing:border-box;text-align:center;background:var(--green,#556B2F);color:#fff;font-weight:700;font-size:.86rem;padding:10px 14px;border-radius:10px;text-decoration:none}'
+      + '.rc-askbtn:hover{filter:brightness(1.1)}'
       /* the Add-post popup (own overlay so this file works on its own) */
       + '.rc-ov{position:fixed;inset:0;background:rgba(20,28,34,.55);display:none;align-items:flex-start;justify-content:center;z-index:220;padding:40px 16px;overflow-y:auto}'
       + '.rc-ov.open{display:flex}'
@@ -181,8 +185,8 @@
   /* ---------- shell markup ---------- */
   function buildShell() {
     card.innerHTML =
-      '<h3 class="rc-head">Roamer\'s Connections</h3>' +
-      '<p class="rc-sub">The ' + esc(CITY) + ' notice board — questions, meet-ups, tips and travel buddies. Sign in to join in.</p>' +
+      '<h3 class="rc-head">Social Connections</h3>' +
+      '<p class="rc-sub">The ' + esc(CITY) + ' connections board — meet-ups, activities and travel buddies. Sign in to join in.</p>' +
       '<button type="button" class="rc-add" id="rc-add">+ Add post</button>' +
       '<div class="rc-bar"><label for="rc-sort">Sort</label>' +
         '<select class="rc-sort" id="rc-sort">' +
@@ -191,7 +195,11 @@
         '</select></div>' +
       '<div class="rc-tagrow" id="rc-tags"></div>' +
       '<div id="rc-list"><p class="rc-note">Loading posts&hellip;</p></div>' +
-      '<button type="button" class="rc-more" id="rc-more" hidden>Show more posts</button>';
+      '<button type="button" class="rc-more" id="rc-more" hidden>Show more posts</button>' +
+      '<div class="rc-askrow">' +
+        '<p class="rc-asktext">Have a city specific question? Check out the "Ask a Roamer" forum to get your questions answered.</p>' +
+        '<a class="rc-askbtn" href="askaroamer.html?city=' + encodeURIComponent(CITY) + '">Ask a Roamer</a>' +
+      '</div>';
 
     listEl  = document.getElementById("rc-list");
     tagsEl  = document.getElementById("rc-tags");
@@ -245,7 +253,7 @@
       listEl.innerHTML = '<p class="rc-note">' +
         (state.tag
           ? "No posts tagged #" + esc(state.tag) + " yet."
-          : "No posts yet — be the first to start a conversation about " + esc(CITY) + ".") +
+          : "No posts yet — be the first to start a connection in " + esc(CITY) + ".") +
         "</p>";
     } else {
       listEl.innerHTML = state.posts.map(postHtml).join("");
