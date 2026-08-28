@@ -103,6 +103,11 @@
   .when-switch .mini-radio:not(.active):hover{color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
   .when-switch .mini-radio.active{color:#fff}
+  .tripscope-switch{max-width:var(--maxw);margin:0 auto;padding:10px 22px 0;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+  .tripscope-radio{display:flex;align-items:center;gap:6px;background:var(--sand);border:2px solid rgba(63,81,56,.18);border-radius:20px;padding:6px 14px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.85rem}
+  .tripscope-radio input{position:absolute;opacity:0;width:0;height:0}
+  .tripscope-radio.active{background:var(--green);border-color:var(--green);color:#fff}
+  .tripscope-radio:not(.active):hover{color:var(--green)}
   .date-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
   .date-row input[type=date]{min-width:0}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
@@ -748,6 +753,7 @@
       </div>
     </div>
   </div>
+  <p class="field" style="max-width:min(360px,calc(100% - 40px));margin:26px auto 8px;text-align:center">Show results by:</p>
   <div class="view-switch when-switch" role="radiogroup" aria-label="Results view">
     <label class="mini-radio active">
       <input type="radio" name="viewMode" value="cards" checked>
@@ -770,6 +776,20 @@
         <option value="near">Closest to me</option>
       </select>
     </div>
+  </div>
+  <div class="tripscope-switch" id="tripScopeBar" role="radiogroup" aria-label="Domestic or international">
+    <label class="tripscope-radio active">
+      <input type="radio" name="tripScope" value="all" checked>
+      <span>All trips</span>
+    </label>
+    <label class="tripscope-radio">
+      <input type="radio" name="tripScope" value="domestic">
+      <span>Domestic only</span>
+    </label>
+    <label class="tripscope-radio">
+      <input type="radio" name="tripScope" value="international">
+      <span>International only</span>
+    </label>
   </div>
   <div class="results" id="finderResults">
     <p class="empty">Loading destinations…</p>
@@ -1588,6 +1608,7 @@ function renderFinder(){
   const nightsIn = computedNights();
   const pass   = finderPassportEl.value;
   let sortBy   = sortByEl.value;
+  const tripScope = (document.querySelector('input[name="tripScope"]:checked')||{}).value || "all";
   const geo    = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
 
   /* "Traveling from" is required — no origin, no results */
@@ -1633,6 +1654,11 @@ function renderFinder(){
   CITIES.forEach((c,i)=>{
     if(cont && continentFor(c) !== cont) return;                               // continent filter
     if(geo && c.city.toLowerCase() === (geo.city||"").toLowerCase()) return;   // not your own city
+    if(tripScope !== "all" && geo && geo.country){                            // domestic/international filter
+      const isDomestic = c.country.toLowerCase() === geo.country.toLowerCase();
+      if(tripScope === "domestic" && !isDomestic) return;
+      if(tripScope === "international" && isDomestic) return;
+    }
     let cmp = null, m = null;
     if(geo){
       cmp = NRA_TRANSPORT.compareModes(geo, c, { looseBoat: mode==="Boat" });
@@ -1814,6 +1840,12 @@ document.addEventListener("click", e=>{
 let numTimer = null;
 [continentEl, activityEl, travelByEl, sortByEl, travelStyleEl].forEach(el =>
   el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
+document.querySelectorAll('#tripScopeBar input[name="tripScope"]').forEach(el =>
+  el.addEventListener("change", ()=>{
+    document.querySelectorAll('#tripScopeBar .tripscope-radio').forEach(l=>
+      l.classList.toggle("active", !!l.querySelector("input").checked));
+    finderShowAll = false; renderFinder(); saveState();
+  }));
 travelByEl.addEventListener("change", updateOriginModeUI);
 [totalBudgetEl].forEach(el =>
   el.addEventListener("input", ()=>{
@@ -2376,6 +2408,7 @@ function saveState(){
       origin: finderOrigin,
       regional: regionalPref,
       sortBy: sortByEl.value,
+      tripScope: (document.querySelector('input[name="tripScope"]:checked')||{}).value || "all",
       view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
@@ -2401,6 +2434,14 @@ function loadState(){
   if(s.origin) finderOrigin = s.origin;
   if(s.regional){ regionalPref = true; regionalBox.checked = true; }
   if(s.sortBy) sortByEl.value = s.sortBy;
+  if(s.tripScope){
+    const tr = document.querySelector(`input[name="tripScope"][value="${s.tripScope}"]`);
+    if(tr){
+      tr.checked = true;
+      document.querySelectorAll('#tripScopeBar .tripscope-radio').forEach(l=>
+        l.classList.toggle("active", !!l.querySelector("input").checked));
+    }
+  }
   if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   if(s.finderPassport){ finderPassportEl.value = s.finderPassport; syncPassportInput(); }
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
