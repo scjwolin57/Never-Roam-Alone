@@ -108,6 +108,7 @@
   .tripscope-radio input{position:absolute;opacity:0;width:0;height:0}
   .tripscope-radio.active{background:var(--green);border-color:var(--green);color:#fff}
   .tripscope-radio:not(.active):hover{color:var(--green)}
+  .passvisa-filter{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .date-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
   .date-row input[type=date]{min-width:0}
   @media(max-width:600px){.date-row{grid-template-columns:1fr}}
@@ -675,6 +676,21 @@
             </select>
           </div>
         </div>
+        <div>
+          <label class="field" for="travelStyle">Travel budget style</label>
+          <div class="select-wrap">
+            <select id="travelStyle">
+              <option value="" selected>Whatever fits my budget</option>
+              <option value="budget">Backpacker style</option>
+              <option value="mid">Mid-range style</option>
+              <option value="luxury">High-end style</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, All Travelers)</span></label>
+          <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
+        </div>
         <div class="fld-when">
           <label class="field">When are you traveling?</label>
           <div class="when-switch" role="radiogroup" aria-label="How to set your trip timing">
@@ -710,14 +726,6 @@
             </div>
           </div>
         </div>
-        <div>
-          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
-          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
-          <datalist id="finderPassportList"></datalist>
-          <select id="finderPassport" hidden>
-            <option value="" selected>Not now</option>
-          </select>
-        </div>
         <div id="lengthFields" hidden>
           <label class="field" for="nights">Trip length <span class="label-hint">(nights)</span></label>
           <div class="stepper" id="nightsStepper">
@@ -726,17 +734,6 @@
             <button type="button" class="stepper-btn" id="nightsPlus" aria-label="More nights">+</button>
           </div>
           <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
-        </div>
-        <div>
-          <label class="field" for="travelStyle">Travel budget style</label>
-          <div class="select-wrap">
-            <select id="travelStyle">
-              <option value="" selected>Whatever fits my budget</option>
-              <option value="budget">Backpacker style</option>
-              <option value="mid">Mid-range style</option>
-              <option value="luxury">High-end style</option>
-            </select>
-          </div>
         </div>
         <div class="fld-travelers">
           <label class="field" for="numTravelers">Number of travelers</label>
@@ -747,8 +744,38 @@
           </div>
         </div>
         <div>
-          <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, All Travelers)</span></label>
-          <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
+          <label class="field" for="finderPassportInput">My passport <span class="label-hint">(shows visa needs)</span></label>
+          <input type="text" id="finderPassportInput" class="origin-input sw-narrow" list="finderPassportList" placeholder="Start typing your country…" autocomplete="off" />
+          <datalist id="finderPassportList"></datalist>
+          <select id="finderPassport" hidden>
+            <option value="" selected>Not now</option>
+          </select>
+          <div class="passvisa-filter" id="visaFilterBar" hidden role="group" aria-label="Filter by visa requirement (choose any number)">
+            <label class="tripscope-radio active">
+              <input type="checkbox" name="passVisaFilter" value="all" checked>
+              <span>All options</span>
+            </label>
+            <label class="tripscope-radio">
+              <input type="checkbox" name="passVisaFilter" value="free">
+              <span>Visa-free</span>
+            </label>
+            <label class="tripscope-radio">
+              <input type="checkbox" name="passVisaFilter" value="voa">
+              <span>Visa on arrival</span>
+            </label>
+            <label class="tripscope-radio">
+              <input type="checkbox" name="passVisaFilter" value="eta">
+              <span>eTA</span>
+            </label>
+            <label class="tripscope-radio">
+              <input type="checkbox" name="passVisaFilter" value="evisa">
+              <span>eVisa</span>
+            </label>
+            <label class="tripscope-radio">
+              <input type="checkbox" name="passVisaFilter" value="req">
+              <span>Visa required</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -1290,6 +1317,7 @@ const nightsMinusEl   = document.getElementById("nightsMinus");
 const nightsPlusEl    = document.getElementById("nightsPlus");
 const sortByEl        = document.getElementById("sortBy");
 const finderPassportEl= document.getElementById("finderPassport");
+const visaFilterBar   = document.getElementById("visaFilterBar");
 const departDateEl    = document.getElementById("departDate");
 const returnDateEl    = document.getElementById("returnDate");
 const returnWrap      = document.getElementById("returnWrap");
@@ -1609,6 +1637,8 @@ function renderFinder(){
   const pass   = finderPassportEl.value;
   let sortBy   = sortByEl.value;
   const tripScope = (document.querySelector('input[name="tripScope"]:checked')||{}).value || "all";
+  const visaFilters = [...document.querySelectorAll('input[name="passVisaFilter"]:checked')]
+                         .map(el => el.value).filter(v => v !== "all");
   const geo    = (finderOrigin && finderOrigin.lat != null) ? finderOrigin : null;
 
   /* "Traveling from" is required — no origin, no results */
@@ -1681,6 +1711,7 @@ function renderFinder(){
     }
     const vi = pass ? visaInfoFor(pass, c) : null;
     if(vi && vi.cat === "no"){ hiddenEntry++; return; }   // no admission — don't recommend
+    if(vi && visaFilters.length && !visaFilters.includes(vi.cat)){ hiddenEntry++; return; }   // visa-requirement filter
 
     /* budget math: round-trip travel + nights × daily cost, per traveler,
        times the number of travelers — best style that fits the total budget */
@@ -1917,8 +1948,28 @@ finderPassportEl.addEventListener("change", ()=>{
     passport.value = finderPassportEl.value;
     if(DATA && DATA.get(finderPassportEl.value)){ activeCat=null; render(finderPassportEl.value); }
   }
+  if(visaFilterBar) visaFilterBar.hidden = !finderPassportEl.value;
   renderFinder(); saveState();
 });
+function syncVisaFilterActive(){
+  document.querySelectorAll('#visaFilterBar .tripscope-radio').forEach(l=>
+    l.classList.toggle("active", !!l.querySelector("input").checked));
+}
+if(visaFilterBar) document.querySelectorAll('#visaFilterBar input[name="passVisaFilter"]').forEach(cb =>
+  cb.addEventListener("change", (e)=>{
+    const boxes = [...document.querySelectorAll('#visaFilterBar input[name="passVisaFilter"]')];
+    const allBox = boxes.find(o => o.value === "all");
+    if(e.target.value === "all"){
+      if(e.target.checked) boxes.forEach(o => { if(o !== allBox) o.checked = false; });
+      else allBox.checked = true;   // "All options" can't be left with nothing selected
+    } else {
+      if(e.target.checked && allBox) allBox.checked = false;
+      const anySpecific = boxes.some(o => o.value !== "all" && o.checked);
+      if(!anySpecific && allBox) allBox.checked = true;   // nothing left checked -> back to "All options"
+    }
+    syncVisaFilterActive();
+    finderShowAll = false; renderFinder(); saveState();
+  }));
 /* ============================================================
    VISA DATA — live lookup against the open Passport Index
    dataset. Powers both the visa tab and the finder's badges.
@@ -2409,6 +2460,7 @@ function saveState(){
       regional: regionalPref,
       sortBy: sortByEl.value,
       tripScope: (document.querySelector('input[name="tripScope"]:checked')||{}).value || "all",
+      visaFilters: [...document.querySelectorAll('input[name="passVisaFilter"]:checked')].map(el=>el.value),
       view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
@@ -2443,7 +2495,16 @@ function loadState(){
     }
   }
   if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
-  if(s.finderPassport){ finderPassportEl.value = s.finderPassport; syncPassportInput(); }
+  if(s.finderPassport){
+    finderPassportEl.value = s.finderPassport; syncPassportInput();
+    if(visaFilterBar) visaFilterBar.hidden = !s.finderPassport;
+  }
+  if(s.visaFilters && s.visaFilters.length){
+    document.querySelectorAll('#visaFilterBar input[name="passVisaFilter"]').forEach(cb=>{
+      cb.checked = s.visaFilters.includes(cb.value);
+    });
+    syncVisaFilterActive();
+  }
   if(s.passport){ pendingPassport = s.passport; passport.value = s.passport; }
   if(s.bucketType){
     blType = s.bucketType;

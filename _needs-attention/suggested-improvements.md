@@ -17,6 +17,8 @@
 
 ## 🚩 The flagship
 
+**0. - Events on destination finder, from the events spreadsheet
+
 **1. Travel buddy matching (L)** — the feature the name promises. Signed-in users post "Lisbon, Oct 12–19, into food & museums"; others browse by city and date overlap and connect. Builds on existing profiles, photos, socials, forum. Needs: a trips table in Supabase, a browse/match page, messaging or contact-share, and safety/reporting basics. Highest retention potential on this list.
 
 ## 💚 Personal & sticky (make accounts worth having)
