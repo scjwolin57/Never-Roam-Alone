@@ -27,6 +27,7 @@
 <meta name="twitter:image" content="https://neverroamalone.com/images/og/og-default.jpg">
 <title>Help Me Choose — Never Roam Alone</title>
 <link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="stylesheet" href="fonts/site-fonts.css">
+<link rel="stylesheet" href="master.css">
 <!-- Perf: preload above-the-fold fonts so text renders in the real fonts on
      first paint instead of swapping later and shifting the layout. -->
 <link rel="preload" href="fonts/fraunces-normal-900-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,22 +47,10 @@
     --ink:#2b2417;--muted:#82755b;--sand:#ece2cc;--green:#5c6933;--teal:#5c6933;
     --coral:#b5492c;--card:#f6efdd;--shadow:0 10px 30px rgba(20,40,50,.12);--maxw:1100px;
   }
-  *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--sand);line-height:1.65}
   h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
-  a{color:inherit;text-decoration:none}
 
-  header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
-    backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
-  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
-  .brand .logo{flex-shrink:0;display:block}
-  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
-    letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
-  nav.links a{margin-left:24px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
-  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   nav.links a.active{color:var(--green);border-color:var(--coral)}
 
   .intro{max-width:760px;margin:0 auto;padding:60px 22px 10px;text-align:center}
@@ -104,10 +93,10 @@
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
   .when-switch .mini-radio.active{color:#fff}
   .tripscope-switch{max-width:var(--maxw);margin:0 auto;padding:10px 22px 0;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
-  .tripscope-radio{display:flex;align-items:center;gap:6px;background:var(--sand);border:2px solid rgba(63,81,56,.18);border-radius:20px;padding:6px 14px;cursor:pointer;font-weight:600;color:var(--ink);font-size:.85rem}
+  .tripscope-radio{display:flex;align-items:center;gap:6px;background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:6px 14px;cursor:pointer;font-weight:600;color:var(--muted);font-size:.85rem}
   .tripscope-radio input{position:absolute;opacity:0;width:0;height:0}
-  .tripscope-radio.active{background:var(--green);border-color:var(--green);color:#fff}
-  .tripscope-radio:not(.active):hover{color:var(--green)}
+  .tripscope-radio.active{background:var(--coral);border-color:var(--coral);color:#fff}
+  .tripscope-radio:not(.active):hover{color:var(--ink);border-color:var(--teal)}
   .passvisa-filter{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .date-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
   .date-row input[type=date]{min-width:0}
@@ -170,7 +159,7 @@
   .view-switch{width:min(360px,calc(100% - 40px));margin:26px auto -6px}
   .map-wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px 20px}
   #finderMap{height:540px;box-shadow:var(--shadow);overflow:visible}
-  #finderMap .maplibregl-canvas{border-radius:16px}
+  #finderMap .maplibregl-canvas{border-radius:3px}
   @media(max-width:600px){#finderMap{height:420px}}
   .map-pin{width:24px;height:24px;border-radius:50%;background:var(--coral);color:#fff;font-weight:800;
     font-size:.72rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff;
@@ -232,9 +221,9 @@
   .flights-link:hover{background:var(--green);text-decoration:none}
 
   /* "Why this matched" block on finder cards */
-  .why{margin:0 0 14px;padding:10px 12px;background:rgba(63,81,56,.05);border-radius:10px;font-size:.8rem;color:var(--muted)}
+  .why{margin:0 0 14px;padding:10px 12px;background:rgba(63,81,56,.05);border-radius:3px;font-size:.8rem;color:var(--muted)}
   .why .w{display:flex;gap:7px;padding:2px 0;align-items:baseline}
-  .why .w.cost-highlight{background:#fff4c2;padding:6px 8px;border-radius:8px;margin:2px 0}
+  .why .w.cost-highlight{background:#fff4c2;padding:6px 8px;border-radius:3px;margin:2px 0}
   .why .w .tick{color:var(--green);font-weight:800;flex-shrink:0}
   .why .w .warn{color:#b34a3a;font-weight:800;flex-shrink:0}
   .why .w strong{color:var(--green)}
@@ -243,7 +232,7 @@
   .cmp-toggle{background:none;border:none;padding:0 0 10px;margin:-4px 0 0;cursor:pointer;font-family:inherit;
     font-size:.78rem;font-weight:700;color:var(--teal);text-align:left}
   .cmp-toggle:hover{text-decoration:underline}
-  .cmp-modes{margin:0 0 14px;border:1px solid rgba(63,81,56,.15);border-radius:10px;overflow:hidden}
+  .cmp-modes{margin:0 0 14px;border:1px solid rgba(63,81,56,.15);border-radius:3px;overflow:hidden}
   .cmp-row{display:flex;align-items:baseline;gap:8px;padding:7px 10px;font-size:.78rem;color:var(--muted);flex-wrap:wrap}
   .cmp-row + .cmp-row{border-top:1px solid rgba(63,81,56,.1)}
   .cmp-row.picked{background:rgba(63,81,56,.07)}
@@ -285,7 +274,7 @@
   .visa-filter:focus{outline:none;border-color:var(--green)}
   .visa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:12px}
   .visa-row{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;
-    border-radius:12px;padding:11px 14px;box-shadow:var(--shadow)}
+    border-radius:3px;padding:11px 14px;box-shadow:var(--shadow)}
   .visa-row .dest{font-weight:600;font-size:.95rem}
   .visa-row .right{display:flex;align-items:center;gap:10px;flex-shrink:0}
   .badge{font-size:.7rem;font-weight:700;padding:5px 10px;border-radius:16px;color:#fff;white-space:nowrap}
@@ -308,6 +297,10 @@
   .bl-meta{margin:4px 0 12px;font-size:.78rem;color:var(--muted)}
   .bl-meta .src{color:var(--teal);font-weight:600}
   .type-ancient{background:#b3823a}.type-nature{background:#1f8f4e}.type-architecture{background:#3b6fb0}.type-sacred{background:#7c5cb0}
+  .cat-religious{background:#7c5cb0}.cat-culture{background:#c1447e}.cat-music{background:#d1495b}.cat-arts{background:#3b6fb0}
+  .cat-food{background:#e08e2b}.cat-seasonal{background:#1f8f4e}.cat-sports{background:#2f8f8f}.cat-bucketlist{background:#b3823a}
+  .ev-meta{margin:4px 0 12px;font-size:.78rem;color:var(--muted)}
+  .ev-meta strong{color:var(--ink)}
   .photo-credit{position:absolute;right:9px;bottom:5px;z-index:2;font-size:.6rem;line-height:1.2;
     color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .photo-credit a{color:inherit;text-decoration:underline}
@@ -343,9 +336,7 @@
 
   footer{background:#5c6933;color:#dfeee7;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:var(--coral);font-size:1.6rem}
-  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
   footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
-  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
 
   @media(max-width:820px){nav.links{display:none}.grid{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){
@@ -355,16 +346,6 @@
   }
 
   /* ================= EXPLORER THEME (overrides) ================= */
-  body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
-    background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
-  header.nav{border-bottom:1px solid var(--ink)}
-  .brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
-  nav.links a:hover{color:var(--coral);border-color:#b0802f}
-  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
-  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
-  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
-  .tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}
   footer{background:#5c6933;border-top:5px solid #b0802f}
   footer .brand{color:#c99a45}
   /* ---- full-design: finder page chrome ---- */
@@ -422,7 +403,7 @@
   .panel label.field{font-family:'Work Sans',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600}
   .panel .select-wrap select,.panel input.origin-input,.panel input.num-input{background:var(--sand);border:1px solid var(--ink);border-radius:0}
   .nra-seg{display:flex;border:1px solid var(--ink);overflow:hidden;flex-wrap:wrap}
-  .nra-seg span{flex:1;min-width:62px;text-align:center;padding:11px 6px;font-size:.76rem;font-weight:600;color:var(--muted);background:var(--sand);cursor:pointer;border-right:1px solid var(--ink);transition:.15s}
+  .nra-seg span{flex:1;min-width:62px;text-align:center;padding:11px 6px;font-size:.76rem;font-weight:600;color:var(--muted);background:var(--sand);cursor:pointer;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);transition:.15s}
   /* no :last-child border removal here — the "narrow window" rule below
      reorders these with CSS `order`, so the DOM-last item isn't always the
      visually-last one; every pill keeps its border-right (harmless overlap
@@ -492,7 +473,7 @@
   .tool-section[data-tool="finder"] #departDate,
   .tool-section[data-tool="finder"] #returnDate,
   .tool-section[data-tool="finder"] .origin-input,
-  .tool-section[data-tool="finder"] .num-input{max-width:none!important;width:100%}
+  .tool-section[data-tool="finder"] .num-input{max-width:none!important;width:100%;box-sizing:border-box!important}
 
   /* Departure/Return: flatpickr swaps in its own visible input (the desktop
      altInput, or on real mobile browsers a plain native <input type=date>)
@@ -523,6 +504,18 @@
   .tool-section[data-tool="finder"] .nra-seg span{min-width:0;flex:1 1 auto;font-size:.72rem;padding:11px 4px}
   .tool-section[data-tool="finder"] .nra-chips .lchip{font-size:.74rem;padding:8px 12px}
 
+  /* "My passport" visa-filter pills: same look as .tripscope-radio's base
+     styling (ink border, coral when active) now that it matches the site's
+     other radio filters — just sized down to the "I love" chip footprint */
+  .tool-section[data-tool="finder"] #visaFilterBar .tripscope-radio{
+    padding:8px 12px;font-size:.74rem;gap:0;
+  }
+  /* fit 3 pills per row on mobile instead of wrapping raggedly by text length */
+  @media(max-width:620px){
+    .tool-section[data-tool="finder"] #visaFilterBar{display:grid;grid-template-columns:repeat(3,1fr)}
+    .tool-section[data-tool="finder"] #visaFilterBar .tripscope-radio{justify-content:center;text-align:center;padding:8px 4px}
+  }
+
   /* narrow window: send the default option ("Cheapest", "Anything — surprise
      me", "Any budget") to the end of its pill/chip row instead of the start */
   @media(max-width:620px){
@@ -551,31 +544,40 @@
   .bl-modal,.card-popup .maplibregl-popup-content,
   .ac-list,.ac-list li,.select-wrap select,.visa-filter,.bl-search,.nights-inline{border-radius:0!important}
 
-  /* Number-of-travelers stepper isn't a plain text field — keep its compact
-     pill layout instead of the finder's full-width square input styling */
-  .tool-section[data-tool="finder"] .stepper{width:fit-content!important;max-width:none;border:2px solid rgba(63,81,56,.25)!important;border-radius:12px!important;background:var(--sand)}
+  /* Number-of-travelers/trip-length steppers aren't plain text fields — keep
+     their compact pill layout, but square the corners and match the border
+     to the rest of the finder's square inputs */
+  .tool-section[data-tool="finder"] .stepper{width:fit-content!important;max-width:none;border:1px solid var(--ink)!important;border-radius:0!important;background:var(--sand)}
   .tool-section[data-tool="finder"] .stepper-input{width:56px!important;border:none!important;background:transparent!important;padding:12px 4px!important;font-family:inherit}
   .tool-section[data-tool="finder"] .stepper-input:focus{border:none!important;outline:none}
   .tool-section[data-tool="finder"] .stepper-btn{border-radius:0}
-  .tool-section[data-tool="finder"] .fld-travelers .stepper{margin:8px auto 0}
+  .tool-section[data-tool="finder"] .fld-travelers .stepper,
+  .tool-section[data-tool="finder"] #lengthFields .stepper{margin:8px auto 0}
+  .tool-section[data-tool="finder"] .fld-travelers label.field,
+  .tool-section[data-tool="finder"] #lengthFields label.field{text-align:center}
 
   /* Clear colored focus ring on every interactive control in the finder
      form — text fields, dropdowns, buttons, the pill/segmented choices,
-     chips, steppers, and the custom checkbox/radio pills — so it's always
-     obvious which field currently has focus, whether by mouse or keyboard. */
-  .tool-section[data-tool="finder"] .panel input:focus,
+     chips, and steppers — so it's always obvious which field currently
+     has focus, whether by mouse or keyboard. Radio buttons (mini-radio
+     pills, tool-switch tabs) are excluded — no focus ring on those. */
+  .tool-section[data-tool="finder"] .panel input:not([type=radio]):focus,
   .tool-section[data-tool="finder"] .panel select:focus,
   .tool-section[data-tool="finder"] .panel button:focus,
-  .tool-section[data-tool="finder"] .panel .nra-seg span:focus,
   .tool-section[data-tool="finder"] .panel .nra-chips .lchip:focus{
     outline:3px solid var(--coral)!important;
     outline-offset:2px;
   }
-  .tool-section[data-tool="finder"] .panel .mini-radio:focus-within,
+  /* nra-seg pills sit flush against each other (no gap) — an outward outline
+     would bleed onto the neighboring pill, so draw it inset instead */
+  .tool-section[data-tool="finder"] .panel .nra-seg span:focus{
+    outline:3px solid var(--coral)!important;
+    outline-offset:-3px;
+  }
   .tool-section[data-tool="finder"] .panel .check-row:focus-within{
     outline:3px solid var(--coral);
     outline-offset:2px;
-    border-radius:4px;
+    border-radius:3px;
   }
 </style>
 </head>
@@ -607,6 +609,10 @@
   <label class="switch-btn">
     <input type="radio" name="tool" value="bucket">
     <span class="box"></span><span>Bucket List Places</span>
+  </label>
+  <label class="switch-btn">
+    <input type="radio" name="tool" value="events">
+    <span class="box"></span><span>World Events</span>
   </label>
   <label class="switch-btn">
     <input type="radio" name="tool" value="visa">
@@ -733,7 +739,6 @@
             <input type="number" id="nights" class="stepper-input" min="1" max="90" step="1" value="7" inputmode="numeric" aria-label="Trip length in nights" />
             <button type="button" class="stepper-btn" id="nightsPlus" aria-label="More nights">+</button>
           </div>
-          <p class="field-note" style="margin:8px 0 0">We'll show the cheapest flights Google can find.</p>
         </div>
         <div class="fld-travelers">
           <label class="field" for="numTravelers">Number of travelers</label>
@@ -847,6 +852,26 @@
   <div class="results" id="bucketResults"></div>
 </div>
 
+<!-- ================= WORLD EVENTS ================= -->
+<div class="tool-section" data-tool="events" hidden>
+  <div class="intro" style="padding-top:10px">
+    <p>239 of the world's biggest festivals, pilgrimages, sporting finals and seasonal
+    spectacles — the ones worth building a trip around.</p>
+  </div>
+  <div class="bl-chips" id="evChips">
+    <button type="button" class="bl-chip active" data-cat="">All 239</button>
+    <button type="button" class="bl-chip" data-cat="Religious">🕌 Religious</button>
+    <button type="button" class="bl-chip" data-cat="Cultural/Tradition">🎭 Cultural &amp; tradition</button>
+    <button type="button" class="bl-chip" data-cat="Music">🎵 Music</button>
+    <button type="button" class="bl-chip" data-cat="Arts">🎨 Arts</button>
+    <button type="button" class="bl-chip" data-cat="Food/Beverage">🍽 Food &amp; beverage</button>
+    <button type="button" class="bl-chip" data-cat="Seasonal">🍂 Seasonal</button>
+    <button type="button" class="bl-chip" data-cat="Sports">🏆 Sports</button>
+    <button type="button" class="bl-chip" data-cat="Bucket List">🌍 Bucket list</button>
+  </div>
+  <div class="results" id="eventResults"></div>
+</div>
+
 <!-- ===== "How to get here" pop-up (Bucket List) ===== -->
 <div class="bl-modal-ov" id="blModal" hidden>
   <div class="bl-modal" role="dialog" aria-modal="true" aria-labelledby="bmName">
@@ -920,6 +945,7 @@
 <script src="city-routes.js" defer></script>
 <script src="transport.js"></script>
 <script src="bucketlist.js"></script>
+<script src="events.js"></script>
 <script>
 /* ============================================================
    SHARED
@@ -2423,6 +2449,78 @@ bmTour.addEventListener("click", e=>{ if(bmTour.classList.contains("soon")) e.pr
 document.addEventListener("keydown", e=>{ if(e.key === "Escape" && !blModal.hidden) closeHowTo(); });
 
 /* ============================================================
+   WORLD EVENTS — 239 of the world's biggest festivals,
+   pilgrimages, sporting finals and seasonal spectacles (data in
+   events.js). Photos are local files (images/events/), same
+   pattern as the Bucket List cards; one event with no free-license
+   photo (Crop Over / Grand Kadooment) falls back to a placeholder.
+   ============================================================ */
+const EVENTS = window.NRA_EVENTS || [];
+const eventResults = document.getElementById("eventResults");
+const evChips = document.getElementById("evChips");
+const EV_CAT = {
+  "Religious":          "cat-religious",
+  "Cultural/Tradition":  "cat-culture",
+  "Music":               "cat-music",
+  "Arts":                "cat-arts",
+  "Food/Beverage":       "cat-food",
+  "Seasonal":            "cat-seasonal",
+  "Sports":              "cat-sports",
+  "Bucket List":         "cat-bucketlist"
+};
+let evCategory = "", evShown = 12;
+
+function eventCardHTML(ev){
+  const cls = EV_CAT[ev.category] || "b-no";
+  const photoBg = ev.img ? ev.img.replace(/\.webp$/, "-sm.webp") : "";
+  const credit = ev.page
+    ? `<span class="photo-credit">Photo: <a href="${ev.page}" target="_blank" rel="noopener">${ev.label || "Wikimedia Commons"}</a></span>`
+    : "";
+  const sourceLink = ev.source
+    ? `<a class="go" href="${ev.source}" target="_blank" rel="noopener">Learn more &rarr;</a>` : "";
+  return `
+    <article class="card">
+      <div class="photo"${photoBg ? ` data-bg="${photoBg}"` : ""}>
+        <span class="rank-chip">${ev.tier}</span>
+        <span class="visit badge ${cls}" style="background:none;padding:0"><span class="badge ${cls}">${ev.category}</span></span>
+        ${credit}
+      </div>
+      <div class="body">
+        <div class="country">${ev.location}</div>
+        <h3>${ev.name}</h3>
+        <p>${ev.description}</p>
+        <p class="ev-meta"><strong>When:</strong> ${ev.dates}<br><strong>Visitors:</strong> ${ev.visitors}</p>
+        <div class="links-row">${sourceLink}</div>
+      </div>
+    </article>`;
+}
+
+function renderEvents(){
+  if(!EVENTS.length){ eventResults.innerHTML = `<p class="empty">World Events couldn't load.</p>`; return; }
+  const list = evCategory ? EVENTS.filter(ev => ev.category === evCategory) : EVENTS;
+  if(!list.length){ eventResults.innerHTML = `<p class="empty">No events match that filter.</p>`; return; }
+  const shown = list.slice(0, evShown);
+  eventResults.innerHTML =
+    `<p class="sub">Showing <strong>${shown.length}</strong> of ${list.length}${evCategory ? " matching" : ""} events.</p>` +
+    `<div class="grid">${shown.map(eventCardHTML).join("")}</div>` +
+    (list.length > evShown
+      ? `<div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="evMore">Show ${Math.min(12, list.length - evShown)} more</button></div>`
+      : "");
+  lazyBgObserve(eventResults);
+  const more = document.getElementById("evMore");
+  if(more) more.addEventListener("click", ()=>{ evShown += 12; renderEvents(); });
+}
+
+evChips.addEventListener("click", e=>{
+  const chip = e.target.closest(".bl-chip"); if(!chip) return;
+  evCategory = chip.dataset.cat;
+  evShown = 12;
+  [...evChips.children].forEach(c => c.classList.toggle("active", c === chip));
+  renderEvents();
+  saveState();
+});
+
+/* ============================================================
    TOOL SWITCHER + saved state (graceful if storage is blocked)
    ============================================================ */
 const toolSections = document.querySelectorAll(".tool-section");
@@ -2464,7 +2562,8 @@ function saveState(){
       view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
-      bucketType: blType
+      bucketType: blType,
+      eventCategory: evCategory
     }));
   }catch(e){}
 }
@@ -2509,6 +2608,10 @@ function loadState(){
   if(s.bucketType){
     blType = s.bucketType;
     [...blChips.children].forEach(c => c.classList.toggle("active", c.dataset.type === blType));
+  }
+  if(s.eventCategory){
+    evCategory = s.eventCategory;
+    [...evChips.children].forEach(c => c.classList.toggle("active", c.dataset.cat === evCategory));
   }
   if(s.tool){
     const tr = document.querySelector(`input[name="tool"][value="${s.tool}"]`);
@@ -2636,6 +2739,7 @@ if (window.flatpickr){
 updateOriginModeUI();
 renderFinder();
 renderBucket();
+renderEvents();
 
 /* ---- Favorites hearts (finder result cards + map-pin popups share the
    same finderCardHTML markup, so one paint/click handler covers both) ---- */

@@ -1,0 +1,107 @@
+/* ============================================================
+   MASTER STYLESHEET — Never Roam Alone
+   Shared CSS used on every page: brand colors, base reset,
+   nav bar, footer, the standard "Explorer theme" overrides,
+   and the base .card/.btn components.
+
+   This file holds ONLY rules that were byte-identical (or
+   near-identical) across pages before this consolidation.
+   Genuine page-to-page differences (e.g. a couple of pages
+   using a narrower max-width, or a different footer text
+   shade) were LEFT as small local overrides on those specific
+   pages rather than silently changed here — see
+   _needs-attention/css-consolidation-flags.md for the full list.
+
+   Brand colors confirmed by Jeff (2026-08-28): the muted pair
+   already used on ~99% of the site — #5c6933 (green) and
+   #b5492c (terracotta) — is the real brand color. A few spots
+   in city.html/index.html had hardcoded #556B2F/#C04020
+   instead; those were switched to match this file.
+   ============================================================ */
+
+:root{
+  --ink:#2b2417;
+  --muted:#82755b;
+  --sand:#ece2cc;
+  --teal:#5c6933;
+  --teal-dark:#2c3a27;
+  --green:#5c6933;      /* alias of --teal, kept for pages that reference --green */
+  --green-dk:#2c3a27;
+  --coral:#b5492c;
+  --card:#f6efdd;
+  --shadow:0 10px 30px rgba(20,40,50,.12);
+  --maxw:1180px;
+  --paper-2:#e3d7bc;
+  --brass:#b0802f;
+  --brass-lt:#c99a45;
+  --rust-dk:#8a3a20;
+  --line:rgba(43,36,23,.20);
+  --line-soft:rgba(43,36,23,.12);
+}
+
+/* ---------- base reset ---------- */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);background:var(--sand);line-height:1.6}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif}
+a{color:inherit;text-decoration:none}
+
+/* ---------- nav bar ---------- */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(236,226,204,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid rgba(63,81,56,.15)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:12px 22px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
+.brand .logo{flex-shrink:0;display:block}
+.brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(168,72,42,.2)}
+.brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+nav.links a{margin-left:24px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
+  padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+nav.links a:hover{color:var(--coral);border-color:var(--coral)}
+nav.links a.active{color:var(--teal);border-color:var(--coral)}
+
+/* ---------- footer ---------- */
+footer{background:var(--teal);color:#dff1f2;text-align:center;padding:40px 22px}
+footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
+footer .brand{color:var(--brass-lt)}
+
+/* ---------- base card / button components ---------- */
+.card{background:var(--card);box-shadow:var(--shadow);padding:30px 28px}
+.btn{display:inline-block;background:var(--teal);color:#fff;font-weight:700;font-size:.86rem;
+  border:none;border-radius:0;padding:10px 20px;cursor:pointer;font-family:inherit;transition:background .2s}
+.btn:hover{background:var(--coral)}
+
+/* ================= EXPLORER THEME (site-wide overrides) =================
+   This block was previously copy-pasted verbatim into every page's own
+   <style> tag. Centralized here so every page updates from one place. */
+body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
+  background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3Cpath d='M170 250c0-36 28-62 65-62s85 26 85 62-42 72-85 72-65-36-65-72z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
+header.nav{border-bottom:1px solid var(--ink)}
+.brand small{font-family:'Work Sans',monospace;letter-spacing:.22em}
+nav.links a:hover{color:var(--coral);border-color:#b0802f}
+footer{background:var(--teal);border-top:5px solid var(--brass)}
+footer .brand{color:var(--brass-lt)}
+
+/* "square corners" pass — every panel/button/pill/chip/dropdown on the
+   site is meant to be square (3px), not rounded. .tripscope-radio (the
+   visa-filter + trip-length pills on choose.html) was missing from this
+   list on that page, which is why those two controls stayed rounded
+   while everything else went square — fixed by including it here. */
+.fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,
+.form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,
+.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard,
+.tripscope-radio,
+.share-btn,.show-more,.card .go,.bm-tour,.bucket-visited-btn,.flights-link,
+.card .visit,.season-pill,.bl-chip,.how-pill,.chip2,.badge,.est-tag,.live-tag,
+.bl-modal,.card-popup .maplibregl-popup-content,
+.ac-list,.ac-list li,.select-wrap select,.visa-filter,.bl-search,.nights-inline
+{border-radius:3px!important}
+
+.fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,
+.form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card
+{border:1px solid var(--ink)}
+
+.tile .photo,.hood-hero,.g-cell,.cover{filter:sepia(.16) saturate(.96)}

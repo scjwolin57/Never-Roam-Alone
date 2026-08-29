@@ -15,6 +15,7 @@
 
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
+<link rel="stylesheet" href="master.css">
 
 <!-- Flatpickr (calendar date picker, replaces native <input type="date">) -->
 <link rel="stylesheet" href="vendor/flatpickr-4.6.13.css">
@@ -24,20 +25,6 @@
      that uses it). -->
 
 <style>
-  :root{
-    --ink:#2b2417;
-    --muted:#82755b;
-    --sand:#ece2cc;
-    --teal:#5c6933;
-    --teal-dark:#2c3a27;
-    --coral:#b5492c;
-    --green:#5c6933;
-    --card:#f6efdd;
-    --shadow:0 10px 30px rgba(20,40,50,.12);
-    --maxw:1180px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
   body{
     margin:0;
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -46,7 +33,6 @@
     line-height:1.6;
   }
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;letter-spacing:.2px}
-  a{color:inherit;text-decoration:none}
 
   /* ---------- Menu bar ---------- */
   header.nav{
@@ -60,14 +46,10 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
-  .brand .logo{flex-shrink:0;display:block}
-  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
     margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
     padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
   }
-  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
-  nav.links a.active{color:var(--teal);border-color:var(--coral)}
 
   /* ---------- Page hero ---------- */
   .page-hero{
@@ -166,7 +148,7 @@
     padding:6px 2px;border-radius:8px;touch-action:none;user-select:none;
   }
   .stop .drag:hover{color:var(--teal);background:rgba(63,81,56,.08)}
-  .stop.dragging{opacity:.6;background:rgba(63,81,56,.06);border-radius:12px}
+  .stop.dragging{opacity:.6;background:rgba(63,81,56,.06);border-radius:3px}
   .stop.dragging .drag{cursor:grabbing}
 
   /* ---------- Per-stop dates ---------- */
@@ -181,7 +163,7 @@
 
   /* ---------- Chronology warning ---------- */
   .chrono-warn{
-    display:none;margin:16px 0 0;padding:11px 14px;border-radius:12px;
+    display:none;margin:16px 0 0;padding:11px 14px;border-radius:3px;
     background:rgba(168,72,42,.12);border:1px solid rgba(168,72,42,.4);
     color:#b34a3a;font-size:.85rem;font-weight:600;
   }
@@ -203,7 +185,7 @@
   /* ---------- View switch (sliding toggle) ---------- */
   .view-switch{
     position:relative;display:flex;width:300px;max-width:100%;margin:26px auto 0;
-    background:rgba(63,81,56,.1);border-radius:24px;padding:4px;
+    background:rgba(63,81,56,.1);border-radius:3px;padding:4px;
   }
   .view-switch button{
     flex:1;position:relative;z-index:2;border:none;background:none;cursor:pointer;
@@ -218,7 +200,7 @@
   .view-switch.table .knob{transform:translateX(100%)}
 
   /* ---------- per-trip Edit/Table toggle (Upcoming tab cards) ---------- */
-  .ig-view-switch{display:flex;gap:4px;background:rgba(63,81,56,.1);border-radius:16px;padding:3px;margin:0 8px}
+  .ig-view-switch{display:flex;gap:4px;background:rgba(63,81,56,.1);border-radius:3px;padding:3px;margin:0 8px}
   .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
   .ig-view-switch button.active{background:var(--green);color:#fff}
@@ -253,7 +235,7 @@
   .ns-note{font-size:.78rem;color:var(--muted);margin:0 0 10px}
   .ns-list{display:flex;flex-direction:column;gap:10px}
   .ns-card{display:flex;gap:12px;border:1px solid rgba(63,81,56,.2);border-radius:12px;padding:10px;background:#fcfcfa}
-  .ns-photo{width:86px;height:72px;flex:none;border-radius:8px;background-size:cover;background-position:center;background-color:#e8e8e2}
+  .ns-photo{width:86px;height:72px;flex:none;border-radius:3px;background-size:cover;background-position:center;background-color:#e8e8e2}
   .ns-body{flex:1;min-width:0}
   .ns-name{font-weight:800;font-size:.95rem;margin:0 0 2px}
   .ns-name .ns-ctry{font-weight:600;color:var(--muted);font-size:.82rem}
@@ -283,8 +265,6 @@
   footer{background:#5c6933;color:#fff;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#fff}
   footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
-  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
-  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
   footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ---------- My Itineraries tab ---------- */
@@ -307,7 +287,7 @@
   }
   .ig-badge{
     display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
-    padding:4px 10px;border-radius:12px;margin-bottom:8px;
+    padding:4px 10px;border-radius:3px;margin-bottom:8px;
   }
   .ig-badge.is-current{background:rgba(92,105,51,.15);color:var(--green)}
   .ig-badge.is-upcoming{background:rgba(181,73,44,.12);color:var(--coral)}
@@ -340,7 +320,7 @@
   .ig-unshare:disabled{opacity:.6;cursor:default}
   .ig-edit-btn{
     border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
-    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
+    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:3px;transition:.2s;flex-shrink:0;
   }
   .ig-edit-btn:hover{background:rgba(63,81,56,.1)}
 
@@ -386,14 +366,14 @@
     padding:6px 2px;border-radius:8px;touch-action:none;user-select:none;
   }
   .ig-stop .drag:hover{color:var(--teal);background:rgba(63,81,56,.08)}
-  .ig-stop.dragging{opacity:.6;background:rgba(63,81,56,.06);border-radius:12px}
+  .ig-stop.dragging{opacity:.6;background:rgba(63,81,56,.06);border-radius:3px}
   .ig-stop .rm-btn{
     display:flex;flex-direction:column;align-items:center;gap:1px;
     font-size:1rem;padding:4px 6px;
   }
   .ig-stop .rm-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
   .ig-warn{
-    display:none;margin:10px 0 6px;padding:9px 12px;border-radius:10px;
+    display:none;margin:10px 0 6px;padding:9px 12px;border-radius:3px;
     background:rgba(168,72,42,.12);border:1px solid rgba(168,72,42,.4);
     color:#b34a3a;font-size:.8rem;font-weight:600;
   }
@@ -450,13 +430,8 @@
   /* ================= EXPLORER THEME (overrides) ================= */
   body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
     background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
-  h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
-  header.nav{border-bottom:1px solid var(--ink)}
   .brand small{font-family:'Work Sans',sans-serif;letter-spacing:.22em}
-  nav.links a:hover{color:var(--coral);border-color:#b0802f}
   .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card,.form-card,.side-card,.gate,.legal,.toc{border:1px solid var(--ink);border-radius:3px}
-  footer{background:#5c6933;border-top:5px solid #b0802f}
-  footer .brand{color:#c99a45}
   /* dossier forms */
   input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   form label,.field label{font-family:'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;color:var(--teal)}

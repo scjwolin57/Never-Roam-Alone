@@ -30,6 +30,7 @@
 <!-- Amatic SC (logo font) -->
 <link rel="stylesheet" href="fonts/amatic-sc.css" />
 <link rel="stylesheet" href="fonts/site-fonts.css" />
+<link rel="stylesheet" href="master.css">
 <!-- Perf: preload the fonts used above the fold so text renders in the real
      fonts on first paint instead of swapping later and shifting the layout
      (the font swap was pushing the map down — the page's biggest CLS). -->
@@ -59,8 +60,6 @@
     --paper-2:#e3d7bc;--brass:#b0802f;--brass-lt:#c99a45;--rust-dk:#8a3a20;--green-dk:#2c3a27;
     --line:rgba(43,36,23,.20);--line-soft:rgba(43,36,23,.12);
   }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
   body{
     margin:0;
     font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -71,7 +70,6 @@
     line-height:1.6;
   }
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em}
-  a{color:inherit;text-decoration:none}
 
   /* ---------- Menu bar ---------- */
   header.nav{
@@ -86,13 +84,10 @@
   }
   .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
   .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(192,64,32,.2)}
-  .brand .logo{flex-shrink:0;display:block}
-  .brand small{display:block;font-family:-apple-system,sans-serif;font-weight:500;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
   nav.links a{
     margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
     padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
   }
-  nav.links a:hover{color:var(--coral);border-color:var(--coral)}
   .menu-toggle{display:none}
 
   /* ---------- Hero / map ---------- */
@@ -107,7 +102,7 @@
   /* "Tap to explore" pill shown over the static map picture on phones */
   #map-tap-hint{
     position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:5;
-    background:var(--green,#556B2F);color:#fff;border:none;border-radius:999px;
+    background:var(--green,#5c6933);color:#fff;border:none;border-radius:3px;
     padding:11px 20px;font-family:'Work Sans',sans-serif;font-weight:600;font-size:.92rem;
     box-shadow:0 6px 18px rgba(43,36,23,.35);cursor:pointer;white-space:nowrap;
   }
@@ -190,9 +185,6 @@
 
   footer{background:#5c6933;color:#dff1f2;text-align:center;padding:40px 22px;margin-top:30px}
   footer .brand{justify-content:center;color:var(--coral)}
-  footer .foot-links{margin-top:14px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
-  footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
-  footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
   footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
   footer .foot-disclosure{margin-top:22px!important;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:.76rem;opacity:.65}
 
@@ -215,7 +207,6 @@
   header.nav{background:rgba(236,226,204,.93);border-bottom:1px solid var(--ink)}
   .brand .dot{display:none}
   .brand small{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.08em}
-  nav.links a:hover{color:var(--coral);border-color:var(--brass)}
 
   .hero p.kicker{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.08em}
   .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
@@ -259,7 +250,6 @@
   .all-stories a:hover{background:var(--rust-dk)}
 
   footer{background:#5c6933;color:#d8d0b8;border-top:5px solid var(--brass)}
-  footer .brand{color:var(--brass-lt)}
   footer .foot-links a{color:#c6bd9f}
   footer .foot-links a:hover{color:#fff;border-color:var(--brass)}
 
