@@ -823,17 +823,24 @@
     font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
   .lmk-big-name{font-weight:700;font-size:1.12rem;color:#2f3b22;display:block;line-height:1.25}
   .lmk-big-desc{margin:8px 0 0;font-size:.94rem;color:var(--muted,#555);line-height:1.5}
-  /* Card hover (desktop) / tap (mobile) -> expanded card covering the grid */
-  .lmk-expand{position:absolute;left:0;right:0;top:0;z-index:30;background:var(--card,#fff);
-    border:1px solid rgba(0,0,0,.10);border-left:4px solid var(--coral);border-radius:3px;overflow:hidden auto;
-    max-height:calc(100vh - 96px);box-shadow:0 18px 44px rgba(43,36,23,.30);opacity:0;transform:translateY(8px);
+  /* Card hover (desktop) / tap (mobile) -> expanded card replacing the grid.
+     The other cards are hidden while one is focused, so the panel is free to
+     size itself to its own photo and text instead of a fixed box. */
+  .lmk-expand{position:absolute;left:0;top:0;z-index:30;background:var(--card,#fff);
+    border:1px solid rgba(0,0,0,.10);border-radius:3px;overflow:hidden;width:100%;
+    box-shadow:0 18px 44px rgba(43,36,23,.30);opacity:0;transform:translateY(8px);
     transition:opacity .16s ease,transform .16s ease}
+  .lmk-expand:focus,.lmk-expand:focus-visible{outline:none}
   .lmk-expand.is-open{opacity:1;transform:translateY(0)}
-  .lmk-expand-photo{width:100%;height:300px;background-size:cover;background-position:center;position:relative}
+  /* Hide the rest of the grid (keeping its space) while a card is expanded. */
+  .lmk-grid.is-muted > .lmk-card{visibility:hidden}
+  .lmk-expand-photo{position:relative;display:block;line-height:0;background:#e7e0d2}
+  .lmk-expand-img{display:block;width:100%;height:auto}
   .lmk-expand-close{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border-radius:50%;
     border:none;background:rgba(255,255,255,.92);color:#2f3b22;font-size:1.15rem;line-height:1;cursor:pointer;
     display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .lmk-expand-close:hover{background:#fff;color:var(--coral)}
+  .lmk-expand-close:focus,.lmk-expand-close:focus-visible{outline:none}
   .lmk-expand-body{padding:18px 22px 20px}
   .lmk-expand-row{display:flex;gap:12px;align-items:flex-start}
   .lmk-expand-num{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;
@@ -842,7 +849,20 @@
     line-height:1.25;border-bottom:1px dotted var(--teal)}
   .lmk-expand-name:hover{color:var(--coral);border-bottom-color:var(--coral)}
   .lmk-expand-desc{margin:10px 0 0;font-size:.98rem;color:var(--muted,#555);line-height:1.55}
-  @media(max-width:560px){.lmk-expand-photo{height:210px}}
+  /* Portrait photo: stands beside the text. The column is sized to the photo
+     (auto), so the panel ends up exactly as wide and tall as its contents. */
+  .lmk-expand.is-portrait{display:grid;align-items:stretch;grid-template-columns:auto minmax(200px,1fr)}
+  .lmk-expand.is-portrait .lmk-expand-img{height:var(--lmk-photo-h,520px);width:auto;max-width:100%}
+  .lmk-expand.is-portrait .lmk-expand-body{display:flex;flex-direction:column;justify-content:center;
+    padding:20px 24px}
+  /* Phone: too narrow to split, so stack -- but keep the photo at its own
+     ratio rather than forcing a box, which would pillarbox tall shots again. */
+  @media(max-width:560px){
+    .lmk-expand.is-portrait{grid-template-columns:1fr}
+    .lmk-expand.is-portrait .lmk-expand-photo{text-align:center}
+    .lmk-expand.is-portrait .lmk-expand-img{height:auto;max-height:52vh;width:auto;max-width:100%;
+      margin:0 auto}
+    .lmk-expand.is-portrait .lmk-expand-body{justify-content:flex-start;padding:16px 18px 18px}}
   /* Pin tap -> card jumps to the top of the list (mobile) */
   .lmk-card.is-lifted{border-color:var(--coral);box-shadow:0 10px 26px rgba(192,64,32,.26);animation:lmkPop .45s ease}
   @keyframes lmkPop{0%{transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
@@ -3618,6 +3638,13 @@ if(!c){
       if (lmkCoords.length > 1) lmkMap.fitBounds(bounds, { padding: 50, maxZoom: 15, duration: 0 });
     });
 
+    const expandEl = document.getElementById("lmk-expand");
+    /* The expanded card is the source of truth for which pin is lit. */
+    document.addEventListener("lmk:focus", e => {
+      const i = e.detail && e.detail.idx;
+      setActiveLmk(typeof i === "number" ? i : null);
+    });
+
     function setActiveLmk(i) {
       pins.forEach((p, idx) => { if (p) p.el.classList.toggle("is-active", idx === i); });
       document.querySelectorAll(".lmk-card").forEach(card => {
@@ -3691,21 +3718,24 @@ if(!c){
       });
       cardsEl.addEventListener("mouseout", e => {
         const card = e.target.closest(".lmk-card");
-        if (card && !cardsEl.contains(e.relatedTarget)) setActiveLmk(null);
+        /* The expanded panel covers the card, which fires mouseout with the
+           panel as relatedTarget; that must not clear the pin it just lit. */
+        const panelOpen = expandEl && !expandEl.hidden;
+        if (card && !cardsEl.contains(e.relatedTarget) && !panelOpen) setActiveLmk(null);
       });
     }
     setTimeout(() => lmkMap.resize(), 60);
   }
 
   /* ---------- Landmark card -> expanded panel covering the card grid ----------
-     Desktop: hovering a card opens it. Mobile/touch: tapping a card opens it.
-     Closes on the X, Escape, a click outside, or the pointer leaving the column. */
+     Click (or tap) a card to open it; clicking the same card again closes it.
+     Also closes on the X, Escape, or a click outside the column. */
   function initLmkCardExpand(){
     const colEl  = document.querySelector(".lmk-cards-col");
     const gridEl = document.querySelector(".lmk-grid");
     const panel  = document.getElementById("lmk-expand");
     if (!colEl || !gridEl || !panel) return;
-    const touch = () => window.matchMedia("(hover:none), (pointer:coarse)").matches;
+    const esc = t => String(t).replace(/[<>&"]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[ch]));
     let openIdx = null, closeTimer = null;
 
     function openExpand(i){
@@ -3721,33 +3751,49 @@ if(!c){
         : '';
       panel.innerHTML =
         `<button type="button" class="lmk-expand-close" aria-label="Close">&times;</button>` +
-        (ph ? `<div class="lmk-expand-photo" style="background-image:url('${ph.img}')">${credit}</div>` : '') +
+        (ph ? `<div class="lmk-expand-photo"><img class="lmk-expand-img" src="${ph.img}" alt="${esc(l[0])}" loading="lazy">${credit}</div>` : '') +
         `<div class="lmk-expand-body"><div class="lmk-expand-row"><div class="lmk-expand-num">${i + 1}</div>` +
         `<div><a class="lmk-expand-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>` +
         `<p class="lmk-expand-desc">${l[1]}</p></div></div></div>`;
       clearTimeout(closeTimer);
       panel.hidden = false;
+      gridEl.classList.add("is-muted");
       /* Sit at the top of whatever part of the column is on screen. */
       const col = colEl.getBoundingClientRect();
       panel.style.top = Math.max(0, Math.round(80 - col.top)) + "px";
       panel.scrollTop = 0;
+      panel.classList.remove("is-portrait");
+      panel.style.removeProperty("--lmk-photo-h");
+      const pim = panel.querySelector(".lmk-expand-img");
+      if (pim) {
+        const orient = () => {
+          const nw = pim.naturalWidth, nh = pim.naturalHeight;
+          if (!nw || nh / nw <= 1.05) return;
+          panel.classList.add("is-portrait");
+          /* Photo height drives the panel height; width follows from the ratio
+             (the grid column is auto), capped so the text keeps a readable
+             column and the whole panel still fits on screen. */
+          const r = nw / nh;
+          let h = Math.min(560, Math.round(window.innerHeight * 0.66));
+          const capW = Math.round(panel.clientWidth * 0.62);
+          if (h * r > capW) h = Math.round(capW / r);
+          panel.style.setProperty("--lmk-photo-h", Math.max(280, h) + "px");
+        };
+        if (pim.complete) orient(); else pim.addEventListener("load", orient, {once:true});
+      }
       requestAnimationFrame(() => panel.classList.add("is-open"));
+      document.dispatchEvent(new CustomEvent("lmk:focus", {detail:{idx:i}}));
     }
     function closeExpand(){
       if (panel.hidden) return;
       openIdx = null;
+      document.dispatchEvent(new CustomEvent("lmk:focus", {detail:{idx:null}}));
       panel.classList.remove("is-open");
+      gridEl.classList.remove("is-muted");
       clearTimeout(closeTimer);
       closeTimer = setTimeout(() => { panel.hidden = true; panel.innerHTML = ""; }, 200);
     }
 
-    gridEl.addEventListener("mouseover", e => {
-      if (touch()) return;
-      const card = e.target.closest(".lmk-card");
-      if (!card) return;
-      const i = Number(card.dataset.lmkIdx);
-      if (i !== openIdx) openExpand(i);
-    });
     gridEl.addEventListener("click", e => {
       if (e.target.closest("a")) return; // let the map / credit links work
       const card = e.target.closest(".lmk-card");
@@ -3758,7 +3804,6 @@ if(!c){
     panel.addEventListener("click", e => {
       if (e.target.closest(".lmk-expand-close")) { e.preventDefault(); closeExpand(); }
     });
-    colEl.addEventListener("mouseleave", () => { if (!touch()) closeExpand(); });
     document.addEventListener("click", e => {
       if (panel.hidden || colEl.contains(e.target)) return;
       closeExpand();
@@ -3813,7 +3858,7 @@ if(!c){
       lmkPhotos = (window.NRA_LANDMARK_PHOTOS && NRA_LANDMARK_PHOTOS[c.city]) || [];
       const lmkBody = document.getElementById("lmk-section-body");
       const landmarksHTML = buildLandmarksHTML();
-      if (lmkBody) lmkBody.innerHTML = landmarksHTML ? `<p class="hood-intro">The ${lmks.length} landmarks and sights most worth your time in ${c.city} — hover a card to find it on the map, or hover a pin (tap on mobile) to see that landmark.</p>
+      if (lmkBody) lmkBody.innerHTML = landmarksHTML ? `<p class="hood-intro">An overview of ${lmks.length} popular landmarks and sights worth a visit while in ${c.city} — hover a card to find it on the map, click one for the full photo and details, or hover a pin (tap on mobile) to see that landmark.</p>
       <div class="lmk-layout">
         <div class="lmk-map-col"><div id="lmk-map" class="lmk-map"></div></div>
         ${landmarksHTML}
