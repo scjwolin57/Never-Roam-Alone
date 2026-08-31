@@ -5,3 +5,9 @@ _image-backups*/
 # .git/info/exclude, which is local-only and isn't shared or backed up — a
 # fresh clone would have committed and published the whole folder.
 _cities-staging/
+
+# Real API keys (SerpApi, Unsplash, Pexels, Pixabay, Resend...). Only the
+# .env.example template belongs in git.
+.env
+.env.*
+!.env.example
