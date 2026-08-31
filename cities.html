@@ -1190,7 +1190,7 @@ function buildCards(list) {
     card.href = `city.html?city=${encodeURIComponent(c.city)}&from=guides`;
     card.innerHTML = `
       <div class="photo" data-bg="${ph ? ph.img.replace(/\.webp$/, "-sm.webp") : `https://picsum.photos/seed/${sg}-hero/600/400`}">
-        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
+        ${ph && ph.page ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
         <div class="visitors-chip"><b>${c.est?'~':''}${num}M</b> visitors/yr</div>
       </div>
       <div class="body">

@@ -823,6 +823,26 @@
     font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
   .lmk-big-name{font-weight:700;font-size:1.12rem;color:#2f3b22;display:block;line-height:1.25}
   .lmk-big-desc{margin:8px 0 0;font-size:.94rem;color:var(--muted,#555);line-height:1.5}
+  /* Card hover (desktop) / tap (mobile) -> expanded card covering the grid */
+  .lmk-expand{position:absolute;left:0;right:0;top:0;z-index:30;background:var(--card,#fff);
+    border:1px solid rgba(0,0,0,.10);border-left:4px solid var(--coral);border-radius:3px;overflow:hidden auto;
+    max-height:calc(100vh - 96px);box-shadow:0 18px 44px rgba(43,36,23,.30);opacity:0;transform:translateY(8px);
+    transition:opacity .16s ease,transform .16s ease}
+  .lmk-expand.is-open{opacity:1;transform:translateY(0)}
+  .lmk-expand-photo{width:100%;height:300px;background-size:cover;background-position:center;position:relative}
+  .lmk-expand-close{position:absolute;top:10px;right:10px;z-index:2;width:34px;height:34px;border-radius:50%;
+    border:none;background:rgba(255,255,255,.92);color:#2f3b22;font-size:1.15rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .lmk-expand-close:hover{background:#fff;color:var(--coral)}
+  .lmk-expand-body{padding:18px 22px 20px}
+  .lmk-expand-row{display:flex;gap:12px;align-items:flex-start}
+  .lmk-expand-num{flex:0 0 auto;width:32px;height:32px;border-radius:50%;background:var(--coral);color:#fff;
+    font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .lmk-expand-name{font-weight:700;font-size:1.25rem;color:#2f3b22;text-decoration:none;display:inline-block;
+    line-height:1.25;border-bottom:1px dotted var(--teal)}
+  .lmk-expand-name:hover{color:var(--coral);border-bottom-color:var(--coral)}
+  .lmk-expand-desc{margin:10px 0 0;font-size:.98rem;color:var(--muted,#555);line-height:1.55}
+  @media(max-width:560px){.lmk-expand-photo{height:210px}}
   /* Pin tap -> card jumps to the top of the list (mobile) */
   .lmk-card.is-lifted{border-color:var(--coral);box-shadow:0 10px 26px rgba(192,64,32,.26);animation:lmkPop .45s ease}
   @keyframes lmkPop{0%{transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
@@ -2367,6 +2387,7 @@ if(!c){
       }).join('') + `
       </div>
       <div class="lmk-big" id="lmk-big" hidden></div>
+      <div class="lmk-expand" id="lmk-expand" hidden></div>
       </div>`; }
 
   function buildDayTripsHTML(){ return !dt || (!dt.half.length && !dt.full.length) ? "" : `
@@ -3676,6 +3697,75 @@ if(!c){
     setTimeout(() => lmkMap.resize(), 60);
   }
 
+  /* ---------- Landmark card -> expanded panel covering the card grid ----------
+     Desktop: hovering a card opens it. Mobile/touch: tapping a card opens it.
+     Closes on the X, Escape, a click outside, or the pointer leaving the column. */
+  function initLmkCardExpand(){
+    const colEl  = document.querySelector(".lmk-cards-col");
+    const gridEl = document.querySelector(".lmk-grid");
+    const panel  = document.getElementById("lmk-expand");
+    if (!colEl || !gridEl || !panel) return;
+    const touch = () => window.matchMedia("(hover:none), (pointer:coarse)").matches;
+    let openIdx = null, closeTimer = null;
+
+    function openExpand(i){
+      const l = lmks[i];
+      if (!l) return;
+      openIdx = i;
+      const ph = lmkPhotos[i];
+      const p  = lmkCoords[i];
+      const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z`
+                        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
+      const credit = ph && ph.page
+        ? `<span class="lmk-photo-credit"><a href="${ph.page}" target="_blank" rel="noopener">${ph.credit ? String(ph.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>`
+        : '';
+      panel.innerHTML =
+        `<button type="button" class="lmk-expand-close" aria-label="Close">&times;</button>` +
+        (ph ? `<div class="lmk-expand-photo" style="background-image:url('${ph.img}')">${credit}</div>` : '') +
+        `<div class="lmk-expand-body"><div class="lmk-expand-row"><div class="lmk-expand-num">${i + 1}</div>` +
+        `<div><a class="lmk-expand-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>` +
+        `<p class="lmk-expand-desc">${l[1]}</p></div></div></div>`;
+      clearTimeout(closeTimer);
+      panel.hidden = false;
+      /* Sit at the top of whatever part of the column is on screen. */
+      const col = colEl.getBoundingClientRect();
+      panel.style.top = Math.max(0, Math.round(80 - col.top)) + "px";
+      panel.scrollTop = 0;
+      requestAnimationFrame(() => panel.classList.add("is-open"));
+    }
+    function closeExpand(){
+      if (panel.hidden) return;
+      openIdx = null;
+      panel.classList.remove("is-open");
+      clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => { panel.hidden = true; panel.innerHTML = ""; }, 200);
+    }
+
+    gridEl.addEventListener("mouseover", e => {
+      if (touch()) return;
+      const card = e.target.closest(".lmk-card");
+      if (!card) return;
+      const i = Number(card.dataset.lmkIdx);
+      if (i !== openIdx) openExpand(i);
+    });
+    gridEl.addEventListener("click", e => {
+      if (e.target.closest("a")) return; // let the map / credit links work
+      const card = e.target.closest(".lmk-card");
+      if (!card) return;
+      const i = Number(card.dataset.lmkIdx);
+      if (i === openIdx) closeExpand(); else openExpand(i);
+    });
+    panel.addEventListener("click", e => {
+      if (e.target.closest(".lmk-expand-close")) { e.preventDefault(); closeExpand(); }
+    });
+    colEl.addEventListener("mouseleave", () => { if (!touch()) closeExpand(); });
+    document.addEventListener("click", e => {
+      if (panel.hidden || colEl.contains(e.target)) return;
+      closeExpand();
+    });
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeExpand(); });
+  }
+
   /* ---------- Lazy loading of landmark & day-trip data (~4 MB combined) ----------
      These files cover every city on the site, so instead of blocking the page
      they are fetched when the visitor scrolls within ~1200px of the Landmarks
@@ -3732,6 +3822,7 @@ if(!c){
       const dayTripsHTML = buildDayTripsHTML();
       if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trip picks for ${c.city} are coming soon.</p>`;
       initLmkMap();
+      initLmkCardExpand();
     }).catch(err => {
       console.warn(err);
       lmkDtStarted = false; // allow a retry on the next scroll/interaction

@@ -301,6 +301,12 @@
   .cat-food{background:#e08e2b}.cat-seasonal{background:#1f8f4e}.cat-sports{background:#2f8f8f}.cat-bucketlist{background:#b3823a}
   .ev-meta{margin:4px 0 12px;font-size:.78rem;color:var(--muted)}
   .ev-meta strong{color:var(--ink)}
+  #evChips>.bl-chip[data-cat=""]{flex-basis:100%;text-align:center}
+  .ev-adv-toggle{display:flex;align-items:center;gap:8px;justify-content:center;max-width:var(--maxw);
+    margin:14px auto 0;padding:0 22px;font-weight:700;color:var(--ink);cursor:pointer;font-size:.9rem}
+  .ev-adv-panel{display:flex;flex-direction:column;gap:14px;max-width:var(--maxw);margin:14px auto 0;padding:0 22px}
+  .ev-adv-group-label{font-weight:700;color:var(--ink);font-size:.85rem;display:block;margin-bottom:6px}
+  .ev-country-list{max-height:220px;overflow-y:auto;padding:2px 6px 2px 0}
   .photo-credit{position:absolute;right:9px;bottom:5px;z-index:2;font-size:.6rem;line-height:1.2;
     color:rgba(255,255,255,.82);text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .photo-credit a{color:inherit;text-decoration:underline}
@@ -868,6 +874,24 @@
     <button type="button" class="bl-chip" data-cat="Seasonal">🍂 Seasonal</button>
     <button type="button" class="bl-chip" data-cat="Sports">🏆 Sports</button>
     <button type="button" class="bl-chip" data-cat="Bucket List">🌍 Bucket list</button>
+  </div>
+  <label class="ev-adv-toggle">
+    <input type="checkbox" id="evAdvToggle">
+    <span>Advanced filters (size, time of year, country)</span>
+  </label>
+  <div class="ev-adv-panel" id="evAdvPanel" hidden>
+    <div>
+      <span class="ev-adv-group-label">Event size</span>
+      <div class="passvisa-filter" id="evTierFilter" role="group" aria-label="Filter by event size"></div>
+    </div>
+    <div>
+      <span class="ev-adv-group-label">Time of year</span>
+      <div class="passvisa-filter" id="evMonthFilter" role="group" aria-label="Filter by time of year"></div>
+    </div>
+    <div>
+      <span class="ev-adv-group-label">Country</span>
+      <div class="passvisa-filter ev-country-list" id="evCountryFilter" role="group" aria-label="Filter by country"></div>
+    </div>
   </div>
   <div class="results" id="eventResults"></div>
 </div>
@@ -1518,7 +1542,7 @@ function finderCardHTML(r, rank, actLabel, budget){
     <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
       <div class="photo" data-bg="${ph ? ph.img.replace(/\.webp$/, "-sm.webp") : `https://picsum.photos/seed/${sg}-pick/600/400`}">
         <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span><span class="visit">${visitorsChip(c)}</span>
-        ${ph ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
+        ${ph && ph.page ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
       </div>
       <div class="body">
         <div class="country-row">
@@ -2407,29 +2431,34 @@ function bmRow(ico, label, valueHTML){
   return `<div class="bm-row"><span class="bm-ico" aria-hidden="true">${ico}</span>` +
          `<span><span class="bm-lab">${label}</span><span class="bm-val">${valueHTML}</span></span></div>`;
 }
-function openHowTo(idx){
-  const b = BUCKET[idx]; if(!b) return;
+function openHowTo(idx, kind){
+  kind = kind || "bl";
+  const b = kind === "ev" ? EVENTS[idx] : BUCKET[idx]; if(!b) return;
   const a = b.access || {};
   bmName.textContent = b.name;
   const esc = s => (s==null?"":String(s)).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  const linkCity = kind === "ev" ? a.gateway : b.city;
   let cityVal = esc(a.gateway || "—");
-  if(b.city && CITY_SET.has(b.city)){
-    cityVal += ` &middot; <a href="city.html?city=${encodeURIComponent(b.city)}">Explore ${esc(b.city)} guide &rarr;</a>`;
+  if(linkCity && CITY_SET.has(linkCity)){
+    cityVal += ` &middot; <a href="city.html?city=${encodeURIComponent(linkCity)}">Explore ${esc(linkCity)} guide &rarr;</a>`;
   }
   bmBody.innerHTML =
     bmRow("✈", "Nearest airport", esc(a.airport || "—")) +
     bmRow("📍", "Nearest city", cityVal) +
-    (a.note ? bmRow("🧭", "Getting there", esc(a.note)) : "");
-  // Map link (built from the landmark's location)
-  bmMap.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(b.name + ", " + b.country);
-  // Affiliate tour link — blank slot for now, shows a "coming soon" state until a URL is added
-  if(a.tour){
-    bmTour.textContent = "Visit / Take a tour ↗";
-    bmTour.href = a.tour;
+    (a.note ? bmRow("🧭", "Getting there", esc(a.note)) : "") +
+    (kind === "ev" && b.entry ? bmRow("🎟", "Entry", esc(b.entry)) : "");
+  // Map link (built from the place's location)
+  bmMap.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(b.name + ", " + (kind === "ev" ? b.location : b.country));
+  // Second action link: an affiliate tour slot for landmarks ("coming soon" until a URL is added),
+  // or the event's own source link for events.
+  const tourUrl = kind === "ev" ? b.source : a.tour;
+  if(tourUrl){
+    bmTour.textContent = kind === "ev" ? "Event info ↗" : "Visit / Take a tour ↗";
+    bmTour.href = tourUrl;
     bmTour.classList.remove("soon");
     bmTour.removeAttribute("aria-disabled");
   } else {
-    bmTour.textContent = "Take a tour — coming soon";
+    bmTour.textContent = kind === "ev" ? "More info — coming soon" : "Take a tour — coming soon";
     bmTour.removeAttribute("href");
     bmTour.classList.add("soon");
     bmTour.setAttribute("aria-disabled", "true");
@@ -2441,7 +2470,7 @@ function closeHowTo(){ blModal.hidden = true; }
 
 bucketResults.addEventListener("click", e=>{
   const pill = e.target.closest(".how-pill"); if(!pill) return;
-  openHowTo(+pill.dataset.bl);
+  openHowTo(+pill.dataset.bl, "bl");
 });
 bmClose.addEventListener("click", closeHowTo);
 blModal.addEventListener("click", e=>{ if(e.target === blModal) closeHowTo(); });
@@ -2469,8 +2498,55 @@ const EV_CAT = {
   "Bucket List":         "cat-bucketlist"
 };
 let evCategory = "", evShown = 12;
+let evAdvOn = false, evTiers = [], evMonths = [], evCountries = [];
 
-function eventCardHTML(ev){
+/* ---- Advanced filters: event size, time of year, country ---- */
+const evAdvToggle    = document.getElementById("evAdvToggle");
+const evAdvPanel     = document.getElementById("evAdvPanel");
+const evTierFilter   = document.getElementById("evTierFilter");
+const evMonthFilter  = document.getElementById("evMonthFilter");
+const evCountryFilter = document.getElementById("evCountryFilter");
+const EV_TIER_LABEL = { Mega: "Mega", Large: "Large", Iconic: "Iconic (attendance not the criterion)" };
+const EV_MONTHS = ["January","February","March","April","May","June","July","August",
+                    "September","October","November","December"];
+const EV_CURRENT_MONTH = EV_MONTHS[new Date().getMonth()];
+const EV_COUNTRIES = [...new Set(EVENTS.flatMap(ev => ev.countries || []))].sort();
+
+function evCheckRow(cls, value, label){
+  return `<label class="tripscope-radio"><input type="checkbox" class="${cls}" value="${value.replace(/"/g,'&quot;')}"><span>${label}</span></label>`;
+}
+evTierFilter.innerHTML = Object.keys(EV_TIER_LABEL).map(t => evCheckRow("evTierCk", t, EV_TIER_LABEL[t])).join("");
+evMonthFilter.innerHTML =
+  evCheckRow("evMonthCk", EV_CURRENT_MONTH, `This month (${EV_CURRENT_MONTH})`) +
+  EV_MONTHS.map(m => evCheckRow("evMonthCk", m, m)).join("");
+evCountryFilter.innerHTML = EV_COUNTRIES.map(c => evCheckRow("evCountryCk", c, c)).join("");
+
+function syncEvAdvActive(){
+  document.querySelectorAll("#evAdvPanel .tripscope-radio").forEach(l =>
+    l.classList.toggle("active", !!l.querySelector("input").checked));
+}
+function readEvAdvChecks(){
+  evTiers = [...document.querySelectorAll(".evTierCk:checked")].map(c => c.value);
+  evMonths = [...new Set([...document.querySelectorAll(".evMonthCk:checked")].map(c => c.value))];
+  evCountries = [...document.querySelectorAll(".evCountryCk:checked")].map(c => c.value);
+}
+evAdvToggle.addEventListener("change", ()=>{
+  evAdvOn = evAdvToggle.checked;
+  evAdvPanel.hidden = !evAdvOn;
+  evShown = 12;
+  renderEvents();
+  saveState();
+});
+evAdvPanel.addEventListener("change", e=>{
+  if(!e.target.matches('input[type="checkbox"]')) return;
+  readEvAdvChecks();
+  syncEvAdvActive();
+  evShown = 12;
+  renderEvents();
+  saveState();
+});
+
+function eventCardHTML(ev, idx){
   const cls = EV_CAT[ev.category] || "b-no";
   const photoBg = ev.img ? ev.img.replace(/\.webp$/, "-sm.webp") : "";
   const credit = ev.page
@@ -2478,6 +2554,7 @@ function eventCardHTML(ev){
     : "";
   const sourceLink = ev.source
     ? `<a class="go" href="${ev.source}" target="_blank" rel="noopener">Learn more &rarr;</a>` : "";
+  const entryLine = ev.entry ? `<br><strong>Entry:</strong> ${ev.entry}` : "";
   return `
     <article class="card">
       <div class="photo"${photoBg ? ` data-bg="${photoBg}"` : ""}>
@@ -2489,20 +2566,30 @@ function eventCardHTML(ev){
         <div class="country">${ev.location}</div>
         <h3>${ev.name}</h3>
         <p>${ev.description}</p>
-        <p class="ev-meta"><strong>When:</strong> ${ev.dates}<br><strong>Visitors:</strong> ${ev.visitors}</p>
-        <div class="links-row">${sourceLink}</div>
+        <p class="ev-meta"><strong>When:</strong> ${ev.dates}<br><strong>Visitors:</strong> ${ev.visitors}${entryLine}</p>
+        <div class="links-row">
+          <button type="button" class="how-pill" data-ev="${idx}"><span aria-hidden="true">📍</span><span>How to get there</span></button>
+          ${sourceLink}
+        </div>
       </div>
     </article>`;
 }
 
 function renderEvents(){
   if(!EVENTS.length){ eventResults.innerHTML = `<p class="empty">World Events couldn't load.</p>`; return; }
-  const list = evCategory ? EVENTS.filter(ev => ev.category === evCategory) : EVENTS;
+  const withIdx = EVENTS.map((ev,i)=>({ev, i}));
+  let list = evCategory ? withIdx.filter(x => x.ev.category === evCategory) : withIdx;
+  let advActive = false;
+  if(evAdvOn){
+    if(evTiers.length){ list = list.filter(x => evTiers.includes(x.ev.tier)); advActive = true; }
+    if(evMonths.length){ list = list.filter(x => (x.ev.months||[]).some(m => evMonths.includes(m))); advActive = true; }
+    if(evCountries.length){ list = list.filter(x => (x.ev.countries||[]).some(c => evCountries.includes(c))); advActive = true; }
+  }
   if(!list.length){ eventResults.innerHTML = `<p class="empty">No events match that filter.</p>`; return; }
   const shown = list.slice(0, evShown);
   eventResults.innerHTML =
-    `<p class="sub">Showing <strong>${shown.length}</strong> of ${list.length}${evCategory ? " matching" : ""} events.</p>` +
-    `<div class="grid">${shown.map(eventCardHTML).join("")}</div>` +
+    `<p class="sub">Showing <strong>${shown.length}</strong> of ${list.length}${(evCategory || advActive) ? " matching" : ""} events.</p>` +
+    `<div class="grid">${shown.map(x => eventCardHTML(x.ev, x.i)).join("")}</div>` +
     (list.length > evShown
       ? `<div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="evMore">Show ${Math.min(12, list.length - evShown)} more</button></div>`
       : "");
@@ -2510,6 +2597,11 @@ function renderEvents(){
   const more = document.getElementById("evMore");
   if(more) more.addEventListener("click", ()=>{ evShown += 12; renderEvents(); });
 }
+
+eventResults.addEventListener("click", e=>{
+  const pill = e.target.closest(".how-pill"); if(!pill) return;
+  openHowTo(+pill.dataset.ev, "ev");
+});
 
 evChips.addEventListener("click", e=>{
   const chip = e.target.closest(".bl-chip"); if(!chip) return;
@@ -2563,7 +2655,11 @@ function saveState(){
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
       bucketType: blType,
-      eventCategory: evCategory
+      eventCategory: evCategory,
+      evAdv: evAdvOn,
+      evTiers: evTiers,
+      evMonths: evMonths,
+      evCountries: evCountries
     }));
   }catch(e){}
 }
@@ -2613,6 +2709,20 @@ function loadState(){
     evCategory = s.eventCategory;
     [...evChips.children].forEach(c => c.classList.toggle("active", c.dataset.cat === evCategory));
   }
+  if(s.evAdv){ evAdvOn = true; evAdvToggle.checked = true; evAdvPanel.hidden = false; }
+  if(s.evTiers && s.evTiers.length){
+    evTiers = s.evTiers;
+    document.querySelectorAll(".evTierCk").forEach(cb => cb.checked = evTiers.includes(cb.value));
+  }
+  if(s.evMonths && s.evMonths.length){
+    evMonths = s.evMonths;
+    document.querySelectorAll(".evMonthCk").forEach(cb => cb.checked = evMonths.includes(cb.value));
+  }
+  if(s.evCountries && s.evCountries.length){
+    evCountries = s.evCountries;
+    document.querySelectorAll(".evCountryCk").forEach(cb => cb.checked = evCountries.includes(cb.value));
+  }
+  syncEvAdvActive();
   if(s.tool){
     const tr = document.querySelector(`input[name="tool"][value="${s.tool}"]`);
     if(tr){ tr.checked = true; showTool(s.tool); }
