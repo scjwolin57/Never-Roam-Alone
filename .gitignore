@@ -11,3 +11,6 @@ _cities-staging/
 .env
 .env.*
 !.env.example
+
+# macOS Finder metadata — never useful in the repo.
+.DS_Store
