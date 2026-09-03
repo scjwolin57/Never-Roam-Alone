@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Image coming soon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#efe9da"/><stop offset="100%" stop-color="#e2dac6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g)"/>
+  <g fill="none" stroke="#b9ad91" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="446" y="286" width="308" height="228" rx="10"/>
+    <circle cx="524" cy="356" r="26"/>
+    <path d="M456 470l104-104 78 78 52-46 54 54v52a10 10 0 0 1-10 10H456z"/>
+  </g>
+  <text x="600" y="606" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="54" fill="#5c5340">Image coming soon</text>
+  <text x="600" y="654" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="26" fill="#8a7f66">We haven&#8217;t found a photo of this landmark yet</text>
+</svg>

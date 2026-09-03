@@ -863,6 +863,49 @@
     .lmk-expand.is-portrait .lmk-expand-img{height:auto;max-height:52vh;width:auto;max-width:100%;
       margin:0 auto}
     .lmk-expand.is-portrait .lmk-expand-body{justify-content:flex-start;padding:16px 18px 18px}}
+  /* Landmarks with no photo yet: placeholder + an invitation to contribute one */
+  .lmk-photo-soon{background-size:cover;background-position:center;opacity:.85}
+  .lmk-expand-soon{position:relative}
+  .lmk-contrib{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 16px;text-align:center;
+    background:linear-gradient(to top,rgba(255,255,255,.97) 62%,rgba(255,255,255,0))}
+  .lmk-contrib-lead{margin:0 0 9px;font-size:.86rem;color:#5c5340;line-height:1.35}
+  .lmk-contrib-btn{border:1px solid var(--teal);background:var(--teal);color:#fff;border-radius:3px;
+    padding:8px 16px;font:inherit;font-size:.9rem;cursor:pointer}
+  .lmk-contrib-btn:hover{background:var(--coral);border-color:var(--coral)}
+  /* Contribute-a-photo form */
+  .cf-back{position:fixed;inset:0;z-index:80;background:rgba(43,36,23,.55);display:flex;
+    align-items:flex-start;justify-content:center;padding:36px 16px;overflow:auto}
+  .cf-box{background:var(--card,#fff);border-radius:4px;max-width:520px;width:100%;
+    box-shadow:0 24px 60px rgba(43,36,23,.4);padding:22px 24px 24px;position:relative}
+  .cf-box h3{margin:0 0 4px;font-size:1.15rem}
+  .cf-sub{margin:0 0 16px;font-size:.85rem;color:var(--muted,#666)}
+  .cf-close{position:absolute;top:10px;right:12px;border:none;background:none;font-size:1.5rem;
+    line-height:1;cursor:pointer;color:#8a7f66}
+  .cf-close:hover{color:var(--coral)}
+  .cf-f{margin-bottom:14px}
+  .cf-f label{display:block;font-size:.82rem;font-weight:700;margin-bottom:5px}
+  .cf-f input[type=text],.cf-f input[type=url],.cf-f select,.cf-f input[type=file]{
+    width:100%;padding:8px 10px;border:1px solid #cfc7b4;border-radius:3px;font:inherit;font-size:.9rem;
+    background:#fff}
+  .cf-f input:disabled{background:#f2efe6;color:#8a7f66}
+  .cf-row{display:flex;gap:10px}
+  .cf-row>*{flex:1}
+  .cf-opt{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.88rem;font-weight:400}
+  .cf-opt input{margin-top:3px;flex:none;width:auto}
+  .cf-note{font-size:.78rem;color:var(--muted,#777);margin:4px 0 0}
+  .cf-terms{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;line-height:1.45;
+    background:#f7f4ea;border:1px solid #e3dccb;border-radius:3px;padding:11px 12px;margin:4px 0 16px}
+  .cf-terms input{margin-top:2px;flex:none}
+  .cf-actions{display:flex;gap:10px;align-items:center}
+  .cf-submit{background:var(--teal);color:#fff;border:1px solid var(--teal);border-radius:3px;
+    padding:9px 18px;font:inherit;cursor:pointer}
+  .cf-submit:hover:not(:disabled){background:var(--coral);border-color:var(--coral)}
+  .cf-submit:disabled{opacity:.55;cursor:default}
+  .cf-cancel{background:none;border:1px solid #cfc7b4;border-radius:3px;padding:9px 15px;font:inherit;cursor:pointer}
+  .cf-msg{font-size:.85rem;margin-left:2px}
+  .cf-msg.err{color:#a8320f}
+  .cf-msg.ok{color:#2b6b6b}
+  @media(max-width:560px){.cf-back{padding:12px}.cf-row{flex-direction:column;gap:0}}
   /* Pin tap -> card jumps to the top of the list (mobile) */
   .lmk-card.is-lifted{border-color:var(--coral);box-shadow:0 10px 26px rgba(192,64,32,.26);animation:lmkPop .45s ease}
   @keyframes lmkPop{0%{transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:scale(1)}}
@@ -2392,7 +2435,8 @@ if(!c){
         const p = lmkCoords[i];
         const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
         const photo = lmkPhotos[i];
-        const photoHTML = photo ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${photo.page ? `<span class="lmk-photo-credit"><a href="${photo.page}" target="_blank" rel="noopener">${photo.credit ? String(photo.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>` : ''}</div>` : '';
+        const photoHTML = photo ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${photo.page ? `<span class="lmk-photo-credit"><a href="${photo.page}" target="_blank" rel="noopener">${photo.credit ? String(photo.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>` : ''}</div>`
+          : `<div class="lmk-photo lmk-photo-soon" style="background-image:url('images/landmark-coming-soon.svg')"></div>`;
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
           ${photoHTML}
@@ -3727,6 +3771,140 @@ if(!c){
     setTimeout(() => lmkMap.resize(), 60);
   }
 
+  /* ---------- Contribute-a-photo form (landmarks with no image yet) ----------
+     Opened from the "Contribute Image" button on the coming-soon placeholder.
+     Submits to Supabase when configured; otherwise it tells the visitor to
+     email instead rather than silently dropping their photo. */
+  function openContribForm(idx){
+    const l = lmks[idx];
+    if (!l) return;
+    const esc = t => String(t).replace(/[<>&"]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[ch]));
+    const now = new Date(), yr = now.getFullYear();
+    let years = '<option value="">Year</option>';
+    for (let y = yr; y >= 1950; y--) years += `<option value="${y}">${y}</option>`;
+    const months = ["January","February","March","April","May","June","July",
+                    "August","September","October","November","December"]
+      .map((m, i) => `<option value="${i + 1}">${m}</option>`).join("");
+    const back = document.createElement("div");
+    back.className = "cf-back";
+    back.innerHTML = `
+      <div class="cf-box" role="dialog" aria-modal="true" aria-label="Contribute a photo">
+        <button type="button" class="cf-close" aria-label="Close">&times;</button>
+        <h3>Contribute a photo</h3>
+        <p class="cf-sub">Thank you &mdash; photos from travellers are what make these guides worth reading.</p>
+        <form id="cf-form">
+          <div class="cf-f">
+            <label for="cf-landmark">Landmark</label>
+            <input type="text" id="cf-landmark" value="${esc(l[0])}" readonly>
+          </div>
+          <div class="cf-f">
+            <label for="cf-file">Your photo</label>
+            <input type="file" id="cf-file" accept="image/jpeg,image/png,image/webp" required>
+            <p class="cf-note">JPEG, PNG or WebP. Landscape shots suit the guide layout best.</p>
+          </div>
+          <div class="cf-f">
+            <label>Approximate date taken <span style="font-weight:400;color:#8a7f66">(optional)</span></label>
+            <div class="cf-row">
+              <select id="cf-month"><option value="">Month</option>${months}</select>
+              <select id="cf-year">${years}</select>
+            </div>
+          </div>
+          <div class="cf-f">
+            <label>How would you like to be credited?</label>
+            <label class="cf-opt"><input type="radio" name="cf-cred" value="name" checked>
+              <span>Credit this name<br><input type="text" id="cf-credname" placeholder="Name to display" style="margin-top:5px"></span></label>
+            <label class="cf-opt"><input type="radio" name="cf-cred" value="profile">
+              <span>My Never Roam Alone profile</span></label>
+            <label class="cf-opt"><input type="radio" name="cf-cred" value="none">
+              <span>No credit desired</span></label>
+          </div>
+          <div class="cf-f">
+            <label for="cf-link">Link to your creative work <span style="font-weight:400;color:#8a7f66">(optional)</span></label>
+            <input type="url" id="cf-link" placeholder="https://">
+            <p class="cf-note">Shown alongside your photo credit.</p>
+          </div>
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <label for="cf-website">Website</label>
+            <input type="text" id="cf-website" tabindex="-1" autocomplete="off">
+          </div>
+          <label class="cf-terms">
+            <input type="checkbox" id="cf-agree" required>
+            <span>I confirm that I own this image and that I grant Never Roam Alone
+              permission to use it on this website.</span>
+          </label>
+          <div class="cf-actions">
+            <button type="submit" class="cf-submit" id="cf-submit">Submit photo</button>
+            <button type="button" class="cf-cancel" id="cf-cancel">Cancel</button>
+            <span class="cf-msg" id="cf-msg"></span>
+          </div>
+        </form>
+      </div>`;
+    document.body.appendChild(back);
+    const openedAt = Date.now();
+    const $ = id => back.querySelector("#" + id);
+    const close = () => { back.remove(); document.removeEventListener("keydown", onKey); };
+    const onKey = e => { if (e.key === "Escape") close(); };
+    document.addEventListener("keydown", onKey);
+    back.querySelector(".cf-close").addEventListener("click", close);
+    $("cf-cancel").addEventListener("click", close);
+    back.addEventListener("click", e => { if (e.target === back) close(); });
+    /* the free-text name only applies to the "credit this name" option */
+    back.querySelectorAll('input[name="cf-cred"]').forEach(r =>
+      r.addEventListener("change", () => { $("cf-credname").disabled = r.value !== "name"; }));
+
+    $("cf-form").addEventListener("submit", async e => {
+      e.preventDefault();
+      const msg = $("cf-msg"), btn = $("cf-submit");
+      const file = ($("cf-file").files || [])[0];
+      if (!file) { msg.className = "cf-msg err"; msg.textContent = "Please choose a photo."; return; }
+      if (file.size > 12 * 1024 * 1024) {
+        msg.className = "cf-msg err"; msg.textContent = "That file is over 12 MB — please pick a smaller one."; return;
+      }
+      const mode = (back.querySelector('input[name="cf-cred"]:checked') || {}).value || "none";
+      const rec = {
+        city: c.city, country: c.country, landmark: l[0], landmarkIdx: idx,
+        takenMonth: $("cf-month").value ? Number($("cf-month").value) : null,
+        takenYear: $("cf-year").value ? Number($("cf-year").value) : null,
+        creditMode: mode,
+        creditName: mode === "name" ? ($("cf-credname").value || "").trim() : "",
+        workUrl: ($("cf-link").value || "").trim(),
+        rightsConfirmed: true
+      };
+      btn.disabled = true; msg.className = "cf-msg"; msg.textContent = "Uploading…";
+      try {
+        /* Read the photo as a data URL — the function re-checks type, size and
+           magic bytes server-side, so nothing here is trusted. */
+        const dataUrl = await new Promise((res, rej) => {
+          const fr = new FileReader();
+          fr.onload = () => res(fr.result);
+          fr.onerror = () => rej(new Error("Could not read that file"));
+          fr.readAsDataURL(file);
+        });
+        const r = await fetch("/.netlify/functions/contribute-photo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.assign(rec, {
+            fileType: file.type, fileData: dataUrl,
+            website: $("cf-website").value,          /* honeypot */
+            elapsedMs: Date.now() - openedAt
+          }))
+        });
+        let out = {};
+        try { out = await r.json(); } catch (e) { /* non-JSON error page */ }
+        if (!r.ok || !out.sent) throw new Error(out.error || ("Submission failed (" + r.status + ")"));
+        back.querySelector(".cf-box").innerHTML =
+          `<h3>Thank you</h3><p class="cf-sub">Your photo of ${esc(l[0])} has been submitted for review. ` +
+          `If it goes up, it will appear on this page with the credit you chose.</p>` +
+          `<div class="cf-actions"><button type="button" class="cf-submit" id="cf-done">Close</button></div>`;
+        back.querySelector("#cf-done").addEventListener("click", close);
+      } catch (err) {
+        btn.disabled = false;
+        msg.className = "cf-msg err";
+        msg.textContent = "Sorry, that didn't go through: " + ((err && err.message) || "unknown error");
+      }
+    });
+  }
+
   /* ---------- Landmark card -> expanded panel covering the card grid ----------
      Click (or tap) a card to open it; clicking the same card again closes it.
      Also closes on the X, Escape, or a click outside the column. */
@@ -3751,7 +3929,10 @@ if(!c){
         : '';
       panel.innerHTML =
         `<button type="button" class="lmk-expand-close" aria-label="Close">&times;</button>` +
-        (ph ? `<div class="lmk-expand-photo"><img class="lmk-expand-img" src="${ph.img}" alt="${esc(l[0])}" loading="lazy">${credit}</div>` : '') +
+        (ph ? `<div class="lmk-expand-photo"><img class="lmk-expand-img" src="${ph.img}" alt="${esc(l[0])}" loading="lazy">${credit}</div>`
+            : `<div class="lmk-expand-photo lmk-expand-soon"><img class="lmk-expand-img" src="images/landmark-coming-soon.svg" alt="Image coming soon">` +
+              `<div class="lmk-contrib"><p class="lmk-contrib-lead">Have an image of this landmark that you would like to contribute to the site?</p>` +
+              `<button type="button" class="lmk-contrib-btn" data-contrib-idx="${i}">Contribute Image</button></div></div>`) +
         `<div class="lmk-expand-body"><div class="lmk-expand-row"><div class="lmk-expand-num">${i + 1}</div>` +
         `<div><a class="lmk-expand-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>` +
         `<p class="lmk-expand-desc">${l[1]}</p></div></div></div>`;
@@ -3802,6 +3983,8 @@ if(!c){
       if (i === openIdx) closeExpand(); else openExpand(i);
     });
     panel.addEventListener("click", e => {
+      const cb = e.target.closest(".lmk-contrib-btn");
+      if (cb) { e.preventDefault(); e.stopPropagation(); openContribForm(Number(cb.dataset.contribIdx)); return; }
       if (e.target.closest(".lmk-expand-close")) { e.preventDefault(); closeExpand(); }
     });
     document.addEventListener("click", e => {
