@@ -19,6 +19,8 @@
 //                           required and verified. Leave unset to rely on the
 //                           honeypot + timing + burst guards alone.
 
+const crypto = require("crypto");
+
 const MAX_BYTES = 12 * 1024 * 1024;
 const OK_TYPES = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" };
 // Photo slots the form may be raised from. Anything else is stored as "other"
@@ -210,6 +212,14 @@ exports.handler = async (event) => {
             <b>Account:</b> ${userId ? escapeHtml(userId) : "not signed in"}<br>
             <b>Stored at:</b> ${escapeHtml(path)}
           </p>
+          ${row.id ? `<p style="font-family:system-ui,sans-serif;font-size:15px;margin:22px 0 6px">
+            <a href="${escapeHtml(reviewLink(site, row.id, "approve", SUPABASE_SERVICE_KEY))}"
+               style="display:inline-block;background:#556B2F;color:#fff;text-decoration:none;font-weight:bold;padding:11px 20px;border-radius:10px;margin-right:8px">Review &amp; publish</a>
+            <a href="${escapeHtml(reviewLink(site, row.id, "reject", SUPABASE_SERVICE_KEY))}"
+               style="display:inline-block;background:#fff;color:#556B2F;border:2px solid #556B2F;text-decoration:none;font-weight:bold;padding:9px 18px;border-radius:10px">Review &amp; turn down</a></p>
+          <p style="font-family:system-ui,sans-serif;font-size:13px;color:#666">
+            Either button opens the photo on a review page. Nothing is published until you press the
+            button there, so a mail scanner following these links can't publish anything by itself.</p>` : ""}
           <p style="font-family:system-ui,sans-serif;font-size:13px;color:#666">
             The photo is attached. It is stored privately and is not on the site until you publish it.
             <br><a href="${escapeHtml(site)}">${escapeHtml(site)}</a></p>`,
@@ -229,6 +239,13 @@ exports.handler = async (event) => {
   }
 };
 
+// The one-click review link. Signed with the service key so only someone who
+// received this email can open it — the same scheme approve-event.js uses, and
+// duplicated here for the same reason: each function is bundled on its own.
+function reviewLink(site, id, action, secret) {
+  const token = crypto.createHmac("sha256", secret).update("photo:" + String(id)).digest("hex").slice(0, 40);
+  return `${site}/.netlify/functions/approve-photo?id=${encodeURIComponent(id)}&token=${token}&action=${action}`;
+}
 function looksLikeImage(b, type) {
   if (type === "image/jpeg") return b[0] === 0xFF && b[1] === 0xD8;
   if (type === "image/png")  return b[0] === 0x89 && b[1] === 0x50 && b[2] === 0x4E && b[3] === 0x47;

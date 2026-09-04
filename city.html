@@ -1012,6 +1012,11 @@
 <!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
      Provides window.nraAppLink(name, country). -->
 <script src="app-store-links.js"></script>
+<!-- Approved visitor photos overlay the static ones. Loaded here, ahead of
+     the render script below, so its fetch runs alongside the city data
+     instead of after it. nra-config.js moves up with it for the keys. -->
+<script src="nra-config.js"></script>
+<script src="contributed-photos.js"></script>
 <!-- Perf: this page loads NO per-city catalog files at all anymore. Food,
      food photos, routes, landmarks, landmark coords/photos and day trips all
      arrive inside citydata/<slug>.json (kept in sync by
@@ -1981,7 +1986,12 @@ async function loadCityData(){
     window.NRA_DAYTRIPS = {}; if (rec.daytrips) window.NRA_DAYTRIPS[nm] = rec.daytrips;
   }
 }
-loadCityData().catch(e => console.error("City data failed to load:", e)).then(function(){
+Promise.all([
+  loadCityData().catch(e => console.error("City data failed to load:", e)),
+  /* Approved visitor photos. Resolves either way and gives up quickly, so a
+     slow or missing Supabase can never hold the guide back. */
+  window.NRA_CONTRIBUTED ? NRA_CONTRIBUTED.ready() : null
+]).then(function(){
 
 const params = new URLSearchParams(location.search);
 const wanted = params.get("city");
@@ -2005,6 +2015,10 @@ if(!c){
     </div>`;
 } else {
   document.title = `${c.city} — Never Roam Alone`;
+  /* Fold approved contributions into the photo lists before any of them are
+     read, so a contributed hero, neighborhood, landmark or dish photo renders
+     through exactly the same code as a static one. */
+  if (window.NRA_CONTRIBUTED) NRA_CONTRIBUTED.apply(c.city);
   const sg = slug(c.city);
   const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
   const heroPh = (window.NRA_CITY_PHOTO || {})[c.city];
@@ -2478,7 +2492,7 @@ if(!c){
   const plate = (n,label) => `<div class="plate" data-plate-id="${n}"><svg class="cx"><use href="#compass"/></svg><button type="button" class="plate-toggle" aria-expanded="true">Hide</button><span class="tag"><b>Plate ${n}</b> \u00b7 ${label}</span><span class="dotline"></span></div>`;
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
-      ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">${/pexels\.com/.test(heroPh.page) ? "Pexels" : /unsplash\.com/.test(heroPh.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
+      ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">${heroPh.credit ? heroPh.credit : /pexels\.com/.test(heroPh.page) ? "Pexels" : /unsplash\.com/.test(heroPh.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
       <button type="button" class="photo-contrib" data-contrib-kind="city-hero" data-contrib-subject="${c.city.replace(/"/g,'&quot;')}">Contribute a photo</button>
       <div class="hero-inner">
         <div class="crumb"><a href="${crumbHref}">${crumbText}</a> &nbsp;/&nbsp; ${c.country}</div>
@@ -3105,8 +3119,9 @@ if(!c){
       const name = el.dataset.hood;
       const local = localHoods[name];
       if (local) {
-        // hood banners display ~1000px wide at most — use the 960px "-sm" copy
-        el.dataset.bg = local.img.replace(/\.webp$/, "-sm.webp");
+        // hood banners display ~1000px wide at most — use the 960px "-sm" copy.
+        // Contributed photos are absolute URLs with no such copy, so use them as-is.
+        el.dataset.bg = /^https?:/i.test(local.img) ? local.img : local.img.replace(/\.webp$/, "-sm.webp");
         lazyBgObserve(el.parentElement);
         const creditEl = el.querySelector('.hood-credit');
         if (creditEl && local.page) creditEl.innerHTML = `Photo: <a href="${local.page}" target="_blank" rel="noopener">${local.src || "Wikimedia Commons"}</a>`;
@@ -3532,7 +3547,7 @@ if(!c){
           <p class="food-item-desc">${it.desc}</p>
           <p class="food-item-hint">Where to try it &rsaquo;</p>
           </span>
-          ${photos[i] ? `<span class="food-item-thumb"><img class="food-item-photo" src="images/food/${photos[i].img}" alt="${it.name}" loading="lazy" onerror="this.closest('.food-item-thumb').remove()"><span class="food-item-credit" title="Photo: ${photos[i].by}${photos[i].lic ? " · " + photos[i].lic : ""} · Wikimedia Commons" onclick="event.stopPropagation();window.open('${photos[i].page}','_blank','noopener')">${photos[i].by}</span></span>` : ""}
+          ${photos[i] ? `<span class="food-item-thumb"><img class="food-item-photo" src="${/^https?:/i.test(photos[i].img) ? photos[i].img : "images/food/" + photos[i].img}" alt="${it.name}" loading="lazy" onerror="this.closest('.food-item-thumb').remove()">${photos[i].by && photos[i].page ? `<span class="food-item-credit" title="Photo: ${photos[i].by}${photos[i].lic ? " · " + photos[i].lic : ""}${/^https?:/i.test(photos[i].img) ? "" : " · Wikimedia Commons"}" onclick="event.stopPropagation();window.open('${photos[i].page}','_blank','noopener')">${photos[i].by}</span>` : ""}</span>` : ""}
         </button>`).join("")}
       </div>`;
   }
@@ -4043,7 +4058,6 @@ if(!c){
   .hero-back-bar .back.back-itin:hover{background:var(--green)}
 </style>
 <script src="trip-add.js"></script>
-<script src="nra-config.js"></script>
 <script src="auth.js"></script>
 <script src="contribute-photo.js"></script>
 <script src="roamer-connections.js" defer></script>
