@@ -1,0 +1,14 @@
+verdict,country,city,landmark,why,slug,idx,img,page
+WEAK,British Virgin Islands,Road Town,Fort George,a purple wall; no fort visible,road-town,9,images/landmarks/road-town-fort-george.webp,https://commons.wikimedia.org/wiki/File:Fort_Road_Town_01.jpg
+WEAK,Canada,Jasper,Old Fort Point,meadow and mountains; no fort,jasper,9,images/landmarks/jasper-old-fort-point.webp,https://commons.wikimedia.org/wiki/File:Old_Fort_Point_Trail_01.jpg
+WEAK,China,Shaoxing,East Lake (Dong Hu),sepia historic image,shaoxing,2,images/landmarks/shaoxing-east-lake.webp,"https://commons.wikimedia.org/wiki/File:East_Lake,_Shaoxing.jpg"
+WEAK,Guinea,Conakry,National Museum of Guinea,a graffitied wall sign only,conakry,4,images/landmarks/conakry-national-museum-of-guinea.webp,https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_National_de_Guin%C3%A9e_27042022_005.jpg
+WEAK,Haiti,Port-au-Prince,Musée du Panthéon National Haïtien (MUPANAH),a display case of documents,port-au-prince,5,images/landmarks/port-au-prince-mupanah.webp,https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_du_Panth%C3%A9on_National_Ha%C3%AFtien_(8070550861).jpg
+WEAK,India,Kolkata,Indian Museum,a sign pillar only,kolkata,4,images/landmarks/kolkata-indian-museum.webp,https://commons.wikimedia.org/wiki/File:Building_of_Calcutta_Museum_02.jpg
+WEAK,Morocco,Rabat,Grand Théâtre de Rabat,mostly highway; the theatre is distant,rabat,8,images/landmarks/rabat-grand-theatre.webp,https://commons.wikimedia.org/wiki/File:Grand_Th%C3%A9atre_Royal.jpg
+WEAK,Poland,Sopot,Southern Park (Park Południowy),a tree and lawn,sopot,8,images/landmarks/sopot-southern-park.webp,https://commons.wikimedia.org/wiki/File:Topola_park_po%C5%82udniowy_sopot.jpg
+WEAK,South Korea,Sokcho,Cheongchoho Lake and Expo Tower,"very wide, low panorama",sokcho,7,images/landmarks/sokcho-cheongchoho-lake.webp,https://commons.wikimedia.org/wiki/File:Korea-Sokcho-South_of_lake_panorama.jpg
+WRONG,China,Qinhuangdao,Mengjiangnü Temple,"a historic glass-plate negative, plate edges in shot",qinhuangdao,3,images/landmarks/qinhuangdao-mengjiangnu-temple.webp,https://commons.wikimedia.org/wiki/File:Temple_de_Meng_Jiangn%C3%BC.jpg
+WRONG,Democratic Republic of the Congo,Kinshasa,Marché Central (Grand Marché),"a black-and-white aerial survey of city blocks, not the market",kinshasa,7,images/landmarks/kinshasa-marche-central.webp,"https://commons.wikimedia.org/wiki/File:Central_Market,_Kinshasa,_ZNTO.jpg"
+WRONG,Japan,Fukuoka,Ōhori Park,"a street scene, not the park",fukuoka,1,images/landmarks/fukuoka-ohori-park.webp,https://commons.wikimedia.org/wiki/File:%C5%8Chori_Park_s_Northwest_Entrance_%C5%8Chorik%C5%8Den_Ch%C5%AB%C5%8D-ku_Fukuoka_City_20220919.jpg
+WRONG,Liberia,Monrovia,Liberia National Museum,"uniformed soldiers indoors, not the museum",monrovia,6,images/landmarks/monrovia-national-museum.webp,https://commons.wikimedia.org/wiki/File:JFC-UA_service_members_visit_Liberian_National_Museum_150120-A-YF937-211.jpg

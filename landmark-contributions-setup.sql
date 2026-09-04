@@ -29,6 +29,9 @@ alter table public.landmark_photo_contributions enable row level security;
 -- No client-side inserts at all: submissions come through the
 -- contribute-photo Netlify function, which writes with the service key
 -- (service-role bypasses RLS). Nothing else may write to this table.
+-- These drops matter when an earlier version of this file was already run:
+-- it granted anon INSERT/upload, and those grants must be removed explicitly.
+drop policy if exists lpc_insert on public.landmark_photo_contributions;
 
 -- Contributors can see their own submissions; nobody else can read the table.
 drop policy if exists lpc_read_own on public.landmark_photo_contributions;
@@ -43,3 +46,4 @@ on conflict (id) do nothing;
 
 -- Likewise no client-side uploads: the function stores the file with the
 -- service key. The bucket stays private, with no public policy at all.
+drop policy if exists lpc_upload on storage.objects;

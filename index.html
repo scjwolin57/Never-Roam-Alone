@@ -292,6 +292,10 @@
   .story figcaption .nm{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
   .story figcaption small{display:block;font-family:'Work Sans',monospace;font-weight:400;color:var(--teal);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
   .story figcaption small .hv{color:var(--coral)}
+  .story-item{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0}
+  .story-item .story{z-index:auto}
+  .story-item .see-more{margin-top:6px;font-family:'Work Sans',monospace;font-size:.62rem;font-weight:600;letter-spacing:.04em;color:var(--teal);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+  .story-item .see-more:hover{color:var(--coral);border-bottom-color:var(--coral)}
   @media(max-width:560px){.stories::before{display:none}.story .frame{width:78px;height:78px}}
 
   /* ---- full-design: rust italic emphasis in section heads ---- */
@@ -1327,17 +1331,17 @@ const CITIES = [
   {city:"Cairo", country:"Egypt", lng:31.2357, lat:30.0444, visitors:5, est:true},
 ];
 
-/* ===== Featured cities — 4 curated slots (real photos + guide links) ===== */
+/* ===== Featured cities — 3 curated slots (real photos + guide links) ===== */
 (function(){
   /* Which city fills each slot will be driven by real data soon
-     (newest guide, top visited, editor's underrated pick, seasonal pick).
+     (top visited, editor's underrated pick, seasonal pick).
      For now these are easy-to-edit placeholders — just change the "city"
-     values below. Each must match a city name in the CITIES list above. */
+     values below. Each must match a city name in the CITIES list above.
+     "more" links to the page that lists out that slot's full category. */
   var FEATURED = [
-    { label:"New article",            city:"Kyoto",     cls:"fx-new" },
-    { label:"Top visited",            city:"Hong Kong", cls:"fx-top" },
-    { label:"Underrated pick", city:"Lisbon",    cls:"fx-under" },
-    { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season" }
+    { label:"Top visited",            city:"Hong Kong", cls:"fx-top",    more:"top-visited.html" },
+    { label:"Underrated pick", city:"Lisbon",    cls:"fx-under",  more:"underrated-picks.html" },
+    { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season", more:"best-time-to-visit.html" }
   ];
   function ph(name){
     var rec = (window.NRA_CITY_PHOTO || {})[name];
@@ -1364,12 +1368,15 @@ const CITIES = [
       var country = c ? c.country : "";
       var img = ph(f.city);
       var bg = img ? "background-image:url('"+img+"')" : "";
-      return '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
+      return '<div class="story-item">'
+        + '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
         + '<div class="frame"><div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
         + '<figcaption><span class="nm">'+f.city+'</span>'
         + (country ? '<small>'+country+'</small>' : '')
         + '<span class="cat '+f.cls+'">'+f.label+'</span>'
-        + '</figcaption></a>';
+        + '</figcaption></a>'
+        + (f.more ? '<a class="see-more" href="'+f.more+'">See more &rarr;</a>' : '')
+        + '</div>';
     }).join("");
   }
   // Render immediately — this script sits below the #featured-cities div and
@@ -1404,6 +1411,13 @@ const map = new maplibregl.Map({
 map.addControl(new maplibregl.NavigationControl({showCompass:false}), "top-right");
 
 map.on("load", () => {
+  // The basemap's continent-name labels (e.g. "Oceania") can sit only a few
+  // pixels from the map's hard left/right edge at this zoom — there's no
+  // room for the full word, so the text renders truncated. City guides
+  // already carry that context, so hide these labels rather than let them
+  // get clipped.
+  if (map.getLayer("place_continent")) map.setLayoutProperty("place_continent", "visibility", "none");
+
   map.addSource("cities", { type:"geojson", data:geojson });
 
   // Bubble color/size tiers by annual international visitors (millions):

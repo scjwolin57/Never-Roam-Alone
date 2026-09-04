@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Every Never Roam Alone city guide that draws more than 5 million international visitors a year, ranked by annual visitor count.">
+<title>Top Visited Cities — Never Roam Alone</title>
+
+<!-- Amatic SC (logo font) -->
+<link rel="stylesheet" href="fonts/amatic-sc.css" /><link rel="stylesheet" href="fonts/site-fonts.css">
+<link rel="stylesheet" href="master.css">
+
+<style>
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--sand);line-height:1.6}
+  h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
+
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+  nav.links a{margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s}
+
+  .page-hero{background:#5c6933;color:#fff;text-align:center;padding:56px 22px 40px}
+  .page-hero .kicker{color:rgba(255,255,255,.7);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:.74rem;margin:0 0 12px}
+  .page-hero h1{font-size:clamp(1.9rem,5vw,3rem);margin:0 0 10px;color:#fff}
+  .page-hero p{color:rgba(255,255,255,.78);max-width:600px;margin:0 auto;font-size:1.02rem}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:36px 22px 60px}
+  .count-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+  .count-bar .count-badge{font-size:.85rem;color:var(--muted)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+  .card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  .card .photo{height:150px;background-size:cover;background-position:center;background-color:#2c3e36;position:relative}
+  .card .rank{position:absolute;top:10px;left:10px;background:rgba(181,73,44,.92);color:#fff;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:5px 10px;border-radius:3px}
+  .card .body{padding:14px 16px 18px;display:flex;flex-direction:column;flex:1}
+  .card .country{color:var(--teal);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+  .card h3{font-size:1.08rem;margin:5px 0 6px}
+  .card p{color:var(--muted);font-size:.86rem;margin:0 0 10px}
+  .card .visitors{font-weight:700;color:var(--ink);font-size:.86rem;margin:0 0 10px}
+  .card .go{align-self:flex-start;background:var(--green);color:#fff;font-weight:700;font-size:.78rem;padding:8px 14px;border-radius:3px;margin-top:auto}
+  .card .go:hover{background:var(--coral)}
+
+  .show-more{border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);font-weight:700;font-size:.86rem;font-family:inherit;padding:10px 22px;border-radius:3px;cursor:pointer;transition:.2s}
+  .show-more:hover{background:rgba(63,81,56,.08)}
+  .cta-strip{margin-top:50px;text-align:center;background:#fff;border-radius:3px;box-shadow:var(--shadow);padding:34px 22px}
+  .cta-strip h2{margin:0 0 8px;font-size:1.4rem}
+  .cta-strip p{color:var(--muted);margin:0 0 16px}
+  .cta-strip .btn{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:11px 22px;border-radius:3px}
+  .cta-strip .btn:hover{background:var(--coral)}
+
+  footer{background:#5c6933;color:#fff;text-align:center;padding:40px 22px;margin-top:50px}
+  footer .brand{justify-content:center;color:#fff}
+  footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
+
+  /* ================= EXPLORER THEME (overrides) ================= */
+  .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.travel-map,.cover-strip,.suggest,.empty,.side-card,.roamers-card,.cal-wrap,.qcard{border-radius:3px}
+  .form-card,.visa-panel,.gate,.legal,.toc,.city-card,.cmp-card,.qadmin,.ns-card,.side-card{border:1px solid var(--ink)}
+  footer .brand{color:#c99a45}
+</style>
+</head>
+<body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#b5492c"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#b5492c"/></symbol></svg>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
+      <span>Never Roam Alone<small>Your Travel Companion</small></span>
+    </a>
+    <nav class="links" data-site-nav></nav>
+  </div>
+</header>
+
+<div class="page-hero">
+  <p class="kicker">Ranked by annual visitors</p>
+  <h1>The Most Visited Cities on Never Roam Alone</h1>
+  <p>Every city guide on the site that draws more than 5 million international visitors a year — the world's biggest travel draws, most-visited first.</p>
+</div>
+
+<div class="wrap">
+  <div class="count-bar">
+    <span class="count-badge" id="result-count"></span>
+  </div>
+  <div class="grid" id="top-grid"></div>
+  <div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="moreBtn"></button></div>
+
+  <div class="cta-strip">
+    <h2>Want something quieter?</h2>
+    <p>See our <a href="underrated-picks.html" style="color:var(--green);font-weight:700">underrated picks</a> for cities worth visiting before everyone else catches on.</p>
+    <a class="btn" href="cities.html">Browse All City Guides &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="brand"><span>Never Roam Alone</span></div>
+  <div class="foot-links">
+    <a href="index.html">Home</a>
+    <a href="best-time-to-visit.html">Where to Go This Month</a>
+    <a href="underrated-picks.html">Underrated Picks</a>
+    <a href="choose.html">Destination Finder</a>
+    <a href="cities.html">City Guides</a>
+    <a href="compare.html">Compare Cities</a>
+    <a href="contact.html">Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="community.html">Community Contributions</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+
+<script src="city-intl-visitors.js"></script>
+<script src="city-photos.js"></script>
+<script>
+/* ==================================================================
+   TOP VISITED — cities with more than 5M annual INTERNATIONAL
+   visitors, ranked highest first, from window.NRA_CITY_INTL_VISITORS
+   (city-intl-visitors.js — see that file for sourcing notes and why
+   it's a curated subset rather than every "visitors" figure on the
+   site: several secondary Chinese cities carry a domestic-tourism
+   total under the same field name, not an international-arrivals
+   count, so they're deliberately left off this page). No server, no
+   build step.
+================================================================== */
+(function(){
+  const top = (window.NRA_CITY_INTL_VISITORS || []).slice().sort((a,b) => b.visitors - a.visitors);
+  const PHOTOS = window.NRA_CITY_PHOTO || {};
+  const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+
+  document.getElementById("result-count").textContent = top.length + " cities over 5M annual international visitors";
+
+  function fmt(v){
+    const n = v >= 10 ? Math.round(v) : Math.round(v * 10) / 10;
+    return n + "M";
+  }
+
+  function cardHTML(c, rank){
+    const ph = PHOTOS[c.city];
+    const img = ph ? ph.img : `https://picsum.photos/seed/${slug(c.city)}-top/500/300`;
+    return `
+      <article class="card">
+        <div class="photo" style="background-image:url('${img}')">
+          <span class="rank">#${rank}</span>
+        </div>
+        <div class="body">
+          <div class="country">${c.country}</div>
+          <h3>${c.city}</h3>
+          <p class="visitors">${fmt(c.visitors)}${c.est ? "~" : ""} international visitors/year</p>
+          <a class="go" href="city.html?city=${encodeURIComponent(c.city)}">Explore ${c.city} &rarr;</a>
+        </div>
+      </article>`;
+  }
+
+  let shown = 24;
+  function render(){
+    document.getElementById("top-grid").innerHTML = top.slice(0, shown).map((c,i) => cardHTML(c, i+1)).join("");
+    const btn = document.getElementById("moreBtn");
+    if(shown < top.length){
+      btn.style.display = "";
+      btn.textContent = `Show ${Math.min(24, top.length - shown)} more`;
+    } else {
+      btn.style.display = "none";
+    }
+  }
+  document.getElementById("moreBtn").addEventListener("click", () => { shown += 24; render(); });
+  render();
+})();
+</script>
+<script src="nra-config.js"></script>
+<script src="auth.js"></script>
+<script src="nav.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

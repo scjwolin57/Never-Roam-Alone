@@ -1,0 +1,41 @@
+city,idx,landmark,stored_image,actually_is,hash_distance,reasons
+accra,9,W.E.B. Du Bois Centre,images/landmarks/accra-w-e-b-du-bois-centre.webp,"File:W.E.B. Du Bois by James E. Purdy, 1907 (3x4).jpg",0,source article is a PERSON
+agadez,1,Old Town of Agadez,images/landmarks/agadez-old-town-of-agadez.webp,File:LocationTénéré.svg,4,map/location; vector graphic
+agadez,3,Kaocen Palace,images/landmarks/agadez-kaocen-palace.webp,"File:ASC Leiden - van Achterberg Collection - 01 - 30 - L'ancien palais de Kaocen Ag Mohammed Wau Teguidda, aujourd'hui Hôtel de l'Air - Agadez, Niger, novembre 1990 - janvier 1991.tif",1,source article is a PERSON
+al-ahmadi,7,Ahmadi Stadium,images/landmarks/al-ahmadi-ahmadi-stadium.webp,File:Karim El Ahmadi.jpg,0,source article is a PERSON
+bandung,8,Taman Hutan Raya Ir. H. Djuanda,images/landmarks/bandung-taman-hutan-raya-ir-h-djuanda.webp,File:Tahura Sign.png,2,sign/plaque
+bangui,6,Boganda National Museum,images/landmarks/bangui-boganda-national-museum.webp,File:Barthélemy Boganda in 1958.jpg,0,source article is a PERSON
+banjul,6,State House,images/landmarks/banjul-state-house.webp,File:Gambia 25 dalasi-2.jpg,0,banknote/coin/stamp
+bishkek,4,Victory Square,images/landmarks/bishkek-victory-square.webp,File:Stamp of Kyrgyzstan 063.jpg,2,banknote/coin/stamp
+bonn,9,University of Bonn Main Building,images/landmarks/bonn-university-of-bonn-main-building.webp,File:University of Bonn seal.svg,2,logo/emblem/flag; vector graphic
+brades,7,Oriole Walkway Trail (Centre Hills),images/landmarks/brades-oriole-walkway-trail.webp,File:Topographic-map-of-Montserrat-en.svg,3,map/location; vector graphic
+brasilia,1,Congresso Nacional (National Congress),images/landmarks/brasilia-congresso-nacional.webp,File:Brazil Senate 2026.svg,5,vector graphic
+brazzaville,8,National Assembly Building,images/landmarks/brazzaville-national-assembly-building.webp,File:Coat of arms of the Republic of the Congo.svg,0,vector graphic
+cartagena,9,Convento e Iglesia de San Pedro Claver,images/landmarks/cartagena-convento-e-iglesia-de-san-pedro-claver.webp,File:StPeterClaver.jpg,0,source article is a PERSON
+chios,9,Giustiniani Palace Museum,images/landmarks/chios-giustiniani-palace-museum.webp,File:Giustiniani marchese.jpg,1,source article is a PERSON
+cockburn-town,8,St. Thomas' Anglican Church,images/landmarks/cockburn-town-st-thomas-anglican-church.webp,File:Portrait of Colonel Thomas Talbot.png,0,person portrait; source article is a PERSON
+fenghuang,5,Former Residence of Shen Congwen,images/landmarks/fenghuang-former-residence-of-shen-congwen.webp,File:Shencongwen001.jpg,1,source article is a PERSON
+funafuti,2,Tuvalu Philatelic Bureau,images/landmarks/funafuti-tuvalu-philatelic-bureau.webp,File:Coat of arms of Tuvalu.svg,0,vector graphic
+goma,6,Mount Goma,images/landmarks/goma-mount-goma.webp,File:Battle of Goma.svg,1,vector graphic
+gondar,9,Ras Mikael Sehul's Palace,images/landmarks/gondar-ras-mikael-sehul-s-palace.webp,File:Ras Mikael Sehul burst coin.jpg,1,banknote/coin/stamp; source article is a PERSON
+juba,6,University of Juba,images/landmarks/juba-university-of-juba.webp,File:Juba II of Mauretania Ny Carlsberg Glyptotek IN1591.jpg,0,source article is a PERSON
+karakol,4,Przhevalsky Memorial Museum,images/landmarks/karakol-przhevalsky-memorial-museum.webp,File:Nikolay Przhevalsky photoportrait and signature.jpg,1,person portrait; source article is a PERSON
+kelowna,5,Father Pandosy Mission,images/landmarks/kelowna-father-pandosy-mission.webp,File:Father Pandosy.jpg,0,source article is a PERSON
+kermanshah,8,Dowlatshah Mosque,images/landmarks/kermanshah-dowlatshah-mosque.webp,"File:Portrait of Mohammad-Ali Mirza Dowlatshah, Qajar Iran, Anonymous painter, 19th century (cropped).jpg",1,person portrait; source article is a PERSON
+kuching,9,Sarawak Textile Museum (Square Tower),images/landmarks/kuching-sarawak-textile-museum-square-tower.webp,File:Flag of Sarawak.svg,1,logo/emblem/flag; vector graphic
+kumasi,6,Rattray Park,images/landmarks/kumasi-rattray-park.webp,File:Adinkra Rattray.JPG,0,source article is a PERSON
+leon,7,Iglesia de San Francisco,images/landmarks/leon-iglesia-de-san-francisco.webp,File:Francisco León (cropped).jpg,0,source article is a PERSON
+malang,8,Kanjuruhan Stadium,images/landmarks/malang-kanjuruhan-stadium.webp,File:Early pitch invasion at Kanjuruhan Stadium before stampede - ANTARA TV.jpg,0,banknote/coin/stamp
+munich,9,Deutsches Museum,images/landmarks/munich-deutsches-museum.webp,File:Deutsches Museum Portrait 4.jpg,1,person portrait
+mytilene,6,Theophilos Museum,images/landmarks/mytilene-theophilos-museum.webp,File:Theofilos-photo.jpeg,0,source article is a PERSON
+niamey,9,National Assembly of Niger,images/landmarks/niamey-national-assembly-of-niger.webp,File:Coat of arms of Niger.svg,1,vector graphic
+osogbo,4,Nike Centre for Art and Culture,images/landmarks/osogbo-nike-centre-for-art-and-culture.webp,File:Chief Nike Davies Okundaye.jpg,2,source article is a PERSON
+port-of-spain,8,Lion House,images/landmarks/port-of-spain-lion-house.webp,File:Lev vyskakujici.svg,0,vector graphic
+port-sudan,7,Red Sea Museum,images/landmarks/port-sudan-red-sea-museum.webp,File:2023 Israel–Hamas war - Bab-el-Mandeb.svg,0,vector graphic
+riyadh,9,Riyadh Zoo,images/landmarks/riyadh-riyadh-zoo.webp,File:Riyadh Season Logo.svg,0,logo/emblem/flag; vector graphic
+rovaniemi,2,SantaPark Arctic World,images/landmarks/rovaniemi-santapark-arctic-world.webp,File:Arctic circle.svg,2,vector graphic
+tours,9,Rue Colbert,images/landmarks/tours-rue-colbert.webp,"File:Troy - Jean-Baptiste Colbert (1655-1746), marquis de Torcy.jpg",1,source article is a PERSON
+trincomalee,9,Trincomalee Harbour,images/landmarks/trincomalee-trincomalee-harbour.webp,File:Sri Lanka districts Trincomalee.svg,1,vector graphic
+turku,9,Turku Art Museum,images/landmarks/turku-turku-art-museum.webp,File:Stamp of Finland - 1929 - Colnect 45787 - 1 - 700th Anniversary of Turku - wmk Post Horn type w.jpeg,1,banknote/coin/stamp
+urganch,4,Museum of Contemporary Art of Uzbekistan,images/landmarks/urganch-museum-of-contemporary-art-of-uzbekistan.webp,File:Flag of Uzbekistan.svg,1,logo/emblem/flag; vector graphic
+ziguinchor,7,Place Jean-Paul II,images/landmarks/ziguinchor-place-jean-paul-ii.webp,File:Template-Bishop.svg,1,person portrait; vector graphic; source article is a PERSON
