@@ -649,6 +649,17 @@
     color:rgba(255,255,255,.8);text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .hero-credit a{color:inherit;text-decoration:underline}
   .hero-credit a:hover{color:#fff}
+  /* "Contribute a photo" — the same invitation the landmark cards carry, offered
+     on the other photo slots too. Overlay pill on the city and neighborhood
+     heroes; a plain inline link inside the food modal. */
+  .photo-contrib{position:absolute;left:10px;bottom:7px;z-index:3;border:1px solid rgba(255,255,255,.45);
+    background:rgba(0,0,0,.34);color:rgba(255,255,255,.92);border-radius:3px;padding:4px 9px;
+    font:inherit;font-size:.66rem;line-height:1.2;cursor:pointer}
+  .photo-contrib:hover,.photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
+  .food-contrib-row{margin:14px 0 0;font-size:.82rem;color:var(--muted,#666)}
+  .food-contrib-btn{border:1px solid var(--teal);background:none;color:var(--teal);border-radius:3px;
+    padding:4px 10px;font:inherit;font-size:.82rem;cursor:pointer;margin-left:4px}
+  .food-contrib-btn:hover{background:var(--teal);color:#fff}
   .hero-back-bar{max-width:var(--maxw);margin:16px auto 0;padding:0 22px}
   .hero-back-bar .back{margin-top:0;padding:10px 20px;font-size:.92rem}
 
@@ -2063,6 +2074,7 @@ if(!c){
             <h3 class="hood-name">${name}</h3>
             <a class="hood-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ', ' + c.city)}" target="_blank" rel="noopener">View on a map &rarr;</a>
             <p class="hood-credit"></p>
+            <button type="button" class="photo-contrib" data-contrib-kind="neighborhood-hero" data-contrib-subject="${name.replace(/"/g,'&quot;')}" data-contrib-idx="${i}">Contribute a photo</button>
           </div>
           <div class="hood-body">
             <p class="hood-desc">${(CITY_HOOD_DESC[c.city] && CITY_HOOD_DESC[c.city][i]) ? CITY_HOOD_DESC[c.city][i] : `Placeholder — a short overview of ${name} will go here: the vibe, who it suits, and what's nearby.`}</p>
@@ -2467,6 +2479,7 @@ if(!c){
   content.innerHTML = `
     <div class="hero" style="background-image:url('${hero}')">
       ${heroPh && heroPh.page ? `<span class="hero-credit">Photo: <a href="${heroPh.page}" target="_blank" rel="noopener">${/pexels\.com/.test(heroPh.page) ? "Pexels" : /unsplash\.com/.test(heroPh.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
+      <button type="button" class="photo-contrib" data-contrib-kind="city-hero" data-contrib-subject="${c.city.replace(/"/g,'&quot;')}">Contribute a photo</button>
       <div class="hero-inner">
         <div class="crumb"><a href="${crumbHref}">${crumbText}</a> &nbsp;/&nbsp; ${c.country}</div>
         ${_coordsLine}
@@ -3538,6 +3551,7 @@ if(!c){
         <p class="food-place-note">${p.note}</p>
         <a class="food-place-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ", " + p.area + ", " + c.city)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>
       </div>`).join("")}
+      <p class="food-contrib-row">Have a photo of ${it.name}?<button type="button" class="food-contrib-btn" data-contrib-kind="food-dish" data-contrib-subject="${it.name.replace(/"/g,'&quot;')}" data-contrib-idx="${idx}">Contribute one</button></p>
       <p class="food-src-note">Picks are based on recent traveler reviews and food articles — hours and quality can change, so double-check before you go.</p>`;
     modalBody.scrollTop = 0;
   }
@@ -3773,137 +3787,34 @@ if(!c){
 
   /* ---------- Contribute-a-photo form (landmarks with no image yet) ----------
      Opened from the "Contribute Image" button on the coming-soon placeholder.
-     Submits to Supabase when configured; otherwise it tells the visitor to
-     email instead rather than silently dropping their photo. */
+     The dialog itself lives in contribute-photo.js so that the city hero,
+     neighborhood heroes and food dishes can raise the same form; all this
+     does is tell it which photo slot the button belongs to. */
   function openContribForm(idx){
     const l = lmks[idx];
-    if (!l) return;
-    const esc = t => String(t).replace(/[<>&"]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[ch]));
-    const now = new Date(), yr = now.getFullYear();
-    let years = '<option value="">Year</option>';
-    for (let y = yr; y >= 1950; y--) years += `<option value="${y}">${y}</option>`;
-    const months = ["January","February","March","April","May","June","July",
-                    "August","September","October","November","December"]
-      .map((m, i) => `<option value="${i + 1}">${m}</option>`).join("");
-    const back = document.createElement("div");
-    back.className = "cf-back";
-    back.innerHTML = `
-      <div class="cf-box" role="dialog" aria-modal="true" aria-label="Contribute a photo">
-        <button type="button" class="cf-close" aria-label="Close">&times;</button>
-        <h3>Contribute a photo</h3>
-        <p class="cf-sub">Thank you &mdash; photos from travellers are what make these guides worth reading.</p>
-        <form id="cf-form">
-          <div class="cf-f">
-            <label for="cf-landmark">Landmark</label>
-            <input type="text" id="cf-landmark" value="${esc(l[0])}" readonly>
-          </div>
-          <div class="cf-f">
-            <label for="cf-file">Your photo</label>
-            <input type="file" id="cf-file" accept="image/jpeg,image/png,image/webp" required>
-            <p class="cf-note">JPEG, PNG or WebP. Landscape shots suit the guide layout best.</p>
-          </div>
-          <div class="cf-f">
-            <label>Approximate date taken <span style="font-weight:400;color:#8a7f66">(optional)</span></label>
-            <div class="cf-row">
-              <select id="cf-month"><option value="">Month</option>${months}</select>
-              <select id="cf-year">${years}</select>
-            </div>
-          </div>
-          <div class="cf-f">
-            <label>How would you like to be credited?</label>
-            <label class="cf-opt"><input type="radio" name="cf-cred" value="name" checked>
-              <span>Credit this name<br><input type="text" id="cf-credname" placeholder="Name to display" style="margin-top:5px"></span></label>
-            <label class="cf-opt"><input type="radio" name="cf-cred" value="profile">
-              <span>My Never Roam Alone profile</span></label>
-            <label class="cf-opt"><input type="radio" name="cf-cred" value="none">
-              <span>No credit desired</span></label>
-          </div>
-          <div class="cf-f">
-            <label for="cf-link">Link to your creative work <span style="font-weight:400;color:#8a7f66">(optional)</span></label>
-            <input type="url" id="cf-link" placeholder="https://">
-            <p class="cf-note">Shown alongside your photo credit.</p>
-          </div>
-          <div style="position:absolute;left:-9999px" aria-hidden="true">
-            <label for="cf-website">Website</label>
-            <input type="text" id="cf-website" tabindex="-1" autocomplete="off">
-          </div>
-          <label class="cf-terms">
-            <input type="checkbox" id="cf-agree" required>
-            <span>I confirm that I own this image and that I grant Never Roam Alone
-              permission to use it on this website.</span>
-          </label>
-          <div class="cf-actions">
-            <button type="submit" class="cf-submit" id="cf-submit">Submit photo</button>
-            <button type="button" class="cf-cancel" id="cf-cancel">Cancel</button>
-            <span class="cf-msg" id="cf-msg"></span>
-          </div>
-        </form>
-      </div>`;
-    document.body.appendChild(back);
-    const openedAt = Date.now();
-    const $ = id => back.querySelector("#" + id);
-    const close = () => { back.remove(); document.removeEventListener("keydown", onKey); };
-    const onKey = e => { if (e.key === "Escape") close(); };
-    document.addEventListener("keydown", onKey);
-    back.querySelector(".cf-close").addEventListener("click", close);
-    $("cf-cancel").addEventListener("click", close);
-    back.addEventListener("click", e => { if (e.target === back) close(); });
-    /* the free-text name only applies to the "credit this name" option */
-    back.querySelectorAll('input[name="cf-cred"]').forEach(r =>
-      r.addEventListener("change", () => { $("cf-credname").disabled = r.value !== "name"; }));
-
-    $("cf-form").addEventListener("submit", async e => {
-      e.preventDefault();
-      const msg = $("cf-msg"), btn = $("cf-submit");
-      const file = ($("cf-file").files || [])[0];
-      if (!file) { msg.className = "cf-msg err"; msg.textContent = "Please choose a photo."; return; }
-      if (file.size > 12 * 1024 * 1024) {
-        msg.className = "cf-msg err"; msg.textContent = "That file is over 12 MB — please pick a smaller one."; return;
-      }
-      const mode = (back.querySelector('input[name="cf-cred"]:checked') || {}).value || "none";
-      const rec = {
-        city: c.city, country: c.country, landmark: l[0], landmarkIdx: idx,
-        takenMonth: $("cf-month").value ? Number($("cf-month").value) : null,
-        takenYear: $("cf-year").value ? Number($("cf-year").value) : null,
-        creditMode: mode,
-        creditName: mode === "name" ? ($("cf-credname").value || "").trim() : "",
-        workUrl: ($("cf-link").value || "").trim(),
-        rightsConfirmed: true
-      };
-      btn.disabled = true; msg.className = "cf-msg"; msg.textContent = "Uploading…";
-      try {
-        /* Read the photo as a data URL — the function re-checks type, size and
-           magic bytes server-side, so nothing here is trusted. */
-        const dataUrl = await new Promise((res, rej) => {
-          const fr = new FileReader();
-          fr.onload = () => res(fr.result);
-          fr.onerror = () => rej(new Error("Could not read that file"));
-          fr.readAsDataURL(file);
-        });
-        const r = await fetch("/.netlify/functions/contribute-photo", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Object.assign(rec, {
-            fileType: file.type, fileData: dataUrl,
-            website: $("cf-website").value,          /* honeypot */
-            elapsedMs: Date.now() - openedAt
-          }))
-        });
-        let out = {};
-        try { out = await r.json(); } catch (e) { /* non-JSON error page */ }
-        if (!r.ok || !out.sent) throw new Error(out.error || ("Submission failed (" + r.status + ")"));
-        back.querySelector(".cf-box").innerHTML =
-          `<h3>Thank you</h3><p class="cf-sub">Your photo of ${esc(l[0])} has been submitted for review. ` +
-          `If it goes up, it will appear on this page with the credit you chose.</p>` +
-          `<div class="cf-actions"><button type="button" class="cf-submit" id="cf-done">Close</button></div>`;
-        back.querySelector("#cf-done").addEventListener("click", close);
-      } catch (err) {
-        btn.disabled = false;
-        msg.className = "cf-msg err";
-        msg.textContent = "Sorry, that didn't go through: " + ((err && err.message) || "unknown error");
-      }
+    if (!l || !window.NRA_PHOTO_CONTRIB) return;
+    NRA_PHOTO_CONTRIB.open({
+      kind: "landmark", subject: l[0], subjectIdx: idx,
+      city: c.city, country: c.country
     });
   }
+
+  /* The same invitation on the site's other photo slots — the city hero, each
+     neighborhood hero, and every dish in the food modal. One delegated handler
+     covers them all, including the ones rendered after this runs. Each button
+     carries its own slot and subject, so the form's title field always names
+     the photo the visitor is actually replacing. */
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-contrib-kind]");
+    if (!b || !window.NRA_PHOTO_CONTRIB) return;
+    e.preventDefault(); e.stopPropagation();
+    NRA_PHOTO_CONTRIB.open({
+      kind: b.dataset.contribKind,
+      subject: b.dataset.contribSubject,
+      subjectIdx: b.dataset.contribIdx ? Number(b.dataset.contribIdx) : null,
+      city: c.city, country: c.country
+    });
+  });
 
   /* ---------- Landmark card -> expanded panel covering the card grid ----------
      Click (or tap) a card to open it; clicking the same card again closes it.
@@ -4134,6 +4045,7 @@ if(!c){
 <script src="trip-add.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="contribute-photo.js"></script>
 <script src="roamer-connections.js" defer></script>
 <script src="favorites.js"></script>
 <script>

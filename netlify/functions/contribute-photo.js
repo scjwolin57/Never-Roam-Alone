@@ -1,5 +1,6 @@
-// Netlify serverless function: when a visitor contributes a photo through the
-// "Contribute Image" button on a landmark card with no photo yet, this
+// Netlify serverless function: when a visitor contributes a photo through a
+// "Contribute Image" button anywhere on the site — a landmark card with no
+// photo yet, the city hero, a neighborhood hero, a food dish — this
 //   1. uploads the image to the private "landmark-contributions" bucket,
 //   2. saves a PENDING row for review, and
 //   3. emails the site owner a summary with the photo attached.
@@ -20,6 +21,9 @@
 
 const MAX_BYTES = 12 * 1024 * 1024;
 const OK_TYPES = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" };
+// Photo slots the form may be raised from. Anything else is stored as "other"
+// so a made-up value can never end up in the review queue as a real category.
+const OK_KINDS = ["landmark", "city-hero", "neighborhood-hero", "food-dish", "other"];
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -76,14 +80,51 @@ exports.handler = async (event) => {
   const landmark  = clip(p.landmark, 160);
   const idx       = Number.isFinite(Number(p.landmarkIdx)) ? Number(p.landmarkIdx) : null;
   const mode      = ["name", "profile", "none"].includes(p.creditMode) ? p.creditMode : "none";
+  const kind      = OK_KINDS.includes(p.subjectKind) ? p.subjectKind : "other";
+  const kindLabel = clip(p.subjectLabel, 60) || kind;
+  const context   = clip(p.context, 160);
   const creditName= mode === "name" ? clip(p.creditName, 80) : "";
   const workUrl   = rawUrl(p.workUrl);
   const month     = intOrNull(p.takenMonth, 1, 12);
   const year      = intOrNull(p.takenYear, 1900, 2100);
   const rights    = p.rightsConfirmed === true;
+  // The licence record: the typed signature, the exact wording agreed to, and
+  // when. Stored verbatim so there is proof of what was agreed even after the
+  // wording changes. The version is what makes an old row still readable.
+  const signature = clip(p.signature, 120);
+  const licVer    = clip(p.licenseVersion, 40);
+  const licText   = clip(p.licenseText, 8000);
+  const agreedAt  = isoOrNow(p.agreedAt);
+  const pageUrl   = rawUrl(p.pageUrl);
 
-  if (!city || !landmark) return json(400, { error: "Missing city or landmark." });
+  if (!city || !landmark) return json(400, { error: "Missing city or subject." });
   if (!rights) return json(400, { error: "The ownership confirmation is required." });
+  if (signature.length < 2) return json(400, { error: "A typed signature is required." });
+  if (!licVer || licText.length < 40) return json(400, { error: "The licence text is missing." });
+
+  // Who is signed in, if anyone. The browser sends its Supabase access token;
+  // we ask Supabase who it belongs to rather than trusting a claimed id. A
+  // profile credit is only granted when that check comes back with a user.
+  let userId = null;
+  const token = clip(p.accessToken, 4096);
+  if (token) {
+    try {
+      const ur = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+        headers: { apikey: SUPABASE_SERVICE_KEY, Authorization: "Bearer " + token }
+      });
+      if (ur.ok) {
+        const u = await ur.json();
+        if (u && typeof u.id === "string") userId = u.id;
+      } else {
+        console.warn("[contribute-photo] token check failed. HTTP", ur.status);
+      }
+    } catch (e) {
+      console.error("[contribute-photo] token check threw:", (e && e.message) || e);
+    }
+  }
+  if (mode === "profile" && !userId) {
+    return json(401, { sent: false, error: "Please sign in again to credit your profile." });
+  }
 
   // --- decode + validate the image (server-side; never trust the browser) ---
   const type = String(p.fileType || "");
@@ -127,9 +168,13 @@ exports.handler = async (event) => {
       headers: Object.assign({ "Content-Type": "application/json", Prefer: "return=representation" }, H),
       body: JSON.stringify({
         city, country, landmark, landmark_idx: idx, storage_path: path,
+        subject_kind: kind, subject_label: kindLabel, subject_context: context || null,
         taken_month: month, taken_year: year, credit_mode: mode,
         credit_name: creditName || null, work_url: workUrl || null,
-        rights_confirmed: true, status: "pending"
+        rights_confirmed: true, status: "pending",
+        submitted_by: userId,
+        signature, license_version: licVer, license_text: licText,
+        agreed_at: agreedAt, page_url: pageUrl || null
       })
     });
     if (!ir.ok) {
@@ -152,14 +197,17 @@ exports.handler = async (event) => {
         from: "Never Roam Alone <noreply@neverroamalone.com>",
         to: [toEmail],
         subject: `Photo contributed: ${landmark} (${city})`,
-        html: `<h2 style="font-family:Georgia,serif">New landmark photo</h2>
+        html: `<h2 style="font-family:Georgia,serif">New ${escapeHtml(kindLabel.toLowerCase())}</h2>
           <p style="font-family:system-ui,sans-serif;font-size:15px;line-height:1.6">
-            <b>Landmark:</b> ${escapeHtml(landmark)}${idx == null ? "" : ` (#${idx + 1})`}<br>
+            <b>${escapeHtml(kindLabel)}:</b> ${escapeHtml(landmark)}${idx == null ? "" : ` (#${idx + 1})`}<br>
+            ${context ? `<b>In:</b> ${escapeHtml(context)}<br>` : ""}
             <b>City:</b> ${escapeHtml(city)}${country ? ", " + escapeHtml(country) : ""}<br>
             <b>Date taken:</b> ${escapeHtml(taken)}<br>
             <b>Credit:</b> ${creditLine}<br>
             ${workUrl ? `<b>Their work:</b> <a href="${escapeHtml(workUrl)}">${escapeHtml(workUrl)}</a><br>` : ""}
             <b>Rights confirmed:</b> yes<br>
+            <b>Signed:</b> ${escapeHtml(signature)} (licence ${escapeHtml(licVer)}, ${escapeHtml(agreedAt)})<br>
+            <b>Account:</b> ${userId ? escapeHtml(userId) : "not signed in"}<br>
             <b>Stored at:</b> ${escapeHtml(path)}
           </p>
           <p style="font-family:system-ui,sans-serif;font-size:13px;color:#666">
@@ -187,6 +235,8 @@ function looksLikeImage(b, type) {
   if (type === "image/webp") return b.slice(0, 4).toString("ascii") === "RIFF" && b.slice(8, 12).toString("ascii") === "WEBP";
   return false;
 }
+function isoOrNull(s) { const d = new Date(String(s || "")); return isNaN(d.getTime()) ? null : d.toISOString(); }
+function isoOrNow(s) { return isoOrNull(s) || new Date().toISOString(); }
 function intOrNull(v, lo, hi) { const n = Number(v); return Number.isInteger(n) && n >= lo && n <= hi ? n : null; }
 function clip(s, n) { return String(s == null ? "" : s).trim().slice(0, n); }
 function rawUrl(s) { const u = clip(s, 500); return /^https?:\/\//i.test(u) ? u : ""; }
