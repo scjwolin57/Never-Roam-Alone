@@ -2406,6 +2406,27 @@ if(!c){
         </div>`;
   }
 
+  /* ---------- Photo credit rendering ----------
+     The visible caption shows just the photographer; the licence travels in the
+     title attribute and in full on the linked source page. CC BY 4.0 s.3(a)(2)
+     permits satisfying attribution "by providing a URI or hyperlink to a
+     resource that includes the required information" — which the Commons and
+     Flickr pages we link to do. Resizing/WebP conversion is a format shift, not
+     an adaptation, so no modification notice is required. */
+  function creditHTML(ph, cls) {
+    if (!ph || !ph.page) return "";
+    const esc = t => String(t).replace(/[<>&"]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[ch]));
+    const full = String(ph.credit || "").trim();
+    /* Strip only a trailing licence segment. 34 credits legitimately contain
+       "/" inside the attribution itself (co-authors, archives), so splitting on
+       the first slash would truncate a real name. */
+    const LIC = /\s+\/\s+(CC[ 0-9A-Z.\-]*|Public domain|GFDL[ 0-9.]*|FAL|Unsplash|Pexels|Pixabay)\s*$/i;
+    const name = full.replace(LIC, "").trim();
+    const shown = name || "Photo";
+    const tip = full || "Photo source";
+    return `<span class="${cls}"><a href="${esc(ph.page)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(shown)}</a></span>`;
+  }
+
   /* Build the transportation cards; car rental price uses currency `code` */
   function buildTransport(code) {
     const t = CITY_TRANSPORT[c.city];
@@ -2461,7 +2482,7 @@ if(!c){
         const p = lmkCoords[i];
         const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
         const photo = lmkPhotos[i];
-        const photoHTML = photo ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${photo.page ? `<span class="lmk-photo-credit"><a href="${photo.page}" target="_blank" rel="noopener">${photo.credit ? String(photo.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>` : ''}</div>`
+        const photoHTML = (photo && photo.img) ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${creditHTML(photo, 'lmk-photo-credit')}</div>`
           : `<div class="lmk-photo lmk-photo-soon" style="background-image:url('images/landmark-coming-soon.svg')"></div>`;
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
@@ -3850,12 +3871,10 @@ if(!c){
       const p  = lmkCoords[i];
       const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z`
                         : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
-      const credit = ph && ph.page
-        ? `<span class="lmk-photo-credit"><a href="${ph.page}" target="_blank" rel="noopener">${ph.credit ? String(ph.credit).replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) : 'Photo'}</a></span>`
-        : '';
+      const credit = creditHTML(ph, 'lmk-photo-credit');
       panel.innerHTML =
         `<button type="button" class="lmk-expand-close" aria-label="Close">&times;</button>` +
-        (ph ? `<div class="lmk-expand-photo"><img class="lmk-expand-img" src="${ph.img}" alt="${esc(l[0])}" loading="lazy">${credit}</div>`
+        ((ph && ph.img) ? `<div class="lmk-expand-photo"><img class="lmk-expand-img" src="${ph.img}" alt="${esc(l[0])}" loading="lazy">${credit}</div>`
             : `<div class="lmk-expand-photo lmk-expand-soon"><img class="lmk-expand-img" src="images/landmark-coming-soon.svg" alt="Image coming soon">` +
               `<div class="lmk-contrib"><p class="lmk-contrib-lead">Have an image of this landmark that you would like to contribute to the site?</p>` +
               `<button type="button" class="lmk-contrib-btn" data-contrib-idx="${i}">Contribute Image</button></div></div>`) +
