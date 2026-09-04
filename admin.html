@@ -148,6 +148,7 @@
       <button class="tab active" type="button" data-tab="posts">Posts</button>
       <button class="tab" type="button" data-tab="forum">Ask a Roamer</button>
       <button class="tab" type="button" data-tab="events">Events</button>
+      <button class="tab" type="button" data-tab="photos">Photos</button>
       <button class="tab" type="button" data-tab="conn">Connections</button>
       <button class="tab" type="button" data-tab="emails">Emails</button>
     </div>
@@ -183,6 +184,17 @@
         <input type="checkbox" id="conn-show-done"> Also show reports I've already dealt with
       </label>
       <div id="conn-list"></div>
+    </section>
+
+    <!-- ========== CONTRIBUTED PHOTOS ========== -->
+    <section id="tab-photos" class="tabpane" hidden>
+      <div class="topbar"><h2>Contributed photos</h2></div>
+      <p class="sect-note">Photos visitors sent through the &ldquo;Contribute Image&rdquo; button. <b>Publish</b> puts one on the guide straight away and emails the contributor if they were signed in; <b>Turn down</b> leaves it here and never shows it. Both do exactly what the buttons in the submission email do &mdash; this is the same queue, just without the email.</p>
+      <p class="admin-msg" id="photo-msg"></p>
+      <label class="evt-check" style="display:flex;align-items:center;gap:8px;margin:0 0 14px;font-weight:600">
+        <input type="checkbox" id="photo-show-done"> Also show photos I've already decided on
+      </label>
+      <div id="photo-list"></div>
     </section>
 
     <!-- ========== EVENTS ========== -->
@@ -369,13 +381,141 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     await loadEvents();
+    await loadPhotos();
     await loadConn();
     loadEmailsTab();
   }
 
+  /* ======================================================================
+     CONTRIBUTED PHOTOS — the same review queue the submission email links to.
+     Reading the table needs the admin policy in contributed-photos-admin.sql;
+     without it this list is simply empty rather than broken. Deciding goes
+     through the approve-photo function, so publishing copies the file into the
+     public bucket and notifies the contributor exactly as the email route does.
+     ====================================================================== */
+  let pRows = [];
+  async function loadPhotos(){
+    setMsg($("photo-msg"), "Loading contributed photos…");
+    const { data, error } = await sb.from("landmark_photo_contributions")
+      .select("*").order("created_at", { ascending: false });
+    if (error){
+      setMsg($("photo-msg"), "Couldn't load contributed photos: " + (error.message || "unknown error") +
+        " — has contributed-photos-admin.sql been run in Supabase?", true);
+      $("photo-list").innerHTML = ""; return;
+    }
+    pRows = data || [];
+    /* Waiting on you first, then newest. */
+    pRows.sort((a, b) => {
+      const ap = a.status === "pending" ? 0 : 1, bp = b.status === "pending" ? 0 : 1;
+      if (ap !== bp) return ap - bp;
+      return String(b.created_at || "").localeCompare(String(a.created_at || ""));
+    });
+    await attachPhotoUrls(pRows);
+    const waiting = pRows.filter(r => r.status === "pending").length;
+    setMsg($("photo-msg"), waiting
+      ? `${waiting} photo${waiting === 1 ? "" : "s"} awaiting review.`
+      : (pRows.length ? "Nothing waiting on you." : ""));
+    renderPhotoRows();
+  }
+
+  /* Thumbnails. An approved photo is public, so its URL is stable. One still
+     under review sits in the private bucket and needs a short-lived signed
+     link, which only works for admins. */
+  async function attachPhotoUrls(rows){
+    rows.forEach(r => {
+      r._url = "";
+      if (r.status === "approved" && r.published_path){
+        try { r._url = sb.storage.from("landmark-photos").getPublicUrl(r.published_path).data.publicUrl || ""; }
+        catch(e){}
+      }
+    });
+    const needSigning = rows.filter(r => !r._url && r.storage_path);
+    if (!needSigning.length) return;
+    try {
+      const { data } = await sb.storage.from("landmark-contributions")
+        .createSignedUrls(needSigning.map(r => r.storage_path), 3600);
+      (data || []).forEach((d, i) => { if (d && d.signedUrl) needSigning[i]._url = d.signedUrl; });
+    } catch(e){ /* no preview is survivable — the rest of the row still shows */ }
+  }
+
+  function renderPhotoRows(){
+    const wrap = $("photo-list");
+    const showDone = $("photo-show-done") && $("photo-show-done").checked;
+    const list = pRows.filter(r => showDone || r.status === "pending");
+    if (!list.length){
+      wrap.innerHTML = `<div class="empty">${pRows.length ? "Nothing waiting on you." : "No contributed photos yet."}</div>`;
+      return;
+    }
+    wrap.innerHTML = list.map(r => {
+      const pending = r.status === "pending";
+      const chip = pending ? `<span class="chip pending">Pending review</span>`
+                 : r.status === "approved" ? `<span class="chip live">Published</span>`
+                 : `<span class="chip hidden">Turned down</span>`;
+      const credit = r.credit_mode === "name" ? (r.credit_name || "(name not given)")
+                   : r.credit_mode === "profile" ? "their Never Roam Alone profile"
+                   : "no credit requested";
+      const taken = [MONTH_NAMES[r.taken_month] || "", r.taken_year || ""].filter(Boolean).join(" ");
+      const where = esc(r.city || "") + (r.country ? ", " + esc(r.country) : "");
+      const slot = esc(r.subject_label || r.subject_kind || "Photo");
+      const acts = pending
+        ? `<button class="btn small coral" data-pact="approve" type="button">Publish</button>` +
+          `<button class="btn small danger" data-pact="reject" type="button">Turn down</button>`
+        : "";
+      return `
+      <div class="erow${pending ? " pending" : ""}" data-id="${esc(r.id)}">
+        <div class="thumb"${r._url ? ` style="background-image:url('${esc(r._url)}')"` : ""}></div>
+        <div class="info">
+          <div class="title">${esc(r.landmark || "(no subject)")} ${chip}</div>
+          <div class="sub">${slot} · ${where}${taken ? " · taken " + esc(taken) : ""} · credit: ${esc(credit)}</div>
+          <div class="sub">Signed “${esc(r.signature || "—")}” · licence ${esc(r.license_version || "—")}${r.agreed_at ? " · " + esc(String(r.agreed_at).slice(0, 10)) : ""}</div>
+        </div>
+        <div class="acts">${acts}</div>
+      </div>`;
+    }).join("");
+  }
+
+  const MONTH_NAMES = ["", "January","February","March","April","May","June",
+                       "July","August","September","October","November","December"];
+
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === "photo-show-done") renderPhotoRows();
+  });
+
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest("#photo-list button[data-pact]");
+    if (!btn) return;
+    const row = pRows.find(r => r.id === btn.closest(".erow").dataset.id);
+    if (!row) return;
+    const action = btn.dataset.pact;
+    if (action === "reject" && !confirm(`Turn down the photo of “${row.landmark}”? It will never appear on the site.`)) return;
+    btn.disabled = true;
+    setMsg($("photo-msg"), action === "reject" ? "Turning it down…" : "Publishing…");
+    try {
+      const { data: { session } } = await sb.auth.getSession();
+      const token = session && session.access_token;
+      if (!token) throw new Error("Your session expired — sign in again.");
+      const r = await fetch("/.netlify/functions/approve-photo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+        body: JSON.stringify({ id: row.id, action })
+      });
+      const d = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(d.error || ("That didn't go through (" + r.status + ")"));
+      await loadPhotos();
+      setMsg($("photo-msg"), d.already
+        ? `That photo had already been reviewed.`
+        : action === "reject"
+          ? `The photo of “${row.landmark}” was turned down.`
+          : `The photo of “${row.landmark}” is live on the ${row.city} guide.`);
+    } catch(err){
+      btn.disabled = false;
+      setMsg($("photo-msg"), (err && err.message) || "Something went wrong.", true);
+    }
+  });
+
   /* ---------- tabs ---------- */
   function showTab(name){
-    ["posts","forum","events","conn","emails"].forEach(t => {
+    ["posts","forum","events","photos","conn","emails"].forEach(t => {
       const pane = $("tab-" + t);
       if (pane) pane.hidden = (t !== name);
     });
