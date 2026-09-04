@@ -194,7 +194,7 @@
     #map{height:440px}
     .map-legend,.legend-toggle{left:30px}
     .about{
-      grid-template-columns:120px 1fr;
+      grid-template-columns:1fr;
       gap:18px;
       padding:20px;
     }
@@ -238,7 +238,17 @@
   .about .photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0;display:block;filter:sepia(.2) saturate(.95)}
   .about .photo-frame::after{content:"📍 Giza, Egypt";position:absolute;left:0;right:0;bottom:8px;text-align:center;font-family:'Amatic SC',cursive;font-size:1.4rem;color:var(--muted)}
   .about .sig{font-family:'Amatic SC',cursive;color:var(--coral);font-size:1.9rem;font-style:normal}
-  @media(max-width:880px){.about .photo-frame{padding:6px 6px 26px}.about .photo-frame::after{font-size:1rem;bottom:3px}}
+  @media(max-width:880px){
+    .about .photo-frame{padding:6px 6px 26px}
+    .about .photo-frame::after{font-size:1rem;bottom:3px}
+    /* Stacked full-width on mobile/tablet (see the .about grid-template-columns
+       override above) — the fixed 1/1 crop above was built for the old narrow
+       120px column; at full width it was cropping a visibly bigger chunk off
+       the photo, so switch to the real photo's ratio (560x420 = 4/3) instead.
+       height:auto is required here too — the img tag's height="420" attribute
+       otherwise wins over aspect-ratio and the crop comes right back. */
+    .about .photo-frame img{aspect-ratio:4/3;height:auto}
+  }
 
   .tile{border:1px solid var(--ink);border-radius:0;box-shadow:0 8px 20px rgba(43,36,23,.14)}
   .tile:hover{box-shadow:0 16px 32px rgba(43,36,23,.22)}
@@ -268,9 +278,6 @@
 
   /* ---- full-design: social proof under hero ---- */
   .social-proof{display:flex;align-items:center;justify-content:center;gap:13px;margin:18px auto 0;flex-wrap:wrap}
-  .avatars{display:flex}
-  .avatars span{width:32px;height:32px;border-radius:50%;border:2px solid var(--sand);margin-left:-9px;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:.76rem;font-weight:700;color:#fff}
-  .avatars span:first-child{margin-left:0}
   .social-proof p{margin:0;font-size:.82rem;color:var(--muted)}
   .social-proof b{color:var(--ink)}
 
@@ -338,10 +345,7 @@
   <p class="kicker">A world worth exploring</p>
   <h1>Where will you <em>roam</em> next?</h1>
   <div class="social-proof">
-    <div class="avatars">
-      <span style="background:#b5492c">J</span><span style="background:#5c6933">M</span><span style="background:#b0802f">A</span><span style="background:#8a3a20">S</span><span style="background:#6f7d4a">K</span>
-    </div>
-    <p><b id="sp-cities">248 cities</b> &middot; <b>60+ countries</b> &middot; guides with insight from real travelers</p>
+    <p><b id="sp-cities">248 cities</b> &middot; <b id="sp-countries">60+ countries</b> &middot; informative city guides with insights from real travelers and locals</p>
   </div>
 </div>
 
@@ -1363,6 +1367,49 @@ const CITIES = [
     // reflect the real catalogue size in the social-proof line
     var sp = document.getElementById("sp-cities");
     if (sp && typeof CITIES !== "undefined") sp.textContent = CITIES.length + " cities";
+    var spc = document.getElementById("sp-countries");
+    if (spc && typeof CITIES !== "undefined") {
+      // CITIES' "country" field is really "country or territory shown on the
+      // card" — it has its own entries for places like Bermuda, Puerto Rico
+      // and Greenland, plus a few sovereign countries logged under two
+      // different spellings (e.g. "Turkey"/"Türkiye"). Counting those raw
+      // strings gives 232, which is more than the ~197 countries that
+      // actually exist. Fold each territory into its sovereign parent and
+      // merge the duplicate spellings before counting, so the number on the
+      // homepage matches a real count of countries.
+      var COUNTRY_ALIAS = {
+        "DR Congo": "Democratic Republic of the Congo",
+        "Myanmar (Burma)": "Myanmar",
+        "Turkey": "Türkiye",
+        "The Gambia": "Gambia",
+        "China (SAR)": "China",
+        "Finland (Åland)": "Finland",
+        "Norway (Svalbard)": "Norway",
+        "Anguilla": "United Kingdom", "Bermuda": "United Kingdom",
+        "British Virgin Islands": "United Kingdom", "Falkland Islands": "United Kingdom",
+        "Gibraltar": "United Kingdom", "Montserrat": "United Kingdom",
+        "Saint Helena": "United Kingdom", "Turks and Caicos Islands": "United Kingdom",
+        "Aruba": "Netherlands", "Bonaire": "Netherlands",
+        "Curaçao": "Netherlands", "Sint Maarten": "Netherlands",
+        "French Guiana": "France", "French Polynesia": "France",
+        "Guadeloupe": "France", "Martinique": "France", "Mayotte": "France",
+        "New Caledonia": "France", "Réunion": "France",
+        "Saint Pierre and Miquelon": "France", "Saint-Barthélemy": "France",
+        "Saint-Martin": "France",
+        "Puerto Rico": "United States", "U.S. Virgin Islands": "United States",
+        "Northern Mariana Islands": "United States",
+        "Faroe Islands": "Denmark", "Greenland": "Denmark"
+      };
+      // Not a sovereign country and not a territory of one on this list either.
+      var COUNTRY_EXCLUDE = { "Western Sahara": true };
+      var countries = {};
+      for (var ci=0; ci<CITIES.length; ci++){
+        var raw = CITIES[ci].country;
+        if (COUNTRY_EXCLUDE[raw]) continue;
+        countries[COUNTRY_ALIAS[raw] || raw] = true;
+      }
+      spc.textContent = Object.keys(countries).length + " countries";
+    }
     el.innerHTML = FEATURED.map(function(f){
       var c = find(f.city);
       var country = c ? c.country : "";

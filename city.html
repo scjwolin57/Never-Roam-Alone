@@ -875,7 +875,17 @@
       margin:0 auto}
     .lmk-expand.is-portrait .lmk-expand-body{justify-content:flex-start;padding:16px 18px 18px}}
   /* Landmarks with no photo yet: placeholder + an invitation to contribute one */
-  .lmk-photo-soon{background-size:cover;background-position:center;opacity:.85}
+  /* Card placeholder: laid out rather than a cropped background image, so the
+     icon, the wording and the Contribute button all stay visible in the
+     130px-tall card strip, not only in the opened modal. */
+  .lmk-photo-soon{background:linear-gradient(180deg,#efe9da,#e4dcc8);display:flex;
+    flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px}
+  .lmk-soon-ic{width:30px;height:23px;flex:none;fill:none;stroke:#b3a789;stroke-width:2.5;
+    stroke-linecap:round;stroke-linejoin:round}
+  .lmk-soon-txt{font-size:.76rem;color:#6d6350;line-height:1}
+  .lmk-soon-btn{border:1px solid var(--teal);background:var(--teal);color:#fff;border-radius:3px;
+    padding:4px 12px;font:inherit;font-size:.74rem;cursor:pointer;line-height:1.2}
+  .lmk-soon-btn:hover{background:var(--coral);border-color:var(--coral)}
   .lmk-expand-soon{position:relative}
   .lmk-contrib{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 16px;text-align:center;
     background:linear-gradient(to top,rgba(255,255,255,.97) 62%,rgba(255,255,255,0))}
@@ -2483,7 +2493,11 @@ if(!c){
         const mapHref = p ? `https://www.google.com/maps/search/${encodeURIComponent(l[0])}/@${p.lat},${p.lng},16z` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l[0] + ' ' + c.city)}`;
         const photo = lmkPhotos[i];
         const photoHTML = (photo && photo.img) ? `<div class="lmk-photo" style="background-image:url('${photo.img}')">${creditHTML(photo, 'lmk-photo-credit')}</div>`
-          : `<div class="lmk-photo lmk-photo-soon" style="background-image:url('images/landmark-coming-soon.svg')"></div>`;
+          : `<div class="lmk-photo lmk-photo-soon">
+              <svg class="lmk-soon-ic" viewBox="0 0 44 34" aria-hidden="true"><rect x="2" y="2" width="40" height="30" rx="4"/><circle cx="13" cy="12" r="4"/><path d="M4 28l12-12 9 9 6-5 9 8"/></svg>
+              <span class="lmk-soon-txt">Image coming soon</span>
+              <button type="button" class="lmk-soon-btn" data-contrib-idx="${i}">Contribute</button>
+            </div>`;
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
           ${photoHTML}
@@ -3921,6 +3935,8 @@ if(!c){
     }
 
     gridEl.addEventListener("click", e => {
+      const soon = e.target.closest(".lmk-soon-btn");
+      if (soon) { e.preventDefault(); e.stopPropagation(); openContribForm(Number(soon.dataset.contribIdx)); return; }
       if (e.target.closest("a")) return; // let the map / credit links work
       const card = e.target.closest(".lmk-card");
       if (!card) return;
