@@ -312,6 +312,7 @@
 </footer>
 
 <script src="posts.js"></script>
+<script src="destinations.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
 <script src="nav.js"></script>
@@ -875,7 +876,11 @@
     });
     const pendingCount = eRows.filter(r => r.pending).length;
     setMsg($("list-msg"), pendingCount ? `${pendingCount} submission${pendingCount===1?"":"s"} awaiting review — use “Add to calendar” to publish or “Delete” to discard.` : "");
-    const cities = Array.from(new Set(eRows.map(r => r.city))).sort();
+    /* Every city on the site, not just the ones that already have an event —
+       otherwise a city's first event can never be picked from the list. Any
+       stray city already on an event row is kept so nothing disappears. */
+    const allCities = (window.NRA_DESTINATIONS || []).map(d => d.city);
+    const cities = Array.from(new Set(allCities.concat(eRows.map(r => r.city).filter(Boolean)))).sort();
     $("city-list").innerHTML = cities.map(c => `<option value="${esc(c)}"></option>`).join("");
     renderEventRows();
     highlightReview();
