@@ -2250,9 +2250,9 @@ if(!c){
      add or remove those pieces live. Multipliers are documented assumptions —
      see the "Daily cost formula" spreadsheet for the full breakdown. */
   function costTier(mid) {
-    if (mid < 90)  return {n:1, w:"Budget",    c:"#556B2F"};
-    if (mid < 150) return {n:2, w:"Moderate",  c:"#B8860B"};
-    if (mid < 220) return {n:3, w:"Pricey",    c:"#C77400"};
+    if (mid < 110) return {n:1, w:"Budget",    c:"#556B2F"};
+    if (mid < 180) return {n:2, w:"Moderate",  c:"#B8860B"};
+    if (mid < 270) return {n:3, w:"Pricey",    c:"#C77400"};
     return                {n:4, w:"Expensive", c:"#C04020"};
   }
   function computeDailyTiers(includeAlcohol, includeActivities, solo) {

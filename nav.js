@@ -8,7 +8,6 @@
   // The one and only menu. Order = display order.
   var NAV_ITEMS = [
     { label: "Home",               href: "index.html" },
-    { label: "About",              href: "index.html#about" },
     { label: "Blog",               href: "blog.html" },
     { label: "City Guides",        href: "cities.html" },
     { label: "Destination Finder", href: "choose.html" },
