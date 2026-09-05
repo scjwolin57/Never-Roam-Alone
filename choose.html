@@ -1541,7 +1541,7 @@ function finderCardHTML(r, rank, actLabel, budget){
   return `
     <article class="card" data-city="${c.city.replace(/"/g,'&quot;')}" data-gmode="${r.m ? r.m.mode : ""}">
       <div class="photo" data-bg="${ph ? ph.img.replace(/\.webp$/, "-sm.webp") : `https://picsum.photos/seed/${sg}-pick/600/400`}">
-        <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span><span class="visit">${visitorsChip(c)}</span>
+        <span class="rank-chip">N\u00ba ${String(rank).padStart(2,"0")}</span><span class="visit" title="Estimated international visitors per year">${visitorsChip(c)}</span>
         ${ph && ph.page ? `<span class="photo-credit">Photo: <a href="${ph.page}" target="_blank" rel="noopener">${/pexels\.com/.test(ph.page) ? "Pexels" : /unsplash\.com/.test(ph.page) ? "Unsplash" : "Wikimedia Commons"}</a></span>` : ""}
       </div>
       <div class="body">

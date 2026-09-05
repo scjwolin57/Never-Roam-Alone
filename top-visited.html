@@ -119,12 +119,10 @@
 /* ==================================================================
    TOP VISITED — cities with more than 5M annual INTERNATIONAL
    visitors, ranked highest first, from window.NRA_CITY_INTL_VISITORS
-   (city-intl-visitors.js — see that file for sourcing notes and why
-   it's a curated subset rather than every "visitors" figure on the
-   site: several secondary Chinese cities carry a domestic-tourism
-   total under the same field name, not an international-arrivals
-   count, so they're deliberately left off this page). No server, no
-   build step.
+   (city-intl-visitors.js, a derived list: it is destinations.js
+   filtered to visitors > 5, so the figures here, the Destination
+   Finder's and the homepage globe's are the same numbers). No server,
+   no build step.
 ================================================================== */
 (function(){
   const top = (window.NRA_CITY_INTL_VISITORS || []).slice().sort((a,b) => b.visitors - a.visitors);
