@@ -1,0 +1,618 @@
+# Neighborhood photo location audit
+
+Distance between each hero photo's own GPS and the neighborhood's centroid. **Distance is a signal, not a verdict** — a legitimate landmark can be shot from far off, and big districts have distant edges. Treat every row below as *review this*, not *this is wrong*.
+
+- within 2.0 km: **52**
+- further than 2.0 km — review: **22**
+- Commons file carries no GPS, cannot be checked this way: **307**
+- neighborhood not found in Nominatim: **177**
+- not a Commons file (Pixabay / our own photo): **65**
+
+
+## How much this audit actually covers — read this first
+
+**Only 74 of 623 entries (12%) could be checked by coordinates.** The rest are unverifiable
+by this method:
+
+- **307 Commons files carry no GPS at all.** Most uploads simply aren't geotagged.
+- **177 neighborhoods can't be resolved by Nominatim** — the name in `hoods` doesn't match
+  an OSM place (glosses like "Kita (Station area)", local vs English spellings, informal
+  district names).
+- **65 aren't Commons files** (Pixabay, or Jeff's own photos) so there's no API to ask.
+
+**And some flags in the table below are false positives caused by a bad centroid, not a bad
+photo.** Las Vegas/Henderson at 17 km is correct — Henderson genuinely is a separate city
+17 km from the Strip, and Nominatim returned the Vegas centroid. Heraklion/Old Town at
+27 km and Ho Chi Minh/Phu My Hung at 52 km look like the same problem. Check the centroid
+before touching the photo.
+
+So this file narrows the search; it does not certify the other 88%. The only method that
+covers everything is looking at each image and judging whether it depicts that
+neighborhood — which is what caught Wynwood.
+
+## Review — over 2.0 km (22)
+
+| km | City | Neighborhood | Source file |
+|---|---|---|---|
+| 52.06 | Ho Chi Minh City | Phu My Hung (District 7) | Thay Tieu 2 bridge, Phu My Hung.JPG |
+| 27.74 | Heraklion | Old Town (Centro) | Πλατεία Λιονταριών 9239.jpg |
+| 17.28 | Las Vegas | Henderson | Water Street District Sign Looking towards Las Vegas August 3, 2026.jpg |
+| 7.49 | Antalya | Lara | Antalya Lara Türkiye - panoramio.jpg |
+| 7.02 | Zurich | Zurich-West | Industriequartier - Prime Tower 2011-08-08 13-44-40.JPG |
+| 6.79 | Kraków | Nowa Huta | Plac Centralny w rytmie symetrii.jpg |
+| 6.3 | Zhuhai | Tangjiawan | 唐家湾镇 - 山房路 - 2026-05-10.jpg |
+| 5.15 | Antalya | Konyaaltı | Falezlerden Antalya Konyaaltı Plajına doğru bir görünüm.jpg |
+| 5.12 | Hua Hin | North Hua Hin (Soi 5-25) | Hua Hin hotels - panoramio.jpg |
+| 4.82 | Johor Bahru | Tebrau | Toppen Shopping Centre (250527-1403).jpg |
+| 4.81 | Zhuhai | Xiangzhou | Zhuhai-Xiangzhou freight harbour.jpg |
+| 4.54 | Zurich | Seefeld | Zürichhorn - Tiefenbrunnen - Uetliberg 2013-11-27 14-54-24.JPG |
+| 3.24 | Zhuhai | Gongbei | 20241207 Aerial view of Gongbei, Zhuhai.jpg |
+| 3.1 | Shanghai | Former French Concession | Wukang Mansion 20251128.jpg |
+| 3.0 | Shenzhen | OCT (Overseas Chinese Town) | OCT HARBOUR, SHENZHEN (9).jpg |
+| 2.76 | Heraklion | Ammoudara | AmoudaraBeach1.JPG |
+| 2.76 | Sofia | Lozenets | Биологически факултет.jpg |
+| 2.73 | Honolulu | Manoa | Manoa from ridge.jpg |
+| 2.4 | Beijing | Dongcheng | Tian'anmen from E Chang'an Ave (20200825104049).jpg |
+| 2.3 | Las Vegas | Chinatown (Spring Mountain) | LVChinatownPaifang.jpg |
+| 2.21 | Skopje | Aerodrom | Cevahir towers.jpg |
+| 2.07 | Kuala Lumpur | Bukit Bintang | View from Lot 10 - Forest in the City to Bukti Bintang junction 1.jpg |
+
+## No GPS on the file (307)
+
+These need an eyeball, not a coordinate.
+
+- Amsterdam / Jordaan — Eerste Leliedwarsstraat.jpg
+- Amsterdam / De Pijp — Revolutiebouw.jpg
+- Amsterdam / Centrum — Dam Square 2024.jpg
+- Andorra la Vella / Barri Antic (Centre Històric) — Casa de la Vall 4.JPG
+- Andorra la Vella / Escaldes-Engordany — Caldea spa resort, May 2016.jpg
+- Andorra la Vella / Avinguda Meritxell — Avinguda Meritxell Andorra la Vella 20231008 123955.jpg
+- Antalya / Belek — Belek 820DSC 0372 (48307298676).jpg
+- Antalya / Muratpaşa — Kaleiçi görünümü.JPG
+- Athens / Plaka — Carrer del barri de Plaka, Atenes.JPG
+- Athens / Koukaki — View of Athens from the Parthenon 001.jpg
+- Athens / Kolonaki — Kolonaki, Main Avenue.jpg
+- Athens / Psyrri — Psyrri square Athens.jpg
+- Bangkok / Silom — Si Lom Road (Thanon Si Lom).jpg
+- Bangkok / Riverside (Bang Rak) — เจดีย์ประธานทรงปรางค์วัดอรุณ2.jpg
+- Bangkok / Siam — Pathumwan rd and Siam area.jpg
+- Barcelona / Eixample — Eixample aire cropped.jpg
+- Beijing / Haidian — Beijing Haidian panorama 1.jpg
+- Beijing / Sanlitun — 三里屯太古里北区.jpg
+- Belgrade / Dorćol — Rue Cara Dušanova à Belgrade.jpg
+- Belgrade / Stari Grad — Калемегдан, споменик Побједник, Биоград.jpg
+- Bologna / Santo Stefano — Piazza Santo Stefano (east 2).jpg
+- Bologna / Saragozza — Bologna, porta saragozza 02.JPG
+- Bologna / San Donato — Bologna Porta San Donato 087.jpg
+- Bratislava / Old Town (Staré Mesto) — Hlavné námestie-The napoleonic soldier, Old Town Hall and Roland Fountain-Bratislava.JPG
+- Bratislava / Petržalka (Sad Janka Kráľa area) — Sad Janka Krala, Bratislava, Slovakia.JPG
+- Bratislava / Ružinov — Sk ba ruzinov 01-06-2008.jpg
+- Bratislava / Nové Mesto (near Main Station) — Bratislava hlavná stanica September 2019.jpg
+- Bratislava / Devín / Karlova Ves — Devin02.jpg
+- Brussels / Sablon — Brüssel, Kirche Notre-Dame du Sablon.jpg
+- Brussels / Ixelles — MAISON-40.jpg
+- Brussels / Marolles — Marolles from Place Poelaert, Brussels (DSCF6759).jpg
+- Brussels / Saint-Gilles — StGillesTownHall.jpg
+- Brussels / European Quarter — Belgique - Bruxelles - Schuman - Berlaymont - 01.jpg
+- Bucharest / Old Town (Lipscani) — Curtea Veche 1.jpg
+- Bucharest / Calea Victoriei / University Square — Bucharest University Square.jpg
+- Bucharest / Herăstrău / Băneasa — Herestrau lake on House of the Free Press.jpg
+- Bucharest / Piața Unirii / Centrul Civic — Bucharest - Palace of the Parliament (2024) (2).jpg
+- Budapest / Jozsefvaros (District VIII) — Magyar Nemzeti Múzeum.jpg
+- Budapest / Buda Castle District (Var) — Budavári Palota, ABCDEF épület.jpg
+- Budapest / Ujlipotvaros (District XIII) — Budapest Donauinsel 2.jpg
+- Buenos Aires / San Telmo — San Telmo montage.jpg
+- Buenos Aires / La Boca — LaBoca ST 98.jpg
+- Buenos Aires / Palermo — Palermo montage.jpg
+- Buenos Aires / Puerto Madero — Puerto Madero montage.jpg
+- Busan / Haeundae — Busan City Haeundae District (01).jpg
+- Busan / Seomyeon — 서면3.jpg
+- Busan / Nampo-dong — Nampo-Dong Christmas Lights in Busan.jpg
+- Busan / Gwangalli — Gwangalli Beach.jpg
+- Busan / Gwangbok — Gwangbok-dong Street 1.png
+- Cairo / Maadi — Egypt Nile 2.jpg
+- Cairo / Heliopolis — Baron Palace.jpg
+- Cairo / Garden City — Picture of a street in Garden City.jpg
+- Cairo / Zamalek — Egypt, Night Cairo and river Nile, Zamalek city lights.jpg
+- Cancún / Puerto Juárez — Puerto Juarez.JPG
+- Cape Town / Camps Bay — View of Camps Bay.jpg
+- Cape Town / Sea Point — Aerial View of Sea Point, Cape Town South Africa.jpg
+- Cape Town / Woodstock — WoodstockSouthCapeTown.jpg
+- Cape Town / City Bowl — Ciudad del Cabo desde Cabeza de León, Sudáfrica, 2018-07-22, DD 34.jpg
+- Chișinău / Centru — Clădirea primăriei municipiului Chișinău.jpg
+- Chișinău / Telecentru — RoseValley2 Chisinau.JPG
+- Chișinău / Botanica — Parque Valea Trandafirilor, Chisináu, Moldavia, 2023-11-03, DD 01.jpg
+- Copenhagen / Christianshavn — Christianshavns Kanal - Kayaks.jpg
+- Copenhagen / Osterbro — Copenhagen - the little mermaid statue - 2013.jpg
+- Delhi / Chandni Chowk — Gurudwara Sisganj Sahib Chandni Chowk 19.jpg
+- Delhi / Karol Bagh — Karol Bagh, 2008 (6).JPG
+- Delhi / Saket — Saket A Block Delhi 2.JPG
+- Delhi / Connaught Place — Skyline at Rajiv Chowk.JPG
+- Delhi / Hauz Khas — Feroze Shah's Tomb.JPG
+- Denpasar / Sesetan — Festival Omed-omedan Setelah Nyepi.jpg
+- Doha / The Pearl-Qatar — Building under construction at Qanat Quartier in The Pearl-Qatar.jpg
+- Doha / Al Sadd — Al Sadd Plaza and Al Fardan Plaza in Doha.jpg
+- Dubai / Deira — Deira Clocktower.jpg
+- Dubai / Jumeirah — Sunset of Jumeirah Fish Village.jpg
+- Dubai / Dubai Marina — Dubai Marina Skyline.jpg
+- Dubai / Business Bay — Downtown Burj Dubai and Business Bay, seen from Safa Park.jpg
+- Dubai / Downtown Dubai — Burj Khalifa (worlds tallest building) and the Dubai skyline (25781049892).jpg
+- Dublin / Ballsbridge — Herbert Park, Ballsbridge.jpg
+- Dublin / Temple Bar — Temple Bar street scenes, Dublin.jpg
+- Dublin / The Liberties — TheLibertiesDublin.jpg
+- Dubrovnik / Babin Kuk — Babin Kuk Resort Dubrovnik.jpg
+- Edinburgh / Morningside — Morningside Clock, Edinburgh.jpg
+- Edinburgh / Old Town — Old Town from Princes Street.JPG
+- Edinburgh / Leith — Rth Edin Leith .Forth.Fife 26.10.11 edited-2.jpg
+- Florence / Santa Maria Novella — Florence, Santa Maria Novella, facade.jpg
+- Florence / Santa Croce — Basilica di Santa Croce (12437).jpg
+- Florence / Oltrarno — Palazzo Pitti nel tardo pomeriggio.jpg
+- Frankfurt am Main / Westend — Eingang Palmengarten Frankfurt.JPG
+- Fukuoka / Nakasu — NakasuKawabata FukuokaSubway.jpg
+- Guangzhou / Yuexiu — Sun Yat-sen Memorial Hall Guangzhou.jpg
+- Guangzhou / Panyu — BaakSaaLou.jpg
+- Hanoi / Hoan Kiem (Old Quarter) — Hanoi Vietnam Houses-in-Hoàn-Kiếm-District-01.jpg
+- Heraklion / Nea Alikarnassos — Νέα Αλικαρνασσός 5799.jpg
+- Ho Chi Minh City / District 1 — Ho Chi Minh City Skyline at Night.jpg
+- Ho Chi Minh City / Cholon (District 5) — Cholon, Ho Chi Minh City (49057494416).jpg
+- Ho Chi Minh City / Thao Dien (District 2) — Thao Dien Station (MRT 1), Quốc Hương, Thảo Điền, Hồ Chí Minh - 54690900645.jpg
+- Hong Kong / Wan Chai — Wan Chai Overview 2008.jpg
+- Hong Kong / Causeway Bay — Tin Hau 2018.jpg
+- Hong Kong / Mong Kok — Sai Yeung Choi Street South 2008 Night.jpg
+- Hong Kong / Tsim Sha Tsui — Vista del Puerto de Victoria desde Sky100, Hong Kong, 2013-08-09, DD 10.JPG
+- Honolulu / Waikiki — City of Waikiki view.jpg
+- Honolulu / Ala Moana — Alamoanaaerial.jpg
+- Honolulu / Kakaako — Kakaako Waterfront Park very top 20100517.jpg
+- Istanbul / Kadıköy — Haydarpasa train station (cropped).jpg
+- Istanbul / Beşiktaş — Besiktas Montage.jpg
+- Istanbul / Beyoğlu (Taksim) — Istiklal Avenue in Istanbul - Turkey.jpg
+- Jerusalem / Old City — 2014-06 East Jerusalem 090 (14936890061).jpg
+- Jerusalem / German Colony — Cremieux Street, German Colony, Jerusalem.jpg
+- Jerusalem / Mea Shearim — Small100shearim.jpg
+- Johor Bahru / Skudai — Iskandar Puteri City Council.jpg
+- Johor Bahru / Danga Bay — Johor Bahru, Malaysia - 49676323172.jpg
+- Kotor / Perast — Perast 100.jpg
+- Kotor / Prčanj — Prcanj.jpg
+- Kotor / Old Town (Stari Grad) — Kotor Cathedral church.jpg
+- Kraków / Podgórze — Podgórski Market Square, Podgórze, Kraków, Poland.jpg
+- Kuala Lumpur / Bangsar — Bangsar.JPG
+- Kuala Lumpur / KLCC — The Twins SE Asia 2019 (49171985716) (Suria KLCC).jpg
+- Kuala Lumpur / Chinatown (Petaling) — Kuala Lumpur. Jalan Petaling. 2019-12-07 15-24-49.jpg
+- Kyiv / Vokzalna (Railway Station Area) — ЧС4-174, Украина, Киев, станция Киев-Пассажирский (Trainpix 147805).jpg
+- Kyiv / Khreshchatyk / City Center — Maidan Nezalezhnosti view.jpg
+- Kyiv / Shevchenkivskyi (Golden Gate) — Golden Gate Kiev 2018 G1.jpg
+- Kyoto / Fushimi — Fushimi momoyaja jyou 04.jpg
+- Kyoto / Higashiyama — Shirakara Canal, Gion, Kyoto.jpg
+- Kyoto / Arashiyama — Arashiyama 013.jpg
+- Las Vegas / Summerlin — SummerlinEntrance.jpg
+- Las Vegas / The Strip — Las Vegas Strip 09 2017 4897.jpg
+- Las Vegas / Downtown / Fremont Street — LasVegas-FremontStreet.jpg
+- Lima / Miraflores — Miraflores 2023.jpg
+- Lima / Santiago de Surco — Lima, Peru - Santiago de Surco Skyline.jpg
+- Lima / San Borja — Limatambo, San Borja, Lima, Peru.jpg
+- Lisbon / Bairro Alto — Lisboa-Entrada no Bairro Alto-20140917.jpg
+- Ljubljana / Tabor — Metelkova mesto1.jpg
+- Ljubljana / Trnovo — Tromostovje from below.jpg
+- Ljubljana / Bežigrad — Bežigrad.JPG
+- London / Kensington — Kensington High Street 2 Londres.jpg
+- London / Notting Hill — London 110.jpg
+- London / Shoreditch — View from Curtain Road, Shoreditch.jpg
+- London / Camden — St Pancras Renaissance London Hotel 2011-06-19.jpg
+- Los Angeles / Hollywood — View from behind Hollywood Sign overlooking LA.jpg
+- Los Angeles / Downtown LA — Skyline of Los Angeles, Downtown Los Angeles, California 13.jpg
+- Los Angeles / Santa Monica — Santa monica pier entrance evening.jpg
+- Luxembourg City / Grund — Église Saint-Jean (Neumünster) 20180627.jpg
+- Luxembourg City / Gare (Station District) — LUXGARE8.jpg
+- Macau / Macau Peninsula — São Lourenço (Macau), Macau - 澳門 (50163094326).jpg
+- Macau / Senado Square — Centre of Makau.jpg
+- Madrid / Lavapiés — Lavapiés.JPG
+- Madrid / La Latina — Real-Basilica-San-Francisco-el-Grande-Madrid.jpg
+- Madrid / Salamanca — Madrid - 40888267763 (cropped).jpg
+- Marne-la-Vallée / Val d'Europe — Serrisplacetoscaneserris.jpg
+- Marne-la-Vallée / Bailly-Romainvilliers — Mairie Bailly Romainvilliers 10.jpg
+- Marrakech / Medina — Djemaa el Fna.jpg
+- Marrakech / Kasbah — Marrakech 2009 Bab Agnaou Gate LL.JPG
+- Marrakech / Gueliz — Le jardin des majorelle 40.JPG
+- Marrakech / Palmeraie — La Palmeraie de Marrakech 701.JPG
+- Mecca / Al Aziziyah — Mecca aziziyah.jpg
+- Melbourne / Fitzroy — The Fitzroy skyline.jpg
+- Melbourne / Southbank — Southbank-Melbourne skyscrapers in January 2021.jpg
+- Mexico City / Roma — Plaza Río de Janeiro Colonia Roma.JPG
+- Mexico City / Polanco — Obelisco Polanco Ciudad de México.jpg
+- Mexico City / Coyoacan — Puerta a Coyoacán.JPG
+- Miami / Coconut Grove — Coconut Grove Street 20100321.jpg
+- Miami / South Beach — Ocean drive day 2009j.JPG
+- Miami / Little Havana — Little Havana Dominos Park.JPG
+- Milan / Brera — 5275MilanoViaMadonnina.JPG
+- Milan / Isola — Skyline of Zone 9 viewed from Milan Cathedral, 2025.jpg
+- Milan / Navigli — Naviglio Grande, Milano.jpg
+- Minsk / City Center (Independence Avenue) — Gouvernementbelarus.JPG
+- Minsk / Trinity Suburb & Upper Town — Замалёўкі Мінска 35.jpg
+- Monaco / Fontvieille — Harbour of Fontvielle, Monaco (view from above) 2009-05-09.jpg
+- Monaco / La Condamine — Monaco - Port en décembre.jpg
+- Monaco / Larvotto — Monaco landscape.JPG
+- Monaco / Beausoleil — Beausoleil, ancien hôtel Riviera Palace.jpg
+- Montreal / Mile End — Churches of montreal.jpg
+- Montreal / Griffintown — Griffintown delamontagne.jpg
+- Montreal / Vieux-Montréal (Old Montreal) — Vieux-Port, Montréal.JPG
+- Montreal / Outremont — Outremont Station Montreal Metro.jpg
+- Moscow / Arbat — Arbat Street in MSK.jpg
+- Moscow / Red Square / Kitay-Gorod — Kremlin and Red Square.1.jpg
+- Munich / Schwabing — Siegestor bei Nacht.JPG
+- Munich / Maxvorstadt — Königsplatz - Propyläen und Glyptothek.jpg
+- New York / Greenwich Village — Greenwich Village (27483343909).jpg
+- New York / Midtown — West side of Manhattan from Hudson Commons (95103p).jpg
+- New York / Upper East Side — East 69th Street 001.JPG
+- New York / Williamsburg — WilliamsburgBK.jpg
+- Nice / Le Port — Nice - Le port Lympia.jpg
+- Nice / Quartier des Musiciens — Nice-Musiciens-Alphonse13b.jpg
+- Orlando / Downtown Orlando — Lake-eola-park-orlando-florida.jpg
+- Orlando / International Drive — IDrive Street View.JPG
+- Orlando / Thornton Park — Lakeeola 09232006 trees.jpg
+- Osaka / Shinsekai — Shinsekai and Tsutenkaku at night 2019-04-12.jpg
+- Osaka / Shinsaibashi — Shinsaibashi Osaka Japan01-r.jpg
+- Osaka / Umeda (Kita) — Osaka Umeda Sky Building Panoramablick 05.jpg
+- Osaka / Namba (Minami) — Osaka Dotonbori Ebisu Bridge.jpg
+- Oslo / Grunerlokka — Thorvald Meyers gate nedenfor Birkelunden.jpg
+- Oslo / Frogner — Frogner plass sett fra parken.jpg
+- Oslo / Aker Brygge — Oslo Aker Brygge 2005 June 19.jpg
+- Palma de Mallorca / Casco Antiguo (Old Town) — Església de Santa Fè.jpg
+- Palma de Mallorca / El Terreno — Carrer de la Salut El Terreno Palma.jpg
+- Paris / Latin Quarter — P1300734 Paris V place de la Sorbonne rwk.jpg
+- Paris / Montmartre — View from Notre-Dame de Paris, 24 June 2014 004.jpg
+- Pattaya-Chonburi / Central Pattaya — CentralFestival Pattaya Beach Atrium 201801.jpg
+- Pattaya-Chonburi / North Pattaya — Pattaya beach from view point.jpg
+- Pattaya-Chonburi / South Pattaya — Pattaya, Walking Street at night, Thailand.jpg
+- Phuket / Patong — Patong Beach.jpg
+- Phuket / Karon — Karonbeach 2004.jpg
+- Porto / Baixa — Cidade Baixa - Rua da República 01.JPG
+- Porto / Cedofeita — Rua Cedofeita 2 (Porto).jpg
+- Prague / Žižkov — Žižkov z Vítkova.jpg
+- Prague / Vinohrady — Náměstí Míru a kostel 4.JPG
+- Puerto Iguazú / Iguazú National Park (Argentine side) — Iguazupano.jpg
+- Punta Cana / Cap Cana — Cap Cana Marina Dominican Republic.jpg
+- Punta Cana / Uvero Alto — Punta Cana Just Safari - Beautiful Beach on Uvero Alto.jpg
+- Reykjavík / Laugardalur — Run or walk (5873983902).jpg
+- Reykjavík / 101 Reykjavík / City Centre — Austurvöllur 2023.jpg
+- Reykjavík / Vesturbær (West End) — Reykjavík, view from Hallgrímskirkja (2).jpg
+- Reykjavík / Laugavegur / Hlemmur — Laugavegur, Reykjavik.jpg
+- Rhodes / Ialysos — Rho gen view.jpg
+- Rhodes / Rhodes Old Town (Medieval City) — Rhodes Old Town Sea Gate.JPG
+- Rhodes / Ixia — Ixia, Rhodes, Greece.jpg
+- Riga / Āgenskalns — Āgenskalna tirgus.jpg
+- Riga / Vecrīga (Old Town) — Riga Petrikirche Blick vom Turm zum Dom 3.JPG
+- Riga / Miera iela (Miera Quarter) — Miera iela 19.JPG
+- Rio de Janeiro / Copacabana — Praia de Copacabana - Rio de Janeiro, Brasil.jpg
+- Rio de Janeiro / Lapa / Centro — At Rio de Janeiro 2019 129.jpg
+- Riyadh / Olaya — Riyadh Skyline.jpg
+- Riyadh / Al Nakheel — Nakheel-Mall3.jpg
+- Riyadh / King Abdullah Financial District — Riyadh Skyline showing the King Abdullah Financial District (KAFD) and the famous Kingdom Tower .jpg
+- Jeddah / Al Hamra — King Fahd's Fountain Jeddah Fountain (5129797428).jpg
+- Rome / Monti — Rome via dei fori imperiali 20050922.jpg
+- Rome / Trastevere — Santa Maria in Trastevere fountain.jpg
+- Rome / Testaccio — Porta San Paolo - Piramid Cestius.JPG
+- Rome / Centro Storico — Trevi Fountain - Roma.jpg
+- San Marino / Serravalle — SerravalleRSMCastello2.JPG
+- San Marino / Dogana — San-Marino-Dogana-1268.jpg
+- San Marino / Domagnano — DomagnanoBorgoMaggioreRSMPanorama.JPG
+- Santiago / Providencia — Santiago de Chile from Gran torre Santiago, Mapocho river.JPG
+- Santiago / Bellavista — San Cristóbal altura.jpg
+- São Paulo / Jardins — Bairro dos jardins em são paulo.jpg
+- São Paulo / Pinheiros — Largo da Batata.jpg
+- Sapporo / Susukino — Spectaculars of Susukino-Sapporo.jpg
+- Sarajevo / Ilidža — Bridge on Vrelo Bosne.jpg
+- Seoul / Hongdae — Street hongdae Seoul.jpg
+- Seoul / Insadong — Insa-dong 인사동 October 1 2020 20.jpg
+- Seoul / Itaewon — Itaewon 2.jpg
+- Seville / Santa Cruz — Plaza santa amrta sevilla.jpg
+- Seville / El Arenal — Torredelorotyteatrolamaestranza.JPG
+- Seville / Alameda — Alameda de Hércules.JPG
+- Shanghai / The Bund — The Bund 2.jpg
+- Shanghai / Xintiandi — Xintiandi5.jpg
+- Sharjah / Al Khan — Al-Khan Lagoon, Sharjah.jpg
+- Sharjah / Al Majaz — Al Khan Lagoon by Night.jpg
+- Shenzhen / Futian — Futian Railway Station.jpg
+- Shenzhen / Bao'an — Bay Glory 2022.jpg
+- Singapore / Orchard — Presenting... the real ION (8200217734).jpg
+- Singapore / Kampong Glam — Kampong Glam aerial shot - 20250628 - RSKY.jpg
+- Skopje / Old Bazaar — Поглед кон Сули Ан и Старата скопска чаршија.JPG
+- Skopje / Centar — Stone Bridge Skopje 4.jpg
+- Skopje / Debar Maalo — Starogradska arhitektura vo Debar Maalo, Skopje na Ilindenska.jpg
+- Sofia / Vitosha Boulevard — Vitosha boulevard, Sofia.jpg
+- Stockholm / Vasastan — Stockholms-stadsbibliotek-2003-04-14.jpg
+- Stockholm / Sodermalm — Södermalm.JPG
+- Sydney / Surry Hills — Devonshire Street Surry Hils 004aa.jpg
+- Sydney / CBD — New trams operating in George street Sydney CBD - late December 2019 - 49281061742.jpg
+- Taipei / Zhongshan — Minquan West Road East View 20150509a.jpg
+- Taipei / Ximending — 從屈臣氏西門門市到錢櫃台北中華新館 20211204.jpg
+- Tallinn / Pirita — Õhuvaade Pirita asumile.png
+- Tallinn / Vanalinn (Old Town) — Tallinna vanalinn päikesetõusu ajal.jpg
+- Tbilisi / Sololaki — Sololaki Cropped from Vista de Tiflis, Georgia, 2016-09-29, DD 67-71 PAN (cropped).jpg
+- Tbilisi / Old Town (Dzveli Tbilisi) — Fortress and Old Town of Tbilisi at dusk, Tbilisi, Georgia.jpg
+- Tbilisi / Vera — Tbilisi, Georgia — Vera Garden Entrance.jpg
+- Tel Aviv / Rothschild (Lev Ha'ir) — Rothschild Boulevard, Tel Aviv-Yafo.jpg
+- Thessaloniki / Panorama — Thessaloniki from Panorama.jpg
+- Thessaloniki / Kalamaria — Aerial view of Kalamaria, Greece.jpg
+- Thessaloniki / Ano Poli — Thessalonikki, Macedonia, Greece779.jpg
+- Thessaloniki / Ladadika — Thessalonikki, Greece Street Scene 45.jpg
+- Tirana / Blloku — Former Enver Hoxha House.jpg
+- Tirana / Center (Skanderbeg Square) — Skanderbeg square from the Municipality building rooftop.jpeg
+- Tirana / Komuna e Parisit — Tirana from South.jpg
+- Tokyo / Akihabara — Sotokanda, Akihabara Electric Town at night 20231114.png
+- Tokyo / Ginza — Ginza-WAKO at night.jpg
+- Toronto / The Annex — The Annex 2022.jpg
+- Toronto / Distillery District — Gooderham.jpg
+- Vaduz / Schaan — Schaan, die Pfarrkirche Sankt Laurentius in straatzicht foto7 2014-07-21 10.12.jpg
+- Vaduz / Triesen — Regierungsgebäude in Vaduz 3.jpg
+- Valencia / Eixample — Mercado colon valencia.jpg
+- Valletta / St Julian's / Paceville — Malta-stjulians-hotels-207.jpg
+- Valletta / Mdina & Rabat — Malta - Mdina (Triq San Oswald) 02 ies.jpg
+- Valletta / Bugibba / St Paul's Bay — Malta - St. Paul's Bay - Dawret il-Gzejjer+Harbour 01 ies.jpg
+- Vancouver / Gastown — Vancouver 2018-20180422-2108 (42138196834).jpg
+- Vancouver / West End — Vancouver west end.jpg
+- Vancouver / Mount Pleasant — Mount Pleasant in Vancouver 2018.jpg
+- Vancouver / Kitsilano — Vine Street in Kitsilano.JPG
+- Venice / San Marco — Venezia Basilica di San Marco Fassade 2.jpg
+- Venice / San Polo — Chiesa di San Polo (Venice).jpg
+- Venice / Cannaregio — Canale di Cannaregio - Viewed from Grand Canal.jpg
+- Verona / San Zeno — Basilica di San Zeno 01.jpg
+- Verona / Centro Storico (Città Antica) — Lazise Centro Storico 1.jpg
+- Vienna / Leopoldstadt — Wien Riesenrad.jpg
+- Vienna / Landstraße — Palacio Belvedere, Viena, Austria, 2020-02-01, DD 93-95 HDR.jpg
+- Vilnius / Naujamiestis — Residential buildings in Naujamiestis, Vilnius.jpg
+- Vilnius / Uzupis — Uzupis 2020 by Augustas Didzgalvis.jpg
+- Vilnius / Antakalnis — Antakalnis by Augustas Didzgalvis.jpg
+- Vilnius / Senamiestis (Old Town) — Vilnius old town by Augustas Didzgalvis.jpg
+- Vilnius / Zverynas — Zverynas by Augustas Didzgalvis.jpg
+- Warsaw / Mokotow — Ulica Wołoska w Warszawie 2019.jpg
+- Warsaw / Praga — Centrum Koneser Warsaw-Praga (1).jpg
+- Washington, D.C. / Georgetown — Riggs Bank, Georgetown.jpg
+- Washington, D.C. / Shaw — Asbury Dwellings (cropped2).jpg
+
+## Neighborhood not resolvable in Nominatim (177)
+
+- Abha / Al Soudah — جبل السودة.jpg
+- Bangkok / Khao San / Banglamphu — 2016 Bangkok, Dystrykt Phra Nakhon, Ulica Khaosan (08).jpg
+- Beijing / Xicheng — Jingshan Park Peak Pagoda (8022849811).jpg
+- Belgrade / Zemun — Zemun panorama from Gardoš tower.jpg
+- Belgrade / Vračar — Hram Sv. Save u Beogradu 2023-01-07 DJI 0807-12.jpg
+- Berlin / Kreuzberg — Tempelhofer Ufer B-Kreuzberg 06-2017 img2.jpg
+- Berlin / Prenzlauer Berg — Kastanienallee, U-Bhf Eberswalder Str, Konnopke.jpg
+- Berlin / Friedrichshain — Oberbaumbrücke mit U-Bahn.jpg
+- Bologna / Quadrilatero — Quadrilatero, Bologna, Italy - panoramio (5).jpg
+- Budapest / Belvaros-Lipotvaros (District V) — Hungarian Parliament Building from across the Danube, 2025-01-11.jpg
+- Buenos Aires / Recoleta — La Recoleta Cemetery (41054043562).jpg
+- Cairo / Downtown Cairo — Suarès Palace at Mostafa Kamel Square in Cairo in 2017.jpg
+- Cancún / Hotel Zone — Skyline cancun mexico. (24209557802).jpg
+- Cancún / Downtown (El Centro) — Cancun Strand Luftbild (22143397586).jpg
+- Cancún / Puerto Cancún — Puerto Cancún entrance.jpg
+- Cancún / Punta Cancún — Skyline cancun mexico. (24209557802).jpg
+- Cape Town / V&A Waterfront — Signal Hill and Ferris wheel from Victoria Wharf balcony, Cape Town.jpg
+- Chiang Rai / Mae Kok Riverside (Rim Kok) — Mae Kok River - Chiang Rai (18820240405).jpg
+- Chișinău / Riscani — Chișinău Central Station in Moldova (Front View).jpg
+- Chișinău / Buiucani — MD.C.C - Botanical Garden of Chișinău - oct 2018 - 07.jpg
+- Copenhagen / Norrebro — Cityscape and skyline by the Copenhagen Lakes, Denmark - (36018109956).jpg
+- Denpasar / Panjer — Gereja Katedral Roh Kudus Denpasar Pagi Hari.jpg
+- Denpasar / Renon — Lapangan Puputan Renon-Monumen Bajra Sandhi - panoramio.jpg
+- Doha / West Bay — Doha skyline in the morning (12544910974) (cropped).jpg
+- Doha / Katara — Doha Qatar - Masjid Katara.jpg
+- Dublin / Rathmines — Rathmines in the autumn sun.jpg
+- Dublin / Smithfield — Smithfield Market Area Of Dublin - panoramio (9).jpg
+- Dubrovnik / Gruž — Montenegro Urlaub 2014 - panoramio (1).jpg
+- Dubrovnik / Lapad — Lapad Beach at sunset, Dubrovnik, Croatia, (PPL2-Enhanced) julesvernex2.jpg
+- Florence / Santo Spirito — Chiesa Santo Spirito, Firenze.jpg
+- Frankfurt am Main / Bornheim — Frankfurt Am Main-Bornheim-Josefskirche von Suedosten-20131227.jpg
+- Frankfurt am Main / Nordend — Blick auf das Frankfurter Nordend.jpg
+- Fukuoka / Ohori — 大濠公園 (3360365578).jpg
+- Fukuoka / Daimyo — Fukuoka Daimyō Garden City the NE side Daimyo 2-chōme Chūō-ku Fukuoka 20250113.jpg
+- Guangzhou / Tianhe — Guangzhou International Finance Center.jpg
+- Hanoi / Tay Ho (West Lake) — Swan boats at Tay Ho in 2015 01.jpg
+- Hanoi / Cau Giay — Cầu Giấy Road, Hanoi 2022-06-13 09.jpg
+- Jasper / Athabasca River Cabins — MK04281 Athabasca River.jpg
+- Jerusalem / Nachlaot — Nachlaot.JPG
+- Johor Bahru / Johor Bahru City Centre — Johor Bahru city centre landmark - panoramio (1).jpg
+- Lisbon / Alfama — Lisbon alfalma.jpg
+- Lisbon / Baixa — Lisbon Praça do Comércio BW 2018-10-08 17-42-58.jpg
+- Lisbon / Chiado — Lisbon 10064 Lisboa Praça Luís de Camões 2006 Luca Galuzzi (cropped).jpg
+- Ljubljana / Vič — Vic Slovenia - old village core.JPG
+- London / Soho & Westminster — Houses of Parliament in 2022 (cropped).jpg
+- Los Angeles / Venice — Ocean Front Walk, Venice LA.jpg
+- Los Angeles / Beverly Hills — Rodeo Drive, Beverly Hills, LA, CA, jjron 21.03.2012.jpg
+- Luxembourg City / Kirchberg — EP - Kirchberg from the skies 2025 (3).jpg
+- Luxembourg City / Ville Haute (Old Town) — Luxembourg, Place d'Armes (101).jpg
+- Luxembourg City / Clausen — Luxembourg (LU), Viaduc de Clausen -- 2023 -- 8131.jpg
+- Macau / Taipa — Taipa Building - panoramio.jpg
+- Macau / Coloane — Coloane and coastline 02.JPG
+- Macau / Cotai — MC 澳門 Macau 路氹 Taipa 金光大道 Cotai hotel shuttle view November 2019 SS2 07 The Venetian Macao bridge.jpg
+- Madrid / Chueca — Madrid Pride Orgullo 2015 58360 (19339362381).jpg
+- Madrid / Malasaña — Tejiendo Malasaña 2014 (14223976313).jpg
+- Marne-la-Vallée / Serris — Ancienne Mairie - Serris (FR77) - 2025-08-09 - 2.jpg
+- Marne-la-Vallée / Magny-le-Hongre — Étang Boiserie - Magny-le-Hongre (FR77) - 2025-08-09 - 1.jpg
+- Marrakech / Hivernage — Pavillon Menaragärten.jpg
+- Mecca / Ajyad — Ajyad, Mecca 24231, Saudi Arabia - panoramio (2).jpg
+- Mecca / Al Misfalah — Al Reyadah Grand Hotel ( Ibrahim khalil road MAKKAH) - panoramio.jpg
+- Mecca / Al Rusaifah — Rusefa rusefa mosque - panoramio.jpg
+- Medina / Quba — Quba Mosque Full Picture (2024).jpg
+- Medina / Al-Anbariyah — Anbariya Mosque, Madinah, Saudi Arabia.jpg
+- Medina / Qurban — Kebun Kurma Madinah (Umroh Ramadhan 2023)-6.jpg
+- Medina / Central Area (Al Haram) — Prophet Mosque - panoramio.jpg
+- Melbourne / St Kilda — Melbourne (AU), St Kilda Beach -- 2019 -- 1590.jpg
+- Melbourne / Richmond — Swan Street, Richmond.jpg
+- Mexico City / Condesa — Fountain at Plaza Popcatépetl, col. Hipódromo, Condesa, Mexico City.JPG
+- Miami / Wynwood — Wynwood, Miami, FL, USA - panoramio (1).jpg
+- Milan / Duomo / Centro — Milan Cathedral from Piazza del Duomo.jpg
+- Minsk / Railway Station Area — 2026.03.22 Minsk Gate Stalinist Architecture Ensemble on Train Station 01.jpg
+- Minsk / Zalataja Horka (Golden Hill) — Zalataja Horka street (Minsk) p1.jpg
+- Monaco / Monte-Carlo — Panorama von Monaco-La Turbie.jpg
+- Montreal / Plateau-Mont-Royal — Plateau Mont-Royal.jpg
+- Moscow / Khamovniki (near Gorky Park) — Moscow Gorky Park main portal 08-2016 img1.jpg
+- Moscow / Zamoskvorechye — Moscow 05-2012 TretyakovGallery.jpg
+- Munich / Haidhausen — An der Kreppe 5 (denkmalgeschütztes Gebäude, Außenansicht) in München-Haidhausen - 2007.jpg
+- Munich / Altstadt — Rathaus and Marienplatz from Peterskirche - August 2006.jpg
+- Munich / Glockenbachviertel — Das Staatstheater am Gärtnerplatz 04.jpg
+- New York / SoHo — Cast Iron Grand Crosby jeh crop.jpg
+- Nice / Cimiez — Musée archéologique de Nice-Cimiez 4.jpg
+- Nice / Vieux Nice — Nice, France (Unsplash bLF3vK X2Vc).jpg
+- Orlando / Lake Nona — College of Medicine - panoramio.jpg
+- Osaka / Tennoji — Shitennoji & Abeno Harukas.jpg
+- Oslo / Gronland — Gronland street Oslo.jpg
+- Oslo / Majorstuen — Majorstuen stasjon with 2 MX3000.jpg
+- Palma de Mallorca / Portixol — 188 365 Portixol (5914263191).jpg
+- Palma de Mallorca / Son Espanyolet — Palma. Son Espanyolet. Entrada historicista.jpg
+- Palma de Mallorca / Santa Catalina — Manche der Windmühlen im Viertel Es Jonquiet erstrahlen in neuem Glanz - panoramio.jpg
+- Paris / Champs-Élysées — Avenue des Champs-Élysées July 24, 2009 N1.jpg
+- Paris / Le Marais — Paris Hotel de Sens dsc04028.jpg
+- Paris / Saint-Germain-des-Prés — Abbaye de Saint-Germain-des-Prés 140131 1.jpg
+- Phuket / Phuket Old Town — Soi Rommanee, Phuket Town.jpg
+- Phuket / Kata — Kata beach morning 2.jpg
+- Phuket / Kamala — Kamala Beach.jpg
+- Ponce / Canas — Hotel Solace by the Sea (antiguo Hotel Ponce Quality Inn), Sector Las Cucharas, Bo. Canas, Ponce, Puerto Rico, mirando al suroeste (DSC02893B).jpg
+- Porto / Bonfim — Igreja Bonfim by Henrique Matos 01.jpg
+- Prague / Old Town — Prague Old Town Square, Czech Republic - Oct 2010.jpg
+- Prague / New Town — Prague 07-2016 Mezibranska.jpg
+- Prague / Malá Strana — 19.7.16 Prague Castle 12 (28395711206).jpg
+- Reykjavík / Old Harbour (Grandi) — Reykjavík Maritime Museum, 2020.jpg
+- Rhodes / Neochori (New Town) — Hotel Casino Rhodos.jpg
+- Riga / Maskavas Forštate (Central Market District) — Riga Central Market Hall.jpg
+- Riga / Centrs / Art Nouveau District — Riga (33844464828).jpg
+- Rio de Janeiro / Ipanema — Ipanema rio.jpg
+- Rio de Janeiro / Leblon — Leblon rio.jpg
+- Rio de Janeiro / Santa Teresa — Convento de Santa Teresa no Morro de Santa Teresa.jpg
+- Riyadh / Al Malaz — Al Malaz Riyadh, Nov 2023.jpg
+- Jeddah / Al-Balad — Bait Al Balad, Jeddah 1.jpg
+- Jeddah / Ash Shati — Al-Rahmah Mosque 2.jpg
+- Jeddah / Al Rawdah — Al-Rawdah, Jeddah Saudi Arabia - panoramio.jpg
+- Jeddah / Al Andalus — Red Sea Mall 1 Jeddah.jpg
+- Rome / Prati (Vaticano) — Basilica di San Pietro in Vaticano September 2015-1a.jpg
+- San Francisco / Haight-Ashbury — SF Haight Ashbury 2 CA.jpg
+- San Francisco / Mission District — Mission High School (cropped).jpg
+- San Francisco / Nob Hill — Fairmont Hotel, San Francisco.jpg
+- San Marino / Borgo Maggiore — Borgo Maggiore seen from San Marino - June 2016.jpg
+- San Marino / Città di San Marino (Historic Center) — Guaita Fortress - San Marino - 2024 02 13 - GT 02 (details).jpg
+- Santiago / Vitacura — Chile-02647 - Santiago (49032503503).jpg
+- Santiago / Las Condes — Las Condes (39032459385).jpg
+- Santiago / Nunoa — Municipalidad Plaza Ñuñoa - A740218.jpg
+- Santorini / Firostefani — Santorini, Route 9, 22M8922, Firostefani and Fira.jpg
+- São Paulo / Itaim Bibi — Itaim Bibi (232990015) (cropped).jpeg
+- São Paulo / Vila Madalena — Vila Madalena metro station, SP, 2021.jpg
+- São Paulo / Liberdade — Liberdade, São Paulo, Brasil - panoramio.jpg
+- Sapporo / Odori — Hokkaido Sapporo Odori Park.jpg
+- Sapporo / Chuo — Sapporo - Sapporo7175.jpg
+- Sapporo / Kita (Station area) — Hokkaido University in Winter - panoramio (1).jpg
+- Sarajevo / Vratnik — Sarajevo – Vratnik (2026).jpg
+- Sarajevo / Marijin Dvor — Sarajevo (49104820436).jpg
+- Sarajevo / Centar (Ferhadija) — Gatan Ferhadija i Sarajevo 24 juli 2023.jpg
+- Seoul / Gangnam — Teheran-ro Yeongdong-daero crossing 7.jpg
+- Seoul / Myeongdong — 명동8길 거리 (2020.03).jpg
+- Seville / Triana — Sevilla-3-12 (48040411218).jpg
+- Seville / La Macarena — Puerta de la Macarena (2).jpg
+- Sofia / NDK / Ivan Vazov — National Palace of Culture (23997858848).jpg
+- Sydney / The Rocks — Sydney (AU), The Rocks -- 2019 -- 2133.jpg
+- Sydney / Darling Harbour — 2019-04-10 Sydney CBD view from Pyrmont at sunset.jpg
+- Sydney / Bondi — Bondi from above.jpg
+- Taipei / Shilin — Tianmu, Taipei at night 20241012.jpg
+- Taipei / Da'an — Cityscape from Taipei 101 08.23 (8).jpg
+- Taipei / Xinyi — Taipei Skyline 2026.jpg
+- Tallinn / Kalamaja — Salme Street, Tallinn (2020-05-22).jpg
+- Taormina / Giardini Naxos — Lungomare Tysandros, 78, Giardini Naxos ME, Italy - panoramio.jpg
+- Tbilisi / Vake — Vake District, Tbilisi, Georgia.jpg
+- Tbilisi / Saburtalo — Construction boom in Saburtalo, Tbilisi.jpg
+- Tel Aviv / Ramat Aviv — Ramat Aviv.jpg
+- Tel Aviv / Neve Tzedek — נווה צדק - השכונה האדומה.jpg
+- Tel Aviv / Jaffa (Yafo) — Jaffa BW 3.JPG
+- Tel Aviv / Florentin — PikiWiki Israel 69381 old building in south tel aviv.jpg
+- Thessaloniki / Toumba — Παπάφειο Ορφανοτροφείο.jpg
+- Tirana / Pazari i Ri (New Bazaar) — Pazari i ri.jpg
+- Tokyo / Shibuya — Shibuya skyline from Tokyu Plaza in Omotesando, Harajuku, Tokyo, 2024 May.jpg
+- Tokyo / Asakusa — Day2-2 (40909714314).jpg
+- Tokyo / Shinjuku — Skyscrapers of Shinjuku 2009 January.jpg
+- Toronto / Yorkville — Village of Yorkville Park (37649654622).jpg
+- Toronto / Kensington Market — Kensington Market Toronto August 2017 01.jpg
+- Toronto / Queen West — Graffiti Alley Toronto, June 24 2026 (02).jpg
+- Vaduz / Triesenberg / Malbun — View of Triesenberg.jpg
+- Valencia / Ruzafa (Russafa) — Parroquia de San Francisco de Borja, Ruzafa, Valencia 01.jpg
+- Valencia / El Cabanyal — Street of Cabañal - 51675229115.jpg
+- Vancouver / Yaletown — Yaletown Roundhouse Station ext.jpg
+- Venice / Castello — Campo de l'Arsenal.jpg
+- Verona / Veronetta — Veronetta, Verona, Italy - 52949690592.jpg
+- Verona / Borgo Trento — Arsenale Franz Josef I - Wikigita Verona PIM2728.jpg
+- Verona / Cittadella — Portoni della Bra, Verona, Italy.jpg
+- Vienna / Innere Stadt — Wien - Stephansdom (1).JPG
+- Vienna / Mariahilf — Wien - Naschmarkt.JPG
+- Vienna / Neubau — MuseumsQuartier Wien Sept 2020 1.jpg
+- Vladimir / Studyonaya Gora — Церковь Михаила Архангела,Владимир.JPG
+- Warsaw / Srodmiescie — Aleja Niepdleglosci Warsaw 2022 aerial (cropped).jpg
+- Warsaw / Wilanow — Garden facade of the Wilanów Palace, 2019, 02.jpg
+- Warsaw / Stare Miasto (Old Town) — Horsecarriage on Stare Miasto (Warsaw) market square.jpg
+- Washington, D.C. / Dupont Circle — Dupont Circle fountain - facing southwest.JPG
+- Washington, D.C. / Capitol Hill — 8th Street SE sidewalk scene.jpg
+- Washington, D.C. / Adams Morgan — 1800 block of California Street, NW.JPG
+- Zhuhai / Hengqin — The Financial Island (Shizimen CBD) of Hengqin New Area.jpg
+
+## Not a Commons file (65)
+
+- Abu Dhabi / Yas Island — https://www.pexels.com/photo/modern-city-by-river-7058845/
+- Abu Dhabi / Corniche — https://www.pexels.com/photo/scenic-abu-dhabi-corniche-promenade-view-30322788/
+- Abu Dhabi / Saadiyat Island — (no source recorded)
+- Andorra la Vella / Prat de la Creu — (no source recorded)
+- Bangkok / Sukhumvit — https://pixabay.com/photos/bangkok-thonglor-sukhumvit-skyline-5271328/
+- Barcelona / Barceloneta — https://www.pexels.com/photo/sunlit-beach-scene-at-barceloneta-barcelona-34998182/
+- Belgrade / Savamala / Belgrade Waterfront — https://www.pexels.com/photo/river-and-belgrade-tower-behind-18705584/
+- Berlin / Mitte — https://pixabay.com/photos/berlin-television-tower-skyline-2394529/
+- Berlin / Neukölln — https://www.pexels.com/photo/neukolln-ship-canal-in-berlin-20725558/
+- Bologna / Bolognina — (no source recorded)
+- Bucharest / Dorobanți / Floreasca — https://www.pexels.com/photo/open-market-in-pia-a-mare-sibiu-romania-38305074/
+- Copenhagen / Frederiksberg — https://www.pexels.com/photo/white-birds-flying-in-front-of-frederiksberg-palace-15334742/
+- Denpasar / Sanur — https://pixabay.com/photos/sanur-beach-bali-indonesia-sea-6826203/
+- Doha / Msheireb — https://en.wikipedia.org/wiki/File:Msheireb_Doha.jpg
+- Dubrovnik / Old Town — https://www.pexels.com/photo/old-town-of-dubrovnik-15552997/
+- Dubrovnik / Ploče — https://www.pexels.com/photo/scenic-marina-view-in-ploce-croatia-31698314/
+- Edinburgh / New Town — https://www.pexels.com/photo/aerial-view-of-edinburgh-scotland-s-new-town-35457904/
+- Edinburgh / Stockbridge — https://www.pexels.com/photo/charming-brick-corner-in-edinburgh-s-stockbridge-30312595/
+- Florence / San Lorenzo — https://www.pexels.com/photo/facade-of-san-lorenzo-basilica-in-florence-italy-36577423/
+- Frankfurt am Main / Bockenheim — https://www.pexels.com/photo/bockenheimer-warte-subway-station-entrance-in-frankfurt-am-main-germany-19335777/
+- Frankfurt am Main / Sachsenhausen — https://pixabay.com/photos/bridge-iron-main-frankfurt-2535355/
+- Fukuoka / Hakata — https://www.pexels.com/photo/fukuoka-urban-nightscape-at-hakata-station-35196016/
+- Fukuoka / Tenjin — https://pixabay.com/photos/shrine-clear-skies-tenjin-autumn-3730098/
+- Guangzhou / Liwan — https://www.pexels.com/photo/liwan-museum-entrance-in-guangzhou-china-35272134/
+- Guangzhou / Haizhu — https://www.pexels.com/photo/haizhu-lake-in-guangzhou-in-china-20710668/
+- Hanoi / Ba Dinh — https://www.pexels.com/photo/scenic-view-of-ba-dinh-square-in-hanoi-34477004/
+- Hanoi / Dong Da — https://www.pexels.com/photo/statue-at-dong-da-hill-park-hanoi-vietnam-38003938/
+- Helsinki / Kallio — https://pixabay.com/photos/kallio-church-helsinki-finland-577770/
+- Johor Bahru / Iskandar Puteri — https://www.pexels.com/photo/view-of-the-sultan-ismail-building-in-iskandar-puteri-malaysia-20301097/
+- Kotor / Dobrota — https://www.pexels.com/photo/saint-matthias-church-in-dobrota-by-the-bay-of-kotor-26706425/
+- Kotor / Muo — https://www.pexels.com/photo/photo-of-a-mountain-town-12198891/
+- Kraków / Kazimierz — https://pixabay.com/photos/krak%C3%B3w-kazimierz-the-market-889674/
+- Kyiv / Pechersk — https://www.pexels.com/photo/majestic-kyiv-pechersk-lavra-cathedral-exterior-35158522/
+- Melbourne / Carlton — https://www.pexels.com/photo/streets-in-melbourne-18326531/
+- Mexico City / Centro Historico — https://pixabay.com/photos/dome-palace-of-fine-arts-df-cdmx-4597099/
+- Miami / Brickell — https://pixabay.com/photos/miami-florida-flags-usa-1635943/
+- Milan / Porta Nuova — https://www.pexels.com/photo/stunning-milan-skyline-with-porta-nuova-skyscrapers-34551392/
+- Minsk / Nemiga — https://pixabay.com/photos/minsk-belarus-city-architecture-3172635/
+- Moscow / Krasny Oktyabr / Bolotnaya (Red October) — https://www.pexels.com/photo/ferries-on-the-river-with-a-view-of-the-krasny-oktyabr-factory-in-moscow-russia-10879011/
+- Orlando / Winter Park — https://www.pexels.com/photo/people-waiting-in-a-gazebo-at-winter-park-14071206/
+- Pattaya-Chonburi / Jomtien Beach — https://pixabay.com/photos/seascape-sea-beach-ocean-sand-5542469/
+- Pattaya-Chonburi / Naklua — https://pixabay.com/photos/naklua-thailand-asia-beach-sea-5321943/
+- Porto / Ribeira — https://www.pexels.com/photo/buildings-on-sea-coast-in-town-in-portugal-24879031/
+- Porto / Foz do Douro — https://www.pexels.com/photo/sunset-at-foz-do-douro-beach-porto-portugal-33928809/
+- Punta Cana / Bavaro — https://pixabay.com/photos/dominican-republic-punta-cana-shore-5107400/
+- Rhodes / Lindos — https://www.pexels.com/photo/stunning-coastal-cliffs-with-boats-in-lindos-bay-32963025/
+- Riyadh / Diplomatic Quarter — https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg
+- San Francisco / Chinatown — https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/
+- San Francisco / The Castro — https://www.pexels.com/photo/signage-on-a-white-and-red-concrete-building-7409340/
+- Sapporo / Maruyama — https://pixabay.com/photos/autumn-autumnal-leaves-990448/
+- Sarajevo / Baščaršija — https://www.pexels.com/photo/bascarsija-sarajevo-bosnia-and-herzegovina-20813420/
+- Shenzhen / Luohu — https://pixabay.com/photos/luohu-shenzhen-railway-station-207245/
+- Shenzhen / Nanshan — https://pixabay.com/photos/shenzhen-city-panoramic-4789821/
+- Skopje / Vodno — https://pixabay.com/photos/nature-mountain-panoramic-landscape-3135545/
+- Stockholm / Norrmalm — https://www.pexels.com/photo/photo-of-a-brown-concrete-building-7795143/
+- Tallinn / Rotermann — https://www.pexels.com/photo/night-street-view-with-light-trails-in-tallinn-36566370/
+- Tirana / Pyramid / Artificial Lake area — https://www.pexels.com/photo/the-pyramide-postdam-germany-22690534/
+- Vaduz / Balzers — https://www.pexels.com/photo/scenic-view-of-balzers-in-liechtenstein-with-snowy-alps-37021728/
+- Vaduz / Vaduz Städtle (City Center) — https://www.pexels.com/photo/vaduz-castle-in-liechtenstein-on-clear-day-37021731/
+- Valencia / Ciutat Vella — https://pixabay.com/photos/rambla-building-ciutat-vella-people-5301525/
+- Valencia / El Carmen — https://www.pexels.com/photo/spanish-religious-niche-with-virgen-del-carmen-37026830/
+- Valletta / Valletta — https://www.pexels.com/photo/grand-harbour-in-valletta-malta-18021128/
+- Valletta / Sliema — https://pixabay.com/photos/sliema-bay-valletta-malta-2398143/
+- Venice / Dorsoduro — https://www.pexels.com/photo/people-eating-on-restaurant-outdoor-terrace-14616842/
+- Zurich / Niederdorf — https://pixabay.com/photos/zurich-historic-center-historical-4976000/

@@ -60,6 +60,8 @@
   /* Search / filter bar */
   .filter-bar{max-width:var(--maxw);margin:36px auto 0;padding:0 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
   .search-wrap{position:relative;flex:1;min-width:220px}
+  .sort-wrap{display:flex;flex-direction:column;gap:4px}
+  .sort-label{font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
   .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none}
   #city-search{width:100%;padding:12px 16px 12px 42px;font-size:.97rem;font-family:inherit;
     border:2px solid rgba(63,81,56,.2);border-radius:0;background:#fff;color:var(--ink);transition:border-color .2s}
@@ -203,13 +205,16 @@
     <input id="city-search" type="search" placeholder="Search cities or countries…" autocomplete="off" />
     <ul id="city-search-list" class="ac-list" hidden></ul>
   </div>
-  <select id="city-sort" aria-label="Sort cities">
-    <option value="az">A → Z</option>
-    <option value="za">Z → A</option>
-    <option value="visited">Most Visited</option>
-    <option value="cheap">Least Expensive</option>
-    <option value="lux">Most Expensive</option>
-  </select>
+  <div class="sort-wrap">
+    <label for="city-sort" class="sort-label">Sort by:</label>
+    <select id="city-sort" aria-label="Sort cities">
+      <option value="az">A → Z</option>
+      <option value="za">Z → A</option>
+      <option value="visited">Most Visited</option>
+      <option value="cheap">Least Expensive</option>
+      <option value="lux">Most Expensive</option>
+    </select>
+  </div>
   <span class="count-badge" id="count-label"></span>
 </div>
 
@@ -1206,6 +1211,9 @@ function buildCards(list) {
         <div class="card-actions">
           <div class="card-actions-row">
             <span class="explore-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
               Explore
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -1343,6 +1351,14 @@ function aliasTerms(query) {
   }
   return terms;
 }
+// Abbreviation terms (uae, us, uk, sa, nz, dr, ksa…) must match the WHOLE
+// country field, never just appear inside it — otherwise a short code like
+// "us" false-matches any country that happens to contain those letters
+// (Australia, Russia, Austria, Mauritius…). Full-name terms (>3 chars,
+// e.g. "united states") still match as a substring as before.
+function abbrMatch(countryText, term) {
+  return term.length <= 3 ? countryText === term : countryText.includes(term);
+}
 
 function applyFilters() {
   const q = document.getElementById("city-search").value.trim().toLowerCase();
@@ -1359,8 +1375,8 @@ function applyFilters() {
       // so a coincidental substring in a tagline (e.g. "ksa" inside
       // "Seoraksan") can't fake a match. This applies whether the
       // abbreviation was typed directly or reached via aliasTerms().
-      return (isAbbrQuery ? countryText.includes(q) : text.includes(q))
-        || extra.some(t => countryText.includes(t));
+      return (isAbbrQuery ? abbrMatch(countryText, q) : text.includes(q))
+        || extra.some(t => abbrMatch(countryText, t));
     });
   }
   buildCards(sortList(list, mode));
@@ -1379,7 +1395,7 @@ function buildCitySuggestions(q) {
   const seenCountries = new Set();
   for (const c of CITIES) {
     const countryText = c.country.toLowerCase();
-    if (countryText.includes(query) || extra.some(t => countryText.includes(t))) {
+    if (countryText.includes(query) || extra.some(t => abbrMatch(countryText, t))) {
       if (seenCountries.has(c.country)) continue;
       seenCountries.add(c.country);
       out.push({ label: "All Cities", sub: c.country, value: c.country, isCountry: true });
@@ -1388,7 +1404,8 @@ function buildCitySuggestions(q) {
 
   for (const c of CITIES) {
     const text = (c.city + " " + c.country).toLowerCase();
-    if (text.includes(query) || extra.some(t => text.includes(t))) {
+    const countryText = c.country.toLowerCase();
+    if (text.includes(query) || extra.some(t => abbrMatch(countryText, t))) {
       if (seen.has(c.city)) continue;
       seen.add(c.city);
       out.push({ label: c.city, sub: c.country, value: c.city, isCountry: false });

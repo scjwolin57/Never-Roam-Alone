@@ -456,7 +456,7 @@ window.NRA_HOOD_PHOTO = {
     "Coconut Grove": { img:"images/hoods/miami--coconut-grove.webp", page:"https://commons.wikimedia.org/wiki/File:Coconut_Grove_Street_20100321.jpg" },
     "South Beach": { img:"images/hoods/miami--south-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Ocean_drive_day_2009j.JPG" },
     "Little Havana": { img:"images/hoods/miami--little-havana.webp", page:"https://commons.wikimedia.org/wiki/File:Little_Havana_Dominos_Park.JPG" },
-    "Wynwood": { img:"images/hoods/miami--wynwood.webp", page:"https://commons.wikimedia.org/wiki/File:Midtownmiamicenter.jpg" },
+    "Wynwood": { img:"images/hoods/miami--wynwood.webp", page:"https://commons.wikimedia.org/wiki/File:Wynwood,_Miami,_FL,_USA_-_panoramio_(1).jpg", src:"Sebastian Carlosena" },
     "Brickell": { img:"images/hoods/miami--brickell.webp", page:"https://pixabay.com/photos/miami-florida-flags-usa-1635943/", src:"Pixabay" }
   },
   "Milan": {
