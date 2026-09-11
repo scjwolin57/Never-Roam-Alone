@@ -1359,23 +1359,31 @@ function aliasTerms(query) {
 function abbrMatch(countryText, term) {
   return term.length <= 3 ? countryText === term : countryText.includes(term);
 }
+// Full country names actually present in the data ("china", "japan", …),
+// lowercased. Typing one of these exactly means the user wants that
+// country, not a tagline that happens to mention it in passing — e.g.
+// searching "china" shouldn't surface Japan (tagline: "East China Sea",
+// "largest Chinatown") or Peru (tagline: "Huacachina" lagoon).
+const COUNTRY_NAMES = new Set(CITIES.map(c => c.country.toLowerCase()));
 
 function applyFilters() {
   const q = document.getElementById("city-search").value.trim().toLowerCase();
   const extra = aliasTerms(q);
   const isAbbrQuery = Object.prototype.hasOwnProperty.call(NRA_ALIASES, q);
+  const isCountryQuery = COUNTRY_NAMES.has(q);
   const mode = document.getElementById("city-sort").value;
   let list = CITIES;
   if (q) {
     list = CITIES.filter(c => {
       const text = (c.city + " " + c.country + " " + c.tagline).toLowerCase();
       const countryText = c.country.toLowerCase();
-      // Abbreviations (UAE, KSA, etc.) only stand in for a country name —
-      // match them against the country field, not the whole description,
-      // so a coincidental substring in a tagline (e.g. "ksa" inside
-      // "Seoraksan") can't fake a match. This applies whether the
-      // abbreviation was typed directly or reached via aliasTerms().
-      return (isAbbrQuery ? abbrMatch(countryText, q) : text.includes(q))
+      // Abbreviations (UAE, KSA, etc.) and exact country names only stand
+      // in for a country — match them against the country field, not the
+      // whole description, so a coincidental mention in a tagline (e.g.
+      // "ksa" inside "Seoraksan", or "china" inside "East China Sea")
+      // can't fake a match. This applies whether the abbreviation was
+      // typed directly or reached via aliasTerms().
+      return ((isAbbrQuery || isCountryQuery) ? abbrMatch(countryText, q) : text.includes(q))
         || extra.some(t => abbrMatch(countryText, t));
     });
   }
