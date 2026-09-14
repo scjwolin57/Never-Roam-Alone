@@ -388,8 +388,9 @@
   .evt-link-btn{display:inline-block;margin-top:8px;font-size:.8rem;font-weight:700;color:var(--green);text-decoration:none}
   /* Submit form */
   .evt-form label{display:block;font-size:.78rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.04em;margin:14px 0 5px}
-  .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file]{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
-  .evt-form input:focus{outline:none;border-color:var(--green)}
+  .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file],.evt-form textarea{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  .evt-form input:focus,.evt-form textarea:focus{outline:none;border-color:var(--green)}
+  .evt-form textarea{resize:vertical;line-height:1.5}
   .evt-form select{width:100%;box-sizing:border-box;border:1.5px solid #ddd4c2;border-radius:9px;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
   .evt-form select:focus{outline:none;border-color:var(--green)}
   .evt-form label.evt-check{display:flex;align-items:center;gap:9px;text-transform:none;letter-spacing:0;color:var(--ink);font-weight:600;font-size:.9rem;margin:12px 0 0}
@@ -404,6 +405,23 @@
   .evt-msg{font-size:.85rem;font-weight:600}
   .evt-msg.ok{color:var(--green)}
   .evt-msg.err{color:#b3261e}
+  /* Insights interview form — long questionnaire, so the question labels read
+     as sentences rather than the short all-caps field labels above. */
+  .insights-modal{max-width:620px}
+  .evt-form label.evt-q{text-transform:none;letter-spacing:0;font-size:.95rem;font-weight:600;
+    color:var(--ink);line-height:1.5;margin:20px 0 6px}
+  .evt-form label.evt-q .evt-qn{font-family:'Work Sans',monospace;font-size:.72rem;letter-spacing:.1em;
+    color:var(--coral);margin-right:8px}
+  /* Always its own line under the question, never tucked after the question mark. */
+  .evt-form label.evt-q .evt-hint{display:block}
+  .insights-qs{border-top:1px dashed rgba(43,36,23,.25);margin-top:22px;padding-top:4px}
+  .insights-qs-note{font-size:.82rem;color:var(--muted);margin:14px 0 0;font-style:italic}
+  .insights-auth{background:rgba(92,105,51,.07);border:1px solid rgba(43,36,23,.18);border-radius:3px;
+    padding:14px 16px;margin:4px 0 6px}
+  .insights-auth-note{margin:0 0 11px;font-size:.88rem;line-height:1.5;color:var(--ink)}
+  .insights-auth-who{margin:0 0 4px;font-size:.95rem;color:var(--ink)}
+  .insights-auth-who strong{color:var(--green)}
+  .insights-auth .evt-hint{margin:0}
 
   /* Public transit banner — full-width card below the transport cards */
   .transit-banner{margin-top:18px}
@@ -684,6 +702,19 @@
   }
 
   .sec-head{font-size:1.8rem;margin:0 0 22px}
+  /* Plate 08 (Insights) — two centered cards side by side, each with its own
+     accent stripe so the traveler and local halves read as separate panels. */
+  .insights-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:4px}
+  .insights-col{background:var(--card);border:1px solid var(--ink);border-radius:3px;
+    box-shadow:0 8px 20px rgba(43,36,23,.14);padding:26px 24px 28px;
+    display:flex;flex-direction:column;align-items:center;text-align:center}
+  .insights-col.is-traveler{border-top:4px solid var(--green)}
+  .insights-col.is-local{border-top:4px solid var(--coral)}
+  .insights-col .rm-head{margin:0 0 8px}
+  .insights-col.is-local .rm-head{color:var(--coral)}
+  .insights-col p{margin:0 0 20px;font-size:.92rem;line-height:1.6;color:var(--muted);max-width:34ch}
+  .insights-col .cal-submit-btn{margin-top:auto}
+  @media(max-width:760px){.insights-cols{grid-template-columns:1fr;gap:18px}}
   /* Plate 09 (Dispatches) is just a heading, a placeholder line and a back
      link — centered rather than left-aligned like the fuller sections above. */
   .dispatches-empty{text-align:center}
@@ -838,6 +869,11 @@
   .evt-modal{background:var(--card)!important;border:1px solid var(--ink)!important;border-radius:0!important}
   .evt-modal h3{font-family:'Fraunces',serif!important;color:var(--ink)!important}
   .evt-form label{font-family:'Work Sans',monospace!important;letter-spacing:.14em!important;color:var(--teal)!important;font-size:.62rem!important}
+  /* Interview questions are sentences, not field labels — keep them readable. */
+  .evt-form label.evt-q{font-family:'Fraunces',Georgia,serif!important;letter-spacing:0!important;
+    color:var(--ink)!important;font-size:1rem!important}
+  .evt-form label.evt-q .evt-qn{font-family:'Work Sans',monospace!important;font-size:.72rem!important;
+    letter-spacing:.1em!important;color:var(--coral)!important}
   .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file],.evt-form select,.evt-form textarea{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   .evt-form .evt-send{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
   .evt-form .evt-send:hover{background:#8a3a20!important}
@@ -2815,13 +2851,13 @@ if(!c){
       ${plate("08","Insights")}
       <h2 class="sec-head">Real experiences in <em>${c.city}</em></h2>
       <p class="hood-intro">Two sides of the same city: what it's like to visit, and what it's like to live there.</p>
-      <div class="tr-cols">
-        <div class="tr-col">
+      <div class="insights-cols">
+        <div class="insights-col is-traveler">
           <h3 class="rm-head">Traveler's Take</h3>
           <p>Firsthand stories from travelers who've visited ${c.city}.</p>
           <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="traveler">Contribute Your Experience</button>
         </div>
-        <div class="tr-col">
+        <div class="insights-col is-local">
           <h3 class="rm-head">Local's Perspective</h3>
           <p>Insight from people who live in ${c.city}, in their own words.</p>
           <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="local">Contribute Your Experience</button>
@@ -3290,15 +3326,60 @@ if(!c){
 
   /* ---------- Insights: contribute-your-experience modal ----------
      Two buttons (Traveler's Take / Local's Perspective) open the same modal
-     shell, tagged with which side it's for. Questions aren't written yet —
-     for now this just collects contact info + a free-text response and
-     emails it in for review. */
+     shell, tagged with which side it's for. A type with questions in
+     QUESTIONS below renders them as an interview; a type without them falls
+     back to a single free-text box until its questions are written. Either
+     way the answers are emailed in for review. */
   (function initInsights(){
     const openBtns = document.querySelectorAll(".insights-open-btn");
     if (!openBtns.length) return;
 
     const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, ch => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[ch]));
     const LABEL = { traveler: "Traveler's Take", local: "Local's Perspective" };
+    /* Interview questions, in order. `hint` shows as small print under the
+       question. Each list ends with its own catch-all question. */
+    const QUESTIONS = {
+      traveler: [
+        { q: "What did the guidebooks/Instagram get wrong about this city?" },
+        { q: "What's one thing that was even better than the hype?" },
+        { q: "What disappointed you, and would it stop you from recommending the city?" },
+        { q: "Describe the city in three words now that you've been." },
+        { q: "What's the moment from your trip you still think about?" },
+        { q: "Did you feel welcome?", hint: "How were the locals with travelers? How easy was it to meet people (locals or other travelers)?" },
+        { q: "What do you wish you'd known before arriving?" },
+        { q: "What did you overpack or overplan — and what did you wish you'd brought or booked?" },
+        { q: "Where did you stay, and would you pick that neighborhood again?" },
+        { q: "How safe did you feel, including at night or as a solo traveler?" },
+        { q: "Best thing you ate — and where?" },
+        { q: "One place, activity, or experience you'd tell every visitor not to skip?" },
+        { q: "What's popular that you'd honestly tell people to skip?" },
+        { q: "Would you go back? What would you do differently the second time?" },
+        { q: "What's the one tip you'd give someone landing there tomorrow?" },
+        { q: "Anything else you would like to share?" }
+      ],
+      local: [
+        { q: "What's something about daily life here that surprises visitors?", hint: "Rhythm, customs, quirks." },
+        { q: "What's a local phrase, habit, or unwritten rule a visitor should know?", hint: "Tipping, greetings, queueing." },
+        { q: "Describe your city's personality in three words." },
+        { q: "One neighborhood beyond the tourist center worth wandering — and why?" },
+        { q: "A local artist, shop, market, or event you'd tell a first-time visitor not to miss?" },
+        { q: "What do locals complain about — and secretly love anyway?" },
+        { q: "What's considered rude here that visitors do without realizing?" },
+        { q: "What's the one thing everyone here argues about?", hint: "Best bakery, which neighborhood, a sports rivalry…" },
+        { q: "What dish or drink can you only get right here — and where's it done best?" },
+        { q: "What's the late-night food ritual after a night out?" },
+        { q: "What's overrated on every “must eat” list — and what should replace it?" },
+        { q: "When is the worst time to visit — and when's the best time?" },
+        { q: "What's a free thing to do here that beats most paid attractions?" },
+        { q: "Which famous sight is worth the crowds, and which one can visitors skip?" },
+        { q: "What would make a visitor instantly win over locals?" },
+        { q: "Anything else you would like to mention?" }
+      ]
+    };
+    /* Fills the "N questions about …" line at the top of each interview. */
+    const ABOUT = { traveler: "questions about your trip", local: "questions about life where you live" };
+    const pad2 = n => (n < 10 ? "0" + n : "" + n);
+    const authUser = () => (window.NRA_AUTH && NRA_AUTH.user && NRA_AUTH.user()) || null;
 
     const ov = document.createElement("div");
     ov.className = "evt-overlay";
@@ -3308,20 +3389,63 @@ if(!c){
     function close(){ ov.classList.remove("open"); document.removeEventListener("keydown", escClose); }
     function escClose(e){ if (e.key === "Escape") close(); }
 
+    /* Who's submitting. Signed in: their profile name and email are used and
+       the fields are hidden. Signed out: they get a sign-in button plus the
+       name/email fields. Repainted on its own so answers already typed into
+       the questions survive a sign-in. */
+    function identityHTML(){
+      const user = authUser();
+      if (user){
+        const who = (window.NRA_AUTH.displayName && NRA_AUTH.displayName()) || user.email || "";
+        return `<div class="insights-auth is-in">` +
+          `<p class="insights-auth-who">Submitting as <strong>${esc(who)}</strong></p>` +
+          `<p class="evt-hint">This is the name shown on your interview if it's published — change it in your profile.</p>` +
+        `</div>`;
+      }
+      return `<div class="insights-auth">` +
+          `<p class="insights-auth-note">Sign in so your interview is credited to your Roamer profile — or just fill in your details below.</p>` +
+          `<button type="button" class="cal-submit-btn" id="insights-signin">Sign in / Sign up</button>` +
+        `</div>` +
+        `<label>Your name *<input type="text" name="name" maxlength="80" required>` +
+          `<span class="evt-hint">This is the name shown on your interview if it's published.</span></label>` +
+        `<label>Your email *<input type="email" name="email" maxlength="120" required></label>`;
+    }
+    function paintIdentity(){
+      const slot = ov.querySelector("#insights-identity");
+      if (!slot) return;
+      slot.innerHTML = identityHTML();
+      const btn = slot.querySelector("#insights-signin");
+      if (btn) btn.onclick = () => { if (window.NRA_AUTH && NRA_AUTH.openModal) NRA_AUTH.openModal(); };
+    }
+
     let openedAt = 0;
     function render(type){
       const label = LABEL[type] || LABEL.traveler;
+      const qs = QUESTIONS[type] || [];
+      const intro = qs.length
+        ? `In ${esc(c.city)}. ${qs.length} ${ABOUT[type] || "questions"} — answer as many as you like and skip anything that doesn't apply. We review every submission before anything is posted to the guide.`
+        : `In ${esc(c.city)}. Interview questions are coming soon — for now, tell us a bit about yourself and we'll be in touch. We review every submission before anything is posted to the guide.`;
+      const body = qs.length
+        ? `<div class="insights-qs">` +
+            qs.map((item, i) =>
+              `<label class="evt-q" for="insights-q${i}"><span class="evt-qn">${pad2(i+1)}</span>${esc(item.q)}` +
+                (item.hint ? `<span class="evt-hint">${esc(item.hint)}</span>` : "") +
+              `</label>` +
+              `<textarea id="insights-q${i}" name="q${i}" rows="3" maxlength="1200"></textarea>`
+            ).join("") +
+            `<p class="insights-qs-note">Answer at least one question to submit.</p>` +
+          `</div>`
+        : `<label>Tell us about your experience *<textarea name="response" rows="6" maxlength="4000" placeholder="Share a bit about your ${type === "local" ? "life in" : "trip to"} ${esc(c.city)}&hellip;" required></textarea></label>`;
       ov.innerHTML =
-        `<div class="evt-modal" role="dialog" aria-modal="true">` +
+        `<div class="evt-modal insights-modal" role="dialog" aria-modal="true">` +
           `<button type="button" class="evt-close" aria-label="Close">&times;</button>` +
           `<h3>${esc(label)}: contribute your experience</h3>` +
-          `<p class="evt-modal-sub">In ${esc(c.city)}. Interview questions are coming soon — for now, tell us a bit about yourself and we'll be in touch. We review every submission before anything is posted to the guide.</p>` +
+          `<p class="evt-modal-sub">${intro}</p>` +
           `<form class="evt-form" id="insights-form">` +
             `<div class="evt-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>` +
             `<input type="hidden" name="type" value="${esc(type)}">` +
-            `<label>Your name *<input type="text" name="name" maxlength="80" required></label>` +
-            `<label>Your email *<input type="email" name="email" maxlength="120" required></label>` +
-            `<label>Tell us about your experience *<textarea name="response" rows="6" maxlength="4000" placeholder="Share a bit about your ${type === "local" ? "life in" : "trip to"} ${esc(c.city)}&hellip;" required></textarea></label>` +
+            `<div id="insights-identity"></div>` +
+            body +
             `<div class="evt-actions">` +
               `<button type="submit" class="evt-send">Submit for review</button>` +
               `<span class="evt-msg" id="insights-msg"></span>` +
@@ -3334,11 +3458,13 @@ if(!c){
           `</div>` +
         `</div>`;
       ov.querySelector(".evt-close").onclick = close;
-      wireForm();
+      paintIdentity();
+      wireForm(type);
       openedAt = Date.now();
     }
 
-    function wireForm(){
+    function wireForm(type){
+      const qs = QUESTIONS[type] || [];
       const form = ov.querySelector("#insights-form");
       const msg = ov.querySelector("#insights-msg");
       const thanks = ov.querySelector("#insights-thanks");
@@ -3348,9 +3474,19 @@ if(!c){
         const get = k => String(fd.get(k) || "").trim();
         // honeypot: real people never fill the hidden "website" field
         if (get("website")){ form.hidden = true; thanks.hidden = false; return; }
-        const name = get("name"), email = get("email"), response = get("response");
-        if (!name || !email || !response){
-          msg.className = "evt-msg err"; msg.textContent = "Please fill in every required field (marked *)."; return;
+        // Signed in: the profile name and email stand in for the hidden fields.
+        const user = authUser();
+        const name  = user ? ((window.NRA_AUTH.displayName && NRA_AUTH.displayName()) || user.email || "") : get("name");
+        const email = user ? (user.email || "") : get("email");
+        const response = get("response");
+        // interview answers, keeping only the questions they actually answered
+        const answers = qs.map((item, i) => ({ q: item.q, a: get("q" + i) })).filter(x => x.a);
+        if (!name || !email || (qs.length ? !answers.length : !response)){
+          msg.className = "evt-msg err";
+          msg.textContent = qs.length
+            ? (user ? "Please answer at least one question." : "Please add your name, your email, and an answer to at least one question.")
+            : "Please fill in every required field (marked *).";
+          return;
         }
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
           msg.className = "evt-msg err"; msg.textContent = "Please enter a valid email address."; return;
@@ -3362,7 +3498,7 @@ if(!c){
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              city: c.city, type: get("type"), name, email, response,
+              city: c.city, type: get("type"), name, email, response, answers,
               website: get("website"), elapsedMs: Date.now() - openedAt
             })
           });
@@ -3378,11 +3514,16 @@ if(!c){
       });
     }
 
+    // Signing in from inside the modal swaps the name/email fields for the
+    // profile line without disturbing answers already typed.
+    if (window.NRA_AUTH && NRA_AUTH.onChange) NRA_AUTH.onChange(() => paintIdentity());
+
     openBtns.forEach(btn => {
       btn.addEventListener("click", () => {
         render(btn.dataset.insightType === "local" ? "local" : "traveler");
         open();
-        const n = ov.querySelector('[name="name"]'); if (n) setTimeout(() => n.focus(), 30);
+        const first = ov.querySelector('[name="name"]') || ov.querySelector("textarea");
+        if (first) setTimeout(() => first.focus(), 30);
       });
     });
   })();
