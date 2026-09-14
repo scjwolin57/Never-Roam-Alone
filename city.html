@@ -236,8 +236,25 @@
   .net-head .cost-icon{margin-bottom:0}
   .net-est{color:var(--muted);font-size:.72rem;font-style:italic}
   .esim-btn{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.85rem;
-    padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap}
+    padding:8px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;
+    border:none;cursor:pointer;font-family:inherit}
   .esim-btn:hover{background:var(--coral)}
+  /* Travel eSIMs modal — one card per provider, see esim-providers.js */
+  .esim-intro{font-size:.92rem;margin:0 0 8px}
+  .esim-devices{font-size:.85rem;margin:0 0 18px}
+  .esim-devices a{color:var(--green);font-weight:600;text-decoration:underline;text-underline-offset:2px}
+  .esim-devices a:hover{color:var(--coral)}
+  .esim-list{display:flex;flex-direction:column;gap:12px}
+  .esim-prov{border:1px solid var(--line-soft);border-radius:12px;padding:14px 16px;background:var(--sand)}
+  .esim-prov-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .esim-prov-name{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.05rem;color:var(--ink)}
+  .esim-prov-tag{font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;
+    color:var(--green);background:rgba(92,105,51,.12);padding:3px 8px;border-radius:20px}
+  .esim-prov-blurb{font-size:.88rem;margin:8px 0 0;color:var(--muted)}
+  .esim-buy{margin-left:auto;background:var(--green);color:#fff;font-weight:700;font-size:.8rem;
+    padding:7px 16px;border-radius:20px;text-decoration:none;white-space:nowrap}
+  .esim-buy:hover{background:var(--coral)}
+  .esim-foot{font-size:.76rem;margin:18px 0 0;font-style:italic;color:var(--muted)}
   .net-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:16px}
   .ns{min-width:0}
   .ns-v{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.25rem;margin-top:3px}
@@ -813,6 +830,8 @@
     .fact{padding:14px}
     .tcard{padding:14px}
     .modal-card{padding:20px 16px 24px;border-radius:14px}
+    /* eSIM cards: let the buy button drop below the name instead of crowding it */
+    .esim-buy{margin-left:0;margin-top:4px}
 
     /* Currency converter stacks neatly */
     .conv-row{flex-direction:column;align-items:stretch}
@@ -1117,6 +1136,10 @@
 <!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
      Provides window.nraAppLink(name, country). -->
 <script src="app-store-links.js"></script>
+<!-- Travel-eSIM coverage + verified deep links, keyed by country (~25 KB).
+     Provides window.NRA_ESIM / _HOSTS / _AFF / _PROVIDERS for the
+     "Travel eSIMs" modal behind the Connectivity banner's Buy an eSIM button. -->
+<script src="esim-providers.js"></script>
 <!-- Approved visitor photos overlay the static ones. Loaded here, ahead of
      the render script below, so its fetch runs alongside the city data
      instead of after it. nra-config.js moves up with it for the keys. -->
@@ -2329,13 +2352,6 @@ if(!c){
   const rides = CITY_RIDES[c.city];
   const drinks = CITY_DRINKS[c.city];
   const net = CITY_NET[c.city];
-  const AIRALO_AFF = "https://airalo.pxf.io/c/7466324/3869553/15608";
-  function airaloSlug(country, city){
-    const map = {"Türkiye":"turkey","UAE":"united-arab-emirates","Czechia":"czech-republic","China (SAR)":({"Hong Kong":"hong-kong","Macau":"macao"}[city]||(city||"").toLowerCase().replace(/\s+/g,"-"))};
-    if (map[country]) return map[country];
-    return (country||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
-  }
-  const esimUrl = AIRALO_AFF + "?u=" + encodeURIComponent("https://www.airalo.com/" + airaloSlug(c.country, c.city) + "-esim");   /* dynamic Airalo affiliate link by country */
 
   /* Emergency numbers + embassy finder card */
   const em = CITY_EMERGENCY[c.city];
@@ -2541,7 +2557,7 @@ if(!c){
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.net}</span>
           <div class="k">Connectivity</div>
           <span class="net-est">country averages &middot; estimates</span>
-          <a class="esim-btn" href="${esimUrl}" target="_blank" rel="noopener">Buy an eSIM &rarr;</a>
+          <button type="button" class="esim-btn" onclick="openModal('Travel eSIMs')">Buy an eSIM &rarr;</button>
         </div>
         <div class="net-stats">
           <div class="ns">
@@ -3920,6 +3936,49 @@ if(!c){
     return `<p class="rt-intro">${w.note}</p>`;
   }
 
+  /* Travel eSIMs — one card per provider. Coverage and the verified deep
+     links live in esim-providers.js; a null path there means that provider
+     sells nothing for this country, so the buy button is hidden rather than
+     pointed at a dead page. Hong Kong and Macau share the country
+     "China (SAR)", so they are looked up by "country::city" first. */
+  function buildEsimModal() {
+    const T = window.NRA_ESIM;
+    if (!T) return `<p class="modal-placeholder">Loading eSIM options&hellip;</p>`;
+    const row = T[c.country + "::" + c.city] || T[c.country] || null;
+    const n   = row ? row.filter(Boolean).length : 0;   /* providers covering this country */
+    const any = n > 0;
+
+    const rows = window.NRA_ESIM_PROVIDERS.map((p, i) => {
+      const path = row ? row[i] : null;
+      /* No plan for this country — drop the provider from the card entirely
+         rather than advertising a service the traveller can't use here. */
+      if (!path) return "";
+      const dest = window.NRA_ESIM_HOSTS[p.key] + path;
+      const tpl  = window.NRA_ESIM_AFF[p.key] || "{url}";
+      const href = tpl === "{url}" ? dest : tpl.replace("{url}", encodeURIComponent(dest));
+      return `
+            <div class="esim-prov">
+              <div class="esim-prov-head">
+                <span class="esim-prov-name">${p.name}</span>
+                <span class="esim-prov-tag">${p.tag}</span>
+                <a class="esim-buy" href="${href}" target="_blank" rel="noopener sponsored">Get plans &rarr;</a>
+              </div>
+              <p class="esim-prov-blurb">${p.blurb}</p>
+            </div>`;
+    }).join("");
+
+    return `
+          <p class="esim-intro">${any
+            ? `A travel eSIM gets you data the moment you land in ${c.country} &mdash; no SIM shop, no roaming bill. ` + (
+                n === 3 ? `Here's how the three we track compare.`
+              : n === 2 ? `Two of the providers we track cover it &mdash; here's how they compare.`
+              :           `One of the providers we track covers it.`)
+            : `None of the eSIM providers we track currently sell data plans for ${c.country}. A local SIM bought on arrival is usually the only option.`}</p>
+          ${any ? `<p class="esim-devices">Most modern phones have eSIM capability. If you're not sure, <a href="https://saily.com/esim-supported-devices/" target="_blank" rel="noopener">check your phone model here</a>.</p>` : ""}
+          <div class="esim-list">${rows}</div>
+          ${any ? `<p class="esim-foot">Prices and coverage checked September 2026 and can change. Links are affiliate links &mdash; they cost you nothing extra and help keep Never Roam Alone free.</p>` : ""}`;
+  }
+
   /* city-food.js is large, so it is fetched only when the visitor asks for it
      (on hover, or on click of the meal card's food link). */
   let foodDataPromise = null;
@@ -4040,6 +4099,8 @@ if(!c){
       modalBody.innerHTML = buildAlcoholModal();
     } else if (title === "Tap water safety") {
       modalBody.innerHTML = buildWaterModal();
+    } else if (title === "Travel eSIMs") {
+      modalBody.innerHTML = buildEsimModal();
     } else if (title === "Major train stations" || title === "Major bus stations" || title === "Ferry / boat ports") {
       /* Route data is lazy-loaded; the build functions themselves fall back to
          the "coming soon" placeholder when a city has no data on file. */
