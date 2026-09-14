@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name='impact-site-verification' value='6a068da0-6001-47d3-b7b4-b5e73ec347d3'>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
@@ -154,6 +155,24 @@
   .trip-btn .t{font-weight:700;font-size:.98rem;line-height:1.3}
   .trip-btn .t small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
 
+  /* ---------- Shared trips (your public Current & Upcoming trips, read-only) ---------- */
+  .shared-trips{margin-top:26px}
+  .shared-trips h4{margin:0 0 4px;font-size:.92rem}
+  .shared-trip{margin-top:18px}
+  .shared-trip h5{margin:0;font-size:1rem;font-family:'Fraunces',Georgia,serif}
+  .trip-table{width:100%;border-collapse:collapse;margin-top:10px;font-size:.9rem}
+  .trip-table th{
+    text-align:left;font-weight:800;color:var(--muted);font-size:.7rem;text-transform:uppercase;
+    letter-spacing:.05em;padding:9px 10px;border-bottom:2px solid rgba(63,81,56,.18);
+  }
+  .trip-table td{padding:11px 10px;border-bottom:1px solid rgba(63,81,56,.1);vertical-align:top}
+  .trip-table tr:last-child td{border-bottom:none}
+  .trip-table .tnum{color:var(--green);font-weight:800;width:34px}
+  .trip-table .tcity{font-weight:700}
+  .trip-table .tnights{text-align:center;font-weight:700;white-space:nowrap}
+  .trip-table .tdates{color:var(--muted);font-weight:600;font-size:.82rem}
+  .table-empty{color:var(--muted);font-size:.9rem;margin:8px 0 0}
+
   /* ---------- Favorite travel photos ---------- */
   .photos-zone{margin-top:34px;padding-top:22px;border-top:1px solid rgba(63,81,56,.18)}
   .photos-zone h3{margin:0 0 6px;font-size:1.05rem}
@@ -205,7 +224,7 @@
   /* ---------- Footer ---------- */
   footer{background:#5c6933;color:#fff;text-align:center;padding:40px 22px}
   footer .brand{justify-content:center;color:#fff}
-  footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
+  footer .foot-links{margin-top:12px;display:grid;grid-template-columns:repeat(5,auto);gap:12px 20px;justify-content:center}
   footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   @media (max-width:560px){
@@ -535,6 +554,11 @@
           <span class="t">Favorites<small>Cities you've hearted</small></span>
         </a>
       </div>
+      <!-- Trips you've shared (is_public) that are still Current & Upcoming — hidden when there are none -->
+      <div class="shared-trips" id="shared-trips" style="display:none">
+        <h4>Your shared trips</h4>
+        <div id="shared-trips-body"></div>
+      </div>
     </div>
 
     <!-- Personal Travel Map: "been there" toggle on every map pin, plus
@@ -740,6 +764,7 @@
   let filledWithData = false;  // true once we've filled from a real (loaded) profile, not an empty one
   let healing = false;         // guards the direct profile re-fetch below
   async function render(){
+    renderSharedTrips();   // independent of the form below; hides itself when signed out
     const auth = window.NRA_AUTH;
     if (!auth || !auth.enabled){ show("guest"); return; }
     const user = auth.user();
@@ -779,6 +804,98 @@
       filledWithData = hasData;
       fillForm(p);
       refreshMailing();
+    }
+  }
+
+  /* ==================================================================
+     SHARED TRIPS — read-only tables at the bottom of the page for any
+     named trip (itinerary.html "My Itineraries") the user has switched
+     to "Share trip" (itineraries.is_public), as long as it's still
+     Current & Upcoming (its last stop, by order, hasn't passed yet).
+     Past/ended trips and private trips never show here.
+  ================================================================== */
+  function tripFmtDate(s){
+    if (!s) return "";
+    const p = s.split("-");
+    if (p.length !== 3) return s;
+    const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return MONTHS[(+p[1]) - 1] + " " + (+p[2]) + ", " + p[0];
+  }
+  function tripDateRange(a, dep){
+    if (a && dep) return tripFmtDate(a) + " – " + tripFmtDate(dep);
+    if (a) return tripFmtDate(a);
+    if (dep) return "until " + tripFmtDate(dep);
+    return "—";
+  }
+  function tripNights(a, dep){
+    if (!a || !dep) return "—";
+    const n = Math.round((Date.parse(dep + "T00:00:00") - Date.parse(a + "T00:00:00")) / 86400000);
+    return (isNaN(n) || n < 0) ? "—" : String(n);
+  }
+  /* mirrors itinerary.html's tripEnded(): last stop (by order), depart date if set else arrive */
+  function sharedTripEnded(cities){
+    if (!cities || !cities.length) return false;
+    const last = cities[cities.length - 1];
+    const endDate = last.depart || last.arrive;
+    if (!endDate) return false;
+    return endDate < new Date().toISOString().slice(0,10);
+  }
+  function guideCity(place){
+    const m = (window.NRA_DESTINATIONS || []).find(d => String(d.city||"").toLowerCase() === String(place||"").trim().toLowerCase());
+    return m || null;
+  }
+  function buildSharedTripTable(cities){
+    if (!cities.length) return `<p class="table-empty">No stops added yet.</p>`;
+    let rows = "";
+    cities.forEach((p, i) => {
+      const g = guideCity(p.place);
+      const country = escA(p.country || (g && g.country) || "");
+      const nameHtml = g
+        ? `<a class="place-link" href="city.html?city=${encodeURIComponent(g.city)}">${escA(g.city)}</a>`
+        : escA(p.place);
+      rows += `<tr class="trow-main">
+        <td class="tnum">${i+1}</td>
+        <td class="tcity">${nameHtml}</td>
+        <td class="tcountry">${country || "—"}</td>
+        <td class="tnights">${escA(tripNights(p.arrive, p.depart))}</td>
+      </tr>
+      <tr class="trow-dates"><td class="tdates" colspan="4">${escA(tripDateRange(p.arrive, p.depart))}</td></tr>`;
+    });
+    return `<table class="trip-table">
+      <thead><tr><th class="tnum">#</th><th class="tcity">City</th><th class="tcountry">Country</th><th class="tnights">Nights</th></tr></thead>
+      <tbody>${rows}</tbody></table>`;
+  }
+  async function renderSharedTrips(){
+    const wrap = $("shared-trips"), body = $("shared-trips-body");
+    if (!wrap || !body) return;
+    const auth = window.NRA_AUTH;
+    const user = auth && auth.enabled && auth.user && auth.user();
+    if (!user || !auth.client){ wrap.style.display = "none"; body.innerHTML = ""; return; }
+    try{
+      const sb = auth.client();
+      const { data: itins, error: e1 } = await sb.from("itineraries")
+        .select("id,name,is_public").eq("is_public", true)
+        .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      if (e1) throw e1;
+      if (!itins || !itins.length){ wrap.style.display = "none"; body.innerHTML = ""; return; }
+      const ids = itins.map(it => it.id);
+      const { data: places, error: e2 } = await sb.from("itinerary_places")
+        .select("itinerary_id,place,country,arrive,depart").in("itinerary_id", ids)
+        .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      if (e2) throw e2;
+      const byItin = {};
+      (places || []).forEach(p => { (byItin[p.itinerary_id] = byItin[p.itinerary_id] || []).push(p); });
+      const current = itins.filter(it => !sharedTripEnded(byItin[it.id] || []));
+      if (!current.length){ wrap.style.display = "none"; body.innerHTML = ""; return; }
+      body.innerHTML = current.map(it => `
+        <div class="shared-trip">
+          <h5>${escA(it.name)}</h5>
+          ${buildSharedTripTable(byItin[it.id] || [])}
+        </div>`).join("");
+      wrap.style.display = "";
+    }catch(e){
+      // roamers-setup.sql not run yet, or a transient fetch error — fail quiet, no broken UI
+      wrap.style.display = "none"; body.innerHTML = "";
     }
   }
 
@@ -1253,6 +1370,7 @@
     map.on("error", () => { $("map-fallback").hidden = false; });
     map.on("load", () => {
       mapLoaded = true;
+      map.resize(); // container's real width isn't always settled when the map is constructed — without this, the canvas can be sized too narrow and the rest of the box shows as plain background (half "greyed out")
       map.addSource("profile-pins", { type:"geojson", data: pinsGeojson() });
       map.addLayer({
         id:"profile-pin-dots", type:"circle", source:"profile-pins",

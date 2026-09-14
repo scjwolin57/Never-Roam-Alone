@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name='impact-site-verification' value='6a068da0-6001-47d3-b7b4-b5e73ec347d3'>
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png" />
@@ -182,6 +183,20 @@
   .trip-table .tnights{text-align:center;font-weight:700;white-space:nowrap}
   .table-empty{color:var(--muted);text-align:center;padding:30px 10px 16px;font-size:.95rem}
 
+  /* ---------- Calendar view (per-trip) ---------- */
+  .ig-cal-month{margin:22px 0 0}
+  .ig-cal-month h6{margin:0 0 8px;font-family:'Fraunces',Georgia,serif;font-size:1rem;font-weight:700;color:var(--ink)}
+  .ig-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .ig-cal-grid.ig-cal-head{margin-bottom:4px}
+  .ig-cal-grid.ig-cal-head div{text-align:center;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .ig-cal-cell{min-height:64px;padding:4px;border:1px solid rgba(63,81,56,.14);background:#fff;overflow:hidden}
+  .ig-cal-cell.empty{border-color:transparent;background:transparent}
+  .ig-cal-cell.today{border-color:var(--green);border-width:2px}
+  .ig-cal-daynum{display:block;font-size:.72rem;font-weight:700;color:var(--muted);margin-bottom:2px}
+  .ig-cal-chip{display:block;font-size:.72rem;font-weight:700;color:var(--green);background:rgba(63,81,56,.1);
+    padding:2px 5px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  a.ig-cal-chip:hover{color:var(--teal)}
+
   /* ---------- View switch (sliding toggle) ---------- */
   .view-switch{
     position:relative;display:flex;width:300px;max-width:100%;margin:26px auto 0;
@@ -264,7 +279,7 @@
   /* ---------- Footer ---------- */
   footer{background:#5c6933;color:#fff;text-align:center;padding:40px 22px;margin-top:40px}
   footer .brand{justify-content:center;color:#fff}
-  footer .foot-links{margin-top:12px;display:flex;gap:20px;justify-content:center}
+  footer .foot-links{margin-top:12px;display:grid;grid-template-columns:repeat(5,auto);gap:12px 20px;justify-content:center}
   footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ---------- My Itineraries tab ---------- */
@@ -287,11 +302,14 @@
   }
   .ig-badge{
     display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
-    padding:4px 10px;border-radius:3px;margin-bottom:8px;
+    padding:4px 10px;border-radius:3px;flex-shrink:0;
   }
   .ig-badge.is-current{background:rgba(92,105,51,.15);color:var(--green)}
   .ig-badge.is-upcoming{background:rgba(181,73,44,.12);color:var(--coral)}
-  .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+  .ig-badge.is-past{background:rgba(0,0,0,.06);color:var(--muted)}
+  .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:0}
+  .ig-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+  .ig-public-wrap{display:inline-flex;align-items:center;gap:6px;flex-shrink:0}
   .ig-name{
     flex:1;font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--ink);
     border:2px solid transparent;border-radius:10px;padding:6px 8px;background:transparent;outline:none;transition:.15s;
@@ -309,15 +327,21 @@
     font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
   }
   .ig-share:hover{background:rgba(63,81,56,.1)}
-  .ig-share.on{background:var(--green);border-color:var(--green);color:#fff}
-  .ig-share.on:hover{background:var(--teal-dark)}
   .ig-share:disabled{opacity:.6;cursor:default}
-  .ig-unshare{
-    border:none;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;
-    font-weight:600;font-size:.72rem;font-family:inherit;padding:6px 4px;flex-shrink:0;
+  .ig-public{
+    border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
+    font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:18px;transition:.2s;flex-shrink:0;
   }
-  .ig-unshare:hover{color:#b34a3a}
-  .ig-unshare:disabled{opacity:.6;cursor:default}
+  .ig-public:hover{background:rgba(63,81,56,.1)}
+  .ig-public.on{background:var(--green);border-color:var(--green);color:#fff}
+  .ig-public.on:hover{background:var(--teal-dark)}
+  .ig-public:disabled{opacity:.6;cursor:default}
+  .ig-info-btn{
+    border:1px solid rgba(63,81,56,.4);background:none;color:var(--green);cursor:pointer;
+    font-weight:700;font-size:.68rem;font-family:'Fraunces',Georgia,serif;font-style:italic;
+    width:19px;height:19px;line-height:1;padding:0;flex-shrink:0;
+  }
+  .ig-info-btn:hover{background:rgba(63,81,56,.1)}
   .ig-edit-btn{
     border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
     font-weight:700;font-size:.76rem;font-family:inherit;padding:6px 13px;border-radius:3px;transition:.2s;flex-shrink:0;
@@ -416,9 +440,13 @@
     .ig-stop{flex-wrap:wrap}
     .wish-stop{flex-wrap:wrap}
     .ig-head{flex-basis:100%}
+    .ig-actions{flex-basis:100%}
     .ig-name{flex-basis:100%}
     .itin-new-row input{flex-basis:100%}
     .itin-new-row button{flex-basis:100%}
+    .ig-cal-cell{min-height:44px;padding:2px}
+    .ig-cal-daynum{font-size:.64rem}
+    .ig-cal-chip{font-size:.6rem;padding:1px 3px}
   }
 
   /* ================= EXPLORER form dossier (generic) ================= */
@@ -441,7 +469,7 @@
   /* ================= SQUARE CORNERS: buttons, pills, popups, inputs (site-wide consistency pass) ================= */
   .trip-toggle button,.req-btn,.rm-btn,.stop .drag,.view-switch button,.view-switch .knob,
   .ig-view-switch button,.ig-suggest,.ns-chip,.ns-add,.ns-guide,.ns-more,.itin-new-row button,
-  .ig-del,.ig-share,.share-modal,.share-modal .sm-yes,.share-modal .sm-no,.wish-actions button,
+  .ig-del,.ig-share,.ig-public,.ig-info-btn,.share-modal,.share-modal .sm-yes,.share-modal .sm-no,.wish-actions button,
   .wish-move,.ig-stop .drag,.chip,.suggest,.ig-name{border-radius:0!important}
 </style>
   <link rel="stylesheet" href="fonts/site-fonts.css">
@@ -512,14 +540,25 @@
   </div>
 </div>
 
-<!-- ===== "Public profile needed" popup (shown when sharing a trip) ===== -->
+<!-- ===== "Public profile needed" popup (shown when making a trip public) ===== -->
 <div class="share-overlay" id="share-overlay" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
   <div class="share-modal">
-    <h3 id="share-modal-title">A public profile is needed to share your itinerary</h3>
-    <p>Sharing a trip shows your name, photo and travel dates in the &ldquo;Roamers in town&rdquo; section of each city on your route, so other travelers can say hi. For that, your public Roamer profile needs to be on.</p>
+    <h3 id="share-modal-title">A public profile is needed to make a trip public</h3>
+    <p>Making a trip public shows your name, photo and travel dates in the &ldquo;Roamers in town&rdquo; section of each city on your route, so other travelers can say hi. For that, your public Roamer profile needs to be on.</p>
     <div class="sm-btns">
-      <button type="button" class="sm-yes" id="share-modal-yes">Turn on my public profile &amp; share this trip</button>
+      <button type="button" class="sm-yes" id="share-modal-yes">Turn on my public profile &amp; make this trip public</button>
       <button type="button" class="sm-no" id="share-modal-no">Not now — keep my profile hidden</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== "What does Make public/private do?" info popup ===== -->
+<div class="share-overlay" id="public-info-overlay" role="dialog" aria-modal="true" aria-labelledby="public-info-title">
+  <div class="share-modal">
+    <h3 id="public-info-title">What does making a trip public do?</h3>
+    <p>Turning a trip public shows your name, photo, and the cities and dates on that trip's route in the &ldquo;Roamers in town&rdquo; section of each city guide on your route, so other signed-in members can see you'll be there and say hi. It doesn't send your itinerary to anyone by itself — that's what the separate Share trip button is for — and it never shares payment, contact, or account details. You can switch a trip back to private at any time.</p>
+    <div class="sm-btns">
+      <button type="button" class="sm-no" id="public-info-close">Got it</button>
     </div>
   </div>
 </div>
@@ -580,7 +619,8 @@
   if (typeParam === "itineraries") typeParam = "upcoming";   // old links keep working
   let type = ALL_TABS.includes(typeParam) ? typeParam : "upcoming";
   let view = "edit";   // "edit" (interactive list) or "table" (read-only) — past only
-  const tripCardView = {};   // per-trip Edit/Table state on the Upcoming tab: itinerary id -> "edit" | "table"
+  const tripCardView = {};   // per-trip view state on the Upcoming tab: itinerary id -> "edit" | "table" | "calendar"
+  const tripLastView = {};   // itinerary id -> "table" | "calendar" — which one "Done editing" returns to
   let shareOK = true;        // false if itineraries.is_public doesn't exist yet (roamers-setup.sql not run)
   let tipsOK = true;         // false if itineraries.receive_tips doesn't exist yet (trip-tips-setup.sql not run)
   let selectedTripId = null; // Upcoming tab: which trip card is selected (the search box sits below it)
@@ -752,6 +792,7 @@
     applyTabChrome();
     if (type === "upcoming"){ await migrateFlatUpcoming(); await renderItineraries(); return; }
     if (type === "wishlist"){ await renderWishlist(); return; }
+    if (type === "past"){ await renderItineraries(); }   // ended named trips show above the flat past list below
     paintViewToggle();
     const listEl = $("list"), emptyEl = $("empty");
     let items;
@@ -894,6 +935,17 @@
       return false;
     });
     return current ? "Current Trip" : "Upcoming Trip";
+  }
+  /* ---- has this trip fully ended? last stop (by order) is used, not the latest date ----
+     Depart date wins when set, else that stop's arrive date. No date on the last
+     stop → we can't tell, so it stays on the Upcoming tab. */
+  function tripEnded(cities){
+    if (!cities || !cities.length) return false;
+    const last = cities[cities.length - 1];
+    const endDate = last.depart || last.arrive;
+    if (!endDate) return false;
+    const todayISO = new Date().toISOString().slice(0,10);
+    return endDate < todayISO;
   }
   function renderTable(items){
     const el = $("table-view");
@@ -1116,7 +1168,7 @@
     // on Upcoming it's hidden here and revealed by applyTripSelection() below the selected trip.
     if (sr) sr.style.display = (isTrips || ((isWish) && !signedIn())) ? "none" : "";
     $("itin-new-row").style.display = (isTrips && signedIn()) ? "" : "none";
-    $("itin-groups").style.display = isTrips ? "" : "none";
+    $("itin-groups").style.display = (isTrips || type === "past") ? "" : "none";
     $("wish-wrap").style.display = isWish ? "" : "none";
     if (isTrips || isWish){
       $("list").style.display = "none";
@@ -1166,11 +1218,12 @@
     parkSearchRow();                 // move the search row out before we rebuild the cards (so it isn't wiped)
     if (!signedIn()){
       newRow.style.display = "none";
+      if (type === "past"){ groups.innerHTML = ""; return; }   // the flat past list below has its own sign-in note
       groups.innerHTML = `<p class="empty" style="display:block">Sign in to build named trips — then add cities from any city guide or the Destination Finder. <button type="button" id="itin-signin" class="btn ghost" style="display:inline;padding:6px">Sign in</button></p>`;
       const b = $("itin-signin"); if (b && window.NRA_AUTH && NRA_AUTH.openModal) b.addEventListener("click", () => NRA_AUTH.openModal());
       return;
     }
-    newRow.style.display = "";
+    newRow.style.display = (type === "upcoming") ? "" : "none";
     groups.innerHTML = `<p class="empty" style="display:block">Loading your trips…</p>`;
     let itins = [], places = [];
     try{
@@ -1201,13 +1254,19 @@
       return;
     }
     if (!itins.length){
-      groups.innerHTML = `<p class="empty" style="display:block">No trips yet. Name one above, or open any city guide and tap “Add to trip.”</p>`;
+      groups.innerHTML = (type === "past") ? "" : `<p class="empty" style="display:block">No trips yet. Name one above, or open any city guide and tap “Add to trip.”</p>`;
       return;
     }
     const byItin = {};
     places.forEach(p => { (byItin[p.itinerary_id] = byItin[p.itinerary_id] || []).push(p); });
+    // a trip whose last stop (by order) has already passed lives on the Past tab instead
+    const visibleItins = itins.filter(it => tripEnded(byItin[it.id] || []) === (type === "past"));
+    if (!visibleItins.length){
+      groups.innerHTML = (type === "past") ? "" : `<p class="empty" style="display:block">No trips yet. Name one above, or open any city guide and tap “Add to trip.”</p>`;
+      return;
+    }
     groups.innerHTML = "";
-    itins.forEach(it => {
+    visibleItins.forEach(it => {
       const cities = byItin[it.id] || [];
       const card = document.createElement("div");
       card.className = "itin-group";
@@ -1240,19 +1299,32 @@
       }
       const cardView = tripCardView[it.id] || "table";
       const tableHtml = buildTripTable(cities);
-      const badge = tripStatus(cities);
+      const calendarHtml = buildTripCalendar(cities);
+      const badge = (type === "past") ? "Past Trip" : tripStatus(cities);
+      const badgeClass = badge === "Current Trip" ? "is-current" : (badge === "Past Trip" ? "is-past" : "is-upcoming");
+      const viewSwitchHtml = cardView === "edit" ? "" : `<div class="ig-view-switch" role="radiogroup" aria-label="Trip view">
+            <button type="button" role="radio" aria-checked="${cardView === "table"}" class="${cardView === "table" ? "active" : ""}" data-set-view="table" data-trip="${esc(String(it.id))}">📋 Table</button>
+            <button type="button" role="radio" aria-checked="${cardView === "calendar"}" class="${cardView === "calendar" ? "active" : ""}" data-set-view="calendar" data-trip="${esc(String(it.id))}">📅 Calendar</button>
+          </div>`;
       card.innerHTML = `
-        <div class="ig-badge ${badge === "Current Trip" ? "is-current" : "is-upcoming"}">${badge}</div>
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
-          ${shareOK ? `<button class="ig-share${it.is_public ? " on" : ""}" type="button" data-share="${esc(String(it.id))}"
-            title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — tap to share the link again" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "✅ Shared" : "📤 Share trip"}</button>
-            ${it.is_public ? `<button class="ig-unshare" type="button" data-unshare="${esc(String(it.id))}">Make private</button>` : ""}` : ""}
-          <button class="ig-edit-btn" type="button" data-view-toggle="${esc(String(it.id))}">${cardView === "table" ? "✏️ Edit trip" : "📋 View table"}</button>
+          <span class="ig-badge ${badgeClass}">${badge}</span>
+        </div>
+        <div class="ig-actions">
+          <button class="ig-share" type="button" data-share="${esc(String(it.id))}" title="Send this trip's itinerary to someone">📤 Share trip</button>
+          ${shareOK ? `<span class="ig-public-wrap">
+            <button class="ig-public${it.is_public ? " on" : ""}" type="button" data-public="${esc(String(it.id))}"
+              title="${it.is_public ? "Shown in “Roamers in town” on the city pages on this route — tap to make private" : "Show this trip in “Roamers in town” on the city pages on your route"}">${it.is_public ? "✅ Public" : "🌍 Make public"}</button>
+            <button class="ig-info-btn" type="button" data-public-info aria-label="What does making a trip public do?" title="What does this do?">i</button>
+          </span>` : ""}
+          ${viewSwitchHtml}
+          <button class="ig-edit-btn" type="button" data-view-toggle="${esc(String(it.id))}">${cardView === "edit" ? "✅ Done editing" : "✏️ Edit trip"}</button>
           <button class="ig-del" type="button" data-del="${esc(String(it.id))}">🗑️ Delete trip</button>
         </div>
-        <div class="ig-stops" style="display:${cardView === "table" ? "none" : ""}">${rows}</div>
+        <div class="ig-stops" style="display:${cardView === "edit" ? "" : "none"}">${rows}</div>
         <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
+        <div class="ig-calendar" style="display:${cardView === "calendar" ? "" : "none"}">${calendarHtml}</div>
         <div class="ig-foot"><button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button>${tipsOK ? `<label class="ig-tips"><input type="checkbox" data-tips="${esc(String(it.id))}"${it.receive_tips ? " checked" : ""}> ✉️ Email me tips for this trip</label><span class="ig-tips-msg" data-tipsmsg="${esc(String(it.id))}"></span>` : ""}</div>
         <div class="ns-panel" data-ns="${esc(String(it.id))}" style="display:none"></div>
         <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
@@ -1260,7 +1332,7 @@
       groups.appendChild(card);
     });
     wireItinEvents();
-    applyTripSelection();
+    if (type === "upcoming") applyTripSelection();   // Past tab keeps the search row for the flat list, not tucked into a card
   }
 
   /* ---- Upcoming tab: highlight the selected trip and put the search box inside it ----
@@ -1269,7 +1341,7 @@
   function applyTripSelection(){
     const groups = $("itin-groups"), sr = searchRowEl;
     const cards = Array.from(groups.querySelectorAll(".itin-group"));
-    if (!cards.length || !signedIn()){
+    if (type !== "upcoming" || !cards.length || !signedIn()){
       if (sr){ parkSearchRow(); sr.style.display = "none"; }
       return;
     }
@@ -1315,6 +1387,54 @@
     return `<table class="trip-table">
       <thead><tr><th class="tnum">#</th><th class="tcity">City</th><th class="tcountry">Country</th><th class="tnights">Nights</th></tr></thead>
       <tbody>${rows}</tbody></table>`;
+  }
+
+  /* ---- read-only calendar for one trip card: one month grid per month the trip touches ---- */
+  const CAL_DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  function buildTripCalendar(cities){
+    const stops = (cities || []).filter(p => p.arrive || p.depart);
+    if (!stops.length){
+      return `<p class="table-empty">No dates set yet — add arrive/depart dates in “Edit trip” to see them on a calendar.</p>`;
+    }
+    const dayCities = {};   // "YYYY-MM-DD" -> [place, ...]
+    let minISO = null, maxISO = null;
+    stops.forEach(p => {
+      const start = p.arrive || p.depart, end = p.depart || p.arrive;
+      if (!minISO || start < minISO) minISO = start;
+      if (!maxISO || end > maxISO) maxISO = end;
+      const last = new Date(end + "T00:00:00");
+      for (let d = new Date(start + "T00:00:00"); d <= last; d.setDate(d.getDate() + 1)){
+        const iso = d.toISOString().slice(0,10);
+        (dayCities[iso] = dayCities[iso] || []).push(p);
+      }
+    });
+    const todayISO = new Date().toISOString().slice(0,10);
+    let y = +minISO.slice(0,4), m = +minISO.slice(5,7) - 1;
+    const endY = +maxISO.slice(0,4), endM = +maxISO.slice(5,7) - 1;
+    let html = "";
+    while (y < endY || (y === endY && m <= endM)){
+      const daysInMonth = new Date(y, m+1, 0).getDate();
+      const startDow = new Date(y, m, 1).getDay();
+      let cells = "";
+      for (let i = 0; i < startDow; i++) cells += `<div class="ig-cal-cell empty"></div>`;
+      for (let day = 1; day <= daysInMonth; day++){
+        const iso = y + "-" + String(m+1).padStart(2,"0") + "-" + String(day).padStart(2,"0");
+        const chips = (dayCities[iso] || []).map(p => {
+          const g = guideOf(p.place);
+          return g
+            ? `<a class="ig-cal-chip" href="city.html?city=${encodeURIComponent(g.city)}">${esc(g.city)}</a>`
+            : `<span class="ig-cal-chip">${esc(p.place)}</span>`;
+        }).join("");
+        cells += `<div class="ig-cal-cell${iso === todayISO ? " today" : ""}"><span class="ig-cal-daynum">${day}</span>${chips}</div>`;
+      }
+      html += `<div class="ig-cal-month">
+        <h6>${MONTHS[m]} ${y}</h6>
+        <div class="ig-cal-grid ig-cal-head">${CAL_DOW.map(d => `<div>${d}</div>`).join("")}</div>
+        <div class="ig-cal-grid">${cells}</div>
+      </div>`;
+      m++; if (m > 11){ m = 0; y++; }
+    }
+    return html;
   }
 
   /* ================= SUGGEST NEXT STOP =================
@@ -1595,12 +1715,22 @@
 
   function wireItinEvents(){
     const groups = $("itin-groups");
-    /* per-trip Edit trip / View table toggle button */
+    /* per-trip Edit trip / Done editing toggle button — returns to whichever of
+       Table/Calendar was showing before (tripLastView), defaulting to Table */
     groups.querySelectorAll(".ig-edit-btn").forEach(b => {
       b.addEventListener("click", () => {
         const card = b.closest(".itin-group");
         const id = card.dataset.id;
-        tripCardView[id] = (tripCardView[id] || "table") === "table" ? "edit" : "table";
+        tripCardView[id] = (tripCardView[id] || "table") === "edit" ? (tripLastView[id] || "table") : "edit";
+        renderItineraries();
+      });
+    });
+    /* per-trip Table/Calendar view switch */
+    groups.querySelectorAll("[data-set-view]").forEach(b => {
+      b.addEventListener("click", () => {
+        const id = b.dataset.trip, v = b.dataset.setView;
+        tripCardView[id] = v;
+        tripLastView[id] = v;
         renderItineraries();
       });
     });
@@ -1623,17 +1753,26 @@
         nsRenderPanel(card);
       }
     });
-    /* share a trip: pop the share options (native share sheet / copy link).
-       Making the trip public (so it can appear in "Roamers in town") happens
-       first if it isn't already, then the share sheet opens right after. */
+    /* share a trip: pop the share options (native share sheet / copy link) so it
+       can be sent to someone. This never touches whether the trip is public —
+       that's the separate Make public/Make private control below. */
     groups.querySelectorAll("[data-share]").forEach(btn => {
-      btn.addEventListener("click", async () => {
+      btn.addEventListener("click", () => {
         const id = btn.dataset.share;
         const card = btn.closest(".itin-group");
         const tripName = ((card && card.querySelector(".ig-name")) || {}).value || "";
+        openShareSheet(tripName, id);
+      });
+    });
+    /* make a trip public/private for "Roamers in town" on the city pages */
+    groups.querySelectorAll("[data-public]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        const id = btn.dataset.public;
         const isOn = btn.classList.contains("on");
         if (isOn){
-          openShareSheet(tripName, id);   // already shared — just pop the share options again
+          btn.disabled = true;
+          try{ await setTripPublic(id, false); status("This trip is private again.", "ok"); renderItineraries(); }
+          catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
           return;
         }
         const p = (window.NRA_AUTH && NRA_AUTH.profile && NRA_AUTH.profile()) || null;
@@ -1641,24 +1780,18 @@
           btn.disabled = true;
           try{
             await setTripPublic(id, true);
-            status("Trip shared — you'll now appear in “Roamers in town” on the city pages on this route.", "ok");
+            status("Trip is now public — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
             renderItineraries();
-            openShareSheet(tripName, id);
           }
-          catch(e){ btn.disabled = false; status("Couldn't share that — please try again.", "err"); }
+          catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
           return;
         }
-        openShareModal(id, tripName);   // profile isn't public yet — ask first
+        openShareModal(id);   // profile isn't public yet — ask first
       });
     });
-    /* stop sharing a trip (separate small control so Share always pops options) */
-    groups.querySelectorAll("[data-unshare]").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const id = btn.dataset.unshare;
-        btn.disabled = true;
-        try{ await setTripPublic(id, false); status("This trip is private again.", "ok"); renderItineraries(); }
-        catch(e){ btn.disabled = false; status("Couldn't update that — please try again.", "err"); }
-      });
+    /* "i" popup explaining what Make public/Make private does to the trip */
+    groups.querySelectorAll("[data-public-info]").forEach(btn => {
+      btn.addEventListener("click", () => openPublicInfoModal());
     });
     /* ✉️ Email me tips — save the choice; when it's turned ON, send the email */
     groups.querySelectorAll("[data-tips]").forEach(box => {
@@ -1880,15 +2013,13 @@
   }
 
   /* ---- "public profile needed" popup ----
-     Sharing a trip requires the user's public Roamer profile to be on,
+     Making a trip public requires the user's public Roamer profile to be on,
      so other travelers can see who they are. If it's off we ask:
-       1. turn the public profile on (we flip it for them) and share, or
+       1. turn the public profile on (we flip it for them) and make it public, or
        2. dismiss — trip stays private, profile stays hidden.       */
   let shareModalTripId = null;
-  let shareModalTripName = "";
-  function openShareModal(tripId, tripName){
+  function openShareModal(tripId){
     shareModalTripId = tripId;
-    shareModalTripName = tripName || "";
     const yes = $("share-modal-yes");
     yes.disabled = false;
     $("share-overlay").classList.add("open");
@@ -1899,7 +2030,6 @@
   }
   $("share-modal-yes").addEventListener("click", async () => {
     const tripId = shareModalTripId;
-    const tripName = shareModalTripName;
     if (!tripId){ closeShareModal(); return; }
     const yes = $("share-modal-yes"); yes.disabled = true;
     try{
@@ -1907,9 +2037,8 @@
       if (!r || !r.ok) throw new Error("profile");
       await setTripPublic(tripId, true);
       closeShareModal();
-      status("Your public profile is on and this trip is shared — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
+      status("Your public profile is on and this trip is now public — you'll appear in “Roamers in town” on the city pages on this route.", "ok");
       renderItineraries();
-      openShareSheet(tripName, tripId);
     }catch(e){
       yes.disabled = false;
       status("Couldn't turn that on — please try again.", "err");
@@ -1921,6 +2050,13 @@
   });
   $("share-overlay").addEventListener("click", (e) => { if (e.target === $("share-overlay")) closeShareModal(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("share-overlay").classList.contains("open")) closeShareModal(); });
+
+  /* ---- "what does Make public/private do?" info popup (the ⓘ button next to it) ---- */
+  function openPublicInfoModal(){ $("public-info-overlay").classList.add("open"); }
+  function closePublicInfoModal(){ $("public-info-overlay").classList.remove("open"); }
+  $("public-info-close").addEventListener("click", closePublicInfoModal);
+  $("public-info-overlay").addEventListener("click", (e) => { if (e.target === $("public-info-overlay")) closePublicInfoModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("public-info-overlay").classList.contains("open")) closePublicInfoModal(); });
 
   /* ==================================================================
      WISHLIST TAB — a dateless "someday" list (account only).
