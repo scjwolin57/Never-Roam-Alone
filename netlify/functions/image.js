@@ -10,6 +10,9 @@
 // Add &count=8 (2-12) to get a LIST of matches instead — used by the
 // blog editor's image picker so you can choose between several photos.
 // Response then looks like: { results: [ {url, thumb, credit, ...}, ... ] }
+//
+// Add &orientation=portrait|squarish to override the default "landscape"
+// (used by city.html's neighborhood-tile loader, which needs a 3:4 crop).
 
 exports.handler = async (event) => {
   const q = ((event.queryStringParameters && event.queryStringParameters.q) || "").trim();
@@ -18,12 +21,15 @@ exports.handler = async (event) => {
   const countRaw = parseInt((event.queryStringParameters && event.queryStringParameters.count) || "", 10);
   const count = Number.isFinite(countRaw) ? Math.min(12, Math.max(2, countRaw)) : 0;
 
+  const orientRaw = (event.queryStringParameters && event.queryStringParameters.orientation) || "landscape";
+  const orientation = ["landscape", "portrait", "squarish"].includes(orientRaw) ? orientRaw : "landscape";
+
   const key = process.env.UNSPLASH_ACCESS_KEY;
   if (!key) return json(500, { error: "Server is not configured: UNSPLASH_ACCESS_KEY is missing." });
 
   const url = new URL("https://api.unsplash.com/search/photos");
   url.searchParams.set("query", q);
-  url.searchParams.set("orientation", "landscape");
+  url.searchParams.set("orientation", orientation);
   url.searchParams.set("order_by", "downloads");
   url.searchParams.set("content_filter", "high");
   url.searchParams.set("per_page", String(count || 1));

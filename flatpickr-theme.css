@@ -30,8 +30,11 @@
 .flatpickr-current-month .flatpickr-monthDropdown-months,
 .flatpickr-current-month input.cur-year{
   color:#f6efdd !important; font-weight:700; font-family:'Work Sans',monospace;
+  /* !important needed here: a sitewide form-control rule (nav.js) forces a
+     light sand background onto every input/select, which otherwise left this
+     cream-colored text unreadable against a near-matching light background. */
+  background:#5c6933 !important;
 }
-.flatpickr-current-month .flatpickr-monthDropdown-months{ background:#5c6933; }
 .flatpickr-current-month .flatpickr-monthDropdown-months option{ color:#2b2417; background:#f6efdd; }
 .flatpickr-months .flatpickr-prev-month,
 .flatpickr-months .flatpickr-next-month{ fill:#f6efdd; color:#f6efdd; }
