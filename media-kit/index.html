@@ -1,0 +1,507 @@
+<title>Never Roam Alone Media Kit</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo/nra-logo-mark-256.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --sand:#ece2cc; --card:#f6efdd; --paper2:#e3d7bc; --ink:#2b2417; --muted:#82755b;
+  --rust:#b5492c; --rust-dk:#8a3a20; --olive:#5c6933; --olive-dk:#2c3a27; --brass:#b0802f;
+  --line:rgba(43,36,23,.2); --line-soft:rgba(43,36,23,.11); --shadow:0 12px 30px rgba(43,36,23,.16);
+  --on-accent:#fff; --frame:#fff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --sand:#1f1a12; --card:#2a2318; --paper2:#352d1f; --ink:#ece2cc; --muted:#b3a688;
+    --rust:#d5623f; --rust-dk:#e07a58; --olive:#93a35d; --olive-dk:#c9d39a; --brass:#c99a45;
+    --line:rgba(236,226,204,.22); --line-soft:rgba(236,226,204,.12); --shadow:0 12px 30px rgba(0,0,0,.45);
+    --on-accent:#1f1a12; --frame:#141109;
+  }
+}
+:root[data-theme="dark"]{
+  --sand:#1f1a12; --card:#2a2318; --paper2:#352d1f; --ink:#ece2cc; --muted:#b3a688;
+  --rust:#d5623f; --rust-dk:#e07a58; --olive:#93a35d; --olive-dk:#c9d39a; --brass:#c99a45;
+  --line:rgba(236,226,204,.22); --line-soft:rgba(236,226,204,.12); --shadow:0 12px 30px rgba(0,0,0,.45);
+  --on-accent:#1f1a12; --frame:#141109;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--sand);color:var(--ink);font-family:"Work Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.55;padding-inline:20px;padding-block:0 80px}
+a{color:var(--rust);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--rust-dk)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:700;line-height:1.08;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.7rem,3.2vw,2.3rem)}
+h3{font-size:1.2rem;font-weight:600}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto}
+.kick{font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.wm{font-family:"Amatic SC",cursive;font-weight:700;color:var(--rust);line-height:1}
+
+/* ---- header ---- */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-block:22px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}
+.brand img{width:46px;height:46px}
+.brand .wm{font-size:1.9rem}
+.brand small{display:block;font-family:"Work Sans",sans-serif;font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.meta{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.meta b{color:var(--ink)}
+
+/* ---- hero ---- */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem)}
+.hero h1 em{font-style:normal;font-family:"Amatic SC",cursive;font-weight:700;color:var(--rust);font-size:1.25em;letter-spacing:.02em}
+.hero .lede{font-size:1.1rem;color:var(--muted);max-width:56ch;margin-top:18px}
+.hero-aside{display:grid;gap:10px}
+.dl{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:6px;color:inherit;text-decoration:none}
+.dl:hover{border-color:var(--brass);color:inherit}
+.dl b{font-size:.95rem}
+.dl span{font-size:.75rem;color:var(--muted)}
+.dl .arrow{font-family:Fraunces,serif;font-size:1.3rem;color:var(--rust)}
+.route{border:0;border-top:3px dotted var(--rust);opacity:.5;margin:0}
+
+/* ---- layout: index + content ---- */
+.grid{display:grid;grid-template-columns:200px minmax(0,1fr);gap:56px;padding-top:36px}
+.index{position:sticky;top:20px;align-self:start;display:grid;gap:2px}
+.index a{display:grid;grid-template-columns:34px 1fr;align-items:baseline;gap:8px;padding:6px 8px;border-radius:4px;color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500}
+.index a b{font-family:Fraunces,serif;font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums;font-size:.8rem}
+.index a:hover,.index a.on{background:var(--card);color:var(--ink)}
+.content{display:grid;gap:72px;min-width:0}
+section{scroll-margin-top:24px}
+.plate{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.plate .mark{width:14px;height:14px;border:1.5px solid var(--brass);border-radius:50%;position:relative;flex:none}
+.plate .mark::before,.plate .mark::after{content:"";position:absolute;background:var(--brass)}
+.plate .mark::before{left:50%;top:-4px;bottom:-4px;width:1.5px;transform:translateX(-50%)}
+.plate .mark::after{top:50%;left:-4px;right:-4px;height:1.5px;transform:translateY(-50%)}
+.plate .kick b{color:var(--rust)}
+.sub{color:var(--muted);max-width:64ch;margin-top:10px;font-size:1.02rem}
+
+/* ---- fact sheet ---- */
+.facts{margin-top:24px;border-top:1px solid var(--line);display:grid}
+.facts div{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line-soft);font-size:.95rem}
+.facts dt{font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.stat{padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.stat b{display:block;font-family:Fraunces,serif;font-size:2.2rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:6px;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* ---- copy blocks ---- */
+.copyblock{margin-top:18px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 20px;position:relative}
+.copyblock h3{display:flex;align-items:baseline;gap:10px;font-size:1rem;margin-bottom:8px;padding-right:90px}
+.copyblock h3 small{font-family:"Work Sans",sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.copyblock p{max-width:70ch;font-size:.98rem}
+.copyblock p+p{margin-top:.8em}
+button.copy{position:absolute;top:14px;right:14px;font:600 .7rem/1 "Work Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);background:transparent;border:1px solid var(--olive);border-radius:4px;padding:8px 10px;cursor:pointer}
+button.copy:hover{background:var(--olive);color:var(--on-accent)}
+button.copy.done{background:var(--olive);color:var(--on-accent)}
+
+/* ---- feature list ---- */
+.features{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
+.features li{padding:12px 0;border-top:1px solid var(--line-soft)}
+.features b{display:block;font-family:Fraunces,serif;font-weight:600;font-size:1.05rem}
+.features p{font-size:.92rem;color:var(--muted);margin-top:3px}
+.features a{font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--olive);text-decoration:none}
+.features a:hover{text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.chip{font-size:.82rem;padding:7px 11px;background:var(--card);border:1px solid var(--line);border-radius:4px}
+
+/* ---- logo ---- */
+.logos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:22px}
+.asset{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.asset .pic{aspect-ratio:1;display:grid;place-items:center;padding:24px;background:var(--paper2)}
+.asset .pic.white{background:#fff}
+.asset .pic.sand{background:#ece2cc}
+.asset .pic.checker{background:repeating-conic-gradient(var(--paper2) 0 25%,var(--card) 0 50%) 0 0/20px 20px}
+.asset .pic img{max-width:100%;max-height:100%}
+.asset .txt{padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:.85rem}
+.asset .txt span{color:var(--muted);font-size:.72rem;font-variant-numeric:tabular-nums}
+.asset .txt a{font-weight:600;text-decoration:none;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);white-space:nowrap}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.rules ul{margin:8px 0 0;padding-left:18px;font-size:.95rem}
+.rules li+li{margin-top:5px}
+.rules h3 span{color:var(--muted);font-weight:500;font-family:"Work Sans",sans-serif;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.lockup{margin-top:22px;padding:28px;background:#ece2cc;border:1px solid var(--line);border-radius:6px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.lockup img{width:96px;height:96px}
+.lockup .wm{font-size:4rem;color:#b5492c}
+.lockup small{display:block;font-weight:600;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#82755b;margin-top:4px}
+
+/* ---- color ---- */
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+.sw{border:1px solid var(--line);border-radius:6px;overflow:hidden;cursor:pointer;background:var(--card);text-align:left;padding:0;font:inherit;color:inherit}
+.sw .c{height:84px}
+.sw .t{padding:10px 12px;font-size:.82rem}
+.sw .t b{display:block;font-family:Fraunces,serif;font-weight:600}
+.sw .t code{font-family:"Work Sans",monospace;font-variant-numeric:tabular-nums;color:var(--muted);font-size:.78rem}
+.sw .t em{display:block;font-style:normal;color:var(--muted);font-size:.72rem;margin-top:2px}
+
+/* ---- type ---- */
+.type{display:grid;gap:14px;margin-top:22px}
+.tp{display:grid;grid-template-columns:1fr 240px;gap:24px;align-items:center;padding:20px 22px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.tp .sample{font-size:2.6rem;line-height:1.05;overflow-wrap:anywhere}
+.tp .amatic{font-family:"Amatic SC",cursive;font-weight:700;font-size:3.6rem;color:var(--rust)}
+.tp .fraunces{font-family:Fraunces,Georgia,serif;font-weight:700}
+.tp .work{font-family:"Work Sans",sans-serif;font-size:1.15rem;line-height:1.5;max-width:40ch}
+.tp .spec b{display:block;font-family:Fraunces,serif;font-weight:600}
+.tp .spec{font-size:.85rem;color:var(--muted)}
+
+/* ---- screenshots & social ---- */
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+.shot{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.shot img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line-soft);background:var(--frame)}
+.shot .txt{padding:12px 14px;display:flex;justify-content:space-between;gap:10px;align-items:baseline;font-size:.88rem}
+.shot .txt span{color:var(--muted);font-size:.72rem;font-variant-numeric:tabular-nums}
+.shot .txt a{font-weight:600;text-decoration:none;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;color:var(--olive);white-space:nowrap}
+.shot.tall img{aspect-ratio:1170/2532;object-fit:cover;object-position:top}
+.social{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.social .shot.wide{grid-column:span 3}
+.social .shot.wide img{width:100%}
+.social .shot.story img{aspect-ratio:9/16;object-fit:cover;object-position:top}
+.captions{display:grid;gap:12px;margin-top:22px}
+.cap{position:relative;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.cap .kick{margin-bottom:6px}
+.cap p{max-width:66ch;font-size:.95rem;padding-right:80px}
+.tags{margin-top:18px;display:grid;gap:10px}
+.tags .cap p{font-family:"Work Sans",monospace;font-size:.9rem;color:var(--olive-dk)}
+
+/* ---- angles / founder ---- */
+.angles{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;counter-reset:a}
+.angles li{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line-soft);font-size:.98rem}
+.angles li::before{counter-increment:a;content:counter(a,decimal-leading-zero);font-family:Fraunces,serif;font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums}
+.note{margin-top:18px;padding:14px 16px;border-left:3px solid var(--brass);background:var(--card);font-size:.92rem;color:var(--muted)}
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.contact div{padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:6px}
+.contact b{display:block;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.contact a{word-break:break-word}
+footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:minmax(0,1fr);gap:32px}
+  .index{position:static;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  .hero{grid-template-columns:minmax(0,1fr);gap:28px}
+  .stats,.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .logos,.social{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .social .shot.wide{grid-column:span 2}
+  .tp{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .features,.shots,.rules,.contact,.logos,.social{grid-template-columns:minmax(0,1fr)}
+  .shot.tall{grid-template-columns:1fr 1fr}
+  .social .shot.wide{grid-column:span 1}
+  .facts div{grid-template-columns:1fr;gap:4px}
+  .lockup .wm{font-size:2.8rem}
+}
+
+/* ---- print / PDF ---- */
+@page{size:A4;margin:14mm 13mm 16mm}
+@media print{
+  :root,:root:not([data-theme="light"]),:root[data-theme="dark"]{color-scheme:light;--sand:#ece2cc;--card:#f6efdd;--paper2:#e3d7bc;--ink:#2b2417;--muted:#82755b;--rust:#b5492c;--rust-dk:#8a3a20;--olive:#5c6933;--olive-dk:#2c3a27;--brass:#b0802f;--line:rgba(43,36,23,.2);--line-soft:rgba(43,36,23,.11);--shadow:none;--on-accent:#fff;--frame:#fff}
+  html,body{background:var(--sand) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{padding:0;font-size:10.5pt;line-height:1.45}
+  .wrap{max-width:none}
+  header.top{padding-block:0 12px}
+  .hero{padding-block:28px 22px;grid-template-columns:1fr}
+  .hero h1{font-size:34pt}
+  .hero .lede{font-size:11pt}
+  .hero-aside,.index,button.copy,.pdf-only-hide{display:none !important}
+  .grid{display:block;padding-top:22px}
+  .content{display:block}
+  section{margin-bottom:34px}
+  section#logo,section#screens,section#social,section#angles{break-before:page}
+  h2{font-size:20pt}
+  .sub{font-size:10.5pt}
+  .copyblock h3,.cap p{padding-right:0}
+  .copyblock,.asset,.shot,.sw,.stat,.tp,.cap,.features li,.contact div,.lockup,.rules>div,.angles li{break-inside:avoid}
+  .plate{break-after:avoid}
+  h2,h3{break-after:avoid}
+  .shots{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .social{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .swatches{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .logos{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .sw .c{height:56px}
+  .tp .sample{font-size:22pt}
+  .tp .amatic{font-size:30pt}
+  .tp .work{font-size:11pt}
+  a{color:var(--rust);text-decoration:none}
+  .note{break-inside:avoid}
+  footer{margin-top:30px}
+}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="https://neverroamalone.com/"><img src="assets/logo/nra-logo-mark-256.png" alt="Never Roam Alone logo"><span><span class="wm">Never Roam Alone</span><small>Your Travel Companion</small></span></a>
+  <div class="meta">Media kit &middot; <b>v1.0</b> &middot; September 2026</div>
+</header>
+
+<div class="hero">
+  <div>
+    <p class="kick">Press &amp; promotion kit</p>
+    <h1 style="margin-top:10px">Everything you need to talk about <em>Never Roam Alone</em></h1>
+    <p class="lede">Facts, boilerplate copy, logo files, colors, type, screenshots and ready-made social graphics for a free travel companion covering 893 cities in 197 countries. Copy anything here; every block has a copy button.</p>
+  </div>
+  <div class="hero-aside">
+    <a class="dl" href="never-roam-alone-media-kit.zip"><span><b>Download the full kit</b><br><span>ZIP &middot; logos, screenshots, social graphics, copy, PDFs</span></span><span class="arrow">&darr;</span></a>
+    <a class="dl" href="never-roam-alone-media-kit.pdf"><span><b>This kit as a PDF</b><br><span>14 pages, A4 &middot; plus a <a href="never-roam-alone-fact-sheet.pdf">one-page fact sheet</a></span></span><span class="arrow">&darr;</span></a>
+    <a class="dl" href="copy.md"><span><b>All copy as plain text</b><br><span>copy.md &middot; also as a <a href="never-roam-alone-media-kit-copy.pdf">PDF</a></span></span><span class="arrow">&rarr;</span></a>
+    <a class="dl" href="https://neverroamalone.com/"><span><b>Visit the site</b><br><span>neverroamalone.com</span></span><span class="arrow">&rarr;</span></a>
+  </div>
+</div>
+<hr class="route">
+
+<div class="grid">
+<nav class="index" aria-label="Sections">
+  <a href="#glance"><b>01</b>At a glance</a>
+  <a href="#boilerplate"><b>02</b>Boilerplate</a>
+  <a href="#features"><b>03</b>What's on the site</a>
+  <a href="#guide"><b>04</b>Inside a guide</a>
+  <a href="#logo"><b>05</b>Logo</a>
+  <a href="#color"><b>06</b>Color</a>
+  <a href="#type"><b>07</b>Typography</a>
+  <a href="#screens"><b>08</b>Screenshots</a>
+  <a href="#social"><b>09</b>Social</a>
+  <a href="#angles"><b>10</b>Story angles</a>
+  <a href="#contact"><b>11</b>Use &amp; contact</a>
+</nav>
+
+<div class="content">
+
+<section id="glance">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 01 &middot; <b>At a glance</b></span></div>
+  <h2>A free travel companion for however you roam</h2>
+  <p class="sub">Never Roam Alone answers the practical questions travelers ask before they book, whether they go alone, as a couple or in a group, city by city, and surrounds those guides with free planning tools and a community of travelers who have been there.</p>
+  <div class="stats">
+    <div class="stat"><b>893</b><span>City guides</span></div>
+    <div class="stat"><b>197</b><span>Countries</span></div>
+    <div class="stat"><b>5</b><span>Interface languages</span></div>
+    <div class="stat"><b>$0</b><span>Cost to use</span></div>
+  </div>
+  <dl class="facts">
+    <div><dt>Name</dt><dd>Never Roam Alone</dd></div>
+    <div><dt>Tagline</dt><dd>Your Travel Companion</dd></div>
+    <div><dt>URL</dt><dd><a href="https://neverroamalone.com/">https://neverroamalone.com</a></dd></div>
+    <div><dt>What it is</dt><dd>A free website of practical, data-rich city guides and trip-planning tools, built for people who travel on their own.</dd></div>
+    <div><dt>Who it's for</dt><dd>Anyone planning a trip: individuals, couples, families and groups. Solo travelers also get dedicated ratings (solo comfort, women traveling solo) and tips throughout the guides.</dd></div>
+    <div><dt>Coverage</dt><dd>893 city guides across 197 countries, and counting. Every guide follows the same checklist, so a reader can compare Aachen with Abidjan on the same terms.</dd></div>
+    <div><dt>Languages</dt><dd>English, Español, Français, Italiano, 中文</dd></div>
+    <div><dt>Business model</dt><dd>Free to use. Some booking links are affiliate links, disclosed on every page; they never change the price a traveler pays.</dd></div>
+    <div><dt>Founder</dt><dd>Jeff Wolinsky</dd></div>
+    <div><dt>Contact</dt><dd><a href="mailto:contact@neverroamalone.com">contact@neverroamalone.com</a> &middot; <a href="https://neverroamalone.com/contact.html">contact form</a></dd></div>
+  </dl>
+</section>
+
+<section id="boilerplate">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 02 &middot; <b>Boilerplate</b></span></div>
+  <h2>Describe it in one line, or two hundred words</h2>
+  <p class="sub">Four approved descriptions. Use them as written, or trim; please keep the city and country counts current with the site.</p>
+
+  <div class="copyblock"><h3>One line <small>≈ 20 words</small></h3><button class="copy" type="button">Copy</button>
+    <p>Never Roam Alone is a free travel companion with practical city guides for 893 cities in 197 countries, for solo travelers, couples, families and groups alike.</p></div>
+
+  <div class="copyblock"><h3>Short <small>≈ 50 words</small></h3><button class="copy" type="button">Copy</button>
+    <p>Never Roam Alone is a free travel companion for anyone planning a trip, whether you roam alone, as a couple or in a group. Every one of its 893 city guides covers the practical things first: the best neighborhoods to stay in, real daily costs, safety and walkability scores, how to get from the airport, connectivity, day trips, and advice from travelers and locals who know the place.</p></div>
+
+  <div class="copyblock"><h3>Medium <small>≈ 100 words</small></h3><button class="copy" type="button">Copy</button>
+    <p>Never Roam Alone is a free travel companion for every kind of traveler: individuals, couples, families and groups. Its 893 city guides, spanning 197 countries, answer the questions people actually ask before they book: how long to stay, which neighborhood to sleep in, what a day really costs, how safe and walkable the city is, whether cards work, what the phone situation is, and how to get in from the airport. Around the guides sit free planning tools: an interactive world map, a Destination Finder that matches cities to your budget and season, side-by-side city comparisons, a month-by-month "where to go" guide, and Ask A Roamer, where real travelers answer real questions.</p></div>
+
+  <div class="copyblock"><h3>Long <small>≈ 200 words</small></h3><button class="copy" type="button">Copy</button>
+    <p>Never Roam Alone is a free travel companion for anyone planning a trip, whether that is one person, a couple, a family or a group of friends. The site's promise is in the name: wherever you go, and whoever you go with, you carry the collected knowledge of travelers and locals who have already been there.</p>
+    <p>At its center are 893 city guides covering 197 countries. Each guide is organized the way a traveler thinks: how long to stay, when to go, which neighborhoods to sleep in (with lodging at every price tier), what a day really costs in local currency, how safe and walkable the city is, how comfortable it feels to explore (including dedicated solo-comfort and women-traveling-solo ratings), how to get in from the airport and around town, what the phone and Wi-Fi situation is, which plug to pack, and which day trips are worth the train ticket. Guides also carry top sights, upcoming events, common phrases, and first-hand "Traveler's Take" and "Local's Perspective" notes.</p>
+    <p>Around the guides are free planning tools: an interactive world map sized by annual visitors, a Destination Finder that matches cities to your budget, travel time and season, side-by-side city comparisons, a monthly "where to go" guide, underrated picks, a trip planner, and Ask A Roamer, a Q&amp;A answered by travelers who have been there. The interface is available in English, Spanish, French, Italian and Chinese.</p></div>
+</section>
+
+<section id="features">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 03 &middot; <b>What's on the site</b></span></div>
+  <h2>Guides at the center, tools around them</h2>
+  <ul class="features">
+    <li><b>Interactive world map</b><p>Every city as a bubble sized by annual international visitors. Click a bubble to open its guide.</p><a href="https://neverroamalone.com/">neverroamalone.com</a></li>
+    <li><b>City Guides</b><p>Browse and search all 893 guides; sort A to Z or by popularity, and favorite the ones you're considering.</p><a href="https://neverroamalone.com/cities.html">cities.html</a></li>
+    <li><b>Destination Finder</b><p>Answer a few questions and get cities matched to your budget, travel time, season and visa rules.</p><a href="https://neverroamalone.com/choose.html">choose.html</a></li>
+    <li><b>Compare Cities</b><p>Two cities side by side: costs, weather, safety, walkability, visitor popularity and visa rules.</p><a href="https://neverroamalone.com/compare.html">compare.html</a></li>
+    <li><b>Where to Go This Month</b><p>Cities with ideal weather and festivals worth planning around, for every month of the year.</p><a href="https://neverroamalone.com/best-time-to-visit.html">best-time-to-visit.html</a></li>
+    <li><b>Top Visited &amp; Underrated Picks</b><p>The most-visited cities on the site, and the ones travelers overlook.</p><a href="https://neverroamalone.com/underrated-picks.html">underrated-picks.html</a></li>
+    <li><b>Ask A Roamer</b><p>Real questions answered by travelers who have been there.</p><a href="https://neverroamalone.com/askaroamer.html">askaroamer.html</a></li>
+    <li><b>Blog</b><p>Stories, tips and travel wisdom from the community.</p><a href="https://neverroamalone.com/blog.html">blog.html</a></li>
+    <li><b>Community &amp; Trusted Travelers</b><p>Pitch a blog post, or apply to become a Trusted Traveler who answers questions and vouches for places.</p><a href="https://neverroamalone.com/community.html">community.html</a></li>
+    <li><b>Trip planner, favorites &amp; profiles</b><p>Save cities, build a day-by-day itinerary, and see other roamers who are in town.</p><a href="https://neverroamalone.com/itinerary.html">itinerary.html</a></li>
+  </ul>
+  <div class="chips"><span class="chip">English</span><span class="chip">Español</span><span class="chip">Français</span><span class="chip">Italiano</span><span class="chip">中文</span></div>
+</section>
+
+<section id="guide">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 04 &middot; <b>Inside a city guide</b></span></div>
+  <h2>The same checklist for every city</h2>
+  <p class="sub">Each guide is laid out as numbered plates, the way a field guide is. This is what a reader finds on every one of the 893 pages.</p>
+  <div class="chips">
+    <span class="chip">How long to stay</span><span class="chip">Best season</span><span class="chip">Temperature &amp; rain by quarter</span><span class="chip">Population &amp; visitors</span><span class="chip">Walk score</span><span class="chip">Safety index</span><span class="chip">Solo comfort</span><span class="chip">Women traveling solo</span><span class="chip">Emergency numbers</span><span class="chip">Embassy finder</span><span class="chip">Languages &amp; phrases</span><span class="chip">Religion</span><span class="chip">Wi-Fi &amp; mobile speeds</span><span class="chip">Tourist SIM price</span><span class="chip">eSIM comparison</span><span class="chip">Plug types &amp; voltage</span><span class="chip">Currency &amp; card acceptance</span><span class="chip">Live converter</span><span class="chip">Hotel, meal, taxi, drink costs</span><span class="chip">Airport transfers</span><span class="chip">Getting around</span><span class="chip">Neighborhood guide</span><span class="chip">Lodging by price tier</span><span class="chip">Top sights</span><span class="chip">Day trips</span><span class="chip">Events</span><span class="chip">Traveler's Take</span><span class="chip">Local's Perspective</span><span class="chip">Stories</span><span class="chip">Roamers in town</span>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 05 &middot; <b>Logo</b></span></div>
+  <h2>The mark and the wordmark</h2>
+  <p class="sub">Two figures on a path under the mountains, inside an olive ring. The wordmark is hand-lettered in Amatic SC; the tagline sits beneath it in letter-spaced caps.</p>
+  <div class="lockup"><img src="assets/logo/nra-logo-mark-512.png" alt="Never Roam Alone mark"><div><span class="wm">Never Roam Alone</span><small>Your Travel Companion</small></div></div>
+  <div class="logos">
+    <div class="asset"><div class="pic checker"><img src="assets/logo/nra-logo-mark-512.png" alt="Logo mark on transparent"></div><div class="txt"><span>Transparent &middot; <a href="assets/logo/nra-logo-mark-1024.png">1024</a> / <a href="assets/logo/nra-logo-mark-512.png">512</a> / <a href="assets/logo/nra-logo-mark-256.png">256</a></span><a href="assets/logo/nra-logo-mark-1024.png">PNG</a></div></div>
+    <div class="asset"><div class="pic sand"><img src="assets/logo/nra-logo-mark-512.png" alt="Logo mark on sand"></div><div class="txt"><span>On sand &middot; 1024</span><a href="assets/logo/nra-logo-mark-on-sand-1024.png">PNG</a></div></div>
+    <div class="asset"><div class="pic white"><img src="assets/logo/nra-logo-mark-512.png" alt="Logo mark on white"></div><div class="txt"><span>On white &middot; 1024</span><a href="assets/logo/nra-logo-mark-on-white-1024.png">PNG</a></div></div>
+    <div class="asset"><div class="pic sand" style="padding:40px"><img src="assets/logo/nra-avatar-on-sand-1024.png" alt="Square profile picture on sand" style="border-radius:50%"></div><div class="txt"><span>Profile picture &middot; <a href="assets/logo/nra-avatar-on-sand-1024.png">sand</a> / <a href="assets/logo/nra-avatar-1024.png">card</a></span><a href="assets/logo/nra-avatar-on-sand-1024.png">PNG</a></div></div>
+  </div>
+  <div class="rules">
+    <div><h3>Do <span>&middot; please</span></h3><ul>
+      <li>Use the supplied files; don't redraw or retrace the mark.</li>
+      <li>Keep clear space around the mark at least the height of the figures.</li>
+      <li>Show it at 32 px tall or larger on screen.</li>
+      <li>Place it on sand, white, or a photo with enough contrast.</li>
+      <li>Set the wordmark in Amatic SC Bold, Rust, when you need text next to it.</li></ul></div>
+    <div><h3>Don't <span>&middot; thanks</span></h3><ul>
+      <li>Recolor the mark, or put it in a single flat color.</li>
+      <li>Add shadows, outlines, gradients or effects.</li>
+      <li>Stretch, rotate or crop it.</li>
+      <li>Put it inside another shape, or lock it up with other logos.</li>
+      <li>Use it to imply endorsement without written agreement.</li></ul></div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 06 &middot; <b>Color</b></span></div>
+  <h2>Sand, ink, rust and olive</h2>
+  <p class="sub">The palette comes from paper maps and trail signage. Sand is the ground; rust carries the wordmark and calls to action; olive is the mark and primary buttons; brass is for badges and small highlights. Click a swatch to copy its hex.</p>
+  <div class="swatches">
+    <button class="sw" type="button" data-hex="#ece2cc"><div class="c" style="background:#ece2cc"></div><div class="t"><b>Sand</b><code>#ece2cc</code><em>Page ground</em></div></button>
+    <button class="sw" type="button" data-hex="#f6efdd"><div class="c" style="background:#f6efdd"></div><div class="t"><b>Card</b><code>#f6efdd</code><em>Cards, panels</em></div></button>
+    <button class="sw" type="button" data-hex="#e3d7bc"><div class="c" style="background:#e3d7bc"></div><div class="t"><b>Paper 2</b><code>#e3d7bc</code><em>Secondary surfaces</em></div></button>
+    <button class="sw" type="button" data-hex="#2b2417"><div class="c" style="background:#2b2417"></div><div class="t"><b>Ink</b><code>#2b2417</code><em>Text</em></div></button>
+    <button class="sw" type="button" data-hex="#82755b"><div class="c" style="background:#82755b"></div><div class="t"><b>Muted</b><code>#82755b</code><em>Labels, captions</em></div></button>
+    <button class="sw" type="button" data-hex="#b5492c"><div class="c" style="background:#b5492c"></div><div class="t"><b>Rust</b><code>#b5492c</code><em>Wordmark, accent, CTAs</em></div></button>
+    <button class="sw" type="button" data-hex="#8a3a20"><div class="c" style="background:#8a3a20"></div><div class="t"><b>Rust dark</b><code>#8a3a20</code><em>Accent hover</em></div></button>
+    <button class="sw" type="button" data-hex="#5c6933"><div class="c" style="background:#5c6933"></div><div class="t"><b>Olive</b><code>#5c6933</code><em>Mark, primary buttons</em></div></button>
+    <button class="sw" type="button" data-hex="#2c3a27"><div class="c" style="background:#2c3a27"></div><div class="t"><b>Olive dark</b><code>#2c3a27</code><em>Deep ground</em></div></button>
+    <button class="sw" type="button" data-hex="#b0802f"><div class="c" style="background:#b0802f"></div><div class="t"><b>Brass</b><code>#b0802f</code><em>Badges, highlights</em></div></button>
+  </div>
+</section>
+
+<section id="type">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 07 &middot; <b>Typography</b></span></div>
+  <h2>Three faces, three jobs</h2>
+  <p class="sub">All three are free on Google Fonts. Amatic SC appears only in the wordmark and for the one emphasized word in a headline, never for running text.</p>
+  <div class="type">
+    <div class="tp"><div class="sample amatic">Never Roam Alone</div><div class="spec"><b>Amatic SC Bold</b>Wordmark, and the single emphasized word in a headline ("roam"). Always in Rust.</div></div>
+    <div class="tp"><div class="sample fraunces">Where will you roam next?</div><div class="spec"><b>Fraunces 600 / 700</b>Headlines, display type and big numbers. Tight leading, slight negative tracking.</div></div>
+    <div class="tp"><div class="sample work">Neighborhoods, real costs, safety and solo-comfort scores, connectivity, day trips and advice from travelers who have been there.</div><div class="spec"><b>Work Sans 400 / 600</b>Body copy, labels and interface. Uppercase labels get 0.16 to 0.22 em of letter-spacing.</div></div>
+  </div>
+  <p class="note">Google Fonts: <a href="https://fonts.google.com/share?selection.family=Amatic+SC:wght@700|Fraunces:opsz,wght@9..144,700|Work+Sans:wght@400;600">Amatic SC, Fraunces and Work Sans in one selection</a>.</p>
+</section>
+
+<section id="screens">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 08 &middot; <b>Screenshots</b></span></div>
+  <h2>The site as it looks today</h2>
+  <p class="sub">Captured September 2026 at 2× resolution with the cookie notice dismissed. Use them unedited, with a credit to Never Roam Alone and a link.</p>
+  <div class="shots">
+    <div class="shot"><img src="assets/screenshots/nra-home-2880x1800.jpg" alt="Homepage with headline and featured cities"><div class="txt"><span>Home &middot; 2880 × 1800</span><a href="assets/screenshots/nra-home-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-home-map-2880x1800.jpg" alt="Interactive world map of cities sized by visitors"><div class="txt"><span>World map &middot; 2880 × 1800</span><a href="assets/screenshots/nra-home-map-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-cities-2880x1800.jpg" alt="City Guides index page"><div class="txt"><span>City Guides &middot; 2880 × 1800</span><a href="assets/screenshots/nra-cities-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-city-tokyo-2880x1800.jpg" alt="Tokyo city guide hero"><div class="txt"><span>City guide: Tokyo &middot; 2880 × 1800</span><a href="assets/screenshots/nra-city-tokyo-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-city-lisbon-facts-2880x1800.jpg" alt="Lisbon guide fast facts plate"><div class="txt"><span>City guide: Lisbon fast facts &middot; 2880 × 1800</span><a href="assets/screenshots/nra-city-lisbon-facts-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-finder-2880x1800.jpg" alt="Destination Finder"><div class="txt"><span>Destination Finder &middot; 2880 × 1800</span><a href="assets/screenshots/nra-finder-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-compare-2880x1800.jpg" alt="Compare Cities"><div class="txt"><span>Compare Cities &middot; 2880 × 1800</span><a href="assets/screenshots/nra-compare-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-this-month-2880x1800.jpg" alt="Where to Go This Month"><div class="txt"><span>Where to Go This Month &middot; 2880 × 1800</span><a href="assets/screenshots/nra-this-month-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot"><img src="assets/screenshots/nra-ask-a-roamer-2880x1800.jpg" alt="Ask A Roamer"><div class="txt"><span>Ask A Roamer &middot; 2880 × 1800</span><a href="assets/screenshots/nra-ask-a-roamer-2880x1800.jpg">JPG</a></div></div>
+    <div class="shot tall" style="display:grid;grid-template-columns:1fr 1fr;gap:0"><img src="assets/screenshots/nra-home-mobile-1170x2532.jpg" alt="Homepage on a phone"><img src="assets/screenshots/nra-city-mobile-1170x2532.jpg" alt="Marrakech guide on a phone"><div class="txt" style="grid-column:span 2"><span>Mobile: home, Marrakech &middot; 1170 × 2532</span><a href="assets/screenshots/nra-city-mobile-1170x2532.jpg">JPG</a></div></div>
+  </div>
+</section>
+
+<section id="social">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 09 &middot; <b>Social</b></span></div>
+  <h2>Ready-made graphics and captions</h2>
+  <p class="sub">Sized for each platform and built from the brand system above. The city spotlight is a template: the same layout works for any of the 893 cities with its own numbers.</p>
+  <div class="social">
+    <div class="shot"><img src="assets/social/nra-square-1080x1080.png" alt="Square announcement graphic"><div class="txt"><span>Instagram / Facebook post &middot; 1080 sq</span><a href="assets/social/nra-square-1080x1080.png">PNG</a></div></div>
+    <div class="shot"><img src="assets/social/nra-city-spotlight-1080x1080.png" alt="City spotlight graphic for Tokyo"><div class="txt"><span>City spotlight &middot; 1080 sq</span><a href="assets/social/nra-city-spotlight-1080x1080.png">PNG</a></div></div>
+    <div class="shot story"><img src="assets/social/nra-story-1080x1920.png" alt="Story graphic with phone screenshot"><div class="txt"><span>Story / Reel cover &middot; 1080 × 1920</span><a href="assets/social/nra-story-1080x1920.png">PNG</a></div></div>
+    <div class="shot wide"><img src="assets/social/nra-x-header-1500x500.png" alt="X header"><div class="txt"><span>X / Twitter header &middot; 1500 × 500</span><a href="assets/social/nra-x-header-1500x500.png">PNG</a></div></div>
+    <div class="shot wide"><img src="assets/social/nra-facebook-cover-820x312.png" alt="Facebook cover"><div class="txt"><span>Facebook cover &middot; 820 × 312 &middot; the lower band is left clear for the profile picture; pair it with the sand profile picture above so the two read as one</span><a href="assets/social/nra-facebook-cover-820x312.png">PNG</a></div></div>
+    <div class="shot"><img src="assets/social/nra-link-card-1200x630.png" alt="Link preview card"><div class="txt"><span>Link card &middot; 1200 × 630</span><a href="assets/social/nra-link-card-1200x630.png">PNG</a></div></div>
+    <div class="shot"><img src="assets/social/nra-og-default-1200x630.jpg" alt="Site's default share image"><div class="txt"><span>Site share image &middot; 1200 × 630</span><a href="assets/social/nra-og-default-1200x630.jpg">JPG</a></div></div>
+    <div class="shot"><div class="pic sand" style="aspect-ratio:1;display:grid;place-items:center;background:#ece2cc;border-bottom:1px solid var(--line-soft)"><img src="assets/logo/nra-avatar-on-sand-1024.png" alt="Profile picture on sand" style="width:55%;border-radius:50%;border:0"></div><div class="txt"><span>Profile picture &middot; 1024 sq, sand ground to match the covers</span><a href="assets/logo/nra-avatar-on-sand-1024.png">PNG</a></div></div>
+  </div>
+
+  <h3 style="margin-top:36px">Captions, ready to paste</h3>
+  <div class="captions">
+    <div class="cap"><p class="kick">Launch &middot; Instagram, Facebook</p><button class="copy" type="button">Copy</button><p>Where will you roam next? 🌍 Never Roam Alone has free, practical city guides for 893 cities in 197 countries, for solo travelers, couples, families and groups alike. Neighborhoods, real costs, safety scores, day trips and advice from travelers who've been there. Link in bio. #NeverRoamAlone #TravelPlanning</p></div>
+    <div class="cap"><p class="kick">Launch &middot; X, Threads</p><button class="copy" type="button">Copy</button><p>893 cities. 197 countries. One free travel companion, whoever you travel with. Where will you roam next? neverroamalone.com</p></div>
+    <div class="cap"><p class="kick">Feature &middot; Destination Finder</p><button class="copy" type="button">Copy</button><p>Can't decide where to go? Tell the Destination Finder your budget, how far you'll fly and when, and it shortlists cities that fit. Free at neverroamalone.com #TravelPlanning #WhereToNext</p></div>
+    <div class="cap"><p class="kick">Feature &middot; Compare Cities</p><button class="copy" type="button">Copy</button><p>Lisbon or Porto? Bangkok or Chiang Mai? Put two cities side by side: costs, weather, safety, walkability, visa rules. neverroamalone.com/compare.html</p></div>
+    <div class="cap"><p class="kick">Feature &middot; Where to Go This Month</p><button class="copy" type="button">Copy</button><p>Ideal weather, festivals worth planning around, and a few places to hold off on. Our month-by-month guide is live for every month of the year. #WhereToNext</p></div>
+    <div class="cap"><p class="kick">City spotlight &middot; swap the city and numbers</p><button class="copy" type="button">Copy</button><p>City spotlight: Tokyo 🇯🇵 Walk score 88/100 · Safety index 75 · Solo comfort: very comfortable · 17M international visitors a year. Full guide, including where to stay and what a day costs: neverroamalone.com/city.html?city=Tokyo</p></div>
+    <div class="cap"><p class="kick">Ask A Roamer</p><button class="copy" type="button">Copy</button><p>Got a question only someone who's been there can answer? Ask A Roamer connects you with travelers who have. neverroamalone.com/askaroamer.html</p></div>
+    <div class="cap"><p class="kick">Community call</p><button class="copy" type="button">Copy</button><p>Been somewhere memorable? Pitch a story for the blog, or apply to become a Trusted Traveler and help newcomers feel at home. neverroamalone.com/community.html</p></div>
+    <div class="cap"><p class="kick">Reel / TikTok script &middot; 15 to 20 seconds</p><button class="copy" type="button">Copy</button><p>"Planning a trip? Here's the one tab I keep open. Never Roam Alone: pick a city, and you get how long to stay, which neighborhood to sleep in, what a day costs, how safe it is, how to get in from the airport, and what the phone situation is. 893 cities. Free. Link's in my bio."</p></div>
+  </div>
+  <div class="tags">
+    <div class="cap"><p class="kick">Hashtags &middot; core</p><button class="copy" type="button">Copy</button><p>#NeverRoamAlone #TravelGuide #CityGuide #WhereToNext #TravelPlanning #TravelTips</p></div>
+    <div class="cap"><p class="kick">Hashtags &middot; reach</p><button class="copy" type="button">Copy</button><p>#Wanderlust #CoupleTravel #FamilyTravel #GroupTravel #SoloTravel #DigitalNomad #TravelCommunity</p></div>
+  </div>
+</section>
+
+<section id="angles">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 10 &middot; <b>Story angles</b></span></div>
+  <h2>Five ways in for press and creators</h2>
+  <ol class="angles">
+    <li>One site, 893 cities: how one free travel companion covers 197 countries with the same practical checklist for every city.</li>
+    <li>The solo-comfort score: the site's dedicated solo-travel strand, and which cities rate best for exploring alone.</li>
+    <li>Ask A Roamer and the Trusted Traveler program: advice from people who have actually been there, not from an algorithm.</li>
+    <li>Where to go this month: a data-driven monthly shortlist built from weather and festival data.</li>
+    <li>The practical stuff nobody covers: plug types, SIM prices, card acceptance and airport transfers, city by city.</li>
+  </ol>
+  <p class="note">Founder bio and social handles are not on the site yet. Add two or three sentences about Jeff and the @handles here before sending the kit out.</p>
+</section>
+
+<section id="contact">
+  <div class="plate"><span class="mark"></span><span class="kick">Plate 11 &middot; <b>Use &amp; contact</b></span></div>
+  <h2>How to use this kit</h2>
+  <p class="sub">Everything here may be used to write about, review or promote Never Roam Alone. Please credit the site and link to it. Screenshots and graphics may be cropped but not altered. Don't imply endorsement or partnership without written agreement, and keep the city and country counts current with the live site.</p>
+  <div class="contact">
+    <div><b>Press &amp; partnerships</b><a href="mailto:contact@neverroamalone.com">contact@neverroamalone.com</a></div>
+    <div><b>Contact form</b><a href="https://neverroamalone.com/contact.html">neverroamalone.com/contact.html</a></div>
+    <div><b>Contribute</b><a href="https://neverroamalone.com/community.html">neverroamalone.com/community.html</a></div>
+  </div>
+</section>
+
+</div>
+</div>
+
+<footer><span>Never Roam Alone &copy; 2026 &middot; Media kit v1.0</span><span>Photos in screenshots are credited on the site to their sources.</span></footer>
+</div>
+
+<script>
+(function(){
+  function flash(btn, label){ var t = btn.textContent; btn.textContent = label; btn.classList.add('done'); setTimeout(function(){ btn.textContent = t; btn.classList.remove('done'); }, 1400); }
+  function write(text, btn){
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(function(){ flash(btn,'Copied'); }, function(){ flash(btn,'Select & copy'); }); }
+    else { flash(btn,'Select & copy'); }
+  }
+  document.querySelectorAll('button.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var box = btn.parentElement;
+      var ps = Array.prototype.filter.call(box.querySelectorAll('p'), function(p){ return !p.classList.contains('kick'); });
+      write(ps.map(function(p){ return p.textContent.trim(); }).join('\n\n'), btn);
+    });
+  });
+  document.querySelectorAll('button.sw').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var code = btn.querySelector('code'); var t = code.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(btn.dataset.hex).then(function(){ code.textContent = 'Copied'; setTimeout(function(){ code.textContent = t; }, 1200); });
+    });
+  });
+  var links = document.querySelectorAll('.index a'); var secs = document.querySelectorAll('section[id]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); } }); }, { rootMargin: '-20% 0px -70% 0px' });
+    secs.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
