@@ -1,8 +1,9 @@
 // Netlify serverless function: emails the site owner when a visitor submits
 // the "Contribute your experience" form on a city page (city.html Insights
-// section — Traveler's Take or Local's Perspective). Interview questions
-// aren't written yet, so this just relays name/email/free-text response for
-// manual review; nothing is published automatically.
+// section — Traveler's Take or Local's Perspective). Relays the answers for
+// manual review; nothing is published automatically. Types whose interview
+// questions are written send `answers` ([{q, a}], answered questions only);
+// types still waiting on questions send a single free-text `response`.
 //
 // Environment variables (Netlify → Site settings → Environment variables,
 // scope "All scopes"):
@@ -34,6 +35,11 @@ exports.handler = async (event) => {
   const name     = clip(p.name, 80);
   const email    = clip(p.email, 120);
   const response = clip(p.response, 4000);
+  // Interview answers: [{ q, a }], only the questions they actually answered.
+  const answers  = (Array.isArray(p.answers) ? p.answers : [])
+    .slice(0, 30)
+    .map(x => ({ q: clip(x && x.q, 300), a: clip(x && x.a, 1200) }))
+    .filter(x => x.q && x.a);
   const website  = clip(p.website, 100);   // honeypot — hidden field, must stay empty
   const elapsedMs = Number(p.elapsedMs);   // ms between opening the form and submitting
 
@@ -50,11 +56,19 @@ exports.handler = async (event) => {
     return json(400, { sent: false, error: "That was a bit too quick — please try again." });
   }
 
-  if (!city || !name || !email || !response) {
-    return json(400, { error: "Missing name, email, city, or response." });
+  if (!city || !name || !email || (!response && !answers.length)) {
+    return json(400, { error: "Missing name, email, city, or any answer." });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json(400, { error: "A valid email is required" });
-  console.log("[submit-interview] submission:", typeLabel, "in", city, "from", email);
+  console.log("[submit-interview] submission:", typeLabel, "in", city, "from", email, "| answers:", answers.length);
+
+  const answersHtml = answers.map(({ q, a }, i) =>
+    `<div style="margin:0 0 18px">
+       <p style="margin:0 0 5px;color:#82755b;font-size:13px;letter-spacing:.06em;text-transform:uppercase">Q${i + 1}</p>
+       <p style="margin:0 0 7px;font-weight:bold;color:#1d2a32">${escapeHtml(q)}</p>
+       <div style="background:#f6f1e7;border-radius:12px;padding:12px 14px;white-space:pre-wrap">${escapeHtml(a)}</div>
+     </div>`
+  ).join("");
 
   try {
     const er = await fetch("https://api.resend.com/emails", {
@@ -70,8 +84,10 @@ exports.handler = async (event) => {
             <h2 style="color:#185e3f;margin:0 0 6px">New Insights submission</h2>
             <p style="margin:0 0 6px;color:#3a4a52">${escapeHtml(typeLabel)} &middot; ${escapeHtml(city)}</p>
             <p style="margin:0 0 16px;color:#3a4a52">From: ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
-            <div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:0 0 20px;white-space:pre-wrap">${escapeHtml(response)}</div>
-            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${escapeHtml(city)} city page on ${escapeHtml(SITE_URL || "Never Roam Alone")}. Reply to this email to respond directly. Interview questions haven't been added yet — this is just the contact + free-text response.</p>
+            ${answers.length
+              ? `<p style="margin:0 0 14px;color:#3a4a52">Answered ${answers.length} question${answers.length === 1 ? "" : "s"}:</p>${answersHtml}`
+              : `<div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:0 0 20px;white-space:pre-wrap">${escapeHtml(response)}</div>`}
+            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${escapeHtml(city)} city page on ${escapeHtml(SITE_URL || "Never Roam Alone")}. Reply to this email to respond directly.</p>
           </div>`
       })
     });
