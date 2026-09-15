@@ -675,8 +675,8 @@
     cursor:pointer;text-align:left;overflow:hidden;font:inherit;color:inherit;
     transition:transform .2s,opacity .2s,box-shadow .2s}
   .hood-tile .hood-hero{height:auto;aspect-ratio:3/4;transition:filter .2s,background-image .4s}
-  .hood-tile .hood-name{bottom:14px;padding:0 14px;font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.1}
-  .hood-tile .hood-credit{bottom:4px;right:8px;font-size:.55rem}
+  .hood-tile .hood-name{bottom:18px;padding:0 14px;font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.1}
+  .hood-tile .hood-credit{bottom:0;right:0;margin:0;padding:0 8px 3px;font-size:.55rem}
   .hood-tile .hood-tag{top:10px;right:10px;font-size:.6rem;padding:6px 16px 6px 10px;
     clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%)}
   .hood-tile .hood-tag .hood-tag-label{display:none}
@@ -698,6 +698,25 @@
   .hood-panel .hood-map-link{position:static;box-shadow:none}
   .hood-panel .photo-contrib{position:static;border-color:var(--line);background:none;color:var(--muted)}
   .hood-panel .photo-contrib:hover,.hood-panel .photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
+  /* A hood we have no verified photo of yet borrows this city's own photo as a
+     clearly-marked stand-in. Blending it to the brand green keeps it from
+     reading as a photograph of the neighborhood itself, and the credit line
+     under it says plainly which city it is. `background-blend-mode` is used
+     rather than `filter` so it doesn't fight the selected/unselected tile
+     filters above. */
+  .hood-hero-standin{background-blend-mode:luminosity}
+  /* Top-left stack on a stand-in tile. `top` matches .hood-tile .hood-tag so
+     the flag lines up with the tag pill across the tile; the CTA sits under
+     it. The right inset keeps both clear of that pill. */
+  .hood-standin-note{position:absolute;top:10px;left:10px;z-index:2;display:flex;flex-direction:column;
+    align-items:flex-start;gap:6px;max-width:calc(100% - 62px)}
+  .hood-standin-flag{font-size:.6rem;line-height:1.2;padding:6px 10px;border-radius:3px;
+    background:rgba(0,0,0,.5);color:#fff;letter-spacing:.02em}
+  .hood-standin-cta{font:inherit;font-size:.58rem;line-height:1.2;padding:6px 10px;border-radius:3px;
+    border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.35);color:#fff;cursor:pointer;
+    text-align:left;transition:background .2s,border-color .2s}
+  .hood-standin-cta:hover,.hood-standin-cta:focus-visible{background:var(--coral);border-color:var(--coral)}
+  .hood-panel .photo-contrib-wanted{border-color:var(--coral);color:var(--coral)}
   .hood-panel .hood-desc{max-width:72ch}
   .hood-groups{display:grid;grid-template-columns:1fr 1fr;gap:18px 32px;border-top:1px solid rgba(0,0,0,.07);padding-top:14px}
   .hood-groups .hood-lodging,.hood-groups .hood-bars{margin-top:0;border-top:0;padding-top:0}
@@ -2219,13 +2238,13 @@ if(!c){
     const tm = tagKey && HOOD_TAG_META[tagKey];
     const tagHTML = tm ? `<span class="hood-tag" title="Best for: ${tm.label}"><span class="hood-tag-emoji">${tm.emoji}</span><span class="hood-tag-label">${tm.label}</span></span>` : '';
     return `
-        <button type="button" class="hood-tile" role="tab" id="hood-tab-${i}" aria-controls="hood-panel-${i}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? 0 : -1}" data-hood-idx="${i}">
+        <div class="hood-tile" role="tab" id="hood-tab-${i}" aria-controls="hood-panel-${i}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? 0 : -1}" data-hood-idx="${i}">
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
             ${tagHTML}
             <h3 class="hood-name">${name}</h3>
             <p class="hood-credit"></p>
           </div>
-        </button>`;
+        </div>`;
   }).join('');
 
   /* One venue row: label pill styled like the lodging tiers, name linked to Maps, one-line note. */
@@ -3545,48 +3564,81 @@ if(!c){
   })();
 
   /* ---------- Neighborhood hero images ----------
-     Local verified Wikimedia photo first (hood-photos.js); hoods without
-     one keep the live Unsplash lookup below. */
+     Local verified Wikimedia photo first (hood-photos.js).
+
+     A hood with no verified photo of its own gets NO keyword-searched
+     stand-in. That used to run a live Unsplash lookup and, failing that, a
+     random picsum image — and because the hoods still missing a photo are
+     exactly the obscure ones, the lookup missed most of the time and the
+     random image took over: Abuja's Central Business District was showing a
+     Californian pier, La Paz's San Pedro an Arequipa church. Both rendered
+     identically to the verified photos, so a reader couldn't tell which was
+     real.
+
+     Instead we fall back to this city's own verified photo (city-photos.js,
+     which covers every city), tinted and captioned so it reads as a stand-in
+     for the city rather than a picture of the neighborhood, and we promote
+     that hood's "Contribute a photo" button so a reader who knows the place
+     can send us the real thing. */
   (function loadHoodImages() {
-    const landmarks = CITY_HOOD_LANDMARK[c.city] || {};
     const localHoods = (window.NRA_HOOD_PHOTO || {})[c.city] || {};
-    document.querySelectorAll('.hood-hero[data-hood]').forEach(async el => {
+    const cityPhoto = (window.NRA_CITY_PHOTO || {})[c.city];
+    /* hood banners display ~1000px wide at most — use the 960px "-sm" copy.
+       Contributed photos are absolute URLs with no such copy, so use them as-is. */
+    const served = src => /^https?:/i.test(src) ? src : src.replace(/\.webp$/, "-sm.webp");
+    const STANDIN_CROPS = ["50% 50%", "18% 45%", "82% 45%", "50% 18%", "50% 82%"];
+
+    document.querySelectorAll('.hood-hero[data-hood]').forEach(el => {
       const name = el.dataset.hood;
       const local = localHoods[name];
+      const creditEl = el.querySelector('.hood-credit');
+
       if (local) {
-        // hood banners display ~1000px wide at most — use the 960px "-sm" copy.
-        // Contributed photos are absolute URLs with no such copy, so use them as-is.
-        el.dataset.bg = /^https?:/i.test(local.img) ? local.img : local.img.replace(/\.webp$/, "-sm.webp");
+        el.dataset.bg = served(local.img);
         lazyBgObserve(el.parentElement);
-        const creditEl = el.querySelector('.hood-credit');
         if (creditEl && local.page) creditEl.innerHTML = `Photo: <a href="${local.page}" target="_blank" rel="noopener">${local.src || "Wikimedia Commons"}</a>`;
         return;
       }
-      const landmark = landmarks[name];
-      const query = landmark ? `${landmark} ${c.city}` : `${name} ${c.city}`;
-      /* Tiles render 3:4 (portrait) — match that here so the live lookup and
-         its offline fallback both crop sensibly instead of centre-cropping
-         a wide landscape shot down to a sliver. */
-      const fallback = `https://picsum.photos/seed/${encodeURIComponent(c.city + '-' + name)}/900/1200`;
 
-      try {
-        const r = await fetch(`/.netlify/functions/image?q=${encodeURIComponent(query)}&orientation=portrait`);
-        if (!r.ok) throw new Error('fetch failed');
-        const d = await r.json();
-        if (d.url) {
-          el.style.backgroundImage = `url('${d.url}')`;
-          const creditEl = el.querySelector('.hood-credit');
-          if (creditEl && d.credit) {
-            const utm = 'utm_source=never_roam_alone&utm_medium=referral';
-            const photographerUrl = d.creditLink ? `${d.creditLink}?${utm}` : `https://unsplash.com/?${utm}`;
-            const unsplashUrl = `https://unsplash.com/?${utm}`;
-            creditEl.innerHTML = `Photo by <a href="${photographerUrl}" target="_blank" rel="noopener">${d.credit}</a> on <a href="${unsplashUrl}" target="_blank" rel="noopener">Unsplash</a>`;
-          }
-        } else {
-          el.style.backgroundImage = `url('${fallback}')`;
-        }
-      } catch (_) {
-        el.style.backgroundImage = `url('${fallback}')`;
+      /* No verified photo of this neighborhood yet. */
+      el.classList.add('hood-hero-standin');
+      const idx = el.parentElement && el.parentElement.dataset.hoodIdx;
+      if (cityPhoto) {
+        el.dataset.bg = served(cityPhoto.img);
+        /* A city where several hoods are still unphotographed would otherwise
+           show the same picture four or five times in a row, which reads as a
+           bug. Framing each on a different part of the photo breaks that up —
+           it's still the same city shot, and still labelled as one. */
+        el.style.backgroundPosition = STANDIN_CROPS[(Number(idx) || 0) % STANDIN_CROPS.length];
+        lazyBgObserve(el.parentElement);
+      }
+      /* The credit reads like any other tile's — it just names the city,
+         because that is what the photo actually shows. textContent, not
+         innerHTML: the city name goes in unescaped. */
+      if (creditEl) creditEl.textContent = `Photo: ${c.city}`;
+
+      /* Top-left stack: a short flag saying this isn't the neighborhood, and
+         the invitation to send one that is. Built with DOM calls rather than
+         innerHTML so the hood name can't inject markup. */
+      const note = document.createElement('div');
+      note.className = 'hood-standin-note';
+      const flag = document.createElement('span');
+      flag.className = 'hood-standin-flag';
+      flag.textContent = 'No photo yet';
+      const cta = document.createElement('button');
+      cta.type = 'button';
+      cta.className = 'hood-standin-cta';
+      cta.textContent = 'Contribute a photo';
+      cta.dataset.contribKind = 'neighborhood-hero';
+      cta.dataset.contribSubject = name;
+      if (idx != null) cta.dataset.contribIdx = idx;
+      note.append(flag, cta);
+      el.append(note);
+
+      const btn = idx == null ? null : document.querySelector(`#hood-panel-${idx} .photo-contrib`);
+      if (btn) {
+        btn.classList.add('photo-contrib-wanted');
+        btn.textContent = `Add a photo of ${name}`;
       }
     });
   })();
@@ -3610,6 +3662,18 @@ if(!c){
     tabs.forEach((t, i) => t.addEventListener('click', () => select(i)));
     list.addEventListener('keydown', e => {
       const k = e.key;
+      /* The tiles are divs with role="tab", not <button>s — a tile holds its
+         own "Contribute a photo" button when the hood has no photo yet, and a
+         button can't be nested inside a button. Divs don't turn Enter/Space
+         into a click the way buttons do, so do it here. Ignore keys aimed at
+         that inner button, which handles its own. */
+      if (k === 'Enter' || k === ' ' || k === 'Spacebar') {
+        const tile = e.target.closest('.hood-tile');
+        if (!tile || e.target.closest('button') ) return;
+        e.preventDefault();
+        select(tabs.indexOf(tile));
+        return;
+      }
       if (k !== 'ArrowRight' && k !== 'ArrowLeft' && k !== 'Home' && k !== 'End') return;
       e.preventDefault();
       const n = tabs.length;
