@@ -51,6 +51,29 @@ skill) rather than hand-editing each file — it splices every file at once and 
 safe to re-run. After adding, confirm the city is present in **all** target
 files, especially city.html (the actual guide page), not just the city lists.
 
+## Committing: stage exact paths, never everything
+
+**Never use `git add -A`, `git add .`, or `git commit -a`.** Stage the specific
+files the task touched, by name.
+
+More than one session can be working in this repo at the same time, and they
+share one working directory. A blanket `git add` sweeps up whatever another
+session happens to have half-written at that moment, and buries it inside your
+commit under your message. It has already happened: a food-verification session
+committed 110 `citydata/*.json` files, a `city.html` edit and a scratch file
+belonging to a concurrent price-research run, and the other session had to
+commit a cleanup of its own.
+
+- Stage by path: `git add city-food.js _needs-attention/food-unverified.md`.
+- Before committing, run `git status --short` and confirm every staged path is
+  one you meant to change. If something unexpected is staged, unstage it — do
+  not assume it is yours.
+- After committing, `git show --stat` should list only your files. If the count
+  looks high, stop and say so rather than pushing.
+- Creating or switching branches moves the whole working directory, and any
+  other session with it. Check `git branch --show-current` before assuming you
+  know where a commit will land.
+
 ## When in doubt
 
 If a task seems to require deleting or rewriting a large amount of existing,
