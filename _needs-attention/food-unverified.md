@@ -1261,6 +1261,69 @@ and no new single-place dish.
 **Remaining: 2 of the original 55** — Chennai's Anjappar (stored Chetpet) and
 Karaikudi (stored Alwarpet) neighbourhood labels. Both need a pin.
 
+## Re-verification pass 28 (2026-09-16) — THE FILE IS CLOSED
+
+The last two items, both Chennai neighbourhood labels from pass 2.
+
+**Karaikudi -> Kaaraikudi Chettinad Restaurant, CIT Colony.** Jeff's pin and OSM
+agree: **Dr Radhakrishnan Salai, CIT Colony**, Ward 119, Zone 9 Teynampet,
+600004. The stored **Alwarpet** was adjacent but wrong. Also adopted the venue's
+own spelling of its name, the other half of pass 2's "name/area mismatch".
+
+**Anjappar -> "Multiple branches".** Jeff confirmed it has outlets across
+Chennai and left the choice open. Rather than assert one, the single-branch claim
+was dropped: OSM maps exactly one Chennai Anjappar (Metrozone, Ambattur), too far
+out to be useful in a guide, and the one central listing is filed under **both**
+"Egmore" and "Nungambakkam" — precisely the ambiguity that produced this item.
+"Multiple branches" is the convention the file already uses for chains (see Adyar
+Ananda Bhavan on the same city's ghee roast dosa) and it is simply true: the
+chain has 30+ outlets and was founded in Chennai in 1964.
+
+The stored **Chetpet** is gone either way, which was the actual defect.
+
+`node --check` PASS, place count unchanged at 20,392, Chennai only.
+
+---
+
+## ALL 55 ITEMS ARE CLOSED
+
+Opened as 71 bullets across 12 "Still uncertain" blocks; 16 were already answered
+elsewhere in this file and never struck through, leaving 55 real items. All 55
+are now resolved, across passes 15-28 and Jeff's own research.
+
+**What they turned out to be:**
+
+- **Venues that did not belong** and were deleted: roughly 70 place entries
+  across the file, from Tarawa's Babes Place to Santa Cruz's Lo Nuestro.
+- **Venues that were real but misfiled** — the single biggest category, and the
+  one nobody predicted. Les Panisses was on the wrong side of Marseille, Mahesh
+  Prasad in the wrong district, Akbar Mashti in the wrong part of Tehran, Kako
+  Coffee in the wrong ward, Haenyeoui Jip on the wrong end of Jeju island.
+- **Items that were never problems at all**: Tirana, Rimini, Corfu, Jasper's
+  Whistle Stop — correct entries that one ambiguous listing had flagged and
+  nothing could unflag.
+- **One rebrand** needing a rename rather than a deletion: The Hague's Garoeda.
+
+**What is left in city-food.js:** 893 cities, 7,112 dish and drink entries,
+20,392 places. No dish has zero places. Four dishes have one, three of which
+predate this work; the fourth, Niagara Falls' BeaverTails, is accepted and
+recorded above.
+
+### The finding that outlives this file
+
+Three venues were corrected that **no pass ever flagged** — Bear's Paw Bakery on
+the wrong street, and Les Panisses and Mahesh Prasad in the wrong districts. All
+three were caught incidentally, while checking something else.
+
+Every pass in this project searched for **names**. That only ever finds venues
+whose names do not resolve. A venue with a perfectly findable name sitting in the
+wrong neighbourhood is invisible to that method, and nothing in this file's
+history would have surfaced one. There are 20,392 place entries and no process
+that checks any of them by coordinate.
+
+That is a different project, and a bigger one. But it is where the remaining
+errors in city-food.js almost certainly are.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
