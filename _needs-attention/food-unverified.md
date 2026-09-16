@@ -1165,6 +1165,77 @@ was assembled to catch.
 **Remaining: 7 of the original 55 — all of them group D, all needing Jeff.**
 No research-shaped work is left in this file.
 
+## Re-verification pass 26 (2026-09-16) — group D decided by Jeff
+
+Jeff answered the decision list. Applied:
+
+**1. Chennai / Saravana Bhavan — T. Nagar is still closed.** Repointed to the
+**Adyar** branch, which appears both on the chain's own restaurant-locations page
+and in OSM. Trade press confirms T. Nagar closed for want of parking, and that
+Anna Nagar, K. K. Nagar and OMR went the same way, so this is a permanent
+closure rather than a pause.
+
+**3. Oaxaca — one business.** Merged into **Tlayudas Libres Dona Martha**, Calle
+de los Libres, Jalatlaco; the duplicate deleted. The old second entry put Dona
+Martha on Belisario Dominguez, which was wrong either way. Dish keeps 2.
+
+*Recorded because it cuts against the decision:* OSM maps **two adjacent nodes** —
+"Tlayudas de Libres" at Calle de los Libres **208** and "Libres Tlayudas Dona
+Martha" at **210**. That is either one business mapped twice or two neighbouring
+stands with near-identical names. Jeff's call stands; splitting them again is a
+one-line change if it turns out to be two.
+
+**4. Fort-de-France / Miza — deleted from both dishes.** Jeff's pin resolves to
+**MIZA - L'Entrepot**, Rue Georges Gratiant, ZAC Riviere Roche — exactly the
+venue pass 2 suspected. It is chef Sebastien Jean-Joseph's gastronomic room
+serving **blind tasting menus** at EUR 59-70 with no fixed carte. It is a real
+and notable restaurant, but not where anyone goes for casual colombo or
+chatrou/lambi, so it does not belong on those two dishes. If it earns a place in
+the Fort-de-France guide it should be under a fine-dining entry of its own.
+
+**5. Tours — two different restaurants.** Confirmed, so the traditional-Touraine
+notes attached to all four dishes belong to the other one: renamed to **Le
+Bouchon Tourangeau**, which OSM places on **Rue du Grand Marche, Vieux Tours**.
+The casual Cafe Bar Le Tourangeau is a separate business and was never what these
+entries described.
+
+**6. Santa Cruz de la Sierra is in Bolivia** (destinations.js: `country:"Bolivia"`,
+-17.78, -63.18). Singani and chicha camba are Bolivian, so the dish pairing is
+right. The open question — whether **Lo Nuestro** in Equipetrol is the right
+venue — is unchanged and still needs a decision.
+
+**7. Inhambane — two names, same place.** Renamed to **Mercado Central de
+Inhambane**, its name since the August 2024 rebuild, with the note recording that
+it is still widely called the Mercado Municipal.
+
+### 2. Chennai areas — partly settled, partly still open
+
+The task was to confirm three neighbourhoods the file asserts. One is settled:
+
+- **Sri Velu Military Hotel -> Velu Military Hotel**, and **Chintadripet ->
+  Valluvar Kottam High Road**. OSM has it under the shorter name on Valluvar
+  Kottam High Road; Chintadripet is a different part of the city entirely.
+
+Two could not be settled and are **still open**:
+
+- **Anjappar Chettinad, stored as Chetpet.** OSM maps only one Chennai Anjappar,
+  at Metrozone in **Ambattur**. Anjappar is a large chain with many Chennai
+  outlets, so an unmapped Chetpet branch is entirely possible. Absence from OSM
+  is not evidence here.
+- **Karaikudi Restaurant, stored as Alwarpet.** OSM puts it on Dr Radhakrishnan
+  Salai, **CIT Colony**, in administrative Zone 9 Teynampet. Alwarpet also sits
+  inside Zone 9 and is adjacent to CIT Colony, so the stored label may be
+  loosely right. Needs a pin to resolve.
+
+### Verification
+
+`node --check` PASS. 893 cities and 7,112 dish entries unchanged. Places
+20,396 -> 20,393. Only Chennai, Fort-de-France, Inhambane, Oaxaca and Tours
+changed. No dish has zero places, and no new single-place dish was created.
+
+**Remaining: 3 of the original 55** — Chennai's Anjappar and Karaikudi areas, and
+Santa Cruz's Lo Nuestro.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
