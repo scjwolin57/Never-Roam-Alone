@@ -1099,6 +1099,37 @@ That makes **three group-E items in a row that were not actually problems**
 listing was enough to open an item, but not enough to close one, so correct
 entries sat flagged for weeks.
 
+## Re-verification pass 24 (2026-09-15) — Jasper's Whistle Stop Pub CLOSED (it is open)
+
+Jeff's pin resolves to the Whistle Stop Pub on Connaught Drive in Jasper. Because
+the open question was **trading status**, not location, a pin alone could not
+settle it — Google keeps listings for closed businesses. So it was checked
+against sources that speak to status:
+
+- **whistlersinn.com's own page for the pub** is live and presents current hours
+  (11:30am-9:30pm daily), 11 beers on tap, two bars, pool tables — not the page a
+  hotel leaves up for a closed venue.
+- **Tourism Jasper (jasper.travel)**, the official destination site, lists it.
+- Yelp reviews as recent as **June 2026**.
+
+Pass 11 said "multiple listings describe it as still closed post-wildfire with no
+confirmed reopening date" and would not close the item "without a direct call to
+the venue". The call is no longer needed: **the pub is open.**
+
+Its address is **105 Miette Avenue**, not Connaught Drive — Miette runs between
+Connaught and Patricia, so the old label was adjacent rather than wrong. Area
+sharpened to "Whistlers Inn, Miette Avenue" on both entries (Jasper craft beer,
+Caesar cocktail). No venue change, no deletion.
+
+`node --check` PASS, place count unchanged at 20,396, Jasper only.
+
+**Group E is now down to one item** — The Hague's Garoeda. Four of its five items
+turned out to be correct entries that nobody had been able to confirm: Tirana,
+Rimini, Corfu and now Jasper. Only the Other Paw, dropped in pass 22, genuinely
+did not belong.
+
+**Remaining: 8 of the original 55** — group D (7) and Garoeda.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
