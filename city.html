@@ -3878,7 +3878,8 @@ if(!c){
     const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : "";
     const rideText = !a.ride ? "" : a.ride.avail === "no"
       ? "Not available"
-      : `${a.ride.avail === "limited" ? "Limited availability" : "Available"} &middot; avg ${fmtPrice(a.ride.cost, code)}`;
+      : `${a.ride.avail === "limited" ? "Limited availability" : "Available"}${
+          a.ride.cost == null ? "" : ` &middot; avg ${fmtPrice(a.ride.cost, code)}`}`;
     const transit = (a.transit || []).map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
     const carRental = [a.drive ? `Drive ~${a.drive}` : "",
                        (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
