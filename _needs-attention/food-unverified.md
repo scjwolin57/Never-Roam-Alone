@@ -888,6 +888,62 @@ in passes 16-17: 2.**
 **Remaining: 26 of the original 55** — group B (9), group D (7, now including
 Inhambane's market name), group C (5), group E (5).
 
+## Re-verification pass 18 (2026-09-15) — group B cleared
+
+Ran the rule across all 9 group-B items ("no reliable listings either way",
+15 venues). Same method: native-language search plus a Nominatim lookup each,
+then OSM verification of every proposed replacement.
+
+### Two venues survived — one leg passed, so they stay
+
+- **Kinshasa: Le Voyageur.** OSM has *Hotel Le Voyageur - Elais*, Avenue Ngongo
+  Lutete, Golf, **Gombe** — matching the area already stored. Kept.
+- **Encarnacion: El Quincho.** A Spanish-language source describes it in
+  downtown Encarnacion serving *asado, sopa paraguaya and chipa guazu* — the
+  exact three dishes it is attached to here. Kept. Worth noting the city's own
+  tourism directory (encarnacion.gov.py) lists none of Encarnacion's four
+  flagged venues, including this one, so the directory is clearly not
+  exhaustive; that absence was not treated as evidence either way.
+
+### 6 replacements
+
+| City | Out | In |
+|---|---|---|
+| Libreville | Chez Paul | **Bambou Bar**, Glass district (cassava leaves, poulet nyembwe) |
+| Encarnacion | Parrillada Don Emilio | **America Grill Churrasqueria** — on the municipality's own list |
+| Gisenyi | Wifi Beach Restaurant | **Lakeside Bar Beach and Restaurant** (visitrubavu.com, the district tourism site) |
+| Kairouan | Brothers Food (lablabi only) | **Lablabi Guepsi**, Place de Tunis (Petit Fute) |
+| Marigot | Le Gout | **Chez Coco** (st-martin.org, the official tourist board) — cabri colombo |
+| The Valley | Sarjai's (red snapper only) | **Pimms**, Carter Rey Boulevard |
+
+Gisenyi is a near-miss worth recording: one aggregator does carry a "Wifi Beach
+Restaurant" entry, but it belongs to the same evendo/thingstodoin* network that
+pass 13 flagged and that recurred in Juba and Tarawa, so it was not counted.
+
+### 19 deletions
+
+Kinshasa's Restaurant N'Zanza x4 and Le Cormoran x2, Libreville's Chez Paul x1,
+Encarnacion's Taberna La Cava x2 / La Cabana x1 / Don Emilio x1, Nakuru's
+Winston's Bar and Grill, Kairouan's Brothers Food x3, Aleppo's Hallab sweets and
+Bazerbashi, The Valley's Sarjai's x2.
+
+On Aleppo: pass 10 suspected the Hallab entry was conflating Aleppo with the
+Hallab dynasty headquartered in Tripoli, Lebanon. Arabic-language searching found
+nothing to place either Hallab or Bazerbashi in Aleppo, and OSM has neither. Both
+dishes keep their Al-Telal Street and Souq al-Madina entries, which are what the
+Syrian sources actually describe.
+
+### Verification
+
+`node --check city-food.js` PASS. 893 cities and 7,112 dish entries unchanged.
+Places 20,419 -> 20,400. Only the 9 intended cities changed. Every flagged venue
+name is gone. **No dish has zero places; minimum across the 9 cities is 2.** The
+file's only three single-place dishes remain Nagoya's Nishio matcha, Kamakura's
+Shonan craft beer and Seattle's Seattle dog, all predating this work.
+
+**Remaining: 17 of the original 55** — group D (7, needs Jeff) and groups C and E
+(10, the accept-and-recheck bucket). No research-shaped work is left.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
