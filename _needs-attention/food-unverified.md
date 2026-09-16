@@ -11,10 +11,179 @@ verified by `node --check city-food.js` and a scoped `git diff --stat` to
 confirm only the intended lines changed. A further ~80 items across the passes
 could not be confirmed either way with the sources available and were
 deliberately left unedited, logged as uncertain rather than guessed at, per
-the project's standing rule to never invent a fact. Nothing in city-food.js
-has been committed or pushed yet — that's still Jeff's call. See the
+the project's standing rule to never invent a fact. Those fixes were
+committed on 2026-08-28 (`heros updates and social section`). See the
 "Re-verification pass 1" through "pass 14" sections below for the full,
 city-by-city detail of every fix and every open question.
+
+## OPEN ITEMS — consolidated list (re-derived 2026-09-15)
+
+The "Still uncertain" blocks inside passes 1-15 contain 71 bullets, but 16 of
+those were already answered later in this same file and were never struck
+through. Re-reading every block against the passes that followed it leaves
+**55 genuinely open items across 52 cities**. This section is the authoritative
+list; the per-pass blocks below are the working record and are kept as-is.
+
+What was removed, and why:
+
+- **11 bullets from pass 6** were "not reached, search budget ran out." Pass 7
+  went back and finished every one of them. Pass 14 confirms: "Every city and
+  venue in city-food.js has now been through at least one re-verification pass.
+  Nothing remains unreached." **Nothing in city-food.js is unchecked.**
+- **3 bullets from pass 7** (Perth x2, Kampala) were closed by pass 15.
+- **1 Salzburg bullet** (pass 3) — pass 4 confirms Gasthaus Wilder Mann reopened.
+- **1 Marseille bullet** (pass 4) — verbatim duplicate of the pass 3 entry.
+
+### A. Aggregator-only, no corroborating source (15)
+
+Each appears only on templated aggregator sites that reuse boilerplate copy. More web searching will not settle these; they need a native-language / OpenStreetMap check, and a rule for what to do when that also comes up empty.
+
+- *(pass 13)* Bangui: **La Sirene** — same pattern
+- *(pass 13)* Conakry: **Rice Women Restaurant** — same templated-aggregator-only pattern
+- *(pass 13)* Hamadan: **Komaj Pila** — "komaj" is verified only as a Hamadan sweet bread, not a business; likely a food name mistaken for a venue
+- *(pass 13)* Harar: **Harla Cafe and Restaurant**, **Genet Kitfo**, **Dire Xayara** — all three appear only on a templated aggregator that reuses boilerplate copy across cities, while Harar's real venues (Fresh Touch, Mermaid Cafe) have Tripadvisor/Wikivoyage presence. Note "Dire Xayara" matches the name of a rural woreda, not a restaurant. Strong candidates for removal, but not without a second source
+- *(pass 13)* Inhambane: **Bamboozi Beach Lodge** (no 2024-2026 confirmation it still trades) and **Pastelaria Ferroviario** (no reliable source under that name)
+- *(pass 13)* Inhambane: the municipal market was rebuilt and reopened in August 2024 as **Mercado Central de Inhambane**; left as "Mercado Municipal" since that is still the name in common use, but worth a decision
+- *(pass 13)* Juba: **Lotus Restaurant** — no listing anywhere, unlike every other Juba venue checked
+- *(pass 13)* Majuro: **Frank K's Restaurant** and **DAR Coffee Corner** — single generic-content source each; the DAR source itself says Uliga, not the listed Delap
+- *(pass 13)* Majuro: **Ri-Wut Corner** is real, but "Rita" specifically is unconfirmed within the Delap-Uliga-Djarrit strip
+- *(pass 13)* Manado: **Klappertaart Huize** — the brand's confirmed outlets are Bogor and Denpasar, none in Manado
+- *(pass 13)* Mysore: **Hotel Ayub Bawarchi** (no corroborating listing at all) and **Mahesh Prasad** (real, but listings put it in Chamrajpura, not squarely on Sayyaji Rao Road)
+- *(pass 13)* Port Moresby: **Ribito Grill and Restaurant** — venue is real, but Waigani as its suburb is unconfirmed; **POM Restaurant** — listings put it on Munahu Street, Gordons, rather than "Central Port Moresby", on a weak source
+- *(pass 13)* Siwa: **Adrere Amellal** is confirmed, but the "Sidi Jaafar" sub-location is not corroborated anywhere
+- *(pass 13)* Tarawa: **Babes Place** — one generic-reading blog, no corroboration
+- *(pass 13)* Turpan: **Guanghui Street snack zone** (8 occurrences) — no street by that name turns up in any Turpan source; possibly a mistransliteration
+
+### F. Not findable under the listed name (14)
+
+Real-looking venues that no source confirms under the name city-food.js uses. Same treatment as A.
+
+- *(pass 1)* Aix-en-Provence: "Vino Loco" — no wine shop by this name found on rue d'Italie; only a same-named tapas restaurant on a different street turned up
+- *(pass 7)* Baghdad: Khan Baghdad Restaurant — every search surfaces Beirut/Amman/Bahrain branches, no Baghdad location confirmed
+- *(pass 1)* Guilin: "Jimo Bamboo Rice Restaurant" (Yangshuo) — no listing found under this name; "Lonely Bamboo Rice" turned up instead, possibly the same place
+- *(pass 5)* Houston: Long Coffee (Asiatown/Midtown) and Cafe TH (EaDo) — no clear signal either way
+- *(pass 4)* Izmir: "Boyozcu Ferit" (Alsancak) — no listing found under this name
+- *(pass 7)* Lijiang: Mu Wan — a wild-mushroom-hotpot chain called "Muwang"/"Muwang" exists but the exact name/spelling "Mu Wan" wasn't independently confirmed
+- *(pass 3)* Marseille: "Les Panisses" (Cours Julien) — only a stale ~2017 reference found, current status unclear
+- *(pass 7)* Nanjing: Lan Laoda Noodles — no evidence found in English or Chinese-language searches
+- *(pass 1)* Oranjestad: "Nos Cunucu" — no listing found under this name
+- *(pass 9)* Ouarzazate: Restaurant Habiba (Avenue Mohammed V) — no listing found under this name; a similarly-regarded but differently-named/located spot (Restaurant Cafe Habous, Place El Mowahidine) turned up instead, not confident enough to swap in
+- *(pass 9)* Pucon: Cerveceria Mestizo (Camino Pucon-Villarrica) — no evidence found either way; two real breweries on the same road (Cerveceria Wenu Pillan, Cerveceria Fryderup) could be candidates if this one turns out to be wrong, but that needs a human call
+- *(pass 1)* San Salvador: "Pupuseria y Antojitos Guanaquitas" — only a same-named restaurant in Cleveland, Ohio turned up; local listing unconfirmed
+- *(pass 7)* Varna: Zlatna Panna — no listing found under this name
+- *(pass 8)* Zhaoqing: Boji Guozheng (Duanzhou Sixth Road) — no listing found under this name
+
+### B. "No reliable listings either way" (9)
+
+Cities with thin web coverage generally, not suspect venues specifically. Lowest expected yield per search.
+
+- *(pass 10)* Aleppo: Hallab sweets (Aziziyah) and Bazerbashi (Aziziyah) — the well-known Hallab dynasty is headquartered in Tripoli, Lebanon rather than Aleppo, so this entry may be conflating the two; not confident enough to edit without a clearer source
+- *(pass 10)* Encarnacion: El Quincho, Parrillada Don Emilio, Taberna La Cava, La Cabana — no reliable current listings found either way
+- *(pass 10)* Gisenyi: Wifi Beach Restaurant — no reliable current listings found either way
+- *(pass 10)* Kairouan: Brothers Food — no reliable current listings found either way
+- *(pass 10)* Kinshasa: Le Voyageur, Restaurant N'Zanza, Le Cormoran — no reliable current listings found either way
+- *(pass 10)* Libreville: Chez Paul — no reliable current listings found either way
+- *(pass 10)* Marigot: Le Gout — no reliable current listings found either way
+- *(pass 10)* Nakuru: Winston's Bar and Grill — no reliable current listings found either way
+- *(pass 10)* The Valley: Sarjai's Restaurant — several signs point to a closure around 2017, but nothing confirms it either way; left in place pending a clearer source
+
+### D. Judgement call — needs Jeff (7)
+
+Cannot be resolved by research; someone has to decide.
+
+- *(pass 2)* Chennai: Anjappar Chettinad (listed Chetpet), Karaikudi Restaurant (listed Alwarpet), and Sri Velu Military Hotel (listed Chintadripet) all have name/area mismatches against current listings — the real Velu Military Hotel is on Eldams Road, Teynampet, and a same-named Teynampet listing shows closed
+- *(pass 2)* Chennai: Hotel Saravana Bhavan's T. Nagar flagship shows "temporarily closed" (parking-compliance dispute per local trade press) but the chain operates other Chennai branches — decide whether to point the listing at a different branch
+- *(pass 2)* Fort-de-France: "Miza Restaurant" — the real "MIZA – L'Entrepôt" is an upscale tasting-menu spot in Rivière Roche, not a casual colombo place in the centre; may be the wrong venue for this dish entirely
+- *(pass 2)* Oaxaca: "Tlayudas Libres" and "Tlayudas Dona Martha" look like the same business ("Tlayudas Libres Doña Martha," Calle de los Libres 212) listed twice under different names/addresses — needs reconciling into one entry
+- *(pass 8)* Santa Cruz de la Sierra: Lo Nuestro (Equipetrol) — a same-named restaurant exists but serves different regional food and its Equipetrol location is unconfirmed
+- *(pass 3)* Tirana: Oda's area is more accurately "near Blloku" than "in Blloku" (minor, no edit made)
+- *(pass 8)* Tours: Le Tourangeau — the actual "Cafe Bar Le Tourangeau" is a low-rated sandwich/coffee bar that doesn't match the traditional-Touraine-menu description used across 4 dish entries; a better match description-wise is Le Bouchon Tourangeau, but this wasn't confirmed with enough confidence to edit
+
+### C. Chain is real, the specific branch is not confirmed (5)
+
+Low risk: the venue exists, only the branch/address is unverified.
+
+- *(pass 4)* Jeju City: "Haenyeoui Jip" (Onpyeong) — this is a common format name for haenyeo-run seafood restaurants across several towns; no specific Onpyeong location confirmed
+- *(pass 8)* Nagasaki: Ringer Hut Nagasaki Chuo (chain confirmed, exact branch unconfirmed), Chuwa and Seiyotei (no evidence found either way), Bistro Boa Vista (possibly confused with the real nearby "Bistro Bordeaux," which serves the same signature dish — worth checking before trusting either name)
+- *(pass 4)* Nagoya: Kako Coffee's Fushimi branch unconfirmed (the chain itself is real and active)
+- *(pass 5)* Niagara Falls: BeaverTails Table Rock — the chain's own store locator shows only one Niagara Falls location (Clifton Hill), no evidence of a Table Rock kiosk
+- *(pass 4)* Tehran: Akbar Mashti's exact Vali-ye Asr branch address unconfirmed (the chain itself is real and active)
+
+### E. Closure or relocation status ambiguous (5)
+
+Worth a recheck later rather than now — these move on their own.
+
+- *(pass 5)* Corfu: Mavromatis Kumquat — likely actually in Felekas, not Corfu Town; one listing for the Felekas site shows "temporarily closed"
+- *(pass 11)* Jasper: The Other Paw Bakery Cafe (Patricia Street) — name and sister-bakery relationship check out, but no source confirms its wildfire-recovery status either way
+- *(pass 11)* Jasper: Whistle Stop Pub (Whistlers Inn, Connaught Drive) — multiple listings describe it as still closed post-wildfire with no confirmed reopening date; not closing it out without a direct call to the venue
+- *(pass 2)* Rimini: Mercato Coperto has a relocation/rebuild in progress — the venue is fine for now but the address may need updating later
+- *(pass 1)* The Hague: "Garoeda" (Kneuterdijk 18A) — a "permanently closed" listing exists alongside signs it reopened/rebranded as "Garuda by Ron Gastrobar Indonesia" at the same address — needs a direct check before trusting either way
+
+### Venue impact — what these 55 items actually touch
+
+Every venue in city-food.js hangs off a named dish or drink
+(`CITY_FOOD[city] = [{name, type, desc, places:[...]}]`), so each open item is a
+place attached to specific dishes, not a free-standing listing. Resolved in full
+on 2026-09-15 (all 55 items, including the 31 that describe their venues in prose
+rather than in bold or quotes):
+
+| | |
+|---|---|
+| Flagged venues | **75** across **51 cities** |
+| Dish/drink entries they back | **132** |
+| Dishes that would be left with **no** venue if all 75 were removed | **0** |
+| Dishes that would be left with exactly **one** venue | **19** |
+
+The unverified venues are not evenly spread — a few carry most of a city's page:
+
+| Dishes backed | Venue |
+|---|---|
+| 8 | Turpan: Guanghui Street snack zone |
+| 7 | Tarawa: Babes Place |
+| 7 | Tirana: Oda |
+| 6 | San Salvador: Pupuseria y Antojitos Guanaquitas |
+| 5 | Harar: Harla Cafe and Restaurant |
+| 4 | Kairouan: Brothers Food / Kinshasa: Restaurant N'Zanza / Tours: Le Tourangeau |
+
+Turpan is the sharpest case: pass 13 found no street by that name in any Turpan
+source and suspects a mistransliteration, yet it is the venue behind 8 of
+Turpan's dishes.
+
+**This makes the replacement rule safe to apply.** Removing every unverifiable
+venue would not blank out a single dish on a single city page. These 19 dishes
+are the only ones that would fall to a lone venue, so they are the ones where a
+replacement should be sourced rather than the entry simply dropped:
+
+| City | Dish | Would leave only |
+|---|---|---|
+| Chennai | Chettinad chicken | Ponnusamy Hotel |
+| Encarnación | Asado paraguayo | Chipa Tia Churrasqueria |
+| Encarnación | Chipa guasu | Mercado Municipal |
+| Encarnación | Sopa paraguaya | Mercado Municipal |
+| Guilin | Bamboo Rice and Stuffed Vegetables | Cloud 9 Restaurant |
+| Guilin | Li River Shrimp | Riverside restaurants |
+| Harar | Kitfo | Fresh Touch Restaurant |
+| Harar | Shiro and Injera | Fresh Touch Restaurant |
+| Houston | Vietnamese iced coffee | Le'Drip Coffee and Tea |
+| Kinshasa | Fumbwa | Marche Central |
+| Kinshasa | Poulet a la moambe | Chez Flore |
+| Majuro | Banke Kalel (Pumpkin in Coconut Milk) | Majuro Saturday market |
+| Majuro | Rice, Corned Beef and Johnnycake | Roadside johnnycake stands |
+| Niagara Falls | BeaverTails | BeaverTails Clifton Hill |
+| Oaxaca | Tlayudas | Mercado 20 de Noviembre |
+| Oranjestad | Pastechi | The Pastechi House |
+| The Valley | Grilled Whole Red Snapper | Palm Grove Bar & Grill |
+| Tirana | Fergese Tirane | Mullixhiu |
+| Tirana | Speca me gjize | Mullixhiu |
+
+**The blocker is a missing decision rule.** Groups A, F and B have no exit
+condition: "could not confirm" leaves the item open forever, which is exactly
+how 55 of them accumulated. The standing rule against inventing facts correctly
+forbids *asserting* a venue is fine, but says nothing about what to do instead.
+A proposed rule, for Jeff to accept or reject: **a venue that survives both a
+native-language search and an OpenStreetMap check with no source gets replaced
+by a sourced venue in the same city and dish category, and the swap is logged
+here.** With that rule, A, F and B terminate. Without it, they cannot.
 
 ## COMPLETE: all 897 live cities have food data (2026-08-03)
 
@@ -562,6 +731,162 @@ Restaurace Drapal, Vila Primavesi, Kavarna Konvikt, Cafe 87).
 
 Every city and venue in city-food.js has now been through at least one
 re-verification pass. Nothing remains unreached.
+
+## Re-verification pass 15 (2026-09-15) — Perth and Kampala open items
+
+Cleared the four Perth/Kampala items left open by pass 7. Fixed in city-food.js:
+
+| City | Fix |
+|---|---|
+| Perth | Nowhereman Brewing was relaunched as **Otherside of Nowhere** after Otherside's parent Triple-1-Three absorbed it -> renamed, same address (25 Harrogate St, West Leederville); note reworded, since "small independent" is no longer true |
+| Kampala | "Jeans Pub" -> **"Jean's Pub"**, its real name (2 occurrences) |
+| Kampala | "Bubbles O'Leary" -> **"Bubbles O'Learys"**, the spelling used by Kampala's own KCCA tourism portal and Tripadvisor |
+
+**Cleared, confirmed, no edit needed:**
+- **Gage Roads Freo** — open and trading in A Shed, Victoria Quay, Fremantle; won
+  WA Good Food Guide Pub of the Year 2026. The existing "A Shed, Fremantle" area
+  label is correct.
+- **Jean's Pub** — confirmed in Namuwongo, nyama choma by the kilo (~20,000 UGX),
+  popular with Kampala's Kenyan community.
+- **Bubbles O'Learys** — still trading at 19 John Babiha (Acacia) Ave, Kololo. The
+  "PANDORA by Bubbles O'Learys" rebrand flagged in pass 7 does **not** hold up: it
+  appears on one aggregator listing only, while the KCCA tourism portal and
+  Tripadvisor both still carry the pub under its own name, and a February 2026
+  review reports a new owner but the same pub.
+
+Verified with `node --check city-food.js` (PASS) and `git diff --stat`
+(3 insertions, 3 deletions, no other lines touched); place-entry count unchanged
+at 20,450 before and after.
+
+## Re-verification pass 16 (2026-09-15) — replacement rule ADOPTED, first batch
+
+**Jeff adopted the replacement rule on 2026-09-15.** It now governs every
+remaining open item:
+
+> A venue that survives both a native-language search and an OpenStreetMap check
+> without a single source is removed. If removing it would leave its dish thin,
+> a sourced venue in the same city and dish category is put in its place. Every
+> removal or swap is logged here.
+
+One clarification learned on the first batch: **removal is usually enough.**
+Most flagged venues sit on dishes that already carry two or three other places,
+so the rule's "replace" arm only fires on the 19 dishes identified in the
+venue-impact table above. Do not invent a replacement where deletion leaves the
+dish healthy.
+
+### Turpan — Guanghui Street snack zone -> Turpan Grape Night Market (8 dishes)
+
+Both legs failed: a Chinese-language search finds no 光辉街 snack street in
+Turpan, and Nominatim returns **zero** results for 光辉街 in Turpan. Pass 13's
+mistransliteration theory is confirmed. The city's actual food destination is
+the **葡萄夜市 (Grape Night Market)**, documented repeatedly on Turpan's own
+municipal government site (tlf.gov.cn) as the largest night market, serving
+kebabs, polo, samsa and huangmian — matching the dishes already attached.
+Renamed across all 8 entries; two notes reworded (one described "the main snack
+street", one claimed early-morning bread ovens, wrong for a night market).
+
+### Tarawa — Babes Place REMOVED from 7 dishes, no replacement needed
+
+Both legs failed: one generic blog only, and Nominatim returns zero results.
+Every one of its 7 dishes already carried a market or hotel-restaurant entry
+(Bairiki Market food stalls, Bikenibeu Market, Betio Market, Otintaai Hotel),
+and **Bairiki Market is confirmed in OpenStreetMap** as a marketplace on Stadium
+Road. Removed rather than replaced; every affected dish still has 2 venues. Its
+notes made strong unsourced claims ("cultural institution", "one of the few
+places serving fermented breadfruit to visitors") that rested entirely on a
+venue nothing could confirm.
+
+### Tirana — Oda CLOSED, no edit needed (7 dishes)
+
+The pass 3 note asks for Oda's area to read "near Blloku" rather than "in
+Blloku". city-food.js already stores `"area": "near Blloku"` on all 7 entries.
+The fix was applied at some point and the item was never struck through.
+
+Verified: `node --check city-food.js` PASS; 893 cities and 7,112 dish entries
+unchanged; 20,450 -> 20,443 places (the 7 Babes Place removals); a full
+before/after parse confirms **only Turpan and Tarawa changed**; no dish in
+either city is left with fewer than 2 venues.
+
+**Remaining after this pass: 52 of the 55 items.** See the OPEN ITEMS section at
+the top of this file for the working list and priority order.
+
+## Re-verification pass 17 (2026-09-15) — groups A and F cleared under the rule
+
+Ran the adopted rule across every remaining group-A (aggregator-only) and
+group-F (not findable under the listed name) item: a native-language web search
+plus a Nominatim/OpenStreetMap lookup for each of the 33 venues, then a second
+OSM pass to verify each proposed replacement before it was used.
+
+**26 of the 27 remaining A/F items are closed.** The one survivor is Inhambane's
+market name, which is a naming decision rather than a sourcing problem, so it
+moves to the "needs Jeff" group.
+
+### OSM overturned four pass-13 verdicts — these venues are real and stay
+
+Pass 13 called them aggregator-only. OpenStreetMap has them, with streets:
+
+| Venue | OSM record |
+|---|---|
+| Harar: **Genet Kitfo** | Shk Abubeker Street, Harar |
+| Harar: **Harla Cafe & Restaurant** | Jeberti Street, Harar |
+| Majuro: **DAR Coffee Corner** | Uliga Back Road — area corrected Delap -> **Uliga** |
+| Majuro: **Ri-Wut Corner** | Lagoon Road, Delap-Uliga-Djarrit — area corrected from **Rita** |
+| Inhambane: **Bamboozi Beach Lodge** | Rua da Lagoa, Praia do Tofo |
+| Marseille: **Les Panisses** | 23 Rue Sainte, Opera (1st) — area corrected from **Cours Julien** |
+| Mysore: **Mahesh Prasad** | New Kantharaje Urs Road — area corrected to **Krishnamurtipuram** |
+| Houston: **Long Coffee** | 10611 Bellaire Blvd — area corrected to **Asiatown** |
+
+A ninth, **Siwa's Adrere Amellal**, is confirmed by its own site; only the
+uncorroborated "Sidi Jaafar" sub-location was wrong, now **White Mountain, by
+Lake Siwa**, which the sources do support.
+
+### 19 replacements (both legs failed, sourced substitute found)
+
+| City | Out | In |
+|---|---|---|
+| Aix-en-Provence | Vino Loco | **Nicolas Italie**, 41 rue d'Italie (OSM) |
+| Bangui | La Sirene | **Bangui Plage**, Oubangui riverside (OSM + Petit Fute) |
+| Guilin (x3) | Jimo Bamboo Rice | **Da Shifu Beer Fish**, Fengming Rd, Yangshuo (OSM + Ctrip) |
+| Izmir | Boyozcu Ferit | **Alsancak Dostlar Firini**, est. 1983 (OSM + Iz Gazete) |
+| Hamadan | Komaj Pila | **Bazar-e Ghannadha** — pass 13 was right, komaj is the bread, not a venue |
+| Manado | Klappertaart Huize | **Christine Klappertaart** (Kompas, detik, IDN Times) |
+| Mysore | Hotel Ayub Bawarchi | **Hotel Hanumanthu Original**, Mandi Mohalla, since 1930 (OSM) |
+| Nanjing | Lan Laoda Noodles | **Yiji Pidu Noodles** |
+| Oranjestad | Nos Cunucu | **Huchada Bakery** (OSM puts it in Piedra Plat, Paradera — area set accordingly) |
+| Port Moresby | Ribito Grill | **Magi Seafood**, Gordons (OSM + Fodor's) |
+| Pucon | Cerveceria Mestizo | **Cerveceria Wenu Pillan** (OSM) — the candidate pass 9 nominated |
+| Zhaoqing | Boji Guozheng | **Feizai Wei**, Duanzhou District |
+| Houston | Cafe TH | **Cali Sandwich and Pho**, Midtown (OSM) |
+| Baghdad | Khan Baghdad (masgouf only) | **Al-Baghdadi Restaurant**, Abu Nuwas Street |
+| San Salvador | Pupuseria Guanaquitas (pupusas) | **Pupuseria de Alba Luz Rivera**, Centro Historico |
+| San Salvador | Pupuseria Guanaquitas (panes con pollo) | **Panes Wendy**, Barrio Santa Anita |
+| Majuro | Frank K's (rice/corned beef) | **Majuro sidewalk barbecues** |
+
+### 24 deletions (both legs failed, no sourced substitute, dish stays healthy)
+
+Baghdad (quzi, dolma), Conakry x3, Harar's Dire Xayara x2, Inhambane's
+Pastelaria Ferroviario, Juba's Lotus Restaurant x3, Majuro's Frank K's x2,
+Ouarzazate's Restaurant Habiba x3, Port Moresby's POM Restaurant, San Salvador
+x4, Varna's Zlatna Panna, Lijiang's Mu Wan x2.
+
+Note on Juba: the only corroboration for Lotus Restaurant came from the same
+templated site family that pass 13 flagged (thingstodoinjuba.com, sibling of the
+thingstodoin* network), so it was not treated as a second source.
+
+### Verification
+
+`node --check city-food.js` PASS. 893 cities and 7,112 dish entries unchanged.
+Places 20,443 -> 20,419. A full before/after parse confirms **only the 25
+intended cities changed**. Every flagged venue name is gone from the file.
+
+**No dish anywhere in city-food.js has zero places.** Only three dishes in the
+whole file have a single place — Nagoya's Nishio matcha, Kamakura's Shonan craft
+beer and Seattle's Seattle dog — and all three were already single-place at HEAD,
+untouched by this batch. **Minimum places per dish across all 27 cities touched
+in passes 16-17: 2.**
+
+**Remaining: 26 of the original 55** — group B (9), group D (7, now including
+Inhambane's market name), group C (5), group E (5).
 
 ## Cleared (2026-08-03)
 

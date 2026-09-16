@@ -11,8 +11,16 @@ site, so moving them broke nothing.
 | `transport-pilot-review.md` | Approve the format for 25 sample cities before it rolls out to ~870 more | project root |
 | `performance-audit-2026-08-07.md` | Three fixes are done; the bigger speed-ups need your go-ahead | project root |
 | `cull_review.md` | Review 1,595 city rows proposed for deletion, before anything is deleted | project root |
-| `roamer-review-questions.md` | Pick the 10 best questions | project root |
-| `local-interview-questions.md` | Pick the 10 best questions | project root |
+
+## Done — moved to `_done/` (15 September 2026)
+
+| File | Why it's closed |
+|---|---|
+| `_done/roamer-review-questions.md` | Trimmed 24 -> 16; the chosen questions are live in `city.html` |
+| `_done/local-interview-questions.md` | Trimmed 31 -> 15; the chosen questions are live in `city.html` |
+| `_done/css-consolidation-flags.md` | Record of the finished `master.css` rollout across all 23 pages, every page PASS |
+
+Nothing was deleted, only moved. `master.css` points at the new path.
 
 ## Unfinished work and research backlog
 
