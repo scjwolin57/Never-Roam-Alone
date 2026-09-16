@@ -944,6 +944,30 @@ Shonan craft beer and Seattle's Seattle dog, all predating this work.
 **Remaining: 17 of the original 55** — group D (7, needs Jeff) and groups C and E
 (10, the accept-and-recheck bucket). No research-shaped work is left.
 
+## Re-verification pass 19 (2026-09-15) — Rimini's Mercato Coperto CLOSED
+
+Jeff sent a Google Maps pin for the market. It resolves to **Mercato Centrale
+Coperto Rimini**, and reverse-geocoding the pin's coordinates
+(44.06000, 12.57117) puts it on **Via Castelfidardo**, Rimini city centre.
+
+The Comune di Rimini's own site confirms the rest, and answers pass 2's worry
+("the address may need updating later") in the negative:
+
+- The market has **not relocated**. The city took direct management of the
+  building on 1 January 2025 and is renovating it **in place** — roof first
+  against water ingress, then windows and doors, ceilings, basement toilets and
+  a reworked fruit-and-veg trading area.
+- The long-term EUR 27m plan does demolish and rebuild — but **on the same
+  site**, as a near-zero-energy, earthquake-resistant building. So the address
+  survives even that.
+
+Area sharpened from "City centre" to **"Via Castelfidardo, city centre"** on all
+three entries (Piadina romagnola, Ciambella romagnola, and the fish stalls under
+Sardoncini). `node --check` PASS, 3 lines changed, Rimini only.
+
+**This closes the item.** Remaining: 16 of the original 55 — group D (7) and
+groups C/E (9).
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
