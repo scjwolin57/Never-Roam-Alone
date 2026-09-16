@@ -1042,6 +1042,33 @@ Hill as the only BeaverTails in Niagara Falls, so one entry is the honest answer
 matcha, Kamakura's Shonan craft beer, Seattle's Seattle dog (all three predating
 this project) and this one.
 
+## Re-verification pass 22 (2026-09-15) — Jasper bakeries
+
+Jeff's pin for the Other Paw item resolves to **Bear's Paw Bakery, 4 Pyramid
+Lake Road**, Jasper, Alberta — the *other* bakery, and the one that is verifiably
+there. It exposed a second error nobody had flagged.
+
+**Bear's Paw Bakery area corrected: Cedar Avenue -> Pyramid Lake Road.** The pin
+and OSM agree on 4 Pyramid Lake Road; Cedar Avenue was simply wrong, and this
+entry had never been flagged by any pass because nothing about it looked
+suspicious.
+
+**The Other Paw Bakery Cafe deleted.** It fails both legs of the rule: no OSM
+record under that name, and no source confirming its status after the 2024
+wildfire (which burned July 2024 to April 2025 and destroyed 358 structures in
+the townsite). Its stored area was wrong too — the real address is **610
+Connaught Drive**, not Patricia Street — so even the location we held was
+unreliable. *Maple treats and mountain baking* keeps Bear's Paw and the Emerald
+Lounge.
+
+If the Other Paw turns out to have reopened, it goes back with the Connaught
+Drive address rather than Patricia Street.
+
+`node --check` PASS, places 20,397 -> 20,396, Jasper only, no dish left empty.
+
+**Remaining: 10 of the original 55** — group D (7) and group E (3: Jasper's
+Whistle Stop Pub, The Hague's Garoeda, Corfu's Mavromatis Kumquat).
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
