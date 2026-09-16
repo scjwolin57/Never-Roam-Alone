@@ -1130,6 +1130,41 @@ did not belong.
 
 **Remaining: 8 of the original 55** — group D (7) and Garoeda.
 
+## Re-verification pass 25 (2026-09-15) — GROUP E CLOSED: Garoeda renamed
+
+Jeff's pin resolves to **Garoeda Den Haag**, and OSM carries the amenity at
+**Kneuterdijk 18A**, Museumkwartier — the exact address pass 1 recorded. Dutch
+press then settled what the pin could not:
+
+- The original **Garoeda, open since 1949**, closed in **2020** after more than
+  70 years, with Covid delivering the final blow.
+- **Ron Blaauw** bought the site through his fund De Schone Zaak, renovated it on
+  the model of his Ron Gastrobar Indonesia, and reopened it as **Garuda by Ron
+  Gastrobar Indonesia** on the corner of Kneuterdijk 18A and Heulstraat.
+- It trades today, and still serves rijsttafel.
+
+So pass 1 was seeing both things at once and could not tell which was current:
+the "permanently closed" listing was the 1949 restaurant, the reopening signs
+were the 2022 revival. **Both were true.**
+
+This is a rename, not a deletion. The old note — "one of the oldest Indonesian
+restaurants in the Netherlands, serving rijsttafel since the 1940s" — was the
+part that had actually gone wrong: it claimed unbroken operation since the
+1940s, which stopped being true in 2020. Rewritten to say what happened.
+
+Area sharpened to "Kneuterdijk 18A, city centre". Dish keeps 3 places.
+`node --check` PASS, place count unchanged at 20,396, The Hague only.
+
+**GROUP E IS CLOSED.** Final tally across its five items: four were correct
+entries nobody had been able to confirm (Tirana, Rimini, Corfu, Jasper's Whistle
+Stop), one needed a rename rather than the deletion its "permanently closed"
+listing implied (Garoeda), and one genuinely did not belong (the Other Paw,
+pass 22). Not one of the five was the simple "venue has closed" that the group
+was assembled to catch.
+
+**Remaining: 7 of the original 55 — all of them group D, all needing Jeff.**
+No research-shaped work is left in this file.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
