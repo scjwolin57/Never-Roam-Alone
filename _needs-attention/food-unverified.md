@@ -1236,6 +1236,31 @@ changed. No dish has zero places, and no new single-place dish was created.
 **Remaining: 3 of the original 55** — Chennai's Anjappar and Karaikudi areas, and
 Santa Cruz's Lo Nuestro.
 
+## Re-verification pass 27 (2026-09-16) — Santa Cruz's Lo Nuestro deleted
+
+Jeff's call, after reviewing what else carried the dish. **Singani and chicha
+camba** keeps two venues that split the drink cleanly between them: *Bars around
+Equipetrol Norte* for the chuflays and *Mercado Los Pozos* for the chicha. Lo
+Nuestro was the redundant one — its claim, "a strong list of national spirits and
+wines", is what the Equipetrol Norte entry already says, in the same district.
+
+Cost of the deletion: Santa Cruz loses its only Equipetrol-proper venue. The
+remaining guide leans on Mercado Los Pozos (6 of 8 dishes), Casa Caramba (5),
+Cabanas del Rio Pirai (4) and Mercado La Ramada (3). No dish coverage was lost.
+
+**Where the flag probably came from.** Pass 8 wrote that "a same-named restaurant
+exists but serves different regional food". That restaurant is in the file:
+**Lo Nuestro, Urdesa, Guayaquil**, carrying *arroz con menestra y carne asada* and
+*guatita*. It is a different, unrelated Ecuadorian restaurant, was never flagged,
+and is untouched. The Santa Cruz item may have been a collision between the two
+all along.
+
+`node --check` PASS, places 20,393 -> 20,392, Santa Cruz only, no dish emptied
+and no new single-place dish.
+
+**Remaining: 2 of the original 55** — Chennai's Anjappar (stored Chetpet) and
+Karaikudi (stored Alwarpet) neighbourhood labels. Both need a pin.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
