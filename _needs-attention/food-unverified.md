@@ -1031,6 +1031,17 @@ Rock) turned out not to belong in the file.
 **Remaining: 11 of the original 55** — group D (7, Jeff's decisions) and group E
 (4: Jasper x2, The Hague's Garoeda, Corfu's Mavromatis Kumquat).
 
+## Niagara Falls BeaverTails — single venue ACCEPTED (2026-09-15)
+
+Jeff accepted *BeaverTails* standing on one venue, **BeaverTails Clifton Hill**,
+after Table Rock was deleted in pass 20. This is deliberate, not an oversight:
+the chain's own store locator and Niagara Parks' outlet list both show Clifton
+Hill as the only BeaverTails in Niagara Falls, so one entry is the honest answer.
+
+**Do not re-flag it.** The file now has four single-place dishes: Nagoya's Nishio
+matcha, Kamakura's Shonan craft beer, Seattle's Seattle dog (all three predating
+this project) and this one.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
