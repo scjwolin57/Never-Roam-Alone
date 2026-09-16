@@ -284,6 +284,12 @@
   .tap-water-note{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   .water-more-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;vertical-align:middle}
 
+  /* Small info icon that opens the city's own note for a figure we show as a
+     number (walk score, card acceptance, connectivity, transit, and so on). */
+  .note-btn{display:inline-flex;align-items:center;justify-content:center;background:none;border:none;padding:0;margin-left:5px;color:var(--green);opacity:.65;cursor:pointer;vertical-align:middle;line-height:0;transition:opacity .15s}
+  .note-btn:hover,.note-btn:focus-visible{opacity:1}
+  .note-text{margin:0;font-size:.95rem;line-height:1.55}
+
   /* Local food & drink recommendations (meal cost card + modal) */
   .food-recs-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 10px;border-top:1px solid rgba(0,0,0,.08);width:100%;background:rgba(63,81,56,.09);border-left:none;border-right:none;border-bottom:none;border-radius:8px;font-family:inherit;font-size:.92rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;text-align:left;transition:background .15s}
   .food-recs-btn:hover{background:rgba(63,81,56,.16)}
@@ -1323,6 +1329,16 @@ function walkInfo(s) {
 /* Safety Index / Crime Index (Numbeo-style, 0–100; they roughly sum to 100) */
 let CITY_SAFETY = {};
 
+/* Per-city prose kept from the guide data for figures the page shows as a
+   coded value (a walk score, a card-acceptance %, transit chips). The number
+   is the summary; this is the sentence behind the info icon next to it. */
+let CITY_NOTES = {};
+const NOTE_MODALS = {
+  "Walkability": "walk", "Card acceptance": "card", "Safety notes": "safety",
+  "Religion": "religion", "Languages": "langs", "Connectivity": "net",
+  "Public transit": "transit", "Getting to and from the city": "transport"
+};
+
 let CITY_SOLO = {};
 const SOLO_META = {vh:{w:"Very comfortable",c:"#556B2F"},h:{w:"Comfortable",c:"#6B8E23"},m:{w:"Generally fine — some caution",c:"#B8860B"},l:{w:"Use extra caution",c:"#C04020"},vl:{w:"Challenging — go prepared",c:"#8B2500"}};
 
@@ -2120,6 +2136,7 @@ async function loadCityData(){
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
   fill(CITY_STAY, rec.stay);           fill(CITY_VISIT, rec.visit);
   fill(CITY_WALK, rec.walk);           fill(CITY_SAFETY, rec.safety);
+  fill(CITY_NOTES, rec.notes);
   fill(CITY_SOLO, rec.solo);           fill(CITY_HOOD_LANDMARK, rec.hood_landmark);
   fill(CITY_ADVISORY, rec.advisory);   fill(CITY_AVOID, rec.avoid);
   fill(CITY_HOODS, rec.hoods);         fill(CITY_HOOD_TAG, rec.hood_tag);
@@ -2209,6 +2226,12 @@ if(!c){
   const avgDailyTouristsM = stayDays ? c.visitors * stayDays / 365 : null;
   const touristRatio = (avgDailyTouristsM != null && popM > 0)
     ? Math.round(avgDailyTouristsM / popM * 100) : null;
+  const cityNotes = CITY_NOTES[c.city] || {};
+  /* Info icon that opens this city's own sentence about a figure shown as a
+     number. Renders nothing when the city has no note for that key. */
+  const noteBtn = (key, title) => cityNotes[key]
+    ? `<button type="button" class="note-btn" onclick="openModal('${title}')" aria-label="${title} — more info" title="More info">${INFO_ICON}</button>`
+    : "";
   const walk = CITY_WALK[c.city];
   const walkLvl = walk != null ? walkInfo(walk) : null;
   const safety = CITY_SAFETY[c.city];
@@ -2356,7 +2379,7 @@ if(!c){
             </span>
             <div class="ca-text">
               <span class="ca-pct" style="color:${cardLvl.c}">${cardPct}%</span>
-              <span class="ca-label"> of businesses take cards — <span class="ca-word" style="color:${cardLvl.c}">${cardLvl.w}</span></span>
+              <span class="ca-label"> of businesses take cards — <span class="ca-word" style="color:${cardLvl.c}">${cardLvl.w}</span>${noteBtn("card", "Card acceptance")}</span>
             </div>
             <div class="ca-bar-track"><div class="ca-bar" style="width:${cardPct}%;background:${cardLvl.c}"></div></div>
           </div>`;
@@ -2574,7 +2597,7 @@ if(!c){
     return `
         <div class="net-head">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.net}</span>
-          <div class="k">Connectivity</div>
+          <div class="k">Connectivity${noteBtn("net", "Connectivity")}</div>
           <span class="net-est">country averages &middot; estimates</span>
           <button type="button" class="esim-btn" onclick="openModal('Travel eSIMs')">Buy an eSIM &rarr;</button>
         </div>
@@ -2759,8 +2782,8 @@ if(!c){
           </div>
           <div class="sc-metrics">
             ${touristRatio == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${ratioColor(touristRatio)}"></span>Daily tourist-to-local ratio <b style="color:${ratioColor(touristRatio)}">${touristRatio}%</b> &middot; ~${stayDays}-day avg stay</div>`}
-            ${walkLvl == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${walkLvl.c}"></span>Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}</div>`}
-            ${safety == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${safetyColor(safety.safety)}"></span>Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a></div>`}
+            ${walkLvl == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${walkLvl.c}"></span>Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}${noteBtn("walk", "Walkability")}</div>`}
+            ${safety == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${safetyColor(safety.safety)}"></span>Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a>${noteBtn("safety", "Safety notes")}</div>`}
             ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Solo comfort <b style="color:${SOLO_META[solo.sc].c}">${SOLO_META[solo.sc].w}</b></div>`}
             ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Women traveling solo <b style="color:${SOLO_META[solo.sc].c}">${solo.f}</b></div>`}
           </div>
@@ -2769,7 +2792,7 @@ if(!c){
         ${standingHTML}
         ${embassyCardHTML}
         <div class="fact">
-          <div class="k">Languages spoken by majority</div>
+          <div class="k">Languages spoken by majority${noteBtn("langs", "Languages")}</div>
           <div class="lang-list">
             ${c.langs.map(({l,p})=>`
             <div class="lang-row">
@@ -2781,7 +2804,7 @@ if(!c){
           ${CITY_ENGLISH[c.city] ? `<div class="eng-box"><div class="lang-row eng-row"><span class="lang-name">English</span><span class="lang-pct eng-pct" style="color:${(ENG_META[CITY_ENGLISH[c.city].tier]||{}).c||'inherit'}">${CITY_ENGLISH[c.city].label}</span></div><div class="eng-sub">Conversation</div></div>` : ''}
           ${cityPhrases ? `<button type="button" class="phrases-link" id="phrases-open-btn" data-phrase-lang="${cityPhraseLang.replace(/"/g,'&quot;')}">Common phrases in ${cityPhraseLang} &rarr;</button>` : ''}
           <div class="rel-section">
-            <div class="k rel-k">Religion by majority</div>
+            <div class="k rel-k">Religion by majority${noteBtn("religion", "Religion")}</div>
             <div class="lang-list">
               ${(CITY_RELIGION[c.city]||[]).map(({r,p})=>`
               <div class="lang-row">
@@ -2826,7 +2849,7 @@ if(!c){
 
     <section style="padding-top:0">
       ${plate("03","Passage")}
-      <h2 class="sec-head">Getting to/from <em>${c.city}</em></h2>
+      <h2 class="sec-head">Getting to/from <em>${c.city}</em>${noteBtn("transport", "Getting to and from the city")}</h2>
       ${CITY_TRANSPORT[c.city] ? '<div id="transport-cards" class="transport-grid"></div>' : `<p class="hood-intro">Detailed getting-around info for ${c.city} is coming soon.</p>`}
       <div id="transit-card" class="fact transit-banner" hidden></div>
     </section>
@@ -3751,8 +3774,9 @@ if(!c){
   const transit = CITY_TRANSIT[c.city];
   function buildTransitCard() {
     if (transit == null) return "";
-    const sysChips = transit.sys.map(s =>
-      `<span class="tr-chip">${s.n} <em>${s.t}</em></span>`).join('');
+    const sysChips = transit.sys.length
+      ? transit.sys.map(s => `<span class="tr-chip">${s.n} <em>${s.t}</em></span>`).join('')
+      : `<span class="tr-chip">No formal public transit</span>`;
     const mapBtn = transit.map
       ? `<a class="tr-map-btn" href="${transit.map}" target="_blank" rel="noopener">Transit map &rarr;</a>`
       : `<span class="tr-map-btn" style="background:#9aa7ad;cursor:default" title="No official transit map available">No transit map</span>`;
@@ -3761,7 +3785,7 @@ if(!c){
     return `
         <div class="tr-head">
           <span class="cost-icon" aria-hidden="true">${TRANSPORT_ICONS.train}</span>
-          <div class="k">Getting around the city</div>
+          <div class="k">Getting around the city${noteBtn("transit", "Public transit")}</div>
           ${mapBtn}
           <button type="button" class="tr-micro-btn" id="micro-open-btn">Bikes &amp; scooters</button>
         </div>
@@ -3845,25 +3869,32 @@ if(!c){
   function buildAirportModal(code) {
     const a = CITY_AIRPORT[c.city];
     if (!a) return `<p class="modal-placeholder">More information coming soon.</p>`;
-    const mi = Math.round(a.km * 0.621371);
+    const mi = a.km != null ? Math.round(a.km * 0.621371) : null;
     const others = ((CITY_TRANSPORT[c.city] && CITY_TRANSPORT[c.city].air) || []).filter(x => x !== a.name);
-    const rideText = a.ride.avail === "no"
-      ? "Not available"
-      : `${a.ride.avail === "limited" ? "Limited availability" : "Available"} &middot; avg ${fmtPrice(a.ride.cost, code)}`;
-    const transit = a.transit.map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
     const tx = CITY_TAXI[c.city];
     const taxiMeta = tx ? `<br><span class="air-taxi-meta">Official: ${tx.color} &middot; <b style="color:${taxiFareColor(tx.fare)}">${tx.fareNote}</b></span>` : "";
+    /* Fares and on-site rental counters aren't on file for every airport; a row
+       is shown only where we actually have the figure, rather than guessed. */
+    const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : "";
+    const rideText = !a.ride ? "" : a.ride.avail === "no"
+      ? "Not available"
+      : `${a.ride.avail === "limited" ? "Limited availability" : "Available"} &middot; avg ${fmtPrice(a.ride.cost, code)}`;
+    const transit = (a.transit || []).map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
+    const carRental = [a.drive ? `Drive ~${a.drive}` : "",
+                       (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
+                      .filter(Boolean).join(" &middot; ");
     return `
       <p class="air-name">${a.name}</p>
-      <div class="air-dist"><span class="air-dist-v">${a.km} km / ${mi} mi</span><span class="air-dist-k">to city center</span></div>
+      ${a.km == null ? "" : `<div class="air-dist"><span class="air-dist-v">${a.km} km / ${mi} mi</span><span class="air-dist-k">to city center</span></div>`}
       <h4 class="air-sub">Getting to the city center</h4>
       <dl class="air-rows">
-        <dt>Car rental</dt><dd>Drive ~${a.drive} &middot; on-site counters: ${a.rentals.join(", ")}</dd>
-        <dt>Car service</dt><dd>avg ${fmtPrice(a.carService, code)} &middot; <a class="air-link" href="#">Book a transfer &rarr;</a></dd>
-        <dt>Taxi</dt><dd>avg ${fmtPrice(a.taxi, code)}${taxiMeta}</dd>
-        <dt>Ride-hailing</dt><dd>${rideText}</dd>
-        <dt>Public transit</dt><dd><ul class="air-transit">${transit}</ul></dd>
+        ${row("Car rental", carRental)}
+        ${row("Car service", a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)} &middot; <a class="air-link" href="#">Book a transfer &rarr;</a>`)}
+        ${row("Taxi", a.taxi == null ? "" : `avg ${fmtPrice(a.taxi, code)}${taxiMeta}`)}
+        ${row("Ride-hailing", rideText)}
+        ${row("Public transit", transit ? `<ul class="air-transit">${transit}</ul>` : "")}
       </dl>
+      ${a.note ? `<p class="note-text">${a.note}</p>` : ""}
       ${others.length ? `<p class="air-foot">Figures shown for ${a.name}. Other airports: ${others.join(", ")}.</p>` : ""}`;
   }
 
@@ -4180,6 +4211,8 @@ if(!c){
           .then(() => { if (!modal.hidden && modalTitle.textContent === `${title} — ${forCity}`) modalBody.innerHTML = buildRouteModal(); })
           .catch(() => { if (!modal.hidden) modalBody.innerHTML = `<p class="modal-placeholder">Couldn't load the route details. Please check your connection and try again.</p>`; });
       }
+    } else if (NOTE_MODALS[title] && cityNotes[NOTE_MODALS[title]]) {
+      modalBody.innerHTML = `<p class="note-text">${cityNotes[NOTE_MODALS[title]]}</p>`;
     } else if (title === "Taxi tips & info") {
       modalBody.innerHTML = buildTaxiTipModal();
     } else if (title === "Common phrases") {

@@ -1014,6 +1014,23 @@ Nagoya, Niagara Falls and Tehran changed. No dish has zero places.
 
 **Remaining: 12 of the original 55** — group D (7), Chuwa (1), group E (4).
 
+## Re-verification pass 21 (2026-09-15) — Chuwa deleted, GROUP C CLOSED
+
+Jeff could not find Chuwa either, so it is deleted from *Sara udon*. No
+replacement was needed: the dish already carried **Kouzanrou**, which is itself
+in Shinchi Chinatown, so the neighbourhood Jeff's sixth pin confirmed is still
+represented. Dish keeps 2 places (Kouzanrou, Shikairou).
+
+`node --check` PASS, places 20,398 -> 20,397, Nagasaki only, no dish left empty.
+
+**Group C is now fully closed.** Its five items produced more corrections than
+expected: four of the five were not "unconfirmed branches" at all but venues
+filed in the wrong part of the city, and two venues (Seiyotei, BeaverTails Table
+Rock) turned out not to belong in the file.
+
+**Remaining: 11 of the original 55** — group D (7, Jeff's decisions) and group E
+(4: Jasper x2, The Hague's Garoeda, Corfu's Mavromatis Kumquat).
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
