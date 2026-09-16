@@ -968,6 +968,52 @@ Sardoncini). `node --check` PASS, 3 lines changed, Rimini only.
 **This closes the item.** Remaining: 16 of the original 55 — group D (7) and
 groups C/E (9).
 
+## Re-verification pass 20 (2026-09-15) — group C resolved from Jeff's pins
+
+Jeff researched group C by hand and sent Google Maps pins. Each was resolved by
+reverse-geocoding the pin's coordinates through Nominatim and comparing against
+the stored area.
+
+**Four areas were wrong, and the pins fixed them:**
+
+| Venue | Stored | Pin reverse-geocodes to |
+|---|---|---|
+| Tehran: Akbar Mashti | Vali-ye Asr | **Tehran Grand Bazaar** (Al-e Agha / Nayeb os-Saltaneh, District 12) |
+| Nagoya: Kako Coffee | Fushimi | **Meieki 5-chome, Nakamura-ku** (OSM has the amenity as KAKO) |
+| Jeju City: Haenyeoui Jip | Onpyeong | **Samdo 2-dong, Jeju City** (Imhang-ro) — Onpyeong is in Seogwipo, the other end of the island |
+| Nagasaki: Ringer Hut | Hamano-machi | **Dejima Kaigan-dori, Kabashima-machi** |
+
+The Ringer Hut entry also dropped its unverified "Nagasaki Chuo" branch suffix,
+since the pin identifies a specific branch and the old name asserted one that was
+never confirmed.
+
+**Jeff's two direct calls, applied as given:**
+- **Seiyotei** (Nagasaki milkshake) — wrong, deleted. Dish keeps Tsuru-chan and
+  Cafe Olympic.
+- **Bistro Boa Vista -> Bistro Bordeaux** (Turkish rice) — confirming pass 8's
+  suspicion that the two had been confused. Area left at Dozamachi; OSM has no
+  record of the venue under either name, so the area is unverified.
+
+**Niagara Falls: BeaverTails Table Rock deleted.** The pin resolves to the Table
+Rock Welcome Centre, and Niagara Parks' own page lists only Table Rock House
+Restaurant and Table Rock Market as the dining outlets there - no BeaverTails.
+With the chain's own locator also showing only Clifton Hill, pass 5's doubt is
+confirmed and the entry is gone.
+
+**FLAG:** this leaves *BeaverTails* with a single venue (BeaverTails Clifton
+Hill). It is correct, but it is the only dish in the file reduced to one place by
+this project's work, and the only one of the file's four single-place dishes not
+predating it.
+
+**Still open in group C: Nagasaki's Chuwa** (sara udon, Shinchi Chinatown). Jeff's
+sixth pin resolves to Shinchi Chinatown itself rather than to a restaurant, so it
+confirms the *area* but not the venue. Awaiting clarification.
+
+Verified: `node --check` PASS, places 20,400 -> 20,398, only Jeju City, Nagasaki,
+Nagoya, Niagara Falls and Tehran changed. No dish has zero places.
+
+**Remaining: 12 of the original 55** — group D (7), Chuwa (1), group E (4).
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
