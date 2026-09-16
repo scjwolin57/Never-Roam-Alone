@@ -1069,6 +1069,36 @@ Drive address rather than Patricia Street.
 **Remaining: 10 of the original 55** — group D (7) and group E (3: Jasper's
 Whistle Stop Pub, The Hague's Garoeda, Corfu's Mavromatis Kumquat).
 
+## Re-verification pass 23 (2026-09-15) — Corfu's Mavromatis Kumquat CLOSED
+
+Jeff sent two candidate pins. They are different businesses:
+
+- **Koum Quat Mavromatis** (39.62442, 19.92199) reverse-geocodes to **Michail
+  Theotoki street, Announciata / Agioi Pateres, Palia Poli Kerkyras (Corfu Old
+  Town)**. This is the kumquat producer, and it is the right venue.
+- **"Kumquat / speciality coffee / brunch / cocktails"** (39.62122, 19.91954) is
+  a cafe on Pezodromos Samara in **Mandouki**, a different district and an
+  unrelated business. Not used.
+
+**Pass 5's theory was wrong.** It suspected the shop was "likely actually in
+Felekas, not Corfu Town", with a Felekas listing showing "temporarily closed".
+The retail shop is in the Old Town and is on the map, so the stored area was
+right all along. Any Felekas site is the production end of the business, not the
+shop a visitor goes to.
+
+Area sharpened from "Corfu Town" to **"Michail Theotoki, Old Town"** on both
+entries (Kumquat spoon sweets, Kumquat liqueur). No venue change, no deletion.
+
+`node --check` PASS, place count unchanged at 20,396, Corfu only.
+
+**Remaining: 9 of the original 55** — group D (7) and group E (2: Jasper's
+Whistle Stop Pub, The Hague's Garoeda).
+
+That makes **three group-E items in a row that were not actually problems**
+(Tirana, Rimini, Corfu). The pattern across this group: a single ambiguous
+listing was enough to open an item, but not enough to close one, so correct
+entries sat flagged for weeks.
+
 ## Cleared (2026-08-03)
 
 The 21 cities flagged on the first pass were re-checked against 2025-2026 sources.
