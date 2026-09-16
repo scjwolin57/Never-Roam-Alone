@@ -37,10 +37,9 @@
 <link rel="preload" href="fonts/work-sans-normal-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/work-sans-normal-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/fraunces-italic-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link href="vendor/maplibre-gl-4.7.1.css" rel="stylesheet" />
 <link rel="stylesheet" href="vendor/flatpickr-4.6.13.css">
 <link rel="stylesheet" href="flatpickr-theme.css">
-<!-- Perf: maplibre + flatpickr scripts moved to the bottom of <body> so the
+<!-- Perf: the flatpickr script moved to the bottom of <body> so the
      page paints before they download (they still run before the inline
      script that uses them). -->
 <style>
@@ -93,7 +92,7 @@
   .when-switch .mini-radio:not(.active):hover{color:var(--green)}
   .when-switch .mini-radio input{position:absolute;opacity:0;width:0;height:0}
   .when-switch .mini-radio.active{color:#fff}
-  .tripscope-switch{max-width:var(--maxw);margin:0 auto;padding:10px 22px 0;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+  .tripscope-switch{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
   .tripscope-radio{display:flex;align-items:center;gap:6px;background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:6px 14px;cursor:pointer;font-weight:600;color:var(--muted);font-size:.85rem}
   .tripscope-radio input{position:absolute;opacity:0;width:0;height:0}
   .tripscope-radio.active{background:var(--coral);border-color:var(--coral);color:#fff}
@@ -111,18 +110,35 @@
      field width instead of that shrunken size. */
   .date-row > div{position:relative}
   .date-row .flatpickr-wrapper{display:block;width:100%}
-  .results-bar{max-width:var(--maxw);margin:0 auto;padding:28px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
-  .results-bar .select-wrap{min-width:210px}
+  .results-bar{max-width:var(--maxw);margin:0 auto;padding:10px 22px 0;display:flex;justify-content:flex-end;align-items:center;gap:12px}
+  /* the sort dropdown sits at the right of its row — it must not stretch the
+     way the form's own full-width fields do (the finder-wide .select-wrap
+     rule further down sets width:100%) */
+  .results-bar .select-wrap{min-width:210px;width:auto!important;max-width:260px;flex:0 0 auto}
   .share-btn{display:inline-flex;align-items:center;gap:7px;background:#fff;border:2px solid var(--teal);
     color:var(--teal);font-weight:700;font-size:.9rem;border-radius:24px;padding:10px 18px;cursor:pointer;
     font-family:inherit;transition:.15s}
   .share-btn:hover{background:var(--coral);color:#fff}
   .share-note{font-size:.82rem;font-weight:700;color:var(--green)}
-  @media(max-width:600px){.results-bar{padding:22px 22px 0;flex-wrap:wrap;row-gap:10px}.results-bar #shareBtn{margin-right:0}.results-bar label[for="sortBy"]{flex:1 1 auto;white-space:nowrap}.results-bar .select-wrap{min-width:0;flex:1 1 100%}}
+  @media(max-width:600px){.results-bar{padding:10px 22px 0;flex-wrap:wrap;row-gap:10px}.results-bar label[for="sortBy"]{flex:1 1 auto;white-space:nowrap}.results-bar .select-wrap{min-width:0;flex:1 1 100%}}
   .autocomplete{position:relative}
   .origin-input,.num-input{width:100%;font-size:1.05rem;font-family:inherit;color:var(--ink);background:var(--sand);
     border:2px solid rgba(63,81,56,.25);border-radius:12px;padding:15px 16px;transition:border-color .2s}
   .origin-input:focus,.num-input:focus{outline:none;border-color:var(--green)}
+  /* Total trip budget — Flexible mode. The scale is deliberately uneven:
+     fine ($50) steps at the low end, $1,000 ones at the top, so the whole
+     $0–$100k+ range fits one comfortable sweep of the handle. */
+  .budget-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;cursor:pointer;
+    background:linear-gradient(90deg,var(--teal),var(--coral));margin:10px 0 8px}
+  .budget-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;
+    background:var(--green);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer}
+  .budget-slider::-moz-range-thumb{width:22px;height:22px;border-radius:0;background:var(--green);
+    border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer}
+  .budget-out{display:block;font-weight:700;font-size:1.05rem;color:var(--ink)}
+  .budget-scale{position:relative;height:15px;margin-top:4px;font-size:.7rem;color:var(--muted)}
+  .budget-scale span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+  .budget-scale .bs-first{left:0;transform:none}
+  .budget-scale .bs-last{right:0;transform:none}
   .ac-list{list-style:none;margin:6px 0 0;padding:6px;position:absolute;z-index:30;left:0;right:0;background:#fff;
     border:1px solid rgba(63,81,56,.2);border-radius:12px;box-shadow:var(--shadow);max-height:290px;overflow:auto}
   .ac-list li{padding:9px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:center}
@@ -414,9 +430,29 @@
   .nra-chips .lchip{background:var(--sand);border:1px solid var(--ink);border-radius:0;padding:8px 15px;font-size:.78rem;color:var(--muted);cursor:pointer;transition:.15s}
   .nra-chips .lchip:hover{color:var(--ink);border-color:var(--teal)}
   .nra-chips .lchip.on{background:var(--coral);border-color:var(--coral);color:#fff}
+  /* priority chips are real checkboxes now (multi-select) — the box itself is
+     hidden and the whole chip is the hit area, which is why :has() drives the
+     selected look instead of a JS-toggled class */
+  .nra-chips label.lchip{display:inline-flex;align-items:center;user-select:none;font-weight:600}
+  .nra-chips label.lchip input{position:absolute;opacity:0;width:0;height:0}
+  .nra-chips label.lchip:has(input:checked){background:var(--coral);border-color:var(--coral);color:#fff}
+  .nra-chips label.lchip:has(input:focus-visible){outline:2px solid var(--green);outline-offset:2px}
+  .nra-chips .lchip-clear{font-family:inherit;font-weight:600}
+  /* per-card priority match bars */
+  .pri-bars{margin:12px 0 0;display:grid;gap:5px}
+  .pri-row{display:grid;grid-template-columns:minmax(72px,auto) 1fr 30px;align-items:center;gap:9px;
+    font-size:.76rem;color:var(--muted)}
+  .pri-row .pri-k{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pri-row .pri-bar{position:relative;height:7px;background:rgba(63,81,56,.14);overflow:hidden}
+  .pri-row .pri-bar i{position:absolute;inset:0 auto 0 0;background:var(--teal);display:block}
+  .pri-row .pri-v{text-align:right;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .pri-row.pri-total{margin-top:2px;padding-top:6px;border-top:1px solid rgba(63,81,56,.18)}
+  .pri-row.pri-total .pri-bar i{background:var(--coral)}
+  .pri-row.pri-na .pri-v{color:var(--muted);font-weight:600}
+  .pri-legend{font-size:.7rem;color:var(--muted);margin:6px 0 0}
 
   /* ---- full-design v5: unify ALL finder fields to one spec (incl. date pickers) ---- */
-  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]),
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]):not([type=range]),
   .tool-section[data-tool="finder"] .panel .select-wrap select,
   .tool-section[data-tool="finder"] .panel input.flatpickr-input,
   .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput{
@@ -430,7 +466,7 @@
     border-radius:0;
     box-shadow:none;
   }
-  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]):focus,
+  .tool-section[data-tool="finder"] .panel input:not([type=checkbox]):not([type=radio]):not([type=range]):focus,
   .tool-section[data-tool="finder"] .panel .select-wrap select:focus,
   .tool-section[data-tool="finder"] .panel .flatpickr-input.altInput:focus{
     outline:none;border-color:var(--coral);
@@ -518,10 +554,8 @@
      me", "Any budget") to the end of its pill/chip row instead of the start */
   @media(max-width:620px){
     #travelBySeg span:first-child,
-    #activityChips .lchip:first-child,
     #travelStyleSeg span:first-child{order:1}
     #travelBySeg span:not(:first-child),
-    #activityChips .lchip:not(:first-child),
     #travelStyleSeg span:not(:first-child){order:0}
   }
 
@@ -668,20 +702,24 @@
           <p class="field-note" id="modeNote" hidden style="margin:8px 0 0"></p>
         </div>
         <div class="fld-love">
-          <label class="field" for="activity">I love…</label>
-          <div class="select-wrap">
-            <select id="activity">
-              <option value="" selected>Anything — surprise me</option>
-              <option value="Nightlife">Nightlife</option>
-              <option value="Restaurants">Restaurants</option>
-              <option value="Museums &amp; Culture">Museums &amp; Culture</option>
-              <option value="Architecture">Architecture</option>
-              <option value="Nature">Nature</option>
-            </select>
+          <label class="field" id="activityLabel">My Trip Priorities <span class="label-hint">(pick as many as you like)</span></label>
+          <div class="nra-chips" id="activityChips" role="group" aria-labelledby="activityLabel">
+            <label class="lchip"><input type="checkbox" name="priority" value="nightlife"><span>Nightlife</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="restaurants"><span>Restaurants</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="museums"><span>Museums &amp; culture</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="architecture"><span>Architecture</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="nature"><span>Nature &amp; Outdoor Adventure</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="beaches"><span>Beaches &amp; Relaxation</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="walkability"><span>Walkable City</span></label>
+            <label class="lchip"><input type="checkbox" name="priority" value="safety"><span>Feels Safe</span></label>
+            <button type="button" class="lchip lchip-clear on" id="prioritiesClear">Anything — surprise me</button>
           </div>
         </div>
         <div>
-          <label class="field" for="travelStyle">Travel budget style</label>
+          <label class="field" for="travelStyle">Travel Style</label>
+          <p class="field-note" style="margin:-4px 0 10px">Sets how we price each trip. Results are the destinations your
+            <strong>total trip budget</strong> below can cover in that style — leave it on “Any budget” and we'll show the
+            best style each place fits.</p>
           <div class="select-wrap">
             <select id="travelStyle">
               <option value="" selected>Whatever fits my budget</option>
@@ -693,7 +731,27 @@
         </div>
         <div>
           <label class="field" for="totalBudget">Total trip budget <span class="label-hint">(USD, All Travelers)</span></label>
+          <div class="when-switch" id="budgetModeSwitch" role="radiogroup" aria-label="How to set your budget">
+            <label class="mini-radio active">
+              <input type="radio" name="budgetMode" value="fixed" checked>
+              <span>Fixed budget</span>
+            </label>
+            <label class="mini-radio">
+              <input type="radio" name="budgetMode" value="flexible">
+              <span>Flexible budget</span>
+            </label>
+          </div>
           <input type="number" id="totalBudget" class="num-input" min="0" step="50" placeholder="e.g. 2000" inputmode="numeric" />
+          <div class="budget-slider-wrap" id="budgetSliderWrap" hidden>
+            <input type="range" id="budgetSlider" class="budget-slider" min="0" max="100" step="1" value="0" aria-label="Total trip budget" />
+            <output class="budget-out" id="budgetOut" for="budgetSlider">Any budget</output>
+            <div class="budget-scale" aria-hidden="true">
+              <span class="bs-first">$0</span>
+              <span style="left:50%">$5k</span>
+              <span style="left:75%">$20k</span>
+              <span class="bs-last">$100k+</span>
+            </div>
+          </div>
         </div>
         <div class="fld-when">
           <label class="field">When are you traveling?</label>
@@ -783,34 +841,10 @@
       </div>
     </div>
   </div>
-  <p class="field" style="max-width:min(360px,calc(100% - 40px));margin:26px auto 8px;text-align:center">Show results by:</p>
-  <div class="view-switch when-switch" role="radiogroup" aria-label="Results view">
-    <label class="mini-radio active">
-      <input type="radio" name="viewMode" value="cards" checked>
-      <span>Cards</span>
-    </label>
-    <label class="mini-radio">
-      <input type="radio" name="viewMode" value="map">
-      <span>Map</span>
-    </label>
-  </div>
-  <div class="results-bar" id="finderSortBar">
-    <button type="button" id="shareBtn" class="share-btn" style="margin-right:auto">📤 <span>Share itinerary</span></button>
-    <span id="shareNote" class="share-note" hidden>Link copied!</span>
-    <label class="field" for="sortBy" style="margin:0;font-size:.95rem">Sort results by</label>
-    <div class="select-wrap">
-      <select id="sortBy">
-        <option value="match" selected>Best match</option>
-        <option value="cost">Lowest total cost</option>
-        <option value="popular">Most visited</option>
-        <option value="near">Closest to me</option>
-      </select>
-    </div>
-  </div>
   <div class="tripscope-switch" id="tripScopeBar" role="radiogroup" aria-label="Domestic or international">
     <label class="tripscope-radio active">
       <input type="radio" name="tripScope" value="all" checked>
-      <span>All trips</span>
+      <span>All destinations</span>
     </label>
     <label class="tripscope-radio">
       <input type="radio" name="tripScope" value="domestic">
@@ -821,12 +855,19 @@
       <span>International only</span>
     </label>
   </div>
+  <div class="results-bar" id="finderSortBar">
+    <label class="field" for="sortBy" style="margin:0;font-size:.95rem">Sort results by</label>
+    <div class="select-wrap">
+      <select id="sortBy">
+        <option value="match" selected>Best match</option>
+        <option value="cost">Lowest total cost</option>
+        <option value="popular">Most visited</option>
+        <option value="near">Closest to me</option>
+      </select>
+    </div>
+  </div>
   <div class="results" id="finderResults">
     <p class="empty">Loading destinations…</p>
-  </div>
-  <div class="map-wrap" id="finderMapWrap" hidden>
-    <div id="finderMap"></div>
-    <p class="empty" id="finderMapFallback" hidden>The map couldn't load right now — switch back to Cards to keep browsing.</p>
   </div>
 </div>
 
@@ -947,12 +988,12 @@
   </div>
 </footer>
 
-<script src="vendor/maplibre-gl-4.7.1.js"></script>
 <script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="iso-countries.js"></script>
 <script src="destinations.js"></script>
 <script src="city-photos.js"></script>
 <script src="city-seasons.js"></script>
+<script src="city-scores.js"></script>
 <script src="city-holidays.js"></script>
 <script src="holiday-banner.js"></script>
 <!-- Perf: city-routes.js (~1.3 MB) is deferred — it downloads in parallel without
@@ -1009,24 +1050,46 @@ const continentFor = c => COUNTRY_CONTINENT[c.country] || null;
    (Overpass API). For the chosen activity we count real mapped
    venues within 10 km of each city's center. Cached 30 days.
    ============================================================ */
+/* ============================================================
+   TRIP PRIORITIES — the multi-select chips. Each one is a column
+   of NRA-MASTER.xlsx ("Live Cities"), shipped to the browser as
+   city-scores.js: a curated 0-100 score per city per category.
+   That's what ranks the results and draws the bars on each card.
+   `osm` is the matching live-venue-count category below, used to
+   add one real, countable fact to the cards when a single
+   priority is picked — it no longer affects the ranking.
+   ============================================================ */
+/* `short` is what fits in a card's bar row — the full label stays on the chip,
+   in the results headline and in the bars' screen-reader description */
+const PRIORITY_DEFS = [
+  { key:"nightlife",    label:"Nightlife",                  short:"Nightlife",    osm:"Nightlife" },
+  { key:"restaurants",  label:"Restaurants",                short:"Restaurants",  osm:"Restaurants" },
+  { key:"museums",      label:"Museums & culture",          short:"Museums",      osm:"Museums & Culture" },
+  { key:"architecture", label:"Architecture",               short:"Architecture", osm:"Architecture" },
+  { key:"nature",       label:"Nature & Outdoor Adventure", short:"Nature",       osm:"Nature" },
+  { key:"beaches",      label:"Beaches & Relaxation",       short:"Beaches",      osm:"Beaches" },
+  { key:"walkability",  label:"Walkable City",              short:"Walkable",     osm:null },
+  { key:"safety",       label:"Feels Safe",                 short:"Feels safe",   osm:null }
+];
+const PRIORITY_LABEL = Object.fromEntries(PRIORITY_DEFS.map(d => [d.key, d.label]));
+const PRIORITY_SHORT = Object.fromEntries(PRIORITY_DEFS.map(d => [d.key, d.short]));
+const PRIORITY_OSM   = Object.fromEntries(PRIORITY_DEFS.map(d => [d.key, d.osm]));
+const CITY_SCORES    = window.NRA_CITY_SCORES || {};
+/* old single-pick share links / saved state used the OSM category name */
+const LEGACY_PRIORITY = { "Nightlife":"nightlife", "Restaurants":"restaurants",
+  "Museums & Culture":"museums", "Architecture":"architecture", "Nature":"nature",
+  "Beaches":"beaches" };
+
 const ACTIVITY_OSM = {
   "Nightlife":         { sel:'node["amenity"~"^(bar|pub|nightclub)$"]',        label:"bars, pubs & nightclubs" },
   "Restaurants":       { sel:'node["amenity"="restaurant"]',                    label:"restaurants" },
   "Museums & Culture": { sel:'nwr["tourism"~"^(museum|gallery)$"]',             label:"museums & galleries" },
   "Architecture":      { sel:'node["historic"]',                                label:"historic landmarks & monuments" },
-  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" }
+  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" },
+  "Beaches":           { sel:'nwr["natural"="beach"]',                          label:"mapped beaches & sandy shorelines" }
 };
 const OSM_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
 const ACT_CACHE_DAYS = 30;
-
-/* Fallback picks if the live OpenStreetMap ranking can't load (offline etc.) */
-const PRIORITIES = {
-  "Nightlife":          ["Bangkok","Las Vegas","Berlin","New York","Hong Kong","Amsterdam","Seoul","Rio de Janeiro","Barcelona"],
-  "Restaurants":        ["Tokyo","Osaka","Bangkok","Paris","Rome","Singapore","San Francisco","Mexico City","Lima"],
-  "Museums & Culture":  ["Paris","London","Rome","Vienna","Istanbul","New York","Washington, D.C.","Berlin","Athens","Florence","Cairo","Mexico City"],
-  "Architecture":       ["Barcelona","Prague","Rome","Dubai","Vienna","Istanbul","Florence","Venice","Beijing","Kyoto"],
-  "Nature":             ["Cape Town","Sydney","Rio de Janeiro","Phuket","Cancún","Antalya","Vancouver","Honolulu","Denpasar","Sapporo"]
-};
 
 function activityCacheKey(act){ return "nra_actcounts_v2_" + act; }
 
@@ -1347,7 +1410,33 @@ regionalBox.addEventListener("change", ()=>{
    ============================================================ */
 const finderResults   = document.getElementById("finderResults");
 const continentEl     = document.getElementById("continent");
-const activityEl      = document.getElementById("activity");
+const activityChips   = document.getElementById("activityChips");
+const prioritiesClear  = document.getElementById("prioritiesClear");
+/* the picked priority keys, in the order the chips are listed */
+function selectedPriorities(){
+  return [...activityChips.querySelectorAll('input[name="priority"]:checked')].map(i => i.value);
+}
+function setPriorities(keys){
+  const want = new Set(keys || []);
+  activityChips.querySelectorAll('input[name="priority"]').forEach(i => { i.checked = want.has(i.value); });
+  syncPriorityUI();
+}
+function syncPriorityUI(){
+  prioritiesClear.classList.toggle("on", selectedPriorities().length === 0);
+}
+/* a city's 0-100 score for one priority (null when the master has no figure) */
+function priorityScore(city, key){
+  const sc = CITY_SCORES[city];
+  const v = sc ? sc[key] : undefined;
+  return (typeof v === "number") ? v : null;
+}
+/* the overall match: the average of the scores for everything they picked */
+function priorityMatch(city, keys){
+  if(!keys.length) return null;
+  const vals = keys.map(k => priorityScore(city, k)).filter(v => v != null);
+  if(!vals.length) return null;
+  return vals.reduce((a,b)=>a+b, 0) / vals.length;
+}
 const travelByEl      = document.getElementById("travelBy");
 const totalBudgetEl   = document.getElementById("totalBudget");
 const travelStyleEl   = document.getElementById("travelStyle");
@@ -1397,16 +1486,30 @@ function syncWhenUI(){
 const MODE_NAMES  = { plane:"Plane", train:"Train", bus:"Bus", car:"Car", boat:"Boat" };
 const UI_MODE_KEY = { Plane:"plane", Train:"train", Bus:"bus", Car:"car", Boat:"boat" };
 const STYLE_LABEL = { budget:"backpacker style", mid:"mid-range style", luxury:"high-end style" };
+/* the priority chips show a fuller name than the internal activity key —
+   the results headline should say the same thing the chip says */
+/* joined with "and", not "&" — several of the priority labels contain their
+   own ampersand ("Nature & Outdoor Adventure & Beaches & Relaxation" was
+   unreadable) */
+const listJoin = a => a.length < 2 ? (a[0]||"")
+  : a.slice(0,-1).join(", ") + " and " + a[a.length-1];
 
 /* activity counts state */
 let actCounts=null, actCountsFor=null, actPending=null, actFailed={};
+/* live OpenStreetMap counts only make sense for one category at a time, so
+   they're offered when exactly one priority is picked and it has an OSM
+   equivalent (Walkable/Feels Safe don't — they're master-sheet only) */
+function osmCategory(){
+  const pri = selectedPriorities();
+  return pri.length === 1 ? PRIORITY_OSM[pri[0]] : null;
+}
 function kickActivityFetch(act){
   if(actPending === act || actCountsFor === act || actFailed[act]) return;
   actPending = act;
   fetchActivityCounts(act)
     .then(counts => { actCounts=counts; actCountsFor=act; })
     .catch(() => { actFailed[act]=true; })
-    .then(() => { if(actPending===act) actPending=null; if(activityEl.value===act) renderFinder(); });
+    .then(() => { if(actPending===act) actPending=null; if(osmCategory()===act) renderFinder(); });
 }
 
 /* live flight prices (one request per origin, covers many cities) */
@@ -1488,15 +1591,31 @@ function seasonPillFor(c){
   return "";
 }
 
-function finderCardHTML(r, rank, actLabel, budget){
+/* One bar per picked priority: the city's 0-100 score from the master sheet,
+   plus an overall match row once there's more than one to average. A city the
+   sheet has no score for says so rather than drawing an empty bar. */
+function priorityBarsHTML(city, pri){
+  if(!pri || !pri.length) return "";
+  const rows = pri.map(k=>{
+    const v = priorityScore(city, k);
+    return v == null
+      ? `<div class="pri-row pri-na"><span class="pri-k" title="${PRIORITY_LABEL[k]}">${PRIORITY_SHORT[k]}</span><span class="pri-bar"></span><span class="pri-v" title="Not scored yet">—</span></div>`
+      : `<div class="pri-row"><span class="pri-k" title="${PRIORITY_LABEL[k]}">${PRIORITY_SHORT[k]}</span><span class="pri-bar"><i style="width:${Math.max(2,Math.round(v))}%"></i></span><span class="pri-v">${Math.round(v)}</span></div>`;
+  });
+  if(pri.length > 1){
+    const m = priorityMatch(city, pri);
+    if(m != null) rows.push(`<div class="pri-row pri-total"><span class="pri-k">Your match</span><span class="pri-bar"><i style="width:${Math.max(2,Math.round(m))}%"></i></span><span class="pri-v">${Math.round(m)}</span></div>`);
+  }
+  return `<div class="pri-bars" role="img" aria-label="${pri.map(k=>`${PRIORITY_LABEL[k]}: ${priorityScore(city,k) == null ? "not scored" : Math.round(priorityScore(city,k))+" out of 100"}`).join(", ")}">${rows.join("")}</div>`;
+}
+
+function finderCardHTML(r, rank, actLabel, budget, pri){
   const c = r.c, sg = slug(c.city);
   const ph = (window.NRA_CITY_PHOTO || {})[c.city];
   const oneWay = isOneWay(), wayLabel = oneWay ? "one-way" : "round-trip";
   const why = [];
   if(r.count != null){
     why.push(`<div class="w"><span class="tick">✓</span><span><strong>${r.count.toLocaleString()}</strong> ${actLabel} within 10 km of the center (OpenStreetMap)</span></div>`);
-  } else if(r.fallbackPick){
-    why.push(`<div class="w"><span class="tick">✓</span><span>Editor's pick for ${r.fallbackPick}</span></div>`);
   }
   if(r.fitTotal != null){
     const flightBit = r.m ? `${r.m.live ? "" : "≈"}${fmtMoney(tripCost(r.m))}/person ${wayLabel} ${MODE_NAMES[r.m.mode].toLowerCase()}${r.m.live ? ' <em class="live-tag">live</em>' : ''} + ` : "";
@@ -1548,6 +1667,7 @@ function finderCardHTML(r, rank, actLabel, budget){
           </div>
         </div>
         <p>${c.tagline}</p>
+        ${priorityBarsHTML(c.city, pri)}
         ${why.length ? `<div class="why">${why.join("")}</div>` : ""}
         ${holBannerFor(c)}
         ${r.cmp && r.cmp.modes.length > 1 ? `
@@ -1612,65 +1732,11 @@ function updateModeAvailability(){
 
 let finderShowAll = false;
 
-/* ============================================================
-   MAP VIEW — same MapLibre + Carto basemap as the homepage map.
-   Pins = current matches (top 12 numbered coral, rest teal);
-   clicking a pin opens that city's full finder card in a popup.
-   ============================================================ */
-const finderMapWrap = document.getElementById("finderMapWrap");
-const finderMapFallback = document.getElementById("finderMapFallback");
-function isMapView(){ return (document.querySelector('input[name="viewMode"]:checked')||{}).value === "map"; }
-let fMap = null, fMarkers = [], fPopup = null;
-let lastRender = { rows: [], actLabel: "", budget: 0 };
-function initFinderMap(){
-  if(fMap || typeof maplibregl === "undefined") return;
-  fMap = new maplibregl.Map({
-    container: "finderMap",
-    style: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json",
-    center: [15, 25], zoom: 1.3, minZoom: 1, renderWorldCopies: false,
-    attributionControl: true
-  });
-  fMap.addControl(new maplibregl.NavigationControl({ showCompass:false }), "top-right");
-}
-function updateFinderMap(){
-  if(typeof maplibregl === "undefined"){
-    document.getElementById("finderMap").style.display = "none";
-    finderMapFallback.hidden = false;
-    return;
-  }
-  initFinderMap();
-  if(!fMap) return;
-  fMarkers.forEach(m => m.remove());
-  fMarkers = [];
-  if(fPopup){ fPopup.remove(); fPopup = null; }
-  const rows = lastRender.rows;
-  rows.forEach((r, idx) => {
-    const el = document.createElement("div");
-    el.className = "map-pin" + (idx < 12 ? "" : " small");
-    if(idx < 12) el.textContent = idx + 1;
-    el.title = r.c.city;
-    el.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if(fPopup) fPopup.remove();
-      fPopup = new maplibregl.Popup({ className: "card-popup", maxWidth: "340px", offset: 14 })
-        .setLngLat([r.c.lng, r.c.lat])
-        .setHTML(finderCardHTML(r, idx + 1, lastRender.actLabel, lastRender.budget))
-        .addTo(fMap);
-      lazyBgObserve();   // popup card photo
-    });
-    fMarkers.push(new maplibregl.Marker({ element: el }).setLngLat([r.c.lng, r.c.lat]).addTo(fMap));
-  });
-  if(rows.length){
-    const b = new maplibregl.LngLatBounds();
-    rows.forEach(r => b.extend([r.c.lng, r.c.lat]));
-    fMap.fitBounds(b, { padding: 60, maxZoom: 5.5, duration: 400 });
-  }
-  setTimeout(() => fMap.resize(), 60);
-}
 function renderFinder(){
   if(typeof renderFinder.ready === "undefined"){ renderFinder.ready = true; }
   updateModeAvailability();
-  const act    = activityEl.value;
+  const pri    = selectedPriorities();
+  const act    = osmCategory();          // live OSM counts: single priority only
   const cont   = continentEl.value;
   const mode   = travelByEl.value;
   const budget = Math.max(0, parseFloat(totalBudgetEl.value) || 0);
@@ -1686,7 +1752,6 @@ function renderFinder(){
   /* "Traveling from" is required — no origin, no results */
   if(!geo){
     finderOriginInput.setCustomValidity("Please tell us where you're traveling from.");
-    if(finderMapWrap) finderMapWrap.hidden = true;
     finderResults.innerHTML = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>` +
       `<p class="empty">Tell us where you're traveling from above to see matches — it's required so we can work out travel cost & time.</p>`;
     return;
@@ -1697,7 +1762,6 @@ function renderFinder(){
      trip) with specific dates chosen — mirrors the "Traveling from" guard */
   if(whenMode()==="dates" && !isOneWay() && !returnDateEl.value){
     returnDateEl.setCustomValidity("Please choose a return date.");
-    if(finderMapWrap) finderMapWrap.hidden = true;
     finderResults.innerHTML = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>` +
       `<p class="empty">Choose a return date above to see matches — it's required for round trips.</p>`;
     return;
@@ -1711,15 +1775,11 @@ function renderFinder(){
     if(actCountsFor === act && actCounts) counts = actCounts;
     else if(!actFailed[act]){ kickActivityFetch(act); actLoading = true; }
   }
-  const fallbackNames = (act && actFailed[act]) ? (PRIORITIES[act]||[]) : [];
 
   if(geo) kickLiveFlights(geo);
 
   const nights = nightsIn || ((budget || geo) ? 7 : 0);   // default a week when math is wanted
   const nightsAssumed = !nightsIn && nights ? true : false;
-
-  let maxCount = 1;
-  if(counts) maxCount = Math.max(1, ...counts);
 
   const rows = [];
   let hiddenBudget = 0, hiddenMode = 0, hiddenEntry = 0;
@@ -1778,9 +1838,8 @@ function renderFinder(){
 
     /* score */
     let score = (c.visitors/27)*8;                                   // popularity baseline
-    if(counts) score += (counts[i]/maxCount)*30;                     // live activity ranking
-    const fbIdx = fallbackNames.indexOf(c.city);
-    if(fbIdx >= 0) score += (fallbackNames.length - fbIdx)*3;        // editor's-pick fallback
+    const match = priorityMatch(c.city, pri);                        // 0-100 across the picked chips
+    if(match != null) score += (match/100)*34;                       // how well it matches those priorities
     if(budget && fitStyle){
       score += fitStyle==="luxury" ? 22 : fitStyle==="mid" ? 18 : 12;
       score += Math.max(0,(budget - fitTotal)/budget)*4;             // headroom tiebreak
@@ -1789,8 +1848,7 @@ function renderFinder(){
     if(cmp) score += Math.max(0, 1 - cmp.km/20000)*8;                // closer is easier
 
     rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights, travelers,
-                count: counts ? counts[i] : null,
-                fallbackPick: fbIdx >= 0 ? act : null, score });
+                count: counts ? counts[i] : null, match, score });
   });
 
   /* sort */
@@ -1802,10 +1860,10 @@ function renderFinder(){
   else                          rows.sort((a,b)=> b.score-a.score);
 
   /* heading */
-  const anyFilter = !!(cont || act || budget || nightsIn || geo || pass);
+  const anyFilter = !!(cont || pri.length || budget || nightsIn || geo || pass);
   const plate = `<div class="results-plate"><svg class="cx"><use href="#compass"/></svg><span><b>Plate 02</b> &middot; Results</span></div>`;
   const head = plate + (anyFilter
-    ? `<h2>Suggested Destinations${cont ? ` in <em>${CONTINENT_LABEL[cont]}</em>` : ""}${act ? ` for <em>${act.replace("&amp;","&")}</em>` : ""}</h2>`
+    ? `<h2>Suggested Destinations${cont ? ` in <em>${CONTINENT_LABEL[cont]}</em>` : ""}${pri.length ? ` for <em>${listJoin(pri.map(k=>PRIORITY_LABEL[k]))}</em>` : ""}</h2>`
     : `<h2>All <em>${CITIES.length}</em> featured destinations</h2>`);
 
   const hiddenBits = [];
@@ -1824,7 +1882,6 @@ function renderFinder(){
      value rather than a condition that flips off once you've changed it */
   if(whenMode()==="length") subBits.push(`Trip length: <input type="number" id="nightsInline" class="nights-inline" min="1" max="90" value="${nightsIn}" aria-label="Trip length in nights"> nights — adjust here or in the form above.`);
 
-  if(!rows.length && isMapView()) finderMapWrap.hidden = true;
   if(!rows.length){
     const contMsg = cont === "antarctica"
       ? `We don't feature any Antarctic destinations (yet!) — pick another continent or "I'm open to anywhere".`
@@ -1834,19 +1891,11 @@ function renderFinder(){
     return;
   }
 
-  lastRender = { rows, actLabel, budget };
-  if(isMapView()){
-    finderMapWrap.hidden = false;
-    finderResults.innerHTML = head + `<p class="sub">${subBits.join(" ")}</p>`;
-    updateFinderMap();
-    return;
-  }
-  finderMapWrap.hidden = true;
   const LIMIT = 12;
   const shown = finderShowAll ? rows : rows.slice(0, LIMIT);
   finderResults.innerHTML = head +
     `<p class="sub">${subBits.join(" ")}</p>` +
-    `<div class="grid">${shown.map((r,idx)=> finderCardHTML(r, idx+1, actLabel, budget)).join("")}</div>` +
+    `<div class="grid">${shown.map((r,idx)=> finderCardHTML(r, idx+1, actLabel, budget, pri)).join("")}</div>` +
     (rows.length > LIMIT && !finderShowAll
       ? `<div style="text-align:center;margin-top:22px"><button type="button" class="show-more" id="finderMore">Show ${rows.length - LIMIT} more</button></div>`
       : "") +
@@ -1911,8 +1960,17 @@ document.addEventListener("click", e=>{
 
 /* wiring: selects re-render instantly, number inputs are debounced */
 let numTimer = null;
-[continentEl, activityEl, travelByEl, sortByEl, travelStyleEl].forEach(el =>
+[continentEl, travelByEl, sortByEl, travelStyleEl].forEach(el =>
   el.addEventListener("change", ()=>{ finderShowAll=false; renderFinder(); saveState(); }));
+/* priority chips: any number can be on at once, and "Anything — surprise me"
+   is the way back to none of them */
+activityChips.addEventListener("change", e=>{
+  if(e.target.name !== "priority") return;
+  syncPriorityUI(); finderShowAll=false; renderFinder(); saveState();
+});
+prioritiesClear.addEventListener("click", ()=>{
+  setPriorities([]); finderShowAll=false; renderFinder(); saveState();
+});
 document.querySelectorAll('#tripScopeBar input[name="tripScope"]').forEach(el =>
   el.addEventListener("change", ()=>{
     document.querySelectorAll('#tripScopeBar .tripscope-radio').forEach(l=>
@@ -1925,6 +1983,64 @@ travelByEl.addEventListener("change", updateOriginModeUI);
     clearTimeout(numTimer);
     numTimer = setTimeout(()=>{ finderShowAll=false; renderFinder(); saveState(); }, 400);
   }));
+
+/* ---- Total trip budget: Fixed (typed) vs Flexible (slider) ----
+   #totalBudget stays the single source of truth either way — the slider just
+   writes into it — so every reader (renderFinder, saveState, share links)
+   keeps working untouched. The slider's scale is piecewise, not linear:
+   $100-a-notch up to $5k, then $600, $2,000 and finally $5,000 a notch, so
+   the range people actually pick from gets most of the track. */
+const budgetSliderWrap = document.getElementById("budgetSliderWrap");
+const budgetSliderEl   = document.getElementById("budgetSlider");
+const budgetOutEl      = document.getElementById("budgetOut");
+function budgetMode(){ return (document.querySelector('input[name="budgetMode"]:checked')||{}).value || "fixed"; }
+function sliderToBudget(pos){
+  const p = Math.max(0, Math.min(100, parseFloat(pos) || 0));
+  let v;
+  if(p <= 50)      v = p * 100;                    /* $0 – $5,000     */
+  else if(p <= 75) v = 5000  + (p - 50) * 600;     /* $5k – $20,000   */
+  else if(p <= 90) v = 20000 + (p - 75) * 2000;    /* $20k – $50,000  */
+  else             v = 50000 + (p - 90) * 5000;    /* $50k – $100,000 */
+  const step = v < 5000 ? 50 : v < 20000 ? 250 : 1000;
+  return Math.round(v / step) * step;
+}
+function budgetToSlider(val){
+  const v = Math.max(0, parseFloat(val) || 0);
+  if(v <= 5000)   return v / 100;
+  if(v <= 20000)  return 50 + (v - 5000) / 600;
+  if(v <= 50000)  return 75 + (v - 20000) / 2000;
+  if(v >= 100000) return 100;
+  return 90 + (v - 50000) / 5000;
+}
+function paintBudgetOut(){
+  const pos = parseFloat(budgetSliderEl.value) || 0;
+  const v   = sliderToBudget(pos);
+  budgetOutEl.textContent = !v ? "Any budget"
+                          : pos >= 100 ? "$100,000+"
+                          : "$" + v.toLocaleString();
+}
+function syncBudgetUI(){
+  const flex = budgetMode() === "flexible";
+  totalBudgetEl.hidden    = flex;
+  budgetSliderWrap.hidden = !flex;
+  if(flex){
+    /* snap the typed amount to the nearest notch so the number on screen is
+       exactly the number the results are filtered by */
+    budgetSliderEl.value = Math.round(budgetToSlider(totalBudgetEl.value));
+    const v = sliderToBudget(budgetSliderEl.value);
+    totalBudgetEl.value = v ? String(v) : "";
+    paintBudgetOut();
+  }
+}
+budgetSliderEl.addEventListener("input", ()=>{
+  const v = sliderToBudget(budgetSliderEl.value);
+  totalBudgetEl.value = v ? String(v) : "";
+  paintBudgetOut();
+  clearTimeout(numTimer);
+  numTimer = setTimeout(()=>{ finderShowAll=false; renderFinder(); saveState(); }, 300);
+});
+document.querySelectorAll('input[name="budgetMode"]').forEach(el =>
+  el.addEventListener("change", ()=>{ syncWhenUI(); syncBudgetUI(); finderShowAll=false; renderFinder(); saveState(); }));
 /* number-of-travelers stepper: +/- buttons and direct typing, clamped 1-20 */
 function clampTravelers(v){ v = parseInt(v,10); if(!v || v<1) v=1; if(v>20) v=20; return v; }
 function setTravelers(v){
@@ -1957,8 +2073,6 @@ document.querySelectorAll('input[name="wayMode"]').forEach(el =>
     if(el.value === "return") focusVisibleDateInput(fp_return, returnDateEl);
     finderShowAll=false; renderFinder(); saveState();
   }));
-document.querySelectorAll('input[name="viewMode"]').forEach(el =>
-  el.addEventListener("change", ()=>{ syncWhenUI(); renderFinder(); saveState(); }));
 /* after a departure date is chosen: (a) stop the return calendar from
    allowing anything earlier than it, clearing an already-picked return
    date that's now invalid, and (b) move focus along — to Return Date for
@@ -2669,9 +2783,10 @@ function saveState(){
     localStorage.setItem(STORE_KEY, JSON.stringify({
       tool: (document.querySelector('input[name="tool"]:checked')||{}).value || "finder",
       continent: continentEl.value,
-      activity: activityEl.value,
+      priorities: selectedPriorities(),
       travelBy: travelByEl.value,
       totalBudget: totalBudgetEl.value,
+      budgetMode: budgetMode(),
       travelStyle: travelStyleEl.value,
       travelers: numTravelersEl.value,
       nights: nightsEl.value,
@@ -2685,7 +2800,6 @@ function saveState(){
       sortBy: sortByEl.value,
       tripScope: (document.querySelector('input[name="tripScope"]:checked')||{}).value || "all",
       visaFilters: [...document.querySelectorAll('input[name="passVisaFilter"]:checked')].map(el=>el.value),
-      view: (document.querySelector('input[name="viewMode"]:checked')||{}).value || "cards",
       passport: passport.value || finderPassportEl.value,
       finderPassport: finderPassportEl.value,
       bucketType: blType,
@@ -2703,9 +2817,14 @@ function loadState(){
   let s; try{ s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); }catch(e){ s = null; }
   if(!s) return;
   if(s.continent) continentEl.value = s.continent;
-  if(s.activity) activityEl.value = s.activity;
+  if(Array.isArray(s.priorities)) setPriorities(s.priorities);
+  else if(s.activity && LEGACY_PRIORITY[s.activity]) setPriorities([LEGACY_PRIORITY[s.activity]]);
   if(s.travelBy) travelByEl.value = s.travelBy;
   if(s.totalBudget) totalBudgetEl.value = s.totalBudget;
+  if(s.budgetMode === "flexible"){
+    const bm = document.querySelector('input[name="budgetMode"][value="flexible"]');
+    if(bm) bm.checked = true;
+  }
   if(s.travelStyle) travelStyleEl.value = s.travelStyle;
   if(s.travelers){ numTravelersEl.value = clampTravelers(s.travelers); travelersMinusEl.disabled = numTravelersEl.value === "1"; }
   if(s.nights){ nightsEl.value = clampNights(s.nights); nightsMinusEl.disabled = nightsEl.value === "1"; }
@@ -2725,7 +2844,6 @@ function loadState(){
         l.classList.toggle("active", !!l.querySelector("input").checked));
     }
   }
-  if(s.view === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   if(s.finderPassport){
     finderPassportEl.value = s.finderPassport; syncPassportInput();
     if(visaFilterBar) visaFilterBar.hidden = !s.finderPassport;
@@ -2782,7 +2900,8 @@ const cleanStr = v => String(v).replace(/[<>&"'\`]/g, "").slice(0, 60);   // no 
 function buildShareURL(){
   const p = new URLSearchParams();
   if(continentEl.value) p.set("ct", continentEl.value);
-  if(activityEl.value) p.set("ac", activityEl.value);
+  const priNow = selectedPriorities();
+  if(priNow.length) p.set("ac", priNow.join(","));
   if(travelByEl.value && travelByEl.value !== "cheapest") p.set("tb", travelByEl.value);
   if(totalBudgetEl.value) p.set("bg", totalBudgetEl.value);
   if(travelStyleEl.value) p.set("sy", travelStyleEl.value);
@@ -2793,7 +2912,6 @@ function buildShareURL(){
          if(returnDateEl.value && !isOneWay()) p.set("rd", returnDateEl.value); }
   if(isOneWay()) p.set("ow", "1");
   if(sortByEl.value && sortByEl.value !== "match") p.set("so", sortByEl.value);
-  if(isMapView()) p.set("vw", "map");
   if(finderOrigin && finderOrigin.lat != null){
     p.set("oc", finderOrigin.city || ""); p.set("on", finderOrigin.country || "");
     if(finderOrigin.code) p.set("ok", finderOrigin.code);
@@ -2810,8 +2928,16 @@ function applyShareParams(){
   const inSet = (v, arr) => arr.indexOf(v) >= 0 ? v : null;
   const ct = inSet(p.get("ct"), Object.keys(CONTINENT_LABEL));
   if(ct) continentEl.value = ct;
-  const ac = inSet(p.get("ac"), [...activityEl.options].map(o=>o.value));
-  if(ac) activityEl.value = ac;
+  /* "ac" is a comma-separated priority list; single old-style values
+     ("Nature", "Museums & Culture") still work */
+  const acRaw = p.get("ac");
+  if(acRaw){
+    const known = new Set(PRIORITY_DEFS.map(d=>d.key));
+    const keys = acRaw.split(",").map(v=>v.trim())
+                      .map(v=> known.has(v) ? v : LEGACY_PRIORITY[v])
+                      .filter(Boolean);
+    if(keys.length) setPriorities(keys);
+  }
   const tb = inSet(p.get("tb"), [...travelByEl.options].map(o=>o.value));
   if(tb) travelByEl.value = tb;
   const bg = parseFloat(p.get("bg"));
@@ -2830,7 +2956,6 @@ function applyShareParams(){
   if(p.get("ow") === "1"){ const w = document.querySelector('input[name="wayMode"][value="oneway"]'); if(w) w.checked = true; }
   const so = inSet(p.get("so"), [...sortByEl.options].map(o=>o.value));
   if(so) sortByEl.value = so;
-  if(p.get("vw") === "map"){ const vr = document.querySelector('input[name="viewMode"][value="map"]'); if(vr) vr.checked = true; }
   const la = parseFloat(p.get("la")), ln = parseFloat(p.get("ln"));
   if(p.get("oc") && la >= -90 && la <= 90 && ln >= -180 && ln <= 180){
     const oc = cleanStr(p.get("oc")), on = cleanStr(p.get("on") || "");
@@ -2844,32 +2969,9 @@ function applyShareParams(){
 }
 applyShareParams();
 
-const shareBtn  = document.getElementById("shareBtn");
-const shareNote = document.getElementById("shareNote");
-let shareNoteTimer = null;
-function flashShareNote(msg){
-  shareNote.textContent = msg;
-  shareNote.hidden = false;
-  clearTimeout(shareNoteTimer);
-  shareNoteTimer = setTimeout(()=>{ shareNote.hidden = true; }, 2600);
-}
-shareBtn.addEventListener("click", async ()=>{
-  const url = buildShareURL();
-  if(window.NRAShare){
-    NRAShare.open({ title: "Never Roam Alone — trip ideas",
-      text: "Check out the destinations I'm looking at:", url });
-    return;
-  }
-  if(navigator.share){
-    try{ await navigator.share({ title: "Never Roam Alone — trip ideas",
-      text: "Check out the destinations I'm looking at:", url }); return; }
-    catch(e){ if(e && e.name === "AbortError") return; /* else fall through */ }
-  }
-  try{ await navigator.clipboard.writeText(url); flashShareNote("Link copied!"); }
-  catch(e){ window.prompt("Copy this link:", url); }
-});
-
 syncWhenUI();
+syncBudgetUI();
+syncPriorityUI();
 (function(){ const iso = new Date().toISOString().slice(0,10);
   if(departDateEl) departDateEl.min = iso;
   if(returnDateEl) returnDateEl.min = (departDateEl && departDateEl.value) ? departDateEl.value : iso; })();
@@ -2988,7 +3090,6 @@ NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketBu
   }
   function init(){
     build('travelBy',[{value:'cheapest',label:'Cheapest'},{value:'fastest',label:'Fastest'},{value:'Plane',label:'Plane'},{value:'Train',label:'Train'},{value:'Bus',label:'Bus'},{value:'Car',label:'Car'},{value:'Boat',label:'Boat'}],'nra-seg',false,'travelBySeg');
-    build('activity',[{value:'',label:'Anything — surprise me'},{value:'Nightlife',label:'Nightlife'},{value:'Restaurants',label:'Restaurants'},{value:'Museums & Culture',label:'Museums & culture'},{value:'Architecture',label:'Architecture'},{value:'Nature',label:'Nature'}],'nra-chips',true,'activityChips');
     build('travelStyle',[{value:'',label:'Any budget'},{value:'budget',label:'Backpacker'},{value:'mid',label:'Mid-range'},{value:'luxury',label:'High-end'}],'nra-seg',false,'travelStyleSeg');
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
