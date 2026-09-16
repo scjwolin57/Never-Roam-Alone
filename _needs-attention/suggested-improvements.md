@@ -6,14 +6,16 @@
 
 ## ✅ Recently completed (July 2026, for reference)
 
-- Destination finder intelligence: one-way/return toggle, door-to-door flight times, train-vs-plane & long-ride alerts, honest ground-travel math (winding roads, en-route hotel nights), editable nights assumption, "Compare all ways to get there" expander, one-way rental fee note
+- ~~Destination finder intelligence: one-way/return toggle, door-to-door flight times, train-vs-plane & long-ride alerts, honest ground-travel math (winding roads, en-route hotel nights), editable nights assumption, "Compare all ways to get there" expander, one-way rental fee note~~
 - Season/event bubbles on finder cards (weather + festivals/peak periods, blank when nothing to say)
-- "Share itinerary" button (native share sheet), validated passport-free share links, privacy policy line
-- Map view with ranked pins that open the full city cards; "Suggested Destinations in X for Y" heading
-- Real photos everywhere: 123 city photos + 563/615 neighborhood photos, all visually reviewed, with credits
-- Social link previews (branded 1200×630 image with Amatic font) + lazy-loaded photos site-wide
+- ~~"Share itinerary" button (native share sheet), validated passport-free share links, privacy policy line~~
+- ~~Map view with ranked pins that open the full city cards; "Suggested Destinations in X for Y" heading~~
+- ~~Real photos everywhere: 123 city photos + 563/615 neighborhood photos, all visually reviewed, with credits~~
+- ~~Social link previews (branded 1200×630 image with Amatic font) + lazy-loaded photos site-wide~~
 
 ---
+
+
 
 ## 🚩 The flagship
 
@@ -23,7 +25,7 @@
 
 ## 💚 Personal & sticky (make accounts worth having)
 
-**2. "My Trips" — save cities from the finder (M)** — heart icon on cards/pins saves a city; saved list feeds the itinerary builder, pulling in transit, neighborhoods, and season data automatically.
+**2. ~~"My Trips" — save cities from the finder (M)** — heart icon on cards/pins saves a city; saved list feeds the itinerary builder, pulling in transit, neighborhoods, and season data automatically.~~
 
 **3. Personal travel map (M)** — "been there" checkboxes light up a world map on your profile (reuse the MapLibre stack), plus Bucket List progress ("31/100"). Highly shareable.
 
@@ -43,13 +45,13 @@
 
 ## 🔎 Discovery (use the data you're sitting on)
 
-**10. Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.
+**10. ~~Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.~~
 
 **11. Weekend finder preset (S)** — "I have 3 days, I live in Berlin" button → filters to destinations under ~5h door-to-door.
 
-**12. Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").
+**12. ~~Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").~~
 
-**13. Auto-generated seasonal collections (S/M)** — "Warm in January," "Christmas market cities," from the season/event data.
+**13. ~~Auto-generated seasonal collections (S/M)** — "Warm in January," "Christmas market cities," from the season/event data.~~
 
 ## 👥 Community
 
@@ -78,8 +80,11 @@
 ## 📷 Photo housekeeping
 
 **23. Remaining 52 neighborhood photos** — list lives in `neighborhoods-needing-photos.md`. Options: your own photos (drop in the Desktop "Neighborhood photos" folder, named `City-Neighborhood.jpg`), a Flickr API pass (needs free key + domain allowlisted, same drill as Pexels), or leave on the Unsplash live fallback.
+
 - Re-run Pexels/Pixabay search every few months — both sites add photos constantly (keys are saved).
 - Still placeholder: story-card images on city pages; blog post photos on the homepage.
+
+
 
 ## 🚀 Post-launch SEO & growth (added July 12, 2026)
 
@@ -106,6 +111,8 @@
 **33. Monthly Search Console check-in (S, recurring)** — once indexed: fix crawl errors, see which searches bring people in, sharpen titles on pages that show up but don't get clicked.
 
 ---
+
+
 
 ## 🧭 Solo-first differentiators (added July 19, 2026 — research-backed)
 
