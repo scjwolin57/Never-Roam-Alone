@@ -205,6 +205,14 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   published pricing.
 - Remaining: 93 cities (800/893 done — 800 milestone reached). Work
   highest-visitors-first, 25 cities per batch.
+- Done: batch 33, 25 more cities (Jaffna, Kashgar, Padang, Srinagar,
+  Freetown, Niamey, Nuku'alofa, Bissau, Ibadan, Kano, Lalibela, Siwa
+  Oasis, Leticia, Ghardaïa, Murree, Enshi, Vigan, Guarujá, Savonlinna,
+  Baracoa, Angra dos Reis, Osogbo, Legaspi, Porto-Novo, Petrópolis),
+  loaded and committed (`fe4f4a0a`). 52 gyms. Baracoa, Enshi, Kashgar,
+  Lalibela, Murree and Siwa Oasis shipped honest empty arrays.
+- Remaining: 68 cities (825/893 done). Work highest-visitors-first, 25
+  cities per batch.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
