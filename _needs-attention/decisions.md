@@ -2,10 +2,12 @@
 
 *One line per decision, newest first: date, what was decided, why. Every session
 reads this before proposing or re-researching anything. Rules adopted in chat go
-here the same day. See master-instructions-draft.md §4.5.*
+here the same day. See CLAUDE.md §4.5 (this file's companion rulebook).*
 
 | Date | Decision | Why / source |
 |---|---|---|
+| 2026-09-17 | **Gym research complete: 893/893 cities, 2,656 gyms** across 801 cities; 92 cities honestly empty. Loaded into citydata and the sheet's Gyms tab over 36 batches. | Jeff's research session. |
+| 2026-09-17 | **Corrects the earlier "Google Places Nearby Search" row:** the Netlify function was not shipped. What shipped is a Google Maps Embed iframe in the Find modal (Laundry/Gyms tabs, plus an "Open in Google Maps" link), using a separate browser key `GMAPS_EMBED_KEY` in city.html — the Embed API is free with no usage cap, and it is NOT the billable geocoding key in `.env`. The live OpenStreetMap list is gone; researched gyms still list above the map. | What is actually in city.html as of 2b7e2824. |
 | 2026-09-17 | **Reverses 2026-09-17 (live OpenStreetMap in the Find modal):** the Find laundry & gyms modal now uses Google Places Nearby Search through the Netlify function `netlify/functions/places-nearby.js` (key server-side only, two calls per search, billed per request). Researched gyms and the neighborhood dropdown are unchanged. | Jeff, building it himself in a parallel session. |
 | 2026-09-17 | The master instruction draft is approved and installed as the project CLAUDE.md (the earlier master rules kept in full as §7–8); the universal sections also live in ~/.claude/CLAUDE.md for Cowork and other projects. The draft file is retired. | Jeff: "approve the draft". |
 | 2026-09-17 | Facebook and Apple sign-in buttons are on hold. The Facebook provider stays enabled in Supabase on purpose (no button on the site); do not turn it off. The Facebook button was added and removed on 2026-07-13 (`f2cb9fa2`, `bdf583b0`) with no recorded reason. When resumed, check the Facebook app's Live/Development mode, and for Apple the 6-month secret renewal and private-relay email registration for Resend. | Jeff: "wait on those". |
