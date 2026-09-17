@@ -196,6 +196,15 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   capitals thin on prices but none needed a fully empty array.
 - Remaining: 118 cities (775/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Done: batch 32, 25 more cities (Nablus, Quetzaltenango, Yamoussoukro,
+  Campeche, Trincomalee, Zacatecas, Aurangabad, Gondar, Yangzhou, Bahir
+  Dar, Chaozhou, Kerman, Maceió, Nouakchott, Brazzaville, Dili, Stanley,
+  Mamoudzou, Koror, El Chaltén, Tamanrasset, Wuyishan, Potosí, Kaifeng,
+  Antsiranana), loaded and committed (`588b347e`). 51 gyms. Gondar and
+  Yangzhou shipped honest empty arrays; many small/remote cities thin on
+  published pricing.
+- Remaining: 93 cities (800/893 done — 800 milestone reached). Work
+  highest-visitors-first, 25 cities per batch.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
