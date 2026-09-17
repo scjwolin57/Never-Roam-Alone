@@ -119,7 +119,14 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Ouarzazate), loaded and committed (`6eefef16`). 56 gyms. Several thin/empty
   markets shipped honest empty arrays (Bentota, Libreville, Lilongwe,
   Luanda, Mbabane, Ouarzazate).
-- Remaining: 318 cities (575/893 done). Work highest-visitors-first, 25
+- Done: batch 24, 25 more cities (Nîmes, Taupo, Udaipur, Podgorica,
+  Perpignan, Serekunda, Ålesund, Puerto Princesa, Oaxaca, Dunedin, Kazan,
+  Hobart, Medan, Port of Spain, Thimphu, Cali, Banjul, Monrovia, Ahmedabad,
+  Ushuaia, Cortina d'Ampezzo, El Nido, Magelang, Rouen, Kairouan), loaded
+  and committed (`96b5a604`). 73 gyms. Many entries thin on published day
+  prices (real gyms, no findable rate, shipped as `loc: null`); Udaipur is
+  5 free open-air gyms only.
+- Remaining: 293 cities (600/893 done). Work highest-visitors-first, 25
   cities per batch.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
