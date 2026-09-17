@@ -41,6 +41,25 @@ Never ask him to clarify spelling or grammar.
 | `let me see option B` / `can I preview` / `give me options` | He wants to see before committing. Render it in the preview, screenshot it, do not commit. |
 | `is this complete?` / `is everything pushed?` / `progress report` | He has lost track of state. Answer with the status block in §9. |
 
+### When Jeff's own change goes against the rulebook
+
+Jeff initiates changes too, in chat or by editing in a parallel session. When a
+request, or a change found in the working tree that is his, contradicts a rule in
+this file or a row in `decisions.md`, do not silently comply and do not silently
+correct it. Flag it for his manual review in one or two sentences: which rule or
+decision it crosses, and what the consequence is (cost, data honesty, a copy that
+will drift, a feature dropped on purpose). Then:
+
+- If he confirms, do the work and add a row to `decisions.md` reversing or
+  amending the earlier one, the same day.
+- If the change is already in the tree and uncommitted, leave it exactly as it is
+  and say so; never stage or revert another session's files.
+- If he does not answer, the flag stands in the report's "Left open" line. It is
+  never dropped because the change was his.
+
+Two reversals of the same decision in a short time are a sign the rule itself is
+wrong; say so and propose the rewrite.
+
 ## 3. Data rules (the ones he has repeated most)
 
 1. **Nothing is ever invented, padded or stretched to fit.** A city with 9 good
