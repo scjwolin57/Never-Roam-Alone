@@ -82,7 +82,16 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Rica), Maastricht, Poznań, Nelspruit, Hakodate, Genoa, Florianópolis,
   Saint-Denis (Réunion), Charlotte Amalie, Isfahan, Bari, The Hague,
   Toulouse, Negombo, Edmonton), loaded and committed (`99de7fdc`). 69 gyms.
-- Remaining: 493 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 17, 25 more cities (Bristol, Minneapolis, Wellington, Jaipur,
+  Suzhou, Harbin, Windhoek, Managua, Belize City, Dushanbe, Yangon, Skopje,
+  Adelaide, Sigiriya, Chiang Rai, Matera, Biarritz, Panglao, Coimbra, Cadiz,
+  York, Reims, Freiburg, Valparaíso, Utrecht), loaded and committed
+  (`2ae18c92`). 86 gyms.
+- Remaining: 468 cities. Work highest-visitors-first, 25 cities per batch.
+- Gotcha: one research agent ran unusually long (12+ min) on a thin,
+  bot-walled market (Suzhou); a SendMessage nudge to "wrap up, ship what you
+  have" got it to finish within ~1 more minute. If a group runs long, nudge
+  it rather than waiting indefinitely.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
 - Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
