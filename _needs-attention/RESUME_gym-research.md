@@ -12,7 +12,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Florence, Karbala, Kyoto, Shanghai, Doha, Abu Dhabi, Cairo, Lisbon,
   Pattaya-Chonburi, Marne-la-Vallée, Punta Cana, Hurghada), loaded and committed
   (`7eb10c76`). 90 gyms.
-- Remaining: 843 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 3, 25 more cities (Sharm El Sheikh, Sydney, Budapest, Shenzhen,
+  Jeddah, Valletta, Niagara Falls, Nha Trang, Najaf, Da Nang, Chiang Mai, Ibiza,
+  Berlin, Vancouver, Mexico City, Beijing, Heraklion, Palma de Mallorca, San
+  Diego, Marrakech, Munich, Toronto, San Francisco, Seville, Fukuoka), loaded
+  and committed (`81b9f6ff`). 100 gyms.
+- Remaining: 818 cities. Work highest-visitors-first, 25 cities per batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
@@ -27,6 +32,10 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   into a real URL (e.g. `https://www.openstreetmap.org/node/<id>` or
   `https://www.openstreetmap.org/#map=19/<lat>/<lng>`) before loading, not by
   dropping the entry.
+- Gotcha: `load_gyms.py` only accepts ISO currency codes — an agent wrote
+  "RMB" for Beijing (a common colloquial label, not the ISO code) and the
+  whole file was rejected. Fix to "CNY" before loading; same idea applies to
+  any other colloquial currency name an agent might use.
 
 ## How a batch runs
 1. Split the 25 cities into 5 groups of 5 and give each group to one research agent
