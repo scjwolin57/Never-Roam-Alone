@@ -6,6 +6,7 @@ here the same day. See master-instructions-draft.md §4.5.*
 
 | Date | Decision | Why / source |
 |---|---|---|
+| 2026-09-17 | **Reverses 2026-09-17 (live OpenStreetMap in the Find modal):** the Find laundry & gyms modal now uses Google Places Nearby Search through the Netlify function `netlify/functions/places-nearby.js` (key server-side only, two calls per search, billed per request). Researched gyms and the neighborhood dropdown are unchanged. | Jeff, building it himself in a parallel session. |
 | 2026-09-17 | The master instruction draft is approved and installed as the project CLAUDE.md (the earlier master rules kept in full as §7–8); the universal sections also live in ~/.claude/CLAUDE.md for Cowork and other projects. The draft file is retired. | Jeff: "approve the draft". |
 | 2026-09-17 | Facebook and Apple sign-in buttons are on hold. The Facebook provider stays enabled in Supabase on purpose (no button on the site); do not turn it off. The Facebook button was added and removed on 2026-07-13 (`f2cb9fa2`, `bdf583b0`) with no recorded reason. When resumed, check the Facebook app's Live/Development mode, and for Apple the 6-month secret renewal and private-relay email registration for Resend. | Jeff: "wait on those". |
 | 2026-09-17 | Cities with no geolocated neighborhood skip the neighborhood dropdown in the Find laundry & gyms modal and list everything city-wide with map links (laundry and gyms alike). Cities with some placed neighborhoods keep the dropdown and note the missing ones. | Jeff. |
