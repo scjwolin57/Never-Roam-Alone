@@ -2583,7 +2583,7 @@ if(!c){
     /* Gym: day-pass research not done yet — "coming soon", the same placeholder
        wording the phrases card uses, until the data lands. */
     const gyms = CITY_GYMS[c.city];
-    const dayPasses = (gyms || []).map(g => g.pass && g.pass.day && g.pass.day.usd).filter(v => typeof v === "number");
+    const dayPasses = (gyms || []).map(g => g.pass && g.pass.day && g.pass.day.usd).filter(v => typeof v === "number" && v > 0);   // paid passes only; free trials are listed in the modal
     const freeCount = (gyms || []).filter(g => g.free).length;
     const gymHTML = `
           <div class="hx">
@@ -4080,7 +4080,7 @@ if(!c){
         <div class="fl-col"><h4>Laundry</h4><div id="fl-laundry"><p class="fl-wait">Choose a neighborhood above.</p></div></div>
         <div class="fl-col"><h4>Gyms</h4><div id="fl-gym"></div></div>
       </div>
-      <p class="fl-foot">Live from OpenStreetMap, nearest first. A short list means the map is thin here, not that there is nothing${missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
+      <p class="fl-foot">Availability and prices may not reflect the current offer &mdash; check with the business before you go. Checked entries (&#10003;) were researched by us; the rest are live from OpenStreetMap, nearest first, and a short list means the map is thin here, not that there is nothing${missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
   }
   function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
   async function flFetch(pt) {
@@ -4116,9 +4116,10 @@ if(!c){
     const mine = pt.key === "city" ? gyms : gyms.filter(g => String(g.hood) === pt.key);
     if (!mine.length) return "";
     const esc = s => String(s == null ? "" : s).replace(/</g, "&lt;");
-    const price = (p, code) => p ? (typeof p.usd === "number" ? fmtPrice(p.usd, code) : "price on site") : null;
+    const price = (p, code) => p ? (p.loc === 0 ? "free trial" : typeof p.usd === "number" ? fmtPrice(p.usd, code) : "price on site") : null;
     const rows = mine.map(g => {
-      const code = (typeof costCode !== "undefined" && costCode) || "USD";
+      /* same currency the cost cards are showing: chosen currency when that toggle is on, else the local one */
+      const code = (typeof showCostsInChosen !== "undefined" && showCostsInChosen && typeof compareCode !== "undefined" && compareCode) ? compareCode : (typeof curCode !== "undefined" && curCode) ? curCode : "USD";
       const bits = [];
       if (g.free) bits.push("free");
       if (g.pass) {
