@@ -42,7 +42,14 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Marseille, Seattle, Brisbane, Belgrade, Banff, Malacca, George Town, Zadar,
   Luxor, Huế, Cusco, Funchal, Kaohsiung, Strasbourg), loaded and committed
   (`b07f66df`). 92 gyms.
-- Remaining: 693 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 9, 25 more cities (Kobe, Las Palmas de Gran Canaria, Bordeaux,
+  Cebu City, Geneva, Calgary, İzmir, Yokohama, Helsinki, Warsaw, Nairobi,
+  Abidjan, Montevideo, Montego Bay, Guatemala City, San Salvador, Kathmandu,
+  Almaty, Tirana, Maseru, Split, New Orleans, Luxembourg, Atlanta, Sarajevo),
+  loaded and committed (`3c960de4`). 103 gyms.
+- Remaining: 668 cities. Work highest-visitors-first, 25 cities per batch.
+- 2026-09-17: user confirmed running all remaining batches autonomously,
+  no further check-ins until all 893 cities are done.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
