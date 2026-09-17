@@ -87,7 +87,13 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Adelaide, Sigiriya, Chiang Rai, Matera, Biarritz, Panglao, Coimbra, Cadiz,
   York, Reims, Freiburg, Valparaíso, Utrecht), loaded and committed
   (`2ae18c92`). 86 gyms.
-- Remaining: 468 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 18, 25 more cities (Viña del Mar, Yangshuo, Mataram, Pretoria,
+  Essaouira, Karlovy Vary, Hualien City, Tarragona, Rabat, Livingstone, Road
+  Town, Cagliari, Salalah, Cardiff, Mérida, Lviv, Kumamoto, Mendoza, San
+  Pedro Sula, Faro, Philipsburg, Nagasaki, Dresden, Mombasa, Zaragoza),
+  loaded and committed (`01c0d1c7`). 70 gyms.
+- Remaining: 443 cities (HALFWAY DONE — 450/893). Work highest-visitors-
+  first, 25 cities per batch.
 - Gotcha: one research agent ran unusually long (12+ min) on a thin,
   bot-walled market (Suzhou); a SendMessage nudge to "wrap up, ship what you
   have" got it to finish within ~1 more minute. If a group runs long, nudge
