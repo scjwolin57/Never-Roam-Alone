@@ -169,6 +169,35 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   published day prices.
 - Remaining: 193 cities (700/893 done — 700 milestone reached). Work
   highest-visitors-first, 25 cities per batch.
+- Done: batch 29, 25 more cities (Tórshavn, Apia, Puducherry, Nouméa,
+  Basseterre, San Marino, Lamu, Mar del Plata, Puerto Madryn, Plettenberg
+  Bay, Tofino, Charlottetown, Weimar, Zhoushan, Siargao, Coron, Durham
+  (UK), Olomouc, Sergiyev Posad, Lhasa, Cape Coast, León (Nicaragua),
+  Leshan, Pécs, Saint-Louis), loaded and committed (`78b59edc`). 67 gyms.
+  San Marino and Zhoushan shipped honest empty arrays.
+- Remaining: 168 cities (725/893 done). Work highest-visitors-first, 25
+  cities per batch.
+- Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
+  (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
+  prompt defaulted to NC without checking, caught and corrected mid-flight
+  via SendMessage before the agent went too deep. **Always grep
+  destinations.js for an ambiguous city name before assuming which one it
+  is**, especially for names that are common in multiple countries
+  (Durham, Cambridge, Richmond, Springfield, etc.).
+- Gotcha (new, batch 29): a research agent reported writing entries with
+  "no published price" by giving them `"free": false` and omitting the
+  `pass` block entirely, instead of the established convention
+  (`pass.day.loc: null`). Didn't wait to see whether `load_gyms.py`
+  would actually reject `free:false`+no-pass (untested failure mode) —
+  fixed proactively by grep-checking every entry in the flagged files for
+  `free:true` or a non-empty `pass` before running the loader, and
+  hand-fixing all 12 across 5 files (torshavn, apia, puducherry, noumea,
+  basseterre) to `pass.day.loc: null` with the right currency before
+  loading. **When an agent's own report says it "omitted the pass
+  object" or wrote `free: false` with no price, verify that file's
+  entries against the schema before trusting the dry-run alone** —
+  worth confirming later whether the loader actually catches this shape
+  or would silently accept it.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
   (Gisenyi/Jeonju/Vladivostok/Odessa). A nudge didn't land in time, so the
