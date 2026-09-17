@@ -225,8 +225,15 @@
   .fl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
   .fl-head label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
   .fl-head select{flex:1 1 220px;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
-  .fl-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  .fl-col h4{margin:0 0 8px;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal)}
+  .fl-tabs{display:flex;margin:0 0 10px}
+  .fl-tab{flex:1;border:1.5px solid rgba(63,81,56,.35);background:#fff;padding:8px;font-family:inherit;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);cursor:pointer}
+  .fl-tab+.fl-tab{border-left:0}
+  .fl-tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
+  .fl-frame{display:block;width:100%;height:min(420px,60vh);border:0}
+  #fl-map{position:relative}
+  .fl-loading{position:absolute;top:0;left:0;right:0;height:min(420px,60vh);margin:0;display:flex;align-items:center;justify-content:center;background:rgba(63,81,56,.06);color:var(--muted);font-style:italic;font-size:.88rem}
+  .fl-open{display:inline-block;margin:8px 0 4px;color:var(--green);font-weight:700;text-decoration:none;font-size:.88rem}
+  .fl-open:hover{text-decoration:underline}
   .fl-list{list-style:none;margin:0;padding:0}
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
@@ -4059,62 +4066,38 @@ if(!c){
       <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
   }
 
-  /* ---------- Find laundry & gyms: live OpenStreetMap search around a neighborhood ---------- */
-  const FL_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
-  const FL_RADIUS_HOOD = 1500, FL_RADIUS_CITY = 3000, FL_MAX = 8, FL_CACHE_DAYS = 30;
+  /* ---------- Find laundry & gyms: embedded Google map (Maps Embed API) ----------
+     Free with no usage cap, and nothing from Google is stored. GMAPS_EMBED_KEY is a browser
+     key limited to the Maps Embed API and neverroamalone.com; while it's empty the modal
+     shows a plain "Open in Google Maps" link instead, which needs no key. */
+  const GMAPS_EMBED_KEY = "AIzaSyA2NV6sXuuaKSJ84aVpPcn3domPPMi7FBg";
+  let flKind = "laundry";
+  const flEsc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   function flPoints() {
     const hoods = CITY_HOODS[c.city] || [], geo = CITY_HOOD_GEO[c.city] || [];
-    const pts = [{ key: "city", label: `Anywhere in ${c.city}`, lat: c.lat, lng: c.lng, r: FL_RADIUS_CITY }];
-    hoods.forEach((hd, i) => { const g = geo[i]; if (g && g.length === 2) pts.push({ key: String(i), label: hd, lat: g[0], lng: g[1], r: FL_RADIUS_HOOD }); });
+    const pts = [{ key: "city", label: `Anywhere in ${c.city}`, place: c.city, lat: c.lat, lng: c.lng }];
+    /* Google searches by name, so every neighborhood is listed, placed on our map or not */
+    hoods.forEach((hd, i) => { const g = geo[i], ok = g && g.length === 2; pts.push({ key: String(i), label: hd, place: `${hd}, ${c.city}`, lat: ok ? g[0] : null, lng: ok ? g[1] : null }); });
     return pts;
   }
   function buildFindModal() {
     const pts = flPoints();
-    const missing = (CITY_HOODS[c.city] || []).length - (pts.length - 1);
-    /* No neighborhood could be placed on the map: skip the dropdown and search
-       the whole city (Jeff, 2026-09-17). The select keeps its id so flRun/flInit work. */
     const head = pts.length > 1 ? `
       <div class="fl-head">
         <label for="fl-hood">Search near</label>
-        <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${p.label.replace(/</g, "&lt;")}</option>`).join("")}</select>
+        <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${flEsc(p.label)}</option>`).join("")}</select>
       </div>` : `
-      <div class="fl-head"><label>Showing all of ${c.city.replace(/</g, "&lt;")}</label></div>`;
+      <div class="fl-head"><label>Showing all of ${flEsc(c.city)}</label></div>`;
+    const tab = (k, t) => `<button type="button" class="fl-tab${flKind === k ? " on" : ""}" data-fl="${k}" aria-pressed="${flKind === k}">${t}</button>`;
     return head + `
-      <div class="fl-cols">
-        <div class="fl-col"><h4>Laundry</h4><div id="fl-laundry"><p class="fl-wait">Choose a neighborhood above.</p></div></div>
-        <div class="fl-col"><h4>Gyms</h4><div id="fl-gym"></div></div>
-      </div>
-      <p class="fl-foot">Availability and prices may not reflect the current offer &mdash; check with the business before you go. Checked entries (&#10003;) were researched by us; the rest are live from OpenStreetMap, nearest first, and a short list means the map is thin here, not that there is nothing${pts.length === 1 ? ". None of the neighborhoods could be placed on the map yet, so this covers the whole city" : missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
+      <div class="fl-tabs">${tab("laundry", "Laundry")}${tab("gym", "Gyms")}</div>
+      <div id="fl-map"></div>
+      <div id="fl-gym"></div>
+      <p class="fl-foot">Map and listings are from Google Maps. Hours, availability and prices may have changed &mdash; check with the business before you go. Checked entries (&#10003;) are gyms we researched for day passes.</p>`;
   }
   function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
-  async function flFetch(pt) {
-    const ck = `nra_findlg_v1_${c.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}_${pt.key}`;
-    try { const cached = JSON.parse(localStorage.getItem(ck) || "null"); if (cached && (Date.now() - cached.t) < FL_CACHE_DAYS * 864e5) return cached.items; } catch (e) {}
-    const around = `(around:${pt.r},${pt.lat},${pt.lng})`;
-    const q = `[out:json][timeout:20];(nwr["shop"="laundry"]${around};nwr["amenity"="washing_machine"]${around};nwr["leisure"="fitness_centre"]${around};nwr["amenity"="gym"]${around};nwr["leisure"="sports_centre"]["sport"="fitness"]${around};);out center tags 80;`;
-    let lastErr;
-    for (const ep of FL_ENDPOINTS) {
-      const ctl = ("AbortController" in window) ? new AbortController() : null;
-      const timer = ctl ? setTimeout(() => ctl.abort(), 9000) : null;
-      try {
-        const r = await fetch(ep, { method: "POST", body: "data=" + encodeURIComponent(q), headers: { "Content-Type": "application/x-www-form-urlencoded" }, signal: ctl ? ctl.signal : undefined });
-        if (!r.ok) throw new Error("HTTP " + r.status);
-        const data = await r.json();
-        const items = (data.elements || []).map(e => {
-          const t = e.tags || {}, lat = e.lat != null ? e.lat : (e.center || {}).lat, lng = e.lon != null ? e.lon : (e.center || {}).lon;
-          if (lat == null) return null;
-          const isGym = t.leisure === "fitness_centre" || t.amenity === "gym" || (t.leisure === "sports_centre" && t.sport === "fitness");
-          const kind = isGym ? "gym" : (t.self_service === "yes" ? "self-service" : t.self_service === "no" ? "attended" : t.amenity === "washing_machine" ? "washing machine" : "laundry");
-          return { g: isGym, n: t.name || t.brand || (isGym ? "Gym (unnamed on the map)" : "Laundry (unnamed on the map)"), k: kind, h: t.opening_hours || "", lat, lng, d: flKm(pt.lat, pt.lng, lat, lng) };
-        }).filter(Boolean).sort((a, b) => a.d - b.d);
-        try { localStorage.setItem(ck, JSON.stringify({ t: Date.now(), items })); } catch (e) {}
-        return items;
-      } catch (e) { lastErr = e; } finally { if (timer) clearTimeout(timer); }
-    }
-    throw lastErr || new Error("overpass unavailable");
-  }
   /* Researched gyms (CITY_GYMS) for the chosen point: a neighborhood's own list,
-     or every researched gym for "Anywhere". Shown ahead of the live OSM list. */
+     or every researched gym for "Anywhere". Shown under the Gyms map. */
   function flResearched(pt) {
     const gyms = CITY_GYMS[c.city] || [];
     const mine = pt.key === "city" ? gyms : gyms.filter(g => String(g.hood) === pt.key);
@@ -4138,32 +4121,29 @@ if(!c){
     });
     return `<ul class="fl-list">${rows.join("")}</ul>`;
   }
-  function flList(items, pt) {
-    const rkm = (pt.r / 1000).toFixed(1).replace(/\.0$/, "");
-    if (!items.length) return pt.key === "city"
-      ? `<p class="fl-empty">None mapped within ${rkm} km of the centre of ${c.city}. OpenStreetMap coverage is thin here.</p>`
-      : `<p class="fl-empty">None mapped within ${rkm} km of ${pt.label.replace(/</g, "&lt;")}. OpenStreetMap coverage is thin here; try "Anywhere in ${c.city}".</p>`;
-    return `<ul class="fl-list">${items.slice(0, FL_MAX).map(it => `<li><span class="fl-n">${it.n.replace(/</g, "&lt;")}</span> &middot; <a href="https://www.google.com/maps/search/?api=1&query=${it.lat},${it.lng}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${it.k}${it.h ? " &middot; " + it.h.replace(/</g, "&lt;") : ""} &middot; ${it.d < 1 ? Math.round(it.d * 1000) + " m" : it.d.toFixed(1) + " km"} away</span></li>`).join("")}</ul>`;
-  }
-  async function flRun(key) {
+  function flRun(key) {
     const pt = flPoints().find(p => p.key === key); if (!pt) return;
-    const L = document.getElementById("fl-laundry"), G = document.getElementById("fl-gym");
-    L.innerHTML = `<p class="fl-wait">Searching OpenStreetMap&hellip;</p>`; G.innerHTML = "";
-    try {
-      const items = await flFetch(pt);
-      const sel = document.getElementById("fl-hood"); if (sel && sel.value !== key) return;   // visitor moved on
-      L.innerHTML = flList(items.filter(i => !i.g), pt);
-      const researched = flResearched(pt), live = items.filter(i => i.g);
-      G.innerHTML = researched + (researched && live.length ? `<p class="fl-sub">Also mapped nearby</p>` : "") + (live.length || !researched ? flList(live, pt) : "");
-    } catch (e) {
-      L.innerHTML = `<p class="fl-empty">Couldn't reach OpenStreetMap right now. Please try again in a moment.</p>`; G.innerHTML = flResearched(pt);
-    }
+    const M = document.getElementById("fl-map"), G = document.getElementById("fl-gym");
+    const q = `${flKind === "gym" ? "gym" : "laundromat"} near ${pt.place}${c.country ? ", " + c.country : ""}`;
+    const open = `<a class="fl-open" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>`;
+    M.innerHTML = GMAPS_EMBED_KEY
+      ? `<iframe class="fl-frame" title="${flEsc(q)}" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/search?key=${GMAPS_EMBED_KEY}&q=${encodeURIComponent(q)}"></iframe>${open}`
+      : `<p class="fl-empty">See ${flKind === "gym" ? "gyms" : "laundromats"} near ${flEsc(pt.key === "city" ? c.city : pt.label)} on Google Maps.</p>${open}`;
+    /* Google's map takes a few seconds; cover the empty frame until it's drawn */
+    const fr = M.querySelector(".fl-frame");
+    if (fr) { M.insertAdjacentHTML("beforeend", `<p class="fl-loading">Loading the map&hellip;</p>`); fr.addEventListener("load", () => { const w = M.querySelector(".fl-loading"); if (w) w.remove(); }); }
+    const researched = flKind === "gym" ? flResearched(pt) : "";
+    G.innerHTML = researched ? `<p class="fl-sub">Day passes we've checked${pt.key === "city" ? "" : " in " + flEsc(pt.label)}</p>${researched}` : "";
   }
   function flInit() {
-    const sel = document.getElementById("fl-hood");
-    if (!sel) { flRun("city"); return; }          // no placed neighborhoods: city-wide list
-    sel.addEventListener("change", () => flRun(sel.value));
-    flRun(sel.value);
+    const sel = document.getElementById("fl-hood"), cur = () => sel ? sel.value : "city";
+    if (sel) sel.addEventListener("change", () => flRun(cur()));
+    document.querySelectorAll(".fl-tab").forEach(b => b.addEventListener("click", () => {
+      flKind = b.dataset.fl;
+      document.querySelectorAll(".fl-tab").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", String(x === b)); });
+      flRun(cur());
+    }));
+    flRun(cur());
   }
 
   function buildLaundryModal() {
