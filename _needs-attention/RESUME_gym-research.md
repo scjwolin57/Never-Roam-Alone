@@ -17,7 +17,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Berlin, Vancouver, Mexico City, Beijing, Heraklion, Palma de Mallorca, San
   Diego, Marrakech, Munich, Toronto, San Francisco, Seville, Fukuoka), loaded
   and committed (`81b9f6ff`). 100 gyms.
-- Remaining: 818 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 4, 25 more cities (Delhi, Hạ Long, Melbourne, Santorini, Krabi,
+  Hoi An, Alanya, Playa del Carmen, Puerto Vallarta, Mashhad, Mumbai, Jakarta,
+  Copenhagen, Brussels, Nice, Edinburgh, Rhodes, Buenos Aires, Johor Bahru,
+  Tbilisi, Riyadh, Havana, Manila, Muscat, Amman), loaded and committed
+  (`ea81def0`). 100 gyms.
+- Remaining: 793 cities. Work highest-visitors-first, 25 cities per batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
@@ -36,6 +41,10 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   "RMB" for Beijing (a common colloquial label, not the ISO code) and the
   whole file was rejected. Fix to "CNY" before loading; same idea applies to
   any other colloquial currency name an agent might use.
+- Gotcha: `asof` must be exactly `YYYY-MM` — an agent cited a stale 2015
+  TripAdvisor forum price for a Manila gym and wrote `"asof": "2015"`
+  (year only), which rejected the whole file. Fix to `"2015-01"` (keep the
+  honest "may be stale" note) rather than dropping the entry.
 
 ## How a batch runs
 1. Split the 25 cities into 5 groups of 5 and give each group to one research agent
