@@ -57,7 +57,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   San Antonio, Innsbruck, Bergen, Antwerp, Cairns, Christchurch, Detroit,
   Xi'an, Kigali, Accra, Nadi, Siem Reap, Sofia), loaded and committed
   (`1f88b862`). 78 gyms.
-- Remaining: 618 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 12, 25 more cities (Cinque Terre, Santiago de Compostela,
+  Manzhouli, Zhangjiajie, Ensenada, Denizli, Rimini, San Sebastián, Taichung,
+  Foz do Iguaçu, Durrës, Wrocław, Liverpool, Québec, Santa Cruz de Tenerife,
+  Astana, Monterrey, Kunming, Ankara, Kampala, Addis Ababa, Bishkek, Kyiv,
+  Bratislava, Bridgetown), loaded and committed (`7be7c691`). 69 gyms.
+- Remaining: 593 cities. Work highest-visitors-first, 25 cities per batch.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
 - Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
