@@ -32,7 +32,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Lyon, Hamburg, Stockholm, Verona, Sharjah, Dakar, Panama City, Bogotá, Baku,
   Ljubljana, Riga, Mykonos, Chamonix-Mont-Blanc, Kuşadası, Marmaris), loaded
   and committed (`589ba5df`). 88 gyms.
-- Remaining: 743 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 7, 25 more cities (Bodrum, Göreme, Marbella, Nara-shi, Brugge,
+  Batumi, Corfu, Varna, Oranjestad, Hiroshima, Jeju City, Nagoya, Santo
+  Domingo, Málaga, Dallas, Saint Petersburg, Kraków, Thessaloniki, Zhuhai,
+  Tunis, Tashkent, Colombo, Beirut, Tehran, Zagreb), loaded and committed
+  (`3ace7272`). 93 gyms.
+- Remaining: 718 cities. Work highest-visitors-first, 25 cities per batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
