@@ -141,8 +141,25 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Atacama), loaded and committed (`1423ec9b`). 68 gyms. Kermanshah shipped
   an honest empty array (~20 named gyms, none with a confirmable
   non-member policy or price).
-- Remaining: 243 cities (650/893 done). Work highest-visitors-first, 25
+- Done: batch 27, 25 more cities (Pai, Sukhothai, El Calafate, Sokcho, San
+  Andrés, Knysna, Mardin, Kashan, Bamberg, Huangshan, Karakol, Ulm,
+  Kusatsu, Moshi, Hebron, Pilsen, Cienfuegos, Qinhuangdao, Tozeur, Puerto
+  Natales, Longyearbyen, Lübeck, Kralendijk, Bulawayo, Ponce), loaded and
+  committed (`4837d16c`). 48 gyms. Cienfuegos, Moshi and Tozeur shipped
+  honest empty arrays.
+- Remaining: 218 cities (675/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Gotcha (new, 2026-09-17): a scoped `git status --short -- <my file>`
+  before committing the batch-26 resume note hid another session's
+  already-staged deletion of `coming-soon.html` and
+  `netlify/edge-functions/gatekeeper.js.disabled`, which rode into that
+  commit. Fixed same-session (`af67e7e9` restored both files
+  byte-identical); postmortem in
+  `_needs-attention/concurrent-session-collision-2026-09-17.md` and the
+  `concurrent-session-commit-collision` memory. **Always run the plain
+  unscoped `git status --short` right before every commit, never a
+  pathspec-scoped one** — scoping to your own path hides what else is
+  sitting staged in the shared index.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
   (Gisenyi/Jeonju/Vladivostok/Odessa). A nudge didn't land in time, so the
