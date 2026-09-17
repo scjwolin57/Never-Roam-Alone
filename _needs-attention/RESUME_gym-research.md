@@ -188,6 +188,14 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   this batch.
 - Remaining: 143 cities (750/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Done: batch 31, 25 more cities (Veracruz, Sucre, Trujillo, Luoyang,
+  Morelia, Ostrava, Erfurt, Labuan Bajo, Kaliningrad, Saskatoon, Gustavia,
+  The Valley, Al Ahmadi, Nuuk, Manaus, Juba, Tripoli, Conakry, Asmara,
+  N'Djamena, Praia, Port Moresby, Vaduz, Djibouti City, Pucón), loaded
+  and committed (`18444815`). 60 gyms. Several conflict-adjacent/small
+  capitals thin on prices but none needed a fully empty array.
+- Remaining: 118 cities (775/893 done). Work highest-visitors-first, 25
+  cities per batch.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
