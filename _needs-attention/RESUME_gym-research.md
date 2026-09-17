@@ -126,7 +126,15 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   and committed (`96b5a604`). 73 gyms. Many entries thin on published day
   prices (real gyms, no findable rate, shipped as `loc: null`); Udaipur is
   5 free open-air gyms only.
-- Remaining: 293 cities (600/893 done). Work highest-visitors-first, 25
+- Done: batch 25, 25 more cities (Würzburg, Battambang, San Cristóbal de
+  las Casas, Novi Sad, Ica, Poprad, Odense, Chetumal, Parma, Cap-Haïtien,
+  Urganch, Santander, Santiago de Cuba, Eilat, Sibiu, Hamilton, Tampere,
+  Jodhpur, Siddharthanagar, Kayseri, Salta, Puebla, Pamplona, Constantine,
+  La Ceiba), loaded and committed (`1390c091`). 55 gyms. Five cities
+  shipped honest empty arrays (Cap-Haïtien, Jodhpur, Kayseri, La Ceiba,
+  Siddharthanagar) after no gym could be sourced with confirmed
+  non-member policy + price.
+- Remaining: 268 cities (625/893 done). Work highest-visitors-first, 25
   cities per batch.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
