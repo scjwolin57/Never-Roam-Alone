@@ -102,8 +102,25 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Paramaribo, Chefchaouen, Kanchanaburi, Bariloche, Positano, Kaş, Çeşme,
   Konstanz, Garmisch-Partenkirchen, Baden-Baden, Jinghong, Inverness,
   Trinidad, Trier), loaded and committed (`ed550183`). 57 gyms.
-- Remaining: 393 cities (500/893 done). Work highest-visitors-first, 25
+- Done: batch 21, 25 more cities (Koblenz, Regensburg, Dijon, Klaipėda,
+  Århus, Haifa, Gisenyi, Jeonju, Vladivostok, Odessa, Islamabad, Aleppo,
+  Perugia, Mariehamn, Encarnación, Ohrid, Kalamata, Saipan, Mytilene,
+  Gibraltar, Matsumoto, Konya, Salamanca, Flores, Ta'if), loaded and
+  committed (`52d16fdf`). 56 gyms.
+- Remaining: 368 cities (525/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
+  group 2's agent ran very long on its last 4 cities
+  (Gisenyi/Jeonju/Vladivostok/Odessa). A nudge didn't land in time, so the
+  orchestrator did brief genuine WebSearch/WebFetch research itself and
+  shipped empty `[]` for Jeonju/Vladivostok/Odessa as a placeholder — then
+  the slow agent finished anyway and delivered real, better data for all
+  three, but Odessa's finished *after* the batch had already been loaded
+  and committed, requiring a small follow-up correction commit
+  (`e50d0e4a`). Lesson: after any self-unblock, don't just re-check once —
+  the slow agent may still be running when you commit, so watch for a
+  "changed on disk" notice on the scratch file even after the batch commit,
+  and follow up with a small correction commit if one lands late.
 - Gotcha: on batch 19, group 5's agent ran very long on 3 cities
   (Baghdad/Chișinău/Victoria). After a nudge didn't land in time, the
   orchestrator self-unblocked by writing empty `[]` placeholders directly to
