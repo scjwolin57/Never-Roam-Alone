@@ -222,6 +222,15 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   honest empty arrays.
 - Remaining: 43 cities (850/893 done). Work highest-visitors-first, 25
   cities per batch. Two more batches to finish.
+- Done: batch 35, 25 more cities (Mogadishu, Bangui, Kingstown, Roseau,
+  Sana'a, Harar, João Pessoa, São Tomé, Malabo, Axum, Djanet, Timimoun,
+  Karimabad, Cuiabá, Velikiy Novgorod, Mingora, Goma, Jianshui, Zhangye,
+  Laayoune, Honiara, Kabul, Moroni, Bamyan, Skardu), loaded and committed
+  (`6c275316`). 51 gyms. Bamyan, Djanet, Harar, Karimabad and Timimoun
+  shipped honest empty arrays; several conflict-affected capitals thin
+  but not empty.
+- Remaining: 18 cities (875/893 done). ONE more batch to finish — batch
+  36 will complete all 893 cities.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
