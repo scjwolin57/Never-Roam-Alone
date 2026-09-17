@@ -208,11 +208,44 @@
     border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.35}
   .tip-line .tip-ic{flex-shrink:0;color:var(--teal);display:inline-flex;margin-top:1px}
   .tip-line b{font-weight:700}
-  .hotel-tiers{display:flex;gap:18px;margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
-  .hotel-tiers .ht{display:flex;flex-direction:column}
-  .hotel-tiers .ht-k{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
-  .hotel-tiers .ht-v{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.05rem;margin-top:2px}
-  .hotel-disclaimer{margin:10px 0 0;font-size:.72rem;color:var(--muted);font-style:italic;line-height:1.35}
+  /* Hotel card: avg (mid-range) figure up top with an info bubble for the
+     citywide disclaimer, the three tiers on one compact row, then the rest of
+     the card split between Laundry and Gym. */
+  .hotel-row{display:flex;flex-wrap:wrap;column-gap:14px;row-gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(0,0,0,.08)}   /* one row when the currency is short; wraps for CFA/JPY-length figures instead of colliding */
+  .hotel-row .ht{display:flex;flex-direction:column;min-width:0}
+  .hotel-row .ht-k{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;white-space:nowrap}
+  .hotel-row .ht-v{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:.95rem;margin-top:1px;white-space:nowrap}
+  .hotel-extras{display:grid;grid-template-columns:1fr 1fr;margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .hotel-extras .hx{display:flex;flex-direction:column;min-width:0;padding-right:10px}
+  .hotel-extras .hx+.hx{border-left:1px solid rgba(0,0,0,.08);padding-left:12px;padding-right:0}
+  .hotel-extras .hx-k{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);font-weight:700;display:flex;align-items:center}
+  .hotel-extras .hx-v{font-family:'Fraunces',Georgia,serif;font-weight:700;font-size:1.05rem;margin-top:3px}
+  .hotel-extras .hx-n{font-size:.68rem;color:var(--muted);margin-top:2px;line-height:1.3;overflow-wrap:anywhere}
+  /* Find laundry & gyms modal */
+  .fl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+  .fl-head label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
+  .fl-head select{flex:1 1 220px;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
+  .fl-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .fl-col h4{margin:0 0 8px;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal)}
+  .fl-list{list-style:none;margin:0;padding:0}
+  .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
+  .fl-list li:first-child{border-top:0}
+  .fl-list .fl-n{font-weight:700}
+  .fl-list .fl-m{display:block;color:var(--muted);font-size:.78rem}
+  .fl-list a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
+  .fl-list a:hover{text-decoration:underline}
+  .fl-empty,.fl-wait{font-style:italic;color:var(--muted);font-size:.88rem;margin:0}
+  .fl-sub{margin:12px 0 4px;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+  .fl-list .fl-res .fl-n::before{content:"\2713\00a0";color:var(--green)}   /* researched: pass confirmed */
+  .fl-foot{margin:14px 0 0;font-size:.74rem;color:var(--muted);font-style:italic;line-height:1.4}
+  @media(max-width:600px){.fl-cols{grid-template-columns:1fr}}
+  /* info bubble on the label: hover on desktop, tap to toggle on touch */
+  .hint-btn{position:relative}
+  .hint-btn::after{content:attr(data-hint);position:absolute;left:0;top:calc(100% + 6px);width:max-content;max-width:210px;
+    background:var(--ink);color:#fff;font-size:.72rem;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;
+    padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .15s;
+    z-index:20;text-align:left;white-space:normal}
+  .hint-btn:hover::after,.hint-btn:focus-visible::after,.hint-btn.open::after{opacity:1}
   .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
   .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
@@ -225,9 +258,9 @@
   a.ride-chip:hover::after,a.ride-chip:focus-visible::after{opacity:1}
   .rides-none{font-size:.8rem;color:var(--muted)}
   .taxi-tip{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
-  .taxi-tip-btn{display:block;width:100%;margin-top:10px;padding:10px 0 0;border:0;border-top:1px solid rgba(0,0,0,.08);
+  .taxi-tip-btn,.find-lg-btn{display:block;width:100%;margin-top:10px;padding:10px 0 0;border:0;border-top:1px solid rgba(0,0,0,.08);
     background:none;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--green);text-align:left;cursor:pointer;transition:color .2s}
-  .taxi-tip-btn:hover{color:var(--coral)}
+  .taxi-tip-btn:hover,.find-lg-btn:hover{color:var(--coral)}
   /* 4-up cost cards row */
   .cost-cards-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   /* Connectivity banner — full-width card above the cost cards */
@@ -1138,6 +1171,7 @@
 
 <script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="city-photos.js"></script>
+<script src="cost-estimator.js"></script>
 <script>
 /* Perf: start downloading the hero photo NOW, in parallel with the city's
    data files — it's the page's largest visible element (LCP), and without
@@ -1228,10 +1262,18 @@ function cardLevel(p) {
    (sit-down), and a ~10 km taxi/Uber fare. Rough estimates. */
 let CITY_COST = {};
 
-let CITY_DAILY = {};
 
 /* Budget (b) and high-end (h) nightly hotel averages in USD */
 let CITY_HOTEL = {};
+let CITY_LAUNDRY = {};   // wash+dry price, availability, note — synced from the sheet's Laundry columns
+let CITY_HOOD_GEO = {};  // [lat,lng] per neighborhood (aligned with hoods; null = not placed) — from geocode_hoods.py
+let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
+/* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
+   else closes any open one. Touch has no hover, so this is the mobile path. */
+document.addEventListener("click", e => {
+  if (e.target && e.target.closest && e.target.closest(".hint-btn")) return;
+  document.querySelectorAll(".hint-btn.open").forEach(b => b.classList.remove("open"));
+});
 
 /* Ride-sharing / e-hailing apps available in each city (empty = taxis only) */
 let CITY_RIDES = {};
@@ -2130,8 +2172,10 @@ async function loadCityData(){
   CITIES = [rec.c];
   const fill = (tbl, v) => { if (v !== undefined) tbl[nm] = v; };
   fill(CITY_CUR, rec.cur);             fill(CITY_CARD, rec.card);
-  fill(CITY_COST, rec.cost);           fill(CITY_DAILY, rec.daily);
+  fill(CITY_COST, rec.cost);
   fill(CITY_HOTEL, rec.hotel);         fill(CITY_RIDES, rec.rides);
+  fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
+  fill(CITY_GYMS, rec.gyms);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
   fill(CITY_STAY, rec.stay);           fill(CITY_VISIT, rec.visit);
@@ -2385,7 +2429,6 @@ if(!c){
           </div>`;
 
   const cost = CITY_COST[c.city];
-  const daily = CITY_DAILY[c.city];
   const hotelRange = CITY_HOTEL[c.city];
   /* Daily Cost Estimator toggle state (persists across currency changes) */
   let csnapIncludeAlcohol = true;
@@ -2460,41 +2503,16 @@ if(!c){
             <span>Tipping <b style="color:${tipLvl.c}">${tipLvl.w}</b> &middot; ${tip.r}</span>
           </div>`;
   /* Cost snapshot: $-tier badge (from mid daily budget) + low/mid/high per-day
-     estimates, priced in the given currency code. Built from the site's own
-     hotel/meal/taxi/drinks data (not the old static CITY_DAILY table) so the
-     "Include alcoholic beverages" / "Include activities/tours" checkboxes can
-     add or remove those pieces live. Multipliers are documented assumptions —
-     see the "Daily cost formula" spreadsheet for the full breakdown. */
-  function costTier(mid) {
-    if (mid < 110) return {n:1, w:"Budget",    c:"#556B2F"};
-    if (mid < 180) return {n:2, w:"Moderate",  c:"#B8860B"};
-    if (mid < 270) return {n:3, w:"Pricey",    c:"#C77400"};
-    return                {n:4, w:"Expensive", c:"#C04020"};
-  }
+     estimates, priced in the given currency code. The formula lives in
+     cost-estimator.js (NRA_COST) and is shared with the Destination Finder,
+     so both pages always agree. The "Include alcoholic beverages" /
+     "Include activities/tours" checkboxes add or remove those pieces live. */
+  const costTier = NRA_COST.costTier;
   function computeDailyTiers(includeAlcohol, includeActivities, solo) {
-    if (cost == null) return null;
-    /* Room rates are per-room. Default assumes two people splitting a room (per-person
-       half-cost); the "traveling solo" toggle switches to the full room rate for one. */
-    const roomDivisor = solo ? 1 : 2;
-    const hb = (hotelRange ? hotelRange.b : cost.hotel) / roomDivisor;
-    const hm = cost.hotel / roomDivisor;
-    const hl = (hotelRange ? hotelRange.h : cost.hotel) / roomDivisor;
-    const mealB = 3 * 1.0 * cost.meal, mealM = 3 * 1.8 * cost.meal, mealL = 3 * 3.5 * cost.meal;
-    const txB = 1 * cost.taxi, txM = 2 * cost.taxi, txL = 4 * cost.taxi;
-    const drinksBase = drinks ? (drinks.coffee || 0) + (drinks.water || 0) : 0;
-    const beerNum = (drinks && typeof drinks.beer === "number") ? drinks.beer : null;
-    /* Per-drink price = 1.5x the average beer price, to cover cocktails/wine/spirits running pricier than beer. */
-    const drinkPrice = beerNum != null ? 1.5 * beerNum : null;
-    const alcB = (includeAlcohol && drinkPrice != null) ? 1 * drinkPrice : 0;
-    const alcM = (includeAlcohol && drinkPrice != null) ? 2 * drinkPrice : 0;
-    const alcL = (includeAlcohol && drinkPrice != null) ? 3 * drinkPrice : 0;
-    const coreB = hb + mealB + txB + drinksBase;
-    const coreM = hm + mealM + txM + drinksBase;
-    const coreL = hl + mealL + txL + drinksBase;
-    const actB = includeActivities ? 0.10 * coreB : 0;
-    const actM = includeActivities ? 0.20 * coreM : 0;
-    const actL = includeActivities ? 0.35 * coreL : 0;
-    return { b: coreB + alcB + actB, m: coreM + alcM + actM, h: coreL + alcL + actL };
+    /* Per-person figure = the party's daily total split evenly. Default assumes two
+       people sharing a room; the "traveling solo" toggle prices a room for one. */
+    return NRA_COST.perPerson({ cost, hotel: hotelRange, drinks },
+                              { travelers: solo ? 1 : 2, includeAlcohol, includeActivities });
   }
   function buildCostSnapshot(code) {
     const tiers = computeDailyTiers(csnapIncludeAlcohol, csnapIncludeActivities, csnapSolo);
@@ -2527,10 +2545,51 @@ if(!c){
   /* Build the three cost cards with prices in the given currency code */
   function buildCostCards(code) {
     if (cost == null) return "";
-    const hotelTiers = !hotelRange ? "" : `
-          <div class="hotel-tiers">
-            <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">${fmtPrice(hotelRange.b, code)}</span></div>
-            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">${fmtPrice(hotelRange.h, code)}</span></div>
+    const tiersRow = `
+          <div class="hotel-row">
+            <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">${fmtPrice(hotelRange ? hotelRange.b : cost.hotel, code)}</span></div>
+            <div class="ht"><span class="ht-k">Mid</span><span class="ht-v">${fmtPrice(cost.hotel, code)}</span></div>
+            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">${fmtPrice(hotelRange ? hotelRange.h : cost.hotel, code)}</span></div>
+          </div>`;
+    /* Laundry: wash + one dry in the chosen currency, from the sheet's researched
+       figures. Most prices are a country-level figure (marked); where none is
+       published the availability judgement shows instead. Details in the modal. */
+    const ln = CITY_LAUNDRY[c.city];
+    const AVAIL_WORD = { common:"self-service common", some:"some self-service", rare:"self-service rare", none:"no self-service laundromats" };
+    /* Which laundry figure to show, in order: self-service wash + dry (USD in the
+       sheet); else the attended drop-off price, which is the primary figure in
+       most of Africa, South Asia, the Middle East and Latin America. Drop-off is
+       stored as written ("20", "24-40", "1.75-2.25/lb") in the local currency, so
+       it is converted only when it is a plain number or range; anything else is
+       shown as text rather than guessed at. */
+    const dropShown = (() => {
+      if (!ln || ln.usd != null || !ln.drop) return null;
+      const unit = /lb/i.test(ln.drop) ? "lb" : "kg";
+      const m = String(ln.drop).match(/^\s*([\d.,]+)\s*(?:[-\u2013]\s*([\d.,]+))?\s*(?:\/\s*(?:kg|lb))?\s*$/i);
+      const num = s => parseFloat(String(s).replace(/,/g, ""));
+      if (m && ln.cur && RATES[ln.cur]) {
+        /* local currency -> USD, then fmtPrice gives the symbol and rounding every other price on the card uses */
+        const lo = convert(num(m[1]), ln.cur, "USD"), hi = m[2] ? convert(num(m[2]), ln.cur, "USD") : null;
+        if (lo != null) return { v: hi != null ? `${fmtPrice(lo, code)}&ndash;${fmtPrice(hi, code)}` : fmtPrice(lo, code), n: `drop-off &middot; per ${unit}` };
+      }
+      return { v: "&mdash;", n: `drop-off &middot; ${ln.cur ? ln.cur + " " : ""}${String(ln.drop).replace(/</g, "&lt;")}` };
+    })();
+    const laundryHTML = !ln ? "" : `
+          <div class="hx">
+            <div class="hx-k">Laundry<button type="button" class="note-btn" onclick="openModal('Laundry')" aria-label="Laundry — more info" title="More info">${INFO_ICON}</button></div>
+            <div class="hx-v">${ln.usd != null ? fmtPrice(ln.usd, code) : dropShown ? dropShown.v : "&mdash;"}</div>
+            <div class="hx-n">${ln.usd != null ? "wash + dry" + (ln.scope === "country" ? " &middot; country avg" : "") : dropShown ? dropShown.n + (ln.scope === "country" ? " &middot; country avg" : "") : (AVAIL_WORD[ln.avail] || "price not published")}</div>
+          </div>`;
+    /* Gym: day-pass research not done yet — "coming soon", the same placeholder
+       wording the phrases card uses, until the data lands. */
+    const gyms = CITY_GYMS[c.city];
+    const dayPasses = (gyms || []).map(g => g.pass && g.pass.day && g.pass.day.usd).filter(v => typeof v === "number");
+    const freeCount = (gyms || []).filter(g => g.free).length;
+    const gymHTML = `
+          <div class="hx">
+            <div class="hx-k">Gym</div>
+            <div class="hx-v">${dayPasses.length ? fmtPrice(Math.min(...dayPasses), code) : "&mdash;"}</div>
+            <div class="hx-n">${dayPasses.length ? "day pass &middot; from" : gyms === undefined ? "day pass &middot; coming soon" : freeCount ? "free outdoor gym nearby" : gyms.length ? "pass available &middot; price on site" : "no day-pass gyms found"}</div>
           </div>`;
     return `
         <div class="fact cost-card">
@@ -2543,11 +2602,11 @@ if(!c){
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
-          <div class="k">Hotel &middot; per night</div>
+          <div class="k">Hotel room &middot; per night &middot; avg<button type="button" class="note-btn hint-btn" data-hint="Prices are citywide averages and can vary a lot by neighborhood." onclick="this.classList.toggle('open')" aria-label="About these prices">${INFO_ICON}</button></div>
           <div class="v">${fmtPrice(cost.hotel, code)}</div>
-          <div class="cost-note">mid-range &middot; avg</div>
-          ${hotelTiers}
-          <p class="hotel-disclaimer">Prices are citywide averages and can vary a lot by neighborhood.</p>
+          ${tiersRow}
+          <div class="hotel-extras">${laundryHTML}${gymHTML}</div>
+          <button type="button" class="find-lg-btn">Find laundry &amp; gyms nearby &rarr;</button>
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.meal}</span>
@@ -4000,6 +4059,119 @@ if(!c){
       <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
   }
 
+  /* ---------- Find laundry & gyms: live OpenStreetMap search around a neighborhood ---------- */
+  const FL_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
+  const FL_RADIUS_HOOD = 1500, FL_RADIUS_CITY = 3000, FL_MAX = 8, FL_CACHE_DAYS = 30;
+  function flPoints() {
+    const hoods = CITY_HOODS[c.city] || [], geo = CITY_HOOD_GEO[c.city] || [];
+    const pts = [{ key: "city", label: `Anywhere in ${c.city}`, lat: c.lat, lng: c.lng, r: FL_RADIUS_CITY }];
+    hoods.forEach((hd, i) => { const g = geo[i]; if (g && g.length === 2) pts.push({ key: String(i), label: hd, lat: g[0], lng: g[1], r: FL_RADIUS_HOOD }); });
+    return pts;
+  }
+  function buildFindModal() {
+    const pts = flPoints();
+    const missing = (CITY_HOODS[c.city] || []).length - (pts.length - 1);
+    return `
+      <div class="fl-head">
+        <label for="fl-hood">Search near</label>
+        <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${p.label.replace(/</g, "&lt;")}</option>`).join("")}</select>
+      </div>
+      <div class="fl-cols">
+        <div class="fl-col"><h4>Laundry</h4><div id="fl-laundry"><p class="fl-wait">Choose a neighborhood above.</p></div></div>
+        <div class="fl-col"><h4>Gyms</h4><div id="fl-gym"></div></div>
+      </div>
+      <p class="fl-foot">Live from OpenStreetMap, nearest first. A short list means the map is thin here, not that there is nothing${missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
+  }
+  function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
+  async function flFetch(pt) {
+    const ck = `nra_findlg_v1_${c.city.toLowerCase().replace(/[^a-z0-9]+/g, "-")}_${pt.key}`;
+    try { const cached = JSON.parse(localStorage.getItem(ck) || "null"); if (cached && (Date.now() - cached.t) < FL_CACHE_DAYS * 864e5) return cached.items; } catch (e) {}
+    const around = `(around:${pt.r},${pt.lat},${pt.lng})`;
+    const q = `[out:json][timeout:20];(nwr["shop"="laundry"]${around};nwr["amenity"="washing_machine"]${around};nwr["leisure"="fitness_centre"]${around};nwr["amenity"="gym"]${around};nwr["leisure"="sports_centre"]["sport"="fitness"]${around};);out center tags 80;`;
+    let lastErr;
+    for (const ep of FL_ENDPOINTS) {
+      const ctl = ("AbortController" in window) ? new AbortController() : null;
+      const timer = ctl ? setTimeout(() => ctl.abort(), 9000) : null;
+      try {
+        const r = await fetch(ep, { method: "POST", body: "data=" + encodeURIComponent(q), headers: { "Content-Type": "application/x-www-form-urlencoded" }, signal: ctl ? ctl.signal : undefined });
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        const data = await r.json();
+        const items = (data.elements || []).map(e => {
+          const t = e.tags || {}, lat = e.lat != null ? e.lat : (e.center || {}).lat, lng = e.lon != null ? e.lon : (e.center || {}).lon;
+          if (lat == null) return null;
+          const isGym = t.leisure === "fitness_centre" || t.amenity === "gym" || (t.leisure === "sports_centre" && t.sport === "fitness");
+          const kind = isGym ? "gym" : (t.self_service === "yes" ? "self-service" : t.self_service === "no" ? "attended" : t.amenity === "washing_machine" ? "washing machine" : "laundry");
+          return { g: isGym, n: t.name || t.brand || (isGym ? "Gym (unnamed on the map)" : "Laundry (unnamed on the map)"), k: kind, h: t.opening_hours || "", lat, lng, d: flKm(pt.lat, pt.lng, lat, lng) };
+        }).filter(Boolean).sort((a, b) => a.d - b.d);
+        try { localStorage.setItem(ck, JSON.stringify({ t: Date.now(), items })); } catch (e) {}
+        return items;
+      } catch (e) { lastErr = e; } finally { if (timer) clearTimeout(timer); }
+    }
+    throw lastErr || new Error("overpass unavailable");
+  }
+  /* Researched gyms (CITY_GYMS) for the chosen point: a neighborhood's own list,
+     or every researched gym for "Anywhere". Shown ahead of the live OSM list. */
+  function flResearched(pt) {
+    const gyms = CITY_GYMS[c.city] || [];
+    const mine = pt.key === "city" ? gyms : gyms.filter(g => String(g.hood) === pt.key);
+    if (!mine.length) return "";
+    const esc = s => String(s == null ? "" : s).replace(/</g, "&lt;");
+    const price = (p, code) => p ? (typeof p.usd === "number" ? fmtPrice(p.usd, code) : "price on site") : null;
+    const rows = mine.map(g => {
+      const code = (typeof costCode !== "undefined" && costCode) || "USD";
+      const bits = [];
+      if (g.free) bits.push("free");
+      if (g.pass) {
+        if (g.pass.day) bits.push("Day pass " + price(g.pass.day, code));
+        if (g.pass.multi) bits.push(esc(g.pass.multi.label || "Multi-day") + " " + price(g.pass.multi, code));
+        if (g.pass.week) bits.push("Week " + price(g.pass.week, code));
+      }
+      const d = (pt.lat != null && typeof g.lat === "number") ? flKm(pt.lat, pt.lng, g.lat, g.lng) : null;
+      const meta = [g.kind ? esc(g.kind) : null, g.chain ? "chain price" : null, d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null].filter(Boolean).join(" &middot; ");
+      const map = typeof g.lat === "number" ? `https://www.google.com/maps/search/?api=1&query=${g.lat},${g.lng}` : (g.src || "#");
+      return `<li class="fl-res"><span class="fl-n">${esc(g.n)}</span> &middot; <a href="${map}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${bits.join(" &middot; ") || "pass available"}${meta ? " &middot; " + meta : ""}${g.src ? ` &middot; <a href="${esc(g.src)}" target="_blank" rel="noopener">source</a>` : ""}</span></li>`;
+    });
+    return `<ul class="fl-list">${rows.join("")}</ul>`;
+  }
+  function flList(items, pt) {
+    if (!items.length) return `<p class="fl-empty">None mapped within ${(pt.r / 1000).toFixed(1).replace(/\.0$/, "")} km of ${pt.label.replace(/</g, "&lt;")}. OpenStreetMap coverage is thin here; try "Anywhere in ${c.city}".</p>`;
+    return `<ul class="fl-list">${items.slice(0, FL_MAX).map(it => `<li><span class="fl-n">${it.n.replace(/</g, "&lt;")}</span> &middot; <a href="https://www.google.com/maps/search/?api=1&query=${it.lat},${it.lng}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${it.k}${it.h ? " &middot; " + it.h.replace(/</g, "&lt;") : ""} &middot; ${it.d < 1 ? Math.round(it.d * 1000) + " m" : it.d.toFixed(1) + " km"} away</span></li>`).join("")}</ul>`;
+  }
+  async function flRun(key) {
+    const pt = flPoints().find(p => p.key === key); if (!pt) return;
+    const L = document.getElementById("fl-laundry"), G = document.getElementById("fl-gym");
+    L.innerHTML = `<p class="fl-wait">Searching OpenStreetMap&hellip;</p>`; G.innerHTML = "";
+    try {
+      const items = await flFetch(pt);
+      const sel = document.getElementById("fl-hood"); if (sel && sel.value !== key) return;   // visitor moved on
+      L.innerHTML = flList(items.filter(i => !i.g), pt);
+      const researched = flResearched(pt), live = items.filter(i => i.g);
+      G.innerHTML = researched + (researched && live.length ? `<p class="fl-sub">Also mapped nearby</p>` : "") + (live.length || !researched ? flList(live, pt) : "");
+    } catch (e) {
+      L.innerHTML = `<p class="fl-empty">Couldn't reach OpenStreetMap right now. Please try again in a moment.</p>`; G.innerHTML = flResearched(pt);
+    }
+  }
+  function flInit() {
+    const sel = document.getElementById("fl-hood"); if (!sel) return;
+    sel.addEventListener("change", () => flRun(sel.value));
+    flRun(sel.value);
+  }
+
+  function buildLaundryModal() {
+    const ln = CITY_LAUNDRY[c.city];
+    if (!ln) return `<p class="modal-placeholder">Laundry details for ${c.city} are coming soon.</p>`;
+    const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const rows = [];
+    if (ln.usd != null) rows.push(`<b>Wash + one dry:</b> about $${ln.usd} USD${ln.scope === "country" ? " — a typical figure for the country, not this city specifically" : ""}${ln.asof ? ` (as of ${esc(ln.asof)})` : ""}`);
+    if (ln.drop) rows.push(`<b>Drop-off (wash-and-fold):</b> ${esc(ln.drop)}${ln.cur ? ` ${esc(ln.cur)}` : ""}${/lb/i.test(ln.drop) ? "" : /kg|load/i.test(ln.drop) ? "" : " per kg"}${ln.scope === "country" ? " — a typical figure for the country" : ""}`);
+    if (ln.avail) rows.push(`<b>Self-service laundromats:</b> ${esc(ln.avail)}${ln.self != null ? ` &middot; ${ln.self} mapped within 12 km` : ""}`);
+    if (ln.pay) rows.push(`<b>Payment:</b> ${esc(ln.pay)}`);
+    if (ln.note) rows.push(esc(ln.note));
+    if (ln.conf && ln.conf !== "none") rows.push(`<span class="net-est">Price confidence: ${esc(ln.conf)}</span>`);
+    if (ln.src && /^https?:\/\//.test(ln.src)) rows.push(`<a href="${esc(ln.src)}" target="_blank" rel="noopener">Source</a>`);
+    return rows.map(r => `<p class="note-text">${r}</p>`).join("");
+  }
+
   function buildTaxiTipModal() {
     const tx = CITY_TAXI[c.city];
     if (!tx) return `<p class="modal-placeholder">More taxi info for ${c.city} is coming soon.</p>`;
@@ -4214,6 +4386,11 @@ if(!c){
       }
     } else if (NOTE_MODALS[title] && cityNotes[NOTE_MODALS[title]]) {
       modalBody.innerHTML = `<p class="note-text">${cityNotes[NOTE_MODALS[title]]}</p>`;
+    } else if (title === "Laundry") {
+      modalBody.innerHTML = buildLaundryModal();
+    } else if (title === "Find laundry & gyms") {
+      modalBody.innerHTML = buildFindModal();
+      flInit();
     } else if (title === "Taxi tips & info") {
       modalBody.innerHTML = buildTaxiTipModal();
     } else if (title === "Common phrases") {
@@ -4622,6 +4799,7 @@ if(!c){
   /* ---------- Taxi tips / info button (delegated — cost cards re-render) ---------- */
   const costCardsEl = document.getElementById("cost-cards");
   if (costCardsEl) costCardsEl.addEventListener("click", e => {
+    if (e.target.closest(".find-lg-btn")) return openModal("Find laundry & gyms");
     if (e.target.closest(".taxi-tip-btn")) openModal("Taxi tips & info");
   });
 
