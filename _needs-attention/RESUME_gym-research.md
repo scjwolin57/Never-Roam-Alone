@@ -67,7 +67,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Rotterdam, Kota Kinabalu, Glasgow, Tampa, Stuttgart, Philadelphia, Denver,
   Medellín, Hangzhou, Zanzibar City, Maputo, Kotor, Nicosia, Ulaanbaatar),
   loaded and committed (`513641ce`). 74 gyms.
-- Remaining: 568 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 14, 25 more cities (Hua Hin, Annecy, Avignon, Jasper, Boracay,
+  Kandy, Otaru, Kamakura, Oxford, Nagano, Cochin, La Romana, Mostar,
+  Samarkand, Houmt El Souk, Cork, Da Lat, Fort-de-France, Kingston,
+  Heidelberg, Erbil, Cartagena, Pokhara, Sanya, Catania), loaded and
+  committed (`cf812e12`). 71 gyms.
+- Remaining: 543 cities. Work highest-visitors-first, 25 cities per batch.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
 - Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
