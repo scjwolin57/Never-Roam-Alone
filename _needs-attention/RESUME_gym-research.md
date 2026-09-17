@@ -47,9 +47,20 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Abidjan, Montevideo, Montego Bay, Guatemala City, San Salvador, Kathmandu,
   Almaty, Tirana, Maseru, Split, New Orleans, Luxembourg, Atlanta, Sarajevo),
   loaded and committed (`3c960de4`). 103 gyms.
-- Remaining: 668 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 10, 25 more cities (Marsa Alam, Whistler, Qom, Bursa, Sousse,
+  Puerto Plata, Paphos, Willemstad, Agadir, Pisa, Gold Coast, Turin, Belfast,
+  Naha, Phoenix, Perth, Guadalajara, Casablanca, Chennai, Oslo, Bologna,
+  Tel Aviv, Vilnius, Bucharest, Minsk), loaded and committed (`f5d88f92`).
+  85 gyms.
+- Remaining: 643 cities. Work highest-visitors-first, 25 cities per batch.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
+- Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
+  warning): another session had uncommitted changes to `city.html` and a new
+  `netlify/functions/places-nearby.js` sitting in the working directory at
+  commit time. Left both untouched, staged only the 25 gym citydata files +
+  NRA-MASTER.xlsx by exact path, and confirmed with `git status --short`
+  before committing. Always do this check before committing a batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
@@ -77,6 +88,13 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   no price of any kind was published for it. Fix by adding
   `"pass":{"day":{"loc":null,"cur":"EUR"}}` (unpriced pass, per the existing
   `loc:null` convention) rather than dropping the entry or inventing a price.
+- Gotcha: `free:true` and a `pass` block are mutually exclusive to the
+  loader — an agent marked 4 Phoenix gyms `free:true` because they only offer
+  a free trial pass, but also (correctly) kept `pass.day.loc:0` to record that
+  trial. Fix by dropping `free:true` and keeping the `pass.day.loc:0` alone —
+  that is the existing convention for "free trial of an otherwise-paid gym";
+  reserve `free:true` for places with no pass concept at all (calisthenics
+  parks).
 
 ## How a batch runs
 1. Split the 25 cities into 5 groups of 5 and give each group to one research agent
