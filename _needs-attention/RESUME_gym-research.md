@@ -52,7 +52,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Naha, Phoenix, Perth, Guadalajara, Casablanca, Chennai, Oslo, Bologna,
   Tel Aviv, Vilnius, Bucharest, Minsk), loaded and committed (`f5d88f92`).
   85 gyms.
-- Remaining: 643 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 11, 25 more cities (Phu Quoc, Mont-Saint-Michel, Colmar,
+  Selçuk, Agra, Fès, Tangier, Trabzon, Bilbao, Palermo, Gdańsk, Córdoba,
+  San Antonio, Innsbruck, Bergen, Antwerp, Cairns, Christchurch, Detroit,
+  Xi'an, Kigali, Accra, Nadi, Siem Reap, Sofia), loaded and committed
+  (`1f88b862`). 78 gyms.
+- Remaining: 618 cities. Work highest-visitors-first, 25 cities per batch.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
 - Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
