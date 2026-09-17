@@ -1960,8 +1960,36 @@ export default async (request, context) => {
       html = html.replace(re, (m, open, close) => open + attr(value) + close);
     };
 
+    // JSON-LD: the same facts again in the format search engines parse
+    // directly. JSON.stringify does the escaping; "</" is broken up so the
+    // block can never end the <script> tag early.
+    const ld = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TravelGuide",
+      name: title,
+      description,
+      url: pageUrl,
+      image,
+      about: { "@type": "City", name: meta.city },
+      isPartOf: { "@type": "WebSite", name: "Never Roam Alone", url: `${SITE}/` },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+          { "@type": "ListItem", position: 2, name: "City Guides", item: `${SITE}/cities.html` },
+          { "@type": "ListItem", position: 3, name: meta.city, item: pageUrl },
+        ],
+      },
+    }).replace(/</g, "\\u003c");
+
     html = html.replace(/<title>[^<]*<\/title>/i,
-      () => `<title>${attr(title)}</title>\n<link rel="canonical" href="${attr(pageUrl)}">`);
+      () => `<title>${attr(title)}</title>\n<link rel="canonical" href="${attr(pageUrl)}">` +
+            `\n<script type="application/ld+json">${ld}</script>` +
+            // Page-view counting for the guides. It lives here only because
+            // city.html was being edited elsewhere when analytics went in;
+            // move this one line into city.html's own <head> and delete it
+            // here, or the guides will be counted twice.
+            `\n<script defer data-domain="neverroamalone.com" src="https://plausible.io/js/script.js"></script>`);
     setMeta('name="description"',          description);
     setMeta('property="og:title"',         title);
     setMeta('property="og:description"',   description);
@@ -1970,6 +1998,19 @@ export default async (request, context) => {
     setMeta('name="twitter:title"',        title);
     setMeta('name="twitter:description"',  description);
     setMeta('name="twitter:image"',        image);
+
+    // Give crawlers real text to read. The page's own JavaScript replaces
+    // everything inside <main> once citydata/<slug>.json arrives, so visitors
+    // see this only for the split second before the guide renders — but
+    // Google, Bing and link-preview tools see a heading and a summary even
+    // if they never run the page's scripts.
+    html = html.replace(/<main id="content"[^>]*>/i, (openTag) => openTag +
+      `<h1>${attr(meta.city)} Travel Guide</h1>` +
+      `<p>${attr(meta.tagline)}</p>` +
+      `<p>A free guide to ${attr(meta.city)}: costs and currency, ` +
+      `neighborhoods and where to stay, landmarks, food and drink, getting ` +
+      `there and getting around, safety, seasons and day trips.</p>` +
+      `<p><a href="cities.html">Browse all city guides</a></p>`);
 
     // The body length (and any encoding) changed, so those headers must go.
     const headers = new Headers(response.headers);

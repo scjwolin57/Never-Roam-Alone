@@ -56,7 +56,7 @@ exports.handler = async (event) => {
     if (p.notify_replies === false) { console.log("[notify] STOP: the author turned reply notifications OFF."); return json(200, { sent: false, reason: "notifications off" }); }
 
     // 3. send the email through Resend
-    const link = (SITE_URL || "https://neverroamalone.netlify.app") + "/askaroamer.html";
+    const link = (SITE_URL || "https://neverroamalone.com") + "/askaroamer.html";
     const er = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: "Bearer " + RESEND_API_KEY },

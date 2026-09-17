@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /blog-admin.html
-Disallow: /blog-editor.html
-Disallow: /profile.html
+
+# Private pages are kept out of search by a "noindex" tag in each page's own
+# HTML (admin.html, blog-editor.html, messages.html, profile.html, roamer.html,
+# trip.html, country-map.html, 404.html). They are deliberately NOT listed as
+# Disallow here: a blocked page is never fetched, so Google would never read
+# the noindex tag, and the page could still be listed from an outside link.
 
 Sitemap: https://neverroamalone.com/sitemap.xml
