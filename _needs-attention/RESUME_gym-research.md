@@ -27,7 +27,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Johannesburg, Chicago, Guangzhou, Honolulu, Sapporo, Busan, Montreal, Lima,
   Jerusalem, Auckland, Andorra la Vella, Tallinn, Yerevan), loaded and
   committed (`5e08225d`). 89 gyms.
-- Remaining: 768 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 6, 25 more cities (Ko Samui, Washington D.C., São Paulo,
+  Santiago, San José, Vientiane, Alicante, Manchester, Cape Town, Salzburg,
+  Lyon, Hamburg, Stockholm, Verona, Sharjah, Dakar, Panama City, Bogotá, Baku,
+  Ljubljana, Riga, Mykonos, Chamonix-Mont-Blanc, Kuşadası, Marmaris), loaded
+  and committed (`589ba5df`). 88 gyms.
+- Remaining: 743 cities. Work highest-visitors-first, 25 cities per batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
 - Gotcha hit in batch 2: research subagents sometimes delegate to further
@@ -50,6 +55,11 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   TripAdvisor forum price for a Manila gym and wrote `"asof": "2015"`
   (year only), which rejected the whole file. Fix to `"2015-01"` (keep the
   honest "may be stale" note) rather than dropping the entry.
+- Gotcha: every gym entry needs either `free:true` or a `pass` block — an
+  agent wrote a real, confirmed gym (Mykonos' Pump Gym) with neither, because
+  no price of any kind was published for it. Fix by adding
+  `"pass":{"day":{"loc":null,"cur":"EUR"}}` (unpriced pass, per the existing
+  `loc:null` convention) rather than dropping the entry or inventing a price.
 
 ## How a batch runs
 1. Split the 25 cities into 5 groups of 5 and give each group to one research agent
