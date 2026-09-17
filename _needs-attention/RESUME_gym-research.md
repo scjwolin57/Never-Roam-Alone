@@ -177,6 +177,17 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   San Marino and Zhoushan shipped honest empty arrays.
 - Remaining: 168 cities (725/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Done: batch 30, 25 more cities (Nakhon Ratchasima, Nakuru, Baguio,
+  Zhaoqing, Fenghuang, Hirosaki, Hamadan, Shaoxing, Cyangugu, Constanța,
+  Inhambane, Cayenne, Visby, Sylhet, Manzanillo, Şanlıurfa, Iquitos,
+  Banyuwangi, Shangri-La, Kumasi, Malindi, Alice Springs, Madurai, La
+  Serena, Abha), loaded and committed (`f2de3687`). 61 gyms. Fenghuang,
+  Inhambane, Shangri-La and Sylhet shipped honest empty arrays. Hardening
+  the agent prompts with explicit asof-format and missing-pass-block
+  warnings (added after batch 29) worked — zero rejects on the dry-run
+  this batch.
+- Remaining: 143 cities (750/893 done). Work highest-visitors-first, 25
+  cities per batch.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
