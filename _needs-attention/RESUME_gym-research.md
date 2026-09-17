@@ -213,6 +213,15 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Lalibela, Murree and Siwa Oasis shipped honest empty arrays.
 - Remaining: 68 cities (825/893 done). Work highest-visitors-first, 25
   cities per batch.
+- Done: batch 34, 25 more cities (Vladimir, Anshun, Morondava, Cabo
+  Frio, Turpan, Yaroslavl, Phitsanulok, Ziguinchor, Port Sudan, Calabar,
+  Chengde, Jingdezhen, Malang, Cox's Bazar, Banda Aceh, Pemba, Cockburn
+  Town, Datong, Tirupati, Porto Seguro, Surakarta, Belém, Makassar,
+  Chittagong, Khartoum), loaded and committed (`a67a243a`). 46 gyms.
+  Anshun, Morondava, Cockburn Town, Port Sudan and Khartoum shipped
+  honest empty arrays.
+- Remaining: 43 cities (850/893 done). Work highest-visitors-first, 25
+  cities per batch. Two more batches to finish.
 - Gotcha (new, batch 29): destinations.js has "Durham" as Durham, UK
   (lat 54.76786, lng -1.56581), not Durham, North Carolina — a group's
   prompt defaulted to NC without checking, caught and corrected mid-flight
