@@ -195,7 +195,10 @@
   .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,40,50,.18)}
   .card .photo{height:170px;background-size:cover;background-position:center;position:relative;background-color:#2c3e36}
   .card .visit{position:absolute;top:12px;right:12px;background:rgba(63,81,56,.92);color:#fff;
-    font-size:.72rem;font-weight:700;padding:5px 10px;border-radius:20px}
+    font-size:.72rem;font-weight:700;padding:4px 10px 5px;border-radius:20px;
+    display:flex;flex-direction:column;align-items:flex-end;gap:1px;line-height:1.15}
+  /* every visitor figure on the site is an estimate — say so on the card, very small */
+  .card .visit .est-lbl{font-size:.5rem;letter-spacing:.14em;text-transform:uppercase;line-height:1;opacity:.85}
   .card .rank-chip{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;
     font-size:.82rem;font-weight:800;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;flex:1}
@@ -991,6 +994,7 @@
 <script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="iso-countries.js"></script>
 <script src="destinations.js"></script>
+<script src="cost-estimator.js"></script>
 <script src="city-photos.js"></script>
 <script src="city-seasons.js"></script>
 <script src="city-scores.js"></script>
@@ -1534,7 +1538,7 @@ const owCost = m => m.cost;                                     // each-way (one
 const tripCost = m => isOneWay() ? owCost(m) : rtCost(m);
 const visitorsChip = c => {
   const num = Number(c.visitors).toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1});
-  return (c.est ? "~" : "") + num + "M / yr";
+  return `<span class="est-lbl">Est.</span><span>${num}M / yr</span>`;
 };
 function gFlightsLink(geo, c){
   const code = (geo.code||"").split(",")[0];
@@ -1623,7 +1627,7 @@ function finderCardHTML(r, rank, actLabel, budget, pri){
       ? ` — fits your ${fmtMoney(budget)}`
       : "";
     const travBit = r.travelers > 1 ? ` for ${r.travelers} travelers` : "";
-    why.push(`<div class="w cost-highlight"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total${travBit}</strong>: ${flightBit}${r.n} nights × $${c.dailyCost[r.fitStyle]}/person/day (${STYLE_LABEL[r.fitStyle]})${fitBit}</span></div>`);
+    why.push(`<div class="w cost-highlight"><span class="tick">✓</span><span><strong>≈ ${fmtMoney(r.fitTotal)} total${travBit}</strong>: ${flightBit}${r.n} nights × $${Math.round(r.perDay)}/person/day (${STYLE_LABEL[r.fitStyle]}${r.rooms > 1 ? `, ${r.rooms} rooms` : ""})${fitBit}</span></div>`);
   }
   if(r.m && r.fitTotal == null){
     why.push(`<div class="w"><span class="tick">✓</span><span>${r.m.icon} ${MODE_NAMES[r.m.mode]} · ${r.m.live ? "" : "≈ "}${fmtMoney(r.m.cost)}${r.m.live ? ' <em class="live-tag">live</em>' : ''} ${oneWay ? "one-way" : "each way"} · ~<span class="way-time">${NRA_TRANSPORT.fmtH(r.m.timeH)}</span>${r.m.door ? " door-to-door" : ""} · ${r.cmp.km.toLocaleString()} km${r.m.note ? " · "+r.m.note : ""}</span></div>`);
@@ -1815,25 +1819,31 @@ function renderFinder(){
     if(vi && vi.cat === "no"){ hiddenEntry++; return; }   // no admission — don't recommend
     if(vi && visaFilters.length && !visaFilters.includes(vi.cat)){ hiddenEntry++; return; }   // visa-requirement filter
 
-    /* budget math: round-trip travel + nights × daily cost, per traveler,
-       times the number of travelers — best style that fits the total budget */
+    /* budget math: travel cost per traveler × travelers + nights × the party's
+       daily cost from cost-estimator.js (the same formula as the city guide's
+       Daily Cost Estimator: two per room, alcohol and activities included by
+       default) — best style that fits the total budget */
     const trav = m ? tripCost(m) : 0;
-    let fitStyle = null, fitTotal = null;
+    const dt = NRA_COST.dailyTotals(c, { travelers });          // {b,m,h} per day for the whole party
+    const SK = NRA_COST.STYLE_KEY;
+    const totalFor = st => travelers*trav + nights*dt[SK[st]];
+    let fitStyle = null, fitTotal = null, perDay = null;
     const styleChoice = travelStyleEl.value;
-    if(nights){
+    if(nights && dt){
       if(styleChoice){
-        fitTotal = travelers * (trav + nights*c.dailyCost[styleChoice]);
+        fitTotal = totalFor(styleChoice);
         if(budget && fitTotal > budget){ hiddenBudget++; return; }
         fitStyle = styleChoice;
       } else if(budget){
         for(const st of ["luxury","mid","budget"]){
-          const t = travelers * (trav + nights*c.dailyCost[st]);
+          const t = totalFor(st);
           if(t <= budget){ fitStyle = st; fitTotal = t; break; }
         }
         if(!fitStyle){ hiddenBudget++; return; }
       } else {
-        fitStyle = "mid"; fitTotal = travelers * (trav + nights*c.dailyCost.mid);
+        fitStyle = "mid"; fitTotal = totalFor("mid");
       }
+      perDay = dt[SK[fitStyle]] / travelers;
     }
 
     /* score */
@@ -1847,13 +1857,13 @@ function renderFinder(){
     if(vi) score += vi.cat==="free" ? 12 : vi.cat==="voa" ? 9 : vi.cat==="eta" ? 8 : vi.cat==="evisa" ? 5 : 0;
     if(cmp) score += Math.max(0, 1 - cmp.km/20000)*8;                // closer is easier
 
-    rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, n:nights, travelers,
+    rows.push({ c, i, cmp, m, vi, fitStyle, fitTotal, perDay, rooms: dt ? dt.rooms : 1, dtMid: dt ? dt.m : 0, n:nights, travelers,
                 count: counts ? counts[i] : null, match, score });
   });
 
   /* sort */
   if(sortBy === "near" && !geo) sortBy = "match";
-  const totalFor = r => r.fitTotal != null ? r.fitTotal : travelers*((r.m ? tripCost(r.m) : 0) + 7*r.c.dailyCost.mid);
+  const totalFor = r => r.fitTotal != null ? r.fitTotal : travelers*(r.m ? tripCost(r.m) : 0) + 7*r.dtMid;
   if(sortBy === "cost")         rows.sort((a,b)=> totalFor(a)-totalFor(b));
   else if(sortBy === "popular") rows.sort((a,b)=> b.c.visitors-a.c.visitors);
   else if(sortBy === "near")    rows.sort((a,b)=> a.cmp.km-b.cmp.km);
