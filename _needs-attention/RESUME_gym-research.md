@@ -160,6 +160,15 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   unscoped `git status --short` right before every commit, never a
   pathspec-scoped one** — scoping to your own path hides what else is
   sitting staged in the shared index.
+- Done: batch 28, 25 more cities (Toulon, Cuenca, Chios, Acapulco de
+  Juárez, Punta Arenas, Barranquilla, Santa Marta, Rostock, Beihai, Le
+  Gosier, Nelson, Aomori, Jerez de la Frontera, Davao, Manado, Natal,
+  Irkutsk, Fortaleza, Charleston, Brasília, Belo Horizonte, Tai'an,
+  Ouagadougou, Port Vila, Bujumbura), loaded and committed (`479028c1`).
+  80 gyms. No fully empty city this batch, but many entries thin on
+  published day prices.
+- Remaining: 193 cities (700/893 done — 700 milestone reached). Work
+  highest-visitors-first, 25 cities per batch.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
   (Gisenyi/Jeonju/Vladivostok/Odessa). A nudge didn't land in time, so the
