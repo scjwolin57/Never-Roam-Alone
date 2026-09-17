@@ -1920,9 +1920,15 @@ export default async (request, context) => {
   const wanted = (url.searchParams.get("city") || "").trim().toLowerCase();
   const meta = wanted ? CITY_META[wanted] : null;
 
-  // Unknown / missing city — let the normal page (with its generic
-  // preview + "not found" handling) load untouched.
-  if (!meta) return context.next();
+  // Unknown / missing city — serve the normal page (its own JS shows the
+  // "We haven't mapped that one yet" message) but as a real 404 with
+  // noindex, so Google never indexes bare city.html or made-up names.
+  if (!meta) {
+    const page = await context.next();
+    const headers = new Headers(page.headers);
+    headers.set("X-Robots-Tag", "noindex");
+    return new Response(page.body, { status: 404, statusText: "Not Found", headers });
+  }
 
   const response = await context.next();
   const contentType = response.headers.get("content-type") || "";
@@ -1936,7 +1942,9 @@ export default async (request, context) => {
     const title = `${meta.city} Travel Guide — Never Roam Alone`;
     const description = meta.tagline;
     const image = `${SITE}/images/cities/${meta.slug}.jpg`;
-    const pageUrl = `${SITE}${url.pathname}${url.search}`;
+    // One official address per city, the exact form sitemap.xml lists.
+    // ?city=lisbon, &from=guides, tracking tags etc. all point back to it.
+    const pageUrl = `${SITE}/city.html?city=${encodeURIComponent(meta.city)}`;
 
     let html = await response.text();
 
@@ -1952,7 +1960,8 @@ export default async (request, context) => {
       html = html.replace(re, (m, open, close) => open + attr(value) + close);
     };
 
-    html = html.replace(/<title>[^<]*<\/title>/i, () => `<title>${attr(title)}</title>`);
+    html = html.replace(/<title>[^<]*<\/title>/i,
+      () => `<title>${attr(title)}</title>\n<link rel="canonical" href="${attr(pageUrl)}">`);
     setMeta('name="description"',          description);
     setMeta('property="og:title"',         title);
     setMeta('property="og:description"',   description);

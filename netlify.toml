@@ -25,6 +25,15 @@
   to = "/.netlify/functions/flights"
   status = 200
 
+# The Netlify-assigned address serves the whole site too. Send it to the
+# real domain so Google never indexes a second copy of every page.
+# (Deploy previews use their own deploy-preview-N-- addresses and are unaffected.)
+[[redirects]]
+  from = "https://jolly-manatee-50d180.netlify.app/*"
+  to = "https://neverroamalone.com/:splat"
+  status = 301
+  force = true
+
 # ---------------------------------------------------------------------
 # Keep non-site files off the public web.
 #
