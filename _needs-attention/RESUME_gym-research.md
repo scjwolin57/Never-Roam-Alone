@@ -1,11 +1,42 @@
 # Resume note — gym pass research (started 2026-09-17)
 
-**Goal:** for every one of the 893 cities, list gyms a traveler can use without a
-membership, tied to the city's neighborhoods, shown in the city page's "Find laundry
-& gyms" modal and on the hotel card. Definition and refinements are in
-`decisions.md` (rows dated 2026-09-17); do not widen or narrow them.
+## PROJECT COMPLETE — 893/893 cities done (2026-09-17)
 
-## State
+Every one of the 893 cities in `destinations.js` / `citydata/_index.json` now has
+a `gyms` key in its `citydata/<slug>.json`, verified by scanning every city's file
+for the key (0 missing). Ran as 36 loads total: the pilot (25 most-visited cities)
+plus 35 numbered batches of 25 (batches 2–35) and one final batch of 18
+(batch 36) to close out the remaining small/remote cities. Roughly 2,657 gym
+entries were added to the `NRA-MASTER.xlsx` "Gyms" sheet tab across all loads
+(summed from each commit's row count). Final commit: `123afaf9`.
+
+Ran fully autonomously per Jeff's explicit instruction partway through ("Keep
+going autonomously... continue until the task is fully complete. Dont stop to
+check in") — no further check-ins after the 200-city mark. Nothing was invented:
+cities with no gym meeting the bar (confirmed real, confirmed non-member policy)
+shipped an honest empty `gyms: []` rather than a guess — this includes several
+conflict-affected capitals (Timbuktu, Pyongyang, Mogadishu, Bangui, Sana'a, Kabul,
+Khartoum, Port Sudan, Goma) and dozens of tiny/remote towns and islands where no
+sourceable gym existed. Two process gotchas were caught and fixed mid-project:
+(1) a scoped `git status` check let another session's staged file deletions ride
+into one commit — caught and reverted same-session, logged in
+`_needs-attention/concurrent-session-collision-2026-09-17.md`; the fix (always
+run the plain unscoped `git status --short` before every commit) held for the
+rest of the project with no repeat. (2) A research agent once wrote
+`free:false` + no `pass` block instead of the `pass.day.loc:null` convention for
+"confirmed real, no published price" — caught before loading, and later batch
+prompts were hardened with an explicit schema warning that eliminated the
+recurrence.
+
+**What's NOT done, and belongs to a separate task if picked up later:** every
+`pass.day.loc: null` entry across all batches means a real, confirmed gym whose
+walk-in/day price could not be found online — these would need a phone call or
+in-person visit to price, not another web-research pass. Coordinates on many
+small-town/remote entries are neighborhood- or city-center-level approximations
+rather than exact geocodes (flagged per-entry in each `note` field) since no
+Geocoding API access was available inside the background research agents.
+
+## State (batch-by-batch log)
 - Done: the 25 most-visited cities (pilot), loaded and committed. 163 gyms.
 - Done: batch 2, 25 more cities (Vatican City, Vienna, Athens, Manama, Hanoi,
   Denpasar, Cancún, Miami, Ho Chi Minh City, Las Vegas, Dublin, Venice, Orlando,
