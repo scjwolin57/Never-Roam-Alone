@@ -97,7 +97,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Qingdao, Nanjing, Lagos, Caracas, Castries, Asunción, Tegucigalpa,
   Port-au-Prince, La Paz, Damascus, Baghdad, Chișinău, Victoria), loaded and
   committed (`b8e234db`). 87 gyms.
-- Remaining: 418 cities (475/893 done). Work highest-visitors-first, 25
+- Done: batch 20, 25 more cities (Puno, Lausanne, Arequipa, Bukhara,
+  Takamatsu, Amritsar, Varanasi, Hyderabad, Lahore, Monaco, Saint John's,
+  Paramaribo, Chefchaouen, Kanchanaburi, Bariloche, Positano, Kaş, Çeşme,
+  Konstanz, Garmisch-Partenkirchen, Baden-Baden, Jinghong, Inverness,
+  Trinidad, Trier), loaded and committed (`ed550183`). 57 gyms.
+- Remaining: 393 cities (500/893 done). Work highest-visitors-first, 25
   cities per batch.
 - Gotcha: on batch 19, group 5's agent ran very long on 3 cities
   (Baghdad/Chișinău/Victoria). After a nudge didn't land in time, the
