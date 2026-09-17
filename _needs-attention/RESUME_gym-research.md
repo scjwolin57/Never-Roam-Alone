@@ -134,7 +134,14 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   shipped honest empty arrays (Cap-Haïtien, Jodhpur, Kayseri, La Ceiba,
   Siddharthanagar) after no gym could be sourced with confirmed
   non-member policy + price.
-- Remaining: 268 cities (625/893 done). Work highest-visitors-first, 25
+- Done: batch 26, 25 more cities (Mysore, Kermanshah, Turku, Santiago de
+  Querétaro, Blantyre, Gaziantep, Dali, Yazd, Matsuyama, Bandung, Port
+  Elizabeth, Oran, Sopot, Marigot, Kelowna, Memphis, Sochi, Abuja, Darwin,
+  Pittsburgh, Recife, Salvador, Alexandria, St. George's, San Pedro de
+  Atacama), loaded and committed (`1423ec9b`). 68 gyms. Kermanshah shipped
+  an honest empty array (~20 named gyms, none with a confirmable
+  non-member policy or price).
+- Remaining: 243 cities (650/893 done). Work highest-visitors-first, 25
   cities per batch.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
