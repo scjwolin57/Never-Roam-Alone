@@ -107,7 +107,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Perugia, Mariehamn, Encarnación, Ohrid, Kalamata, Saipan, Mytilene,
   Gibraltar, Matsumoto, Konya, Salamanca, Flores, Ta'if), loaded and
   committed (`52d16fdf`). 56 gyms.
-- Remaining: 368 cities (525/893 done). Work highest-visitors-first, 25
+- Done: batch 22, 25 more cities (Maun, Salerno, Tours, Kurashiki, Lugano,
+  Gyeongju, Montpellier, Bremen, Yaoundé, Tainan, Tabriz,
+  Thiruvananthapuram, Mandalay, Lijiang, Stavanger, Cluj-Napoca, Brno,
+  Leipzig, Quanzhou, Reno, Santa Cruz de la Sierra, Nantes, Winnipeg, Bonn,
+  Papeete), loaded and committed (`c59fed80`). 86 gyms.
+- Remaining: 343 cities (550/893 done). Work highest-visitors-first, 25
   cities per batch.
 - Gotcha (repeat of batch 19's pattern, sharper this time): on batch 21,
   group 2's agent ran very long on its last 4 cities
