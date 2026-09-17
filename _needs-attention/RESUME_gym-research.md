@@ -7,9 +7,26 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
 
 ## State
 - Done: the 25 most-visited cities (pilot), loaded and committed. 163 gyms.
-- Remaining: 868 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 2, 25 more cities (Vatican City, Vienna, Athens, Manama, Hanoi,
+  Denpasar, Cancún, Miami, Ho Chi Minh City, Las Vegas, Dublin, Venice, Orlando,
+  Florence, Karbala, Kyoto, Shanghai, Doha, Abu Dhabi, Cairo, Lisbon,
+  Pattaya-Chonburi, Marne-la-Vallée, Punta Cana, Hurghada), loaded and committed
+  (`7eb10c76`). 90 gyms.
+- Remaining: 843 cities. Work highest-visitors-first, 25 cities per batch.
 - Order list: `node -e` over `destinations.js` sorted by `visitors` desc, skipping
   any city whose `citydata/<slug>.json` already has a `gyms` key.
+- Gotcha hit in batch 2: research subagents sometimes delegate to further
+  sub-agents instead of doing the research themselves and return early with
+  nothing written — check the scratch folder has all 5 files per group before
+  trusting a group's "done" report; resume any that skipped straight to
+  delegating with an explicit "do this yourself, no further sub-agents"
+  message.
+- Gotcha: `load_gyms.py` rejects any entry (including free/calisthenics ones)
+  whose `src` doesn't start with `http` — a prose citation like "OpenStreetMap
+  (leisure=fitness_station)" fails the whole city's file. Fix by turning it
+  into a real URL (e.g. `https://www.openstreetmap.org/node/<id>` or
+  `https://www.openstreetmap.org/#map=19/<lat>/<lng>`) before loading, not by
+  dropping the entry.
 
 ## How a batch runs
 1. Split the 25 cities into 5 groups of 5 and give each group to one research agent
