@@ -77,7 +77,12 @@ membership, tied to the city's neighborhoods, shown in the city page's "Find lau
   Lusaka, Lomé, Algiers, Quito, Cambridge, Pristina, Puerto Iguazú, Capri,
   Dahab, Saint-Tropez, Girona, Edirne, Brighton, Gent), loaded and committed
   (`6c7149b8`). 62 gyms.
-- Remaining: 518 cities. Work highest-visitors-first, 25 cities per batch.
+- Done: batch 16, 25 more cities (Himeji, Guilin, Rovaniemi, Sihanoukville,
+  Aqaba, Galle, Surat Thani, Rotorua, Mazatlán, Kanazawa, Liberia (Costa
+  Rica), Maastricht, Poznań, Nelspruit, Hakodate, Genoa, Florianópolis,
+  Saint-Denis (Réunion), Charlotte Amalie, Isfahan, Bari, The Hague,
+  Toulouse, Negombo, Edmonton), loaded and committed (`99de7fdc`). 69 gyms.
+- Remaining: 493 cities. Work highest-visitors-first, 25 cities per batch.
 - 2026-09-17: user confirmed running all remaining batches autonomously,
   no further check-ins until all 893 cities are done.
 - Batch 10 hit a concurrent-session collision (per the master CLAUDE.md
