@@ -4071,16 +4071,20 @@ if(!c){
   function buildFindModal() {
     const pts = flPoints();
     const missing = (CITY_HOODS[c.city] || []).length - (pts.length - 1);
-    return `
+    /* No neighborhood could be placed on the map: skip the dropdown and search
+       the whole city (Jeff, 2026-09-17). The select keeps its id so flRun/flInit work. */
+    const head = pts.length > 1 ? `
       <div class="fl-head">
         <label for="fl-hood">Search near</label>
         <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${p.label.replace(/</g, "&lt;")}</option>`).join("")}</select>
-      </div>
+      </div>` : `
+      <div class="fl-head"><label>Showing all of ${c.city.replace(/</g, "&lt;")}</label></div>`;
+    return head + `
       <div class="fl-cols">
         <div class="fl-col"><h4>Laundry</h4><div id="fl-laundry"><p class="fl-wait">Choose a neighborhood above.</p></div></div>
         <div class="fl-col"><h4>Gyms</h4><div id="fl-gym"></div></div>
       </div>
-      <p class="fl-foot">Availability and prices may not reflect the current offer &mdash; check with the business before you go. Checked entries (&#10003;) were researched by us; the rest are live from OpenStreetMap, nearest first, and a short list means the map is thin here, not that there is nothing${missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
+      <p class="fl-foot">Availability and prices may not reflect the current offer &mdash; check with the business before you go. Checked entries (&#10003;) were researched by us; the rest are live from OpenStreetMap, nearest first, and a short list means the map is thin here, not that there is nothing${pts.length === 1 ? ". None of the neighborhoods could be placed on the map yet, so this covers the whole city" : missing > 0 ? `. ${missing} neighborhood${missing > 1 ? "s" : ""} could not be placed on the map yet and ${missing > 1 ? "are" : "is"} not in the list` : ""}.</p>`;
   }
   function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
   async function flFetch(pt) {
@@ -4135,7 +4139,10 @@ if(!c){
     return `<ul class="fl-list">${rows.join("")}</ul>`;
   }
   function flList(items, pt) {
-    if (!items.length) return `<p class="fl-empty">None mapped within ${(pt.r / 1000).toFixed(1).replace(/\.0$/, "")} km of ${pt.label.replace(/</g, "&lt;")}. OpenStreetMap coverage is thin here; try "Anywhere in ${c.city}".</p>`;
+    const rkm = (pt.r / 1000).toFixed(1).replace(/\.0$/, "");
+    if (!items.length) return pt.key === "city"
+      ? `<p class="fl-empty">None mapped within ${rkm} km of the centre of ${c.city}. OpenStreetMap coverage is thin here.</p>`
+      : `<p class="fl-empty">None mapped within ${rkm} km of ${pt.label.replace(/</g, "&lt;")}. OpenStreetMap coverage is thin here; try "Anywhere in ${c.city}".</p>`;
     return `<ul class="fl-list">${items.slice(0, FL_MAX).map(it => `<li><span class="fl-n">${it.n.replace(/</g, "&lt;")}</span> &middot; <a href="https://www.google.com/maps/search/?api=1&query=${it.lat},${it.lng}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${it.k}${it.h ? " &middot; " + it.h.replace(/</g, "&lt;") : ""} &middot; ${it.d < 1 ? Math.round(it.d * 1000) + " m" : it.d.toFixed(1) + " km"} away</span></li>`).join("")}</ul>`;
   }
   async function flRun(key) {
@@ -4153,7 +4160,8 @@ if(!c){
     }
   }
   function flInit() {
-    const sel = document.getElementById("fl-hood"); if (!sel) return;
+    const sel = document.getElementById("fl-hood");
+    if (!sel) { flRun("city"); return; }          // no placed neighborhoods: city-wide list
     sel.addEventListener("change", () => flRun(sel.value));
     flRun(sel.value);
   }
