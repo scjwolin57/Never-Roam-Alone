@@ -1635,7 +1635,7 @@
      Gathers each stop's highlights (destinations.js), day trips
      (day-trips.js, loaded on demand), getting-around basics (CITY_TRANSIT,
      read out of city.html on demand) and events during their dates
-     (city_events), then asks netlify/functions/trip-tips.js to email the
+     (city_events_public), then asks netlify/functions/trip-tips.js to email the
      summary to the signed-in Roamer. Every lookup is best-effort — a
      missing piece is simply left out of the email.
      ====================================================================== */
@@ -1693,9 +1693,9 @@
       let events = [];
       if (sb && p.arrive && p.depart){
         try{
-          const { data } = await sb.from("city_events")
+          const { data } = await sb.from("city_events_public")
             .select("name,event_date,location")
-            .eq("city", cityName).eq("published", true)
+            .eq("city", cityName)
             .gte("event_date", p.arrive).lte("event_date", p.depart)
             .order("event_date", { ascending:true }).limit(5);
           events = (data || []).map(ev => ({ name: ev.name, when: ev.event_date, location: ev.location || "" }));

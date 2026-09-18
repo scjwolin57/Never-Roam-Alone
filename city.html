@@ -3255,7 +3255,7 @@ if(!c){
       const sb = await getClient();
       if (!sb){ statusEl.textContent = "Event listings aren't available right now."; renderCalendar(); return; }
       try{
-        const { data, error } = await sb.from("city_events")
+        const { data, error } = await sb.from("city_events_public")
           .select("*").eq("city", CITY).order("event_date", { ascending:true });
         if (error) throw error;
         const todayStr = ymd(new Date());
@@ -3269,7 +3269,7 @@ if(!c){
         eventMonths = Array.from(new Set(Object.keys(byDate).map(d => d.slice(0,7)))).sort();
         statusEl.textContent = upcoming ? "" : "No upcoming events listed yet — be the first to submit one!";
       }catch(e){
-        statusEl.textContent = "Couldn't load events (has city-events-setup.sql been run in Supabase?).";
+        statusEl.textContent = "Couldn't load events (has city-events-private.sql been run in Supabase?).";
       }
       renderCalendar();
     }
@@ -3369,7 +3369,7 @@ if(!c){
           `<label class="evt-check"><input type="checkbox" name="allowContact"> Allow attendees to contact the organizer with questions</label>` +
           `<div class="evt-row">` +
             `<div><label>Organizer name *<input type="text" name="submitterName" maxlength="60" required></label></div>` +
-            `<div><label>Your email *<input type="email" name="submitterEmail" maxlength="120" required></label></div>` +
+            `<div><label>Your email *<input type="email" name="submitterEmail" maxlength="120" required><span class="evt-hint">Permission for editor to contact you regarding any followup clarification questions.</span></label></div>` +
           `</div>` +
           `<div class="evt-actions">` +
             `<button type="submit" class="evt-send">Send for review</button>` +
@@ -3559,7 +3559,7 @@ if(!c){
         `</div>` +
         `<label>Your name *<input type="text" name="name" maxlength="80" required>` +
           `<span class="evt-hint">This is the name shown on your interview if it's published.</span></label>` +
-        `<label>Your email *<input type="email" name="email" maxlength="120" required></label>`;
+        `<label>Your email *<input type="email" name="email" maxlength="120" required><span class="evt-hint">Permission for editor to contact you regarding any followup clarification questions.</span></label>`;
     }
     function paintIdentity(){
       const slot = ov.querySelector("#insights-identity");
