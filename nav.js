@@ -178,6 +178,9 @@
         links[i].setAttribute("aria-current", "page");
       }
     }
+    // Keep the footer copyright year current.
+    var years = document.querySelectorAll("footer [data-year]");
+    for (var j = 0; j < years.length; j++) years[j].textContent = new Date().getFullYear();
   }
 
   function render() {
