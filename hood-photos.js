@@ -20,7 +20,7 @@ window.NRA_HOOD_PHOTO = {
     "De Pijp": { img:"images/hoods/amsterdam--de-pijp.webp", page:"https://commons.wikimedia.org/wiki/File:Revolutiebouw.jpg" },
     "Centrum": { img:"images/hoods/amsterdam--centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Dam_Square_2024.jpg" },
     "Canal Ring": { img:"images/hoods/amsterdam--canal-ring.webp", page:"https://commons.wikimedia.org/wiki/File:Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png" },
-    "Oud-West": { img:"images/hoods/amsterdam--oud-west.webp", page:"https://commons.wikimedia.org/wiki/File:Amsterdam%2C_Vondelpark%2C_at_the_pond-2.jpg" }
+    "Oud-West": { img:"images/hoods/amsterdam--oud-west.webp", page:"https://commons.wikimedia.org/wiki/File:During_the_day,_Eerste_Constantijn_Huygensstraat,_with_houseboats,_21_November_1977,_Amsterdam_,_Netherlands_-_panoramio_(65).jpg" }
   },
   "Andorra la Vella": {
     "Barri Antic (Centre Històric)": { img:"images/hoods/andorra-la-vella--barri-antic-centre-historic.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall_4.JPG" },
@@ -56,7 +56,7 @@ window.NRA_HOOD_PHOTO = {
   "Bangkok": {
     "Silom": { img:"images/hoods/bangkok--silom.webp", page:"https://commons.wikimedia.org/wiki/File:Si_Lom_Road_(Thanon_Si_Lom).jpg" },
     "Khao San / Banglamphu": { img:"images/hoods/bangkok--khao-san-banglamphu.webp", page:"https://commons.wikimedia.org/wiki/File:2016_Bangkok%2C_Dystrykt_Phra_Nakhon%2C_Ulica_Khaosan_(08).jpg" },
-    "Riverside (Bang Rak)": { img:"images/hoods/bangkok--riverside-bang-rak.webp", page:"https://commons.wikimedia.org/wiki/File:%E0%B9%80%E0%B8%88%E0%B8%94%E0%B8%B5%E0%B8%A2%E0%B9%8C%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B8%87%E0%B8%9B%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B9%8C%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B8%E0%B8%932.jpg" },
+    "Riverside (Bang Rak)": { img:"images/hoods/bangkok--riverside-bang-rak.webp", page:"https://commons.wikimedia.org/wiki/File:Bang_Rak,_Bangkok_10500,_Thailand_-_panoramio_(1).jpg" },
     "Siam": { img:"images/hoods/bangkok--siam.webp", page:"https://commons.wikimedia.org/wiki/File:Pathumwan_rd_and_Siam_area.jpg" },
     "Sukhumvit": { img:"images/hoods/bangkok--sukhumvit.webp", page:"https://commons.wikimedia.org/wiki/File:BTS%E3%83%97%E3%83%AD%E3%83%B3%E3%83%9D%E3%83%B3%E9%A7%85%E3%81%8B%E3%82%89%E3%81%AE%E7%9C%BA%E3%82%81_-_panoramio.jpg", src:"柳田亮" }
   },
@@ -148,7 +148,7 @@ window.NRA_HOOD_PHOTO = {
   "Cancún": {
     "Hotel Zone": { img:"images/hoods/cancun--hotel-zone.webp", page:"https://commons.wikimedia.org/wiki/File:Skyline_cancun_mexico._(24209557802).jpg" },
     "Puerto Juárez": { img:"images/hoods/cancun--puerto-juarez.webp", page:"https://commons.wikimedia.org/wiki/File:Puerto_Juarez.JPG" },
-    "Downtown (El Centro)": { img:"images/hoods/cancun--downtown-el-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Cancun_Strand_Luftbild_(22143397586).jpg" },
+    "Downtown (El Centro)": { img:"images/hoods/cancun--downtown-el-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Mercado_28_Cancun,_Mexico_(8951343195).jpg" },
     "Puerto Cancún": { img:"images/hoods/cancun--puerto-cancun.webp", page:"https://commons.wikimedia.org/wiki/File:Puerto_Canc%C3%BAn_entrance.jpg" },
   },
   "Cape Town": {
@@ -164,9 +164,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Chișinău": {
     "Centru": { img:"images/hoods/chisinau--centru.webp", page:"https://commons.wikimedia.org/wiki/File:Cl%C4%83direa_prim%C4%83riei_municipiului_Chi%C8%99in%C4%83u.jpg" },
-    "Riscani": { img:"images/hoods/chisinau--riscani.webp", page:"https://commons.wikimedia.org/wiki/File:Chi%C8%99in%C4%83u_Central_Station_in_Moldova_(Front_View).jpg" },
-    "Buiucani": { img:"images/hoods/chisinau--buiucani.webp", page:"https://commons.wikimedia.org/wiki/File:MD.C.C_-_Botanical_Garden_of_Chi%C8%99in%C4%83u_-_oct_2018_-_07.jpg" },
-    "Telecentru": { img:"images/hoods/chisinau--telecentru.webp", page:"https://commons.wikimedia.org/wiki/File:RoseValley2_Chisinau.JPG" },
+    "Riscani": { img:"images/hoods/chisinau--riscani.webp", page:"https://commons.wikimedia.org/wiki/File:MD.C.C_-_Edificiul_Circului_din_Chi%C8%99in%C4%83u_-_sep_2022.jpg" },
+    "Buiucani": { img:"images/hoods/chisinau--buiucani.webp", page:"https://commons.wikimedia.org/wiki/File:Sectorul_Buiucani,_Chisinau,_Moldova_-_panoramio.jpg" },
+    "Telecentru": { img:"images/hoods/chisinau--telecentru.webp", page:"https://commons.wikimedia.org/wiki/File:MD.C.C_-_Moldova-Film_HQ_-_sep_2026.jpg" },
     "Botanica": { img:"images/hoods/chisinau--botanica.webp", page:"https://commons.wikimedia.org/wiki/File:Bloc_locativ,_Botanica,_Chi%C8%99in%C4%83u.JPG", src:"Aravinel" }
   },
   "Copenhagen": {
@@ -267,7 +267,7 @@ window.NRA_HOOD_PHOTO = {
     "Kamppi": { img:"images/hoods/helsinki--kamppi.webp", page:"https://commons.wikimedia.org/wiki/File:Kamppi_2020-04-19.jpg" },
     "Kruununhaka": { img:"images/hoods/helsinki--kruununhaka.webp", page:"https://commons.wikimedia.org/wiki/File:Katariinankatu_street_at_Christmas_time_-_Marit_Henriksson.jpg" },
     "Kallio": { img:"images/hoods/helsinki--kallio.webp", page:"https://pixabay.com/photos/kallio-church-helsinki-finland-577770/", src:"Pixabay" },
-    "Punavuori": { img:"images/hoods/helsinki--punavuori.webp", page:"https://commons.wikimedia.org/wiki/File:Johanneksenkirkko_2_2020-04-22.jpg" }
+    "Punavuori": { img:"images/hoods/helsinki--punavuori.webp", page:"https://commons.wikimedia.org/wiki/File:Sinebrychoffin_talon_puurakennus_-_Sino_Yu_-_20220905_194741.jpg" }
   },
   "Heraklion": {
     "Nea Alikarnassos": { img:"images/hoods/heraklion--nea-alikarnassos.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%9D%CE%AD%CE%B1_%CE%91%CE%BB%CE%B9%CE%BA%CE%B1%CF%81%CE%BD%CE%B1%CF%83%CF%83%CF%8C%CF%82_5799.jpg" },
@@ -442,7 +442,6 @@ window.NRA_HOOD_PHOTO = {
     "Medina": { img:"images/hoods/marrakech--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna.jpg" },
     "Kasbah": { img:"images/hoods/marrakech--kasbah.webp", page:"https://commons.wikimedia.org/wiki/File:Marrakech_2009_Bab_Agnaou_Gate_LL.JPG" },
     "Gueliz": { img:"images/hoods/marrakech--gueliz.webp", page:"https://commons.wikimedia.org/wiki/File:Le_jardin_des_majorelle_40.JPG" },
-    "Hivernage": { img:"images/hoods/marrakech--hivernage.webp", page:"https://commons.wikimedia.org/wiki/File:Pavillon_Menarag%C3%A4rten.jpg" },
     "Palmeraie": { img:"images/hoods/marrakech--palmeraie.webp", page:"https://commons.wikimedia.org/wiki/File:La_Palmeraie_de_Marrakech_701.JPG" }
   },
   "Mecca": {
@@ -509,7 +508,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Moscow": {
     "Arbat": { img:"images/hoods/moscow--arbat.webp", page:"https://commons.wikimedia.org/wiki/File:Arbat_Street_in_MSK.jpg" },
-    "Khamovniki (near Gorky Park)": { img:"images/hoods/moscow--khamovniki-near-gorky-park.webp", page:"https://commons.wikimedia.org/wiki/File:Moscow_Gorky_Park_main_portal_08-2016_img1.jpg" },
+    "Khamovniki (near Gorky Park)": { img:"images/hoods/moscow--khamovniki-near-gorky-park.webp", page:"https://commons.wikimedia.org/wiki/File:Moscow_Kholzunova_Lane_7_2025-02_017.jpg" },
     "Red Square / Kitay-Gorod": { img:"images/hoods/moscow--red-square-kitay-gorod.webp", page:"https://commons.wikimedia.org/wiki/File:Kremlin_and_Red_Square.1.jpg" },
     "Krasny Oktyabr / Bolotnaya (Red October)": { img:"images/hoods/moscow--krasny-oktyabr-bolotnaya-red-october.webp", page:"https://www.pexels.com/photo/ferries-on-the-river-with-a-view-of-the-krasny-oktyabr-factory-in-moscow-russia-10879011/", src:"Pexels" },
     "Zamoskvorechye": { img:"images/hoods/moscow--zamoskvorechye.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D0%BA%D0%B0%D1%82_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5_%D0%B2_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D0%B5.jpg", src:"Fominnn" }
@@ -593,7 +592,7 @@ window.NRA_HOOD_PHOTO = {
   "Porto": {
     "Ribeira": { img:"images/hoods/porto--ribeira.webp", page:"https://www.pexels.com/photo/buildings-on-sea-coast-in-town-in-portugal-24879031/", src:"Pexels" },
     "Foz do Douro": { img:"images/hoods/porto--foz-do-douro.webp", page:"https://www.pexels.com/photo/sunset-at-foz-do-douro-beach-porto-portugal-33928809/", src:"Pexels" },
-    "Baixa": { img:"images/hoods/porto--baixa.webp", page:"https://commons.wikimedia.org/wiki/File:Cidade_Baixa_-_Rua_da_Rep%C3%BAblica_01.JPG" },
+    "Baixa": { img:"images/hoods/porto--baixa.webp", page:"https://commons.wikimedia.org/wiki/File:Porto_(21041163318).jpg" },
     "Cedofeita": { img:"images/hoods/porto--cedofeita.webp", page:"https://commons.wikimedia.org/wiki/File:Rua_Cedofeita_2_(Porto).jpg" },
     "Bonfim": { img:"images/hoods/porto--bonfim.webp", page:"https://commons.wikimedia.org/wiki/File:Igreja_Bonfim_by_Henrique_Matos_01.jpg" }
   },
@@ -618,7 +617,7 @@ window.NRA_HOOD_PHOTO = {
     "Laugardalur": { img:"images/hoods/reykjavik--laugardalur.webp", page:"https://commons.wikimedia.org/wiki/File:Run_or_walk_(5873983902).jpg" },
     "101 Reykjavík / City Centre": { img:"images/hoods/reykjavik--101-reykjavik-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Austurv%C3%B6llur_2023.jpg" },
     "Old Harbour (Grandi)": { img:"images/hoods/reykjavik--old-harbour-grandi.webp", page:"https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_Maritime_Museum%2C_2020.jpg" },
-    "Vesturbær (West End)": { img:"images/hoods/reykjavik--vesturb-r-west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_(2).jpg" },
+    "Vesturbær (West End)": { img:"images/hoods/reykjavik--vesturb-r-west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_-_Su%C3%B0urgata_8.jpg" },
     "Laugavegur / Hlemmur": { img:"images/hoods/reykjavik--laugavegur-hlemmur.webp", page:"https://commons.wikimedia.org/wiki/File:Laugavegur%2C_Reykjavik.jpg" }
   },
   "Rhodes": {
@@ -632,7 +631,7 @@ window.NRA_HOOD_PHOTO = {
     "Āgenskalns": { img:"images/hoods/riga--agenskalns.webp", page:"https://commons.wikimedia.org/wiki/File:%C4%80genskalna_tirgus.jpg" },
     "Vecrīga (Old Town)": { img:"images/hoods/riga--vecriga-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Riga_Petrikirche_Blick_vom_Turm_zum_Dom_3.JPG" },
     "Maskavas Forštate (Central Market District)": { img:"images/hoods/riga--maskavas-forstate-central-market-district.webp", page:"https://commons.wikimedia.org/wiki/File:The_water_tower_on_Maz%C4%81_Mat%C4%ABsa_street_in_R%C4%ABga_-_panoramio.jpg", src:"Laima Gūtmane (simka…" },
-    "Centrs / Art Nouveau District": { img:"images/hoods/riga--centrs-art-nouveau-district.webp", page:"https://commons.wikimedia.org/wiki/File:Riga_(33844464828).jpg" },
+    "Centrs / Art Nouveau District": { img:"images/hoods/riga--centrs-art-nouveau-district.webp", page:"https://commons.wikimedia.org/wiki/File:Antonijas_iel%C4%81_8_20120728-4.JPG" },
     "Miera iela (Miera Quarter)": { img:"images/hoods/riga--miera-iela-miera-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Miera_iela_19.JPG" }
   },
   "Rio de Janeiro": {
@@ -646,15 +645,13 @@ window.NRA_HOOD_PHOTO = {
     "Al Malaz": { img:"images/hoods/riyadh--al-malaz.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Malaz_Riyadh%2C_Nov_2023.jpg" },
     "Olaya": { img:"images/hoods/riyadh--olaya.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline.jpg" },
     "Diplomatic Quarter": { img:"images/hoods/riyadh--diplomatic-quarter.webp", page:"https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg" },
-    "Al Nakheel": { img:"images/hoods/riyadh--al-nakheel.webp", page:"https://commons.wikimedia.org/wiki/File:Nakheel-Mall3.jpg" },
     "King Abdullah Financial District": { img:"images/hoods/riyadh--king-abdullah-financial-district.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline_showing_the_King_Abdullah_Financial_District_(KAFD)_and_the_famous_Kingdom_Tower_.jpg" }
   },
   "Jeddah": {
     "Al-Balad": { img:"images/hoods/jeddah--al-balad.webp", page:"https://commons.wikimedia.org/wiki/File:Bait_Al_Balad,_Jeddah_1.jpg" },
     "Ash Shati": { img:"images/hoods/jeddah--ash-shati.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rahmah_Mosque_2.jpg" },
     "Al Hamra": { img:"images/hoods/jeddah--al-hamra.webp", page:"https://commons.wikimedia.org/wiki/File:King_Fahd%27s_Fountain_Jeddah_Fountain_(5129797428).jpg" },
-    "Al Rawdah": { img:"images/hoods/jeddah--al-rawdah.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rawdah,_Jeddah_Saudi_Arabia_-_panoramio.jpg" },
-    "Al Andalus": { img:"images/hoods/jeddah--al-andalus.webp", page:"https://commons.wikimedia.org/wiki/File:Red_Sea_Mall_1_Jeddah.jpg" }
+    "Al Rawdah": { img:"images/hoods/jeddah--al-rawdah.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rawdah,_Jeddah_Saudi_Arabia_-_panoramio.jpg" }
   },
   "Rome": {
     "Monti": { img:"images/hoods/rome--monti.webp", page:"https://commons.wikimedia.org/wiki/File:Rome_via_dei_fori_imperiali_20050922.jpg" },
@@ -855,7 +852,7 @@ window.NRA_HOOD_PHOTO = {
     "Vaduz Städtle (City Center)": { img:"images/hoods/vaduz--vaduz-stadtle-city-center.webp", page:"https://www.pexels.com/photo/vaduz-castle-in-liechtenstein-on-clear-day-37021731/", src:"Pexels" },
     "Schaan": { img:"images/hoods/vaduz--schaan.webp", page:"https://commons.wikimedia.org/wiki/File:Schaan%2C_die_Pfarrkirche_Sankt_Laurentius_in_straatzicht_foto7_2014-07-21_10.12.jpg" },
     "Triesenberg / Malbun": { img:"images/hoods/vaduz--triesenberg-malbun.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesenberg.jpg" },
-    "Triesen": { img:"images/hoods/vaduz--triesen.webp", page:"https://commons.wikimedia.org/wiki/File:Regierungsgeb%C3%A4ude_in_Vaduz_3.jpg" }
+    "Triesen": { img:"images/hoods/vaduz--triesen.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesen.jpg" }
   },
   "Valencia": {
     "Ciutat Vella": { img:"images/hoods/valencia--ciutat-vella.webp", page:"https://pixabay.com/photos/rambla-building-ciutat-vella-people-5301525/", src:"Pixabay" },
@@ -887,8 +884,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Verona": {
     "San Zeno": { img:"images/hoods/verona--san-zeno.webp", page:"https://commons.wikimedia.org/wiki/File:Basilica_di_San_Zeno_01.jpg" },
-    "Centro Storico (Città Antica)": { img:"images/hoods/verona--centro-storico-citta-antica.webp", page:"https://commons.wikimedia.org/wiki/File:Lazise_Centro_Storico_1.jpg" },
-    "Veronetta": { img:"images/hoods/verona--veronetta.webp", page:"https://commons.wikimedia.org/wiki/File:Veronetta%2C_Verona%2C_Italy_-_52949690592.jpg" },
+    "Centro Storico (Città Antica)": { img:"images/hoods/verona--centro-storico-citta-antica.webp", page:"https://commons.wikimedia.org/wiki/File:Via_Giuseppe_Mazzini,_Verona_(37778883041).jpg" },
+    "Veronetta": { img:"images/hoods/verona--veronetta.webp", page:"https://commons.wikimedia.org/wiki/File:Giardino_Giusti_-_panoramio.jpg" },
     "Borgo Trento": { img:"images/hoods/verona--borgo-trento.webp", page:"https://commons.wikimedia.org/wiki/File:Arsenale_Franz_Josef_I_-_Wikigita_Verona_PIM2728.jpg", src:"Serpimaz ph" },
     "Cittadella": { img:"images/hoods/verona--cittadella.webp", page:"https://commons.wikimedia.org/wiki/File:Portoni_della_Bra,_Verona,_Italy.jpg", src:"dconvertini" }
   },

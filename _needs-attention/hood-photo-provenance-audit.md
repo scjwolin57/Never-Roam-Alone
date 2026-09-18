@@ -1,5 +1,24 @@
 # Neighborhood photo provenance audit — COMPLETE
 
+> **Status 2026-09-18: section 1 (the 19 wrong-district photos) is resolved.**
+> The 2026-09-15 re-sourcing (`1c906cbf`) had left 18 of them live. Now:
+> - **14 replaced** with photos whose GPS reverse-geocodes (OpenStreetMap) inside the
+>   right district, or whose Commons category is the district: Porto/Baixa (picked
+>   by Jeff), Vaduz/Triesen (supplied by Jeff), Verona/Centro Storico, Verona/Veronetta,
+>   Amsterdam/Oud-West, Bangkok/Bang Rak, Riga/Art Nouveau District, Moscow/Khamovniki,
+>   Chișinău/Telecentru, Buiucani and Rîșcani, Helsinki/Punavuori, Reykjavík/Vesturbær,
+>   Cancún/Downtown.
+> - **3 removed, nothing verifiable exists**, so the tile shows the labelled city
+>   stand-in with "No photo yet / Contribute a photo": Jeddah/Al Andalus (the "Al
+>   Andalus Mall" is in Al Faiha'a), Marrakech/Hivernage, Riyadh/Al Nakheel (only KAFD
+>   photos, and Riyadh has its own KAFD hood).
+> - **Sharjah/Al Majaz** had already been replaced; the new photo checks out (GPS in Al Majaz).
+> - **Orlando/Thornton Park** is a dead entry: Orlando's guide no longer has that hood,
+>   so the photo is never shown. Left as is.
+>
+> Sections 2–4 (52 judgement calls, 5 missing source pages, 66 uncheckable) have not
+> been re-checked.
+
 All 583 hero photos from the July 2026 sourcing pass have been checked against their
 Commons record (description, categories, GPS, Wikidata P131/P276) and reverse-geocoded
 where coordinates exist. The 40 added 2026-08-24 were coordinate-verified at sourcing

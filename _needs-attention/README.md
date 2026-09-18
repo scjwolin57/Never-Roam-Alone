@@ -38,7 +38,10 @@ Nothing was deleted, only moved. `master.css` points at the new path.
 
 | File | What it needs | Moved from |
 |---|---|---|
-| `hood-photo-provenance-audit.md` | **Most urgent.** At least 15 of 19 "wrong district" photos are still live (e.g. Porto/Baixa shows Porto Alegre, Brazil; Verona/Centro Storico shows Lazise). 5 broken source links and 52 judgement calls not re-checked | project root |
+| `hood-photo-provenance-audit.md` | The 19 "wrong district" photos are resolved (2026-09-18: 14 replaced, 3 now city stand-ins, 1 already fixed, 1 dead entry; see the file's status note). Still open: 52 judgement calls, 5 broken source links, 66 uncheckable | project root |
+| (found 2026-09-18) | **Wrong `hood_landmark` hints** point at another district, the same name-collision problem as the photos: Bangkok/Bang Rak → Wat Arun (opposite bank), Amsterdam/Oud-West → Vondelpark (Oud-Zuid), Moscow/Khamovniki → Gorky Park (Yakimanka), Reykjavík/Vesturbær → Nauthólsvík, Chișinău/Rîșcani → the railway station (Centru), Chișinău/Telecentru → Valea Trandafirilor (Botanica). Only these 19 hoods were looked at; others may have the same fault | citydata + sheet |
+| (found 2026-09-18) | **Dead photo entry:** `hood-photos.js` still has Orlando/Thornton Park, but Orlando's guide has only 4 hoods and none is Thornton Park. Delete the entry and its 2 image files, or restore the hood | `hood-photos.js` |
+| (found 2026-09-18) | **Sheet out of step on hood photos:** of the site's neighborhood photos, 3,005 are blank in the sheet's Hood N Photo File/Credit columns and 46 differ (the 2026-09-15 sourcing of 3,703 photos was never mirrored). The 18 hoods changed 2026-09-18 are in step | `NRA-MASTER.xlsx` |
 | `hood-photo-location-audit.md` | 21 of 22 photos shot more than 2 km from their neighborhood still live; some are false alarms (Henderson is a separate city) | project root |
 | (carried over from catC) | Two landmark photos flagged WRONG and still live: Puerto Natales' Cementerio Municipal (shows a villa) and La Romana's Central Romana Sugar Mill (shows a church) | `_done/catC-visual-review.csv` |
 | `neighborhoods-needing-photos.md` | Down from 52 to 4 with no photo at all: Heraklion's Poros and Mastampas, Medina's Al Aqeeq, Punta Cana's El Cortecito. Bolognina's photo has no credit | project root |
