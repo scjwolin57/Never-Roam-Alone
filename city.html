@@ -223,11 +223,17 @@
   .fl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
   .fl-head label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
   .fl-head select{flex:1 1 220px;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
-  .fl-links{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px}
-  /* same look as the neighborhood cards' "View on a map" button */
-  .fl-open{display:inline-block;max-width:100%;font-size:.74rem;font-weight:700;color:#2b2417;background:#8a9a5b;border-radius:0;
-    padding:6px 12px;text-decoration:none;transition:background .2s;overflow-wrap:anywhere}
-  .fl-open:hover{background:#b0802f}
+  /* Laundry / Gyms choice: real radio buttons, drawn as a two-part square toggle */
+  .fl-kind{display:flex;margin:0 0 12px}
+  .fl-kind input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+  .fl-kind label{flex:1;text-align:center;border:1.5px solid rgba(63,81,56,.35);background:#fff;padding:8px;font-size:.74rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--teal);cursor:pointer}
+  .fl-kind label+input+label{border-left:0}
+  .fl-kind input:checked+label{background:var(--teal);border-color:var(--teal);color:#fff}
+  .fl-kind input:focus-visible+label{outline:2px solid var(--coral);outline-offset:2px}
+  .fl-none{font-style:italic;color:var(--muted);font-size:.88rem;margin:0}
+  .fl-more{display:inline-block;margin:12px 0 0;color:var(--green);font-weight:700;text-decoration:none;font-size:.88rem;overflow-wrap:anywhere}
+  .fl-more:hover{text-decoration:underline}
   .fl-list{list-style:none;margin:0;padding:0}
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
@@ -4107,14 +4113,15 @@ if(!c){
         <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${flEsc(p.label)}</option>`).join("")}</select>
       </div>` : `
       <div class="fl-head"><label>Showing all of ${flEsc(c.city)}</label></div>`;
+    const opt = (k, t) => `<input type="radio" name="fl-kind" id="fl-kind-${k}" value="${k}"${k === "laundry" ? " checked" : ""}><label for="fl-kind-${k}">${t}</label>`;
     return head + `
-      <div id="fl-links" class="fl-links"></div>
-      <div id="fl-gym"></div>
-      <p class="fl-foot">The links open Google Maps. Hours, availability and prices may have changed &mdash; check with the business before you go. Checked entries (&#10003;) are gyms we researched for day passes.</p>`;
+      <div class="fl-kind" role="radiogroup" aria-label="Show">${opt("laundry", "Laundry")}${opt("gym", "Gyms")}</div>
+      <div id="fl-out"></div>
+      <p class="fl-foot">"Show all" opens Google Maps. Hours, availability and prices may have changed &mdash; check with the business before you go. Checked entries (&#10003;) are gyms we researched for day passes.</p>`;
   }
   function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
   /* Researched gyms (CITY_GYMS) for the chosen point: a neighborhood's own list,
-     or every researched gym for "Anywhere". Shown under the Gyms map. */
+     or every researched gym for "Anywhere". Shown when Gyms is chosen. */
   function flResearched(pt) {
     const gyms = CITY_GYMS[c.city] || [];
     const mine = pt.key === "city" ? gyms : gyms.filter(g => String(g.hood) === pt.key);
@@ -4140,19 +4147,25 @@ if(!c){
   }
   function flRun(key) {
     const pt = flPoints().find(p => p.key === key); if (!pt) return;
-    const L = document.getElementById("fl-links"), G = document.getElementById("fl-gym");
-    const near = pt.key === "city" ? c.city : pt.label;
-    const link = (what, label) => {
-      const q = `${what} near ${pt.place}${c.country ? ", " + c.country : ""}`;
-      return `<a class="fl-open" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${label} near ${flEsc(near)} &rarr;</a>`;
-    };
-    L.innerHTML = link("laundromat", "Laundromats") + link("gym", "Gyms");
-    const researched = flResearched(pt);
-    G.innerHTML = researched ? `<p class="fl-sub">Day passes we've checked${pt.key === "city" ? "" : " in " + flEsc(pt.label)}</p>${researched}` : "";
+    const O = document.getElementById("fl-out");
+    const kind = (document.querySelector('input[name="fl-kind"]:checked') || {}).value || "laundry";
+    const near = flEsc(pt.key === "city" ? c.city : pt.label);
+    const q = `${kind === "gym" ? "gym" : "laundromat"} near ${pt.place}${c.country ? ", " + c.country : ""}`;
+    const more = `<a class="fl-more" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Show all ${kind === "gym" ? "gyms" : "laundromats"} in ${near} &rarr;</a>`;
+    if (kind === "gym") {
+      const researched = flResearched(pt);
+      O.innerHTML = (researched
+        ? `<p class="fl-sub">Day passes we've checked${pt.key === "city" ? "" : " in " + near}</p>${researched}`
+        : `<p class="fl-none">No day-pass gyms researched${pt.key === "city" ? "" : " in " + near} yet.</p>`) + more;
+    } else {
+      /* laundry facts are city-wide (no researched laundromat list); the link searches the chosen place */
+      O.innerHTML = `<p class="fl-sub">Laundry in ${flEsc(c.city)}</p>${buildLaundryModal()}${more}`;
+    }
   }
   function flInit() {
     const sel = document.getElementById("fl-hood"), cur = () => sel ? sel.value : "city";
     if (sel) sel.addEventListener("change", () => flRun(cur()));
+    document.querySelectorAll('input[name="fl-kind"]').forEach(r => r.addEventListener("change", () => flRun(cur())));
     flRun(cur());
   }
 
