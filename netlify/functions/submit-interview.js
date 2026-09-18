@@ -1,7 +1,9 @@
-// Netlify serverless function: emails the site owner when a visitor submits
-// the "Contribute your experience" form on a city page (city.html Insights
-// section — Traveler's Take or Local's Perspective). Relays the answers for
-// manual review; nothing is published automatically. Types whose interview
+// Netlify serverless function: a visitor submits the "Share your experience"
+// / "Share your insight" form on a city page (city.html Insights section —
+// Traveler's Take or Local's Perspective). The interview is saved to the
+// city_insights table as PENDING (city-insights-setup.sql) and the site owner
+// is emailed a copy with a link to review and edit it on the Admin page.
+// Nothing is published automatically: approve-insight.js publishes it. Types whose interview
 // questions are written send `answers` ([{q, a}], answered questions only);
 // types still waiting on questions send a single free-text `response`.
 //
@@ -10,12 +12,16 @@
 //   RESEND_API_KEY        - already set up for the other email functions
 //   INSIGHT_SUBMIT_EMAIL  - where submissions go (falls back to
 //                           GUIDE_REQUEST_EMAIL if you don't set this one)
-//   SITE_URL              - optional, used in the email footer
+//   SITE_URL              - optional, used in the email footer and links
+//   SUPABASE_URL, SUPABASE_SERVICE_KEY - to save the pending interview. If
+//                           they're missing the email still goes out, but
+//                           there is nothing to approve on the Admin page.
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
 
-  const { RESEND_API_KEY, INSIGHT_SUBMIT_EMAIL, GUIDE_REQUEST_EMAIL, SITE_URL } = process.env;
+  const { RESEND_API_KEY, INSIGHT_SUBMIT_EMAIL, GUIDE_REQUEST_EMAIL, SITE_URL, SUPABASE_URL, SUPABASE_SERVICE_KEY } = process.env;
+  const siteBase = (SITE_URL || "https://neverroamalone.com").replace(/\/+$/, "");
   const toEmail = INSIGHT_SUBMIT_EMAIL || GUIDE_REQUEST_EMAIL;
   console.log("[submit-interview] env present:", {
     RESEND_API_KEY: !!RESEND_API_KEY,
@@ -62,6 +68,43 @@ exports.handler = async (event) => {
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json(400, { error: "A valid email is required" });
   console.log("[submit-interview] submission:", typeLabel, "in", city, "from", email, "| answers:", answers.length);
 
+  // Save it as a PENDING interview so it appears on the Admin page for review.
+  let reviewId = "";
+  if (SUPABASE_URL && SUPABASE_SERVICE_KEY) {
+    const svc = { apikey: SUPABASE_SERVICE_KEY, Authorization: "Bearer " + SUPABASE_SERVICE_KEY };
+    // 3. Burst cap: a flood of submissions in under a minute gets slowed down.
+    try {
+      const since = new Date(Date.now() - 60000).toISOString();
+      const cr = await fetch(`${SUPABASE_URL}/rest/v1/city_insights?select=id&pending=eq.true&created_at=gte.${encodeURIComponent(since)}`, { headers: svc });
+      if (cr.ok) {
+        const recent = await cr.json();
+        if (Array.isArray(recent) && recent.length >= 5) {
+          console.warn("[submit-interview] rate limit: too many pending in last 60s:", recent.length);
+          return json(429, { sent: false, error: "We're getting a lot of submissions right now — please try again in a minute." });
+        }
+      }
+    } catch (e) { /* if the check itself fails, don't block a genuine submission */ }
+    try {
+      const ir = await fetch(`${SUPABASE_URL}/rest/v1/city_insights`, {
+        method: "POST",
+        headers: { ...svc, "Content-Type": "application/json", Prefer: "return=representation" },
+        body: JSON.stringify({ city, type, name, email, answers, response: response || null, published: false, pending: true })
+      });
+      if (ir.ok) {
+        const created = await ir.json();
+        reviewId = (created && created[0] && created[0].id) || "";
+        console.log("[submit-interview] saved pending interview id:", reviewId);
+      } else {
+        console.error("[submit-interview] pending insert failed HTTP", ir.status, (await ir.text()).slice(0, 300));
+      }
+    } catch (e) {
+      console.error("[submit-interview] pending insert threw:", (e && e.message) || e);
+    }
+  } else {
+    console.warn("[submit-interview] SUPABASE_URL / SUPABASE_SERVICE_KEY not set — emailing only, interview not saved for review.");
+  }
+  const reviewUrl = siteBase + "/admin.html?tab=insights" + (reviewId ? "&review=" + encodeURIComponent(reviewId) : "");
+
   const answersHtml = answers.map(({ q, a }, i) =>
     `<div style="margin:0 0 18px">
        <p style="margin:0 0 5px;color:#82755b;font-size:13px;letter-spacing:.06em;text-transform:uppercase">Q${i + 1}</p>
@@ -84,9 +127,11 @@ exports.handler = async (event) => {
             <h2 style="color:#185e3f;margin:0 0 6px">New Insights submission</h2>
             <p style="margin:0 0 6px;color:#3a4a52">${escapeHtml(typeLabel)} &middot; ${escapeHtml(city)}</p>
             <p style="margin:0 0 16px;color:#3a4a52">From: ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
+            <p style="margin:0 0 16px;color:#3a4a52">${reviewId ? "It's saved as <strong>pending</strong>. Nothing shows on the site until you approve it." : "<strong>It was not saved for review</strong> (the database didn't accept it), so it can't be approved from Admin. The answers are below."}</p>
             ${answers.length
               ? `<p style="margin:0 0 14px;color:#3a4a52">Answered ${answers.length} question${answers.length === 1 ? "" : "s"}:</p>${answersHtml}`
               : `<div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:0 0 20px;white-space:pre-wrap">${escapeHtml(response)}</div>`}
+            ${reviewId ? `<p style="margin:24px 0 20px"><a href="${escapeHtml(reviewUrl)}" style="display:inline-block;background:#5c6933;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px">Review, edit &amp; approve &rarr;</a></p>` : ""}
             <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${escapeHtml(city)} city page on ${escapeHtml(SITE_URL || "Never Roam Alone")}. Reply to this email to respond directly.</p>
           </div>`
       })

@@ -219,7 +219,7 @@ with verified data or reported as open, by name, in the add-city report. The
 tooling does not cover the whole page today (see 5.2), so until it does the
 add-city skill runs the extra steps by hand and says which ones it ran.
 
-### 5.1 Inventory of city.html (as of 2026-09-16, commit 7c54b8a0)
+### 5.1 Inventory of city.html (as of 2026-09-18, Insights display added)
 
 Nine plates. "Key" is the field in `citydata/<slug>.json` unless noted; "Filled by"
 is what populates it for a new city *today*.
@@ -253,7 +253,7 @@ is what populates it for a new city *today*.
 | 06 Excursions | half-day and full-day trips | `daytrips` ← `day-trips.js` | add_city.py (optional; **665/893** filled) |
 | 07 Happenings | events in city (sheet-driven), submit-an-event form | events sheet tab | manual |
 | 07 Happenings | Roamers in town, Roamer's Connections board, Ask-a-Roamer link | user-generated; city must exist in `destinations.js` | add_city.py (destinations.js) |
-| 08 Insights | Traveler's Take / Local's Perspective interview forms | user-generated | nothing to research |
+| 08 Insights | Traveler's Take / Local's Perspective: "Share" interview forms, and approved interviews as cards (newest 3, "Read the full interview", "Show all") | user-generated: Supabase `city_insights` (pending, admin-only) → `city_insights_public` view (approved, no email); approved in Admin → Insights via `approve-insight.js` | nothing to research; site-only, not in citydata or the sheet |
 | 09 Dispatches | blog stories (placeholder) | none | nothing to research |
 | Sheet | one row, 204 columns, incl. Intl Visitors basis/note, Beaches Score, the laundry columns, Hood N Latitude/Longitude; plus the Laundry and Gyms venue tabs | `NRA-MASTER.xlsx` Live Cities, Laundry, Gyms | add_city_to_sheet.py; `gyms/load_gyms.py` for the Gyms tab |
 | Finder | six priority scores + walk + safety; budget math from `cost`/`hotel`/`drinks` via `cost-estimator.js` | `score` → `city-scores.js`; price inputs → `destinations.js` | add_city.py |

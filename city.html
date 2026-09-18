@@ -81,7 +81,7 @@
   .stay-section{margin:0 0 30px}
   .stay-head{text-align:center;margin-bottom:22px}
   .stay-head h2{font-size:clamp(1.4rem,3.2vw,1.9rem);color:var(--green);margin:0}
-  .stay-sub{color:var(--muted);font-size:clamp(.72rem,1.8vw,.96rem);margin:8px auto 0;max-width:none;white-space:nowrap}
+  .stay-sub{color:var(--muted);font-size:clamp(.72rem,1.8vw,.96rem);margin:8px auto 0;max-width:none;text-wrap:balance}
   .stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .stay-card{background:var(--card);border:1px solid #e7e0d2;
     border-top:4px solid var(--teal);border-radius:12px;padding:16px 14px 18px;
@@ -145,6 +145,7 @@
   .lang-name{font-size:.9rem;font-family:'Fraunces',Georgia,serif;min-width:110px;flex-shrink:0}
   .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
   .eng-pct{min-width:0;text-align:left}
+  @media(max-width:400px){.eng-row .lang-name{min-width:0}.eng-row .eng-pct{flex:1 1 auto;text-align:right}}
   .eng-box{background:var(--sand);border-radius:0;padding:10px 14px;margin-top:2px}
   .eng-sub{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:4px 0 0}
   .phrases-link{display:block;width:100%;background:var(--sand);border:1px solid #e7c98a;border-radius:3px;
@@ -249,9 +250,12 @@
   .hint-btn{position:relative}
   .hint-btn::after{content:attr(data-hint);position:absolute;left:0;top:calc(100% + 6px);width:max-content;max-width:210px;
     background:var(--ink);color:#fff;font-size:.72rem;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;
-    padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .15s;
+    padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);display:none;pointer-events:none;
     z-index:20;text-align:left;white-space:normal}
-  .hint-btn:hover::after,.hint-btn:focus-visible::after,.hint-btn.open::after{opacity:1}
+  .hint-btn:hover::after,.hint-btn:focus-visible::after,.hint-btn.open::after{display:block}
+  .hint-btn.open{opacity:1}
+  /* on phones the icon sits near the right edge: open the bubble leftward so it never widens the page */
+  @media(max-width:600px){.hint-btn::after{left:auto;right:0;max-width:min(210px,calc(100vw - 48px))}}
   .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
   .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
@@ -424,6 +428,7 @@
   #cal-days{margin-top:2px}
   .cal-cell{position:relative;aspect-ratio:1/1;border:none;background:transparent;border-radius:9px;font-family:inherit;font-size:.9rem;color:var(--ink);display:flex;align-items:flex-start;justify-content:flex-start;padding:6px 8px}
   .cal-cell.empty{visibility:hidden}
+  @media(max-width:400px){.cal-cell{padding:4px}}
   .cal-cell.today .cal-num{outline:2px solid var(--green);outline-offset:2px;border-radius:50%}
   .cal-cell.has-events{background:rgba(63,81,56,.10);cursor:pointer;font-weight:700}
   .cal-cell.has-events:hover{background:rgba(63,81,56,.20)}
@@ -796,6 +801,21 @@
   .insights-col p{margin:0 0 20px;font-size:.92rem;line-height:1.6;color:var(--muted);max-width:34ch}
   .insights-col .cal-submit-btn{margin-top:auto}
   @media(max-width:760px){.insights-cols{grid-template-columns:1fr;gap:18px}}
+  /* Approved interviews, newest first, above the Share button. */
+  .ins-list{width:100%;text-align:left;margin:0 0 20px;display:flex;flex-direction:column;gap:12px}
+  .ins-list:empty{display:none}
+  .ins-card{background:var(--sand);border:1px solid rgba(43,36,23,.22);border-left:3px solid var(--green);border-radius:0;padding:14px 16px}
+  .is-local .ins-card{border-left-color:var(--coral)}
+  .ins-who{font-weight:700;font-size:.92rem;color:var(--ink);overflow-wrap:anywhere}
+  .ins-when{font-size:.74rem;color:var(--muted)}
+  .ins-q{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;line-height:1.4;margin:12px 0 3px}
+  .ins-a{font-size:.9rem;line-height:1.55;color:var(--ink);white-space:pre-line;overflow-wrap:anywhere}
+  .ins-card .ins-a{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .ins-link{background:none;border:none;padding:0;margin-top:12px;font-family:inherit;font-weight:700;font-size:.84rem;color:var(--green);cursor:pointer;text-align:left}
+  .ins-link:hover{color:var(--coral)}
+  .ins-more{align-self:center;margin-top:0}
+  .ins-full .ins-q{font-size:.72rem;margin-top:18px}
+  .ins-full .ins-q:first-of-type{margin-top:6px}
   /* Plate 09 (Dispatches) is just a heading, a placeholder line and a back
      link — centered rather than left-aligned like the fuller sections above. */
   .dispatches-empty{text-align:center}
@@ -3006,12 +3026,14 @@ if(!c){
         <div class="insights-col is-traveler">
           <h3 class="rm-head">Traveler's Take</h3>
           <p>Firsthand stories from travelers who've visited ${c.city}.</p>
-          <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="traveler">Contribute Your Experience</button>
+          <div class="ins-list" data-ins-type="traveler"></div>
+          <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="traveler">Share Your Experience</button>
         </div>
         <div class="insights-col is-local">
           <h3 class="rm-head">Local's Perspective</h3>
           <p>Insight from people who live in ${c.city}, in their own words.</p>
-          <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="local">Contribute Your Experience</button>
+          <div class="ins-list" data-ins-type="local"></div>
+          <button type="button" class="cal-submit-btn insights-open-btn" data-insight-type="local">Share Your Insight</button>
         </div>
       </div>
     </section>
@@ -3677,6 +3699,78 @@ if(!c){
         if (first) setTimeout(() => first.focus(), 30);
       });
     });
+
+    /* Approved interviews (city_insights_public: published rows only, no
+       email). Each column shows its newest three as cards with the first two
+       answers; "Show all" reveals the rest, and "Read the full interview"
+       opens every answer in the modal. Nothing approved yet, or the table
+       not set up: the column stays as it was. */
+    const SHOW = 3;
+    const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const when = r => { const d = new Date(r.published_at || r.created_at); return isNaN(d) ? "" : "Shared " + MONTHS[d.getMonth()] + " " + d.getFullYear(); };
+    const qa = (list, n) => list.slice(0, n).map(x =>
+      `<div class="ins-q">${esc(x.q)}</div><div class="ins-a">${esc(x.a)}</div>`).join("");
+    const pairs = r => (Array.isArray(r.answers) && r.answers.length) ? r.answers
+      : (r.response ? [{ q: "In their words", a: r.response }] : []);
+    let published = [];
+
+    function card(r){
+      const all = pairs(r);
+      return `<article class="ins-card">` +
+          `<div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
+          qa(all, 2) +
+          (all.length > 2 ? `<button type="button" class="ins-link" data-ins-read="${esc(r.id)}">Read the full interview &rarr;</button>` : "") +
+        `</article>`;
+    }
+    function paintList(type, showAll){
+      const el = document.querySelector(`.ins-list[data-ins-type="${type}"]`);
+      if (!el) return;
+      const rows = published.filter(r => r.type === type);
+      const shown = showAll ? rows : rows.slice(0, SHOW);
+      el.innerHTML = shown.map(card).join("") +
+        (rows.length > shown.length ? `<button type="button" class="ins-link ins-more" data-ins-all="${type}">Show all ${rows.length} &rarr;</button>` : "");
+    }
+    function openRead(id){
+      const r = published.find(x => x.id === id);
+      if (!r) return;
+      const all = pairs(r);
+      ov.innerHTML =
+        `<div class="evt-modal insights-modal" role="dialog" aria-modal="true">` +
+          `<button type="button" class="evt-close" aria-label="Close">&times;</button>` +
+          `<h3>${esc(LABEL[r.type] || LABEL.traveler)}: ${esc(r.name)}</h3>` +
+          `<p class="evt-modal-sub">${esc(c.city)} &middot; ${esc(when(r))}</p>` +
+          `<div class="ins-full">${qa(all, all.length)}</div>` +
+        `</div>`;
+      ov.querySelector(".evt-close").onclick = close;
+      open();
+    }
+    document.addEventListener("click", e => {
+      const read = e.target.closest("[data-ins-read]");
+      if (read){ openRead(read.dataset.insRead); return; }
+      const more = e.target.closest("[data-ins-all]");
+      if (more) paintList(more.dataset.insAll, true);
+    });
+
+    (function loadPublished(){
+      let tries = 0;
+      (function poll(){
+        if (window.NRA_AUTH && window.NRA_AUTH.enabled){
+          Promise.resolve(window.NRA_AUTH.ready && window.NRA_AUTH.ready())
+            .then(async () => {
+              const sb = window.NRA_AUTH.client && window.NRA_AUTH.client();
+              if (!sb) return;
+              const { data, error } = await sb.from("city_insights_public")
+                .select("*").eq("city", c.city).order("published_at", { ascending: false });
+              if (error || !data) return;
+              published = data;
+              paintList("traveler"); paintList("local");
+            })
+            .catch(() => {});
+          return;
+        }
+        if (tries++ < 100) setTimeout(poll, 100);   // ~10s then give up quietly
+      })();
+    })();
   })();
 
   /* ---------- Neighborhood hero images ----------

@@ -511,7 +511,8 @@
       "background-repeat:no-repeat;background-position:right 12px center}" +
       ".nra-lang select:focus{outline:none;border-color:#5c6933}" +
       "@media(max-width:820px){.nra-lang{margin-left:12px}}" +
-      "@media(max-width:420px){.nra-lang{margin-left:6px}.nra-lang select{padding:7px 24px 7px 10px;font-size:.82rem}}";
+      "@media(max-width:420px){.nra-lang{margin-left:6px}.nra-lang select{padding:7px 24px 7px 10px;font-size:.82rem}}" +
+      "@media(max-width:360px){.nra-lang select{padding:6px 20px 6px 8px;font-size:.78rem;background-position:right 7px center}}";
     var s = document.createElement("style");
     s.textContent = css;
     document.head.appendChild(s);
