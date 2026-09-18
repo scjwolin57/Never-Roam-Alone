@@ -1984,12 +1984,7 @@ export default async (request, context) => {
 
     html = html.replace(/<title>[^<]*<\/title>/i,
       () => `<title>${attr(title)}</title>\n<link rel="canonical" href="${attr(pageUrl)}">` +
-            `\n<script type="application/ld+json">${ld}</script>` +
-            // Page-view counting for the guides. It lives here only because
-            // city.html was being edited elsewhere when analytics went in;
-            // move this one line into city.html's own <head> and delete it
-            // here, or the guides will be counted twice.
-            `\n<script defer data-domain="neverroamalone.com" src="https://plausible.io/js/script.js"></script>`);
+            `\n<script type="application/ld+json">${ld}</script>`);
     setMeta('name="description"',          description);
     setMeta('property="og:title"',         title);
     setMeta('property="og:description"',   description);

@@ -1126,6 +1126,7 @@
   .adv-banner-lvl4{background:#F6D5CE;color:#8B2500;border:1px solid #E29A87}
   @media(max-width:640px){.adv-banner{padding:12px 14px}}
 </style>
+<script defer data-domain="neverroamalone.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <svg style="position:absolute;width:0;height:0" aria-hidden="true"><symbol id="compass" viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="50" cy="50" r="39" fill="none" stroke="currentColor" stroke-width="0.8" stroke-dasharray="1.5 3"/><polygon points="50,6 57,50 50,50" fill="#b5492c"/><polygon points="50,6 43,50 50,50" fill="#8a3a20"/><polygon points="50,94 57,50 50,50" fill="currentColor" opacity=".85"/><polygon points="50,94 43,50 50,50" fill="currentColor" opacity=".55"/><polygon points="94,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="94,50 50,57 50,50" fill="currentColor" opacity=".5"/><polygon points="6,50 50,43 50,50" fill="currentColor" opacity=".7"/><polygon points="6,50 50,57 50,50" fill="currentColor" opacity=".5"/><circle cx="50" cy="50" r="3.5" fill="#b5492c"/></symbol></svg>
@@ -1174,7 +1175,27 @@
   </div>
 </footer>
 
-<script src="vendor/flatpickr-4.6.13.js"></script>
+<script>
+/* Perf: the three big data files (hood photos ~700 KB, holidays ~180 KB,
+   phrases ~100 KB) used to be plain <script> tags. Each one blocked the page
+   until it had downloaded and run, so the city's own data file could not even
+   START downloading until about 1.3 MB had arrived. Now they download in the
+   background, side by side with the city data, and the render below waits for
+   them (NRA_DATA_READY) before drawing the guide, exactly as before: every
+   section still has its data when it is drawn. A file that fails to load
+   resolves anyway, so it can never hold the guide back. */
+window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"].map(function (src) {
+  return new Promise(function (resolve) {
+    var s = document.createElement("script");
+    s.src = src; s.async = true;
+    s.onload = s.onerror = function () { resolve(); };
+    document.head.appendChild(s);
+  });
+});
+</script>
+<!-- The date picker is only used when someone opens the Submit-an-event form,
+     and that code already checks window.flatpickr first, so it can wait. -->
+<script src="vendor/flatpickr-4.6.13.js" defer></script>
 <script src="city-photos.js"></script>
 <script src="cost-estimator.js"></script>
 <script>
@@ -1194,9 +1215,8 @@
   } catch (e) { /* purely an optimization — never break the page */ }
 })();
 </script>
-<script src="hood-photos.js"></script>
-<script src="city-phrases.js"></script>
-<script src="city-holidays.js"></script>
+<!-- hood-photos.js, city-phrases.js and city-holidays.js load in the
+     background: see NRA_DATA_READY above. -->
 <!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
      Provides window.nraAppLink(name, country). -->
 <script src="app-store-links.js"></script>
@@ -2223,7 +2243,15 @@ Promise.all([
   loadCityData().catch(e => console.error("City data failed to load:", e)),
   /* Approved visitor photos. Resolves either way and gives up quickly, so a
      slow or missing Supabase can never hold the guide back. */
-  window.NRA_CONTRIBUTED ? NRA_CONTRIBUTED.ready() : null
+  window.NRA_CONTRIBUTED ? NRA_CONTRIBUTED.ready() : null,
+  /* Hood photos, phrases and holidays, now loading in the background. */
+  ...(window.NRA_DATA_READY || []),
+  /* The scripts further down the page (auth, favorites, trip-add, nav…).
+     With the big files no longer blocking, the city data can arrive before
+     the browser has finished running those; waiting for DOMContentLoaded
+     keeps the old guarantee that they are all in place when the guide draws. */
+  new Promise(r => document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", r, { once: true }) : r())
 ]).then(function(){
 
 const params = new URLSearchParams(location.search);
