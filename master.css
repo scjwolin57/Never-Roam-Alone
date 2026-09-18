@@ -64,7 +64,7 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
 footer{background:var(--teal);color:#dff1f2;text-align:center;padding:40px 22px}
 footer .foot-links{margin-top:14px;display:grid;grid-template-columns:repeat(5,auto);gap:12px 18px;justify-content:center}
 @media (max-width:600px){footer .foot-links{display:flex;flex-wrap:wrap}}
-footer .foot-links a{color:#dff1f2;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
+footer .foot-links a{color:#dfeee7;font-size:.85rem;font-weight:600;opacity:.9;border-bottom:1px solid transparent}
 footer .foot-links a:hover{color:#fff;border-color:var(--coral);opacity:1}
 footer .foot-links a{justify-self:center}
 footer .foot-links a.current{border-color:#fff;opacity:1}   /* the page you are on (nav.js marks it) */
