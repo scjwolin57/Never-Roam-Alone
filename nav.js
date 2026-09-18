@@ -168,7 +168,20 @@
     });
   }
 
+  // Underline the footer link for the page on screen (exact page only).
+  function markFooter() {
+    var page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    var links = document.querySelectorAll("footer .foot-links a");
+    for (var i = 0; i < links.length; i++) {
+      if ((links[i].getAttribute("href") || "").toLowerCase() === page) {
+        links[i].className = "current";
+        links[i].setAttribute("aria-current", "page");
+      }
+    }
+  }
+
   function render() {
+    markFooter();
     var slots = document.querySelectorAll("nav.links[data-site-nav]");
     if (!slots.length) return;
 
