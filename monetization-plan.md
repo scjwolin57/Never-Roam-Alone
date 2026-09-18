@@ -15,7 +15,7 @@ You currently have zero analytics (by design — no cookie banner needed). You c
 
 No cost to visitors, no cookie banner required (a link is just a link), and your site is unusually well set up for it — you already built the hard parts. **One legal must-do:** add a short affiliate-disclosure line to pages with affiliate links and a sentence in privacy.html/terms.html (FTC requires it).
 
-**Easiest entry:** join **[Travelpayouts](https://www.travelpayouts.com/en/)** — a free travel-affiliate network with **no traffic minimums** that bundles many of the brands below (hotels, flights, tours, insurance, car rental) under one account and one payout. [Stay22](https://community.stay22.com/top-travel-affiliate-programs-for-2026) is a similar option for lodging. Apply to Booking.com or GetYourGuide directly later if their direct rates beat the network's.
+~~**Easiest entry:** join **[Travelpayouts](https://www.travelpayouts.com/en/)** — a free travel-affiliate network with **no traffic minimums** that bundles many of the brands below (hotels, flights, tours, insurance, car rental) under one account and one payout. [Stay22](https://community.stay22.com/top-travel-affiliate-programs-for-2026) is a similar option for lodging. Apply to Booking.com or GetYourGuide directly later if their direct rates beat the network's.~~ *(Dropped 2026-09-18: Jeff decided against Travelpayouts; see decisions.md.)*
 
 ### 1. Hotel & hostel links — your biggest natural earner
 Every one of your **101 city pages already lists real, named hotels and hostels at three price tiers** (CITY_LODGING). Right now those names earn you nothing. Turn each name into an affiliate search link (Booking.com pays **up to ~4–5%** of the booking; Expedia ~4%; Hostelworld **5–7%**). A few $150/night bookings a month is real money per thousand visitors — hotels are where travel sites make most of their affiliate income.
@@ -33,7 +33,7 @@ Your Connectivity banner has a green "Buy an eSIM →" button on all 101 city pa
 Your airport cards already name rental companies per city. **DiscoverCars pays ~$20+ per booking (or a profit share) with a 365-day cookie** — unusually generous. Swap the plain-text company names for one "Compare rental prices" affiliate link per city.
 
 ### 5. Flights
-Your flight-search tool (choose.html) shows real prices but the cards don't link to booking. Add a "Book" link via Travelpayouts (Aviasales/WayAway/Kiwi). Flight commissions are the *lowest* in travel (~1–2%), so treat this as a bonus, not a pillar. The `routeUrl()` helper already has a comment marking where a booking link goes.
+~~Your flight-search tool (choose.html) shows real prices but the cards don't link to booking. Add a "Book" link via Travelpayouts (Aviasales/WayAway/Kiwi). Flight commissions are the *lowest* in travel (~1–2%), so treat this as a bonus, not a pillar. The `routeUrl()` helper already has a comment marking where a booking link goes.~~ *(Dropped 2026-09-18: Jeff decided against Travelpayouts; see decisions.md.)*
 
 ### 6. Travel insurance
 SafetyWing / World Nomads pay per sale or even **per quote**. Best placed in blog posts and a short "Before you go" block on city pages. Small effort, steady trickle.
@@ -85,7 +85,7 @@ One-time purchases: premium city-guide PDFs, packing checklists, a "first trip a
 
 1. Finish the go-live steps in summary.md (push, SQL, Resend domain) — nothing earns until the site is truly live and emails deliver.
 2. Add Plausible or Netlify Analytics (no banner needed).
-3. Join Travelpayouts + one eSIM program (Airalo or Holafly).
+3. ~~Join Travelpayouts +~~ one eSIM program (Airalo or Holafly). *(Travelpayouts dropped 2026-09-18; Airalo is live through Impact.)*
 4. Paste eSIM links into CITY_ESIM (hours).
 5. Link the hotel names on city pages (the big one).
 6. Add GetYourGuide/Viator links to city pages + the Activities finder.
@@ -97,7 +97,7 @@ One-time purchases: premium city-guide PDFs, packing checklists, a "first trip a
 ---
 
 ## Sources
-- [Travelpayouts — travel affiliate network](https://www.travelpayouts.com/en/) · [how it works](https://support.travelpayouts.com/hc/en-us/articles/203955593-What-is-Travelpayouts-and-how-it-works)
+- ~~[Travelpayouts — travel affiliate network](https://www.travelpayouts.com/en/) · [how it works](https://support.travelpayouts.com/hc/en-us/articles/203955593-What-is-Travelpayouts-and-how-it-works)~~ *(Dropped 2026-09-18: Jeff decided against Travelpayouts; see decisions.md.)*
 - [BloggersPassion — 21 Best Travel Affiliate Programs 2026](https://bloggerspassion.com/best-travel-affiliate-programs/) (Booking, Expedia, Hostelworld, Viator, GetYourGuide, DiscoverCars rates)
 - [GetYourGuide Partner Program](https://partner.getyourguide.com/) · [Viator affiliate review](https://commissiondex.com/program/viator/)
 - [Cellesim — eSIM affiliate payouts (Airalo, Holafly)](https://cellesim.com/en/blog/esim-affiliate-programs-travel-creators) · [Holafly affiliate program](https://esim.holafly.com/affiliate-program/)
