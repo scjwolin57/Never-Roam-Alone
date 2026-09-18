@@ -223,15 +223,11 @@
   .fl-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px}
   .fl-head label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700}
   .fl-head select{flex:1 1 220px;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:9px 11px;font-family:inherit;font-size:.92rem;color:var(--ink);background:#fff}
-  .fl-tabs{display:flex;margin:0 0 10px}
-  .fl-tab{flex:1;border:1.5px solid rgba(63,81,56,.35);background:#fff;padding:8px;font-family:inherit;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);cursor:pointer}
-  .fl-tab+.fl-tab{border-left:0}
-  .fl-tab.on{background:var(--teal);border-color:var(--teal);color:#fff}
-  .fl-frame{display:block;width:100%;height:min(420px,60vh);border:0}
-  #fl-map{position:relative}
-  .fl-loading{position:absolute;top:0;left:0;right:0;height:min(420px,60vh);margin:0;display:flex;align-items:center;justify-content:center;background:rgba(63,81,56,.06);color:var(--muted);font-style:italic;font-size:.88rem}
-  .fl-open{display:inline-block;margin:8px 0 4px;color:var(--green);font-weight:700;text-decoration:none;font-size:.88rem}
-  .fl-open:hover{text-decoration:underline}
+  .fl-links{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 4px}
+  /* same look as the neighborhood cards' "View on a map" button */
+  .fl-open{display:inline-block;max-width:100%;font-size:.74rem;font-weight:700;color:#2b2417;background:#8a9a5b;border-radius:0;
+    padding:6px 12px;text-decoration:none;transition:background .2s;overflow-wrap:anywhere}
+  .fl-open:hover{background:#b0802f}
   .fl-list{list-style:none;margin:0;padding:0}
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
@@ -239,7 +235,6 @@
   .fl-list .fl-m{display:block;color:var(--muted);font-size:.78rem}
   .fl-list a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
   .fl-list a:hover{text-decoration:underline}
-  .fl-empty,.fl-wait{font-style:italic;color:var(--muted);font-size:.88rem;margin:0}
   .fl-sub{margin:12px 0 4px;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
   .fl-list .fl-res .fl-n::before{content:"\2713\00a0";color:var(--green)}   /* researched: pass confirmed */
   .fl-foot{margin:14px 0 0;font-size:.74rem;color:var(--muted);font-style:italic;line-height:1.4}
@@ -4092,12 +4087,10 @@ if(!c){
       <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
   }
 
-  /* ---------- Find laundry & gyms: embedded Google map (Maps Embed API) ----------
-     Free with no usage cap, and nothing from Google is stored. GMAPS_EMBED_KEY is a browser
-     key limited to the Maps Embed API and neverroamalone.com; while it's empty the modal
-     shows a plain "Open in Google Maps" link instead, which needs no key. */
-  const GMAPS_EMBED_KEY = "AIzaSyA2NV6sXuuaKSJ84aVpPcn3domPPMi7FBg";
-  let flKind = "laundry";
+  /* ---------- Find laundry & gyms: plain links to Google Maps ----------
+     No key and no embedded map (decisions.md, 2026-09-18): each link opens a Google Maps
+     search for laundromats or gyms near the place chosen in the dropdown, like every
+     other map link on the site. */
   const flEsc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
   function flPoints() {
     const hoods = CITY_HOODS[c.city] || [], geo = CITY_HOOD_GEO[c.city] || [];
@@ -4114,12 +4107,10 @@ if(!c){
         <select id="fl-hood">${pts.map(p => `<option value="${p.key}">${flEsc(p.label)}</option>`).join("")}</select>
       </div>` : `
       <div class="fl-head"><label>Showing all of ${flEsc(c.city)}</label></div>`;
-    const tab = (k, t) => `<button type="button" class="fl-tab${flKind === k ? " on" : ""}" data-fl="${k}" aria-pressed="${flKind === k}">${t}</button>`;
     return head + `
-      <div class="fl-tabs">${tab("laundry", "Laundry")}${tab("gym", "Gyms")}</div>
-      <div id="fl-map"></div>
+      <div id="fl-links" class="fl-links"></div>
       <div id="fl-gym"></div>
-      <p class="fl-foot">Map and listings are from Google Maps. Hours, availability and prices may have changed &mdash; check with the business before you go. Checked entries (&#10003;) are gyms we researched for day passes.</p>`;
+      <p class="fl-foot">The links open Google Maps. Hours, availability and prices may have changed &mdash; check with the business before you go. Checked entries (&#10003;) are gyms we researched for day passes.</p>`;
   }
   function flKm(a, b, cc, d) { const p = Math.PI / 180, x = Math.sin((cc - a) * p / 2) ** 2 + Math.cos(a * p) * Math.cos(cc * p) * Math.sin((d - b) * p / 2) ** 2; return 2 * 6371 * Math.asin(Math.sqrt(x)); }
   /* Researched gyms (CITY_GYMS) for the chosen point: a neighborhood's own list,
@@ -4149,26 +4140,19 @@ if(!c){
   }
   function flRun(key) {
     const pt = flPoints().find(p => p.key === key); if (!pt) return;
-    const M = document.getElementById("fl-map"), G = document.getElementById("fl-gym");
-    const q = `${flKind === "gym" ? "gym" : "laundromat"} near ${pt.place}${c.country ? ", " + c.country : ""}`;
-    const open = `<a class="fl-open" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>`;
-    M.innerHTML = GMAPS_EMBED_KEY
-      ? `<iframe class="fl-frame" title="${flEsc(q)}" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/search?key=${GMAPS_EMBED_KEY}&q=${encodeURIComponent(q)}"></iframe>${open}`
-      : `<p class="fl-empty">See ${flKind === "gym" ? "gyms" : "laundromats"} near ${flEsc(pt.key === "city" ? c.city : pt.label)} on Google Maps.</p>${open}`;
-    /* Google's map takes a few seconds; cover the empty frame until it's drawn */
-    const fr = M.querySelector(".fl-frame");
-    if (fr) { M.insertAdjacentHTML("beforeend", `<p class="fl-loading">Loading the map&hellip;</p>`); fr.addEventListener("load", () => { const w = M.querySelector(".fl-loading"); if (w) w.remove(); }); }
-    const researched = flKind === "gym" ? flResearched(pt) : "";
+    const L = document.getElementById("fl-links"), G = document.getElementById("fl-gym");
+    const near = pt.key === "city" ? c.city : pt.label;
+    const link = (what, label) => {
+      const q = `${what} near ${pt.place}${c.country ? ", " + c.country : ""}`;
+      return `<a class="fl-open" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">${label} near ${flEsc(near)} &rarr;</a>`;
+    };
+    L.innerHTML = link("laundromat", "Laundromats") + link("gym", "Gyms");
+    const researched = flResearched(pt);
     G.innerHTML = researched ? `<p class="fl-sub">Day passes we've checked${pt.key === "city" ? "" : " in " + flEsc(pt.label)}</p>${researched}` : "";
   }
   function flInit() {
     const sel = document.getElementById("fl-hood"), cur = () => sel ? sel.value : "city";
     if (sel) sel.addEventListener("change", () => flRun(cur()));
-    document.querySelectorAll(".fl-tab").forEach(b => b.addEventListener("click", () => {
-      flKind = b.dataset.fl;
-      document.querySelectorAll(".fl-tab").forEach(x => { x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", String(x === b)); });
-      flRun(cur());
-    }));
     flRun(cur());
   }
 
