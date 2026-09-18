@@ -233,7 +233,7 @@ is what populates it for a new city *today*.
 | 02 Fast facts | languages by majority + Common phrases popup | `c.langs`; `city-phrases.js` (**language-keyed**) | add_city.py; phrases: **check language exists** |
 | 02 Fast facts | religion, English ease | `religion`, `english` | add_city.py |
 | 02 Fast facts | cost, currency and converter: hotel b/m/h, meal, taxi, drinks, Daily Cost Estimator b/m/h, affordability tier, live FX | `cost`, `hotel`, `drinks`, `cur`, `card`; per-day figures computed by `cost-estimator.js` | add_city.py (no daily figure is researched: it is derived) |
-| 02 Fast facts | hotel card: avg per night + info bubble, budget/mid/high-end row, **Laundry** (wash+dry or drop-off price, availability, modal), **Gym** (cheapest researched day pass; "coming soon" until the city is researched; "no day-pass gyms found" when researched and empty), and **Find laundry & gyms** (neighborhood dropdown → researched gyms first, then live OpenStreetMap; a city with no placed neighborhood skips the dropdown and lists city-wide) | `hotel`, `cost.hotel`, `laundry`, `hood_geo`, `gyms` | add_city.py; laundry via `laundry/sync_laundry.py`; `hood_geo` via `hoods/geocode_hoods.py`; gyms via `gyms/load_gyms.py` (research per decisions.md; 25/893 done 2026-09-17, resume note in `_needs-attention/RESUME_gym-research.md`) |
+| 02 Fast facts | hotel card: avg per night + info bubble, budget/mid/high-end row, **Laundry** (wash+dry or drop-off price, availability, modal), **Gym** (cheapest researched day pass; "coming soon" until the city is researched; "no day-pass gyms found" when researched and empty), and **Find laundry & gyms** (neighborhood dropdown → researched gyms first, then an embedded Google map with Laundry/Gyms tabs and an "Open in Google Maps" link; a city with no placed neighborhood skips the dropdown and lists city-wide) | `hotel`, `cost.hotel`, `laundry`, `hood_geo`, `gyms` | add_city.py; laundry via `laundry/sync_laundry.py`; `hood_geo` via `hoods/geocode_hoods.py`; gyms via `gyms/load_gyms.py` (research per decisions.md; complete 893/893 on 2026-09-17, 92 honestly empty; batch log in `_needs-attention/_done/RESUME_gym-research.md`) |
 | 02 Fast facts | connectivity: mobile/wifi speed, operators, $/GB, free-wifi, airport wifi, **Travel eSIMs card** | `net`; `esim`; `esim-providers.js` (**country-keyed**) | add_city.py; eSIM: **check country row exists** |
 | 02 Fast facts | emergency & embassy, tipping, tap water | `emergency`, `tip`, `water` | add_city.py |
 | 02 Fast facts | getting around the city (transit systems, payment, hours, map link) | `transit` | add_city.py |
@@ -277,7 +277,7 @@ by their own script in the same task, and each is reported filled or open by nam
 | Language-keyed phrases (`city-phrases.js`) | Researched at add time if the city's majority language is not in the file yet. |
 | Day trips (`daytrips`) | Researched at add time. The 228 cities without them remain a separate backlog item. |
 | Laundry | **Built 2026-09-16** into the hotel card. Researched at add time (price, availability, note). Sheet columns stay as the source; `sync_laundry.py` copies them into citydata. |
-| Gym day pass | **Defined and piloted 2026-09-17** (decisions.md): gyms with day/multi-day/week passes, chains, non-guest hotel gyms, public centres, free calisthenics parks; stored as `gyms` per city and a Gyms sheet tab; researched at add time for new cities. 25 cities done; the rest run as a scheduled batch task. |
+| Gym day pass | **Defined and piloted 2026-09-17** (decisions.md): gyms with day/multi-day/week passes, chains, non-guest hotel gyms, public centres, free calisthenics parks; stored as `gyms` per city and a Gyms sheet tab; researched at add time for new cities. **Complete 2026-09-17:** 893/893 cities, 2,656 gyms, 92 cities honestly empty. |
 | Daily cost figure | **Done 2026-09-16.** No static daily figure anywhere. `cost-estimator.js` is the one formula for the city page and the finder (two per room, alcohol and activities on by default). The finder's `dailyCost` and the old `daily` key are gone. |
 
 **Add-time checklist** (the add-city report lists each line as filled or open):
@@ -334,8 +334,9 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
 ## 7. Files, edits and safety (the original master rules, kept in full)
 
 - **Only add or remove the exact lines the task requires.** Never regenerate or
-  rewrite a whole file or block. city.html is over a million characters; a
-  wholesale edit once silently deleted the Ibiza guide.
+  rewrite a whole file or block. city.html is still a very large file (about
+  325 KB since the city data moved to `citydata/`, once over a million
+  characters); a wholesale edit once silently deleted the Ibiza guide.
 - **Read the live file immediately before editing it.** Never edit from a copy
   read earlier in the session.
 - **After editing, prove nothing was lost:** grep for the pre-existing pieces and
@@ -420,7 +421,7 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 | Design tokens | `master.css` |
 | The one daily-cost formula | `cost-estimator.js` (city guide estimator, finder budget math, directory cost sort) |
 | Neighborhood geocoding, laundry sync, gym loader | `_guidebuild/hoods/`, `_guidebuild/laundry/`, `_guidebuild/gyms/` (gitignored; scripts read keys from `.env`) |
-| API keys | `.env` (gitignored): Pexels, Pixabay, Unsplash, `GOOGLE_MAPS_API_KEY`. Never in chat, commits or page code |
+| API keys | `.env` (gitignored): Pexels, Pixabay, Unsplash, `GOOGLE_MAPS_API_KEY`. Never in chat, commits or page code. One deliberate exception: `GOOGLE_MAPS_EMBED_KEY` is public in city.html for the Maps Embed iframe, restricted to neverroamalone.com and the Embed API (decisions.md, 2026-09-18) |
 | Decisions log | `_needs-attention/decisions.md` — add a row the day a decision is made; reverse with a new row, never by deleting |
 | Resume notes for long jobs | `_needs-attention/RESUME_*.md` |
 | Deploy | Netlify, from `main`; `_needs-attention/`, `netlify/`, root notes are pruned |

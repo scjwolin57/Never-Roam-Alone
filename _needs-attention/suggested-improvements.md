@@ -73,13 +73,13 @@
 
 **20. "Was this estimate right?" feedback (S)** — thumbs up/down on price estimates to tune the honesty of the math over time.
 
-**21. Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.
+**21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the `city-meta` edge function stamps each city's title, description and photo (checked 2026-09-18).*
 
-**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml.
+**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) is still open.*
 
 ## 📷 Photo housekeeping
 
-**23. Remaining 52 neighborhood photos** — list lives in `neighborhoods-needing-photos.md`. Options: your own photos (drop in the Desktop "Neighborhood photos" folder, named `City-Neighborhood.jpg`), a Flickr API pass (needs free key + domain allowlisted, same drill as Pexels), or leave on the Unsplash live fallback.
+**23. Remaining 4 neighborhood photos (was 52; 2026-09-18)** — list lives in `neighborhoods-needing-photos.md`. Options: your own photos (drop in the Desktop "Neighborhood photos" folder, named `City-Neighborhood.jpg`), a Flickr API pass (needs free key + domain allowlisted, same drill as Pexels), or leave on the Unsplash live fallback.
 
 - Re-run Pexels/Pixabay search every few months — both sites add photos constantly (keys are saved).
 - Still placeholder: story-card images on city pages; blog post photos on the homepage.
@@ -90,21 +90,21 @@
 
 *Foundation already done: sitemap.xml, robots.txt, meta descriptions on every page, admin pages hidden from Google. Site is noindexed until launch day (one marked line in netlify.toml). Launch day = delete that line, push, set up Google Search Console, submit sitemap.*
 
-**24. Per-city titles & descriptions (M)** ⭐ *biggest ranking win* — today every city guide shows Google the same generic title. A small Netlify edge function stamps "Tokyo Solo Travel Guide" (plus matching description and photo) into each page before it's sent. Solves item 21 (per-city link previews) at the same time. Same fix applies to blog posts.
+**24. ~~Per-city titles & descriptions (M)** ⭐ *biggest ranking win* — today every city guide shows Google the same generic title. A small Netlify edge function stamps "Tokyo Solo Travel Guide" (plus matching description and photo) into each page before it's sent. Solves item 21 (per-city link previews) at the same time. Same fix applies to blog posts.~~ *Done: same edge function, all 893 cities; since 2026-09-17 it also adds a canonical tag, a server-side heading and summary.*
 
-**25. Canonical tags (S)** — one line per page telling Google each page's official address, so share links with extra URL bits don't count as duplicate pages.
+**25. ~~Canonical tags (S)** — one line per page telling Google each page's official address, so share links with extra URL bits don't count as duplicate pages.~~ *Done 2026-09-17/18: canonical on every public page and every city guide (`6fc184c7`, `443ed13f`).*
 
-**26. Structured data (S/M)** — hidden labels (schema.org) telling Google "this is a travel guide about Tokyo" / "this is a blog post." Can earn richer search listings; part of item 22.
+**26. ~~Structured data (S/M)** — hidden labels (schema.org) telling Google "this is a travel guide about Tokyo" / "this is a blog post." Can earn richer search listings; part of item 22.~~ *Done 2026-09-18: TravelGuide + breadcrumb on city guides, Organization + WebSite on the home page (`6fc184c7`).*
 
-**27. Page-speed pass (M)** — city.html is over half a megabyte of code before photos. Move shared styles/data into cached files, serve WebP images. Test with PageSpeed Insights; speed is a ranking factor.
+**27. Page-speed pass (M)** — city.html is over half a megabyte of code before photos. Move shared styles/data into cached files, serve WebP images. Test with PageSpeed Insights; speed is a ranking factor. *Partly done by the August performance audit; deferring city.html's heavy scripts (about 1.45 MB) is still open.*
 
 **28. Bing Webmaster Tools (S)** — 10-minute sibling of Search Console; covers Bing, DuckDuckGo, and AI search tools that use Bing's index.
 
-**29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working.
+**29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working. *2026-09-18: Plausible chosen and the script is on every page (`6fc184c7`); waiting on Jeff's Plausible signup. City guides get it from the edge function until city.html carries it.*
 
 **30. Alt text audit (S)** — descriptive captions on photos for image search + accessibility; part of item 22.
 
-**31. Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.
+**31. ~~Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.~~ *Done: `404.html` exists and unknown city names now return a real 404 (`443ed13f`).*
 
 **32. Backlinks — the real ranking fuel (ongoing)** — Google ranks sites other sites link to. Share guides on r/solotravel and travel forums (genuinely, not spammy), get listed in travel directories, offer guest posts. Items 12 (city vs city) and 13 (seasonal collections) create pages people naturally link to.
 
@@ -154,7 +154,7 @@
 
 ## ⚠️ Pending fix (added July 19, 2026)
 
-**50. Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.
+**50. ~~Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.~~ *Done: fonts self-hosted in `/fonts`, no page requests Google Fonts, and the privacy claim is true (checked 2026-09-17).*
 
 ---
 
