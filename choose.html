@@ -1562,8 +1562,13 @@ function seasonPillFor(c){
   const dd = departDateVal(); if(!dd) return "";
   const mo = parseInt(dd.slice(5,7), 10); if(!mo) return "";
   const S = (window.NRA_SEASON || {})[c.city]; if(!S) return "";
-  const ev = (S.ev || []).find(e => e.m.indexOf(mo) >= 0);
-  if(ev) return ` <span class="season-pill peak">📅 ${ev.l}</span>`;
+  /* seasonal events, minus any that repeat a holiday (the holiday banner above
+     already speaks for those, with exact dates) */
+  const evs = window.NRA_HOLIDAY_BANNER && NRA_HOLIDAY_BANNER.events
+    ? NRA_HOLIDAY_BANNER.events(c.country, c.city, dd, dd)
+    : (S.ev || []).filter(e => e.m.indexOf(mo) >= 0).map(e => ({ label: e.l }));
+  const ev = evs[0];
+  if(ev) return ` <span class="season-pill peak">📅 ${ev.label}</span>`;
   const q = Math.floor((mo - 1) / 3);
   const t = S.t ? S.t[q] : null;
   const rd = S.r ? S.r[q] / 3 : null;               // rainy days per month
