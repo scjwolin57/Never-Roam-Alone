@@ -22,7 +22,10 @@ Each differing value was traced to the commit where it first appeared, on both s
 3. **No check blocks a commit** when the two copies disagree, so every later task fixed its own
    slice (27 day-trip cities, 23 repeat cities) and the rest resurfaced.
 
-## A. The site changed later; the sheet is stale (fill the sheet from the site)
+## A. The site changed later; the sheet is stale (fill the sheet from the site) — DONE 2026-09-19
+
+Filled: 20,410 cells, log in `_done/sheet-fill-from-site-2026-09-19.csv`. After the fill, every
+field in this group matches the site (hotels, vibe, description and landmark 4,029/4,029 hoods).
 
 | Field | Cells / cities | Where the site value came from |
 |---|---|---|
