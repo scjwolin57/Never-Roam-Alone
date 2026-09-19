@@ -1,54 +1,34 @@
-# Photo sync into the sheet: what I did not guess (2026-09-18)
+# Sheet and site: neighborhood lists disagree (found during the photo sync, 2026-09-19)
 
-The sheet's City Photo and Hood 1-5 Photo File/Credit columns now match
-`city-photos.js` and `hood-photos.js` exactly (7,612 cells; full log in
-`_done/photo-sheet-sync-2026-09-18.csv`). These items need your call.
+## Done (Jeff: "delete entries, clear duplicates, add columns")
 
-## 1. Site photos filed under a neighborhood the sheet does not have (13), plus one stale city key
+- **Orphan photo entries deleted from `hood-photos.js`** (files stay on disk): San Marino / Serravalle,
+  Sharjah / Al Qasba, Tel Aviv / Ramat Aviv, Vaduz / Balzers, Vaduz / Triesenberg / Malbun, and the
+  stale "Luxembourg City" block (5; "Luxembourg" has its own). The other 8 on the first list
+  (Abu Dhabi / Al Maryah Island, Brussels / Grand Place, Copenhagen / Indre By, Frankfurt /
+  Innenstadt, Honolulu / Kahala, Palma / Playa de Palma, Vladimir / Studyonaya Gora, Weno / Neiwe)
+  ARE shown on the site; they only looked orphaned because the sheet's hood list differs. Kept.
+- **23 cities: sheet hoods now match the site** (Avignon ... Timimoun). 25 repeated slots cleared,
+  plus 13 slots holding hoods the site had already removed as day trips or outlying places
+  (e.g. Kanchanaburi "Erawan National Park (day-trip)", Chiang Rai "Golden Triangle", Tamanrasset
+  "Outskirts / Tuareg Camps"). Log: `_done/sheet-hood-repeats-cleared-2026-09-19.csv`.
+- **50 sheet columns added**: Landmark 1-10 Photo File/Credit (8,349 photos) and Food 1-10
+  Name/Photo File/Credit (7,112 dishes, 211 photos; photos exist for 25 cities only).
 
-The photo exists on the site's photo list, but its neighborhood is not one of that
-city's hoods, so the page never shows it. Most look like hoods that were renamed or
-removed (e.g. Vaduz: Balzers and Triesenberg were taken out as day trips).
+## Still open: decide which side is right
 
-| City | Photo filed under | File | The city's hoods now |
-|---|---|---|---|
-| Abu Dhabi | Al Maryah Island | `images/hoods/abu-dhabi--al-maryah-island.webp` | Al Reem Island, Yas Island, Saadiyat Island, Corniche, Khalifa City |
-| Brussels | Grand Place | `images/hoods/brussels--grand-place.webp` | Ixelles, Saint-Gilles, Marolles, Sablon, European Quarter |
-| Copenhagen | Indre By | `images/hoods/copenhagen--indre-by.webp` | Norrebro, Vesterbro, Osterbro, Christianshavn, Frederiksberg |
-| Frankfurt am Main | Innenstadt (Altstadt) | `images/hoods/frankfurt-am-main--innenstadt-altstadt.webp` | Sachsenhausen, Bornheim, Nordend, Westend, Bockenheim |
-| Honolulu | Kahala | `images/hoods/honolulu--kahala.webp` | Waikiki, Ala Moana, Kakaako, Manoa, Chinatown |
-| Palma de Mallorca | Playa de Palma | `images/hoods/palma-de-mallorca--playa-de-palma.webp` | Casco Antiguo (Old Town), Santa Catalina, El Terreno, Portixol, Son Espanyolet |
-| San Marino | Serravalle | `images/hoods/san-marino--serravalle.webp` | Città di San Marino (Historic Center), Borgo Maggiore, Dogana, Domagnano |
-| Sharjah | Al Qasba | `images/hoods/sharjah--al-qasba.webp` | Al Majaz, Al Nahda, Al Khan, Al Taawun, Heart of Sharjah |
-| Tel Aviv | Ramat Aviv | `images/hoods/tel-aviv--ramat-aviv.webp` | Florentin, Neve Tzedek, Jaffa (Yafo), Rothschild (Lev Ha'ir), HaYarkon Beachfront (Old North) |
-| Vaduz | Balzers | `images/hoods/vaduz--balzers.webp` | Vaduz Städtle (City Center), Schaan, Triesen |
-| Vaduz | Triesenberg / Malbun | `images/hoods/vaduz--triesenberg-malbun.webp` | Vaduz Städtle (City Center), Schaan, Triesen |
-| Vladimir | Studyonaya Gora | `images/hoods/vladimir--studyonaya-gora.webp` | Historic Center (Sobornaya Square), Georgievskaya Street (Old Town), Trading Rows (Bolshaya Moskovskaya), Klyazma Riverside, Yuryevets |
-| Weno | Neiwe | `images/hoods/weno--neiwe.webp` | Iras, Nantaku, Mechitiw, Sapuk, Wichap |
-| Luxembourg City | (whole city) | | `hood-photos.js` still has a "Luxembourg City" key; the sheet row was merged into "Luxembourg" as an alias on 2026-09-02 |
-
-**Question:** delete these orphan entries from `hood-photos.js` (the files stay on disk), or
-tell me which hood each one should belong to.
-
-## 2. The sheet repeats a neighborhood to fill 5 slots (23 cities)
-
-The site shows 3 or 4 hoods for these cities, each once. The sheet repeats one (two
-for Manzhouli and Sigiriya) so all 5 slots are filled. That breaks rule 1 (never
-pad) and the sheet/site parity.
-
-Avignon, Bariloche, Carcassonne, Charlottetown, Chiang Rai, Girona, Göreme, Harar, Kanchanaburi, Lalibela, Leticia, Manzhouli (2 names), Mar del Plata, Mont-Saint-Michel, Pai, Pristina, Saint Martin's Island, San Andrés, Savonlinna, Sigiriya (2 names), Tamanrasset, Taormina, Timimoun
-
-**Question:** clear the repeated slots in the sheet so it matches the site? (Nothing on the site changes.)
-
-## 3. Landmark and food photos have no sheet columns
-
-`city-landmark-photos.js` and `city-food-photos.js` exist only on the site.
-
-**Question:** add sheet columns for them, or record them as site-only in the sheet's parity note?
-
-## Done without asking
-
-- Cancún / Punta Cancún: the sheet named `images/hoods/cancun--punta-cancun.jpg`, which does not
-  exist, and the site has no photo for that hood. Cleared both cells (old values are in the log).
-- Photos with no source page (our own photos: 1 city, 2 hoods) are credited in the sheet as
-  "Own photo (Never Roam Alone)", matching the site, which shows no credit for them.
+1. **129 cities where the sheet's hood list is not the site's.** 126 have 5 hoods in the sheet but
+   3-4 on the site (e.g. Abha, Aix-en-Provence, Annecy, Axum, Banff); 3 have different names
+   (e.g. Abu Dhabi: sheet has Al Reem Island, site has Al Maryah Island). The site is what visitors
+   see and most gaps look like hoods removed on the site only. **Question:** make the sheet match
+   the site for all 129 (same method as the 23 above), after a per-city list for you to scan?
+2. **10 hood photos for hoods only the sheet has** (Abu Dhabi / Al Reem Island, Florence / Santo
+   Spirito, Honolulu / Kakaako and Manoa, Macau / Senado Square, Marne-la-Vallée / Val d'Europe,
+   Orlando / Thornton Park, Palma / Son Espanyolet, Sapporo / Chuo, Valencia / El Carmen). They
+   follow item 1: if the sheet matches the site, these entries get deleted too.
+3. **Landmarks:** Tozeur and Şanlıurfa. The sheet still lists El Ferdous Mosque (Tozeur ships with
+   9, decisions.md) and Harran (a day trip) which the site removed. Clear them in the sheet?
+4. **4 cities show 6 hoods on the site** (Salalah, Brussels, Frankfurt am Main, Copenhagen); the
+   per-city shape is 5. Which one goes in each?
+5. **Tooling:** `_guidebuild/add_city_to_sheet.py` does not fill the new landmark and food photo
+   columns yet, so a new city would leave them blank until it does.

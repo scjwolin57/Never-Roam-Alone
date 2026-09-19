@@ -255,7 +255,7 @@ is what populates it for a new city *today*.
 | 07 Happenings | Roamers in town, Roamer's Connections board, Ask-a-Roamer link | user-generated; city must exist in `destinations.js` | add_city.py (destinations.js) |
 | 08 Insights | Traveler's Take / Local's Perspective: "Share" interview forms, and approved interviews as cards (newest 3, "Read the full interview", "Show all") | user-generated: Supabase `city_insights` (pending, admin-only) → `city_insights_public` view (approved, no email); approved in Admin → Insights via `approve-insight.js` | nothing to research; site-only, not in citydata or the sheet |
 | 09 Dispatches | blog stories (placeholder) | none | nothing to research |
-| Sheet | one row, 204 columns, incl. Intl Visitors basis/note, Beaches Score, the laundry columns, Hood N Latitude/Longitude; plus the Laundry and Gyms venue tabs | `NRA-MASTER.xlsx` Live Cities, Laundry, Gyms | add_city_to_sheet.py; `gyms/load_gyms.py` for the Gyms tab |
+| Sheet | one row, 254 columns, incl. Intl Visitors basis/note, Beaches Score, the laundry columns, Hood N Latitude/Longitude, Landmark N Photo File/Credit and Food N Name/Photo File/Credit (added 2026-09-19); plus the Laundry and Gyms venue tabs | `NRA-MASTER.xlsx` Live Cities, Laundry, Gyms | add_city_to_sheet.py; `gyms/load_gyms.py` for the Gyms tab |
 | Finder | six priority scores + walk + safety; budget math from `cost`/`hotel`/`drinks` via `cost-estimator.js` | `score` → `city-scores.js`; price inputs → `destinations.js` | add_city.py |
 | City directory (cities.html) | card list; cost sorts use the same `cost-estimator.js` mid figure | reads `destinations.js` at runtime (no copy of its own since 2026-09-16) | add_city.py via destinations.js |
 
@@ -412,7 +412,7 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 
 | Thing | Place |
 |---|---|
-| Master data | `NRA-MASTER.xlsx` → "Live Cities" (893 rows, 197 columns) |
+| Master data | `NRA-MASTER.xlsx` → "Live Cities" (893 rows, 254 columns) |
 | Per-city guide data | `citydata/<slug>.json` + `citydata/_index.json` |
 | City lists that must stay in sync | see memory `nra-city-count-sync-targets` |
 | Add-city tooling and schema | `_guidebuild/add_city.py`, `CITY_SCHEMA.md` (gitignored folder) |

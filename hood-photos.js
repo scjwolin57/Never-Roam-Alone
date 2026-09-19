@@ -410,13 +410,6 @@ window.NRA_HOOD_PHOTO = {
     "Santa Monica": { img:"images/hoods/los-angeles--santa-monica.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_monica_pier_entrance_evening.jpg" },
     "Beverly Hills": { img:"images/hoods/los-angeles--beverly-hills.webp", page:"https://commons.wikimedia.org/wiki/File:Rodeo_Drive%2C_Beverly_Hills%2C_LA%2C_CA%2C_jjron_21.03.2012.jpg" }
   },
-  "Luxembourg City": {
-    "Grund": { img:"images/hoods/luxembourg-city--grund.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Jean_(Neum%C3%BCnster)_20180627.jpg" },
-    "Kirchberg": { img:"images/hoods/luxembourg-city--kirchberg.webp", page:"https://commons.wikimedia.org/wiki/File:EP_-_Kirchberg_from_the_skies_2025_(3).jpg" },
-    "Ville Haute (Old Town)": { img:"images/hoods/luxembourg-city--ville-haute-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Luxembourg%2C_Place_d'Armes_(101).jpg" },
-    "Gare (Station District)": { img:"images/hoods/luxembourg-city--gare-station-district.webp", page:"https://commons.wikimedia.org/wiki/File:LUXGARE8.jpg" },
-    "Clausen": { img:"images/hoods/luxembourg-city--clausen.webp", page:"https://commons.wikimedia.org/wiki/File:Luxembourg_(LU)%2C_Viaduc_de_Clausen_--_2023_--_8131.jpg" }
-  },
   "Macau": {
     "Taipa": { img:"images/hoods/macau--taipa.webp", page:"https://commons.wikimedia.org/wiki/File:Taipa_Building_-_panoramio.jpg" },
     "Coloane": { img:"images/hoods/macau--coloane.webp", page:"https://commons.wikimedia.org/wiki/File:Coloane_and_coastline_02.JPG" },
@@ -666,7 +659,6 @@ window.NRA_HOOD_PHOTO = {
     "The Castro": { img:"images/hoods/san-francisco--the-castro.webp", page:"https://www.pexels.com/photo/signage-on-a-white-and-red-concrete-building-7409340/", src:"Pexels" }
   },
   "San Marino": {
-    "Serravalle": { img:"images/hoods/san-marino--serravalle.webp", page:"https://commons.wikimedia.org/wiki/File:SerravalleRSMCastello2.JPG" },
     "Dogana": { img:"images/hoods/san-marino--dogana.webp", page:"https://commons.wikimedia.org/wiki/File:San-Marino-Dogana-1268.jpg" },
     "Borgo Maggiore": { img:"images/hoods/san-marino--borgo-maggiore.webp", page:"https://commons.wikimedia.org/wiki/File:Borgo_Maggiore_seen_from_San_Marino_-_June_2016.jpg" },
     "Domagnano": { img:"images/hoods/san-marino--domagnano.webp", page:"https://commons.wikimedia.org/wiki/File:DomagnanoBorgoMaggioreRSMPanorama.JPG" },
@@ -730,7 +722,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Sharjah": {
     "Al Khan": { img:"images/hoods/sharjah--al-khan.webp", page:"https://commons.wikimedia.org/wiki/File:Khan_al-Saboon.jpg", src:"Qamar Barutchi" },
-    "Al Qasba": { img:"images/hoods/sharjah--al-qasba.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Qasba.jpg" },
     "Al Majaz": { img:"images/hoods/sharjah--al-majaz.webp", page:"https://commons.wikimedia.org/wiki/File:AL_MAJAZ_NIGHT_VIEW.jpg", src:"SHARON VISHAKHAM" },
     "Al Taawun": { img:"images/hoods/sharjah--al-taawun.webp", page:"https://commons.wikimedia.org/wiki/File:A_beautiful_view_from_a_balcony.jpg", src:"Tasniem mohamed" },
     "Al Nahda": { img:"images/hoods/sharjah--al-nahda.webp", page:"https://commons.wikimedia.org/wiki/File:Al_amman_signal_-_panoramio.jpg", src:"Bin Al Stroker" },
@@ -811,7 +802,6 @@ window.NRA_HOOD_PHOTO = {
     "Saburtalo": { img:"images/hoods/tbilisi--saburtalo.webp", page:"https://commons.wikimedia.org/wiki/File:Construction_boom_in_Saburtalo%2C_Tbilisi.jpg" }
   },
   "Tel Aviv": {
-    "Ramat Aviv": { img:"images/hoods/tel-aviv--ramat-aviv.webp", page:"https://commons.wikimedia.org/wiki/File:Ramat_Aviv.jpg" },
     "Neve Tzedek": { img:"images/hoods/tel-aviv--neve-tzedek.webp", page:"https://commons.wikimedia.org/wiki/File:%D7%A0%D7%95%D7%95%D7%94_%D7%A6%D7%93%D7%A7_-_%D7%94%D7%A9%D7%9B%D7%95%D7%A0%D7%94_%D7%94%D7%90%D7%93%D7%95%D7%9E%D7%94.jpg" },
     "Jaffa (Yafo)": { img:"images/hoods/tel-aviv--jaffa-yafo.webp", page:"https://commons.wikimedia.org/wiki/File:Jaffa_BW_3.JPG" },
     "Rothschild (Lev Ha'ir)": { img:"images/hoods/tel-aviv--rothschild-lev-ha-ir.webp", page:"https://commons.wikimedia.org/wiki/File:Rothschild_Boulevard%2C_Tel_Aviv-Yafo.jpg" },
@@ -846,10 +836,8 @@ window.NRA_HOOD_PHOTO = {
     "Queen West": { img:"images/hoods/toronto--queen-west.webp", page:"https://commons.wikimedia.org/wiki/File:Graffiti_Alley_Toronto%2C_June_24_2026_(02).jpg" }
   },
   "Vaduz": {
-    "Balzers": { img:"images/hoods/vaduz--balzers.webp", page:"https://www.pexels.com/photo/scenic-view-of-balzers-in-liechtenstein-with-snowy-alps-37021728/", src:"Pexels" },
     "Vaduz Städtle (City Center)": { img:"images/hoods/vaduz--vaduz-stadtle-city-center.webp", page:"https://www.pexels.com/photo/vaduz-castle-in-liechtenstein-on-clear-day-37021731/", src:"Pexels" },
     "Schaan": { img:"images/hoods/vaduz--schaan.webp", page:"https://commons.wikimedia.org/wiki/File:Schaan%2C_die_Pfarrkirche_Sankt_Laurentius_in_straatzicht_foto7_2014-07-21_10.12.jpg" },
-    "Triesenberg / Malbun": { img:"images/hoods/vaduz--triesenberg-malbun.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesenberg.jpg" },
     "Triesen": { img:"images/hoods/vaduz--triesen.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesen.jpg" }
   },
   "Valencia": {
