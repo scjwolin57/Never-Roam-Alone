@@ -9,7 +9,7 @@ window.NRA_SEASON = {
   "Kotor": {"t":[57,74,86,64],"r":[51,33,26,63]},
   "Nicosia": {"t":[62,83,95,72],"r":[52,12,3,43]},
   "Kuwait City": {"t":[74,104,113,82],"r":[15,3,0,10]},
-  "Ulaanbaatar": {"t":[10,57,72,24],"r":[3,18,55,6]},
+  "Ulaanbaatar": {"t":[10,57,72,24],"r":[3,18,55,6],"ev":[{"m":[7],"l":"Naadam festival (Jul 11-13) — city books out, offices close"},{"m":[2],"l":"Tsagaan Sar lunar new year — widespread closures for several days"},{"m":[12,1,2],"l":"Extreme winter cold and heavy smog season"}]},
   "Paramaribo": {"t":[84,86,88,88],"r":[150,273,157,132]},
   "Tarawa": {"t":[88,87,87,88],"r":[220,140,110,145]},
   "Majuro": {"t":[86,87,87,87],"r":[128,190,214,224]},

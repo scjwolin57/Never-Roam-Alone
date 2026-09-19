@@ -2606,7 +2606,7 @@ if(!c){
     const laundryHTML = !ln ? "" : `
           <div class="hx">
             <div class="hx-k">Laundry<button type="button" class="note-btn" onclick="openModal('Laundry')" aria-label="Laundry — more info" title="More info">${INFO_ICON}</button></div>
-            <div class="hx-v">${ln.usd != null ? fmtPrice(ln.usd, code) : dropShown ? dropShown.v : "&mdash;"}</div>
+            <div class="hx-v">${ln.usd != null ? fmtPrice(ln.usd, code) + (ln.usdMax != null ? "&ndash;" + fmtPrice(ln.usdMax, code) : "") : dropShown ? dropShown.v : "&mdash;"}</div>
             <div class="hx-n">${ln.usd != null ? "wash + dry" + (ln.scope === "country" ? " &middot; country avg" : "") : dropShown ? dropShown.n + (ln.scope === "country" ? " &middot; country avg" : "") : (AVAIL_WORD[ln.avail] || "price not published")}</div>
           </div>`;
     /* Gym: day-pass research not done yet — "coming soon", the same placeholder
@@ -4243,7 +4243,7 @@ if(!c){
     if (!ln) return `<p class="modal-placeholder">Laundry details for ${c.city} are coming soon.</p>`;
     const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
     const rows = [];
-    if (ln.usd != null) rows.push(`<b>Wash + one dry:</b> about $${ln.usd} USD${ln.scope === "country" ? " — a typical figure for the country, not this city specifically" : ""}${ln.asof ? ` (as of ${esc(ln.asof)})` : ""}`);
+    if (ln.usd != null) rows.push(`<b>Wash + one dry:</b> about $${ln.usd}${ln.usdMax != null ? "&ndash;" + ln.usdMax : ""} USD${ln.scope === "country" ? " — a typical figure for the country, not this city specifically" : ""}${ln.asof ? ` (as of ${esc(ln.asof)})` : ""}`);
     if (ln.drop) rows.push(`<b>Drop-off (wash-and-fold):</b> ${esc(ln.drop)}${ln.cur ? ` ${esc(ln.cur)}` : ""}${/lb/i.test(ln.drop) ? "" : /kg|load/i.test(ln.drop) ? "" : " per kg"}${ln.scope === "country" ? " — a typical figure for the country" : ""}`);
     if (ln.avail) rows.push(`<b>Self-service laundromats:</b> ${esc(ln.avail)}${ln.self != null ? ` &middot; ${ln.self} mapped within 12 km` : ""}`);
     if (ln.pay) rows.push(`<b>Payment:</b> ${esc(ln.pay)}`);

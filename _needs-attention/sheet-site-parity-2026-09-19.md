@@ -40,7 +40,10 @@ field in this group matches the site (hotels, vibe, description and landmark 4,0
 | Food photo columns (added today) | 211 filled; the site has 7,055 across 893 cities | **my error:** filled from `city-food-photos.js` (25 cities); the page reads `citydata` `food_photos` |
 | Transit Systems | 7 cities: sheet text is joined per character ("N · o ·  · f ...") | Jul 26 load defect |
 
-## B. The sheet has information the site does not show (keep it in the sheet)
+## B. The sheet has information the site does not show — DECIDED 2026-09-19
+
+Advisories Level 1-2: stay in the sheet only. Laundry ranges, emergency notes and Ulaanbaatar
+events: copied to the site (commit after 95902e47).
 
 | Field | Count | Note |
 |---|---|---|
