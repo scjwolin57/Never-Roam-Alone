@@ -42,7 +42,8 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 24 | Sucre … Mardin (25) | 59 | 10 | 31 | 18 | 66522627 |
 | 25 | Baguio … Mysore (25) | 55 | 7 | 39 | 9 | 979d25c8 |
 | 26 | Angra dos Reis … Ulm (25) | 60 | 10 | 30 | 20 | 0ab5821b |
-| 27 | Trujillo … Tripoli (25) | 49 | 8 | 27 | 14 | this commit |
+| 27 | Trujillo … Tripoli (25) | 49 | 8 | 27 | 14 | 131adf78 |
+| 28 | Bangui … Weimar (25) | 55 | 13 | 18 | 24 | this commit |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
