@@ -23,7 +23,8 @@ Rule: decisions.md 2026-09-18. Verify all 3,795 day trips on the site (888 citie
 - Step 2 (agents): batches of 25 cities; every entry researched, flagged ones first.
 - Step 3: a separate agent re-checks every non-`ok` verdict and a random 10% of `ok`s.
 - Step 4: apply with `apply_verdicts.py` (day-trips.js + citydata together; citydata must equal day-trips.js for all cities), commit the batch.
-- Step 5 (after all batches): regenerate the sheet's two day-trip columns from `day-trips.js` for all cities; parity check; commit.
+- **Step 5 (after all batches, NOT YET DONE 2026-09-21): regenerate the sheet's two day-trip columns from `day-trips.js` for all 888 cities; parity check; commit.**
+  Sheet location confirmed: `NRA-MASTER.xlsx`, sheet "Live Cities", columns index 140 "Half-Day Trips" and 141 "Full-Day Trips" (0-indexed via openpyxl). Current cell format observed: newline-separated entries, each `"<Name> (<Country>) — <blurb>"`, with a `★` prefix marking featured entries. **Confirmed the mapping**: each `day-trips.js` entry carries a `featured` boolean (`true`/`false`) -- that's the source for the `★` prefix. Also confirmed the sheet is currently stale against `day-trips.js`: Abu Dhabi's sheet HALF cell lists "★ Dubai" and other entries, but the current `day-trips.js` half list for Abu Dhabi is empty (`[]`) -- the sheet predates recent verification passes and needs a full regenerate, not a diff/patch. Deliberately not attempted this session: rewriting 888 rows of a 6MB shared binary the other sessions may also be touching, without running the exact formatter past a small verified sample first, was judged too risky to bundle into the same pass as the verification work. **This is the one remaining step before the pass is fully closed out.**
 
 ## State
 - Plan: `_guidebuild/daytrips/batches/plan.json` (35 batches of 25 by visitors, then batch 36 = the 29 cities from the neighborhood fix, incl. their 42 landmark clashes).
