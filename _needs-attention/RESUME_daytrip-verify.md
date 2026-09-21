@@ -57,8 +57,11 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 14 | see git log | 120 | 54 | 19 | 10 | 37 | 0 of 71 |
 | 15 | see git log | 107 | 59 | 12 | 5 | 31 | 1 of 54 |
 | 16 | see git log | 109 | 55 | 14 | 12 | 28 | 1 of 59 |
+| 17 | see git log | 104 | 62 | 9 | 9 | 24 | 0 of 48 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12/8/10 for batches 2-16 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12/8/10/9 for batches 2-17 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+
+Castries is down to one entry (Le Lamentin) after losing 5 Caribbean-capital guide-city matches plus two Guadeloupe entries at ~7h15m ferry. Zanzibar City lost most of its list to Dar es Salaam/Mombasa guide-city matches and distance.
 
 **Batches 1-15 condensed history** (full detail in git log commit bodies, one per batch):
 - Cities now at ZERO day trips of either length (rule-12 candidates, see backlog below): Colombo, Dubrovnik, Siem Reap, Kigali (DRC conflict-zone caveat), Kathmandu, Tel Aviv, Bridgetown, La Paz, Port Louis.
@@ -77,4 +80,4 @@ DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-misma
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 400 (batches 1-16) | 488 | 116 | 329 | 562 | 249 |
+| 425 (batches 1-17) | 463 | 125 | 338 | 586 | 258 |
