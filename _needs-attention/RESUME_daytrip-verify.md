@@ -66,6 +66,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 23 | see git log | 98 | 46 | 12 | 5 | 30 | **skipped, see note** |
 | 24 | see git log | 108 | 51 | 6 | 8 | 33 | **skipped, see note** |
 | 25 | see git log | 84 | 60 | 8 | 7 | 9 | 1 of 30 |
+| 26 | see git log | 99 | 38 | 9 | 4 | 48 | 0 of 64 |
+
+**Batch 26's checker also completed normally** (64/64 checked, 0 disagreements) -- the checker is reliable again for a second straight batch. Four cities went to zero: Apia (Pago Pago is ferry-only, weekly, 8-10h), Thimphu (all 9 entries were regional cities 4+ hours away or across an international border, none held up), Basseterre (8 of 9 entries were other Caribbean guide cities, the ninth had no non-flight route to Guadeloupe), Djibouti City (all 6 entries were either active Yemen war zone or 5-8.5h drives). Baden-Baden lost 3 of 4 entries to guide-city matches (Strasbourg, Heidelberg, Freiburg) plus one moved to full (Triberg). Shaoxing lost 3 entries for being inside its own Keqiao District hood, not a hoods/daytrips-file bug like Chiang Rai/Flores but the same underlying pattern (day trip = inside the city).
 
 **Batch 25's checker completed normally** (169s, 27 tool uses) -- the stall pattern from batches 21-24 did not recur. All 30 sampled entries checked with fresh searches; one overturn (Haifa/Zichron Ya'akov: researcher's fix reasoning was right but its replacement blurb ran 149 chars, over the ~130 cap -- checker shortened it to 118 keeping the same facts). All 30 top-level `len` values double-checked against current data, zero mismatches. Leshan went to zero (its two remaining entries, Mount Emei Golden Summit and Baoguo Temple, both duplicated the city's own 'Emeishan' neighborhood/hood data). Barranquilla, Jerez de la Frontera and Nakhon Ratchasima each lost guide-city matches (Cartagena/Santa Marta; Cadiz/Seville/Gibraltar; Bangkok) to `nearby`.
 
@@ -101,11 +104,11 @@ Checker overturned Portland/Cannon Beach to `move` (full) for consistency with t
 
 **Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25), Apia, Thimphu, Basseterre, Djibouti City (batch 26, Djibouti conflict-zone caveat above) — to be done in a dedicated follow-up once more batches are through.
 
 DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 625 (batches 1-25) | 263 | 172 | 421 | 811 | 322 |
+| 650 (batches 1-26) | 238 | 176 | 430 | 859 | 341 |
