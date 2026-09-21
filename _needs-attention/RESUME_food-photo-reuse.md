@@ -7,7 +7,7 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 - Keep a photo only if it shows that exact dish or drink (the same dish under another name counts: bissap = hibiscus drink, samboosa = samosa).
 - Otherwise replace with a photo of that exact dish, checked by eye on a candidate sheet, Wikimedia Commons only, licence allowing commercial use (no NC/ND). The plant, the shop front or a generic cousin dish is not the dish.
 - None found: `food_photos[i] = null`; the page shows "We haven't found a photo for this" + Contribute a photo (e0658993).
-- A replacement file shared with the same dish in other cities updates all of them together (credit stays true); a file shared with a different dish gets a city-specific name.
+- A new photo goes only to the city being fixed, under its own file name, unless other cities are named by hand in the pick's `share` list (same dish in the same food tradition: Central Asian samsa, Argentine empanadas). Same name is not enough: Tunisian couscous is not Moroccan couscous, Turkish mantı is not Uzbek manti (learned in batch 3).
 - Batches of ~25 cities; site (citydata + images/food) and sheet (Food N Photo File/Credit) together; one commit per batch with the log.
 
 ## Tools (`_guidebuild/foodphotos/reuse/`, not in git)
@@ -17,4 +17,5 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | Batch | Cities (visitor order) | Slots reviewed | Kept | Replaced | No photo | Commit |
 |---|---|---|---|---|---|---|
 | 1 | Bangkok … Miami (25) | 57 | 43 | 9 (+6 same-dish cities) | 5 | e4fdcd65 |
-| 2 | Taipei … Copenhagen (25) | 51 | 38 | 9 (+5 same-dish cities) | 4 | this commit |
+| 2 | Taipei … Copenhagen (25) | 51 | 38 | 9 (+5 same-dish cities) | 4 | 45fa713a |
+| 3 | Munich … Melbourne (25) | 43 | 29 | 13 (+9 same-dish cities) | 1 (+Sydney fixed in 2) | this commit |
