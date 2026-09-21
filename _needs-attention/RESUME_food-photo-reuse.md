@@ -31,7 +31,8 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 13 | Addis Ababa … Zadar (25) | 63 | 10 | 34 | 19 | 4019498e |
 | 14 | Sa Pa … Mendoza (25) | 59 | 18 | 24 | 17 | f57a4b60 |
 | 15 | Qingdao … Oaxaca (25) | 67 | 9 | 35 | 23 | 8f7caafb |
-| 16 | Lahore … Skopje (25) | 61 | 12 | 33 | 16 | this commit |
+| 16 | Lahore … Skopje (25) | 61 | 12 | 33 | 16 | deba0405 |
+| 17 | Plovdiv … Perpignan (25) | 53 | 8 | 34 | 11 | this commit |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
