@@ -68,6 +68,8 @@
     border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);padding:6px 14px;border-radius:16px}
   .chip b{font-size:1.35rem;line-height:1.1}
   .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
+  .hero .chip{padding:4px 10px}   /* visitors box: tighter padding (Jeff, 2026-09-21) */
+  @media(max-width:400px){.hero .chip span{letter-spacing:.05em}}
   .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:18px}
   .hero-fav{height:40px;flex-shrink:0;border-radius:0;background:rgba(255,255,255,.16);
     border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);color:#fff;font-size:1.2rem;line-height:1;
@@ -142,7 +144,8 @@
   /* Language card */
   .lang-list{margin-top:8px;display:flex;flex-direction:column;gap:7px}
   .lang-row{display:flex;align-items:center;gap:10px}
-  .lang-name{font-size:.9rem;font-family:'Fraunces',Georgia,serif;min-width:110px;flex-shrink:0}
+  .lang-name{font-size:.9rem;font-family:'Fraunces',Georgia,serif;min-width:110px;flex:0 1 auto;overflow-wrap:anywhere}   /* long names wrap instead of pushing the % off the card */
+  .lang-row .lang-bar-track{min-width:36px}
   .lang-pct{font-size:.78rem;font-weight:700;color:var(--teal);min-width:38px;text-align:right;flex-shrink:0}
   .eng-pct{min-width:0;text-align:left}
   @media(max-width:400px){.eng-row .lang-name{min-width:0}.eng-row .eng-pct{flex:1 1 auto;text-align:right}}
@@ -343,9 +346,13 @@
   .food-item.has-photo .food-item-body{flex:1 1 50%;min-width:0}
   .food-item-thumb{flex:1 1 50%;min-width:0;display:block}
   .food-item-photo{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;background:#eee}
-  .food-item-credit{display:block;margin-top:3px;font-size:.52rem;line-height:1.15;color:var(--muted,#777);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:underline;text-decoration-color:rgba(0,0,0,.2);cursor:pointer}
+  .food-item-credit{display:block;margin-top:3px;font-size:.52rem;line-height:1.15;color:var(--muted,#777);text-align:right;white-space:normal;overflow-wrap:anywhere;text-decoration:underline;text-decoration-color:rgba(0,0,0,.2);cursor:pointer}
   .food-item-credit:hover{color:var(--green)}
-  .food-item-name{font-weight:700;color:var(--ink,#222);font-size:.92rem}
+  .food-item-name{font-weight:700;color:var(--ink,#222);font-size:.92rem;overflow-wrap:anywhere}
+  /* small phones: photo on top, text full width, so long dish names (Kaiserschmarrn) fit whole */
+  @media(max-width:400px){.food-item.has-photo{flex-direction:column;gap:8px}
+    .food-item.has-photo .food-item-thumb{order:-1;width:100%}
+    .food-item.has-photo .food-item-photo{aspect-ratio:16/9}}
   .food-item-tag{display:inline-block;margin-left:7px;font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--green);border-radius:3px;padding:1px 8px;vertical-align:middle}
   .food-item-tag.food-tag-drink{background:var(--coral,#b5492c)}
   .food-item-desc{margin:3px 0 0;font-size:.8rem;color:var(--muted);line-height:1.4}
@@ -569,14 +576,15 @@
   .rt-night{background:#2b3a67;color:#ffd97a}
   .rt-season{background:#e7e0d2;color:#7a6a45}
   .rt-op{margin-left:auto;color:var(--green);font-weight:700;font-size:.86rem;
-    text-decoration:none;white-space:nowrap}
+    text-decoration:none;min-width:0;overflow-wrap:anywhere}
   .rt-op:hover{text-decoration:underline}
   .rt-search{display:flex;align-items:center;gap:10px;padding:12px 14px;margin-top:4px;
     background:#fff;border:2px solid var(--green);border-radius:12px;color:var(--green);
     text-decoration:none;font-weight:700;font-size:.92rem;transition:background .2s,color .2s}
   .rt-search:hover{background:var(--coral);color:#fff}
   .rt-search .rt-go{margin-left:auto}
-  .rt-note{margin-top:16px;font-size:.85rem;line-height:1.5;color:var(--muted)}
+  .rt-note{margin-top:16px;font-size:.85rem;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
+  .rt-note-link{color:var(--green);font-weight:600;text-decoration:underline}
   .rt-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   /* ATM & cash finder button + modal */
@@ -636,6 +644,9 @@
   .csnap-day-high{background:rgba(168,72,42,.14)}
   .csnap-day .cd-k{display:block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
   .csnap-day .cd-v{display:block;font-size:.98rem;font-weight:700;margin-top:3px;color:var(--green)}
+  @media(max-width:400px){.csnap-days{flex-direction:column;gap:6px}
+    .csnap-day{display:flex;justify-content:space-between;align-items:baseline;gap:10px;text-align:left;padding:7px 12px}
+    .csnap-day .cd-v{margin-top:0;text-align:right}}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(63,81,56,.22);
     border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
@@ -706,7 +717,7 @@
   .bar-row{display:flex;align-items:baseline;gap:10px}
   .bar-kind{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 8px;border-radius:3px;background:rgba(85,107,47,.1);color:var(--teal);
-    width:104px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    width:168px;text-align:center;line-height:1.3;text-wrap:balance}
   .bar-info{font-size:.86rem;line-height:1.45}
   .bar-name{color:var(--teal);font-weight:600;text-decoration:none;border-bottom:1px solid transparent}
   .bar-name:hover{color:var(--coral);border-bottom-color:currentColor}
@@ -725,7 +736,7 @@
     cursor:pointer;text-align:left;overflow:hidden;font:inherit;color:inherit;
     transition:transform .2s,opacity .2s,box-shadow .2s}
   .hood-tile .hood-hero{height:auto;aspect-ratio:3/4;transition:filter .2s,background-image .4s}
-  .hood-tile .hood-name{bottom:18px;padding:0 14px;font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.1}
+  .hood-tile .hood-name{bottom:18px;padding:0 10px;font-size:clamp(.95rem,1.7vw,1.3rem);line-height:1.1;text-align:center;overflow-wrap:anywhere}   /* fitHoodTileNames() shrinks a name until its longest word fits and lifts it above the credit */
   .hood-tile .hood-credit{bottom:0;right:0;margin:0;padding:0 8px 3px;font-size:.55rem}
   .hood-tile .hood-tag{top:10px;right:10px;font-size:.6rem;padding:6px 16px 6px 10px;
     clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%)}
@@ -886,7 +897,7 @@
     /* Full-width layout with tighter padding */
     section{padding:32px 14px}
     .hero{min-height:280px;height:48vh}
-    .hero-inner{padding:0 14px 24px}
+    .hero-inner{padding:0 14px 44px}   /* clears the "Contribute a photo" pill at the bottom */
     .hero h1{font-size:2rem}
     .hero .tagline{font-size:1rem;margin-top:8px}
     .hero-back-bar{padding:0 14px}
@@ -954,6 +965,7 @@
   .plate .plate-toggle:hover{text-decoration:underline}
   .plate .tag{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#82755b;white-space:nowrap}
   .plate .tag b{color:#b5492c}
+  @media(max-width:400px){.plate .tag{white-space:normal;letter-spacing:.1em;line-height:1.5}}
   .plate .dotline{flex:1;border-top:1px dashed rgba(43,36,23,.2)}
   .sec-head em{font-style:italic;color:#b5492c}
 
@@ -2840,7 +2852,7 @@ if(!c){
         <div class="country">${c.country}</div>
         <p class="tagline">${c.tagline}</p>
         <div class="hero-fav-row">
-          <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l visitors${c.est?' \u00b7 est.':''}</span></div>
+          <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l ${c.est?'<span style="white-space:nowrap">visitors \u00b7 est.</span>':'visitors'}</span></div>
           <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
         </div>
       </div>
@@ -2851,7 +2863,7 @@ if(!c){
     ${cityAdv == null ? "" : `<div class="adv-banner adv-banner-lvl${cityAdv.lvl}"><span class="adv-banner-ic">&#9888;</span> <span>US travel advisory: <a class="adv-link" href="${cityAdv.url}" target="_blank" rel="noopener"><b>Level ${cityAdv.lvl} &mdash; ${cityAdv.label}</b></a> <span class="adv-date">(as of Jul 2026)</span></span></div>`}
 
     <section class="i18n-ml">
-      ${plate("01","Season &amp; duration")}
+      ${plate("01","Duration")}
       ${buildVisitSection(c.city)}
 
       ${plate("02","Fast facts")}
@@ -3834,6 +3846,35 @@ if(!c){
   (function initHoodTabs() {
     const list = document.querySelector('.hood-tiles');
     if (!list) return;
+    /* Each tile name: shrink until its longest word fits whole (Sachsenhausen on a
+       107px tablet tile), and sit it just above the photo credit, which can wrap to two lines. */
+    const probe = document.createElement('span');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;left:-9999px';
+    function fitHoodTileNames() {
+      document.body.appendChild(probe);
+      list.querySelectorAll('.hood-tile').forEach(tile => {
+        const n = tile.querySelector('.hood-name');
+        if (!n) return;
+        n.style.fontSize = '';
+        const cs = getComputedStyle(n);
+        const room = n.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        const words = n.textContent.trim().split(/\s+/);
+        const widest = () => { probe.style.font = getComputedStyle(n).font;
+          return Math.max(...words.map(w => { probe.textContent = w; return probe.getBoundingClientRect().width; })); };
+        let size = parseFloat(cs.fontSize);
+        while (size > 10 && widest() > room) { size -= 0.5; n.style.fontSize = size + 'px'; }
+        const credit = tile.querySelector('.hood-credit');
+        const ch = credit && credit.textContent.trim() ? credit.offsetHeight : 0;
+        n.style.bottom = Math.max(18, ch + 6) + 'px';
+      });
+      probe.remove();
+    }
+    let fitTimer = 0;
+    const refit = () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitHoodTileNames, 60); };
+    new MutationObserver(refit).observe(list, { childList: true, subtree: true, characterData: true });
+    window.addEventListener('resize', refit);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+    refit();
     const tabs = [...list.querySelectorAll('.hood-tile')];
     const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
     const toggle = document.querySelector('.hood-toggle-all');
@@ -4127,6 +4168,15 @@ if(!c){
       </div>`).join("")}</div>`;
   }
 
+  /* Route notes carry operator web addresses in brackets, e.g. "ALSA (https://www.alsa.com/...)".
+     Show each as a short clickable link to its site ("ALSA (alsa.com)"); the data itself is unchanged. */
+  function linkNote(note) {
+    return String(note).replace(/\((https?:\/\/[^\s)]+)\)/g, (m, url) => {
+      let host = url;
+      try { host = new URL(url).hostname.replace(/^www\./, ""); } catch (e) {}
+      return `(<a class="rt-note-link" href="${url.replace(/"/g, "&quot;")}" target="_blank" rel="noopener">${host}</a>)`;
+    });
+  }
   function buildTrainModal() {
     const d = CITY_ROUTES[c.city] && CITY_ROUTES[c.city].train;
     if (!d) return `<p class="modal-placeholder">More information about trains in ${c.city} is coming soon.</p>`;
@@ -4138,7 +4188,7 @@ if(!c){
          <a class="rt-search" href="${d.dom.url}" target="_blank" rel="noopener" data-no-i18n>
            <span>Search domestic trains &middot; ${d.dom.op}</span><span class="rt-go">&rarr;</span></a>`
       : "";
-    return `${intl}${dom}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+    return `${intl}${dom}${d.note ? `<p class="rt-note">${linkNote(d.note)}</p>` : ""}
       <p class="rt-foot">Direct routes only &middot; times are approximate &middot; links open the official operator's site.</p>`;
   }
 
@@ -4148,7 +4198,7 @@ if(!c){
     const intl = d.intl && d.intl.length
       ? `<div class="rt-sec-k">International coach routes</div>${routeRows(d.intl, false)}`
       : "";
-    return `${intl}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+    return `${intl}${d.note ? `<p class="rt-note">${linkNote(d.note)}</p>` : ""}
       <p class="rt-foot">Routes change seasonally &middot; book on the operator's official site.</p>`;
   }
 
@@ -4158,7 +4208,7 @@ if(!c){
     const intl = d.intl && d.intl.length
       ? `<div class="rt-sec-k">International ferry routes</div>${routeRows(d.intl, false)}`
       : "";
-    return `${intl}${d.note ? `<p class="rt-note">${d.note}</p>` : ""}
+    return `${intl}${d.note ? `<p class="rt-note">${linkNote(d.note)}</p>` : ""}
       <p class="rt-foot">Sailings vary by season &middot; book on the operator's official site.</p>`;
   }
 

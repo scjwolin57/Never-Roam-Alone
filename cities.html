@@ -113,7 +113,8 @@
   .city-card .country-city{flex:1 1 50%;min-width:0}
   .city-card .country-label{font-size:.72rem;font-weight:700;text-transform:uppercase;
     letter-spacing:.12em;color:var(--teal);margin-bottom:6px}
-  .city-card h3{font-size:1.35rem;margin:0 0 8px;line-height:1.2}
+  .city-card h3{font-size:1.35rem;margin:0 0 8px;line-height:1.2;overflow-wrap:anywhere}
+  .city-card h3.long-name{font-size:clamp(1rem,5vw,1.35rem)}   /* one very long word (Thiruvananthapuram) shrinks on phones instead of breaking */
   .city-card .fav-wrap{display:flex;flex-direction:column;align-items:center;gap:2px;flex-shrink:0}
   .city-card .fav-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
   .city-card .fav-heart{border:2px solid rgba(168,72,42,.35);background:none;color:var(--coral);
@@ -309,7 +310,7 @@ function buildCards(list) {
         <div class="country-row">
           <div class="country-city">
             <div class="country-label">${c.country}</div>
-            <h3>${c.city}</h3>
+            <h3${/[^\s-]{14,}/.test(c.city) ? ' class="long-name"' : ''}>${c.city}</h3>
           </div>
           <div class="fav-wrap">
             <button type="button" class="fav-heart" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites">♡</button>

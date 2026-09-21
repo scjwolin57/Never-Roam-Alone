@@ -57,6 +57,8 @@
   .picker .swap{background:none;border:1.5px solid rgba(63,81,56,.3);border-radius:3px;width:40px;height:40px;
     cursor:pointer;color:var(--green);font-size:1.1rem}
   .picker .swap:hover{background:rgba(63,81,56,.08)}
+  /* full city name under a dropdown, shown only when the dropdown cuts the name off (small phones) */
+  .picker .pick-full{flex-basis:100%;margin:-10px 0 0;text-align:center;font-size:.82rem;font-weight:600;color:var(--muted);overflow-wrap:anywhere}
 
   .hint{text-align:center;color:var(--muted);font-size:.9rem;margin:6px 0 30px}
 
@@ -93,7 +95,7 @@
   .visa-panel{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:22px 20px;text-align:center;margin-bottom:16px}
   .visa-panel h3{margin:0 0 4px;color:var(--green);font-size:1.05rem}
   .visa-panel select{font-size:1rem;font-family:inherit;padding:10px 14px;border-radius:3px;
-    border:1.5px solid rgba(63,81,56,.3);margin-top:10px;min-width:260px}
+    border:1.5px solid rgba(63,81,56,.3);margin-top:10px;width:100%;max-width:300px}
   .visa-status{font-size:.8rem;color:var(--muted);margin-top:8px}
   .visa-badges{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
   .visa-badge{padding:10px;border-radius:3px;font-weight:700;font-size:.88rem;color:#fff}
@@ -143,8 +145,10 @@
 
   <div class="picker">
     <select id="cityA"><option value="" selected disabled>Choose a city…</option></select>
+    <p class="pick-full" id="cityAFull" hidden></p>
     <span class="vs">vs</span>
     <select id="cityB"><option value="" selected disabled>Choose a city…</option></select>
+    <p class="pick-full" id="cityBFull" hidden></p>
     <button type="button" class="swap" id="swapBtn" title="Swap cities" aria-label="Swap cities">&#8646;</button>
   </div>
   <p class="hint" id="pickHint">Pick two cities to see them compared.</p>
@@ -959,7 +963,7 @@ const CITIES = [
   {"city":"Thimphu","country":"Bhutan","visitors":0.25,"pop":"150K","lat":27.4728,"lng":89.639,"tagline":"Prayer flags, pine ridges, and the world's last Vajrayana capital.","temps":{"q1":62,"q2":76,"q3":80,"q4":68},"langs":[{"l":"Dzongkha","p":50},{"l":"English","p":30},{"l":"Nepali","p":15}]},
   {"city":"Dhaka","country":"Bangladesh","visitors":0.3,"pop":"22.5M","lat":23.8103,"lng":90.4125,"tagline":"Riverside chaos, Mughal history, and relentless energy on the Buriganga.","temps":{"q1":81,"q2":92,"q3":88,"q4":81},"langs":[{"l":"Bengali (Bangla)","p":98},{"l":"English","p":15},{"l":"Urdu","p":2}]},
   {"city":"Manama","country":"Bahrain","visitors":14,"pop":"660K","lat":26.2285,"lng":50.586,"tagline":"Gulf trading capital of causeways, souqs, and skyline.","temps":{"q1":72,"q2":96,"q3":102,"q4":81},"langs":[{"l":"Arabic","p":60},{"l":"English","p":20},{"l":"Malayalam/Urdu","p":12}]},
-  {"city":"Baku","country":"Azerbaijan","visitors":2.5,"pop":"2.3M","lat":40.4093,"lng":49.8671,"tagline":"Ancient walls, Caspian shores, and a flame-lit skyline.","temps":{"q1":49,"q2":72,"q3":83,"q4":57},"langs":[{"l":"Azerbaijani","p":92},{"l":"Russian","p":7},{"l":"Other (Lezgin, Talysh, etc.)","p":1}]},
+  {"city":"Baku","country":"Azerbaijan","visitors":2.5,"pop":"2.3M","lat":40.4093,"lng":49.8671,"tagline":"Ancient walls, Caspian shores, and a flame-lit skyline.","temps":{"q1":49,"q2":72,"q3":83,"q4":57},"langs":[{"l":"Azerbaijani","p":92},{"l":"Russian","p":7},{"l":"Other","p":1}]},
   {"city":"Yerevan","country":"Armenia","visitors":1.9,"pop":"1.1M","lat":40.1872,"lng":44.5152,"tagline":"Pink-stone capital in the shadow of Mount Ararat.","temps":{"q1":43,"q2":75,"q3":90,"q4":53},"langs":[{"l":"Armenian","p":97.9},{"l":"Russian","p":1.4},{"l":"Kurdish/Yezidi","p":0.9}]},
   {"city":"Kabul","country":"Afghanistan","visitors":0.06,"pop":"4.4M","lat":34.5553,"lng":69.2075,"tagline":"Ancient crossroads city rebuilding beneath the Hindu Kush.","temps":{"q1":52,"q2":76,"q3":86,"q4":59},"langs":[{"l":"Dari (Persian)","p":50},{"l":"Pashto","p":35},{"l":"Uzbek/Turkmen","p":11}]},
   {"city":"Kyiv","country":"Ukraine","visitors":0.8,"pop":"2.9M","lat":50.4501,"lng":30.5234,"tagline":"Golden-domed city of hills, history, and the Dnipro River.","temps":{"q1":35,"q2":67,"q3":74,"q4":43},"langs":[{"l":"Ukrainian","p":70},{"l":"Russian","p":29},{"l":"Other","p":1}]},
@@ -3760,12 +3764,29 @@ function renderCompare(){
   renderVisa();
 }
 
-selA.addEventListener("change", ()=>{ updateURL(); renderCompare(); });
-selB.addEventListener("change", ()=>{ updateURL(); renderCompare(); });
+/* On narrow screens a long "City — Country" is cut off inside the closed dropdown;
+   show it in full on a line underneath, only when it doesn't fit. */
+const fullCtx = document.createElement("canvas").getContext("2d");
+function showFullNames(){
+  [[selA, "cityAFull"], [selB, "cityBFull"]].forEach(([sel, id]) => {
+    const cap = document.getElementById(id), opt = sel.options[sel.selectedIndex];
+    const cs = getComputedStyle(sel);
+    fullCtx.font = cs.font;
+    const room = sel.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - 16;  // 16 = arrow
+    const cut = !!(opt && opt.value) && fullCtx.measureText(opt.text).width > room;
+    cap.textContent = cut ? opt.text : "";
+    cap.hidden = !cut;
+  });
+}
+selA.addEventListener("change", ()=>{ updateURL(); renderCompare(); showFullNames(); });
+selB.addEventListener("change", ()=>{ updateURL(); renderCompare(); showFullNames(); });
 document.getElementById("swapBtn").addEventListener("click", ()=>{
   const t = selA.value; selA.value = selB.value; selB.value = t;
-  updateURL(); renderCompare();
+  updateURL(); renderCompare(); showFullNames();
 });
+window.addEventListener("resize", showFullNames);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(showFullNames);
+showFullNames();
 
 /* ============================================================
    VISA — same live Passport Index lookup used on the Destination Finder
