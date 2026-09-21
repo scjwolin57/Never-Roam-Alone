@@ -219,7 +219,7 @@ with verified data or reported as open, by name, in the add-city report. The
 tooling does not cover the whole page today (see 5.2), so until it does the
 add-city skill runs the extra steps by hand and says which ones it ran.
 
-### 5.1 Inventory of city.html (as of 2026-09-18, Insights display added)
+### 5.1 Inventory of city.html (as of 2026-09-21, plate 01 renamed "Duration")
 
 Nine plates. "Key" is the field in `citydata/<slug>.json` unless noted; "Filled by"
 is what populates it for a new city *today*.
@@ -227,8 +227,8 @@ is what populates it for a new city *today*.
 | Plate / section | What it shows | Key(s) | Filled by today |
 |---|---|---|---|
 | Hero | name, country, tagline, hero photo + credit, annual **international** visitors, favorite / add-to-trip / compare | `c.*`, `img`, `photo_page`; `city-photos.js` | add_city.py (photo file is manual) |
-| How long should you stay | 4-tier ascending stay ladder | `visit`, `stay` (STAY_RUBRIC.md) | add_city.py |
-| 01 Season | avg high and rainy days per quarter, best time, seasonal events, holiday-closure banner | `temps`, `rain`, `events` → `city-seasons.js`; `city-holidays.js` (**country-keyed**) | add_city.py; holidays: **check country exists** |
+| 01 Duration: How long should you stay | 4-tier ascending stay ladder | `visit`, `stay` (STAY_RUBRIC.md) | add_city.py |
+| 02 Fast facts: Season | avg high per quarter, average rainy days per month in each quarter (computed from NASA POWER by `rain/recompute_rain.py`), best time, seasonal events, holiday-closure banner | `temps`, `rain`, `events` → `city-seasons.js`; `city-holidays.js` (**country-keyed**) | add_city.py; holidays: **check country exists** |
 | 02 Fast facts | population, walk score, safety index, solo comfort | `c.pop`, `walk`, `safety`, `solo` | add_city.py |
 | 02 Fast facts | languages by majority + Common phrases popup | `c.langs`; `city-phrases.js` (**language-keyed**) | add_city.py; phrases: **check language exists** |
 | 02 Fast facts | religion, English ease | `religion`, `english` | add_city.py |
@@ -322,9 +322,16 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
 - Brand colours only: green `#5c6933`, rust `#b5492c`, parchment/sand, ink.
   Legacy `#3f5138`, `#a8482a`, `#2c3a27` and gradients are gone; do not reintroduce.
 - Fonts: Work Sans for UI, Fraunces italic for editorial headings. Self-hosted.
-- **Nothing ever overflows its container**, on any viewport. After every layout
-  change, check desktop *and* the mobile preset; screenshot both. Labels, dates
+- **Nothing ever overflows its container**, on any viewport. Labels, dates
   and buttons stack inside the card; they never spill.
+- **It must look right at every one of these widths** (decided 2026-09-19):
+  320, 360, 375, 390–430, 768 and 1280+. 360 is the design baseline (most
+  common Android); 320 covers zoomed text, fold cover screens and the WCAG
+  reflow minimum. "Look right" means no overflow, no clipped or cut-off text,
+  no sideways scroll, and a layout that is intended, not just squeezed. After
+  every layout change, check all six widths, including popups and forms, and
+  screenshot at least 320, 375 and desktop. Test in the phone emulator (not
+  only a narrow iframe) and on a folder that is up to date with `origin/main`.
 - Consistency over invention: match the nearest existing component (labels,
   chips, buttons, hotel-pick labels) rather than styling something new.
 - Footer, nav and hero patterns are uniform across every page.

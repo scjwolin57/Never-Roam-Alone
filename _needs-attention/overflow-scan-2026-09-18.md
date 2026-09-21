@@ -107,3 +107,38 @@ index, cities, 404, best-time-to-visit, blog, choose (incl. bucket-list popup), 
 ### Found while fixing 9
 
 - **Rain figures in 253 cities are impossible** (more than 92 rainy days in a quarter; probably millimetres). Kingstown shows "67 days/mo". See `rain-days-wrong-unit.md`.
+
+### 2026-09-21: suggested fixes for 12 to 19, shown to Jeff (in the `overflow-fixes` worktree, not committed)
+
+The worktree was moved onto the latest origin/main first (4 new commits: shared header and footer, profile travel map); fixes 2 to 10 were re-applied and the 12 sheet cells re-done (religion parity 893/893).
+
+- **7:** no longer needed. The new shared header already fits a 320px phone in French (menu button ends at 314px). My header change was dropped.
+- **12:** city names with a single word of 14+ letters (Quetzaltenango, Siddharthanagar, Thiruvananthapuram) shrink with the screen on phones; all others unchanged. All 893 cards fit at 320 with no word split; desktop unchanged.
+- **13:** photo credits wrap in full instead of "…".
+- **14:** on phones (400px and below) each dish shows its photo on top and the text full width, so long names (Kaiserschmarrn, Kaesespaetzle) fit whole.
+- **15:** route notes wrap long web addresses. (The addresses are plain text, not links: separate content question.)
+- **16:** section headings wrap onto two lines on phones.
+- **17:** extra space under the city hero text, so "Contribute a photo" sits 14px below the visitors box instead of on top of it.
+- **18:** neighborhood tile names get a little more room on phones; "Partnachklamm / Kreuzeck Area" now fits on two lines without splitting the word.
+- **19:** a long web address wraps inside its Roamer profile button.
+
+### Data problems spotted while previewing (not changed)
+
+- Garmisch-Partenkirchen food popup: the "Alpine trout" photo shows lobster with asparagus.
+- Garmisch-Partenkirchen food popup: a credit reads "Xocolatl ( talk ) 23:16, 26 August 2013", a Wikipedia talk-page signature copied in as the author.
+- Marrakech bus note: web addresses typed into the text in brackets instead of as links.
+
+### 2026-09-21: Jeff's answers on 12-20 (relayed from the "Profile page country/city search" session), built in the worktree
+
+Worktree moved onto origin/main e9ab316c first; all earlier fixes re-applied cleanly; the 12 sheet cells redone (religion parity 893/893).
+
+- **12, 13, 19:** yes. Built as previewed.
+- **14:** preview requested. Phone layout (photo on top, text full width) shown at 320 and 375. Waiting for his yes.
+- **15:** "make clickable links". Route notes now show every bracketed web address as a short link to the operator's site ("ALSA (alsa.com)"), in the popup only. That covers all 682 addresses in 398 cities (530 bus notes, 100 train, 49 ferry). The data and the sheet are unchanged, so parity holds. Plus the wrap fix.
+- **16:** plate 01 now reads "PLATE 01 · DURATION" (it only holds "How long should you stay?"; the season card is in plate 02).
+- **17:** hero visitors box padding 6px 14px → 4px 10px, tighter letter spacing on phones; "visitors · est." kept together so it no longer leaves "· EST." alone on a line. Box at 320: 78px → 55px tall (without "est."). "Contribute a photo" still clear below.
+- **18:** tile names are centred; a small script shrinks each name until its longest word fits whole (Sachsenhausen on the 107px tablet tiles) and sits it 6px above the photo credit, which can wrap to two lines (Bornheim, Westend). Checked on Frankfurt am Main and Garmisch at 320, 375, 768 and 1280.
+- **20:** approved by Jeff and done by the "Profile page country/city search" session in the main folder's itinerary.html (search row input min-width:0, plus trip-card tweaks). This worktree must rebase onto main after that commit, before committing.
+- Data items A (Garmisch trout photo) and B (Garmisch "Xocolatl ( talk )" credit): no answer yet.
+
+- **10 (update 2026-09-21):** moved to the "Profile page country/city search" session at Jeff's request. It applied the same column widths in the main folder's itinerary.html, plus padding-left:6px on the Nights column. Dropped from this worktree so the two don't clash. Item 4 (trip tabs 2x2) stays here.

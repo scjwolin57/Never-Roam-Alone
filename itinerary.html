@@ -67,6 +67,7 @@
   }
   .trip-toggle button.active{background:#fff;color:var(--green);border-color:var(--green)}
   .trip-toggle button:hover:not(.active){border-color:var(--green)}
+  @media(max-width:520px){.trip-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}}
 
   /* ---------- Card ---------- */
   .wrap{max-width:720px;margin:-28px auto 60px;padding:0 22px}
@@ -1464,7 +1465,7 @@
     const s = window.NRA_SEASON && NRA_SEASON[city];
     if (!s || !s.t || !s.r) return null;
     const tScore = Math.max(0, 1 - Math.abs(s.t[q] - 75)/35);
-    const rScore = Math.max(0, 1 - Math.min(s.r[q], 90)/90);
+    const rScore = Math.max(0, 1 - Math.min(s.r[q], 30)/30);   // r = rainy days per month
     return tScore*0.6 + rScore*0.4;
   }
   function nsCompute(base, cities, factors, q){
@@ -1519,7 +1520,7 @@
     }
     if (factors.weather){
       const s = window.NRA_SEASON && NRA_SEASON[r.c.city];
-      why.push(s ? `☀️ ~${s.t[q]}°F, ~${Math.round(s.r[q])} rainy days (${NS_QLABEL[q]})` : `☀️ No season data yet`);
+      why.push(s ? `☀️ ~${s.t[q]}°F, ~${Math.round(s.r[q])} rainy days/mo (${NS_QLABEL[q]})` : `☀️ No season data yet`);
     }
     return `<div class="ns-card">
       <div class="ns-photo" style="background-image:url('${ph ? ph.img : ""}')"></div>

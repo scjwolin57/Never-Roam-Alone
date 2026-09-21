@@ -199,7 +199,7 @@
       const ev = (S.ev || []).find(e => e.m.indexOf(month) >= 0);
       if(ev) events.push({ c, label: ev.l });
       const t = S.t ? S.t[q] : null;
-      const rd = S.r ? S.r[q] / 3 : null;
+      const rd = S.r ? S.r[q] : null;   // rainy days per month
       if(!ev){
         if(t != null && t >= 95) avoid.push({ c, why: "Very hot this month" });
         else if(rd != null && rd >= 15) avoid.push({ c, why: "Deep in rainy season" });
