@@ -238,6 +238,13 @@
   .fl-none{font-style:italic;color:var(--muted);font-size:.88rem;margin:0}
   .fl-more{display:inline-block;margin:12px 0 0;color:var(--green);font-weight:700;text-decoration:none;font-size:.88rem;overflow-wrap:anywhere}
   .fl-more:hover{text-decoration:underline}
+  .fl-lm li{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+  /* same look as the neighborhood cards' "View on a map" button */
+  .fl-mapbtn{display:inline-block;max-width:100%;font-size:.72rem;font-weight:700;color:#2b2417;background:#8a9a5b;border-radius:0;
+    padding:5px 10px;text-decoration:none;transition:background .2s;overflow-wrap:anywhere}
+  .fl-mapbtn:hover{background:#b0802f}
+  .fl-list .fl-mapbtn{color:#2b2417;white-space:normal}
+  .fl-credit{margin:6px 0 0;font-size:.7rem;color:var(--muted)}
   .fl-list{list-style:none;margin:0;padding:0}
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
@@ -1300,6 +1307,7 @@ let CITY_COST = {};
 let CITY_HOTEL = {};
 let CITY_LAUNDRY = {};   // wash+dry price, availability, note — synced from the sheet's Laundry columns
 let CITY_HOOD_GEO = {};  // [lat,lng] per neighborhood (aligned with hoods; null = not placed) — from geocode_hoods.py
+let CITY_LAUNDROMATS = {}; // laundromats per neighborhood from Overture open data (CITY_SCHEMA.md "laundromats"); undefined = not loaded, [] = none listed
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
    else closes any open one. Touch has no hover, so this is the mobile path. */
@@ -2208,7 +2216,7 @@ async function loadCityData(){
   fill(CITY_COST, rec.cost);
   fill(CITY_HOTEL, rec.hotel);         fill(CITY_RIDES, rec.rides);
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
-  fill(CITY_GYMS, rec.gyms);
+  fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
   fill(CITY_STAY, rec.stay);           fill(CITY_VISIT, rec.visit);
@@ -4277,9 +4285,29 @@ if(!c){
         ? `<p class="fl-sub">Day passes we've checked${pt.key === "city" ? "" : " in " + near}</p>${researched}`
         : `<p class="fl-none">No day-pass gyms researched${pt.key === "city" ? "" : " in " + near} yet.</p>`) + more;
     } else {
-      /* laundry facts are city-wide (no researched laundromat list); the link searches the chosen place */
-      O.innerHTML = `<p class="fl-sub">Laundry in ${flEsc(c.city)}</p>${buildLaundryModal()}${more}`;
+      /* laundry facts are city-wide; listed laundromats are per neighborhood (Overture open data) */
+      O.innerHTML = `<p class="fl-sub">Laundry in ${flEsc(c.city)}</p>${buildLaundryModal()}${flLaundromats(pt)}${more}`;
     }
+  }
+  /* Listed laundromats for the chosen point (CITY_LAUNDROMATS): a neighborhood's own, or all of them for "Anywhere".
+     Each opens Google Maps through a plain link (no API call). */
+  function flLaundromats(pt) {
+    const all = CITY_LAUNDROMATS[c.city];
+    const near = flEsc(pt.key === "city" ? c.city : pt.label);
+    const mine = !all ? [] : pt.key === "city" ? all : all.filter(x => String(x.hood) === pt.key);
+    /* undefined = this city has not been loaded yet; an empty result after loading means our open-data
+       source lists none here, which is not the same as there being none. */
+    if (!mine.length) return `<p class="fl-sub">Laundromats${pt.key === "city" ? "" : " in " + near}</p><p class="fl-none">${all === undefined ? `Laundromat list for ${near} coming soon.` : `None listed for ${near} in our open-data source. The link below searches Google Maps.`}</p>`;
+    const hoods = CITY_HOODS[c.city] || [];
+    const rows = mine.map(x => {
+      const d = (pt.lat != null && typeof x.lat === "number") ? flKm(pt.lat, pt.lng, x.lat, x.lng) : null;
+      const q = `${x.n}, ${x.addr || hoods[x.hood] || ""}, ${c.city}`;
+      const meta = [x.k === "drop" ? "Drop-off &amp; fold" : "Self-service", x.addr ? flEsc(x.addr) : null,
+                    d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null,
+                    pt.key === "city" && hoods[x.hood] ? flEsc(hoods[x.hood]) : null].filter(Boolean).join(" &middot; ");
+      return `<li><span class="fl-n">${flEsc(x.n)}</span><span class="fl-m">${meta}</span><a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a></li>`;
+    });
+    return `<p class="fl-sub">Laundromats${pt.key === "city" ? "" : " in " + near}</p><ul class="fl-list fl-lm">${rows.join("")}</ul><p class="fl-credit">Laundromat listings: Overture Maps Foundation (open data).</p>`;
   }
   function flInit() {
     const sel = document.getElementById("fl-hood"), cur = () => sel ? sel.value : "city";
