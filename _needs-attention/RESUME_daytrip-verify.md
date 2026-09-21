@@ -70,6 +70,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 27 | see git log | 96 | 58 | 11 | 6 | 21 | 0 of 43 |
 | 28 | see git log | 89 | 58 | 14 | 3 | 14 | 0 of 36 |
 | 29 | see git log | 90 | 42 | 9 | 4 | 34 | 0 of 52 |
+| 30 | see git log | 69 | 45 | 4 | 5 | 15 | 0 of 28 |
+
+**Batch 30: all 5 research agents and the checker launched with an explicit "do the research yourself, do not delegate" instruction after batch 29's stall** -- no relaunch needed this time, all 5 groups and the checker completed cleanly on the first attempt (28/28 checked, 0 disagreements). This instruction is now standard for every group/checker prompt going forward. Two cities dropped to zero: Port Moresby (Popondetta has no road link, Owen Stanley Range blocks it, flight-only) and Dili (both entries, Atambua and Suai, ran 2h40m-5h with a border crossing or mountain road, over the caps even with extra checker scrutiny). Four guide-city dedups (Sucre, Nanjing, El Calafate, Weimar).
 
 **Batch 29 needed one research-group relaunch:** group 3 (Chios, Cienfuegos, Conakry, Eilat, Hamadan) spawned its own sub-agent against the brief's instructions, reported "I'll compile once it reports back," and stopped without ever writing `b29_g3.json`. Caught by checking the file didn't exist, relaunched with an explicit "do the research yourself, do not delegate" instruction, which completed normally on retry. The orphaned nested sub-agent's research-only output later arrived separately and was discarded (no output file, wrong format, not needed since the retry succeeded).
 
@@ -115,11 +118,11 @@ Checker overturned Portland/Cannon Beach to `move` (full) for consistency with t
 
 **Left for Jeff:** (0) Port-au-Prince's Jacmel entry (batch 29) is left `unverified`: sources sharply disagree on drive time and 2026 reporting shows gang violence has spread into Jacmel's own department. Needs either a clearer source or a judgment call on whether to keep, move, or remove it. (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25), Apia, Thimphu, Basseterre, Djibouti City (batch 26, Djibouti conflict-zone caveat above), Monrovia (batch 28), Brazzaville, Asmara (conflict/closed-border caveat above), Kusatsu (batch 29) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25), Apia, Thimphu, Basseterre, Djibouti City (batch 26, Djibouti conflict-zone caveat above), Monrovia (batch 28), Brazzaville, Asmara (conflict/closed-border caveat above), Kusatsu (batch 29), Port Moresby, Dili (batch 30) — to be done in a dedicated follow-up once more batches are through.
 
 DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 725 (batches 1-29) | 163 | 189 | 464 | 928 | 377 |
+| 750 (batches 1-30) | 138 | 194 | 468 | 943 | 381 |
