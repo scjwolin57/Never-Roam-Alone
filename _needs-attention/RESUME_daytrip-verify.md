@@ -16,6 +16,9 @@ Rule: decisions.md 2026-09-18. Verify all 3,795 day trips on the site (888 citie
 
 Outcome per entry: `ok`, `fix` (field + source), `move` (half/full), `remove` (reason + source); plus `gyg` (URL, or "not listed" → review file).
 
+11. **Removed guide cities become "Nearby guides"** (Jeff, 2026-09-21). When rule 7 removes an entry because it is another Never Roam Alone city, record the pair in the city's `nearby` key: `[{"city":"<guide city, exact destinations.js name>","tier":"half|full"}]`. city.html will show these under the day trips as links to that city's own guide. No research needed: the pair is already identified. Building the page section follows the change protocol (CLAUDE.md §5.3).
+12. **Cities with no day trips are researched from GetYourGuide** (Jeff, 2026-09-21; he wrote "getmyguide.com", meaning getyourguide.com). For a city with none, or left with none after rules 7-9, look up what GetYourGuide sells as day trips from that city, then verify each candidate against rules 1-9 like any other entry (real place, outside the city, within the time limits, no flights, not a guide city). GetYourGuide is the lead and the link, not the proof of distance or facts. Nothing is added to reach a count; a city with no honest day trip stays empty. 228 cities had none on 2026-09-16.
+
 **Batch 1 (147 entries, d37693a0) was checked under rules 1-6 only.** Re-check it against rules 7-10 before starting batch 2.
 
 ## Pipeline
