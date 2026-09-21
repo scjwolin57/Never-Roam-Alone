@@ -64,6 +64,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 21 | see git log | 102 | 46 | 17 | 5 | 34 | **skipped, see note** |
 | 22 | see git log | 85 | 54 | 5 | 5 | 21 | **skipped, see note** |
 | 23 | see git log | 98 | 46 | 12 | 5 | 30 | **skipped, see note** |
+| 24 | see git log | 108 | 51 | 6 | 8 | 33 | **skipped, see note** |
+
+**Batch 24's check was skipped too -- fourth consecutive stall.** This is now a firm pattern, not a run of bad luck: every checker since batch 20's (which needed one restart to finish) has stalled past normal completion time in this session, regardless of pacing instructions. Applied directly from the five researchers' sourced verdicts again. St. George's (Grenada), Kralendijk (Bonaire) and Tegucigalpa all went to zero this batch.
 
 **Batch 23's independent check was skipped too -- the third consecutive stall.** As flagged after batch 22, this now looks like a real issue with the checker step itself in this session (all three ran well past every batch-1-through-20 checker's 3-6 minute norm, including one with explicit "work fast" instructions). Recommend whoever resumes this pass either investigates the checker prompt/setup before batch 24, or accepts that checks are unreliable this session and runs a dedicated re-verification pass over batches 21-23 (~289 entries) once the checker is working again, rather than trusting them unchecked indefinitely. Applied batch 23 directly from the five researchers' sourced verdicts.
 
@@ -95,11 +98,11 @@ Checker overturned Portland/Cannon Beach to `move` (full) for consistency with t
 
 **Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24) — to be done in a dedicated follow-up once more batches are through.
 
 DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 575 (batches 1-23) | 313 | 157 | 407 | 769 | 305 |
+| 600 (batches 1-24) | 288 | 165 | 413 | 802 | 316 |
