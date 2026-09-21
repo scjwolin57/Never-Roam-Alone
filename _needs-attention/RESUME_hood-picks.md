@@ -82,9 +82,28 @@ missing bar kind as normal.
   Oct 30 covers ~10,000. The rest either ~$190 at list price, or about 5-6 more months of free allowance.
 - When a gate is reached: finish and commit the current batch, update this note, and stop. Say which gate.
 
+- **The call counter is per month** (`{"2026-09": n, "2026-10": n}`), because the free allowance resets on the
+  1st. The pilot's 72 are September's. Before batch 1, compare September's Nearby Search count in Google Cloud
+  (APIs & Services > Places API (New) > Metrics) with the counter; if the console shows more, use the console figure.
+
 ## Stop conditions (write the batch log first)
 Budget gate reached; web-search budget for the session exhausted (resume next session); any batch whose audit
 still finds defects after a full re-check (stop and report to Jeff). Never work around a stop.
+- **Google quota or billing error (Jeff, 2026-09-21):** any Google error (HTTP 429 quota, 403 billing or key,
+  5xx) stops the run at once. The failed response is never cached and never read as "no results". The batch
+  in progress is not committed with the missing searches treated as blanks: it is redone once Google answers
+  again (the next day for a daily quota). Applies to the per-section search and the per-kind gap search alike.
+
+## Pace: one batch per run
+The web-search budget (~200 searches) is shared by every agent in one session (memory
+`research-pass-gotchas-2026-09`), and a 25-city batch uses most of it. So the run goes one batch per session:
+finish and commit a batch, update the logs below, then create a scheduled task that starts the next batch in a
+fresh session about an hour later. The last batch deletes the schedule. If search runs out mid-batch, pick
+agents write `_aborted` for the cities they could not finish, and the next run picks those cities up first.
+
+## Google data kept on disk
+The raw responses in `_guidebuild/hoodpicks/cache/` hold Google ratings and addresses. Delete a batch's cache
+files once that batch is committed and audited. Only place IDs go into citydata and the sheet.
 
 ## Concurrency
 City files are one line each. Do not run another data job on citydata while this runs (see HANDOFF-2026-09-21.md,
