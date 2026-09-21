@@ -49,8 +49,11 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 6 | see git log | 128 | 82 | 20 | 8 | 18 | 0 of 54 |
 | 7 | see git log | 120 | 61 | 18 | 8 | 33 | 0 of 65 |
 | 8 | see git log | 128 | 54 | 15 | 4 | 55 | 0 of 79 |
+| 9 | see git log | 123 | 65 | 16 | 6 | 36 | 0 of 64 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12 for batches 2-8 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17 for batches 2-9 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+
+Sofia's full-day list is now down to a single entry (Niš) after 7 of 8 full entries were removed as guide-city matches or over the 3h cap. Bologna's half list dropped to almost nothing too (4 of its entries were guide-city dupes). Found and fixed a Romanian-diacritic spelling mismatch (Piteşti vs Pitești) between the researcher's and checker's output that blocked apply_verdicts.py -- not a data error, just an encoding variance to watch for.
 
 Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon has an empty `full` list; **Colombo, Dubrovnik and Siem Reap now have ZERO day trips of either length** (rule 12: verified empty, not researched from GetYourGuide's city page yet — every real nearby place is either a guide city or over the time cap for all three). All correctly left empty per the no-padding rule pending that research.
 
@@ -63,4 +66,4 @@ DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-8 all had zero len-mismat
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 200 (batches 1-8) | 688 | 58 | 219 | 255 | 144 |
+| 225 (batches 1-9) | 663 | 64 | 235 | 291 | 161 |
