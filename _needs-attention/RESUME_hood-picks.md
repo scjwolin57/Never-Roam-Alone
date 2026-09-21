@@ -78,6 +78,8 @@ missing bar kind as normal.
 - **Gate 2: the $281 trial credit (about 8,000 calls), only after Jeff confirms in Google Cloud that the
   never-roam-alone project is linked to the billing account that holds the trial credit.** Until he confirms,
   a call beyond the free allowance could bill a card instead. Trial ends 2026-10-30.
+  **UNLOCKED 2026-09-21: Jeff confirmed the free trial is linked to the never-roam-alone project.** The run may
+  use the credit after the free allowance, until the credit or the trial (2026-10-30) ends; then gate 3.
 - **Gate 3: no out-of-pocket spend without Jeff's explicit yes.** Estimated total ~15,300 calls; free + credit by
   Oct 30 covers ~10,000. The rest either ~$190 at list price, or about 5-6 more months of free allowance.
 - When a gate is reached: finish and commit the current batch, update this note, and stop. Say which gate.
