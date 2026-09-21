@@ -48,14 +48,19 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 5 | see git log | 136 | 74 | 33 | 8 | 21 | 0 of 69 |
 | 6 | see git log | 128 | 82 | 20 | 8 | 18 | 0 of 54 |
 | 7 | see git log | 120 | 61 | 18 | 8 | 33 | 0 of 65 |
+| 8 | see git log | 128 | 54 | 15 | 4 | 55 | 0 of 79 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14/14/12/12/13/15 of batches 2-7's removals were guide-city matches recorded under the source city's `nearby` key (batch 7 also caught two guide-city names stripped out of a `fix`, not just `remove` -- Strasbourg/Freiburg and Cologne/Koblenz-Rhine-Gorge -- the apply script now checks both verdict types for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12 for batches 2-8 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
 
-Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon has an empty `full` list. All correctly left empty per the no-padding rule.
+Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon has an empty `full` list; **Colombo, Dubrovnik and Siem Reap now have ZERO day trips of either length** (rule 12: verified empty, not researched from GetYourGuide's city page yet — every real nearby place is either a guide city or over the time cap for all three). All correctly left empty per the no-padding rule pending that research.
 
-DAYTRIP_BRIEF.md's `len` warning is holding: batches 5, 6 and 7 all had zero len-mismatch errors.
+**Left for Jeff:** Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them. This is a policy exception to rule 4, not a one-off fact call — flagging for Jeff to confirm or override before it's treated as precedent for other iconic far trips (e.g. a future batch's Angkor Wat-style case).
+
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (all-empty after this pass) — to be done in a dedicated follow-up once more batches are through, rather than one-off per batch.
+
+DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-8 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 175 (batches 1-7) | 713 | 54 | 204 | 200 | 132 |
+| 200 (batches 1-8) | 688 | 58 | 219 | 255 | 144 |
