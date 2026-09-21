@@ -78,7 +78,7 @@
   /* ---------- Search row ---------- */
   .search-row{position:relative;display:flex;gap:10px;margin-top:14px}
   .search-row input{
-    flex:1;padding:12px 14px;border:2px solid rgba(63,81,56,.22);border-radius:14px;
+    flex:1;min-width:0;padding:12px 14px;border:2px solid rgba(63,81,56,.22);border-radius:14px;
     background:#fff;font-size:1rem;color:var(--ink);font-family:inherit;outline:none;transition:.15s;
   }
   .search-row input:focus{border-color:var(--teal);box-shadow:0 4px 16px rgba(63,81,56,.14)}
@@ -210,6 +210,8 @@
   .view-switch.table .knob{transform:translateX(100%)}
 
   /* ---------- per-trip Edit/Table toggle (Upcoming tab cards) ---------- */
+  .ig-view-wrap{display:contents}
+  .ig-view-label{display:none;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
   .ig-view-switch{display:flex;gap:4px;background:rgba(63,81,56,.1);border-radius:3px;padding:3px;margin:0 8px}
   .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
@@ -219,9 +221,10 @@
   .ig-table .trip-table .trow-main td{border-bottom:none;padding-bottom:2px}
   /* percentage column widths so the row can never add up to more than 100% of the table,
      no matter how narrow the screen is (fixed px widths could force it wider than its box) */
-  .ig-table .trip-table th.tnum,.ig-table .trip-table td.tnum{width:9%}
-  .ig-table .trip-table th.tcountry,.ig-table .trip-table td.tcountry{width:34%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .ig-table .trip-table th.tnights,.ig-table .trip-table td.tnights{width:14%;padding-right:16px}
+  .ig-table .trip-table th.tnum,.ig-table .trip-table td.tnum{width:8%;padding-right:4px}
+  .ig-table .trip-table th.tcity,.ig-table .trip-table td.tcity{padding-right:6px}
+  .ig-table .trip-table th.tcountry,.ig-table .trip-table td.tcountry{width:30%;padding-right:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ig-table .trip-table th.tnights,.ig-table .trip-table td.tnights{width:22%;padding-left:6px;padding-right:10px}   /* wide enough for "NIGHTS" at 320px */
   .ig-table .trip-table .tdates{
     color:var(--muted);font-weight:600;font-size:.78rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     padding-top:0;padding-bottom:11px;max-width:100%;
@@ -233,7 +236,7 @@
   .ig-tips input{accent-color:#5c6933;width:15px;height:15px;cursor:pointer;margin:0}
   .ig-tips-msg{font-size:.78rem;font-weight:600;color:#5c6933}
   .ig-tips-msg.err{color:#b5492c}
-  .ig-suggest{border:1.5px solid var(--coral);background:rgba(181,73,44,.12);color:var(--coral);font-family:inherit;
+  .ig-suggest{border:1.5px solid var(--ink);background:var(--ink);color:#fff;font-family:inherit;
     font-weight:700;font-size:.85rem;padding:7px 14px;border-radius:20px;cursor:pointer;transition:background .2s,color .2s}
   .ig-suggest:hover,.ig-suggest.open{background:var(--coral);color:#fff}
   .ns-panel{border-top:1px dashed rgba(63,81,56,.3);margin:0 -4px;padding:12px 4px 14px}
@@ -433,6 +436,12 @@
     .ig-head{flex-basis:100%}
     .ig-actions{flex-basis:100%}
     .ig-name{flex-basis:100%}
+    /* phones: trip status above the name, and everything above the itinerary centred */
+    .ig-head{flex-direction:column-reverse;align-items:center;gap:6px;margin-bottom:12px}
+    .ig-name{width:100%;text-align:center}
+    .ig-actions{justify-content:center}
+    .ig-view-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;flex-basis:100%}
+    .ig-view-label{display:block}
     .itin-new-row input{flex-basis:100%}
     .itin-new-row button{flex-basis:100%}
     .ig-cal-cell{min-height:44px;padding:2px}
@@ -460,7 +469,7 @@
   .trip-toggle button,.req-btn,.rm-btn,.stop .drag,.view-switch button,.view-switch .knob,
   .ig-view-switch button,.ig-suggest,.ns-chip,.ns-add,.ns-guide,.ns-more,.itin-new-row button,
   .ig-del,.ig-share,.ig-public,.ig-info-btn,.share-modal,.share-modal .sm-yes,.share-modal .sm-no,.wish-actions button,
-  .wish-move,.ig-stop .drag,.chip,.suggest,.ig-name{border-radius:0!important}
+  .wish-move,.ig-stop .drag,.chip,.suggest,.ig-name,.add-btn{border-radius:0!important}
 </style>
   <link rel="stylesheet" href="fonts/site-fonts.css">
 <script defer data-domain="neverroamalone.com" src="https://plausible.io/js/script.js"></script>
@@ -1279,10 +1288,10 @@
       const calendarHtml = buildTripCalendar(cities);
       const badge = (type === "past") ? "Past Trip" : tripStatus(cities);
       const badgeClass = badge === "Current Trip" ? "is-current" : (badge === "Past Trip" ? "is-past" : "is-upcoming");
-      const viewSwitchHtml = cardView === "edit" ? "" : `<div class="ig-view-switch" role="radiogroup" aria-label="Trip view">
+      const viewSwitchHtml = cardView === "edit" ? "" : `<div class="ig-view-wrap"><span class="ig-view-label">Itinerary View</span><div class="ig-view-switch" role="radiogroup" aria-label="Itinerary view">
             <button type="button" role="radio" aria-checked="${cardView === "table"}" class="${cardView === "table" ? "active" : ""}" data-set-view="table" data-trip="${esc(String(it.id))}">📋 Table</button>
             <button type="button" role="radio" aria-checked="${cardView === "calendar"}" class="${cardView === "calendar" ? "active" : ""}" data-set-view="calendar" data-trip="${esc(String(it.id))}">📅 Calendar</button>
-          </div>`;
+          </div></div>`;
       card.innerHTML = `
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
