@@ -67,6 +67,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 24 | see git log | 108 | 51 | 6 | 8 | 33 | **skipped, see note** |
 | 25 | see git log | 84 | 60 | 8 | 7 | 9 | 1 of 30 |
 | 26 | see git log | 99 | 38 | 9 | 4 | 48 | 0 of 64 |
+| 27 | see git log | 96 | 58 | 11 | 6 | 21 | 0 of 43 |
+
+**Batch 27's checker completed normally for the third straight batch** (43/43 checked, 0 disagreements, ~4.5 min run). No cities went to zero this batch. Eight guide-city dedups (Arusha, Karlovy Vary, Rimini, Bologna, Potosí, Luxembourg, Innsbruck, Bamberg, Nuremberg, Kigali, Goma, Gisenyi -- Bujumbura alone lost 3 to Kigali/Goma/Gisenyi plus Kigoma for a broken ferry route). Tozeur's three separate oasis-loop entries were folded into one combined "Chebika, Tamerza & Mides" entry already in the data, moved full->half (real trip runs ~60-70 min each way, not the "classic full-day 4x4 loop" the old blurb claimed).
 
 **Batch 26's checker also completed normally** (64/64 checked, 0 disagreements) -- the checker is reliable again for a second straight batch. Four cities went to zero: Apia (Pago Pago is ferry-only, weekly, 8-10h), Thimphu (all 9 entries were regional cities 4+ hours away or across an international border, none held up), Basseterre (8 of 9 entries were other Caribbean guide cities, the ninth had no non-flight route to Guadeloupe), Djibouti City (all 6 entries were either active Yemen war zone or 5-8.5h drives). Baden-Baden lost 3 of 4 entries to guide-city matches (Strasbourg, Heidelberg, Freiburg) plus one moved to full (Triberg). Shaoxing lost 3 entries for being inside its own Keqiao District hood, not a hoods/daytrips-file bug like Chiang Rai/Flores but the same underlying pattern (day trip = inside the city).
 
@@ -111,4 +114,4 @@ DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-misma
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 650 (batches 1-26) | 238 | 176 | 430 | 859 | 341 |
+| 675 (batches 1-27) | 213 | 182 | 441 | 880 | 353 |
