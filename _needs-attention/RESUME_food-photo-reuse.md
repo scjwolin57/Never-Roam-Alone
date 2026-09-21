@@ -43,7 +43,8 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 25 | Baguio … Mysore (25) | 55 | 7 | 39 | 9 | 979d25c8 |
 | 26 | Angra dos Reis … Ulm (25) | 60 | 10 | 30 | 20 | 0ab5821b |
 | 27 | Trujillo … Tripoli (25) | 49 | 8 | 27 | 14 | 131adf78 |
-| 28 | Bangui … Weimar (25) | 55 | 13 | 18 | 24 | this commit |
+| 28 | Bangui … Weimar (25) | 55 | 13 | 18 | 24 | 4adbcf9e |
+| 29 | Antsiranana … Ibadan (30) | 71 | 12 | 38 | 21 | this commit |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
