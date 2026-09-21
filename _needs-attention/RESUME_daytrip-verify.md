@@ -43,10 +43,11 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 1 | d37693a0 | 147 | 81 | 50 | 13 | 3 | 3 of 74 |
 | 1 recheck (rules 7/9/11) | see git log | 144 checked | — | — | — | 45 | n/a (mechanical, no checker pass) |
 | 2 | see git log | 144 | 69 | 40 | 5 | 30 | 2 of 82 |
+| 3 | see git log | 144 | 79 | 21 | 6 | 23 | 0 of 57 |
 
-All batch 2 kept entries (and batch 1's, going forward) carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14 of batch 2's removals were guide-city matches recorded under the source city's `nearby` key.
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14 of batch 2's and 14 of batch 3's removals were guide-city matches recorded under the source city's `nearby` key.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 50 (batches 1-2) | 838 | 18 | 90 | 78 | 59 |
+| 75 (batches 1-3) | 813 | 24 | 111 | 101 | 73 |
