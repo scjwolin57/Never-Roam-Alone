@@ -21,22 +21,6 @@
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;letter-spacing:.2px}
 
   /* ---------- Menu bar ---------- */
-  header.nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(63,81,56,.15);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
-  nav.links a{
-    margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
-  }
-
   /* ---------- Page hero ---------- */
   .page-hero{
     background:#5c6933;
@@ -80,8 +64,25 @@
     background-size:cover;background-position:center;
   }
   .cover-strip .cover-btns{position:absolute;right:10px;bottom:10px;display:flex;gap:8px}
-  .cover-strip .cover-btns .btn{padding:6px 14px;font-size:.78rem;background:rgba(20,40,50,.55)}
-  .cover-strip .cover-btns .btn:hover{background:rgba(20,40,50,.8)}
+  /* thin-outline, see-through button, like "Contribute a photo" on city guides */
+  .cover-upload{border:1px solid rgba(255,255,255,.6);background:transparent;color:#fff;border-radius:3px;
+    padding:4px 10px;font:inherit;font-size:.72rem;line-height:1.2;cursor:pointer;text-shadow:0 1px 4px rgba(0,0,0,.35)}
+  .cover-upload:hover,.cover-upload:focus-visible{background:var(--coral);border-color:var(--coral);text-shadow:none}
+  .cover-upload:disabled{opacity:.7;cursor:default}
+  /* small X that removes a photo (banner and profile pic) */
+  .photo-x{position:absolute;top:8px;right:8px;z-index:2;width:22px;height:22px;padding:0;border:1px solid rgba(255,255,255,.6);
+    border-radius:3px;background:rgba(43,36,23,.55);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .photo-x:hover,.photo-x:focus-visible{background:var(--coral);border-color:var(--coral)}
+  .avatar-wrap{position:relative}
+  .avatar-wrap .photo-x{top:0;right:0}
+  .tagline-row{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .tagline-label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:2px 0 -3px}
+  /* desktop: the label sits beside the box; phones keep it above */
+  @media (min-width:561px){
+    .tagline-row{flex-direction:row;gap:8px}
+    .tagline-row .tagline-label{margin:0}
+  }
+  .avatar-col .btn.small{padding:6px 12px;font-size:.74rem;white-space:nowrap}
   .cover-label{position:absolute;left:12px;top:10px;color:rgba(255,255,255,.85);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-shadow:0 1px 6px rgba(0,0,0,.4)}
   .avatar-btns{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
   .btn.small{padding:8px 16px;font-size:.82rem}
@@ -130,6 +131,33 @@
   .map-custom-chip{display:flex;align-items:center;gap:6px;background:rgba(63,81,56,.09);color:var(--green);border-radius:0;padding:6px 8px 6px 14px;font-size:.85rem;font-weight:600}
   .map-custom-chip button{border:none;background:none;color:var(--green);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px}
   .map-pin-visited{cursor:pointer}
+  .country-pick{margin:4px 0 10px}
+  .country-pick-label{display:block;font-weight:700;font-size:.78rem;color:var(--ink);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+  .country-pick input{width:100%;box-sizing:border-box;padding:10px 12px;border:2px solid rgba(63,81,56,.22);border-radius:3px;font-size:.92rem;font-family:inherit;outline:none;background:#fff}
+  .country-pick input:focus{border-color:var(--teal)}
+  .country-cities{border:1px solid rgba(63,81,56,.18);padding:14px;margin-bottom:12px}
+  .country-cities h4{margin:0 0 10px;font-size:.95rem}
+  .city-checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px;margin-bottom:6px}
+  .city-check{display:flex;align-items:flex-start;gap:8px;font-size:.9rem;color:var(--ink);cursor:pointer;min-width:0;overflow-wrap:anywhere}
+  .city-check input{width:auto;margin-top:3px;accent-color:var(--green);flex-shrink:0}
+  .other-row{margin-top:8px}
+  .other-check{margin:0 0 10px;font-weight:600}
+  .map-add-row[hidden]{display:none}
+  .my-add{color:var(--muted);font-size:.8rem}
+  .bucket-pick{margin-top:14px}
+  .bucket-checks{max-height:320px;overflow-y:auto;padding-right:4px}
+  .bucket-checks .lm-country{color:var(--muted);font-size:.8rem}
+  .bucket-none{color:var(--muted);font-size:.9rem;margin:0 0 6px}
+  .country-done{margin-top:14px;max-width:100%;white-space:normal;text-align:left}
+  @media (min-width:600px){
+    .other-row{display:flex;align-items:center;gap:14px}
+    .other-row .other-check{margin:0;flex-shrink:0}
+    .other-row .map-add-row{flex:0 1 340px}
+    .other-row .map-add-row input{padding:6px 10px}
+  }
+  .map-add-suggest li.none{cursor:default;color:var(--muted)}
+  .country-cities .map-add-row{margin-bottom:0}
+  .country-cities .map-add-row input{border-radius:3px;width:100%;box-sizing:border-box}
   .bucket-progress-row{margin-top:18px}
   .bucket-progress-text{font-size:.9rem;color:var(--ink);margin-bottom:6px}
   .bucket-progress-text strong{color:var(--coral)}
@@ -220,8 +248,6 @@
   .gate p{color:var(--muted);margin:0 auto 18px;max-width:420px}
 
   /* ---------- Footer ---------- */
-  footer{background:#5c6933;color:#fff;text-align:center;}
-  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   @media (max-width:560px){
     .row2{grid-template-columns:1fr}
@@ -239,13 +265,15 @@
   body{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif!important;
     background-color:var(--sand);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%232b2417' stroke-opacity='0.05' stroke-width='1'%3E%3Cpath d='M0 0H60M0 0V60'/%3E%3C/g%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='none' stroke='%233f5138' stroke-opacity='0.06' stroke-width='1.4'%3E%3Cpath d='M70 250c0-90 70-155 165-155s195 60 195 155-95 165-195 165S70 340 70 250z'/%3E%3Cpath d='M120 250c0-62 50-108 115-108s140 44 140 108-70 122-140 122-115-60-115-122z'/%3E%3C/g%3E%3C/svg%3E");background-position:0 0,center}
   h1,h2,h3{font-family:'Fraunces',Georgia,serif!important;letter-spacing:-.01em}
-  header.nav{border-bottom:1px solid var(--ink)}
-  .brand small{font-family:'Work Sans',sans-serif;letter-spacing:.22em}
   /* dossier forms */
   input:not([type=checkbox]):not([type=radio]):not([type=range]),textarea,select{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   form label,.field label{font-family:'Work Sans',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;color:var(--teal)}
   button[type=submit],.btn,.submit-btn,.save-btn,.primary-btn,.send-btn{background:var(--coral)!important;color:#fff!important;border-radius:0!important;font-family:'Work Sans',sans-serif!important;text-transform:uppercase!important;letter-spacing:.06em!important;font-weight:600;border:none}
   button[type=submit]:hover,.btn:hover{background:#8a3a20!important}
+  .btn.btn-ink{background:var(--ink)!important}
+  .btn.btn-ink:hover{background:#8a3a20!important}
+  .btn.btn-ink-outline{background:transparent!important;color:var(--ink)!important;border:1.5px solid var(--ink)!important;text-decoration:none}
+  .btn.btn-ink-outline:hover{background:var(--ink)!important;color:#fff!important}
 </style>
   <link rel="stylesheet" href="fonts/site-fonts.css">
 </head>
@@ -274,35 +302,40 @@
 
   <!-- Signed-in editor (hidden until we know who's here) -->
   <div class="card" id="profile-card" style="display:none">
+    <!-- jump to your page as visitors see it (private = a preview only you can see) -->
+    <div style="margin:0 0 20px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn small" id="view-profile-btn" href="roamer.html">&#128301; View my profile</a>
+      <a class="btn small btn-ink" href="messages.html">&#9993; View my messages</a>
+    </div>
+
     <!-- profile banner: shows on the public page behind the profile pic -->
     <div class="cover-strip" id="cover-strip">
       <span class="cover-label">Profile banner</span>
+      <button class="photo-x" type="button" id="cover-remove" style="display:none" title="Remove banner" aria-label="Remove banner">&times;</button>
       <div class="cover-btns">
-        <button class="btn" type="button" id="cover-upload">Upload banner</button>
-        <button class="btn" type="button" id="cover-remove" style="display:none">Remove</button>
+        <button class="cover-upload" type="button" id="cover-upload">Upload banner</button>
       </div>
     </div>
     <span class="save-msg" id="cover-msg" style="display:block;margin:-10px 0 12px"></span>
     <input type="file" id="cover-file" accept="image/*" style="display:none" />
 
-    <!-- jump to your page as visitors see it (private = a preview only you can see) -->
-    <div style="margin:0 0 20px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn small" id="view-profile-btn" href="roamer.html">View my profile &rarr;</a>
-      <a class="btn small" href="messages.html">&#9993; My messages</a>
-    </div>
-
     <div class="avatar-row">
       <div class="avatar-col">
-        <div class="avatar" id="avatar">?</div>
-        <input type="text" id="p-avatar-caption" class="avatar-caption-input" maxlength="40" placeholder="Describe this photo…" title="Optional caption shown under your photo (40 characters max)" />
+        <div class="avatar-wrap">
+          <div class="avatar" id="avatar">?</div>
+          <button class="photo-x" type="button" id="avatar-remove" style="display:none" title="Remove photo" aria-label="Remove photo">&times;</button>
+        </div>
+        <div class="tagline-row">
+          <label for="p-avatar-caption" class="tagline-label">Tagline</label>
+          <input type="text" id="p-avatar-caption" class="avatar-caption-input" maxlength="40" placeholder="Describe this photo…" title="Optional caption shown under your photo (40 characters max)" />
+        </div>
+        <button class="btn small" type="button" id="avatar-upload">Upload photo</button>
       </div>
       <div class="avatar-meta">
         <p class="whoname" id="who-name">Roamer</p>
         <span class="whoemail" id="who-email"></span>
         <p class="avatar-hint">Add a photo if you like — otherwise your initials are your picture.</p>
         <div class="avatar-btns">
-          <button class="btn small" type="button" id="avatar-upload">Upload photo</button>
-          <button class="btn small ghost" type="button" id="avatar-remove" style="display:none">Remove photo</button>
           <span class="save-msg" id="avatar-msg"></span>
         </div>
         <input type="file" id="avatar-file" accept="image/*" style="display:none" />
@@ -523,12 +556,6 @@
         </label>
         <span class="save-msg" id="mailing-msg" style="display:block;font-size:.82rem;margin-top:6px"></span>
       </div>
-
-      <div class="actions">
-        <button class="btn" type="submit" id="save-btn">Save profile</button>
-        <a class="btn ghost" href="askaroamer.html">Back to Ask A Roamer</a>
-        <span class="save-msg" id="save-msg"></span>
-      </div>
     </form>
 
     <!-- My trips: past & upcoming itineraries (itinerary.html) -->
@@ -561,27 +588,65 @@
          Bucket List progress bar (see visited.js) -->
     <div class="travel-map-zone">
       <h3>Personal travel map</h3>
-      <p>Tap a pin for every place you've been — it lights up on your map. Typed a place that isn't a pin? Add it below.</p>
+      <p>Pick a country below and tick the cities you've been to, then search the NRA bucket list for landmarks you've seen. Cities show as green pins and landmarks as red pins. Tap a pin to remove it.</p>
+      <div class="visit-counter">
+        <div class="vc-stat"><strong id="vc-cities">0</strong><span>cities visited</span></div>
+        <div class="vc-stat"><strong id="vc-countries">0</strong><span id="vc-countries-label">countries visited</span></div>
+        <div class="vc-stat vc-landmarks"><strong id="vc-landmarks">0</strong><span id="vc-landmarks-label">NRA bucket list landmarks</span></div>
+      </div>
       <p class="map-progress" id="map-progress"></p>
       <div id="travel-map" class="travel-map"></div>
-      <p class="map-fallback" id="map-fallback" hidden>Map couldn't load — you can still add places by name below.</p>
+      <p class="osm-credit" id="osm-credit" hidden>Some pins placed with <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a></p>
+      <p class="map-fallback" id="map-fallback" hidden>Map couldn't load. You can still add places by country below.</p>
 
-      <form class="map-add-row" id="map-add-form">
+      <div class="country-pick">
+        <label for="country-pick-input" class="country-pick-label">Add cities by country</label>
         <div class="map-add-wrap">
-          <input type="text" id="map-add-input" placeholder="Add a place not on the map…" autocomplete="off" maxlength="80" />
-          <ul class="map-add-suggest" id="map-add-suggest" hidden></ul>
+          <input type="text" id="country-pick-input" placeholder="Search for a country…" autocomplete="off" maxlength="60" role="combobox" aria-expanded="false" aria-controls="country-pick-list" />
+          <ul class="map-add-suggest" id="country-pick-list" role="listbox" hidden></ul>
         </div>
-        <button type="submit" class="btn small">Add</button>
-      </form>
+      </div>
+      <div class="country-cities" id="country-cities" hidden>
+        <h4 id="country-cities-title"></h4>
+        <div class="city-checks" id="city-checks"></div>
+        <div class="other-row">
+        <label class="city-check other-check"><input type="checkbox" id="other-toggle" /> Other</label>
+        <form class="map-add-row" id="map-add-form" hidden>
+          <div class="map-add-wrap">
+            <input type="text" id="map-add-input" placeholder="City name…" autocomplete="off" maxlength="80" />
+            <ul class="map-add-suggest" id="map-add-suggest" hidden></ul>
+          </div>
+          <button type="submit" class="btn small">Add</button>
+        </form>
+        </div>
+        <button type="button" class="btn small country-done" id="country-done"></button>
+      </div>
       <div class="map-custom-list" id="map-custom-list"></div>
 
       <div class="bucket-progress-row">
         <div class="bucket-progress-text">
-          <strong id="bucket-count">0/100</strong> Bucket List landmarks visited
-          <a href="choose.html" class="bucket-link">Check off landmarks &rarr;</a>
+          <strong id="bucket-count">0/100</strong> NRA bucket list landmarks
+          <a href="choose.html" class="bucket-link">See the bucket list &rarr;</a>
         </div>
         <div class="bucket-bar"><div class="bucket-bar-fill" id="bucket-bar-fill"></div></div>
       </div>
+
+      <div class="country-pick bucket-pick">
+        <label for="bucket-pick-input" class="country-pick-label">Add bucket list landmarks</label>
+        <input type="text" id="bucket-pick-input" placeholder="Search for a landmark or country…" autocomplete="off" maxlength="60" aria-controls="bucket-checks" />
+      </div>
+      <div class="country-cities" id="bucket-box" hidden>
+        <h4 id="bucket-box-title"></h4>
+        <div class="city-checks bucket-checks" id="bucket-checks"></div>
+        <p class="bucket-none" id="bucket-none" hidden>No landmark on the list matches that.</p>
+        <button type="button" class="btn small country-done" id="bucket-done">Done Adding Landmarks</button>
+      </div>
+    </div>
+
+    <!-- Save sits at the bottom of the page; form= ties it to the profile form above -->
+    <div class="actions save-row">
+      <button class="btn" type="submit" form="profile-form" id="save-btn">Save profile</button>
+      <span class="save-msg" id="save-msg"></span>
     </div>
 
     <!-- Danger zone: permanent account deletion (GDPR right to erasure) -->
@@ -595,7 +660,7 @@
         <p class="del-confirm-text">Are you absolutely sure? This is permanent.</p>
         <div class="actions" style="margin-top:10px;justify-content:flex-start">
           <button class="btn danger" type="button" id="del-confirm">Yes, delete my account permanently</button>
-          <button class="btn ghost" type="button" id="del-cancel">Cancel</button>
+          <button class="btn btn-ink-outline" type="button" id="del-cancel">Cancel</button>
         </div>
       </div>
       <p class="save-msg" id="del-msg"></p>
@@ -621,21 +686,7 @@
   </div>
 </div>
 
-<footer>
-  <div class="brand"><img class="foot-logo" src="logo-round-sand.png" width="34" height="34" alt=""><span>Never Roam Alone</span><span class="foot-copy">&copy; <span data-year>2026</span></span></div>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="best-time-to-visit.html">Where to Go This Month</a>
-    <a href="choose.html">Destination Finder</a>
-    <a href="cities.html">City Guides</a>
-    <a href="compare.html">Compare Cities</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="community.html">Community Contributions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
-</footer>
+<footer data-site-footer></footer>
 
 <script src="vendor/maplibre-gl-4.7.1.js"></script>
 <script src="nra-config.js"></script>
@@ -645,6 +696,8 @@
 <script src="bucketlist.js"></script>
 <script src="visited.js"></script>
 <script src="world-cities.js"></script>
+<script src="country-fold.js"></script>
+<script src="travel-stats.js"></script>
 <script>
 /* ==================================================================
    PROFILE PAGE
@@ -1325,9 +1378,12 @@
 
 /* ==================================================================
    PERSONAL TRAVEL MAP + BUCKET LIST PROGRESS (visited.js backs both)
-   • Every featured (101) and coming-soon (up to 145) city is a pin;
-     tap a pin to mark it "been there" — it switches color.
-   • A text box below lets you add a place that isn't a pin at all.
+   • Only visited places are pins; tap a pin to unmark it.
+   • A country picker lists that country's site cities as checkboxes,
+     plus "Other" for a city the site doesn't cover (stored as
+     "City, Country" so it still counts toward the country total).
+   • Counters show cities visited and countries visited; countries are
+     folded to sovereign ones by country-fold.js, as on the homepage.
    • The Bucket List bar reads how many of the 100 landmarks
      (window.NRA_BUCKET, checked off on choose.html) you've visited.
 ================================================================== */
@@ -1343,15 +1399,28 @@
 
   let map = null, mapLoaded = false;
 
+  /* counts, country lists and pin positions come from travel-stats.js (shared with roamer.html) */
+  const T = window.NRA_TRAVEL;
+  const { SITE_COUNTRIES, CITIES_OF, TOTAL_COUNTRIES, additionCountry } = T;
+  let currentCountry = null;
+
   function pinsGeojson(){
     return {
       type:"FeatureCollection",
-      features: PINS.map(p => ({
+      features: T.cityPins(window.NRA_VISITED ? NRA_VISITED.places() : []).map(p => ({
         type:"Feature",
         properties:{ city:p.city, country:p.country, visited: window.NRA_VISITED ? NRA_VISITED.hasPlace(p.city) : false },
         geometry:{ type:"Point", coordinates:[p.lng, p.lat] }
       }))
     };
+  }
+
+  // Zoom the map to a country's visited pins (or all its pins if none ticked)
+  function showCountryOnMap(country){
+    refreshMap();
+    if (!map || !mapLoaded) return;
+    const seen = T.cityPins(NRA_VISITED.places()).filter(p => p.country === country);
+    fitPoints(seen.length ? seen : PINS.filter(p => p.country === country));
   }
 
   function initMap(){
@@ -1377,10 +1446,27 @@
           "circle-stroke-width":1.4
         }
       });
+      map.addSource("profile-bucket", { type:"geojson", data: bucketGeojson() });
+      map.addLayer({
+        id:"profile-bucket-dots", type:"circle", source:"profile-bucket",
+        paint:{ "circle-radius":5.5, "circle-color":"#b5492c", "circle-opacity":0.95, "circle-stroke-color":"#8a3a20", "circle-stroke-width":1.4 }
+      });
       map.getCanvas().style.cursor = "pointer";
+      map.on("click", "profile-bucket-dots", async (e) => {
+        const f = e.features && e.features[0];
+        if (!f || !window.NRA_VISITED) return;
+        await NRA_VISITED.toggleBucket(f.properties.name);
+        refreshMap(); renderProgress();
+      });
+      map.on("mouseenter", "profile-bucket-dots", (e) => {
+        const f = e.features && e.features[0]; if (!f) return;
+        map.getCanvas().title = f.properties.name + " — visited! tap to remove";
+      });
       map.on("click", "profile-pin-dots", async (e) => {
         const f = e.features && e.features[0];
         if (!f || !window.NRA_VISITED) return;
+        // a red landmark pin on top of this spot takes the tap instead
+        if (map.queryRenderedFeatures(e.point, { layers:["profile-bucket-dots"] }).length) return;
         await NRA_VISITED.togglePlace(f.properties.city);
         refreshMap();
         renderCustom();
@@ -1388,31 +1474,61 @@
       });
       map.on("mouseenter", "profile-pin-dots", (e) => {
         const f = e.features && e.features[0]; if (!f) return;
-        map.getCanvas().title = f.properties.city + (NRA_VISITED.hasPlace(f.properties.city) ? " — been there! tap to unmark" : " — tap to mark as visited");
+        map.getCanvas().title = f.properties.city + " — been there! tap to remove";
       });
     });
+  }
+
+  function bucketGeojson(){
+    return {
+      type:"FeatureCollection",
+      features: T.bucketPins(window.NRA_VISITED ? NRA_VISITED.bucket() : []).map(b => ({
+        type:"Feature",
+        properties:{ name:b.name },
+        geometry:{ type:"Point", coordinates:[b.lng, b.lat] }
+      }))
+    };
   }
 
   function refreshMap(){
     if (!map || !mapLoaded) return;
     const src = map.getSource("profile-pins");
     if (src) src.setData(pinsGeojson());
+    const bsrc = map.getSource("profile-bucket");
+    if (bsrc) bsrc.setData(bucketGeojson());
+  }
+
+  function fitPoints(pts){
+    if (!map || !mapLoaded || !pts.length) return;
+    const b = new maplibregl.LngLatBounds([pts[0].lng, pts[0].lat], [pts[0].lng, pts[0].lat]);
+    pts.forEach(p => b.extend([p.lng, p.lat]));
+    map.fitBounds(b, { padding:40, maxZoom:6, duration:800 });
   }
 
   function renderProgress(){
     if (!window.NRA_VISITED) return;
-    const total = NRA_VISITED.places().length;
-    $("map-progress").textContent = total ? `🌍 ${total} place${total===1?"":"s"} visited` : "🌍 No places marked yet — tap a pin on the map, or add one below.";
+    const places = NRA_VISITED.places();
+    const total = places.length;
+    const countries = T.countCountries(places);
+    $("vc-cities").textContent = total;
+    $("vc-countries").textContent = countries;
+    $("vc-countries-label").textContent = `of ${TOTAL_COUNTRIES} countries visited`;
+    $("osm-credit").hidden = !T.usesOsm(places);
+    $("map-progress").textContent = total ? "" : "No places marked yet. Pick a country below to start your map.";
+    $("map-progress").hidden = !!total;
     const bucketTotal = (window.NRA_BUCKET||[]).length || 100;
     const bucketCount = NRA_VISITED.bucket().length;
     $("bucket-count").textContent = `${bucketCount}/${bucketTotal}`;
+    $("vc-landmarks").textContent = bucketCount;
+    $("vc-landmarks-label").textContent = `of ${bucketTotal} NRA bucket list landmarks`;
     $("bucket-bar-fill").style.width = Math.min(100, Math.round((bucketCount/bucketTotal)*100)) + "%";
   }
 
   function renderCustom(){
     if (!window.NRA_VISITED) return;
     const pinNames = new Set(PINS.map(p => norm(p.city)));
-    const custom = NRA_VISITED.places().filter(p => !pinNames.has(norm(p)));
+    // Other additions ("City, Country") live in their country's checkbox list
+    const custom = NRA_VISITED.places().filter(p => !pinNames.has(norm(p)) && !additionCountry(p));
     const list = $("map-custom-list");
     list.innerHTML = custom.map(p => `
       <span class="map-custom-chip">${esc(p)}<button type="button" data-rm-place="${esc(p)}" title="Remove" aria-label="Remove ${esc(p)}">✕</button></span>
@@ -1438,8 +1554,11 @@
     function search(q){
       q = norm(q);
       if (!q) return [];
+      const codes = currentCountry ? T.codesFor(currentCountry) : null;
+      if (!codes || !codes.size) return [];
       const starts = [], contains = [];
       for (const row of cities){
+        if (!codes.has(row[1])) continue;
         const name = row[0];
         const n = norm(name);
         if (n.startsWith(q)) starts.push(row);
@@ -1498,26 +1617,187 @@
     input.addEventListener("focus", () => { if (matches.length) list.hidden = false; });
   })();
 
+  /* "Other": a city in the chosen country that the site doesn't list.
+     If it is a site city after all, tick that city instead; otherwise
+     save it as "City, Country" so the country counter can place it. */
   $("map-add-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const input = $("map-add-input");
-    const val = input.value.trim();
-    if (!val || !window.NRA_VISITED) return;
-    await NRA_VISITED.togglePlace(val);
+    const val = input.value.trim().replace(/,+$/, "");
+    if (!val || !currentCountry || !window.NRA_VISITED) return;
+    const site = (CITIES_OF[currentCountry] || []).find(c => norm(c) === norm(val));
+    const name = site || `${val}, ${currentCountry}`;
+    if (!NRA_VISITED.hasPlace(name)) await NRA_VISITED.togglePlace(name);
     input.value = "";
-    refreshMap(); renderCustom(); renderProgress();
+    refreshMap(); renderCustom(); renderProgress(); renderCityChecks();
+    T.locate([name], () => { refreshMap(); renderProgress(); });
   });
+
+  /* ---- country picker: searchable list of every country on the site ---- */
+  // Additions unticked while this country is open stay listed (unticked)
+  // until another country is picked, so a slip of the finger can be undone.
+  let lingering = [];
+  function renderCityChecks(){
+    const box = $("country-cities");
+    if (!currentCountry){ box.hidden = true; return; }
+    box.hidden = false;
+    const saved = window.NRA_VISITED ? NRA_VISITED.places() : [];
+    const additions = saved.filter(p => additionCountry(p) === currentCountry);
+    lingering.forEach(p => { if (!additions.some(a => norm(a) === norm(p))) additions.push(p); });
+    const items = [
+      ...(CITIES_OF[currentCountry] || []).map(c => ({ key:c, name:c, mine:false })),
+      ...additions.map(p => ({ key:p, name:p.slice(0, p.lastIndexOf(",")).trim(), mine:true }))
+    ].sort((a, b) => a.name.localeCompare(b.name));
+    $("country-cities-title").textContent = `Cities in ${currentCountry}`;
+    $("country-done").textContent = `Done Adding Cities in ${currentCountry}`;
+    $("city-checks").innerHTML = items.map((it, i) => `
+      <label class="city-check"><input type="checkbox" data-city-i="${i}" ${window.NRA_VISITED && NRA_VISITED.hasPlace(it.key) ? "checked" : ""} /> <span>${esc(it.name)}${it.mine ? ` <span class="my-add">(My Addition)</span>` : ""}</span></label>
+    `).join("");
+    $("city-checks").querySelectorAll("[data-city-i]").forEach(cb => cb.addEventListener("change", async () => {
+      if (!window.NRA_VISITED) return;
+      const it = items[Number(cb.dataset.cityI)];
+      if (it.mine && !cb.checked && !lingering.includes(it.key)) lingering.push(it.key);
+      cb.disabled = true;
+      try{ await NRA_VISITED.togglePlace(it.key); }
+      catch(err){ cb.checked = !cb.checked; }
+      cb.disabled = false;
+      refreshMap(); renderCustom(); renderProgress(); renderCityChecks();
+    }));
+  }
+
+  (function initCountryPicker(){
+    const input = $("country-pick-input");
+    const list = $("country-pick-list");
+    let matches = [], activeIdx = -1;
+
+    function search(q){
+      q = norm(q);
+      if (!q) return SITE_COUNTRIES.slice();
+      const starts = SITE_COUNTRIES.filter(c => norm(c).startsWith(q));
+      const contains = SITE_COUNTRIES.filter(c => !norm(c).startsWith(q) && norm(c).includes(q));
+      return [...starts, ...contains];
+    }
+    function close(){ list.hidden = true; input.setAttribute("aria-expanded", "false"); }
+    function render(){
+      if (!matches.length){ list.innerHTML = `<li class="none">No country matches</li>`; list.hidden = false; return; }
+      list.innerHTML = matches.map((c, i) => {
+        const n = (CITIES_OF[c] || []).length;
+        return `<li role="option" data-idx="${i}" class="${i===activeIdx?"active":""}"><span>${esc(c)}</span><span class="sugg-country">${n} ${n===1?"city":"cities"}</span></li>`;
+      }).join("");
+      list.hidden = false;
+      input.setAttribute("aria-expanded", "true");
+      list.querySelectorAll("li[data-idx]").forEach(li => li.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        pick(Number(li.dataset.idx));
+      }));
+      const act = list.querySelector("li.active");
+      if (act) act.scrollIntoView({ block:"nearest" });
+    }
+    function pick(i){
+      const c = matches[i];
+      if (!c) return;
+      currentCountry = c;
+      lingering = [];
+      input.value = c;
+      close();
+      $("other-toggle").checked = false;
+      $("map-add-form").hidden = true;
+      $("map-add-input").value = "";
+      renderCityChecks();
+    }
+
+    let quietFocus = false;   // Done returns the cursor here without opening the list
+    input.addEventListener("focus", () => { input.value = ""; matches = search(""); activeIdx = -1; if (quietFocus){ quietFocus = false; return; } render(); });
+    input.addEventListener("input", () => { matches = search(input.value); activeIdx = matches.length ? 0 : -1; render(); });
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown"){ e.preventDefault(); if (list.hidden){ matches = search(input.value); } activeIdx = Math.min(activeIdx+1, matches.length-1); render(); }
+      else if (e.key === "ArrowUp"){ e.preventDefault(); activeIdx = Math.max(activeIdx-1, 0); render(); }
+      else if (e.key === "Enter"){ e.preventDefault(); if (activeIdx >= 0) pick(activeIdx); }
+      else if (e.key === "Escape"){ close(); }
+    });
+    input.addEventListener("blur", () => { close(); if (currentCountry) input.value = currentCountry; });
+
+    // Done: close this country's list, show its pins, back to the search box
+    $("country-done").addEventListener("click", () => {
+      const done = currentCountry;
+      currentCountry = null;
+      lingering = [];
+      $("other-toggle").checked = false;
+      $("map-add-form").hidden = true;
+      $("map-add-input").value = "";
+      renderCityChecks();
+      showCountryOnMap(done);
+      $("vc-cities").closest(".visit-counter").scrollIntoView({ block:"start", behavior:"smooth" });
+      input.value = "";
+      close();
+      if (document.activeElement !== input){ quietFocus = true; input.focus({ preventScroll:true }); }
+    });
+
+    $("other-toggle").addEventListener("change", (e) => {
+      $("map-add-form").hidden = !e.target.checked;
+      if (e.target.checked) $("map-add-input").focus();
+    });
+  })();
+
+  /* ---- bucket list picker: search the 100 landmarks by name or country,
+     tick the ones you've seen; Done shows them on the map as red pins ---- */
+  const BUCKET = window.NRA_BUCKET || [];
+  let bucketQuery = null;   // null = picker closed
+  function renderBucketChecks(){
+    const box = $("bucket-box");
+    if (bucketQuery === null){ box.hidden = true; return; }
+    box.hidden = false;
+    const q = norm(bucketQuery);
+    const items = BUCKET.filter(b => !q || norm(b.name).includes(q) || norm(b.country).includes(q))
+      .sort((a, b) => a.name.localeCompare(b.name));
+    $("bucket-box-title").textContent = q ? `Landmarks matching "${bucketQuery.trim()}"` : "All NRA bucket list landmarks";
+    $("bucket-none").hidden = !!items.length;
+    $("bucket-checks").innerHTML = items.map((b, i) => `
+      <label class="city-check"><input type="checkbox" data-lm-i="${i}" ${window.NRA_VISITED && NRA_VISITED.hasBucket(b.name) ? "checked" : ""} /> <span>${esc(b.name)} <span class="lm-country">${esc(b.country)}</span></span></label>
+    `).join("");
+    $("bucket-checks").querySelectorAll("[data-lm-i]").forEach(cb => cb.addEventListener("change", async () => {
+      if (!window.NRA_VISITED) return;
+      cb.disabled = true;
+      try{ await NRA_VISITED.toggleBucket(items[Number(cb.dataset.lmI)].name); }
+      catch(err){ cb.checked = !cb.checked; }
+      cb.disabled = false;
+      refreshMap(); renderProgress();
+    }));
+  }
+  (function initBucketPicker(){
+    const input = $("bucket-pick-input");
+    let quietFocus = false;
+    input.addEventListener("focus", () => {
+      if (quietFocus){ quietFocus = false; return; }
+      bucketQuery = input.value; renderBucketChecks();
+    });
+    input.addEventListener("click", () => { if (bucketQuery === null){ bucketQuery = input.value; renderBucketChecks(); } });
+    input.addEventListener("input", () => { bucketQuery = input.value; renderBucketChecks(); });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") e.preventDefault(); });
+    $("bucket-done").addEventListener("click", () => {
+      bucketQuery = null;
+      input.value = "";
+      renderBucketChecks();
+      refreshMap();
+      fitPoints(BUCKET.filter(b => window.NRA_VISITED && NRA_VISITED.hasBucket(b.name)));
+      $("vc-cities").closest(".visit-counter").scrollIntoView({ block:"start", behavior:"smooth" });
+      if (document.activeElement !== input){ quietFocus = true; input.focus({ preventScroll:true }); }
+    });
+  })();
 
   (async function initTravelMap(){
     initMap();
     if (window.NRA_VISITED){
       await NRA_VISITED.ready();
-      NRA_VISITED.onChange(() => { refreshMap(); renderCustom(); renderProgress(); });
+      NRA_VISITED.onChange(() => { refreshMap(); renderCustom(); renderProgress(); renderCityChecks(); renderBucketChecks(); });
     }
     renderProgress(); renderCustom();
+    // place Other additions that world-cities.js doesn't know (one OpenStreetMap lookup each, cached)
+    if (window.NRA_VISITED) T.locate(NRA_VISITED.places(), () => { refreshMap(); renderProgress(); });
   })();
 })();
 </script>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

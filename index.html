@@ -98,24 +98,6 @@
   h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:700;letter-spacing:-.01em}
 
   /* ---------- Menu bar ---------- */
-  header.nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(246,241,231,.92);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid rgba(85,107,47,.15);
-  }
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:var(--coral)}
-  .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(192,64,32,.2)}
-  nav.links a{
-    margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;white-space:nowrap;
-  }
-  .menu-toggle{display:none}
-
   /* ---------- Hero / map ---------- */
   .hero{max-width:var(--maxw);margin:0 auto;padding:38px 22px 10px;text-align:center}
   .hero h1{font-size:clamp(2rem,5vw,3.3rem);margin:0 0 8px}
@@ -216,13 +198,9 @@
   .tile .readmore{display:inline-block;margin-top:14px;color:var(--teal);font-weight:700;font-size:.84rem}
   @media(min-width:540px) and (max-width:880px){.tiles{grid-template-columns:repeat(2,1fr)}}
 
-  footer{background:#5c6933;color:#dff1f2;text-align:center;margin-top:30px}
-  footer small{display:block;margin-top:10px;color:rgba(255,255,255,.6)}
-  footer .foot-disclosure{margin-top:22px!important;padding-top:18px;border-top:1px solid rgba(255,255,255,.15);font-size:.76rem;opacity:.65}
 
   @media(max-width:880px){
     .tiles{grid-template-columns:1fr}
-    nav.links{display:none}
     #map{height:440px}
     .map-legend,.legend-toggle{left:30px}
     .about{
@@ -236,10 +214,6 @@
   }
 
   /* ================= EXPLORER THEME (overrides) ================= */
-  header.nav{background:rgba(236,226,204,.93);border-bottom:1px solid var(--ink)}
-  .brand .dot{display:none}
-  .brand small{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.08em}
-
   .hero p.kicker{font-family:'Work Sans',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--teal);font-weight:600;font-size:.82rem;letter-spacing:.08em}
   .hero h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1}
   .hero h1 em{font-family:'Amatic SC',cursive;font-style:normal;color:var(--coral)}
@@ -305,7 +279,6 @@
   .dest-cta-btn:hover{background:var(--coral)}
   .dest-cta-btn:hover .dest-cta-icon{transform:rotate(135deg)}
 
-  footer{background:#5c6933;color:#d8d0b8}
 
 
   /* ---- full-design: social proof under hero ---- */
@@ -360,7 +333,7 @@
 <!-- ===== Menu bar ===== -->
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="index.html">
       <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
@@ -430,28 +403,14 @@
   </div>
 </section>
 
-<footer>
-  <div class="brand"><img class="foot-logo" src="logo-round-sand.png" width="34" height="34" alt=""><span>Never Roam Alone</span><span class="foot-copy">&copy; <span data-year>2026</span></span></div>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="best-time-to-visit.html">Where to Go This Month</a>
-    <a href="choose.html">Destination Finder</a>
-    <a href="cities.html">City Guides</a>
-    <a href="compare.html">Compare Cities</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="community.html">Community Contributions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
-  <small class="foot-disclosure" style="display:block;width:100%;color:#d8d0b8">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> Details in our <a href="privacy.html" style="text-decoration:underline;color:#d8d0b8">Privacy Policy</a>.</small>
-</footer>
+<footer data-site-footer></footer>
 
 <!-- Perf: the MapLibre engine is no longer loaded here — watchGlobe (below)
      loads it on demand: automatically on desktop when the map scrolls into
      view, and on phones only after the visitor taps the map picture. -->
 <script src="city-photos.js"></script>
 <script src="posts.js"></script>
+<script src="country-fold.js"></script>
 <script>
 /* ---------------------------------------------------------
    STARTER CITY DATA
@@ -1394,44 +1353,13 @@ const CITIES = [
     if (sp && typeof CITIES !== "undefined") sp.textContent = CITIES.length + " cities";
     var spc = document.getElementById("sp-countries");
     if (spc && typeof CITIES !== "undefined") {
-      // CITIES' "country" field is really "country or territory shown on the
-      // card" — it has its own entries for places like Bermuda, Puerto Rico
-      // and Greenland, plus a few sovereign countries logged under two
-      // different spellings (e.g. "Turkey"/"Türkiye"). Counting those raw
-      // strings gives 232, which is more than the ~197 countries that
-      // actually exist. Fold each territory into its sovereign parent and
-      // merge the duplicate spellings before counting, so the number on the
-      // homepage matches a real count of countries.
-      var COUNTRY_ALIAS = {
-        "DR Congo": "Democratic Republic of the Congo",
-        "Myanmar (Burma)": "Myanmar",
-        "Turkey": "Türkiye",
-        "The Gambia": "Gambia",
-        "China (SAR)": "China",
-        "Finland (Åland)": "Finland",
-        "Norway (Svalbard)": "Norway",
-        "Anguilla": "United Kingdom", "Bermuda": "United Kingdom",
-        "British Virgin Islands": "United Kingdom", "Falkland Islands": "United Kingdom",
-        "Gibraltar": "United Kingdom", "Montserrat": "United Kingdom",
-        "Saint Helena": "United Kingdom", "Turks and Caicos Islands": "United Kingdom",
-        "Aruba": "Netherlands", "Bonaire": "Netherlands",
-        "Curaçao": "Netherlands", "Sint Maarten": "Netherlands",
-        "French Guiana": "France", "French Polynesia": "France",
-        "Guadeloupe": "France", "Martinique": "France", "Mayotte": "France",
-        "New Caledonia": "France", "Réunion": "France",
-        "Saint Pierre and Miquelon": "France", "Saint-Barthélemy": "France",
-        "Saint-Martin": "France",
-        "Puerto Rico": "United States", "U.S. Virgin Islands": "United States",
-        "Northern Mariana Islands": "United States",
-        "Faroe Islands": "Denmark", "Greenland": "Denmark"
-      };
-      // Not a sovereign country and not a territory of one on this list either.
-      var COUNTRY_EXCLUDE = { "Western Sahara": true };
+      // Territories fold into their parent country and duplicate spellings merge
+      // (Puerto Rico -> United States, Turkey -> Türkiye; Western Sahara is not
+      // counted). The rule lives only in country-fold.js, shared with profile.html.
       var countries = {};
       for (var ci=0; ci<CITIES.length; ci++){
-        var raw = CITIES[ci].country;
-        if (COUNTRY_EXCLUDE[raw]) continue;
-        countries[COUNTRY_ALIAS[raw] || raw] = true;
+        var folded = window.NRA_foldCountry(CITIES[ci].country);
+        if (folded) countries[folded] = true;
       }
       spc.textContent = Object.keys(countries).length + " countries";
     }
@@ -1692,6 +1620,7 @@ map.on("load", () => {
 <script src="blog-remote.js"></script>
 <script src="auth.js"></script>
 <script src="mailing-list.js"></script>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

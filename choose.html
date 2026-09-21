@@ -50,7 +50,6 @@
     color:var(--ink);background:var(--sand);line-height:1.65}
   h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
 
-  nav.links a.active{color:var(--green);border-color:var(--coral)}
 
   .intro{max-width:760px;margin:0 auto;padding:60px 22px 10px;text-align:center}
   .intro .kicker{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem}
@@ -360,9 +359,8 @@
   .bm-map{display:block;text-align:center;color:var(--teal);font-weight:700;font-size:.88rem;padding:4px}
   .bm-map:hover{text-decoration:underline}
 
-  footer{background:#5c6933;color:#dfeee7;text-align:center;margin-top:40px}
 
-  @media(max-width:820px){nav.links{display:none}.grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:820px){.grid{grid-template-columns:1fr 1fr}}
   @media(max-width:600px){
     .grid{grid-template-columns:1fr}
     .tool-switch{flex-direction:column;align-items:stretch}
@@ -618,7 +616,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -971,21 +969,7 @@
   <div data-nra-signup data-source="finder"></div>
 </section>
 
-<footer>
-  <div class="brand"><img class="foot-logo" src="logo-round-sand.png" width="34" height="34" alt=""><span>Never Roam Alone</span><span class="foot-copy">&copy; <span data-year>2026</span></span></div>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="best-time-to-visit.html">Where to Go This Month</a>
-    <a href="choose.html">Destination Finder</a>
-    <a href="cities.html">City Guides</a>
-    <a href="compare.html">Compare Cities</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="community.html">Community Contributions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
-</footer>
+<footer data-site-footer></footer>
 
 <script src="vendor/flatpickr-4.6.13.js"></script>
 <script src="iso-countries.js"></script>
@@ -3054,6 +3038,7 @@ NRA_FAV.onChange(paintFavHearts); NRA_FAV.ready().then(paintFavHearts);
 NRA_VISITED.onChange(paintBucketButtons); NRA_VISITED.ready().then(paintBucketButtons);
 </script>
 <script src="mailing-list.js"></script>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 

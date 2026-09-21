@@ -46,9 +46,6 @@
   h1,h2,h3{font-family:'Fraunces','Fraunces',Georgia,serif}
 
   /* Nav */
-  .brand{display:flex;align-items:center;gap:10px;font-family:'Amatic SC','Fraunces',Georgia,serif;font-weight:700;font-size:1.85rem;line-height:1;color:#b5492c}
-  nav.links a.active{color:var(--green);border-color:var(--coral)}
-
   /* Page header */
   .page-hero{background:#5c6933;color:#fff;padding:64px 22px 52px;text-align:center}
   .page-hero .kicker{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
@@ -180,11 +177,9 @@
     .cmp-tray-go{text-align:center}
   }
 
-  footer{background:#5c6933;color:#dfeee7;text-align:center;margin-top:0}
 
   @media(max-width:860px){.city-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:540px){
-    nav.links{display:none}
     .city-grid{grid-template-columns:1fr}
   }
 
@@ -198,7 +193,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html">
-      <img class="logo" src="logo.svg" width="44" height="44" alt="Never Roam Alone logo">
+      <img class="logo" src="logo.svg" width="46" height="46" alt="Never Roam Alone logo">
       <span>Never Roam Alone<small>Your Travel Companion</small></span>
     </a>
     <nav class="links" data-site-nav></nav>
@@ -256,21 +251,7 @@
 
 <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">&uarr;</a>
 
-<footer>
-  <div class="brand"><img class="foot-logo" src="logo-round-sand.png" width="34" height="34" alt=""><span>Never Roam Alone</span><span class="foot-copy">&copy; <span data-year>2026</span></span></div>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="best-time-to-visit.html">Where to Go This Month</a>
-    <a href="choose.html">Destination Finder</a>
-    <a href="cities.html">City Guides</a>
-    <a href="compare.html">Compare Cities</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="community.html">Community Contributions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
-</footer>
+<footer data-site-footer></footer>
 
 <script src="city-photos.js"></script>
 <script src="destinations.js"></script>
@@ -645,6 +626,7 @@ document.getElementById("city-sort").addEventListener("change", applyFilters);
 <script>
 NRA_FAV.onChange(paintFavHearts); NRA_FAV.ready().then(paintFavHearts);
 </script>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>

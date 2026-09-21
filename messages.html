@@ -27,15 +27,6 @@
   h1,h2,h3{font-family:Georgia,"Amatic SC",serif;letter-spacing:.2px}
 
   /* ---------- Menu bar ---------- */
-  .nav-inner{
-    max-width:var(--maxw);margin:0 auto;padding:14px 22px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  nav.links a{
-    margin-left:26px;font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);
-    padding-bottom:3px;border-bottom:2px solid transparent;transition:.2s;
-  }
-
   /* ---------- Page hero ---------- */
   .page-hero{
     background:#5c6933;
@@ -162,8 +153,6 @@
   .gate p{color:var(--muted);margin:0 auto 18px;max-width:420px}
 
   /* ---------- Footer ---------- */
-  footer{background:#5c6933;color:#fff;text-align:center;}
-  footer small{display:block;margin-top:14px;color:rgba(255,255,255,.6)}
 
   /* ---------- Phones: one pane at a time ---------- */
   @media (max-width:720px){
@@ -258,21 +247,7 @@
   </div>
 </div>
 
-<footer>
-  <div class="brand"><img class="foot-logo" src="logo-round-sand.png" width="34" height="34" alt=""><span>Never Roam Alone</span><span class="foot-copy">&copy; <span data-year>2026</span></span></div>
-  <div class="foot-links">
-    <a href="index.html">Home</a>
-    <a href="best-time-to-visit.html">Where to Go This Month</a>
-    <a href="choose.html">Destination Finder</a>
-    <a href="cities.html">City Guides</a>
-    <a href="compare.html">Compare Cities</a>
-    <a href="contact.html">Contact</a>
-    <a href="feedback.html">Feedback</a>
-    <a href="community.html">Community Contributions</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms of Service</a>
-  </div>
-</footer>
+<footer data-site-footer></footer>
 
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
@@ -678,6 +653,7 @@
   })();
 })();
 </script>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
 </body>
