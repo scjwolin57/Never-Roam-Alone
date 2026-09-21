@@ -46,14 +46,15 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 3 | see git log | 144 | 79 | 21 | 6 | 23 | 0 of 57 |
 | 4 | see git log | 144 | 77 | 22 | 6 | 27 | 2 of 62 |
 | 5 | see git log | 136 | 74 | 33 | 8 | 21 | 0 of 69 |
+| 6 | see git log | 128 | 82 | 20 | 8 | 18 | 0 of 54 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14 of batch 2's, 14 of batch 3's, 12 of batch 4's and 12 of batch 5's removals were guide-city matches recorded under the source city's `nearby` key.
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14/14/12/12/13 of batches 2-6's removals were guide-city matches recorded under the source city's `nearby` key.
 
-Toronto, Manila, Melbourne and Auckland now have empty `half` lists after this pass (every entry was over the 75-min cap or removed) — correctly left empty per the no-padding rule, not researched as a gap yet.
+Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon now has an empty `full` list (both its full entries, Annecy and Grenoble, were guide-city dupes). All correctly left empty per the no-padding rule.
 
-DAYTRIP_BRIEF.md's Output section now explicitly warns about the top-level `len` bug (batches 3 and 4 hit it); batch 5's researchers and checker got it right with zero instances, so the fix appears to be working.
+DAYTRIP_BRIEF.md's `len` warning (added after batches 3-4) is holding: batches 5 and 6 both had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 125 (batches 1-5) | 763 | 38 | 166 | 149 | 97 |
+| 150 (batches 1-6) | 738 | 46 | 186 | 167 | 110 |
