@@ -9,8 +9,14 @@ Rule: decisions.md 2026-09-18. Verify all 3,795 day trips on the site (888 citie
 4. Reachable as a day trip: half about 75 min or less each way; full about 3 h or less each way (by the normal way a visitor goes).
 5. Blurb factually right (no invented features, no wrong superlatives).
 6. Not listed twice in the city.
+7. **Not another Never Roam Alone city** (Jeff, 2026-09-21). A place that has its own guide in `destinations.js` is not a day trip: remove it, with the matching guide named in the reason. A name match is a lead, not a verdict (Tripoli in Lebanon is not Tripoli in Libya; "Victoria" is many places): confirm it is the same place first. An entry that *contains* a guide city ("Hangzhou & West Lake") is rewritten to the non-city part if that stands alone as a day trip (West Lake does not: it is in Hangzhou), otherwise removed. Step 1 flags both kinds: 584 exact and 65 partial name matches on 2026-09-21.
+8. **Boat trips follow the same time limits** as any other trip: half about 75 min or less each way, full about 3 h or less, counted dock to dock plus the normal transfer. An island is not exempt for being an island.
+9. **Flights are not an option.** A place that can only be reached as a day trip by flying is removed (18 entries mention a flight today: Abu Simbel from Aswan, Kaieteur Falls from Georgetown, Mount Yasur from Port Vila ...). If a road or boat route inside the time limits exists, keep it and rewrite the blurb without the flight.
+10. **Listed on GetYourGuide.** Jeff plans GetYourGuide affiliate links for day trips, so each kept entry is looked up on getyourguide.com (the destination or an activity that goes there). Record `gyg: "<url>"` when found. When it is not listed, the entry is **kept and flagged for Jeff's review**, never removed for that reason alone: add it to `_needs-attention/daytrips-not-on-getyourguide.md` (city, day trip, half/full, what was searched).
 
-Outcome per entry: `ok`, `fix` (field + source), `move` (half/full), `remove` (reason + source).
+Outcome per entry: `ok`, `fix` (field + source), `move` (half/full), `remove` (reason + source); plus `gyg` (URL, or "not listed" → review file).
+
+**Batch 1 (147 entries, d37693a0) was checked under rules 1-6 only.** Re-check it against rules 7-10 before starting batch 2.
 
 ## Pipeline
 - Step 1 (automatic): `_guidebuild/daytrips/check_daytrips.py geocode` (OpenStreetMap, cached) then `flags` → `flags.json`. Flags are leads, not verdicts.
