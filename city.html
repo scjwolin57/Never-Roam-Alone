@@ -396,6 +396,15 @@
   .dtcard-country{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
   .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
   .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
+  /* Nearby guide cards: another Never Roam Alone guide within day-trip range. The whole card opens that guide;
+     the ribbon is the neighborhood photos' "best for" tag (same colour, notched ends, emoji + label). */
+  a.dtcard-guide{position:relative;display:block;padding-top:52px;color:inherit;text-decoration:none}
+  a.dtcard-guide:hover .dtcard-name,a.dtcard-guide:focus-visible .dtcard-name{color:var(--green);text-decoration:underline}
+  .dt-guide-flag{position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);
+    padding:7px 20px;background:#b5492c;color:#fff;font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.02em;white-space:nowrap;
+    text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);
+    clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
+  .dt-guide-flag .dt-guide-emoji{font-size:.92rem;line-height:1}
 
   /* Events calendar section */
   .cal-head-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
@@ -959,6 +968,7 @@
 
   .tile .photo,.hood-hero{filter:sepia(.16) saturate(.96)}
   .hood-tag{background:var(--coral);font-family:'Work Sans',monospace;letter-spacing:.05em}
+  .hood-hero .hood-tag{background:rgba(236,226,204,.9);color:var(--ink);text-shadow:none}   /* flags on neighborhood photos: sand, a little see-through, so the emoji reads (Jeff, 2026-09-21); heading badges stay rust */
   .esim-btn,.tr-map-btn,.back,.cal-submit-btn,.evt-send,.rm-cta,.atm-btn,.tr-map-btn{border-radius:3px}
   .tile .date,.tile .readmore{font-family:'Work Sans',monospace;letter-spacing:.08em}
 
@@ -1308,6 +1318,7 @@ let CITY_HOTEL = {};
 let CITY_LAUNDRY = {};   // wash+dry price, availability, note — synced from the sheet's Laundry columns
 let CITY_HOOD_GEO = {};  // [lat,lng] per neighborhood (aligned with hoods; null = not placed) — from geocode_hoods.py
 let CITY_LAUNDROMATS = {}; // laundromats per neighborhood from Overture open data (CITY_SCHEMA.md "laundromats"); undefined = not loaded, [] = none listed
+let CITY_NEARBY = {};    // other guides within day-trip range: [{city,tier,mins,country,blurb}] (CITY_SCHEMA.md "nearby"; built by _guidebuild/daytrips/build_nearby.py)
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
    else closes any open one. Touch has no hover, so this is the mobile path. */
@@ -2216,6 +2227,7 @@ async function loadCityData(){
   fill(CITY_COST, rec.cost);
   fill(CITY_HOTEL, rec.hotel);         fill(CITY_RIDES, rec.rides);
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
+  fill(CITY_NEARBY, rec.nearby);
   fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
@@ -2839,11 +2851,28 @@ if(!c){
       <div class="lmk-expand" id="lmk-expand" hidden></div>
       </div>`; }
 
-  function buildDayTripsHTML(){ return !dt || (!dt.half.length && !dt.full.length) ? "" : `
-      ${dt.half.length ? `<div class="daytrip-sub">Half day &middot; 2 hours or less one way</div>
-      <div class="daytrip-grid">${dt.half.map(dtCardHTML).join("")}</div>` : ""}
-      ${dt.full.length ? `<div class="daytrip-sub">Full day &middot; over 2 hours one way</div>
-      <div class="daytrip-grid">${dt.full.map(dtCardHTML).join("")}</div>` : ""}`; }
+  /* A nearby guide goes in the half- or full-day list by its travel time (same limits as the day trips);
+     it is shown after that list's day trips, nearest first, and the whole card opens the guide. */
+  function dtGuideCardHTML(g){
+    const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    return `
+        <a class="dtcard dtcard-guide" href="city.html?city=${encodeURIComponent(g.city)}" aria-label="${esc(g.city)}: see our guide page">
+          <span class="dt-guide-flag"><span class="dt-guide-emoji" aria-hidden="true">\u{1F9ED}</span><span>See Our Guide Page</span></span>
+          <div class="dtcard-name">${esc(g.city)}</div>
+          <div class="dtcard-country">${esc(g.country)}</div>
+          <p class="dtcard-blurb">${esc(g.blurb)}</p>
+        </a>`;
+  }
+  function buildDayTripsHTML(){
+    const half = (dt && dt.half) || [], full = (dt && dt.full) || [];
+    const nb = (CITY_NEARBY[c.city] || []).slice().sort((a, b) => (a.mins || 0) - (b.mins || 0));
+    const nh = nb.filter(g => g.tier === "half"), nf = nb.filter(g => g.tier === "full");
+    if (!half.length && !full.length && !nh.length && !nf.length) return "";
+    return `
+      ${half.length || nh.length ? `<div class="daytrip-sub">Half day &middot; 1.5 hours or less one way</div>
+      <div class="daytrip-grid">${half.map(dtCardHTML).join("")}${nh.map(dtGuideCardHTML).join("")}</div>` : ""}
+      ${full.length || nf.length ? `<div class="daytrip-sub">Full day &middot; 3 hours or less one way</div>
+      <div class="daytrip-grid">${full.map(dtCardHTML).join("")}${nf.map(dtGuideCardHTML).join("")}</div>` : ""}`; }
 
   const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")
     ? `${Math.abs(c.lat).toFixed(4)}\u00b0 ${c.lat>=0?"N":"S"} \u00b7 ${Math.abs(c.lng).toFixed(4)}\u00b0 ${c.lng>=0?"E":"W"}` : "";

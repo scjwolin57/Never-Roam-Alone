@@ -25,6 +25,8 @@ The required list now also includes `solo`, `english`, `water`, `laundry` (laund
 
 For the **optional** sections (`routes`, `daytrips`, `score`), include them if you can find real content worth adding, but it's fine to omit any of them — the script will flag what's missing rather than fail, and the user can fill those in later. Never fabricate a transit route, a day-trip attraction, or a score number; skip the section instead. `score` now has six entries (`nightlife`, `restaurants`, `museums`, `architecture`, `nature`, `beaches`) — each one is a bar on the Destination Finder's result cards, and `beaches` is scored on beach access and beach season, so an inland city is honestly a 0 there rather than a blank (`_guidebuild/beaches/BEACH_NOTES.md` has the scale).
 
+**Nearby guides:** a day-trip candidate that already has its own guide is not a day trip (rule 7 in `_needs-attention/RESUME_daytrip-verify.md`); add the pair to `_guidebuild/daytrips/nearby_classified.json` via `classify_nearby.py`, then run `build_nearby.py`. Also check the reverse: existing guides within day-trip range of the new city.
+
 Once `hood_geo` exists, run `python3 _guidebuild/laundry/load_laundromats.py` so the new city gets its `laundromats` list (Overture open data, up to 3 per neighborhood within 1 km; it rewrites the key for every city and rebuilds the sheet's Laundromats tab, which is safe to re-run).
 
 After the five `hoods` are final, run `python3 _guidebuild/hoods/geocode_hoods.py geocode` then `apply` so each gets a `hood_geo` point (needs `GOOGLE_MAPS_API_KEY` in `.env`); the Find laundry & gyms modal lists only neighborhoods that have one.
