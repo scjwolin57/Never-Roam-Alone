@@ -128,8 +128,31 @@ City files are one line each. Do not run another data job on citydata while this
 ## Batch log
 | Batch | Cities | Commit | Slots | Filled | Blank | Checker overturned | Audit defects | Places calls |
 |---|---|---|---|---|---|---|---|---|
+| 1 (25 cities, Hong Kong to Taipei) | hong-kong bangkok macau singapore london paris dubai new-york mecca istanbul tokyo antalya seoul osaka rome phuket kuala-lumpur barcelona amsterdam medina milan los-angeles prague madrid taipei | **NOT LOADED** (audit failed; see below) | 1,190 | 437 proposed by pick agents, 258 survive the checks (50 more held) | 932 | 129 of 437 (88 WRONG, 41 UNVERIFIED) | **6 of 26 (23%)** | 702 (72 pilot + 702 = 774 for September) |
+
+### Batch 1 status: picks are staged on disk in `_guidebuild/hoodpicks/work/batch01/`, NOT in the sheet or citydata
+Per this note (step 5), one audit defect means the whole batch is checked again before commit. The audit found 6 defects in 26: four local chains not
+disclosed in the note (Pan Lee Bakery, Blend & Grind, Taverna El Glop, Turgut Kebab), one `local` that is really casual (26 Beach), one hood-boundary call (Signature,
+Siam / Ratchathewi). The search budget (~200 for the session) also ran out during the independent check, so the checkers could not run the bar scam searches.
+Nothing was loaded: the sheet's Hood Picks tab has only the 409 baseline bars and no citydata file has `eat` or `cafes`.
+
+**What is on disk:** `cands/` (candidates), `cache/` (Google responses, kept: the re-check needs them), `work/batch01/` per city: `_picks.json` (437), `_checks.json` (verdicts),
+`_final.json` (258 that passed the checker; bars and all of Amsterdam removed), `held.json` (50: 29 bar picks whose scam search was not run + 21 Amsterdam), `_dropped.json`, `audit_*.json`.
+**Amsterdam is held:** two hood points are wrong (`hood-picks-amsterdam-hood-points.md`); it needs a new point from Jeff or a re-geocode, then a fresh fetch (~28 calls).
+
+**Next session, first task (fresh search budget), in this order:**
+1. Re-check all 258 finals with the tightened rules now in `PILOT_BRIEF.md` (rules 10-12: outlets counted from the venue's own branch page, two or more = "; local chain" in the note; `local` = traditional only; hood by address).
+   Fix by editing the note (append "; local chain", keep 90 characters) or dropping the pick; never keep a pick whose outlet count cannot be found. Reclassify 26 Beach as `casual`.
+2. Run the bar scam / overcharging search for the 29 held bars (each bar: search "<name> <city> overcharge scam" plus recent reviews) and release those that pass.
+3. New 10% audit from scratch (fresh agent, no reasoning shared). If it is clean, `check_picks.py picks`, `load_picks.py stage`, `load_picks.py apply <slugs>`, `parity`, city.html preview on one city with a `pid` pick (verify the map link carries `query_place_id`), commit by path.
+4. Only then batch 2 (cities 26-50 in `scope412.json`).
+
+**Lessons for the pipeline (apply from batch 2):**
+- The ~200-search budget is shared by every agent in a session and is spent by the pick agents alone. Do picks in one session and the independent check + audit in the next, or split a batch into two half-batches.
+- WebFetch on the venue's own site is not capped the same way and is the main second source; keep searches for articles, chain counts and bar scam checks.
+- 129 of 437 picks (30%) failed the checker, mostly hood-boundary (adjacent district), undisclosed chains and wrong kind. The tightened brief should cut that.
 
 ## Counts
-| Cities done | Remaining | Picks | Blank slots | Places calls used |
+| Cities done | Remaining | Picks loaded | Blank slots | Places calls used |
 |---|---|---|---|---|
-| 0 | 412 | 0 | 0 | 72 |
+| 0 (batch 1 staged, not loaded) | 412 | 0 (258 staged after checks, 50 held, 437 proposed) | n/a until loaded | 774 (September; free allowance 1,000; credit spent $0.00) |
