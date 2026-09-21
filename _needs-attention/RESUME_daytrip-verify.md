@@ -55,8 +55,11 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 12 | see git log | 114 | 51 | 19 | 7 | 36 (1 unverified) | 1 of 67 |
 | 13 | see git log | 110 | 49 | 13 | 6 | 41 (1 unverified) | 1 of 65 |
 | 14 | see git log | 120 | 54 | 19 | 10 | 37 | 0 of 71 |
+| 15 | see git log | 107 | 59 | 12 | 5 | 31 | 1 of 54 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12 for batches 2-14 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12/8 for batches 2-15 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+
+Addis Ababa's full-day list and Managua's half-day list both went to zero this batch (all over the 3h cap or guide-city matches). Dushanbe's original list was flagged as heavily padded (unreachable/unsafe/wrong-country entries, similar to Montevideo and Tel Aviv earlier). The checker overturned Maputo/Kruger National Park back to `ok` -- multiple current tour operators (Viator, GetYourGuide, TourHQ) sell single-day round trips within the 3h cap, contradicting the researcher's "overnight only" claim.
 
 La Paz and Port Louis both went to zero this batch: La Paz's every entry was over the 3h cap, a guide city (Puno), or flight-only (Cochabamba); Port Louis's five entries were all Réunion, reachable only by flight (no ferry currently runs at all, confirmed by the checker, stronger even than the researcher's "slow ferry" framing). Quito's original list was found to be badly researched (wrong distances throughout), not fabricated like Montevideo/Tel Aviv but still needing the full recheck this pass gave it. Kandy is itself the target of a nearby-guide removal in a prior batch (Colombo) and now also lost its own Sigiriya entry the same way -- a reminder this cross-links both directions as the pass continues.
 
@@ -68,7 +71,7 @@ Sofia's full-day list is now down to a single entry (Niš) after 7 of 8 full ent
 
 Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon, Bilbao, Bratislava (half) and Arusha (half) have an empty list on one side; **Colombo, Dubrovnik, Siem Reap, Kigali, Kathmandu and Tel Aviv now have ZERO day trips of either length** (rule 12: verified empty, not researched from GetYourGuide's city page yet). Kigali's case has extra complexity: much of its surroundings are active DRC conflict zone (M23 offensive, 2025-2026) — Jeff should weigh in before it's researched. Kobe is down to zero on `half` and 1 on `full`. All correctly left as-is per the no-padding rule pending that research.
 
-**Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Two cities' entire lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker both times: Montevideo's full-day list (9 entries, mostly unnamed Greater-Buenos-Aires suburbs) and Tel Aviv's list (9 entries, unreachable Levant capitals — Jerusalem/Amman/Beirut/Damascus are guide cities, the rest are hours past any cap or in active conflict zones like Gaza). Worth a look at how these lists got into the data originally.
+**Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
 **Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14) — to be done in a dedicated follow-up once more batches are through.
 
@@ -77,4 +80,4 @@ DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-misma
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 350 (batches 1-14) | 538 | 99 | 303 | 503 | 231 |
+| 375 (batches 1-15) | 513 | 104 | 315 | 534 | 239 |
