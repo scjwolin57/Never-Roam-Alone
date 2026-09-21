@@ -1507,7 +1507,7 @@ const LODGE_TIERS = [
   {k:"Budget", c:"#c0792c"}
 ];
 
-/* Average days of measurable rainfall per quarter (3-month total) */
+/* Average rainy days (1 mm or more) per month, for each quarter — NASA POWER 2015-2024, see CITY_SCHEMA.md */
 let CITY_RAIN = {};
 
 /* Tap water safety for visitors: "safe" (fine straight from the tap), "unsafe"
@@ -2443,7 +2443,7 @@ if(!c){
     <div class="temp-row">
       <span class="season-label">${label} <span class="season-name">(${s})</span></span>
       <span class="temp-val">${f}°F / ${toCelsius(f)}°C</span>
-      ${r == null ? "" : `<span class="rain-val">${RAIN_ICON} ${Math.round(r / 3)} days/mo</span>`}
+      ${r == null ? "" : `<span class="rain-val">${RAIN_ICON} ${r > 0 && r < 0.5 ? "<1" : Math.round(r)} days/mo</span>`}
       <div class="temp-bar-track">
         <div class="temp-bar" style="width:${tempWidth(f)}%;background:${tempColor(f)}"></div>
       </div>

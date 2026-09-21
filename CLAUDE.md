@@ -228,7 +228,7 @@ is what populates it for a new city *today*.
 |---|---|---|---|
 | Hero | name, country, tagline, hero photo + credit, annual **international** visitors, favorite / add-to-trip / compare | `c.*`, `img`, `photo_page`; `city-photos.js` | add_city.py (photo file is manual) |
 | 01 Duration: How long should you stay | 4-tier ascending stay ladder | `visit`, `stay` (STAY_RUBRIC.md) | add_city.py |
-| 02 Fast facts: Season | avg high and rainy days per quarter, best time, seasonal events, holiday-closure banner | `temps`, `rain`, `events` → `city-seasons.js`; `city-holidays.js` (**country-keyed**) | add_city.py; holidays: **check country exists** |
+| 02 Fast facts: Season | avg high per quarter, average rainy days per month in each quarter (computed from NASA POWER by `rain/recompute_rain.py`), best time, seasonal events, holiday-closure banner | `temps`, `rain`, `events` → `city-seasons.js`; `city-holidays.js` (**country-keyed**) | add_city.py; holidays: **check country exists** |
 | 02 Fast facts | population, walk score, safety index, solo comfort | `c.pop`, `walk`, `safety`, `solo` | add_city.py |
 | 02 Fast facts | languages by majority + Common phrases popup | `c.langs`; `city-phrases.js` (**language-keyed**) | add_city.py; phrases: **check language exists** |
 | 02 Fast facts | religion, English ease | `religion`, `english` | add_city.py |

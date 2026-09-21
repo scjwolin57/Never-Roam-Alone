@@ -26,3 +26,7 @@ Re-research rainy days for these cities, using the schema's definition and one s
 The alternative is to switch the whole column to millimetres, but that changes the definition for all 893 cities.
 
 The full list comes from a script that flags any `rain` quarter above 92 in `citydata/`.
+
+## Resolved 2026-09-21
+
+Jeff chose to recompute all 893 from NASA POWER, stored as average rainy days per month in each quarter. Done in the commit "Rain: average rainy days per month…" (see decisions.md). Kingstown now 5.8 / 11.3 / 19.3 / 16.7; Baguio 6.4 / 22.4 / 29.3 / 17.1.

@@ -1571,7 +1571,7 @@ function seasonPillFor(c){
   if(ev) return ` <span class="season-pill peak">📅 ${ev.label}</span>`;
   const q = Math.floor((mo - 1) / 3);
   const t = S.t ? S.t[q] : null;
-  const rd = S.r ? S.r[q] / 3 : null;               // rainy days per month
+  const rd = S.r ? S.r[q] : null;                   // rainy days per month
   if(t != null && t >= 95) return ' <span class="season-pill warn">🥵 Very hot season</span>';
   if(rd != null && rd >= 15) return ' <span class="season-pill warn">🌧 Rainy season</span>';
   if(t != null && t <= 40) return ' <span class="season-pill warn">🥶 Cold season</span>';
