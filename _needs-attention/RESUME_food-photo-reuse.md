@@ -38,7 +38,8 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 20 | Saipan … El Calafate (25) | 67 | 6 | 36 | 25 | a07dca98 |
 | 21 | Ushuaia … Gisenyi (25) | 60 | 5 | 27 | 28 | b7ebcb69 |
 | 22 | Kaş … Trinidad (25) | 60 | 10 | 37 | 13 | 895655c9 |
-| 23 | Darwin … Magelang (25) | 67 | 3 | 38 | 26 | this commit |
+| 23 | Darwin … Magelang (25) | 67 | 3 | 38 | 26 | a824cf13 |
+| 24 | Sucre … Mardin (25) | 59 | 10 | 31 | 18 | this commit |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
