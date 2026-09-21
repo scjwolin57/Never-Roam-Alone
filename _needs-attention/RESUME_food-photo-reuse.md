@@ -22,7 +22,8 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 4 | Johor Bahru … Nagoya (25) | 43 | 19 | 17 (+Kuching) | 7 | 601017fa |
 | 5 | Yokohama … Luxor (25) | 58 | 21 | 23 (+8 same-dish cities) | 14 | 38340401 |
 | 6 | Bodrum … Brisbane (25) + Thessaloniki koulouri | 53 | 20 | 17 | 15 (+2 already fixed) | d54b69fd |
-| 7 | Tehran … Hiroshima (25) | 58 | 22 | 21 | 15 | this commit |
+| 7 | Tehran … Hiroshima (25) | 58 | 22 | 21 | 15 | d9a2bda7 |
+| 8 | Guatemala City … Tainan (25) | 58 | 26 | 25 | 7 | this commit |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
