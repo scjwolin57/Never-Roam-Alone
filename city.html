@@ -2375,11 +2375,13 @@ if(!c){
         </div>`;
   }).join('');
 
+  /* Map link for a pick: the exact venue by Google place ID when it has one, else a text search. */
+  const pickMapHref = (p, hoodName) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.n + ', ' + hoodName + ', ' + c.city) + (p.pid ? '&query_place_id=' + encodeURIComponent(p.pid) : '');
+
   /* One venue row: label pill styled like the lodging tiers, name linked to Maps, one-line note. */
   const pickRows = (list, meta, hoodName) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
-    const q = encodeURIComponent(p.n + ', ' + hoodName + ', ' + c.city);
-    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}</span></div>`;
+    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}</span></div>`;
   }).join('');
 
   /* Detail panels, one per hood; only the selected one is shown. */
@@ -2395,8 +2397,7 @@ if(!c){
               <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
               ${barList.map(b => {
                 const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
-                const q = encodeURIComponent(b.n + ', ' + name + ', ' + c.city);
-                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}</span></div>`;
+                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}</span></div>`;
               }).join('')}
             </div>` : '';
     const eatList = (CITY_EAT[c.city] && CITY_EAT[c.city][i]) || [];

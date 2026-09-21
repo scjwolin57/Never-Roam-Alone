@@ -61,11 +61,25 @@ choose, then discarded). Map link: `https://www.google.com/maps/search/?api=1&qu
    the sheet. Parity check before every commit.
 7. **Commit per batch, staged by path. Do not push** (a push is live). Jeff pushes, or says "push".
 
-## Before batch 1 (one commit, CLAUDE.md §5.3 change protocol)
-- `CITY_SCHEMA.md` rows for `eat` and `cafes` (new) and `bars` (updated to place IDs), `example-city.json`,
-  `add_city.py`, `add_city_to_sheet.py`, add-city `SKILL.md`, the §5.1 inventory, `check_schema_drift.py`.
-- city.html: pick map links use `query_place_id` when a pick has one (bars without one keep the text search).
-- `check_picks.py`, the per-kind gap search in `fetch_rank.py`, the loader, and the updated brief.
+## Before batch 1: DONE 2026-09-21 (one commit)
+Schema rows (`eat`, `cafes`, `bars` with `pid`), `example-city.json`, `add_city.py`, `add_city_to_sheet.py` (mirrors picks into the tab),
+the add-city SKILL.md, the CLAUDE.md 5.1 inventory, `_guidebuild/check_schema_drift.py`, city.html map links (`query_place_id` when a pick has `pid`),
+`hoodpicks/check_picks.py`, `hoodpicks/fetch_rank.py` (per-kind gap search by Text Search, per-month counter, credit tracker, stop on any Google error),
+`hoodpicks/load_picks.py` (seed / stage / apply / parity), the brief. The "Hood Picks" tab is seeded with the 409 existing bars (baseline rows).
+`_guidebuild/` is gitignored, so those scripts are on disk only.
+
+### Tools and files (all in `_guidebuild/hoodpicks/` unless noted)
+| Step | Command |
+|---|---|
+| Scope, most-visited first | `scope412.json` (from `destinations.js`, 412 cities, 1,913 mapped hoods) |
+| 1 Candidates | `fetch_rank.py fetch <slugs>`, then `fetch_rank.py gaps <slugs>` (per-kind Text Search), writes `cands/<slug>_candidates.json` |
+| 2 Script checks | `check_picks.py picks <workdir>`; `check_picks.py baseline <slugs>` for cities with existing bars |
+| 6 Sheet, then site | `load_picks.py stage <workdir>` (needs `<slug>_final.json`), `load_picks.py apply <slugs>`, `load_picks.py parity` |
+| Calls and credit | `fetch_rank.py status` |
+Work dir per batch: `work/batchNN/` (`<slug>_picks.json` from pick agents, `<slug>_checks.json` from the checker, `<slug>_final.json` after merge).
+Not applied yet: the 1.2 km radius for whole-town and beach-strip hoods (decisions.md 2026-09-21); Indian dry-state cities (`DRY_SLUGS` in `fetch_rank.py`).
+Open: destinations.js and citydata disagree on visitors for 741 cities (`visitors-destinations-vs-citydata.md`); the run uses destinations.js.
+Console check of September's Places count could not be made from here; the counter (72) is used.
 
 ## The 40 cities that already have bars
 Their bars are the verified baseline (rulebook §4.5). Run the script checks on them; anything that fails goes to

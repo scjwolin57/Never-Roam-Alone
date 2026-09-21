@@ -219,7 +219,7 @@ with verified data or reported as open, by name, in the add-city report. The
 tooling does not cover the whole page today (see 5.2), so until it does the
 add-city skill runs the extra steps by hand and says which ones it ran.
 
-### 5.1 Inventory of city.html (as of 2026-09-21, plate 01 renamed "Duration")
+### 5.1 Inventory of city.html (as of 2026-09-21, hood picks: eat / cafes / bars carry Google place IDs)
 
 Nine plates. "Key" is the field in `citydata/<slug>.json` unless noted; "Filled by"
 is what populates it for a new city *today*.
@@ -245,9 +245,9 @@ is what populates it for a new city *today*.
 | 03 Passage | international train / bus / ferry routes | `routes` → `city-routes.js` | add_city.py (optional) |
 | 04 Quarters | 5 neighborhoods: name, description, best-for banner, landmark search, hero photo, map link | `hoods`, `hood_desc`, `hood_tag`, `hood_landmark`; `hood-photos.js` | add_city.py; **hood photos: not sourced** |
 | 04 Quarters | where to stay: high / mid / budget per hood, price-tier verified | `lodging` | add_city.py |
-| 04 Quarters | **where to go out**: dive / party / cocktail (or alcohol-free kinds) per hood | `bars` | **not handled by add_city.py; 40/893 have it** |
-| 04 Quarters | **where to eat**: local traditional / casual / fine dining per hood | `eat` | **page reads it; 0/893 have it; not in schema** |
-| 04 Quarters | **coffee & takeaway**: coffeeshop / takeaway / bakery per hood | `cafes` | **page reads it; 0/893 have it; not in schema** |
+| 04 Quarters | **where to go out**: one pick per kind (dive / party / cocktail / pub, or the alcohol-free cafe / hangout / mocktail) per hood, name + one-line note + Google place ID (map link opens that exact venue) | `bars` (`k`,`n`,`d`,`pid`) | 40/893 have it (baseline, no place ID); the 412 cities with 500,000+ international visitors are being filled in batches of 25 by `hoodpicks/` (RESUME_hood-picks.md); new cities: run the same pipeline |
+| 04 Quarters | **where to eat**: one pick per kind (local traditional / casual / fine dining) per hood, same pick shape | `eat` | in the schema since 2026-09-21; filled by `hoodpicks/` batches (412-city first phase); rest of the 893 later |
+| 04 Quarters | **coffee & takeaway**: one pick per kind (coffee / takeaway / bakery) per hood, same pick shape | `cafes` | in the schema since 2026-09-21; filled by `hoodpicks/` batches (412-city first phase); rest of the 893 later |
 | Food modal | local food & drink recommendations with places and photos | `food`, `food_photos` ← `city-food.js`, `city-food-photos.js` | **not researched by add_city.py**; folded by extend_citydata.py |
 | 05 Landmarks | top-10 sights: name, blurb, map pin, photo + credit, contribute-photo | `landmarks`, `lmk_coords`, `lmk_photos` ← `city-landmarks.js`, `-coords.js`, `-photos.js` | names/blurbs by add_city.py; **coords and photos: not handled** |
 | 06 Excursions | half-day and full-day trips, each list followed by **nearby guide cards** (another guide within day-trip range, "See Our Guide Page" ribbon, whole card links to it) | `daytrips` ← `day-trips.js`; `nearby` (site-only) | add_city.py; day trips verified 2026-09-21 (2,670, 66 cities empty); nearby via `daytrips/build_nearby.py` |
@@ -255,7 +255,7 @@ is what populates it for a new city *today*.
 | 07 Happenings | Roamers in town, Roamer's Connections board, Ask-a-Roamer link | user-generated; city must exist in `destinations.js` | add_city.py (destinations.js) |
 | 08 Insights | Traveler's Take / Local's Perspective: "Share" interview forms, and approved interviews as cards (newest 3, "Read the full interview", "Show all") | user-generated: Supabase `city_insights` (pending, admin-only) → `city_insights_public` view (approved, no email); approved in Admin → Insights via `approve-insight.js` | nothing to research; site-only, not in citydata or the sheet |
 | 09 Dispatches | blog stories (placeholder) | none | nothing to research |
-| Sheet | one row, 254 columns, incl. Intl Visitors basis/note, Beaches Score, the laundry columns, Hood N Latitude/Longitude, Landmark N Photo File/Credit and Food N Name/Photo File/Credit (added 2026-09-19); plus the Laundry, Gyms and Laundromats venue tabs | `NRA-MASTER.xlsx` Live Cities, Laundry, Gyms, Laundromats | add_city_to_sheet.py; `gyms/load_gyms.py` for the Gyms tab |
+| Sheet | one row, 254 columns, incl. Intl Visitors basis/note, Beaches Score, the laundry columns, Hood N Latitude/Longitude, Landmark N Photo File/Credit and Food N Name/Photo File/Credit (added 2026-09-19); plus the Laundry, Gyms, Laundromats and Hood Picks venue tabs (Hood Picks: one row per eat / cafes / bars pick with place ID, note, source and article URLs; the source of truth for those three keys) | `NRA-MASTER.xlsx` Live Cities, Laundry, Gyms, Laundromats, Hood Picks | add_city_to_sheet.py; `gyms/load_gyms.py` for the Gyms tab; `hoodpicks/load_picks.py` for the Hood Picks tab and the three citydata keys |
 | Finder | six priority scores + walk + safety; budget math from `cost`/`hotel`/`drinks` via `cost-estimator.js` | `score` → `city-scores.js`; price inputs → `destinations.js` | add_city.py |
 | City directory (cities.html) | card list; cost sorts use the same `cost-estimator.js` mid figure | reads `destinations.js` at runtime (no copy of its own since 2026-09-16) | add_city.py via destinations.js |
 
@@ -267,8 +267,8 @@ by their own script in the same task, and each is reported filled or open by nam
 
 | Item | Decision |
 |---|---|
-| Where to eat (`eat`) and coffee & takeaway (`cafes`) per neighborhood | Researched at add time. The 893 existing cities are backfilled in a separate upcoming task, which also fixes the key shape in the schema. |
-| Where to go out (`bars`) per neighborhood | Researched at add time. Backfilled for the 853 cities without it in the same upcoming task. |
+| Where to eat (`eat`) and coffee & takeaway (`cafes`) per neighborhood | Researched at add time with the hood-picks pipeline (`_guidebuild/hoodpicks/`: Google Places candidates, script checks, pick agents, independent check, sheet then site). Key shape fixed in the schema 2026-09-21. The 412 cities with 500,000+ international visitors are backfilled first, in batches of 25; the other cities later. |
+| Where to go out (`bars`) per neighborhood | Researched at add time with the same pipeline; picks carry the place ID. The 40 baseline cities keep their bars; the rest of the 412 are filled by the batches, the remaining cities later. |
 | Food & drink modal (`food`, `food_photos`) | Researched at add time: dishes and drinks, verified places for each (never a dish with zero places), photos with credits. |
 | Landmark coordinates and photos (`lmk_coords`, `lmk_photos`) | Researched at add time: a pin for every landmark, checked by the validator, and a photo with a commercial-use licence and credit for each. |
 | Neighborhood hero photos (`hood-photos.js`) | Sourced at add time, location-verified, one per hood. |
