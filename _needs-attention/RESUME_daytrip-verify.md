@@ -68,6 +68,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 25 | see git log | 84 | 60 | 8 | 7 | 9 | 1 of 30 |
 | 26 | see git log | 99 | 38 | 9 | 4 | 48 | 0 of 64 |
 | 27 | see git log | 96 | 58 | 11 | 6 | 21 | 0 of 43 |
+| 28 | see git log | 89 | 58 | 14 | 3 | 14 | 0 of 36 |
+
+**Batch 28's checker completed normally for the fourth straight batch** (36/36 checked, 0 disagreements). Monrovia dropped to zero (Bo and Kenema were both 4+ hr plus a Sierra Leone border crossing). Tórshavn got three Faroese-spelling fixes (Gasadalur/Gjogv/Klaksvik -> Gásadalur/Gjógv/Klaksvík). Seven guide-city dedups (Venice, Innsbruck, Aomori, Guadalajara, Şanlıurfa, Copenhagen, Chiang Mai, Sigiriya -- Cortina d'Ampezzo alone lost two, Venice and Innsbruck). A notable half->full cluster this batch: 8 of the 14 moves were the same pattern, a real place correctly placed as a day trip but over the 75-min half cap and under the 3h full cap.
 
 **Batch 27's checker completed normally for the third straight batch** (43/43 checked, 0 disagreements, ~4.5 min run). No cities went to zero this batch. Eight guide-city dedups (Arusha, Karlovy Vary, Rimini, Bologna, Potosí, Luxembourg, Innsbruck, Bamberg, Nuremberg, Kigali, Goma, Gisenyi -- Bujumbura alone lost 3 to Kigali/Goma/Gisenyi plus Kigoma for a broken ferry route). Tozeur's three separate oasis-loop entries were folded into one combined "Chebika, Tamerza & Mides" entry already in the data, moved full->half (real trip runs ~60-70 min each way, not the "classic full-day 4x4 loop" the old blurb claimed).
 
@@ -107,11 +110,11 @@ Checker overturned Portland/Cannon Beach to `move` (full) for consistency with t
 
 **Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25), Apia, Thimphu, Basseterre, Djibouti City (batch 26, Djibouti conflict-zone caveat above) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19), Gaborone (batch 20), Cotonou, Kinshasa, Kurashiki, Lilongwe, Port of Spain (batch 22), Bamako (batch 23, conflict-zone caveat above), Puerto Princesa (batch 23), St. George's, Kralendijk, Tegucigalpa (batch 24), Leshan (batch 25), Apia, Thimphu, Basseterre, Djibouti City (batch 26, Djibouti conflict-zone caveat above), Monrovia (batch 28) — to be done in a dedicated follow-up once more batches are through.
 
 DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 675 (batches 1-27) | 213 | 182 | 441 | 880 | 353 |
+| 700 (batches 1-28) | 188 | 185 | 455 | 894 | 361 |
