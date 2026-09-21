@@ -45,14 +45,15 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 2 | see git log | 144 | 69 | 40 | 5 | 30 | 2 of 82 |
 | 3 | see git log | 144 | 79 | 21 | 6 | 23 | 0 of 57 |
 | 4 | see git log | 144 | 77 | 22 | 6 | 27 | 2 of 62 |
+| 5 | see git log | 136 | 74 | 33 | 8 | 21 | 0 of 69 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14 of batch 2's, 14 of batch 3's and 12 of batch 4's removals were guide-city matches recorded under the source city's `nearby` key.
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. 14 of batch 2's, 14 of batch 3's, 12 of batch 4's and 12 of batch 5's removals were guide-city matches recorded under the source city's `nearby` key.
 
-Toronto, Manila and Melbourne now have empty `half` lists after this pass (every entry was over the 75-min cap or removed) — correctly left empty per the no-padding rule, not researched as a gap yet.
+Toronto, Manila, Melbourne and Auckland now have empty `half` lists after this pass (every entry was over the 75-min cap or removed) — correctly left empty per the no-padding rule, not researched as a gap yet.
 
-Batch 4's checker overturned Busan/Pohang from `remove` back to `move` (the Pohang-station-to-Homigot leg is ~25-50 min, not 2.5h as the researcher found). Also found and fixed before applying: 3 "move" entries (Pohang carried through correctly; Monterey and Ipoh) across San Francisco and George Town had the top-level `len` set to the destination list — same bug pattern as batch 3, now flagged to watch for.
+DAYTRIP_BRIEF.md's Output section now explicitly warns about the top-level `len` bug (batches 3 and 4 hit it); batch 5's researchers and checker got it right with zero instances, so the fix appears to be working.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 100 (batches 1-4) | 788 | 30 | 133 | 128 | 85 |
+| 125 (batches 1-5) | 763 | 38 | 166 | 149 | 97 |
