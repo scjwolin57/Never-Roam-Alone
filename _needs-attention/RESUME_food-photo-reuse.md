@@ -46,8 +46,11 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 | 28 | Bangui … Weimar (25) | 55 | 13 | 18 | 24 | 4adbcf9e |
 | 29 | Antsiranana … Ibadan (30) | 71 | 12 | 38 | 21 | a3dcd09e |
 | 30 | Osogbo … Vladimir (19) | 45 | 7 | 25 | 13 | a28ebb29 |
-| 31 | Funafuti … Fenghuang (19) | 51 | 5 | 19 | 27 | this commit |
+| 31 | Funafuti … Fenghuang (19) | 51 | 5 | 19 | 27 | 8eb7bd1f |
 
 ## Clean-up at the end
 - Image files no longer referenced by any city (e.g. vino-dulce-de-malaga.webp after its photo was dropped) are removed in one sweep after the last batch.
 - Thessaloniki's koulouri was kept in batch 5 by file name but is really a table of salads; it is redone in batch 6.
+
+## Finished 2026-09-21
+All 31 batches done (768 cities, 1,788 slots). Clean-up: 449 image files that this pass left unreferenced were removed; 111 files that were already unreferenced before the pass were left alone. No image is now shared by 4+ differently named dishes.
