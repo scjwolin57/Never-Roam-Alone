@@ -54,8 +54,11 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 11 | see git log | 126 | 56 | 8 | 6 | 56 | 0 of 75 |
 | 12 | see git log | 114 | 51 | 19 | 7 | 36 (1 unverified) | 1 of 67 |
 | 13 | see git log | 110 | 49 | 13 | 6 | 41 (1 unverified) | 1 of 65 |
+| 14 | see git log | 120 | 54 | 19 | 10 | 37 | 0 of 71 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13 for batches 2-13 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12 for batches 2-14 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+
+La Paz and Port Louis both went to zero this batch: La Paz's every entry was over the 3h cap, a guide city (Puno), or flight-only (Cochabamba); Port Louis's five entries were all Réunion, reachable only by flight (no ferry currently runs at all, confirmed by the checker, stronger even than the researcher's "slow ferry" framing). Quito's original list was found to be badly researched (wrong distances throughout), not fabricated like Montevideo/Tel Aviv but still needing the full recheck this pass gave it. Kandy is itself the target of a nearby-guide removal in a prior batch (Colombo) and now also lost its own Sigiriya entry the same way -- a reminder this cross-links both directions as the pass continues.
 
 Bridgetown's entire list (5 entries) went to zero -- 4 guide-city matches plus Le Lamentin (Martinique) removed for no ferry service (flight-only, disallowed). Yangshuo's Gudong Waterfall is left `unverified` (no source gives a direct Yangshuo distance, only Guilin's). Qom is down to one entry (Mahallat, moved to full) after losing Kashan, Tehran and Isfahan to guide-city dedup. Damascus kept Irbid/Tripoli/Sidon moved to full despite Lebanon's Level 4 advisory but removed Tyre specifically (inside the "Depart If You Are There" zone south of Sidon) -- confirmed a real, sourced distinction, not an inconsistency.
 
@@ -67,11 +70,11 @@ Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon, Bilbao, B
 
 **Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Two cities' entire lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker both times: Montevideo's full-day list (9 entries, mostly unnamed Greater-Buenos-Aires suburbs) and Tel Aviv's list (9 entries, unreachable Levant capitals — Jerusalem/Amman/Beirut/Damascus are guide cities, the rest are hours past any cap or in active conflict zones like Gaza). Worth a look at how these lists got into the data originally.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14) — to be done in a dedicated follow-up once more batches are through.
 
-DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-13 all had zero len-mismatch errors.
+DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 325 (batches 1-13) | 563 | 89 | 284 | 466 | 219 |
+| 350 (batches 1-14) | 538 | 99 | 303 | 503 | 231 |
