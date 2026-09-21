@@ -16,4 +16,5 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 ## Progress
 | Batch | Cities (visitor order) | Slots reviewed | Kept | Replaced | No photo | Commit |
 |---|---|---|---|---|---|---|
-| 1 | Bangkok … Miami (25) | 57 | 43 | 9 (+6 same-dish cities) | 5 | this commit |
+| 1 | Bangkok … Miami (25) | 57 | 43 | 9 (+6 same-dish cities) | 5 | e4fdcd65 |
+| 2 | Taipei … Copenhagen (25) | 51 | 38 | 9 (+5 same-dish cities) | 4 | this commit |
