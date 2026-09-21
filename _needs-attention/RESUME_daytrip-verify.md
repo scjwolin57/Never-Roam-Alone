@@ -59,6 +59,9 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 16 | see git log | 109 | 55 | 14 | 12 | 28 | 1 of 59 |
 | 17 | see git log | 104 | 62 | 9 | 9 | 24 | 0 of 48 |
 | 18 | see git log | 109 | 62 | 17 | 3 | 27 | 1 of 52 |
+| 19 | see git log | 112 | 61 | 7 | 5 | 39 | 2 of 57 |
+
+Kotor's entire list (9 entries) went to zero -- all guide-city matches or unreachable Italy routes (8h+ ferry). Nicosia lost 8 of 9 full-day entries to Cyprus's political division (no ferry to Turkey, no reliable Lebanon route under cap), leaving only Limassol on half. Both confirmed by the checker with extra scrutiny.
 
 All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14/15/16/13/12/8/10/9/8 for batches 2-18 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
 
@@ -78,11 +81,11 @@ Checker overturned Portland/Cannon Beach to `move` (full) for consistency with t
 
 **Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Several cities' lists read as fabricated/padded pre-existing data, not researcher error, confirmed by the independent checker: Montevideo (batch 10), Tel Aviv (batch 11), and now Dushanbe (batch 15) — unreachable/unsafe/wrong-country entries throughout. Worth a look at how these lists got into the data originally, and whether other unverified batches have the same pattern.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14) — to be done in a dedicated follow-up once more batches are through.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above), Kathmandu, Tel Aviv (batch 11), Bridgetown (batch 13), La Paz, Port Louis (batch 14), Kotor (batch 19) — to be done in a dedicated follow-up once more batches are through.
 
 DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-14 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 450 (batches 1-18) | 438 | 128 | 355 | 613 | 266 |
+| 475 (batches 1-19) | 413 | 133 | 362 | 652 | 275 |
