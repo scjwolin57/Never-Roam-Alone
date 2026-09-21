@@ -20,3 +20,7 @@ Check each Flickr page for its current licence and author.
 - If it does not (NC, ND, or all rights reserved), replace the photo using the same rules as pass A, or set it to "no photo".
 
 This needs the Flickr API or one page fetch per photo. It is a separate pass from A.
+
+## Also found: 31 food photos with no source link at all (2026-09-21, batch 15)
+
+31 food photos in 23 cities have an image file but an empty source link, "Wikimedia Commons" as the author and no licence. Examples: Bern meringues and Trasch, Jasper beef steak, Konya sac arasi, Lausanne perch, Pula biska, Castries Piton lager, Harare muriwo, Philipsburg lolo ribs. The sheet leaves these slots blank, so the parity check flags them as mismatches. The reused-photo pass does not change them; they belong in the same fix as the Flickr photos above.
