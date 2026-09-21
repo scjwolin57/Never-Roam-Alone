@@ -50,20 +50,21 @@ This session also found `_guidebuild/` is gitignored and does not exist inside t
 | 7 | see git log | 120 | 61 | 18 | 8 | 33 | 0 of 65 |
 | 8 | see git log | 128 | 54 | 15 | 4 | 55 | 0 of 79 |
 | 9 | see git log | 123 | 65 | 16 | 6 | 36 | 0 of 64 |
+| 10 | see git log | 121 | 64 | 9 | 6 | 42 | 0 of 63 |
 
-All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17 for batches 2-9 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
+All kept entries from batch 2 onward carry a mechanical `gyg` GetYourGuide search deep link per the rewritten rule 10. Nearby-guide links added to date: 14/14/12/12/13/15/12/17/14 for batches 2-10 (the apply script checks both `remove` and `fix` verdicts for `nearby_guide`).
 
-Sofia's full-day list is now down to a single entry (Niš) after 7 of 8 full entries were removed as guide-city matches or over the 3h cap. Bologna's half list dropped to almost nothing too (4 of its entries were guide-city dupes). Found and fixed a Romanian-diacritic spelling mismatch (Piteşti vs Pitești) between the researcher's and checker's output that blocked apply_verdicts.py -- not a data error, just an encoding variance to watch for.
+Sofia's full-day list is now down to a single entry (Niš) after 7 of 8 full entries were removed as guide-city matches or over the 3h cap. Bologna's half list dropped to almost nothing too (4 of its entries were guide-city dupes). Beirut lost 6 of its cross-border entries (Israel/Syria: no crossings exist, guide-city matches, or Level-4 advisory zones in South Lebanon). Found and fixed a Romanian-diacritic spelling mismatch (Piteşti vs Pitești) between the researcher's and checker's output that blocked apply_verdicts.py -- not a data error, just an encoding variance to watch for.
 
-Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon has an empty `full` list; **Colombo, Dubrovnik and Siem Reap now have ZERO day trips of either length** (rule 12: verified empty, not researched from GetYourGuide's city page yet — every real nearby place is either a guide city or over the time cap for all three). All correctly left empty per the no-padding rule pending that research.
+Toronto, Manila, Melbourne and Auckland have empty `half` lists; Lyon has an empty `full` list; **Colombo, Dubrovnik, Siem Reap and Kigali now have ZERO day trips of either length** (rule 12: verified empty, not researched from GetYourGuide's city page yet). Kigali's case has extra complexity: much of its surroundings are active DRC conflict zone (M23 offensive, 2025-2026) — Jeff should weigh in on whether that changes the approach before it's researched. Kobe is down to zero on `half` and 1 on `full`. All correctly left as-is per the no-padding rule pending that research.
 
-**Left for Jeff:** Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them. This is a policy exception to rule 4, not a one-off fact call — flagging for Jeff to confirm or override before it's treated as precedent for other iconic far trips (e.g. a future batch's Angkor Wat-style case).
+**Left for Jeff:** (1) Cusco's three iconic full-day trips (Machu Picchu ~3-4h, Rainbow Mountain, Humantay Lake) were kept `ok` even though they run past the "about 3 hours" cap, on the researcher's judgment that this is the universal way visitors do them — a policy exception to rule 4, not a one-off fact call, flagging before it sets precedent for other iconic far trips. (2) Montevideo's entire full-day list (9 entries, mostly unnamed Greater-Buenos-Aires suburbs with generic padded-sounding blurbs) was removed this batch — the researcher flagged the original list as looking fabricated/padded rather than researched, worth a look at how it got into the data, separate from this verification pass.
 
-**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (all-empty after this pass) — to be done in a dedicated follow-up once more batches are through, rather than one-off per batch.
+**Rule-12 backlog (cities needing GetYourGuide-page research for an empty list):** Colombo, Dubrovnik, Siem Reap (batch 8), Kigali (batch 10, conflict-zone caveat above) — to be done in a dedicated follow-up once more batches are through.
 
-DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-8 all had zero len-mismatch errors.
+DAYTRIP_BRIEF.md's `len` warning is holding: batches 5-10 all had zero len-mismatch errors.
 
 ## Counts
 | Done (cities) | Remaining (cities) | Fixed | Moved | Removed | Nearby links added |
 |---|---|---|---|---|---|
-| 225 (batches 1-9) | 663 | 64 | 235 | 291 | 161 |
+| 250 (batches 1-10) | 638 | 70 | 244 | 333 | 175 |
