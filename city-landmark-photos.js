@@ -6160,7 +6160,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/miami-coral-castle.webp", page:"https://commons.wikimedia.org/wiki/File:Coral_Castle,_Homestead,_FL.jpg", credit:"Jenda9904 aka Brenda J Bowman / CC BY-SA 4.0"},
     {img:"images/landmarks/miami-south-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Lifeguard_stand,_Miami_Beach.jpg", credit:"Radomianin / CC BY-SA 4.0"},
     {img:"images/landmarks/miami-bayfront-park.webp", page:"https://commons.wikimedia.org/wiki/File:Miami-downtown-from-intercontinental-hotel.jpg", credit:"Wikimedia Commons / CC BY 2.0"},
-    {img:"images/landmarks/miami-miami-beach-lummus-park.webp", page:"https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Under_the_palms,_Lummus_Park.jpg", credit:"G.W. Romer / Public domain"},
+    {img:"images/landmarks/miami-miami-beach-lummus-park.webp", page:"https://commons.wikimedia.org/wiki/File:Miami_Beach_FL_Arch_Dist_Lummus_Park01.jpg", credit:"Ebyabe / CC BY-SA 3.0"},
   ],
   "Milan": [
     {img:"images/landmarks/milan-milan-cathedral-duomo-di-milano.webp", page:"https://commons.wikimedia.org/wiki/File:20110724_Milan_Cathedral_5260.jpg", credit:"Jakub Hałun / CC BY-SA 4.0"},
