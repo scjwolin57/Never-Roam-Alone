@@ -3,6 +3,15 @@
 Research only (rule 12). Nothing here is on the site yet. Each item is a yes/no for you.
 Files: `_guidebuild/daytrips/empty68/waveN_final.json`.
 
+**Decided by Jeff 2026-09-22** (decisions.md): 1 keep, blurb says men-only and the hike; 6a Otse keep, blurb says
+a permit is needed; the rest as recommended: 2 Annandale Falls and 11 Nisa become landmarks; 3 Estancia Cristina
+and Upsala move to day trips; 4, 5, 7, 8, 9, 10 keep; 6b Carriacou stays out until the timetable is confirmed;
+12 Arno out of the hood name, in as a full-day trip; 13 no action.
+**Still open:** St. George's and Ashgabat already have 10 landmarks each. Which landmark do Annandale Falls and
+Nisa replace (or do they stay out)? Also: Perito Moreno Glacier (78 km out) and Los Glaciares National Park are
+El Calafate landmarks by the same logic as call 3; move them too, or keep them as the rulebook's
+`precise:false` far landmarks?
+
 ## Wave 3 (2026-09-22)
 
 1. **Debre Bizen Monastery from Asmara (full).** Checked and real: an Orthodox monastery from the 1350s on a

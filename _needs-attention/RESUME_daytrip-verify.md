@@ -229,3 +229,12 @@ run has finished writing day-trips.js' neighbours (citydata) and the sheet: appl
 `apply_verdicts.py` (or an add-only variant: these are additions to empty lists), fill the sheet's Half/Full-Day
 Trips columns, run the structural pre-push check, and settle the calls in `daytrip-empty-cities-calls.md`
 first where they change a list. Lake Muhazi's blurb (wave 1) must name its shore at apply time.
+
+**Jeff's calls, 2026-09-22 (decisions.md):** Debre Bizen and Otse added to the finals (wave3) with the blurbs he
+asked for (men-only and hike; permit needed). Annandale Falls taken out of St. George's list; it and Nisa are
+now pending landmarks (both cities are at 10: replacement open). Estancia Cristina, Upsala and Arno being
+researched as day trips (`w6_g1.json`). Totals now 130 trips kept (129 + Debre Bizen + Otse - Annandale), 51 of
+68 cities filled. At apply time also: remove Cristina and Upsala from El Calafate's landmarks (and their coords
+and photos, sheet columns) and rename Majuro's hood 5 to drop Arno (hood name appears in citydata, the sheet,
+hood photos and hood picks).
+
