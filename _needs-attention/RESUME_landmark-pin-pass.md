@@ -87,3 +87,4 @@ table in this file are the durable record.
 | 30 | Sao Paulo to Sigiriya | 250 | 148 | 24 | 65 | 0 | (commit below) |
 | 31 | Sihanoukville to Suzhou | 250 | 172 | 10 | 54 | 0 | (commit below) |
 | 32 | Sydney to The Valley | 250 | 159 | 10 | 71 | 0 | (commit below) |
+| 33 | Thessaloniki to Turku | 249 | 173 | 7 | 56 | 0 | (commit below) |
