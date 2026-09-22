@@ -39,3 +39,16 @@ Files: `_guidebuild/daytrips/empty68/waveN_final.json`.
 10. **Brazzaville's Lésio-Louna gorilla reserve (full).** Passes the rule (US Level 2 country-wide, UK warns
     only about the far north). Canada (9 Sep 2026) asks for a high degree of care in the Pool region, which the
     road crosses. Kept; say if you want it out.
+
+## Wave 5 (2026-09-22)
+
+11. **Nisa from Ashgabat (half).** Held out. The Parthian ruins (UNESCO 2007) are 18 km west, next to Bagyr,
+    which Ashgabat has annexed and is now a city neighborhood. Not a hood or landmark today. Day trip (18 min by
+    road), a landmark, or out?
+12. **Arno Atoll and Majuro's "Outer Islets (Eneko, Bikendrik & Arno)" neighborhood.** Arno is a separate atoll,
+    about 90 min by boat (Wikivoyage), so by the rules it is a full-day trip, not part of the city. Eneko and
+    Bikendrik are in Majuro's own atoll and fit the neighborhood. Take Arno out of the neighborhood name and add
+    it as a full-day trip? Until then Majuro stays empty.
+13. **Brades (Montserrat)** stays empty only because the Antigua ferry is not running (operator's site, read
+    2026-09-22, targets "Summer 2026"). If it restarts (about 1 h crossing), Antigua outside St. John's could be
+    researched.

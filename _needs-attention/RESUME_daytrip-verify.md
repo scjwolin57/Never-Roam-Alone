@@ -170,7 +170,7 @@ because the ~200 web searches are shared by every agent in a session.
 | 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | 27 | 27 (3 blurbs fixed) | done, `wave2_final.json` |
 | 3 | Banjul, Monrovia, St. George's, El Calafate, Kralendijk, Kusatsu, San Andrés, Apia, Basseterre, Asmara, Juba, Lamu, Leshan, N'Djamena, Port Moresby (+ re-research: Tiwanaku, Otse) | 31 | 26 kept + 1 held (Tiwanaku kept, Otse dropped) | done, `wave3_final.json` |
 | 4 | The Valley, Bahir Dar, Brazzaville, Dili, Djibouti City, Nouakchott, Koror, Niamey, Bangui, Bissau, Kingstown, Roseau, São Tomé, Karimabad, Malabo | 31 | 30 (14 blurbs fixed) | done, `wave4_final.json` |
-| 5 | Ashgabat, Moroni, Timbuktu, Brades, Jamestown, Majuro, Weno, Yaren | | | |
+| 5 | Ashgabat, Moroni, Timbuktu, Brades, Jamestown, Majuro, Weno, Yaren | 8 | 7 kept + 1 held (3 fixes) | done, `wave5_final.json` |
 
 Wave 1 fixes: Beruwala (Colombo) and Dhulikhel (Kathmandu) moved half -> full (sources straddle 75 min);
 Lake Muhazi (Kigali) full -> half (near-shore resort 40-45 min; blurb must name that shore at apply time).
@@ -213,3 +213,19 @@ Honestly empty: Bahir Dar (Amhara Level 4 on the 2026-08-27 advisory, city inclu
 travel), Bangui (CAR Level 4, FCDO all travel outside Bangui). All 30 kept names checked against destinations.js:
 none is a guide city. Side finding: `bahir-dar-advisory-level4.md` (guide shows Level 3). Calls 7-10 in
 `daytrip-empty-cities-calls.md`.
+
+Wave 5 (2026-09-22): 8 proposals, 7 confirmed and kept, 1 held (Nisa, Ashgabat: next to Bagyr, now part of the
+city; call 11). Fixes: Gökdepe siege dated 1880-81, Dos du Dragon blurb softened, Jeep Island boat 30-40 min.
+Honestly empty: Timbuktu (Mali Level 4), Brades (Antigua ferry not running; all else flight-only), Jamestown
+(only town on St Helena; Ascension and Tristan flight or no day route), Majuro (Arno sits in a hood name; call
+12), Yaren (Nauru one island, no passenger boats). All 7 kept names checked against destinations.js: none is a
+guide city.
+
+**RESEARCH FOR THE 68 IS COMPLETE (2026-09-22).** 129 trips kept across the 5 wave files; 50 of 68 cities now
+have at least one, 18 stay honestly empty (Bamako, Kinshasa, Saipan, Puerto Princesa, Kralendijk, San Andrés,
+Juba, Lamu, N'Djamena, Bahir Dar, Nouakchott, Niamey, Bangui, Timbuktu, Brades, Jamestown, Majuro, Yaren).
+Held for Jeff: Debre Bizen, Nisa (`_held_for_jeff` in wave3/wave5 finals). Next step, only after the hood-picks
+run has finished writing day-trips.js' neighbours (citydata) and the sheet: apply `wave1..5_final.json` with
+`apply_verdicts.py` (or an add-only variant: these are additions to empty lists), fill the sheet's Half/Full-Day
+Trips columns, run the structural pre-push check, and settle the calls in `daytrip-empty-cities-calls.md`
+first where they change a list. Lake Muhazi's blurb (wave 1) must name its shore at apply time.
