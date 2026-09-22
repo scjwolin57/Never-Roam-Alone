@@ -5,24 +5,38 @@ suspects were triaged by fresh agents against the hood's own description and lan
 Moves were written to citydata by span and to the sheet's Hood N Latitude/Longitude, one commit per pass. The full list of
 moves with old point, new point, source and reason is in the commit body and `_guidebuild/hoodpicks/work/hoodpoint_moves_scope.md`.*
 
-## 412-city scope (1,968 placed points)
+## Totals, all 893 cities (done 2026-09-22)
 
 | Result | Points |
 |---|---|
-| Checked | 1,968 |
-| Flagged by the script | 435 |
-| Triaged: keep (point is in the hood) | 299 |
-| Triaged: moved | 103 |
-| Triaged: needs your call | 9 |
-| Not yet triaged (scanned after the first review run) | 24 |
+| Placed neighborhood points checked | 4,033 |
+| Flagged by the script (locality does not name the hood, and more than 0.7 km from OpenStreetMap's own point) | 1,096 |
+| Triaged: keep, the point is in the hood | 744 |
+| Triaged: moved (citydata by span + sheet, three commits) | 314 |
+| Needs your call | 38 |
+| Not triaged | 0 (hoods removed from Medina, or points scanned twice) |
 
-## After the moves
+So about 1 point in 13 was wrong. Every move has its old point, new point, source and reason in
+`_guidebuild/hoodpicks/work/hoodpoint_moves_scope.md`, `hoodpoint_moves_rest1.md` and `hoodpoint_moves_rest2.md`,
+and in the three commit bodies. The 165 neighborhoods with no point at all are unchanged (`hood-geo-unresolved.md`).
 
-The 103 moved points were re-checked: 74 now geocode to their hood by name; 29 still trip the name heuristic because OpenStreetMap labels the spot differently (Sandown for Sandton, Kouh Sangi for Koohsangi) or has no place node for the hood name (Porto Baixa, Marbella Golden Mile). Each of those 29 was placed by the triage agent from the hood's own description or landmark, with the reason recorded; they are not re-flagged as wrong.
+## Your call (38 items)
 
-## Your call (8; the Medina Al Aqeeq item is withdrawn, the hood was removed on 2026-09-22)
+Each needs a pin, or a decision that the hood is really a day trip. Paste a Google Maps link per item and it is applied.
 
-- ~~medina|2 / Al Aqeeq~~ (withdrawn): Current point (Badaah, 0.74 km from the Prophet's Mosque) is not the Al Aqeeq district, which the description places in the west, farther from the Haram, by Wadi al-Aqiq. The only OSM candidate is a school named Al Aqeeq at 24.4224, 39.5951 (5.4 km SW) and Nominatim returned no district polygon (fetched: only an Al Aqiq in Yanbu). A pin for Medina's Al-Aqiq district (or confirmation the school point is inside it) would settle it.
+- **maun|2 / Shorobe Road (Riverside)**: Current point is south of town on the river (1.3 km from centre), identical to the Sedie point, not on the Shorobe road lodge strip to the north-east. No candidate lies on that road (OSM node is the town centre, landmark is the river south of town) and a Nominatim search for Shorobe Road returned nothing. A pin on the lodge strip (between the Sedia hotel and the Matlapaneng bridge) would settle it.
+- **moroni|1 / Volo Volo**: Current point is in Irungudjani/Hadoudja, south of the port, while Volo Volo market is north of the centre on the Itsandra road. Both candidates are US namesakes and a Nominatim search for Volo Volo returned nothing. A pin on Volo Volo market would settle it.
+- **nablus|3 / Al-Manara/Downtown**: Current point is inside the Old City (a separate hood) about 0.3 km south of al-Manara clock square. OSM candidate is Dubai, landmark geocode is Jordan, and a Nominatim search for Manara Nablus returned nothing. A pin on al-Manara (Martyrs') Square would settle it.
+- **poprad|2 / Juh**: Current point is the town centre (0.25 km from centre, locality Poprad/Veľká); sídlisko Juh is the housing estate south of the centre. Both candidates are a road in Košice. Nominatim returned nothing for 'Juh Poprad'. A Maps pin on Juh III (around the ice stadium / Juh shopping) would settle it.
+- **port-elizabeth|3 / Richmond Hill**: Locality is South End / Central, both other hoods; Stanley Street should be about 0.6 km west. Both candidates are namesakes abroad and Nominatim returned nothing for Stanley Street. A Maps pin on Stanley Street (Richmond Hill) would settle it.
+- **porto-novo|0 / Centre-ville (Government Quarter)**: Current point is 3 km south of the Porto-Novo centre node in Gbedji by the lagoon, 4.8 km from the site's centre. OSM candidate is in Brazil, landmark geocode empty, and Nominatim returned nothing for the Ethnographic Museum. A pin on the Musée ethnographique Alexandre Sènou Adandé or the Assemblée nationale would settle it.
+- **potosi|0 / Centro Histórico**: Current point is in barrio José Díaz Gainza, about 1.6 km north of Plaza 10 de Noviembre, outside the colonial core. Both candidates are in Mexico (San Luis Potosí namesakes) and Nominatim returned nothing for Casa de la Moneda. A pin on the Casa de la Moneda / Plaza 10 de Noviembre would settle it.
+- **qinhuangdao|4 / Gold Coast (Beidaihe New District)**: Point is identical to the Beidaihe District point (Daihe/Xishan). The Gold Coast dunes and Beidaihe New District are in Changli, roughly 25-30 km south, outside the 15 km rule. No candidate is in the hood. Jeff to pin (e.g. Huangjin Hai'an / Beidaihe New District) or reclass it as a day trip.
+- **quetzaltenango|3 / Zona 3**: Current point is in La Esperanza municipality (Residenciales Los Sauces), the wrong town. The landmark geocode is also in La Esperanza. The OSM 'Zona 3' residential node 1.8 km east of the centre could not be confirmed as Xela's Zona 3 (Nominatim returns only street segments). Needs a pin in Zona 3 (Minerva terminal area).
+- **saint-martin-s-island|2 / Northern Coconut Groves**: Point is identical to the Main Village jetty point; no candidate exists. Needs a pin on the island's quieter northern tip (about 1-1.5 km north of the jetty).
+- **siwa-oasis|0 / Shali Town Center**: Current point is 4.3 km SE of Shali Fortress (fortress is about 29.204, 25.519 from memory) and no candidate was supplied; the nominatim lookup for Shali Fortress returned nothing. A pin on Shali Fortress or the Siwa market square would settle it.
+- **ushuaia|2 / Bahia Cauquen**: Description says a beach barrio 7 km west on Ruta 3; the OSM suburb named Bahía Cauquén is 2.5 km east of centre; the current point (Pista de Esquí, 2.9 km south-west) matches neither, and a nominatim lookup for Bahía Cauquén returned nothing. Need Jeff to confirm whether the hood is the eastern barrio or a western beach, then pin it.
+- **yazd|3 / Dowlatabad Garden**: Both candidates are a canal 31 km away. Chahar Menar is an old-city quarter 0.6 km from the centre; my recollection puts Dowlatabad Garden about 2 km south-west (near 31.884, 54.349), which would make the current point wrong, but the Wikipedia fetch failed (404) so it is unverified. A geocode of Dowlatabad Garden, Yazd would settle it.
 - **muscat|4 / Al Bustan / Bandar Jissah**: Current point is in Wadi Al Kabir, an industrial/residential area over the ridge from Al Bustan, so it should move. OSM village point for Al Bustan (2.9 km east) is the right place but is 20.4 km from the centre reference, outside the brief's 15 km limit (the current point is already 17.8 km). Needs a yes to exceed the limit for this outlying hood.
 - **batumi|2 / New Boulevard**: Name and description disagree. The current point (Kakhaberi, airport end) is the actual New Boulevard, the southern extension. The description (Alphabet Tower, Sheraton, Hilton, casinos) is the north end at Miracle Park, which is the OSM hit (41.6561, 41.6359) and overlaps the Seaside Boulevard hood. Jeff should say whether the hood is the southern New Boulevard (keep point, rewrite description) or the Miracle Park quarter (move to OSM point, rename).
 - **manzhouli|2 / Xingfu (Happiness) District**: Same point as the Railway Station hood (49.59655, 117.37836). Manzhouli's subdistricts are Dongshan, Daonan, Daobei, Xinghua, Nanqu, Beiqu; no 'Xingfu' subdistrict found. Settle by confirming the hood name (Xinghua?) and giving a landmark to geocode.
@@ -31,20 +45,6 @@ The 103 moved points were re-checked: 74 now geocode to their hood by name; 29 s
 - **jasper|2 / Athabasca River Cabins**: Point is at the Hwy 16 Athabasca bridge / Maligne Rd junction, not at any cabin resort; the described range runs from Lac Beauvert (JPL) to Hwy 93 south. Settle by naming a resort (Pine Bungalows, Tekarra Lodge or Becker's) to geocode.
 - **la-romana|0 / La Romana Centro**: Current point (Cumayasa/El Tamarindo) is 6 km north-west of the city; Parque Central La Romana is about 18.427, -68.973 but neither candidate (a university 2 km out, a Guaymate park) nor the nominatim fetch hit it. Settle with a geocode of 'Parque Central, La Romana' or Jeff's pin.
 - **surat-thani|1 / Ban Don Pier**: Current point is 0.9 km south of the Ta Pi river inside the town grid and closer to the centre than the City Centre hood's own point; neither candidate is the pier (village 25 km, bus station 6.5 km) and nominatim has no entry for Ban Don Pier. Settle by pinning the night-boat pier on the riverfront (Ta Pi / Ban Don pier, roughly 9.143, 99.33).
-
-## Remaining 481 cities (2,065 placed points), first triage pass
-
-| Result | Points |
-|---|---|
-| Checked | 2,065 |
-| Flagged by the script | see below; review still running |
-| Triaged so far | 282 |
-| Kept | 194 |
-| Moved | 72 |
-| Needs your call | 16 |
-
-### Your call, remaining cities (16)
-
 - **negombo|4 / Kudapaduwa / Duwa**: Kudapaduwa and Duwa are south of Negombo town at the lagoon mouth (about 7.19-7.20N), but the current point is in Periyamulla, 2.4 km north of centre. No candidate point exists (Nominatim returns nothing for Kudapaduwa). A pin on Duwa island or Kudapaduwa village would settle it.
 - **dushanbe|0 / City Center (Rudaki Avenue)**: Locality is Ismoili Somoni district, a separate hood on the site, and the point is at the northern stretch of Rudaki Avenue 5.3 km from centre. The landmark geocode is the avenue's midpoint, also in the north. A pin near Dousti Square or the Palace of Nations (the central stretch, about 38.58N 68.79E) would settle it; Nominatim returns nothing for Dousti Square.
 - **acapulco-de-juarez|3 / Puerto Marques**: Puerto Marques bay is south-east of the main bay (Wikipedia: about 10 km south of Acapulco, no coordinates). The current point (16.795, -99.809) is at that distance but sits east toward Playa Diamante; the candidates are a road 2.4 km north and a supermarket inland. A pin on the Puerto Marques waterfront would settle it.
@@ -62,4 +62,15 @@ The 103 moved points were re-checked: 74 now geocode to their hood by name; 29 s
 - **kangding|1 / Zheduo River Corridor**: Current point is at 大桥湾 10 km up the Zheduo valley toward the pass, outside the town; no candidate point. The ribbon of town along the river is between the old town and the new town along the Zheduo, about 30.040, 101.960. Needs a chosen point in town, or merge into Old Town.
 - **kangding|2 / New Town (Xin Cheng)**: Current point is identical to the Old Town point (30.05441, 101.96308); New Town (新城) is a separate area downstream. Landmark geocode is a bus station 52 km away, OSM candidate is Prague. Needs a verified point for Kangding's new district / bus station.
 
-The rest of the flagged points in these cities are still being reviewed; a second triage pass and commit follow.
+## Copy problems the triage noticed (not changed)
+
+- Koblenz: the Südliche Vorstadt text names Görresplatz, which is in the Altstadt.
+- Legaspi: Peñaranda Park is in the Old Albay District, not the Port District.
+- Lilongwe: one hood spans Kumbali and Lumbadzi, 19 km apart; the point is at Lumbadzi.
+- Pilsen: the zoo is in Lochotín/Vinice, not Bory. Paramaribo: Tourtonne is north of downtown, not south. Osogbo: about 2 km from Oja Oba, not 4.
+- Batumi: the "New Boulevard" hood's description (Alphabet Tower, Sheraton) is the Miracle Park end, which is the Seaside Boulevard hood; the point is on the southern New Boulevard.
+- Hangzhou: the Xiacheng description (Wulin Square) now points at Gongshu and overlaps the Grand Canal hood. Ulaanbaatar: the Khan-Uul landmark (Shangri-La) is downtown in Sukhbaatar.
+- Huangshan "Hongcun & Xidi", Qinhuangdao "Gold Coast", Plettenberg Bay "The Crags", Flores "El Remate", Chios "Volissos", Siddharthanagar "Lumbini": hoods that are really day trips 20 to 45 km out (rulebook: a landmark is inside the city; anything outside is a day trip).
+
+## For every future batch
+Run `python3 _guidebuild/hoodpicks/hoodpoint_check.py <slugs>` (Photon; the cache makes re-runs free) before `fetch_rank.py fetch`; triage any new suspect with `hoodpoint_review.py` and the triage brief. The 412-city scope is clean apart from the items above.
