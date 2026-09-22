@@ -91,3 +91,43 @@ table in this file are the durable record.
 | 34 | Turpan to Vilnius | 247 | 184 | 7 | 48 | 0 | (commit below) |
 | 35 | Vina del Mar to Yaren | 250 | 158 | 17 | 60 | 0 | (commit below) |
 | 36 | Yaroslavl to Zurich | 180 | 89 | 16 | 55 | 0 | (commit below) |
+
+## Phase 1 result (OpenStreetMap + Wikidata), finished 2026-09-22
+
+| | |
+|---|---|
+| Slots checked | 8926 (all 893 cities) |
+| Confirmed by OSM or Wikidata | 6009 |
+| Pins changed | 393: 325 corrected (two sources or a by-hand check, 4 of them slots that had no pin), 66 converted from the Chinese GCJ-02 datum, and 2 cleared because the pin was wrong and no reliable point exists (Bentota's Paradise Island sandbar, Labuan Bajo's Pink Beach) |
+| Kept after review | 454 |
+| Held for the Google pass | 2056 |
+| Protected slots compared, never overwritten | 93 (one real disagreement: Quito's El Panecillo) |
+
+Nulls went 59 -> 56. Every batch was committed on its own; the table above lists them.
+
+## Phase 2, Google, on or after 2026-10-01
+
+1. Work `_needs-attention/landmark-pins-for-google.csv` (2056 rows). Each row
+   carries the stored pin, why OSM could not confirm it, and any OSM or Wikidata
+   lead found.
+2. Check the month's free geocoding quota first (10,000 calls; decisions.md
+   2026-09-18 records that September was already past it).
+3. **China rows: convert GCJ-02 to WGS-84 before comparing** (see 7a). Google
+   serves China in GCJ-02, so a raw comparison will look like a 0.5 km error
+   everywhere and "fix" correct pins into wrong ones.
+4. Apply with `pinpass/apply_pins.py` (it refuses protected slots and checks the
+   old value before writing), and mirror every change into
+   `citydata/<slug>.json` in the same commit. The catalogs are canonical but
+   city.html reads citydata: three September commits updated only the catalogs
+   and their fixes were never live (fixed 2026-09-22, commit b906db8d).
+5. The two cleared pins are in the CSV marked CLEARED; they need a real point.
+
+## Open for Jeff
+
+- `landmark-pin-conflicts.md` - Quito's El Panecillo, moved 4.7 km by the
+  16 September sweep and now 4.5 km from the hill. Needs his call.
+- `landmarks-that-are-day-trips.md` - 317 landmark pins now sit more than 30 km
+  from their city. Some are legitimately a city's own distant site; others are
+  day trips in the landmarks list, which the rulebook says never overlap.
+- Punta Cana's Manati Park is marked "Cerrado" (closed) in OpenStreetMap. The
+  pin was fixed to the Bavaro site; whether the landmark should stay is his call.
