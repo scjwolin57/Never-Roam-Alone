@@ -73,3 +73,9 @@ Three ways to go, cheapest first:
 My recommendation is 1 now and 2 as a scheduled follow-up, because the honesty problem is worst where a guide
 shows a reassuring level for a place the US says not to enter. Nothing is changed until he says.
 
+**Both sessions agree (2026-09-22): option 1 now, option 2 scheduled.** Two things for whoever applies it:
+- The advisory field and the day trips move in the SAME commit. A city showing Level 4 while still listing trips
+  in that region is worse than either on its own.
+- Debre Damo is two separate entries, one under Axum and one under Mek'ele, so removing it is two edits (and two
+  again if it ever returns).
+
