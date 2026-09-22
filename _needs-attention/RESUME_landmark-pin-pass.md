@@ -88,3 +88,4 @@ table in this file are the durable record.
 | 31 | Sihanoukville to Suzhou | 250 | 172 | 10 | 54 | 0 | (commit below) |
 | 32 | Sydney to The Valley | 250 | 159 | 10 | 71 | 0 | (commit below) |
 | 33 | Thessaloniki to Turku | 249 | 173 | 7 | 56 | 0 | (commit below) |
+| 34 | Turpan to Vilnius | 247 | 184 | 7 | 48 | 0 | (commit below) |
