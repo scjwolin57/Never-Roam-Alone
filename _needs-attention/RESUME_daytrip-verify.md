@@ -167,9 +167,22 @@ because the ~200 web searches are shared by every agent in a session.
 | Wave | Cities | Proposed | Confirmed | Status |
 |---|---|---|---|---|
 | 1 | Hurghada, Colombo, Oranjestad, Dubrovnik, Port Louis, Kathmandu, Montevideo, Tel Aviv, Kigali, Siem Reap, Bishkek, Bridgetown, Zanzibar City, Kotor, Ulaanbaatar | 38 | 38 (after fixes) | done, `wave1_final.json` |
-| 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | | | researching |
+| 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | 27 | 27 (3 blurbs fixed) | done, `wave2_final.json` |
+| 3 | Banjul, Monrovia, St. George's, El Calafate, Kralendijk, Kusatsu, San Andrés, Apia, Basseterre, Asmara, Juba, Lamu, Leshan, N'Djamena, Port Moresby | | | next session |
+| 4 | The Valley, Bahir Dar, Brazzaville, Dili, Djibouti City, Nouakchott, Koror, Niamey, Bangui, Bissau, Kingstown, Roseau, São Tomé, Karimabad, Malabo | | | |
+| 5 | Ashgabat, Moroni, Timbuktu, Brades, Jamestown, Majuro, Weno, Yaren | | | |
 
 Wave 1 fixes: Beruwala (Colombo) and Dhulikhel (Kathmandu) moved half -> full (sources straddle 75 min);
 Lake Muhazi (Kigali) full -> half (near-shore resort 40-45 min; blurb must name that shore at apply time).
 Borderline but kept as half: Nungwi (48-80 min), Cetinje (63-78 min). Akko from Tel Aviv: Jeff's call
 (`_needs-attention/daytrip-akko-advisory.md`). Every city in wave 1 now has at least one trip.
+
+Wave 2: 30 proposals checked, 27 kept (3 blurbs fixed: Mochudi's weavers are in Oodi; Dedza is Malawi's highest
+town, not road; Manyana wording). Honestly empty: Bamako and Kinshasa (US Level 4 country-wide), Saipan (islets
+are landmarks, Tinian/Rota flight-only), Puerto Princesa (no primary-sourced attraction in Roxas/Aborlan).
+Borderline kept: Wangdue Phodrang from Thimphu, full, 3 h on the official Bhutan chart.
+**Re-research at the start of wave 3 (checker says the rejection was wrong):** Tiwanaku from La Paz (full; tours
+~2 h, OSRM 73 min, 71 km; the "3 h 15" in the rejection was not corroborated) and Otse from Gaborone (half; 40-45
+min, Otse Hill and Manyelanong vulture reserve). Both need a proper proposal and an independent check.
+All 65 kept trips checked against destinations.js: none is a guide city.
+Side finding: Kinshasa shows no advisory though the DRC may be Level 4 (`kinshasa-advisory-missing.md`).
