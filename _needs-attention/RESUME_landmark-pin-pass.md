@@ -81,3 +81,4 @@ table in this file are the durable record.
 | 24 | Olomouc to Parma | 250 | 173 | 7 | 55 | 0 | (commit below) |
 | 25 | Pattaya to Port Elizabeth | 250 | 174 | 4 | 62 | 0 | (commit below) |
 | 26 | Port Louis to Puerto Princesa | 250 | 158 | 15 | 59 | 0 | (commit below) |
+| 27 | Puerto Vallarta to Riyadh | 250 | 161 | 11 | 62 | 0 | (commit below) |
