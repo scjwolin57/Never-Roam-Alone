@@ -5,7 +5,7 @@ The rulebook says a landmark is inside the city and anything outside is a day tr
 | Suggestion | Count | What it means |
 |---|---|---|
 | Pin wrong | 18 | An in-city feature pinned far away. Not a day-trip question: the coordinate is simply wrong and should be fixed. |
-| Move to day trips | 111 | A separate town or site with its own identity. Move the entry to `daytrips` and let the city ship with fewer landmarks. |
+| Move to day trips | 110, plus 1 held | A separate town or site with its own identity. Move the entry to `daytrips` and let the city ship with fewer landmarks. |
 | Keep | 186 | The city is the base for the site, or the site is the city's own named feature, island or park. |
 
 How I decided: a place keeps its landmark slot when the city exists to serve it (San Pedro de Atacama and its lagoons, Banff and Lake Louise, Djanet and the Tassili) or when it is the city's own geography (an atoll islet, a reef off a dive town, a park named for the city). It moves when it is a destination in its own right that people travel to and from (Tulum, Uxmal, Teotihuacan, the Citadelle). Distance alone did not decide it: some 30 km sites stay and some 35 km sites move.
@@ -144,7 +144,7 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Mombasa | 8 | Diani Beach | 33 | Diani is a separate resort strip south of the ferry |
 | Paphos | 7 | Akamas Peninsula & Blue Lagoon | 33 | the Akamas peninsula is its own reserve |
 | Ta'if | 2 | Souk Okaz | 33 | Souk Okaz is a seasonal site 33 km out |
-| Bahir Dar | 7 | Tana Kirkos Island | 32 | Tana Kirkos is an island monastery, 32 km out. Bahir Dar has no researched day trips yet, so the move would be its first |
+| Bahir Dar | 7 | Tana Kirkos Island | 32 | **HELD, do not apply.** Moving it would give Bahir Dar its first day trip, and the day-trip rules forbid an entry in an area under a do-not-travel warning: Amhara is US Level 4 and the FCDO advises against all travel. The day-trip research left this city empty for that reason. See bahir-dar-advisory-level4.md |
 | Arusha | 7 | Momella Lakes | 31 | the Momella lakes are inside Arusha National Park |
 | Cape Coast | 2 | Kakum National Park Canopy Walkway | 31 | Kakum is a national park 31 km north |
 | Conakry | 2 | Îles de Los (Los Islands) | 31 | the Los Islands are a boat trip |

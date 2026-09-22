@@ -24,3 +24,24 @@ The wider question is yours: Bahir Dar's guide is live with 10 landmarks, includ
 boat, in a region the US says not to travel to for any reason. Keep the guide as it is with a Level 4 advisory
 shown, or do more than that?
 
+
+**Follow-on from the pin session, 2026-09-22.** Agreed and marked: the Tana Kirkos row in
+`landmarks-that-are-day-trips.md` now says HELD, do not apply, whatever is decided for the other 110.
+
+Checking the rest of Ethiopia shows the gap is not only Bahir Dar. Every Ethiopian city on the site carries the
+country level, 3:
+
+| City | Region | Region level (US) | Advisory shown | Day trips live |
+|---|---|---|---|---|
+| Bahir Dar | Amhara | 4, do not travel | 3 | 0 |
+| Gondar | Amhara | 4, do not travel | 3 | 1 |
+| Lalibela | Amhara | 4, do not travel | 3 | 2 |
+| Mek'ele | Tigray | 4, do not travel | 3 | 2 |
+| Axum | Tigray | 4, do not travel | 3 | 3 |
+| Harar | Harari | country level | 3 | 2 |
+| Addis Ababa | Addis Ababa | country level | 3 | 2 |
+
+So four other cities show Level 3 while sitting in a Level 4 region, and five day trips are already live in those
+regions, which is the same rule the Bahir Dar move was held for. Whatever Jeff decides for Bahir Dar should be
+applied to Gondar, Lalibela, Mek'ele and Axum in the same pass, and the question of a wider sweep (regional
+levels, not country levels, worldwide) is his. Nothing has been changed.
