@@ -86,3 +86,4 @@ table in this file are the durable record.
 | 29 | San Andres to Sanya | 250 | 177 | 15 | 41 | 0 | (commit below) |
 | 30 | Sao Paulo to Sigiriya | 250 | 148 | 24 | 65 | 0 | (commit below) |
 | 31 | Sihanoukville to Suzhou | 250 | 172 | 10 | 54 | 0 | (commit below) |
+| 32 | Sydney to The Valley | 250 | 159 | 10 | 71 | 0 | (commit below) |
