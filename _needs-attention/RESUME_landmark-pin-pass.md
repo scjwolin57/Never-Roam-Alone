@@ -41,8 +41,8 @@ Lummus Park) was never looked at.
    lands within 250 m of OSM or Wikidata and the stored one is over 350 m off.
    The Google pass must do the same: Google also serves China in GCJ-02.
    (Batches 4 and 7 first recorded the opposite; corrected 2026-09-22.)
-7. **Phase 2, Google, on or after 2026-10-01**, when the free 10,000 geocoding
-   calls reset. Only the UNRESOLVED list (`landmark-pins-for-google.csv`) goes
+7. **Phase 2, Google, on 2 October** (moved from 1 October by Jeff), when the
+   free 10,000 geocoding calls have reset and no other job is writing citydata. Only the UNRESOLVED list (`landmark-pins-for-google.csv`) goes
    through it. September is already past the free tier.
 8. Nothing is pushed. Jeff pushes.
 
@@ -105,13 +105,18 @@ table in this file are the durable record.
 
 Nulls went 59 -> 56. Every batch was committed on its own; the table above lists them.
 
-## Phase 2, Google, on or after 2026-10-01
+## Phase 2, Google, 2 October 2026 09:00 (scheduled task `landmark-pins-google-pass`)
 
 1. Work `_needs-attention/landmark-pins-for-google.csv` (2056 rows). Each row
    carries the stored pin, why OSM could not confirm it, and any OSM or Wikidata
    lead found.
-2. Check the month's free geocoding quota first (10,000 calls; decisions.md
-   2026-09-18 records that September was already past it).
+2. **Two gates before any Google call** (Jeff, 2026-09-22: "wait until oct 2";
+   decisions.md). Gate A: confirm October's free 10,000 geocoding calls have
+   actually reset and that 2,056 lookups fit inside them. If not, stop and tell
+   Jeff: no paid calls, and no spending the $281 trial credit. Gate B: confirm
+   no hood-picks load is writing `citydata/*.json` or `NRA-MASTER.xlsx` at that
+   moment; if one is, message that session and wait rather than writing at the
+   same time. Running in September would have cost about $10 of trial credit.
 3. **China rows: convert GCJ-02 to WGS-84 before comparing** (see 7a). Google
    serves China in GCJ-02, so a raw comparison will look like a 0.5 km error
    everywhere and "fix" correct pins into wrong ones.
