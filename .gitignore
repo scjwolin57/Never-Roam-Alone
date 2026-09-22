@@ -14,3 +14,4 @@ _cities-staging/
 
 # macOS Finder metadata — never useful in the repo.
 .DS_Store
+.sheet-lock
