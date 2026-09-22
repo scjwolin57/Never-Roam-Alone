@@ -33,10 +33,14 @@ Lummus Park) was never looked at.
    Every change goes to `city-landmark-coords.js` and the city's
    `citydata/<slug>.json` `lmk_coords` in the same commit. The sheet holds no
    landmark coordinates, so there is nothing to mirror there.
-7a. **China: never "fix" a gap of about 0.5-0.9 km.** Wikidata (and Google, which
-   serves China in the GCJ-02 datum) sit about 0.5 km off true positions there.
-   The stored China pins match the real WGS-84 positions; batches 4 and 7 kept
-   20 such sites. The Google pass must convert GCJ-02 before comparing.
+7a. **China: many stored pins are in the GCJ-02 datum (Chinese map services),
+   about 0.5 km off true positions on the site's map.** Checked against the
+   published coordinates of the Forbidden City, Tiananmen, the Summer Palace
+   and Beihai Park. Sources are mixed (the Temple of Heaven was already true),
+   so a China pin is converted GCJ-02 -> WGS-84 only when the converted point
+   lands within 250 m of OSM or Wikidata and the stored one is over 350 m off.
+   The Google pass must do the same: Google also serves China in GCJ-02.
+   (Batches 4 and 7 first recorded the opposite; corrected 2026-09-22.)
 7. **Phase 2, Google, on or after 2026-10-01**, when the free 10,000 geocoding
    calls reset. Only the UNRESOLVED list (`landmark-pins-for-google.csv`) goes
    through it. September is already past the free tier.
