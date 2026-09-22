@@ -80,3 +80,4 @@ table in this file are the durable record.
 | 23 | Nara to Ohrid | 250 | 186 | 7 | 46 | 0 | (commit below) |
 | 24 | Olomouc to Parma | 250 | 173 | 7 | 55 | 0 | (commit below) |
 | 25 | Pattaya to Port Elizabeth | 250 | 174 | 4 | 62 | 0 | (commit below) |
+| 26 | Port Louis to Puerto Princesa | 250 | 158 | 15 | 59 | 0 | (commit below) |
