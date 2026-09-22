@@ -155,3 +155,21 @@ Note: 5 more cities (Ahmedabad, Koror, Ulaanbaatar, Weno, Yaren) exist in `cityd
 
 ## Pre-push check (2026-09-21)
 Structural check of all 893 cities before landing on main: citydata equals day-trips.js, no duplicates, no neighborhood or landmark overlaps, all gyg links well-formed with no partner id, all nearby links valid. It found 12 guide cities still listed (rule 7); removed and added to `nearby`. 17 namesake matches kept. Final counts: 2,670 entries, 609 nearby links, sheet parity 893/893. The sheet cell format is `<Name> (<Country>) — <blurb>` with an em dash, and `★ ` before featured entries; the Step 5 commit message says a hyphen, which is wrong.
+
+## Rule 12 research for the 68 empty cities (started 2026-09-22, RESEARCH ONLY)
+Jeff: "start the day trip research for the 68, research only". Live count is 68 (the handoff note's 66 was stale).
+Nothing is written to `day-trips.js`, citydata or the sheet until the hood-picks run has finished (both write the
+same one-line city files and the xlsx). Work folder: `_guidebuild/daytrips/empty68/` (`cities.json` = the 68,
+most-visited first; `RESEARCH_BRIEF.md`, `CHECK_BRIEF.md`; `wN_gN.json` proposals, `wN_gN_check.json` checks).
+Waves of 15 cities (3 researchers x 5) then an independent checker on every proposal; one or two waves per session
+because the ~200 web searches are shared by every agent in a session.
+
+| Wave | Cities | Proposed | Confirmed | Status |
+|---|---|---|---|---|
+| 1 | Hurghada, Colombo, Oranjestad, Dubrovnik, Port Louis, Kathmandu, Montevideo, Tel Aviv, Kigali, Siem Reap, Bishkek, Bridgetown, Zanzibar City, Kotor, Ulaanbaatar | 38 | 38 (after fixes) | done, `wave1_final.json` |
+| 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | | | researching |
+
+Wave 1 fixes: Beruwala (Colombo) and Dhulikhel (Kathmandu) moved half -> full (sources straddle 75 min);
+Lake Muhazi (Kigali) full -> half (near-shore resort 40-45 min; blurb must name that shore at apply time).
+Borderline but kept as half: Nungwi (48-80 min), Cetinje (63-78 min). Akko from Tel Aviv: Jeff's call
+(`_needs-attention/daytrip-akko-advisory.md`). Every city in wave 1 now has at least one trip.
