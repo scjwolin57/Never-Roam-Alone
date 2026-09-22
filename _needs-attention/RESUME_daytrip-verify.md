@@ -283,3 +283,17 @@ check_landmark_coords.js), Majuro hood 5 rename, sheet columns, structural pre-p
   the 315 landmark pins over 30 km from their city into day trips. Jeff has not ruled. If he says yes, it should
   land with these moves, not after them, so indices shift once.
 
+Sheet writing at apply time (from the pin session, 2026-09-22; `_guidebuild/sheet_write.py` confirmed present):
+use `SheetEdit` instead of a load/save of the whole workbook. It writes only cells that differ, will not empty a
+cell unless `clear()` is called, claims the lock itself, logs old -> new, re-reads afterwards, and re-applies only
+its own cells if another job writes during the block. `dry=True` for a dry run.
+
+    import sys; sys.path.insert(0, "_guidebuild")
+    from sheet_write import SheetEdit
+    with SheetEdit("Live Cities", who="day trips: landmark swaps") as e:
+        e.set("St. George's", "Landmark 5 Name", "Annandale Falls")
+
+The row key is the sheet's own City value: **"St. George's"**, not "Saint George's" (checked in Live Cities today;
+that session's example used the wrong spelling). Remove El Calafate's landmark indices from the highest down
+(6, 5, 1, 0) so earlier removals do not shift the ones still to go.
+
