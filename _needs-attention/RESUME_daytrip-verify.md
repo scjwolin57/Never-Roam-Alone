@@ -168,7 +168,7 @@ because the ~200 web searches are shared by every agent in a session.
 |---|---|---|---|---|
 | 1 | Hurghada, Colombo, Oranjestad, Dubrovnik, Port Louis, Kathmandu, Montevideo, Tel Aviv, Kigali, Siem Reap, Bishkek, Bridgetown, Zanzibar City, Kotor, Ulaanbaatar | 38 | 38 (after fixes) | done, `wave1_final.json` |
 | 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | 27 | 27 (3 blurbs fixed) | done, `wave2_final.json` |
-| 3 | Banjul, Monrovia, St. George's, El Calafate, Kralendijk, Kusatsu, San Andrés, Apia, Basseterre, Asmara, Juba, Lamu, Leshan, N'Djamena, Port Moresby | | | next session |
+| 3 | Banjul, Monrovia, St. George's, El Calafate, Kralendijk, Kusatsu, San Andrés, Apia, Basseterre, Asmara, Juba, Lamu, Leshan, N'Djamena, Port Moresby (+ re-research: Tiwanaku, Otse) | 31 | 26 kept + 1 held (Tiwanaku kept, Otse dropped) | done, `wave3_final.json` |
 | 4 | The Valley, Bahir Dar, Brazzaville, Dili, Djibouti City, Nouakchott, Koror, Niamey, Bangui, Bissau, Kingstown, Roseau, São Tomé, Karimabad, Malabo | | | |
 | 5 | Ashgabat, Moroni, Timbuktu, Brades, Jamestown, Majuro, Weno, Yaren | | | |
 
@@ -186,3 +186,20 @@ Borderline kept: Wangdue Phodrang from Thimphu, full, 3 h on the official Bhutan
 min, Otse Hill and Manyelanong vulture reserve). Both need a proper proposal and an independent check.
 All 65 kept trips checked against destinations.js: none is a guide city.
 Side finding: Kinshasa shows no advisory though the DRC may be Level 4 (`kinshasa-advisory-missing.md`).
+
+Wave 3 (2026-09-22): 31 proposals (29 for the wave's cities + the 2 re-researched), 28 confirmed, 27 kept, 1 held.
+Tiwanaku (La Paz) added as full: car about 1 h, minibus about 90 min; the old 3 h 15 was a tour row with stops.
+Otse (Gaborone) dropped again as UNVERIFIED: travel fine, but no dated source on visitor access to Manyelanong.
+Dropped: Tanji Fishing Village (same outing as Tanji Bird Reserve, merged into one entry); Carriacou (ferry
+timetable changed 2026-08-19, new times unreadable). Held for Jeff: Debre Bizen (Asmara, men-only).
+Checker fixes applied: 9 blurbs in group 1, 2 in group 3 (Jiajiang dating, Crystal Rapids); Marshall's country
+kept as "Liberia" (the checker's "Margibi County, Liberia" is a region, not a country).
+Honestly empty: Kralendijk (one-town island, Klein Bonaire is a landmark, no ferries), San Andrés (cays are
+landmarks, Providencia over 3 h by boat, Albuquerque/Bolívar cays closed), Juba (South Sudan Level 4), Lamu
+(FCDO: all of Lamu County except Lamu and Manda islands, both already hoods), N'Djamena (Chad Level 4 since
+2026-04-28). All 27 kept names checked against destinations.js: none is a guide city.
+Calls for Jeff: `_needs-attention/daytrip-empty-cities-calls.md` (Debre Bizen, Annandale Falls, El Calafate's
+Estancia Cristina/Upsala landmarks, Kpatawee and Savai'i at the cap, Otse and Carriacou).
+Leads for a later pass: Abuko Nature Reserve (Banjul; checker says the rejection is weak).
+GetYourGuide and travel.state.gov both return 403 to fetches; wave 4 agents were told to go straight to
+Wikivoyage/tourism boards and confirm US levels from search results.
