@@ -82,3 +82,4 @@ table in this file are the durable record.
 | 25 | Pattaya to Port Elizabeth | 250 | 174 | 4 | 62 | 0 | (commit below) |
 | 26 | Port Louis to Puerto Princesa | 250 | 158 | 15 | 59 | 0 | (commit below) |
 | 27 | Puerto Vallarta to Riyadh | 250 | 161 | 11 | 62 | 0 | (commit below) |
+| 28 | Road Town to Samarkand | 250 | 185 | 20 | 36 | 0 | (commit below) |
