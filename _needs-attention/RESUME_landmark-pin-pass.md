@@ -59,3 +59,4 @@ table in this file are the durable record.
 | 6 | Bursa to Cayenne | 250 | 185 | 8 | 47 | 0 | (commit below) |
 | 7 | Cebu City to Cockburn Town | 250 | 150 | 4 | 71 | 0 | (commit below) |
 | 8 | Coimbra to Dallas | 250 | 173 | 9 | 56 | 0 | (commit below) |
+| 9 | Damascus to Durres | 250 | 186 | 7 | 49 | 0 | (commit below) |
