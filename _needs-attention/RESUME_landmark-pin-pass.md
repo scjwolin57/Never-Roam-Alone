@@ -77,3 +77,4 @@ table in this file are the durable record.
 | 20 | Manzanillo to Medellin | 250 | 160 | 10 | 64 | 0 | (commit below) |
 | 21 | Medina to Morondava | 250 | 184 | 12 | 44 | 0 | (commit below) |
 | 22 | Moroni to Naples | 250 | 168 | 11 | 63 | 0 | (commit below) |
+| 23 | Nara to Ohrid | 250 | 186 | 7 | 46 | 0 | (commit below) |
