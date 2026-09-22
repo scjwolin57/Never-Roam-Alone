@@ -5,26 +5,21 @@ commit set (93 slots, 4 of them from Jeff's own map pins). It compared them
 instead. Six disagree with OpenStreetMap or Wikidata by more than 2 km. Five are
 the check being wrong; one is a real error that needs Jeff's call.
 
-## Needs a decision
+## Resolved
 
-| City | # | Landmark | Stored now | Second source | Gap |
-|---|---|---|---|---|---|
-| Quito | 3 | El Panecillo | -0.1877581, -78.5164366 | Wikidata Q1871347, El Panecillo hill: -0.22861, -78.51861 | 4.5 km |
+**Quito [3] El Panecillo — fixed 2026-09-22.** Jeff: "you can use the Virgin of El Panecillo
+coordinates if that helps, same place". Set to -0.2286111, -78.5186111, which Wikidata gives
+for both the hill (Q1871347) and the Virgin (Q6163386), and which is 0.2 km from the pin the
+16 September sweep replaced.
 
-**What happened.** Before 16 September the pin was -0.2303178, -78.5192298,
-which is 0.2 km from the hill. The commit `3a04f7d2` ("Sweep the CSV's 1-5km
-band: 8 fixes from 371 rows") moved it 4.7 km north, to a point in the north of
-Quito. Wikidata, the Virgin of El Panecillo item and Cerro Panecillo all agree
-with the older value. The sweep's own note lists El Panecillo as one of eight
-"compact point landmarks genuinely in the wrong spot", so the move was
-deliberate, which is why this pass left it alone.
+| City | # | Landmark | Was | Now |
+|---|---|---|---|---|
+| Quito | 3 | El Panecillo | -0.1877581, -78.5164366 (4.5 km north of the hill) | -0.2286111, -78.5186111 |
 
-**Recommended:** restore -0.2303178, -78.5192298 (or use Wikidata's
--0.228611, -78.518611). The same sweep changed seven other pins the same way;
-they agree with OSM or Wikidata and are fine:
-Port Elizabeth Bayworld, Bengaluru St Mary's Basilica, Juba Bridge, Kigali
-Caplaki, Quetzaltenango Fuentes Georginas, Oran Fort Santa Cruz, Cienfuegos
-Palacio de Valle.
+The same sweep (`3a04f7d2`) changed seven other pins the same way; each was checked against
+OSM or Wikidata in this pass and is right: Port Elizabeth Bayworld, Bengaluru St Mary's
+Basilica, Juba Bridge, Kigali Caplaki, Quetzaltenango Fuentes Georginas, Oran Fort Santa Cruz,
+Cienfuegos Palacio de Valle.
 
 ## Checked and fine (no action)
 

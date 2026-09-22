@@ -101,7 +101,7 @@ table in this file are the durable record.
 | Pins changed | 393: 325 corrected (two sources or a by-hand check, 4 of them slots that had no pin), 66 converted from the Chinese GCJ-02 datum, and 2 cleared because the pin was wrong and no reliable point exists (Bentota's Paradise Island sandbar, Labuan Bajo's Pink Beach) |
 | Kept after review | 454 |
 | Held for the Google pass | 2056 |
-| Protected slots compared, never overwritten | 93 (one real disagreement: Quito's El Panecillo) |
+| Protected slots compared | 93; one was wrong (Quito's El Panecillo) and Jeff had it fixed the same day |
 
 Nulls went 59 -> 56. Every batch was committed on its own; the table above lists them.
 
@@ -124,8 +124,6 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
 
 ## Open for Jeff
 
-- `landmark-pin-conflicts.md` - Quito's El Panecillo, moved 4.7 km by the
-  16 September sweep and now 4.5 km from the hill. Needs his call.
 - `landmarks-that-are-day-trips.md` - 317 landmark pins now sit more than 30 km
   from their city. Some are legitimately a city's own distant site; others are
   day trips in the landmarks list, which the rulebook says never overlap.
