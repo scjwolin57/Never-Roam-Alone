@@ -30,3 +30,13 @@ their picks were re-fetched from Google (53 calls) and re-picked.*
 ## For the remaining batches
 Run `python3 _guidebuild/hoodpicks/hoodpoint_check.py <25 slugs>` before `fetch_rank.py fetch`, fix any suspect point
 against the hood description and landmark, and only then spend Google calls. Expect roughly 1 in 12 points to need a fix.
+
+
+## Resolved 2026-09-22
+- **Antalya, Konyaaltı and Lara**: Jeff confirmed both stay at the beach-strip points — "it appears to be where most
+  of the hotels are concentrated."
+- **Mecca, Al Shubaikah**: Jeff sent a Google Maps pin for Ash Shubaikah, Makkah — 21.4169459, 39.8199442, matching
+  the existing point exactly. Kept as is.
+- **Medina, Al Aqeeq and Al-Anbariyah**: superseded. Jeff had both neighborhoods removed from Medina entirely
+  (decisions.md 2026-09-22) rather than resolved to a point — Medina now has 3 hoods (Quba, Qurban, Central Area
+  (Al Haram)). See `_needs-attention/decisions.md`.
