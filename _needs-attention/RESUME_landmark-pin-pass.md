@@ -49,3 +49,4 @@ Scripts: `pinpass/photon.py`, `wd_city.py`, `classify2.py`, `apply_pins.py`,
 lookups for the batches not yet in the table above; the Google list and the
 table in this file are the durable record.
 | 2 | Amsterdam to Atlanta | 250 | 172 | 4 | 60 | 0 | (commit below) |
+| 3 | Auckland to Bariloche | 250 | 180 | 5 | 53 | 0 | (commit below) |
