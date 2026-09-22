@@ -70,3 +70,4 @@ table in this file are the durable record.
 | 13 | Hebron to Inhambane | 250 | 157 | 8 | 67 | 0 | (commit below) |
 | 14 | Innsbruck to Johor Bahru | 250 | 160 | 5 | 63 | 0 | (commit below) |
 | 15 | Juba to Kayseri | 250 | 145 | 17 | 69 | 0 | (commit below) |
+| 16 | Kazan to Kuching | 250 | 162 | 11 | 60 | 0 | (commit below) |
