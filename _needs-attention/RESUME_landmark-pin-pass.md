@@ -75,3 +75,4 @@ table in this file are the durable record.
 | 18 | Leon to Luxor | 250 | 163 | 9 | 65 | 0 | (commit below) |
 | 19 | Lviv to Manila | 250 | 170 | 9 | 61 | 0 | (commit below) |
 | 20 | Manzanillo to Medellin | 250 | 160 | 10 | 64 | 0 | (commit below) |
+| 21 | Medina to Morondava | 250 | 184 | 12 | 44 | 0 | (commit below) |
