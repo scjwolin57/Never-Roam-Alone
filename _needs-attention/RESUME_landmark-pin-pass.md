@@ -52,3 +52,4 @@ table in this file are the durable record.
 | 3 | Auckland to Bariloche | 250 | 180 | 5 | 53 | 0 | (commit below) |
 | 4 | Barranquilla to Bodrum | 250 | 171 | 8 | 56 | 0 | (commit below) |
 | 5 | Bogota to Bulawayo | 250 | 202 | 5 | 38 | 0 | (commit below) |
+| 6 | Bursa to Cayenne | 250 | 185 | 8 | 47 | 0 | (commit below) |
