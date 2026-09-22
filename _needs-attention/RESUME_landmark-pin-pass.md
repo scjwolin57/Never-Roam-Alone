@@ -85,3 +85,4 @@ table in this file are the durable record.
 | 28 | Road Town to Samarkand | 250 | 185 | 20 | 36 | 0 | (commit below) |
 | 29 | San Andres to Sanya | 250 | 177 | 15 | 41 | 0 | (commit below) |
 | 30 | Sao Paulo to Sigiriya | 250 | 148 | 24 | 65 | 0 | (commit below) |
+| 31 | Sihanoukville to Suzhou | 250 | 172 | 10 | 54 | 0 | (commit below) |
