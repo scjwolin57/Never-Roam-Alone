@@ -72,3 +72,4 @@ table in this file are the durable record.
 | 15 | Juba to Kayseri | 250 | 145 | 17 | 69 | 0 | (commit below) |
 | 16 | Kazan to Kuching | 250 | 162 | 11 | 60 | 0 | (commit below) |
 | 17 | Kumamoto to Leipzig | 250 | 161 | 10 | 64 | 0 | (commit below) |
+| 18 | Leon to Luxor | 250 | 163 | 9 | 65 | 0 | (commit below) |
