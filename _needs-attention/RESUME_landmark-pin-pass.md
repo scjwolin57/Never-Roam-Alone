@@ -78,3 +78,4 @@ table in this file are the durable record.
 | 21 | Medina to Morondava | 250 | 184 | 12 | 44 | 0 | (commit below) |
 | 22 | Moroni to Naples | 250 | 168 | 11 | 63 | 0 | (commit below) |
 | 23 | Nara to Ohrid | 250 | 186 | 7 | 46 | 0 | (commit below) |
+| 24 | Olomouc to Parma | 250 | 173 | 7 | 55 | 0 | (commit below) |
