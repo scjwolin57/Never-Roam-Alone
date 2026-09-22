@@ -61,3 +61,4 @@ table in this file are the durable record.
 | 8 | Coimbra to Dallas | 250 | 173 | 9 | 56 | 0 | (commit below) |
 | 9 | Damascus to Durres | 250 | 186 | 7 | 49 | 0 | (commit below) |
 | 10 | Dushanbe to Foz do Iguacu | 250 | 149 | 9 | 71 | 0 | (commit below) |
+| 11 | Frankfurt to Gondar | 250 | 178 | 12 | 55 | 0 | (commit below) |
