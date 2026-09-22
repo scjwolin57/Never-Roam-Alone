@@ -25,3 +25,5 @@ session of agent time, no Google calls.
 
 Recommended: **B**, because the two audits' kind defects were all in exactly those kinds, and the fix is cheap.
 Reply "A" or "B".
+
+## RESOLVED 2026-09-22 — Jeff: B. Kind pass on party / takeaway / bakery / coffee, fourth audit, then load.
