@@ -246,3 +246,22 @@ the lookout is part of the visit; open 1 Oct to 30 Apr. At apply time remove bot
 dive-shop day trips about 10:00-17:00; US Level 1, UK no areas). At apply time rename Majuro hood 5 to drop Arno.
 **Totals: 132 trips kept, 52 of 68 cities filled, 16 empty.**
 
+Wave 7 (Jeff 2026-09-22: "annadale falls can replace york house, replace flagpole, move the two to day trips"),
+`wave7_final.json`, researched and independently checked, no fixes:
+- El Calafate day trip (full, about 1.5 h, 78-80 km on RP11): "Perito Moreno Glacier (Los Glaciares National Park)",
+  one entry for both landmarks. Correction to the decision row's reason: La Leona Petrified Forest is outside the
+  park; the other three El Calafate trips are inside it, so a separate park entry would still repeat them.
+- Landmark swaps (`_landmark_swaps`, each with blurb, OSM/Wikidata pin and a Commons photo, CC BY-SA, location
+  checked by category/GPS): St. George's slot 5 York House -> Annandale Falls; Ashgabat slot 5 Flagpole -> Nisa.
+- El Calafate landmark removals at apply time (`_landmark_removals`): Perito Moreno Glacier, Los Glaciares National
+  Park, Upsala Glacier boat cruise, Estancia Cristina. El Calafate keeps 6 landmarks. Remove their lmk_coords and
+  lmk_photos in the same slots, and the sheet's Landmark N columns.
+- Photos still need downloading and converting to the proposed .webp paths at apply time. Annandale's file is
+  1224x816 (soft if shown large).
+- Side finding: El Calafate's Perito Moreno landmark pin is at the town (-50.336, -72.262), not the glacier. It goes
+  away with the removal; no fix needed.
+**Totals: 133 trips kept, 52 of 68 cities filled, 16 empty. All of Jeff's calls are settled.**
+Apply order when the hood-picks run is done: day trips from wave1..7 (skip `_held_for_jeff`, `_landmark_*` keys),
+landmark swaps and removals (city-landmarks.js, -coords.js, -photos.js and citydata together, then
+check_landmark_coords.js), Majuro hood 5 rename, sheet columns, structural pre-push check.
+
