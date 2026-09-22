@@ -7,6 +7,8 @@ Files: `_guidebuild/daytrips/empty68/waveN_final.json`.
 a permit is needed; the rest as recommended: 2 Annandale Falls and 11 Nisa become landmarks; 3 Estancia Cristina
 and Upsala move to day trips; 4, 5, 7, 8, 9, 10 keep; 6b Carriacou stays out until the timetable is confirmed;
 12 Arno out of the hood name, in as a full-day trip; 13 no action.
+Calls 3 and 12 researched and checked (`wave6_final.json`): one merged El Calafate entry "Estancia Cristina and
+Upsala Glacier" (full, about 3 h to the ranch), and Arno Atoll (full).
 **Still open:** St. George's and Ashgabat already have 10 landmarks each. Which landmark do Annandale Falls and
 Nisa replace (or do they stay out)? Also: Perito Moreno Glacier (78 km out) and Los Glaciares National Park are
 El Calafate landmarks by the same logic as call 3; move them too, or keep them as the rulebook's

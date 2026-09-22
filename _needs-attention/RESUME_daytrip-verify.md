@@ -238,3 +238,11 @@ researched as day trips (`w6_g1.json`). Totals now 130 trips kept (129 + Debre B
 and photos, sheet columns) and rename Majuro's hood 5 to drop Arno (hood name appears in citydata, the sheet,
 hood photos and hood picks).
 
+Wave 6 (Jeff's calls 3 and 12, 2026-09-22), `wave6_final.json`: 2 proposed, 2 confirmed and kept.
+El Calafate: "Estancia Cristina and Upsala Glacier" (full), one merged entry because they are sold as one outing
+(boat among icebergs to the 1914 ranch, 4x4 to the Upsala lookout); about 3 h to the ranch (road 1 h + boat 2-2.5 h),
+the lookout is part of the visit; open 1 Oct to 30 Apr. At apply time remove both "Upsala Glacier boat cruise" and
+"Estancia Cristina" from El Calafate's landmarks. Majuro: Arno Atoll (full; boat 40-90 min in the sources, hotel and
+dive-shop day trips about 10:00-17:00; US Level 1, UK no areas). At apply time rename Majuro hood 5 to drop Arno.
+**Totals: 132 trips kept, 52 of 68 cities filled, 16 empty.**
+
