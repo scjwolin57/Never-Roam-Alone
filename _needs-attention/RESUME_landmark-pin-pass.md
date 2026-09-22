@@ -33,6 +33,10 @@ Lummus Park) was never looked at.
    Every change goes to `city-landmark-coords.js` and the city's
    `citydata/<slug>.json` `lmk_coords` in the same commit. The sheet holds no
    landmark coordinates, so there is nothing to mirror there.
+7a. **China: never "fix" a gap of about 0.5-0.9 km.** Wikidata (and Google, which
+   serves China in the GCJ-02 datum) sit about 0.5 km off true positions there.
+   The stored China pins match the real WGS-84 positions; batches 4 and 7 kept
+   20 such sites. The Google pass must convert GCJ-02 before comparing.
 7. **Phase 2, Google, on or after 2026-10-01**, when the free 10,000 geocoding
    calls reset. Only the UNRESOLVED list (`landmark-pins-for-google.csv`) goes
    through it. September is already past the free tier.
@@ -54,3 +58,4 @@ table in this file are the durable record.
 | 5 | Bogota to Bulawayo | 250 | 202 | 5 | 38 | 0 | (commit below) |
 | 6 | Bursa to Cayenne | 250 | 185 | 8 | 47 | 0 | (commit below) |
 | 7 | Cebu City to Cockburn Town | 250 | 150 | 4 | 71 | 0 | (commit below) |
+| 8 | Coimbra to Dallas | 250 | 173 | 9 | 56 | 0 | (commit below) |
