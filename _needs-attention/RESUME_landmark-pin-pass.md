@@ -67,3 +67,4 @@ table in this file are the durable record.
 | 10 | Dushanbe to Foz do Iguacu | 250 | 149 | 9 | 71 | 0 | (commit below) |
 | 11 | Frankfurt to Gondar | 250 | 178 | 12 | 55 | 0 | (commit below) |
 | 12 | Goreme to Havana | 250 | 158 | 10 | 59 | 0 | (commit below) |
+| 13 | Hebron to Inhambane | 250 | 157 | 8 | 67 | 0 | (commit below) |
