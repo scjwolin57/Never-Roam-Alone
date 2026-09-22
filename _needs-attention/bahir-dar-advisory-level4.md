@@ -45,3 +45,31 @@ So four other cities show Level 3 while sitting in a Level 4 region, and five da
 regions, which is the same rule the Bahir Dar move was held for. Whatever Jeff decides for Bahir Dar should be
 applied to Gondar, Lalibela, Mek'ele and Axum in the same pass, and the question of a wider sweep (regional
 levels, not country levels, worldwide) is his. Nothing has been changed.
+
+**Checked independently by the day-trip session, 2026-09-22.** The five live entries are real, and all four cities
+do show Level 3 in citydata:
+
+| City | Advisory shown | Live day trips |
+|---|---|---|
+| Gondar | 3 | Simien Mountains National Park |
+| Lalibela | 3 | Na'akuto La'ab Monastery; Yemrehanna Kristos |
+| Mek'ele | 3 | Maryam Korkor and Daniel Korkor Churches; Debre Damo Monastery |
+| Axum | 3 | Yeha Temple; Debre Damo Monastery; Gheralta Rock-Hewn Churches |
+
+These came through the day-trip verification pass (batches 1-36) as `ok`, because that pass checked the country
+level, not the regional one. The rule (check 4 / rule 12: nothing in a Level 4 or advise-against-all-travel area)
+was applied to new entries only.
+
+**The question for Jeff, in one line:** should the advisory shown be the *regional* level where a city sits in a
+Level 4 region, and should day trips in such regions come off the site?
+
+Three ways to go, cheapest first:
+1. Ethiopia only: set the five cities to Level 4 and remove or hold the five day trips. Small, same-day.
+2. Ethiopia plus a named-country sweep of the obvious cases (Mexico, Nigeria, Pakistan, Colombia, Ethiopia,
+   Myanmar, Russia, Ukraine, Iran, Burkina Faso and the like), by hand from the State Department pages.
+3. A full 893-city sweep against regional advisory levels. This needs a source of regional levels per country,
+   which no free feed gives cleanly; it would be a research pass of its own.
+
+My recommendation is 1 now and 2 as a scheduled follow-up, because the honesty problem is worst where a guide
+shows a reassuring level for a place the US says not to enter. Nothing is changed until he says.
+
