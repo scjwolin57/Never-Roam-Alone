@@ -76,3 +76,4 @@ table in this file are the durable record.
 | 19 | Lviv to Manila | 250 | 170 | 9 | 61 | 0 | (commit below) |
 | 20 | Manzanillo to Medellin | 250 | 160 | 10 | 64 | 0 | (commit below) |
 | 21 | Medina to Morondava | 250 | 184 | 12 | 44 | 0 | (commit below) |
+| 22 | Moroni to Naples | 250 | 168 | 11 | 63 | 0 | (commit below) |
