@@ -32,6 +32,34 @@ The 103 moved points were re-checked: 74 now geocode to their hood by name; 29 s
 - **la-romana|0 / La Romana Centro**: Current point (Cumayasa/El Tamarindo) is 6 km north-west of the city; Parque Central La Romana is about 18.427, -68.973 but neither candidate (a university 2 km out, a Guaymate park) nor the nominatim fetch hit it. Settle with a geocode of 'Parque Central, La Romana' or Jeff's pin.
 - **surat-thani|1 / Ban Don Pier**: Current point is 0.9 km south of the Ta Pi river inside the town grid and closer to the centre than the City Centre hood's own point; neither candidate is the pier (village 25 km, bus station 6.5 km) and nominatim has no entry for Ban Don Pier. Settle by pinning the night-boat pier on the riverfront (Ta Pi / Ban Don pier, roughly 9.143, 99.33).
 
-## Remaining 481 cities
+## Remaining 481 cities (2,065 placed points), first triage pass
 
-Scan in progress (second worker); the same review and triage follow, then one more commit.
+| Result | Points |
+|---|---|
+| Checked | 2,065 |
+| Flagged by the script | see below; review still running |
+| Triaged so far | 282 |
+| Kept | 194 |
+| Moved | 72 |
+| Needs your call | 16 |
+
+### Your call, remaining cities (16)
+
+- **negombo|4 / Kudapaduwa / Duwa**: Kudapaduwa and Duwa are south of Negombo town at the lagoon mouth (about 7.19-7.20N), but the current point is in Periyamulla, 2.4 km north of centre. No candidate point exists (Nominatim returns nothing for Kudapaduwa). A pin on Duwa island or Kudapaduwa village would settle it.
+- **dushanbe|0 / City Center (Rudaki Avenue)**: Locality is Ismoili Somoni district, a separate hood on the site, and the point is at the northern stretch of Rudaki Avenue 5.3 km from centre. The landmark geocode is the avenue's midpoint, also in the north. A pin near Dousti Square or the Palace of Nations (the central stretch, about 38.58N 68.79E) would settle it; Nominatim returns nothing for Dousti Square.
+- **acapulco-de-juarez|3 / Puerto Marques**: Puerto Marques bay is south-east of the main bay (Wikipedia: about 10 km south of Acapulco, no coordinates). The current point (16.795, -99.809) is at that distance but sits east toward Playa Diamante; the candidates are a road 2.4 km north and a supermarket inland. A pin on the Puerto Marques waterfront would settle it.
+- **agadez|1 / Sabon Gari**: Point is 3.7 km north-east of the Grand Mosque, at or beyond the edge of the built-up town; no usable candidate (OSM returns a hamlet 51 km away, the landmark geocode is Manchester, Nominatim returns nothing for Grand Marche Agadez). A pin on the Grand Marche would settle it.
+- **agadez|2 / Founey**: Point is 60 m from the Grand Mosque, effectively the same point as Vieille Ville. The Sultan's Palace is a few hundred metres east of the mosque but no candidate places it (both geocodes are in Morocco and Zanzibar; Nominatim returns nothing for Palais du Sultan Agadez). A pin on the Sultan's Palace would settle it.
+- **aix-en-provence|3 / Les Facultés**: Point (43.524, 5.432) is in Pont de l'Arc, west of the university quarter (Faculte de Lettres / Av. Robert Schuman at about 5.44-5.45E). Candidates are the town point and a namesake town; the one fetch returned the IEP in the old centre, not the Facultes. A pin on the Faculte de Lettres would settle it.
+- **angra-dos-reis|1 / Ilha Grande (Abraão)**: The point is on Ilha Grande but about 6 km west of Vila do Abraao (the village is near -23.14, -44.17); the candidates are the island centroid and the Lopes Mendes cape. The 15 km centre rule cannot apply (the whole island is 18+ km out). pt.wikipedia has no coordinates for Vila do Abraao. A pin on the Abraao pier would settle it.
+- **bamako|3 / Quartier du Fleuve**: Current point is in ACI 2000 (another of the city's hoods), west of the centre. Both candidates are on the south bank (Badalabougou side, near the Palais de la Culture), not in the riverside Quartier du Fleuve on the north bank. Nominatim has no entry for the quartier. Settle with a pin near Avenue de la Nation / Grand Hotel (about 12.643, -7.992).
+- **baracoa|0 / Casco Histórico**: Current point is in Reparto Paraiso (the El Paraiso hood). Both candidates are Spanish namesakes and Nominatim returned only a hostel for the cathedral. Settle with a pin for Parque Independencia / the cathedral (west end of town, roughly 20.349, -74.506).
+- **baracoa|3 / Zona del Mercado / Terminal**: Current point is in Reparto Paraiso, same as the Casco Historico point. OSM hit is a Havana supermarket; Nominatim has no Fuerte de la Punta. Settle with a pin for the bus terminal / Fuerte de la Punta at the north-west tip of town.
+- **datong|1 / Hongqi Square (Downtown)**: Point is inside the walled Ancient City (Gucheng, next to Huayan Temple), so it duplicates hood 0, while Hongqi Square is outside the walls to the south. Both candidates are namesakes (Budapest, Laiyuan) and OSM has no 红旗广场 in Datong. A Google Maps pin for 红旗广场 大同 would settle it.
+- **flores|3 / El Remate**: Point is in Zona 1 de Santa Elena, which is another hood on the list, so it is wrong. The only candidate, OSM's El Remate village at 16.9931, -89.6904, is 22.5 km from the centre, beyond the 15 km rule, and the description itself calls it a village 30 km away toward Tikal. Jeff should decide whether El Remate (and Tikal National Park) stay as hoods, in which case use the OSM village point, or move to day trips.
+- **huangshan|2 / Hongcun & Xidi Ancient Villages**: Current point is Tunxi city centre (0.14 km), not the villages. Hongcun (about 29.905, 117.984) and Xidi are 45 km away, outside the 15 km rule, and this hood is a day trip by the site's own rule (hoods are not day trips). Jeff to decide: drop the hood from the hood list, or accept a far point at Hongcun.
+- **iquitos|3 / San Juan Bautista**: Current point is at Cabo López 3 km SSE of the centre near the Itaya, which reads as Belén district, not San Juan Bautista (SW, toward the airport and the Quiñones-avenue artisan market). Nominatim has no node for the market and both candidates are in other cities. Settle by checking whether Cabo López falls inside San Juan Bautista district; otherwise place at the artisan market on Av. Abelardo Quiñones km 4.5 (about -3.776, -73.284).
+- **kangding|1 / Zheduo River Corridor**: Current point is at 大桥湾 10 km up the Zheduo valley toward the pass, outside the town; no candidate point. The ribbon of town along the river is between the old town and the new town along the Zheduo, about 30.040, 101.960. Needs a chosen point in town, or merge into Old Town.
+- **kangding|2 / New Town (Xin Cheng)**: Current point is identical to the Old Town point (30.05441, 101.96308); New Town (新城) is a separate area downstream. Landmark geocode is a bus station 52 km away, OSM candidate is Prague. Needs a verified point for Kangding's new district / bus station.
+
+The rest of the flagged points in these cities are still being reviewed; a second triage pass and commit follow.
