@@ -55,7 +55,7 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Maseru | 4 | Maletsunyane Falls | 83 | Maletsunyane falls are at Semonkong, 83 km away |
 | Santa Cruz de la Sierra | 5 | El Fuerte de Samaipata | 81 | Samaipata is a separate town and site, 81 km west |
 | Aurangabad | 1 | Ajanta Caves | 80 | Ajanta is 80 km away and a full day in its own right |
-| Djibouti City | 8 | Lake Assal | 80 | Lake Assal is 80 km west |
+| Djibouti City | 8 | Lake Assal | 80 | Lake Assal is 80 km west. the day-trip session has Decan Refuge and Tadjoura for this city but not Lake Assal, so the move adds a new entry |
 | Ica | 8 | Cañón de los Perdidos (Canyon of the Lost) | 80 | the Canyon of the Lost is 80 km south |
 | Surat Thani | 4 | Khao Sok National Park | 78 | Khao Sok is a national park with its own base |
 | Chongqing | 6 | Dazu Rock Carvings | 76 | the Dazu carvings are 76 km out |
@@ -76,7 +76,7 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Erbil | 9 | Korek Mountain Resort | 60 | Korek is a mountain resort 60 km north at Rawanduz |
 | Hamadan | 4 | Ali Sadr Cave | 59 | Ali Sadr cave is 59 km north |
 | Ica | 9 | Paracas National Reserve and Ballestas Islands | 59 | Paracas and the Ballestas are reached from Paracas town |
-| Bishkek | 7 | Burana Tower | 57 | the Burana tower is at Tokmok, 57 km east |
+| Bishkek | 7 | Burana Tower | 57 | the Burana tower is at Tokmok, 57 km east. not in the day-trip session's Bishkek list (Ala Archa only), so the move adds a new entry |
 | Bamyan | 1 | Band-e-Amir Lakes | 56 | Band-e-Amir is a national park 56 km west |
 | Chiang Mai | 5 | Doi Inthanon National Park | 56 | Doi Inthanon is a national park 56 km out, with its own gateway |
 | Flores | 4 | Yaxhá | 55 | Yaxha is a separate site |
@@ -98,12 +98,12 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Shiraz | 1 | Persepolis (Takht-e Jamshid) | 48 | Persepolis is its own site, 48 km north-east |
 | Cape Coast | 7 | Assin Manso Ancestral Slave River Site | 47 | Assin Manso is its own memorial site, 47 km north |
 | Port-au-Prince | 6 | Bassin Bleu | 47 | Bassin Bleu is reached from Jacmel |
-| Ulaanbaatar | 6 | Genghis Khan Statue Complex (Chinggis Khaan Statue) | 47 | the Genghis Khan statue is 47 km east at Tsonjin Boldog |
+| Ulaanbaatar | 6 | Genghis Khan Statue Complex (Chinggis Khaan Statue) | 47 | the Genghis Khan statue is 47 km east at Tsonjin Boldog. not in the day-trip session's Ulaanbaatar list, so the move adds a new entry |
 | Ziguinchor | 5 | Carabane Island | 47 | Carabane is its own island village |
 | Gaziantep | 9 | Rumkale (Hromgla) | 46 | Rumkale is 46 km north on the Euphrates |
 | Kagoshima | 8 | Ibusuki Sand Bath (Saraku) | 46 | Ibusuki is a separate onsen town |
 | Luoyang | 2 | Shaolin Temple and Pagoda Forest | 46 | Shaolin is at Dengfeng, closer to Zhengzhou |
-| Port of Spain | 8 | Lion House | 46 | the Lion House is in Chaguanas |
+| Port of Spain | 8 | Lion House | 46 | the Lion House is in Chaguanas. not in the day-trip session's Port of Spain list (San Fernando only), so the move adds a new entry |
 | San Cristóbal de las Casas | 2 | Cañón del Sumidero | 46 | the Sumidero canyon is entered from Chiapa de Corzo |
 | Sochi | 2 | Rosa Khutor (Krasnaya Polyana) | 46 | Rosa Khutor is a separate resort at Krasnaya Polyana |
 | Calabar | 8 | Cross River National Park (Oban Division) | 45 | the Oban division of Cross River park is 45 km out |
@@ -123,7 +123,7 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Moshi | 4 | Lake Chala | 40 | Lake Chala is 40 km east |
 | Santander | 9 | El Capricho de Gaudí (Comillas) | 40 | the Capricho de Gaudi is in Comillas |
 | Siddharthanagar | 8 | Tilaurakot (Kapilvastu) | 40 | Tilaurakot is a separate archaeological site |
-| Cotonou | 8 | Musée de la Fondation Zinsou Ouidah Route (Route des Esclaves gateway) | 39 | the Ouidah slave route is in Ouidah |
+| Cotonou | 8 | Musée de la Fondation Zinsou Ouidah Route (Route des Esclaves gateway) | 39 | the Ouidah slave route is in Ouidah. the day-trip session already has Ouidah as a half-day trip for Cotonou: do not add a second Ouidah entry, fold this into theirs |
 | Mexico City | 5 | Teotihuacán (Pyramid of the Sun) | 39 | Teotihuacan is its own archaeological city |
 | Miami | 6 | Coral Castle | 39 | Coral Castle is in Homestead |
 | Monterrey | 6 | Cola de Caballo (Horsetail Falls) | 39 | Cola de Caballo is at Villa de Santiago |
@@ -144,7 +144,7 @@ Each is a separate destination. Moving one means removing the landmark entry (na
 | Mombasa | 8 | Diani Beach | 33 | Diani is a separate resort strip south of the ferry |
 | Paphos | 7 | Akamas Peninsula & Blue Lagoon | 33 | the Akamas peninsula is its own reserve |
 | Ta'if | 2 | Souk Okaz | 33 | Souk Okaz is a seasonal site 33 km out |
-| Bahir Dar | 7 | Tana Kirkos Island | 32 | Tana Kirkos is an island monastery, 32 km out |
+| Bahir Dar | 7 | Tana Kirkos Island | 32 | Tana Kirkos is an island monastery, 32 km out. Bahir Dar has no researched day trips yet, so the move would be its first |
 | Arusha | 7 | Momella Lakes | 31 | the Momella lakes are inside Arusha National Park |
 | Cape Coast | 2 | Kakum National Park Canopy Walkway | 31 | Kakum is a national park 31 km north |
 | Conakry | 2 | Îles de Los (Los Islands) | 31 | the Los Islands are a boat trip |
@@ -345,6 +345,19 @@ No action. Listed so the next pass does not re-open them.
 | San Pedro de Atacama | 7 | Valle del Arcoíris (Rainbow Valley) | 30 | the city is the base for this site; it is why visitors come |
 | São Tomé | 6 | Pico Cão Grande | 30 | the city is the base for this site; it is why visitors come |
 | Yamoussoukro | 7 | Kossou Dam & Lake Kossou | 30 | the city is the base for this site; it is why visitors come |
+
+## Six of these overlap the day-trip session's 68 cities
+
+That session has researched day trips for 68 cities that had none, staged in
+`_guidebuild/daytrips/empty68/wave*_final.json` and not yet applied. Six rows in
+the move list above are in those cities, and each row now says whether that
+place is already in their list. Only Cotonou's is: Ouidah is already a half-day
+trip there, so moving the Route des Esclaves must fold into their entry rather
+than add a second.
+
+If Jeff approves these moves, they should land in the same commit as that
+session's landmark swaps (St. George's, Ashgabat) and El Calafate removals, so
+the landmark indices shift once rather than twice.
 
 ## Two worth doing first
 
