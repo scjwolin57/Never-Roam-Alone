@@ -38,6 +38,16 @@ The full reasoning is in `hood-picks-plan.md`; where the two differ, THIS FILE w
 8. **One venue once per city** (not in two sections or two hoods).
 9. **Honest gaps:** a kind with no candidate that passes stays empty. Never stretch a candidate into another kind.
 
+
+### Amended 2026-09-22 (decisions.md 2026-09-22, after the batch-1 funnel review)
+1. Quality bar: rating 4.2 first; a kind with no 4.2 candidate in a hood falls back to the city's median rating for the section and takes the top weighted-rating venue above it (sheet column `bar`: standard / median). Reviews: 100 / 25 as before, and 25 everywhere for `dive` and `party`.
+2. Second source: chooses between candidates and supplies the note; never eliminates. Google's open listing in the hood is the proof of existence. No source = blank note.
+3. Kinds: `fine` = expensive price level or guide listing; `takeaway` = any counter-service food eaten on the go; `bakery` includes pastry, churro and dessert shops; `local` = the city's own everyday traditional food.
+4. Chains: detected by the script (same name at 2+ points in the city's cache, or Overture brand); agents no longer count outlets; unmarked = single venue.
+5. Bar safety: its own pass; unsearched bars are held (`safety: pending`), never skipped.
+6. Neighbor-hood pick: an empty kind may take a spare qualifying venue from another hood within 1.5 km, stored as `near` (source hood index) and flagged on the card. Needs the §5.3 change protocol (schema, example, add_city, sheet column, skill, inventory) before load.
+Batch 1 is re-picked from the existing cache (zero Google calls); the 301 verified picks stay, only empty slots are re-picked. Script changes needed first in `fetch_rank.py` / `check_picks.py`: median fallback, dive/party review bar, chain marking, `near` candidates, kind rules.
+
 ## Storage (Google's terms)
 Store only: our name (from the venue's own source), kind, note, Google **place ID**, second-source URL, article
 URL, as-of month. Do NOT store Google's rating, review count or address in citydata or the sheet (used once to
