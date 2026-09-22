@@ -69,3 +69,4 @@ table in this file are the durable record.
 | 12 | Goreme to Havana | 250 | 158 | 10 | 59 | 0 | (commit below) |
 | 13 | Hebron to Inhambane | 250 | 157 | 8 | 67 | 0 | (commit below) |
 | 14 | Innsbruck to Johor Bahru | 250 | 160 | 5 | 63 | 0 | (commit below) |
+| 15 | Juba to Kayseri | 250 | 145 | 17 | 69 | 0 | (commit below) |
