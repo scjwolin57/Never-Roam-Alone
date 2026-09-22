@@ -1,16 +1,16 @@
 # Landmarks that sit more than 30 km from their city
 
-The rulebook says a landmark is inside the city and anything outside is a day trip, and that the two lists never overlap (CLAUDE.md 4.3, decisions.md 2026-09-18). After the 2026-09-22 pin pass, 317 landmark pins are more than 30 km out. Every one has a suggestion below. Nothing here has been changed.
+The rulebook says a landmark is inside the city and anything outside is a day trip, and that the two lists never overlap (CLAUDE.md 4.3, decisions.md 2026-09-18). After the 2026-09-22 pin pass, 317 landmark pins were more than 30 km out; Hebron's two were fixed the same day, leaving 315 here. Every one has a suggestion below. Nothing here has been changed.
 
 | Suggestion | Count | What it means |
 |---|---|---|
-| Pin wrong | 20 | An in-city feature pinned far away. Not a day-trip question: the coordinate is simply wrong and should be fixed. |
+| Pin wrong | 18 | An in-city feature pinned far away. Not a day-trip question: the coordinate is simply wrong and should be fixed. |
 | Move to day trips | 111 | A separate town or site with its own identity. Move the entry to `daytrips` and let the city ship with fewer landmarks. |
 | Keep | 186 | The city is the base for the site, or the site is the city's own named feature, island or park. |
 
 How I decided: a place keeps its landmark slot when the city exists to serve it (San Pedro de Atacama and its lagoons, Banff and Lake Louise, Djanet and the Tassili) or when it is the city's own geography (an atoll islet, a reef off a dive town, a park named for the city). It moves when it is a destination in its own right that people travel to and from (Tulum, Uxmal, Teotihuacan, the Citadelle). Distance alone did not decide it: some 30 km sites stay and some 35 km sites move.
 
-## Pin wrong: fix the coordinate (20)
+## Pin wrong: fix the coordinate (18)
 
 These are in-city landmarks whose pin landed far out. The Google pass on 1 October can settle most of them.
 
@@ -19,8 +19,6 @@ These are in-city landmarks whose pin landed far out. The Google pass on 1 Octob
 | Guatemala City | 2 | Central Park (Parque Central) | 81 | the Parque Central is the city's own main square |
 | Sergiyev Posad | 9 | Kelarsky Pond | 80 | the Kelarsky pond is beside the Lavra |
 | Harbin | 4 | Songhua River and Stalin Park | 79 | Stalin Park is on Harbin's own riverbank |
-| Hebron | 1 | Hebron Old City (UNESCO) | 79 | Hebron's old city is Hebron itself; both Hebron pins are about 78 km out, so check the city centre in destinations.js too |
-| Hebron | 7 | Hirbawi Keffiyeh Factory | 77 | the keffiyeh factory is in Hebron; see the note on Hebron's city centre |
 | Phnom Penh | 6 | Independence Monument | 75 | the Independence Monument is in central Phnom Penh |
 | San Pedro Sula | 8 | Museo de la Naturaleza | 74 | the natural history museum is in San Pedro Sula |
 | Yaroslavl | 2 | Volga Embankment | 69 | the Volga embankment runs through Yaroslavl |
@@ -350,6 +348,6 @@ No action. Listed so the next pass does not re-open them.
 
 ## Two worth doing first
 
-**Hebron.** Both far pins are about 78 km out, and one of them is Hebron's own old city. That pattern usually means the city centre coordinate in `destinations.js` is wrong, not the landmarks. Check the centre before touching the pins.
+**Hebron, done.** Both pins were simply wrong, not a day-trip question: the old city sat near Tel Aviv and the keffiyeh factory near Nablus. Hebron's centre in `destinations.js` (31.5326, 35.0998) is correct. Both were fixed on 2026-09-22 from OpenStreetMap.
 
 **Four already listed twice.** Tulum (Cancun), the Great Wall (Beijing), Weizhou Island (Beihai) and the Teknaf Marine Drive (Cox's Bazar) appear as a landmark and as a day trip for the same city. Whatever else is decided, one of the two entries should go.
