@@ -134,3 +134,43 @@ above, or the site will carry warnings on a large share of the 893.
 - Stage 4, the regional read for the cities in differently-rated regions: a
   research pass, roughly the size of the day-trip verification. This is the part
   that fixes Bahir Dar, Gondar, Lalibela, Mek'ele and Axum.
+
+## Built 2026-09-22 (stages 1-3)
+
+- `advisories.js`, 118 KB, 232 countries, rebuilt by
+  `_guidebuild/advisories/refresh.py`. Canada and the UK come from their own
+  APIs with their own publication dates; the US levels are lifted from citydata
+  and still need a hand refresh (52 countries carry one, which are the 3s and
+  4s; the rest were never stored because they are 1s and 2s).
+- **Whole-country versus parts.** The FCDO nearly always warns about regions:
+  Egypt means Sinai, Mexico means certain states. Treating those as
+  country-wide would warn people off cities the advice does not touch, so each
+  source carries a `scope`, and the banner shows at level 3 and above only when
+  the warning is country-wide. 55 countries qualify. Another 30 have parts
+  flagged: they get a quieter line saying the warning covers parts of the
+  country and to check whether it reaches this city.
+- **city.html** shows the three governments, each with its own words, link and
+  date. The hardcoded "as of Jul 2026" is gone. A reader whose passport country
+  is one of the three sees only their own government, with a line saying so and
+  a link to change it.
+- **profile.html** has a private Passport country field with the ISO country
+  list behind it; `auth.js` mirrors the value into `localStorage` so a guide can
+  pick the right source before any network call, and clears it on sign-out so a
+  shared browser never shows the last person's setting.
+- **passport-country.sql** adds the column. Jeff runs it in Supabase; until then
+  the field saves nothing and every reader sees the three.
+
+Checked at 320, 375 and desktop: no overflow, the banner stacks.
+
+### What is still open
+
+- **Stage 4, the regional read.** A city in a flagged region still shows the
+  country's line. Bahir Dar is the case that matters: a UK-passport reader sees
+  "advises against all travel to parts of this country" when the FCDO means
+  Amhara, where the city is. The fix is a per-city override in citydata
+  (`advisory.region`), which city.html already renders when present. Ethiopia's
+  five cities are known and could be done first.
+- **US levels** for the other 180 countries, and a date for each.
+- The destination finder already asks for a passport country for visas. A
+  signed-out reader who has set it there could see their own government too;
+  Jeff said signed-out readers see the three, so this was not wired in.

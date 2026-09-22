@@ -57,6 +57,19 @@ window.NRA_AUTH = (function(){
         .eq("id", session.user.id).single();
       profile = data || null;
     }catch(e){ profile = null; }
+    rememberPassport();
+  }
+
+  /* City guides show the advisory of the reader's own government when we track it.
+     They render before any network call, so the passport country is mirrored into
+     localStorage here rather than fetched per page. Signed out clears it, so a
+     shared browser never shows the last person's setting. */
+  function rememberPassport(){
+    try{
+      const c = profile && profile.passport_country;
+      if (c) localStorage.setItem("nra_passport_country", c);
+      else   localStorage.removeItem("nra_passport_country");
+    }catch(e){}
   }
 
   async function init(){
@@ -566,7 +579,7 @@ window.NRA_AUTH = (function(){
     });
   }
 
-  async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; emit(); }
+  async function signOut(){ if (sb) await sb.auth.signOut(); session = null; profile = null; rememberPassport(); emit(); }
 
   /* ---------------- mailing list ----------------
      The list lives in the "mailing_list" table (see mailing-list-setup.sql).
@@ -642,7 +655,7 @@ window.NRA_AUTH = (function(){
 
   /* Save profile fields (display name, bio, home city/country, travel style, socials).
      Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
-  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","travel_style","travel_company","website","instagram","avatar_url","is_public",
+  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","passport_country","travel_style","travel_company","website","instagram","avatar_url","is_public",
     "age","fav_destination","no_return_destination","bucket_list_destination","best_story","scary_story","extra_details",
     "facebook","twitter","tiktok","youtube","travel_photos","cover_url","avatar_caption","last_trip","next_trip","travel_goals","trip_duration","allow_messages","allow_message_emails",
     "visited_places","visited_bucket"];
@@ -655,6 +668,7 @@ window.NRA_AUTH = (function(){
       const { error } = await sb.from("profiles").update(patch).eq("id", session.user.id);
       if (error) return { ok:false, error:error.message || "Couldn't save your profile." };
       profile = Object.assign({}, profile, patch);
+      rememberPassport();
       emit();
       return { ok:true };
     }catch(e){ return { ok:false, error:"Couldn't reach the server — try again." }; }

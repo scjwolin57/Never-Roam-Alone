@@ -369,6 +369,12 @@
         </div>
       </div>
 
+      <div class="field">
+        <label for="p-passport">Passport country <span class="sub">(private — only you see it; used to show your own government's travel advisory on city guides)</span></label>
+        <input type="text" id="p-passport" list="passport-countries" maxlength="60" placeholder="e.g. United Kingdom" autocomplete="country-name" />
+        <datalist id="passport-countries"></datalist>
+      </div>
+
       <div class="group-label">My typical travel preferences are:</div>
       <div class="row3">
         <div class="field" style="margin-top:0">
@@ -691,6 +697,7 @@
 <script src="vendor/maplibre-gl-4.7.1.js"></script>
 <script src="nra-config.js"></script>
 <script src="auth.js"></script>
+<script src="iso-countries.js"></script>   <!-- country names for the passport field -->
 <script src="destinations.js"></script>
 <script src="upcoming-cities.js"></script>
 <script src="bucketlist.js"></script>
@@ -754,6 +761,17 @@
   const msg = (text, kind) => { const m = $("save-msg"); m.textContent = text || ""; m.className = "save-msg" + (kind ? " "+kind : ""); };
 
   /* ---- fill the form from the current profile ---- */
+  /* Passport country options: the shared ISO list, so what is saved matches the
+     country names advisories.js is keyed by. Free text is still accepted for
+     anywhere we do not track; only the US, UK and Canada change what a guide shows. */
+  function fillPassportList(){
+    const dl = $("passport-countries");
+    if (!dl || dl.children.length || !window.NRA_COUNTRY_NAMES) return;
+    [...new Set(Object.values(window.NRA_COUNTRY_NAMES))].sort().forEach(n => {
+      const o = document.createElement("option"); o.value = n; dl.appendChild(o);
+    });
+  }
+
   function fillForm(pOverride){
     const auth = window.NRA_AUTH;
     const user = auth.user();
@@ -764,6 +782,8 @@
     $("p-bio").value       = p.bio || "";
     $("p-city").value      = p.home_city || "";
     $("p-country").value   = p.home_country || "";
+    $("p-passport").value  = p.passport_country || "";
+    fillPassportList();
     $("p-style").value     = p.travel_style || "";
     $("p-company").value   = p.travel_company || "";
     $("p-duration").value  = p.trip_duration || "";
@@ -1027,6 +1047,7 @@
       bio: $("p-bio").value.trim(),
       home_city: $("p-city").value.trim(),
       home_country: $("p-country").value.trim(),
+      passport_country: $("p-passport").value.trim(),
       travel_style: $("p-style").value,
       travel_company: $("p-company").value,
       trip_duration: $("p-duration").value,

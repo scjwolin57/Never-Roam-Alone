@@ -1252,6 +1252,10 @@ window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"
      Provides window.NRA_ESIM / _HOSTS / _AFF / _PROVIDERS for the
      "Travel eSIMs" modal behind the Connectivity banner's Buy an eSIM button. -->
 <script src="esim-providers.js"></script>
+<!-- Travel advisories by country from the three governments the site tracks
+     (US, UK, Canada; decisions.md 2026-09-22). Country level; a city whose region
+     is rated differently carries its own override in citydata. ~118 KB. -->
+<script src="advisories.js"></script>
 <!-- Approved visitor photos overlay the static ones. Loaded here, ahead of
      the render script below, so its fetch runs alongside the city data
      instead of after it. nra-config.js moves up with it for the keys. -->
@@ -2346,6 +2350,60 @@ if(!c){
   const solo = CITY_SOLO[c.city];
   const cityAdv = (typeof CITY_ADVISORY !== "undefined" && CITY_ADVISORY[c.city]) || null;
 
+/* Travel advisories. The site is read all over the world, so it does not show one
+   government's rating as if it were the rating (Jeff, 2026-09-22). A signed-in
+   traveller sees their own government when we track it; everyone else sees the
+   three we do: US, UK, Canada. Each keeps its own words, link and date.
+   advisories.js carries country-level values; a city whose region is rated
+   differently carries its own override in citydata (rec.advisory). */
+const ADV_SOURCES = { us:"US State Department", uk:"UK Foreign Office", ca:"Government of Canada" };
+const ADV_PASSPORT_TO_SOURCE = { "United States":"us", "United Kingdom":"uk", "Canada":"ca" };
+
+function advReaderSource(){
+  try {
+    const p = localStorage.getItem("nra_passport_country");
+    return p ? (ADV_PASSPORT_TO_SOURCE[p] || null) : null;
+  } catch(e){ return null; }
+}
+
+function buildAdvisoryBanner(c, cityAdv){
+  const all = (typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[c.country]) || null;
+  if (!all && !cityAdv) return "";
+  const mine = advReaderSource();
+  const keys = ["us","uk","ca"].filter(k => all && all[k]);
+  const show = (mine && all && all[mine]) ? [mine] : keys;
+
+  /* The city's own region can be rated above its country (a Level 4 region in a
+     Level 3 country). That override wins and is always shown. */
+  const region = (cityAdv && cityAdv.region) ? cityAdv : null;
+  const worst = Math.max(region ? region.lvl : 0, ...show.map(k => all[k].scope === "country" ? all[k].lvl : 0));
+  const parts = show.filter(k => all[k].scope === "parts" && all[k].lvl >= 3);
+  if (worst < 3 && !parts.length) return "";
+
+  const line = k => {
+    const a = all[k];
+    const date = a.as_of ? ` <span class="adv-date">(${a.as_of})</span>` : "";
+    return `<div class="adv-line"><a class="adv-link" href="${a.url}" target="_blank" rel="noopener">`
+         + `<b>${ADV_SOURCES[k]}</b></a>: ${a.label}${date}</div>`;
+  };
+  const head = worst >= 3
+    ? (mine ? "Travel advisory for your passport country" : "Travel advisories")
+    : "Regional travel advice";
+  const note = (worst < 3 && parts.length)
+    ? `<div class="adv-line adv-date">The warning covers parts of ${c.country}; check whether it reaches this city.</div>` : "";
+  const regionLine = region
+    ? `<div class="adv-line"><b>This region:</b> ${region.label}`
+      + (region.url ? ` <a class="adv-link" href="${region.url}" target="_blank" rel="noopener">source</a>` : "")
+      + (region.as_of ? ` <span class="adv-date">(${region.as_of})</span>` : "") + `</div>`
+    : "";
+  const onlyMine = (mine && all && all[mine])
+    ? `<div class="adv-line adv-date">Shown for your passport country. <a class="adv-link" href="profile.html">Change it</a>, or see the <a class="adv-link" href="${(all.us||all.uk||all.ca).url}" target="_blank" rel="noopener">other governments</a>.</div>`
+    : "";
+  return `<div class="adv-banner adv-banner-lvl${Math.max(worst,3) >= 4 ? 4 : 3}">`
+       + `<span class="adv-banner-ic">&#9888;</span> <span><b>${head}</b>`
+       + regionLine + show.map(line).join("") + note + onlyMine + `</span></div>`;
+}
+
   /* Common-phrases popup: look up the phrasebook entry for this city's
      top-listed majority language via the alias table in city-phrases.js */
   const _topLangRaw = c.langs && c.langs.length ? (typeof c.langs[0] === "string" ? c.langs[0] : c.langs[0].l) : null;
@@ -2904,7 +2962,7 @@ if(!c){
 
     <div class="hero-back-bar" style="display:flex;gap:20px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg></a><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a></div>
 
-    ${cityAdv == null ? "" : `<div class="adv-banner adv-banner-lvl${cityAdv.lvl}"><span class="adv-banner-ic">&#9888;</span> <span>US travel advisory: <a class="adv-link" href="${cityAdv.url}" target="_blank" rel="noopener"><b>Level ${cityAdv.lvl} &mdash; ${cityAdv.label}</b></a> <span class="adv-date">(as of Jul 2026)</span></span></div>`}
+    ${buildAdvisoryBanner(c, cityAdv)}
 
     <section class="i18n-ml">
       ${plate("01","Duration")}
