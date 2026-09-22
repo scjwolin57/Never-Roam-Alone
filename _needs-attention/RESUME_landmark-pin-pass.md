@@ -83,3 +83,4 @@ table in this file are the durable record.
 | 26 | Port Louis to Puerto Princesa | 250 | 158 | 15 | 59 | 0 | (commit below) |
 | 27 | Puerto Vallarta to Riyadh | 250 | 161 | 11 | 62 | 0 | (commit below) |
 | 28 | Road Town to Samarkand | 250 | 185 | 20 | 36 | 0 | (commit below) |
+| 29 | San Andres to Sanya | 250 | 177 | 15 | 41 | 0 | (commit below) |
