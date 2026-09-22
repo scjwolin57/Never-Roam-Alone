@@ -73,3 +73,4 @@ table in this file are the durable record.
 | 16 | Kazan to Kuching | 250 | 162 | 11 | 60 | 0 | (commit below) |
 | 17 | Kumamoto to Leipzig | 250 | 161 | 10 | 64 | 0 | (commit below) |
 | 18 | Leon to Luxor | 250 | 163 | 9 | 65 | 0 | (commit below) |
+| 19 | Lviv to Manila | 250 | 170 | 9 | 61 | 0 | (commit below) |
