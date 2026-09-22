@@ -25,3 +25,17 @@ Files: `_guidebuild/daytrips/empty68/waveN_final.json`.
      A phone call to Botswana's wildlife department (DWNP) would settle it.
    - Carriacou from St. George's: the ferry changed its timetable on 19 Aug 2026 and the new times are only in
      images. If a 9:00-out, 17:00-back day still works, it is a full-day trip.
+
+## Wave 4 (2026-09-22)
+
+7. **Ilhéu do Rei from Bissau (half).** Kept as a day trip: a separate island across the Geba estuary, not a
+   Bissau neighborhood or landmark. The EU delegation's tourist guide includes it in its tour of Bissau city.
+   Day trip, or landmark?
+8. **Lagoa Azul from São Tomé (half).** Kept. It is a coastal bay that Wikipedia counts as part of Óbô Natural
+   Park, and Óbô is already a São Tomé landmark (written and pinned as the inland rainforest reserve, about
+   25 km south). The checker says no clash; say if you see one.
+9. **At the cap, kept:** Saltinho from Bissau (full, about 3 h, route planner 2 h 39 minimum); Borith Lake from
+   Karimabad (full: about 1 h by road plus the climb from Hussaini, close to the 75 min half limit, so full).
+10. **Brazzaville's Lésio-Louna gorilla reserve (full).** Passes the rule (US Level 2 country-wide, UK warns
+    only about the far north). Canada (9 Sep 2026) asks for a high degree of care in the Pool region, which the
+    road crosses. Kept; say if you want it out.

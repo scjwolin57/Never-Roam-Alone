@@ -169,7 +169,7 @@ because the ~200 web searches are shared by every agent in a session.
 | 1 | Hurghada, Colombo, Oranjestad, Dubrovnik, Port Louis, Kathmandu, Montevideo, Tel Aviv, Kigali, Siem Reap, Bishkek, Bridgetown, Zanzibar City, Kotor, Ulaanbaatar | 38 | 38 (after fixes) | done, `wave1_final.json` |
 | 2 | La Paz, Tegucigalpa, Viña del Mar, Varanasi, Bamako, Cotonou, Gaborone, Kinshasa, Kurashiki, Lilongwe, Saipan, Port of Spain, Puerto Princesa, Thimphu, Ahmedabad | 27 | 27 (3 blurbs fixed) | done, `wave2_final.json` |
 | 3 | Banjul, Monrovia, St. George's, El Calafate, Kralendijk, Kusatsu, San Andrés, Apia, Basseterre, Asmara, Juba, Lamu, Leshan, N'Djamena, Port Moresby (+ re-research: Tiwanaku, Otse) | 31 | 26 kept + 1 held (Tiwanaku kept, Otse dropped) | done, `wave3_final.json` |
-| 4 | The Valley, Bahir Dar, Brazzaville, Dili, Djibouti City, Nouakchott, Koror, Niamey, Bangui, Bissau, Kingstown, Roseau, São Tomé, Karimabad, Malabo | | | |
+| 4 | The Valley, Bahir Dar, Brazzaville, Dili, Djibouti City, Nouakchott, Koror, Niamey, Bangui, Bissau, Kingstown, Roseau, São Tomé, Karimabad, Malabo | 31 | 30 (14 blurbs fixed) | done, `wave4_final.json` |
 | 5 | Ashgabat, Moroni, Timbuktu, Brades, Jamestown, Majuro, Weno, Yaren | | | |
 
 Wave 1 fixes: Beruwala (Colombo) and Dhulikhel (Kathmandu) moved half -> full (sources straddle 75 min);
@@ -203,3 +203,13 @@ Estancia Cristina/Upsala landmarks, Kpatawee and Savai'i at the cap, Otse and Ca
 Leads for a later pass: Abuko Nature Reserve (Banjul; checker says the rejection is weak).
 GetYourGuide and travel.state.gov both return 403 to fetches; wave 4 agents were told to go straight to
 Wikivoyage/tourism boards and confirm US levels from search results.
+
+Wave 4 (2026-09-22): 31 proposals, 30 confirmed and kept. Dropped: Cumberland Nature Trail (Kingstown), closed
+to the public since 2017 per the official National Parks page. Fixes: 14 blurbs (Cacheu's fort is 1640s, not
+1588; Maubara 1758, cannons not original; Melekeok 33 km not 20; unsourced features dropped), Borith Lake kept
+full (about 1 h road plus the climb, near the half cap; checker leaned half).
+Honestly empty: Bahir Dar (Amhara Level 4 on the 2026-08-27 advisory, city included), Nouakchott (nothing within
+3 h: Banc d'Arguin is a 3-4 day 4x4 trip, Atar/Terjit/Nouadhibou about 6 h), Niamey (Niger Level 4, FCDO all
+travel), Bangui (CAR Level 4, FCDO all travel outside Bangui). All 30 kept names checked against destinations.js:
+none is a guide city. Side finding: `bahir-dar-advisory-level4.md` (guide shows Level 3). Calls 7-10 in
+`daytrip-empty-cities-calls.md`.
