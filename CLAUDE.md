@@ -219,7 +219,7 @@ with verified data or reported as open, by name, in the add-city report. The
 tooling does not cover the whole page today (see 5.2), so until it does the
 add-city skill runs the extra steps by hand and says which ones it ran.
 
-### 5.1 Inventory of city.html (as of 2026-09-21, hood picks: eat / cafes / bars carry Google place IDs)
+### 5.1 Inventory of city.html (as of 2026-09-22, hood picks: a pick may be a flagged neighbor-hood pick via `near`)
 
 Nine plates. "Key" is the field in `citydata/<slug>.json` unless noted; "Filled by"
 is what populates it for a new city *today*.
@@ -245,7 +245,7 @@ is what populates it for a new city *today*.
 | 03 Passage | international train / bus / ferry routes | `routes` → `city-routes.js` | add_city.py (optional) |
 | 04 Quarters | 5 neighborhoods: name, description, best-for banner, landmark search, hero photo, map link | `hoods`, `hood_desc`, `hood_tag`, `hood_landmark`; `hood-photos.js` | add_city.py; **hood photos: not sourced** |
 | 04 Quarters | where to stay: high / mid / budget per hood, price-tier verified | `lodging` | add_city.py |
-| 04 Quarters | **where to go out**: one pick per kind (dive / party / cocktail / pub, or the alcohol-free cafe / hangout / mocktail) per hood, name + one-line note + Google place ID (map link opens that exact venue) | `bars` (`k`,`n`,`d`,`pid`) | 40/893 have it (baseline, no place ID); the 412 cities with 500,000+ international visitors are being filled in batches of 25 by `hoodpicks/` (RESUME_hood-picks.md); new cities: run the same pipeline |
+| 04 Quarters | **where to go out**: one pick per kind (dive / party / cocktail / pub, or the alcohol-free cafe / hangout / mocktail) per hood, name + one-line note + Google place ID (map link opens that exact venue); a pick with `near` is a **neighbor-hood pick** (a spare qualifying venue of another hood within 1.5 km, shown with a rust "Nearby: <hood>" flag, map link to that hood; decisions.md 2026-09-22) | `bars` (`k`,`n`,`d`,`pid`,`near`) | 40/893 have it (baseline, no place ID); the 412 cities with 500,000+ international visitors are being filled in batches of 25 by `hoodpicks/` (RESUME_hood-picks.md); new cities: run the same pipeline |
 | 04 Quarters | **where to eat**: one pick per kind (local traditional / casual / fine dining) per hood, same pick shape | `eat` | in the schema since 2026-09-21; filled by `hoodpicks/` batches (412-city first phase); rest of the 893 later |
 | 04 Quarters | **coffee & takeaway**: one pick per kind (coffee / takeaway / bakery) per hood, same pick shape | `cafes` | in the schema since 2026-09-21; filled by `hoodpicks/` batches (412-city first phase); rest of the 893 later |
 | Food modal | local food & drink recommendations with places and photos | `food`, `food_photos` ← `city-food.js`, `city-food-photos.js` | **not researched by add_city.py**; folded by extend_citydata.py |

@@ -162,6 +162,15 @@ Nothing was loaded: the sheet's Hood Picks tab has only the 409 baseline bars an
 - WebFetch on the venue's own site is not capped the same way and is the main second source; keep searches for articles, chain counts and bar scam checks.
 - 129 of 437 picks (30%) failed the checker, mostly hood-boundary (adjacent district), undisclosed chains and wrong kind. The tightened brief should cut that.
 
+
+### Batch 1 re-pick, 2026-09-22 (rules of decisions.md 2026-09-22): STAGED, NOT LOADED
+- Cache reused, no Google calls for the re-pick itself; 53 calls to re-fetch 10 hoods whose map point was wrong (`hood-points-batch1.md`). Counter: 845 of September's 1,000.
+- Re-pick of the 509 empty slots: 471 picks by 5 agents → independent check (5 agents, no search) 459 confirmed → bar safety pass (121 bars, 4 fail) → first fresh 10% audit: **5 defects in 46** (2 kind, 3 hood) → full re-check: kind of all 95 dive/local picks (38 refiled or dropped), hood fit of all 216 picks whose address does not name the hood (94 out), 10 hood points re-placed and their 63 slots re-picked and re-checked → second fresh 10% audit: **5 defects in 35** (1 kind, 4 hood on the sub-district question).
+- Result on disk: `work/batch01r/final/<slug>_final.json`, **641 picks** (301 kept from the first run + 340 new), `check_picks.py` clean, `load_picks.py stage --dry` = 641 rows, 0 baseline clashes. 6 neighbor-hood picks, 146 blank notes, 1 median-bar pick.
+- Fill per section (slots / baseline bars / new): eat 360 / 0 / 265 (74%), cafes 360 / 0 / 253 (70%), bars 470 / 251 / 123 (80%). Total 75%. Empty by design: dive (12 filled; Google's "bar" type rarely matches a cheap dive), party, cocktail in cities whose baseline already holds them.
+- **Blocked on Jeff:** `hood-fit-definition.md` (which reading of "in the hood"). Then: one more fresh 10% audit under that reading → `load_picks.py stage work/batch01r/final` → `apply` → `parity` → browser check of a `near` flag → commit.
+- Lessons for batch 2: run `hoodpoint_check.py` first; the REPICK brief (second source never eliminates, script chains, looser kinds) holds; `dive` needs a definition Google's types can serve or the kind will stay mostly empty; a local-cuisine venue may fill `casual` once `local` is taken (added to the brief).
+
 ## Counts
 | Cities done | Remaining | Picks loaded | Blank slots | Places calls used |
 |---|---|---|---|---|
