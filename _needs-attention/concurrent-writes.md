@@ -23,18 +23,54 @@ Two rules keep it that way:
   `_guidebuild/extend_citydata.py`.** It rebuilds every key from catalogs that
   may be older than citydata (memory: research-pass-gotchas-2026-09).
 
-## Dangerous: NRA-MASTER.xlsx
+## The workbook: write it through sheet_write.py
 
 openpyxl has no partial write. Every script does load, edit, `wb.save()`, which
-rewrites the WHOLE workbook. Anything another job saved between your load and
-your save is erased, silently, with no merge conflict and nothing in git to warn
-you. Thirty-odd scripts here write it.
+rewrites the WHOLE workbook from what that script holds in memory. Two things
+follow, and only the first is obvious:
 
-The window that matters is the session, not the script: if you load the workbook,
-research for twenty minutes and then save, you erase every sheet change made in
-those twenty minutes.
+- Anything another job saved between your load and your save is erased.
+- A script can blank cells its input happened not to cover, and nothing records
+  what a run changed.
 
-**Use the lock:**
+A no-op save is safe in itself: loading and saving without edits leaves all
+369,717 cell values identical (checked 2026-09-22), and this workbook holds no
+charts, images, pivot tables or conditional formatting to lose. The danger is
+entirely in what the script carries in memory.
+
+**Write cells through the helper:**
+
+```python
+import sys; sys.path.insert(0, "_guidebuild")
+from sheet_write import SheetEdit
+
+with SheetEdit("Live Cities", who="hood picks batch 2") as e:
+    e.set("Lisbon", "Landmark 3 Name", "Se Cathedral")   # skipped if already that
+    e.clear("Tozeur", "Landmark 10 Name")                # emptying must say so
+```
+
+What it does:
+
+1. **Only differing cells are written.** `set` compares with what is there and
+   skips a match, so re-running a load is a no-op and the file does not change.
+2. **A non-empty cell is never emptied by accident.** `set(..., None)` raises;
+   emptying takes `clear()`, which is logged as such.
+3. **Every change is printed** old to new when the block exits.
+4. **A concurrent write cannot swallow the other job's work.** The file's hash is
+   recorded at load. If it differs at save time, the helper re-opens the current
+   file and re-applies only its own cells on top, so the other job's edits
+   survive. If both jobs wrote the same cell, it says so and names the cell.
+5. **After saving it re-reads the whole workbook** and fails if any cell moved
+   that was not in its own changelog.
+6. It claims the lock (below) for the life of the block and releases it after.
+
+`SheetEdit(..., dry=True)` reports what it would change and writes nothing.
+`python3 _guidebuild/sheet_write.py --selftest` proves the guards without writing.
+
+Scripts not yet retrofitted still do plain load-edit-save: hood picks, gyms,
+laundry, food photos, rain, hoods. Until they are, wrap them in the lock.
+
+**The lock, for any workbook work:**
 
 ```
 python3 _guidebuild/sheet_guard.py claim "hood picks batch 2"   # before loading
@@ -42,12 +78,11 @@ python3 _guidebuild/sheet_guard.py release                      # after saving
 python3 _guidebuild/sheet_guard.py status                       # who holds it
 ```
 
-It refuses if another job holds the lock, records the workbook's hash at claim
-time, and tells you on release whether the file changed while you held it. A
-lock over 30 minutes old is reported as stale; check with that session before
-`--force`. The lock file `.sheet-lock` is gitignored.
-
-Keep the claim tight: claim, load, edit, save, release. Not around research.
+It refuses if another job holds it, records the workbook's hash at claim time,
+and reports on release whether the file changed while held. A lock over 30
+minutes old is reported as stale; check with that session before `--force`.
+`.sheet-lock` is gitignored. Keep the claim tight around load-edit-save, not
+around research.
 
 ## Also dangerous: the three landmark catalogs
 
