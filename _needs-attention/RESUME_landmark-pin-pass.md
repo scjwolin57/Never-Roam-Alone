@@ -89,3 +89,4 @@ table in this file are the durable record.
 | 32 | Sydney to The Valley | 250 | 159 | 10 | 71 | 0 | (commit below) |
 | 33 | Thessaloniki to Turku | 249 | 173 | 7 | 56 | 0 | (commit below) |
 | 34 | Turpan to Vilnius | 247 | 184 | 7 | 48 | 0 | (commit below) |
+| 35 | Vina del Mar to Yaren | 250 | 158 | 17 | 60 | 0 | (commit below) |
