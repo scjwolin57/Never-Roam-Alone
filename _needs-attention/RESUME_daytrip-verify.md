@@ -265,3 +265,21 @@ Apply order when the hood-picks run is done: day trips from wave1..7 (skip `_hel
 landmark swaps and removals (city-landmarks.js, -coords.js, -photos.js and citydata together, then
 check_landmark_coords.js), Majuro hood 5 rename, sheet columns, structural pre-push check.
 
+**Apply rules from the landmark-pin session (2026-09-22, `concurrent-writes.md`, commit c2b4d455), verified here:**
+- A landmark added or removed shifts every later index in FIVE places, all in one commit: `city-landmarks.js`,
+  `city-landmark-coords.js`, `city-landmark-photos.js`, `citydata/<slug>.json`, and the sheet's Landmark N Name /
+  Map Link / Description / Photo File / Photo Credit columns. This applies to the wave-7 swaps and the four
+  El Calafate removals (Estancia Cristina is index 6, so El Calafate's slots 7-9 shift up by four in total).
+- Run `python3 _guidebuild/check_landmark_sync.py` before and after. Run here 2026-09-22: OK, 893 cities,
+  8,925 slots, catalogs aligned, citydata mirrored, sheet names matching, photo files present.
+- Claim the workbook before loading it: `python3 _guidebuild/sheet_guard.py claim "day trips: landmark swaps"`,
+  release after saving. openpyxl rewrites the whole workbook on save, so two jobs erase each other silently.
+- That note also says citydata span writes are safe between jobs, so the day trips could be applied before the
+  hood-picks run ends. Jeff's instruction for this task was research only, so nothing was applied; his call.
+- Landed under this task by that session: El Calafate's Estancia Cristina and Cerro Frias pins corrected
+  (Cristina goes with the removal), Punta Cana now 9 landmarks (Manati Park closed), 92 coordinate fixes and ten
+  photo lists mirrored into citydata, Tozeur's sheet row rewritten.
+- Overlap to settle before applying: `_needs-attention/landmarks-that-are-day-trips.md` proposes moving 111 of
+  the 315 landmark pins over 30 km from their city into day trips. Jeff has not ruled. If he says yes, it should
+  land with these moves, not after them, so indices shift once.
+
