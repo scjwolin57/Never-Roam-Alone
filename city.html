@@ -5268,7 +5268,21 @@ function buildAdvisoryBanner(c, cityAdv){
     }).catch(function(){});
   }
   NRA_FAV.onChange(paintFavCount);
-  NRA_FAV.ready().then(paintFavCount);
+  NRA_FAV.ready().then(function(){
+    /* The hero button (and #hero-fav-count) may not be in the DOM yet at
+       this point, same race as paintHeroFav above — but that one gets
+       away with it because its default markup already looks right with
+       no paint. This one has nothing to show until it runs, so wait for
+       the button via the same MutationObserver pattern the landmark
+       list uses (~line 4088) instead of silently no-op'ing once. */
+    if (getBtn()) { paintFavCount(); return; }
+    var contentEl = document.getElementById("content");
+    if (!contentEl) return;
+    var mo = new MutationObserver(function(){
+      if (getBtn()) { mo.disconnect(); paintFavCount(); }
+    });
+    mo.observe(contentEl, { childList: true, subtree: true });
+  });
 })();
 </script>
 <script src="footer.js"></script>
