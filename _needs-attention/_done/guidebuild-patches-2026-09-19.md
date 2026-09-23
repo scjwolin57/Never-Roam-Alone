@@ -57,3 +57,6 @@ Replace the Laundry Wash+Dry line with:
 ```python
     S("Laundry Wash+Dry (USD)", f"{ln['usd']}-{ln['usdMax']}" if ln.get("usdMax") is not None else ln.get("usd"))
 ```
+
+## RESOLVED 2026-09-23
+All three edits applied in the main folder per Jeff. Dry run of sync_laundry.py on a scratch copy of the sheet and citydata: 893 cities synced, 0 would change (the 26 ranges survive).

@@ -14,3 +14,8 @@ full-day trip from Tel Aviv?
 **Options:** leave it out (safe default, what happens if you don't answer), or list it as a full-day trip.
 
 Tel Aviv already gets 3 confirmed trips without it: Caesarea and Zichron Ya'akov (half), Masada (full).
+
+## RESOLVED 2026-09-23
+Jeff: add it. Akko (Acre) and the Dead Sea (Ein Bokek) were added to Tel Aviv's full-day trips next to Masada, in
+day-trips.js, citydata/tel-aviv.json and the sheet's Full-Day Trips cell. Rule behind it (decisions.md): one country's
+travel advisory never disqualifies research.
