@@ -42,7 +42,7 @@ window.NRA_VOTES = (function(){
   /* -------------------------------------------------------------------
      What each thumb means, per surface. One copy of this wording for the
      whole site, from Jeff's sheet (Like/Dislike prompt.xlsx, 2026-09-23),
-     used verbatim. The info bubble shows:
+     used as written, with five spelling fixes (Jeff, 2026-09-23). The bubble shows:
          Like - <up>
          Dislike - <down>
          Star - <star>        (only where that surface has a star)
@@ -50,20 +50,20 @@ window.NRA_VOTES = (function(){
      so a new surface adds its row here, not in the page.
      ------------------------------------------------------------------- */
   const PROMPTS = {
-    visitors:       { up:"I loved it here", down:"I didnt enjoy my time there" },
+    visitors:       { up:"I loved it here", down:"I didn't enjoy my time there" },
     stay_card:      { up:"Timeframe was accurate for me", down:"Not accurate timeframe" },
-    laundromat:     { up:"Information was good or machines worked great", down:"Information was wrong or machines were malfunctional" },
-    gym:            { up:"Pass information was right or Great gym experience", down:"Pass information was wrong or the Gym wasnt up to standard" },
+    laundromat:     { up:"Information was good or machines worked great", down:"Information was wrong or machines were malfunctioning" },
+    gym:            { up:"Pass information was right or Great gym experience", down:"Pass information was wrong or the Gym wasn't up to standard" },
     food_place:     { up:"I recommend this place", down:"I don't recommend this place" },
     recommendation: { up:"I recommend this place", down:"I don't recommend this place" },
-    hood_photo:     { up:"I have stayed here before and its a great place to stay", down:"I have stayed here before and would recommend staying elsewhere" },
+    hood_photo:     { up:"I have stayed here before and it's a great place to stay", down:"I have stayed here before and would recommend staying elsewhere" },
     landmark:       { up:"Great experience or photo opportunity", down:"Disappointing, not worth the time", star:"CAN'T miss attraction!!!" },
     cost_estimator: { up:"Pretty accurate estimate based on my past stay for the listed budget tiers", down:"Not very accurate estimate based on my past stay for the listed budget tiers" },
     safety_note:    { up:"I have been and I feel this should be taken seriously", down:"I have been and I feel this doesn't reflect real world scenarios" },
     daytrip:        { up:"Great experience or photo opportunity", down:"Disappointing, not worth the time" },
-    event:          { up:"It was a great event, I recommend to others", down:"Information in the invite was inaccurate or it wasnt a great event" },
+    event:          { up:"It was a great event, I recommend to others", down:"Information in the invite was inaccurate or it wasn't a great event" },
     insight:        { up:"This was great to get this point of view", down:"This interview didn't really help me" },
-    blog_article:   { up:"The information or presentaion was helpful and/or inspiring", down:"The information or presentation was lacking for me" }
+    blog_article:   { up:"The information or presentation was helpful and/or inspiring", down:"The information or presentation was lacking for me" }
   };
   /* The bubble is one attribute; the line breaks show because .hint-btn::after
      is white-space:pre-line (master.css). */
