@@ -72,6 +72,22 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
 .osm-credit{margin:-6px 0 10px;font-size:.72rem;color:var(--muted)}
 .osm-credit a{color:inherit;text-decoration:underline}
 
+/* ---------- vote widget (thumbs up/down + counts), shared by votes.js.
+   Site-wide contribution feature, phase 2 (2026-09-22): one control per
+   item, one vote per signed-in visitor per item. Page-specific placements
+   (e.g. city.html's dark hero) override colors locally, same pattern as
+   the rest of this file's components. ---------- */
+.vote-widget{display:inline-flex;align-items:center;gap:4px}
+.vote-btn{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
+  padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
+.vote-btn:hover{border-color:var(--teal);color:var(--teal)}
+.vote-btn.vote-up.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.vote-btn.vote-down.active{background:var(--coral);border-color:var(--coral);color:#fff}
+.vote-btn[disabled]{opacity:.6;cursor:default}
+.vote-icon{display:block;flex-shrink:0}
+.vote-icon-down{transform:scaleY(-1)}
+.vote-count{font-size:.72rem;font-weight:700;min-width:.7em;text-align:left}
+
 /* ---------- footer ----------
    The ONE footer style. The markup comes from footer.js on every page, and no
    page carries footer CSS of its own, so the footer is identical site-wide. */
