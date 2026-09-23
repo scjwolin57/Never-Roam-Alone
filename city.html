@@ -71,6 +71,7 @@
   .hero .chip{padding:4px 10px}   /* visitors box: tighter padding (Jeff, 2026-09-21) */
   @media(max-width:400px){.hero .chip span{letter-spacing:.05em}}
   .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:18px}
+  .hero-fav-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
   .hero-fav{height:40px;flex-shrink:0;border-radius:0;background:rgba(255,255,255,.16);
     border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(4px);color:#fff;font-size:1.2rem;line-height:1;
     display:flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;padding:0 14px;transition:.15s}
@@ -78,6 +79,7 @@
   .hero-fav:hover{background:rgba(255,255,255,.3)}
   .hero-fav.active{background:var(--coral);border-color:var(--coral);color:#fff}
   .hero-fav[disabled]{opacity:.6;cursor:default}
+  .hero-fav-count{font-size:.68rem;color:rgba(255,255,255,.8);letter-spacing:.02em;min-height:1em}
 
   /* How long to stay — sits just above the temperature/facts grid */
   .stay-section{margin:0 0 30px}
@@ -3062,7 +3064,10 @@ function buildAdvisoryBanner(c, cityAdv){
         <p class="tagline">${c.tagline}</p>
         <div class="hero-fav-row">
           <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l ${c.est?'<span style="white-space:nowrap">visitors \u00b7 est.</span>':'visitors'}</span></div>
-          <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
+          <div class="hero-fav-wrap">
+            <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
+            <span class="hero-fav-count" id="hero-fav-count"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -5245,6 +5250,25 @@ function buildAdvisoryBanner(c, cityAdv){
   });
   NRA_FAV.onChange(paintHeroFav);
   NRA_FAV.ready().then(paintHeroFav);
+
+  /* Per-city favorite count, from the public city_favorite_counts view
+     (favorites-setup.sql). Signed-in favorites only, see that file's
+     comment — same count refreshes after a toggle so it moves live. */
+  function paintFavCount(){
+    var el = document.getElementById("hero-fav-count");
+    var btn = getBtn();
+    if (!el || !btn || !window.NRA_AUTH || !NRA_AUTH.enabled) return;
+    NRA_AUTH.ready().then(function(){
+      var sb = NRA_AUTH.client();
+      if (!sb) return;
+      return sb.from("city_favorite_counts").select("favorites").eq("city", btn.dataset.favCity).maybeSingle();
+    }).then(function(res){
+      var n = res && res.data && res.data.favorites || 0;
+      el.textContent = n > 0 ? n.toLocaleString() + (n === 1 ? " favorite" : " favorites") : "";
+    }).catch(function(){});
+  }
+  NRA_FAV.onChange(paintFavCount);
+  NRA_FAV.ready().then(paintFavCount);
 })();
 </script>
 <script src="footer.js"></script>
