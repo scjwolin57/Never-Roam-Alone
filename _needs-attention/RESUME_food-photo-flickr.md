@@ -26,3 +26,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 4 | Saint-Tropez … Bergen (25) | 40 | 4 | 12 | 24 | see git log |
 | 5 | Bridgetown … Córdoba (25) | 48 | 7 | 17 | 24 | see git log |
 | 6 | Poznań … Faro (25) | 46 | 8 | 17 | 21 | see git log |
+| 7 | Bristol … Valparaíso (25) | 46 | 9 | 16 | 21 | see git log |
