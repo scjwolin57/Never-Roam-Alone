@@ -297,3 +297,12 @@ The row key is the sheet's own City value: **"St. George's"**, not "Saint George
 that session's example used the wrong spelling). Remove El Calafate's landmark indices from the highest down
 (6, 5, 1, 0) so earlier removals do not shift the ones still to go.
 
+
+**APPLIED 2026-09-23 (Jeff: "apply the empty-city day trips").** 133 trips in 51 cities written to day-trips.js,
+citydata `daytrips` and the sheet's Half/Full-Day Trips columns (SheetEdit, 78 cells). Lake Muhazi's blurb now names
+the Rwamagana-side shore (about 45 min). Landmark swaps: St. George's York House -> Annandale Falls, Ashgabat
+Flagpole -> Nisa (photos downloaded, CC BY-SA 3.0 / 2.0). El Calafate: 4 landmarks removed (Perito Moreno, Los
+Glaciares, Upsala cruise, Estancia Cristina), 6 left; the five landmark places moved together. Majuro hood 5 renamed
+"Outer Islets (Eneko & Bikendrik)" (citydata hoods + hood_landmark, hood-photos.js, sheet name + map link).
+17 cities stay honestly empty. The 111 proposed landmark-to-day-trip moves (landmarks-that-are-day-trips.md) are
+still unruled; if approved, they now shift indices separately. Flags: `daytrips-empty68-apply-flags.md`.
