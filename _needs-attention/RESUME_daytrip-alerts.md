@@ -26,3 +26,4 @@ added back with alerts.
 | b03 | India | 75, 5 covered (Kashmir Valley x4, Pul Kanjari) | added US to all 5; 3 vague-area trips held for Jeff (daytrip-alerts-calls.md) | this commit |
 | b08 | Philippines, Egypt | 61, 6 covered | Wadi El Natrun x2 gained US; Coloured Canyon x2 held (vague "Middle Sinai", calls file) | this commit (4 alerts) |
 | b07 | Türkiye, Algeria | 88, 11 covered (Tamanrasset x7 US province list; Djanet: Tadrart Rouge, Tin Merzouga, Tassili; Tlemcen, Canada 50 km Morocco) | 5 borderlines settled | this commit |
+| b10 | Morocco, Colombia, Saudi Arabia | 67, 6 covered (Valle del Cauca x4 US; Tanomah, Wadi Lajab Canada) | Wadi Lajab: US not counted (no public distance) | this commit |
