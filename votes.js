@@ -39,23 +39,62 @@ window.NRA_VOTES = (function(){
   const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
   const escAttr = v => String(v == null ? "" : v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 
+  /* -------------------------------------------------------------------
+     What each thumb means, per surface. One copy of this wording for the
+     whole site, from Jeff's sheet (Like/Dislike prompt.xlsx, 2026-09-23),
+     used verbatim. The info bubble shows:
+         Like - <up>
+         Dislike - <down>
+         Star - <star>        (only where that surface has a star)
+     and the same lines are the buttons' aria-labels. Keyed by vote type,
+     so a new surface adds its row here, not in the page.
+     ------------------------------------------------------------------- */
+  const PROMPTS = {
+    visitors:       { up:"I loved it here", down:"I didnt enjoy my time there" },
+    stay_card:      { up:"Timeframe was accurate for me", down:"Not accurate timeframe" },
+    laundromat:     { up:"Information was good or machines worked great", down:"Information was wrong or machines were malfunctional" },
+    gym:            { up:"Pass information was right or Great gym experience", down:"Pass information was wrong or the Gym wasnt up to standard" },
+    food_place:     { up:"I recommend this place", down:"I don't recommend this place" },
+    recommendation: { up:"I recommend this place", down:"I don't recommend this place" },
+    hood_photo:     { up:"I have stayed here before and its a great place to stay", down:"I have stayed here before and would recommend staying elsewhere" },
+    landmark:       { up:"Great experience or photo opportunity", down:"Disappointing, not worth the time", star:"CAN'T miss attraction!!!" },
+    cost_estimator: { up:"Pretty accurate estimate based on my past stay for the listed budget tiers", down:"Not very accurate estimate based on my past stay for the listed budget tiers" },
+    safety_note:    { up:"I have been and I feel this should be taken seriously", down:"I have been and I feel this doesn't reflect real world scenarios" },
+    daytrip:        { up:"Great experience or photo opportunity", down:"Disappointing, not worth the time" },
+    event:          { up:"It was a great event, I recommend to others", down:"Information in the invite was inaccurate or it wasnt a great event" },
+    insight:        { up:"This was great to get this point of view", down:"This interview didn't really help me" },
+    blog_article:   { up:"The information or presentaion was helpful and/or inspiring", down:"The information or presentation was lacking for me" }
+  };
+  /* The bubble is one attribute; the line breaks show because .hint-btn::after
+     is white-space:pre-line (master.css). */
+  function hintFor(type, hasStar){
+    const p = PROMPTS[type]; if (!p) return "";
+    return `Like - ${p.up}\nDislike - ${p.down}` + (hasStar && p.star ? `\nStar - ${p.star}` : "");
+  }
+
   function widgetHTML(opts){
     const s = opts.size || 16;
+    const p = PROMPTS[opts.type] || {};
+    const upLabel = p.up || opts.upLabel, downLabel = p.down || opts.downLabel;
+    const hint = hintFor(opts.type, !!opts.beforeHint) || opts.hint;
     const icon = down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
     return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
-    <button type="button" class="vote-btn vote-down" aria-label="${escAttr(opts.downLabel)}">${icon(true)}<span class="vote-count"></span></button>
-    <button type="button" class="vote-btn vote-up" aria-label="${escAttr(opts.upLabel)}">${icon(false)}<span class="vote-count"></span></button>
+    <button type="button" class="vote-btn vote-down" aria-label="${escAttr(downLabel)}">${icon(true)}<span class="vote-count"></span></button>
+    <button type="button" class="vote-btn vote-up" aria-label="${escAttr(upLabel)}">${icon(false)}<span class="vote-count"></span></button>
     ${opts.beforeHint || ""}
-    <button type="button" class="note-btn hint-btn" data-hint="${escAttr(opts.hint)}" onclick="event.stopPropagation();this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
+    <button type="button" class="note-btn hint-btn" data-hint="${escAttr(hint)}" onclick="event.stopPropagation();this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
   </div>`;
   }
 
   function starHTML(opts){
     const s = opts.size || 15;
+    const star = (PROMPTS[opts.type] || {}).star;
     return `<div class="vote-star-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
-    <button type="button" class="vote-star" aria-label="${escAttr(opts.label)}"><svg class="vote-star-icon" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_STAR_PATH}"/></svg><span class="vote-count"></span></button>
+    <button type="button" class="vote-star" aria-label="${escAttr(star || opts.label)}"><svg class="vote-star-icon" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_STAR_PATH}"/></svg><span class="vote-count"></span></button>
   </div>`;
   }
+
+  const SIGNIN_NOTE = "You must be signed in to use the Like/Dislike feature";
 
   const countCache = new Map();   // "type:id" -> {up, down}
   const mineCache = new Map();    // "type:id" -> -1 | 0 | 1
@@ -122,7 +161,7 @@ window.NRA_VOTES = (function(){
     }
     function onClick(value){
       if (!signedIn()){
-        if (window.NRA_AUTH) NRA_AUTH.openModal();
+        if (window.NRA_AUTH) NRA_AUTH.openModal({ note: SIGNIN_NOTE });
         return;
       }
       upBtn.disabled = downBtn.disabled = true;
@@ -158,7 +197,7 @@ window.NRA_VOTES = (function(){
     btn.addEventListener("click", e => {
       e.stopPropagation();
       if (!signedIn()){
-        if (window.NRA_AUTH) NRA_AUTH.openModal();
+        if (window.NRA_AUTH) NRA_AUTH.openModal({ note: SIGNIN_NOTE });
         return;
       }
       btn.disabled = true;
@@ -173,6 +212,78 @@ window.NRA_VOTES = (function(){
     scope.querySelectorAll(".vote-widget[data-vote-type]").forEach(mount);
     scope.querySelectorAll(".vote-star-widget[data-vote-type]").forEach(mountStar);
   }
+
+  /* ---------------------------------------------------------------------
+     The info bubble floats above the page.
+
+     It used to be a CSS ::after on the button, which meant any card that
+     clips its contents (landmark card, neighborhood tile, hood card) cut the
+     bubble in half — and Jeff's Like / Dislike / Star copy made it three
+     lines, so the clipping showed. One fixed-position element, positioned
+     next to whichever icon is open and clamped to the screen, cannot be
+     clipped and cannot widen the page. The CSS ::after stays as the
+     no-JavaScript fallback; `html.has-hint-pop` turns it off once this runs.
+     Works for every .hint-btn on the site, not only the vote widgets.
+     --------------------------------------------------------------------- */
+  let popEl = null;
+  function pop(){
+    if (!popEl){
+      popEl = document.createElement("div");
+      popEl.className = "hint-pop";
+      popEl.setAttribute("role", "tooltip");
+      document.body.appendChild(popEl);
+    }
+    return popEl;
+  }
+  let popFor = null;                      // the button the bubble belongs to
+  function hidePop(){ popFor = null; if (popEl) popEl.classList.remove("open"); document.querySelectorAll(".hint-btn.open").forEach(b => b.classList.remove("open")); }
+  function placePop(btn){
+    const el = pop();
+    const r = btn.getBoundingClientRect(), b = el.getBoundingClientRect();
+    const pad = 8;
+    let left = r.left + r.width / 2 - b.width / 2;
+    left = Math.max(pad, Math.min(left, document.documentElement.clientWidth - b.width - pad));
+    let top = r.bottom + 6;                                   // below the icon,
+    if (top + b.height > window.innerHeight - pad) top = r.top - b.height - 6;   // or above it when that would run off the bottom
+    top = Math.max(pad, Math.min(top, window.innerHeight - b.height - pad));     // and always fully on screen
+    el.style.left = Math.round(left) + "px";
+    el.style.top = Math.round(top) + "px";
+  }
+  function showPop(btn){
+    const text = btn.getAttribute("data-hint");
+    if (!text) return;
+    const el = pop();
+    el.textContent = text;
+    el.classList.add("open");
+    popFor = btn;
+    placePop(btn);
+  }
+  function initHintPops(){
+    if (document.documentElement.classList.contains("has-hint-pop")) return;
+    document.documentElement.classList.add("has-hint-pop");
+    document.addEventListener("click", e => {
+      const btn = e.target.closest(".hint-btn");
+      if (!btn){ hidePop(); return; }
+      const wasOpen = popFor === btn;
+      hidePop();
+      if (!wasOpen) showPop(btn);
+    }, true);
+    document.addEventListener("mouseover", e => {
+      const btn = e.target.closest(".hint-btn");
+      if (btn && window.matchMedia("(hover:hover)").matches) showPop(btn);
+    });
+    document.addEventListener("mouseout", e => {
+      const btn = e.target.closest(".hint-btn");
+      if (btn && window.matchMedia("(hover:hover)").matches && !e.relatedTarget?.closest?.(".hint-btn")) hidePop();
+    });
+    /* follow the icon instead of closing, so a click that scrolls the page a
+       little (a lazy section loading, the card expanding) doesn't swallow it */
+    const reflow = () => { if (popFor) { if (popFor.isConnected) placePop(popFor); else hidePop(); } };
+    window.addEventListener("scroll", reflow, true);
+    window.addEventListener("resize", reflow);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initHintPops);
+  else initHintPops();
 
   return { mount, mountStar, mountAll, widgetHTML, starHTML };
 })();

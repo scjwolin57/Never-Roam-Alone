@@ -147,9 +147,7 @@ function showPost(){
       <article class="post i18n-ml">
         <div class="byline">${bylineHTML(post)}</div>
         ${post.body.map(render).join("\n")}
-        ${window.NRA_VOTES ? NRA_VOTES.widgetHTML({type:"blog_article", id:post.slug, city:"",
-          downLabel:"Not worth the read", upLabel:"Worth the read",
-          hint:"This article was accurate and worth reading (or it wasn't)."}) : ""}
+        ${window.NRA_VOTES ? NRA_VOTES.widgetHTML({type:"blog_article", id:post.slug, city:""}) : ""}
       </article>
       <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
   } else {

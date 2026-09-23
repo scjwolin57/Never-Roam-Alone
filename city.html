@@ -70,7 +70,7 @@
   .chip span{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;opacity:.9}
   .hero .chip{padding:4px 10px}   /* visitors box: tighter padding (Jeff, 2026-09-21) */
   @media(max-width:400px){.hero .chip span{letter-spacing:.05em}}
-  .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:12px}
+  .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:7px}   /* tighter to the tagline (Jeff, 2026-09-23) */
   .hero-fav-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
   .hero-visitors-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
   .hero-visitors-wrap .vote-btn{border-color:rgba(255,255,255,.45);color:#fff}
@@ -268,16 +268,8 @@
   .fl-list .fl-res .fl-n::before{content:"\2713\00a0";color:var(--green)}   /* researched: pass confirmed */
   .fl-foot{margin:14px 0 0;font-size:.74rem;color:var(--muted);font-style:italic;line-height:1.4}
   @media(max-width:600px){.fl-cols{grid-template-columns:1fr}}
-  /* info bubble on the label: hover on desktop, tap to toggle on touch */
-  .hint-btn{position:relative}
-  .hint-btn::after{content:attr(data-hint);position:absolute;left:0;top:calc(100% + 6px);width:max-content;max-width:210px;
-    background:var(--ink);color:#fff;font-size:.72rem;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;
-    padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);display:none;pointer-events:none;
-    z-index:20;text-align:left;white-space:normal}
-  .hint-btn:hover::after,.hint-btn:focus-visible::after,.hint-btn.open::after{display:block}
-  .hint-btn.open{opacity:1}
-  /* on phones the icon sits near the right edge: open the bubble leftward so it never widens the page */
-  @media(max-width:600px){.hint-btn::after{left:auto;right:0;max-width:min(210px,calc(100vw - 48px))}}
+  /* info bubble: the rules live in master.css now, so every page that shows a
+     vote widget (post.html included) gets the same bubble. */
   .rides{margin-top:auto;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
   .rides-k{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:7px}
   .rides-list{display:flex;flex-wrap:wrap;gap:6px}
@@ -1090,9 +1082,12 @@
     box-shadow:0 2px 8px rgba(0,0,0,.35);cursor:pointer;transition:transform .15s,background .15s}
   .lmk-pin.is-active{background:var(--coral);transform:scale(1.3);z-index:5}
   .lmk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-  .lmk-card{display:flex;flex-direction:column;background:var(--card,#fff);border:1px solid rgba(0,0,0,.08);border-radius:3px;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+  /* The card used to clip (overflow:hidden), which cut the vote widget's info
+     bubble in half; the photo clips itself instead (Jeff's Like/Dislike copy,
+     2026-09-23, made the bubble three lines). */
+  .lmk-card{display:flex;flex-direction:column;background:var(--card,#fff);border:1px solid rgba(0,0,0,.08);border-radius:3px;transition:border-color .15s,box-shadow .15s}
   .lmk-card.is-active{border-color:var(--coral);box-shadow:0 4px 14px rgba(192,64,32,.18)}
-  .lmk-photo{width:100%;height:130px;background-size:cover;background-position:center;position:relative;flex:none}
+  .lmk-photo{width:100%;height:130px;background-size:cover;background-position:center;position:relative;flex:none;overflow:hidden;border-radius:3px 3px 0 0}
   .lmk-photo-credit{position:absolute;bottom:4px;right:8px;font-size:.62rem;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .lmk-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
   .lmk-card-row{display:flex;gap:12px;align-items:flex-start;padding:14px 16px}
@@ -1101,6 +1096,15 @@
   .lmk-name:hover{color:var(--coral);border-bottom-color:var(--coral)}
   .lmk-desc{margin:6px 0 0;font-size:.88rem;color:var(--muted,#666);line-height:1.45}
   .lmk-vote-wrap{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+  /* Vote widgets that sit at the right edge of their card (landmark row, the
+     cost estimator's corner, a safety note) open the bubble leftward from that
+     edge on a phone; the sitewide centered default ran them off a 320px screen.
+     Centered rows (hero visitors, stay cards) keep the centered version. */
+  @media(max-width:600px){
+    .lmk-vote-wrap .hint-btn::after,
+    .csnap-vote .hint-btn::after,
+    .fl-vote .hint-btn::after{left:auto;right:0;transform:none}
+  }
   /* Pin hover -> enlarged card floating over the grid (desktop) */
   .lmk-cards-col{position:relative;min-width:0}
   .lmk-big{position:fixed;z-index:40;pointer-events:none;background:var(--card,#fff);
@@ -1467,9 +1471,7 @@ function buildVisitSection(cityName){
         <div class="stay-days"><b>${n}</b> <span>${unit}</span></div>
         <div class="stay-label">${t.label}</div>
         <div class="stay-blurb">${t.blurb}</div>
-        ${voteWidgetHTML({type:"stay_card", id:`${cityAttr}:${i}`, city:cityAttr, extraClass:"stay-vote", size:15,
-          downLabel:"This stay length didn't feel right", upLabel:"This stay length felt right",
-          hint:"You've spent about this long here and it felt like the right amount of time (or it didn't)."})}
+        ${voteWidgetHTML({type:"stay_card", id:`${cityAttr}:${i}`, city:cityAttr, extraClass:"stay-vote", size:15})}
       </div>`;
   }).join("");
   return `
@@ -2585,9 +2587,7 @@ function buildAdvisoryBanner(c, cityAdv){
     const tagKey = (CITY_HOOD_TAG[c.city] && CITY_HOOD_TAG[c.city][i]) || null;
     const tm = tagKey && HOOD_TAG_META[tagKey];
     const tagHTML = tm ? `<span class="hood-tag" title="Best for: ${tm.label}"><span class="hood-tag-emoji">${tm.emoji}</span><span class="hood-tag-label">${tm.label}</span></span>` : '';
-    const hoodVote = voteWidgetHTML({type:"hood_photo", id:`${c.city}:${i}`, city:c.city, extraClass:"hood-vote", size:13,
-      downLabel:"This doesn't look like this neighborhood", upLabel:"This looks like this neighborhood",
-      hint:"You've been here and this photo is really this neighborhood (or it isn't)."});
+    const hoodVote = voteWidgetHTML({type:"hood_photo", id:`${c.city}:${i}`, city:c.city, extraClass:"hood-vote", size:13});
     return `
         <div class="hood-tile" role="tab" id="hood-tab-${i}" aria-controls="hood-panel-${i}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? 0 : -1}" data-hood-idx="${i}">
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
@@ -2608,9 +2608,7 @@ function buildAdvisoryBanner(c, cityAdv){
   const nearFlag = p => { const h = nearHood(p); return h ? ` <span class="pick-near" title="This pick is in the nearby neighborhood ${escB(h)}">Nearby: ${escB(h)}</span>` : ''; };
   const pickRows = (list, meta, hoodName, i, kind) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
-    const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
-      downLabel:"I've been and don't recommend this", upLabel:"I've been and recommend this",
-      hint:"You've been here and recommend this pick (or don't)."});
+    const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
     return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p)}</span>${vote}</div>`;
   }).join('');
 
@@ -2627,9 +2625,7 @@ function buildAdvisoryBanner(c, cityAdv){
               <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
               ${barList.map(b => {
                 const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
-                const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
-                  downLabel:"I've been and don't recommend this", upLabel:"I've been and recommend this",
-                  hint:"You've been here and recommend this pick (or don't)."});
+                const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
                 return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b) || name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b)}</span>${vote}</div>`;
               }).join('')}
             </div>` : '';
@@ -2645,9 +2641,7 @@ function buildAdvisoryBanner(c, cityAdv){
               <p class="hood-bars-head">Coffee &amp; takeaway</p>
               ${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
             </div>` : '';
-    const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
-      downLabel:"I've stayed and don't recommend this", upLabel:"I've stayed and recommend this",
-      hint:"You've stayed here and recommend this pick (or don't)."});
+    const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
     const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
     const stayHTML = lodgeRows ? `
             <div class="hood-lodging">
@@ -2683,9 +2677,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <p class="avoid-name">${a.area}</p>
             <p class="avoid-reason">${a.reason}</p>
             ${a.q ? `<a class="avoid-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.q + ', ' + c.city)}" target="_blank" rel="noopener">View on map &rarr;</a>` : ''}
-            ${voteWidgetHTML({type:"safety_note", id:`${c.city}:avoid:${ai}`, city:c.city, extraClass:"fl-vote", size:13,
-              downLabel:"This doesn't match what I experienced", upLabel:"This matches what I experienced",
-              hint:"You've been here and this note still matches what you found (or it doesn't)."})}
+            ${voteWidgetHTML({type:"safety_note", id:`${c.city}:avoid:${ai}`, city:c.city, extraClass:"fl-vote", size:13})}
           </div>`).join('')}
       </div>` : '';
 
@@ -2840,9 +2832,7 @@ function buildAdvisoryBanner(c, cityAdv){
               <label class="csnap-toggle"><input type="checkbox" id="csnap-activities-toggle" ${csnapIncludeActivities ? "checked" : ""}> Include activities/tours</label>
               <label class="csnap-toggle"><input type="checkbox" id="csnap-solo-toggle" ${csnapSolo ? "checked" : ""}> I'm traveling solo (calculates lodging cost for one)</label>
             </div>
-            <div class="csnap-vote-row">${voteWidgetHTML({type:"cost_estimator", id:c.city, city:c.city, extraClass:"csnap-vote", size:14,
-              downLabel:"This doesn't match what I actually spent", upLabel:"This matches what I actually spent",
-              hint:"You've been here and this estimate is close to what you actually spent (or it isn't)."})}</div>
+            <div class="csnap-vote-row">${voteWidgetHTML({type:"cost_estimator", id:c.city, city:c.city, extraClass:"csnap-vote", size:14})}</div>
           </div>`;
   }
 
@@ -3053,9 +3043,7 @@ function buildAdvisoryBanner(c, cityAdv){
       ? `<a href="city.html?city=${encodeURIComponent(t.name)}">${t.name}</a>`
       : t.name;
     const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
-    const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14,
-      downLabel:"I've done this and it's not worth it", upLabel:"I've done this and it's worth it",
-      hint:"You've done this day trip and it's worth the time to get there (or it isn't)."});
+    const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14});
     return `
         <div class="dtcard">
           <div class="dtcard-name">${link}</div>
@@ -3084,9 +3072,7 @@ function buildAdvisoryBanner(c, cityAdv){
           label:"Mark as a must-not-miss attraction"});
         /* the star goes inside the widget so it sits left of the "i" hint (Jeff, 2026-09-23) */
         const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${i}`, city:c.city, extraClass:"lmk-vote-row", size:14,
-          downLabel:"I've been and this isn't worth including", upLabel:"I've been and this is worth including",
-          beforeHint: lmkStar,
-          hint:"You've been here and this landmark is worth including (or isn't)."});
+          beforeHint: lmkStar});
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
           ${photoHTML}
@@ -3145,9 +3131,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="hero-fav-row">
           <div class="hero-visitors-wrap">
             <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l ${c.est?'<span style="white-space:nowrap">visitors \u00b7 est.</span>':'visitors'}</span></div>
-            ${voteWidgetHTML({type:"visitors", id:c.city, city:c.city,
-              downLabel:"I've visited and don't recommend this city", upLabel:"I've visited and recommend this city",
-              hint:"You have already visited and recommend others to visit this city (or don't)"})}
+            ${voteWidgetHTML({type:"visitors", id:c.city, city:c.city})}
           </div>
           <div class="hero-fav-wrap">
             <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
@@ -3622,9 +3606,7 @@ function buildAdvisoryBanner(c, cityAdv){
       }
       /* Votes only apply to a past event — whether it was worth attending
          is only knowable after the fact. */
-      const vote = ev.isPast ? voteWidgetHTML({type:"event", id:ev.id, city:CITY, extraClass:"fl-vote",
-        downLabel:"I went and it wasn't worth it", upLabel:"I went and it was worth it",
-        hint:"You went to this event and it was worth attending (or it wasn't)."}) : "";
+      const vote = ev.isPast ? voteWidgetHTML({type:"event", id:ev.id, city:CITY, extraClass:"fl-vote"}) : "";
       return `<div class="evt-item">` +
         (ev.poster_url ? `<a class="evt-poster" href="${esc(ev.poster_url)}" target="_blank" rel="noopener"><img src="${esc(ev.poster_url)}" alt="" loading="lazy"></a>` : "") +
         `<div class="evt-body">` +
@@ -4015,9 +3997,7 @@ function buildAdvisoryBanner(c, cityAdv){
 
     function card(r){
       const all = pairs(r);
-      const vote = voteWidgetHTML({type:"insight", id:r.id, city:c.city, extraClass:"fl-vote",
-        downLabel:"Not a helpful perspective", upLabel:"A helpful perspective",
-        hint:"This traveler's account is honest and useful to other readers (or it isn't)."});
+      const vote = voteWidgetHTML({type:"insight", id:r.id, city:c.city, extraClass:"fl-vote"});
       return `<article class="ins-card">` +
           `<div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
           qa(all, 2) +
@@ -4580,9 +4560,7 @@ function buildAdvisoryBanner(c, cityAdv){
       const meta = [g.kind ? esc(g.kind) : null, g.chain ? "chain price" : null, d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null].filter(Boolean).join(" &middot; ");
       const map = typeof g.lat === "number" ? `https://www.google.com/maps/search/?api=1&query=${g.lat},${g.lng}` : (g.src || "#");
       const gid = `${g.n}|${typeof g.lat === "number" ? g.lat.toFixed(5) + "," + g.lng.toFixed(5) : (g.hood || "city")}`;
-      const vote = voteWidgetHTML({type:"gym", id:gid, city:c.city, extraClass:"fl-vote", size:13,
-        downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
-        hint:"You've been here and the pass and price shown are accurate (or they're not)."});
+      const vote = voteWidgetHTML({type:"gym", id:gid, city:c.city, extraClass:"fl-vote", size:13});
       return `<li class="fl-res"><span class="fl-n">${esc(g.n)}</span> &middot; <a href="${map}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${bits.join(" &middot; ") || "pass available"}${meta ? " &middot; " + meta : ""}${g.src ? ` &middot; <a href="${esc(g.src)}" target="_blank" rel="noopener">source</a>` : ""}</span>${vote}</li>`;
     });
     return `<ul class="fl-list">${rows.join("")}</ul>`;
@@ -4624,9 +4602,7 @@ function buildAdvisoryBanner(c, cityAdv){
                     d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null,
                     pt.key === "city" && hoods[x.hood] ? flEsc(hoods[x.hood]) : null].filter(Boolean).join(" &middot; ");
       const lid = `${x.n}|${typeof x.lat === "number" ? x.lat.toFixed(5) + "," + x.lng.toFixed(5) : (x.hood || "city")}`;
-      const vote = voteWidgetHTML({type:"laundromat", id:lid, city:c.city, extraClass:"fl-vote", size:13,
-        downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
-        hint:"You've been here and it's still open with the hours and service shown (or it's not)."});
+      const vote = voteWidgetHTML({type:"laundromat", id:lid, city:c.city, extraClass:"fl-vote", size:13});
       return `<li><span class="fl-n">${flEsc(x.n)}</span><span class="fl-m">${meta}</span><a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a>${vote}</li>`;
     });
     return `<p class="fl-sub">Laundromats${pt.key === "city" ? "" : " in " + near}</p><ul class="fl-list fl-lm">${rows.join("")}</ul><p class="fl-credit">Laundromat listings: Overture Maps Foundation (open data).</p>`;
@@ -4832,9 +4808,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <span class="food-place-name">${p.name}</span><span class="food-place-area">${p.area}</span>
         <p class="food-place-note">${p.note}</p>
         <a class="food-place-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ", " + p.area + ", " + c.city)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>
-        ${voteWidgetHTML({type:"food_place", id:`${it.name}|${p.name}`, city:c.city, extraClass:"fl-vote", size:13,
-          downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
-          hint:"You've been here and this place, and its take on the dish, are worth recommending (or aren't)."})}
+        ${voteWidgetHTML({type:"food_place", id:`${it.name}|${p.name}`, city:c.city, extraClass:"fl-vote", size:13})}
       </div>`).join("")}
       <p class="food-contrib-row">Have a photo of ${it.name}?<button type="button" class="food-contrib-btn" data-contrib-kind="food-dish" data-contrib-subject="${it.name.replace(/"/g,'&quot;')}" data-contrib-idx="${idx}">Contribute one</button></p>
       <p class="food-src-note">Picks are based on recent traveler reviews and food articles — hours and quality can change, so double-check before you go.</p>`;
@@ -4872,9 +4846,7 @@ function buildAdvisoryBanner(c, cityAdv){
     } else if (NOTE_MODALS[title] && cityNotes[NOTE_MODALS[title]]) {
       modalBody.innerHTML = `<p class="note-text">${cityNotes[NOTE_MODALS[title]]}</p>`;
       if (title === "Safety notes") {
-        modalBody.innerHTML += voteWidgetHTML({type:"safety_note", id:`${c.city}:note`, city:c.city, extraClass:"csnap-vote",
-          downLabel:"This doesn't match what I experienced", upLabel:"This matches what I experienced",
-          hint:"You've been here and this note still matches what you found (or it doesn't)."});
+        modalBody.innerHTML += voteWidgetHTML({type:"safety_note", id:`${c.city}:note`, city:c.city, extraClass:"csnap-vote"});
         if (window.NRA_VOTES) NRA_VOTES.mountAll(modalBody);
       }
     } else if (SCORE_GUIDES[title]) {

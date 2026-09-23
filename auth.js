@@ -116,6 +116,8 @@ window.NRA_AUTH = (function(){
   .nra-btn:hover{background:#8a3a20}
   .nra-btn.ghost{background:none;color:#82755b;font-weight:600;text-decoration:underline;padding:6px 4px;text-transform:none;letter-spacing:normal;font-family:'Work Sans',-apple-system,sans-serif}
   .nra-note{font-size:.78rem;color:#82755b;margin:8px 0 0}
+  .nra-signin-note{margin:0 0 12px;padding:9px 11px;background:rgba(181,73,44,.12);border-left:3px solid #b5492c;
+    border-radius:3px;font-size:.84rem;font-weight:600;color:#2b2417;line-height:1.35}
   .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#2b2417;margin-top:10px;cursor:pointer}
   .nra-check input{margin-top:2px;accent-color:#b5492c}
   .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
@@ -363,13 +365,19 @@ window.NRA_AUTH = (function(){
     }
   }
 
-  function openModal(){
+  /* openModal() or openModal("why you're seeing this") or openModal({note}).
+     It is also used straight as a click handler, so an Event argument (no
+     .note) simply means no note. The note sits above the heading and is only
+     set by the feature that needs it — today the Like/Dislike widget. */
+  function openModal(arg){
     ensureCSS();
     closeModal();
+    const note = typeof arg === "string" ? arg : (arg && arg.note) || "";
     const bg = document.createElement("div");
     bg.className = "nra-modal-bg"; bg.id = "nra-modal-bg";
     bg.innerHTML = `<div class="nra-modal" role="dialog" aria-label="Sign in">
       <button class="nra-close" aria-label="Close">✕</button>
+      ${note ? `<p class="nra-signin-note">${String(note).replace(/&/g,"&amp;").replace(/</g,"&lt;")}</p>` : ""}
       <h3>Welcome, Roamer</h3>
       <p class="sub">One profile, three ways in — pick whichever you like.</p>
       <div class="nra-tabs">

@@ -93,6 +93,26 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
 .vote-icon{display:block;flex-shrink:0}
 .vote-icon-down{transform:scaleY(-1)}
 .vote-count{font-size:.72rem;font-weight:700;min-width:.7em;text-align:left}
+/* Info bubble on a label or a vote widget: hover on desktop, tap to toggle on
+   touch. Lived in city.html until 2026-09-23; moved here so post.html and any
+   other page with a vote widget shows it too. white-space:pre-line is what
+   makes the Like / Dislike / Star lines break (votes.js writes "\n"). */
+.hint-pop{position:fixed;z-index:9999;display:none;max-width:min(240px,calc(100vw - 16px));
+  background:var(--ink);color:#fff;font-size:.72rem;font-weight:500;letter-spacing:0;text-transform:none;
+  line-height:1.35;padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);
+  text-align:left;white-space:pre-line;pointer-events:none}
+.hint-pop.open{display:block}
+/* the CSS-only bubble below is the no-JavaScript fallback; votes.js turns it off */
+html.has-hint-pop .hint-btn::after{content:none}
+.hint-btn{position:relative}
+.hint-btn::after{content:attr(data-hint);position:absolute;left:0;top:calc(100% + 6px);width:max-content;max-width:230px;
+  background:var(--ink);color:#fff;font-size:.72rem;font-weight:500;letter-spacing:0;text-transform:none;line-height:1.35;
+  padding:8px 10px;border-radius:0;box-shadow:0 4px 14px rgba(0,0,0,.25);display:none;pointer-events:none;
+  z-index:20;text-align:left;white-space:pre-line}
+.hint-btn:hover::after,.hint-btn:focus-visible::after,.hint-btn.open::after{display:block}
+.hint-btn.open{opacity:1}
+/* on phones the icon sits near the right edge: open the bubble leftward so it never widens the page */
+@media(max-width:600px){.hint-btn::after{left:auto;right:0;max-width:min(230px,calc(100vw - 48px))}}
 /* The .hint-btn info icon's sitewide mobile flip (city.html, ~line 269:
    left:auto;right:0) assumes the icon sits at the right edge of its row, so
    opening leftward keeps it on screen. A vote-widget's info icon is the 3rd
