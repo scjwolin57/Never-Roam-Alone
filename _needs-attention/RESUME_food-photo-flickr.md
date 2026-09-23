@@ -37,3 +37,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 14 | Qinhuangdao … Osogbo (25) | 52 | 8 | 26 | 18 | see git log |
 | 15 | Harar … Pyatigorsk (25) | 53 | 4 | 19 | 30 | see git log |
 | 16 | Srimangal … Girona (25) | 68 | 12 | 28 | 28 | see git log |
+| 17 | Goma … Yangzhou (33) | 74 | 9 | 28 | 37 | see git log |
