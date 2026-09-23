@@ -32,3 +32,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 9 | Gisenyi … Puerto Natales (25) | 46 | 7 | 24 | 15 | see git log |
 | 10 | Sokcho … Hirosaki (25) | 55 | 5 | 28 | 22 | see git log |
 | 11 | Cortina d'Ampezzo … Charlottetown (25) | 40 | 5 | 17 | 18 | see git log |
+| 12 | Belém … Nouméa (25) | 71 | 9 | 27 | 35 | see git log |
