@@ -137,3 +137,5 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
 
 
 **2026-09-23: landmark indices shifted.** 295 far-out landmarks moved to day trips (decisions.md). `landmark-pins-for-google.csv` was re-indexed by landmark name after each batch and the moved rows dropped (2056 -> 1949 rows). Match rows by name, not by the stored index alone; apply_pins.py's old-value check refuses any slot whose pin changed.
+
+**Jeff's pins, 2026-09-23 (final; never overwritten by the Google pass):** Enshi "Lianzhu Pagoda (Lianzhu Tower)" 30.24384, 109.494249; Tamanrasset "Ahaggar Cultural Park Museum (OPNA)" 22.7975934, 5.5388568.

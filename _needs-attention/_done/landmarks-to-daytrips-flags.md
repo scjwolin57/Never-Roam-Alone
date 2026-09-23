@@ -46,3 +46,5 @@ location-checked and commercial-licensed; research files in `_guidebuild/daytrip
   Tamanrasset. Paste a pin and they go in.
 - Not added: Ayn Hamran (Salalah, 22 km, in Taqah: a day-trip candidate), Mirador de Kari (San Pedro, part of the
   Valle de la Luna visit).
+
+**Jeff 2026-09-23, done:** Sefar and Jabbaren removed from Djanet (2 landmarks left); Lianzhu Pagoda (Enshi) and the Ahaggar Cultural Park Museum (Tamanrasset) added at Jeff's pins, the museum with the Commons photo whose camera GPS sits 5 m from his pin; Ayn Hamran added to Salalah; Mirador de Kari left out. Nothing open in this note.
