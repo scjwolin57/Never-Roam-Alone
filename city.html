@@ -73,7 +73,9 @@
   .hero-fav-row{display:flex;align-items:center;gap:10px;margin-top:12px}
   .hero-fav-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
   .hero-visitors-wrap{display:flex;flex-direction:column;align-items:center;gap:6px}
-  .hero-visitors-wrap .vote-btn{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);background:rgba(255,255,255,.08)}
+  .hero-visitors-wrap .vote-btn{border-color:rgba(255,255,255,.45);color:#fff}
+  .hero-visitors-wrap .vote-btn.vote-up{background:rgba(92,105,51,.5)}
+  .hero-visitors-wrap .vote-btn.vote-down{background:rgba(181,73,44,.5)}
   .hero-visitors-wrap .vote-btn:hover{border-color:#fff;color:#fff}
   .hero-visitors-wrap .note-btn{color:#fff;opacity:.7}
   .hero-visitors-wrap .note-btn:hover{opacity:1}
@@ -753,7 +755,9 @@
   .hood-map-link:hover{background:#b0802f}
   /* Vote widget on the neighborhood photo, top left — across from the "best for" flag at top right */
   .hood-vote{position:absolute;top:14px;left:14px;z-index:2}
-  .hood-vote .vote-btn{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);background:rgba(255,255,255,.1)}
+  .hood-vote .vote-btn{border-color:rgba(255,255,255,.45);color:#fff}
+  .hood-vote .vote-btn.vote-up{background:rgba(92,105,51,.5)}
+  .hood-vote .vote-btn.vote-down{background:rgba(181,73,44,.5)}
   .hood-vote .vote-btn:hover{border-color:#fff;color:#fff}
   .hood-vote .note-btn{color:#fff;opacity:.75}
   .hood-vote .note-btn:hover{opacity:1}
@@ -3075,11 +3079,13 @@ function buildAdvisoryBanner(c, cityAdv){
               <span class="lmk-soon-txt">Image coming soon</span>
               <button type="button" class="lmk-soon-btn" data-contrib-idx="${i}">Contribute</button>
             </div>`;
-        const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${i}`, city:c.city, extraClass:"lmk-vote-row", size:14,
-          downLabel:"I've been and this isn't worth including", upLabel:"I've been and this is worth including",
-          hint:"You've been here and this landmark is worth including (or isn't)."});
         const lmkStar = voteStarHTML({type:"landmark", id:`${c.city}:${i}:star`, city:c.city, extraClass:"lmk-vote-row", size:15,
           label:"Mark as a must-not-miss attraction"});
+        /* the star goes inside the widget so it sits left of the "i" hint (Jeff, 2026-09-23) */
+        const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${i}`, city:c.city, extraClass:"lmk-vote-row", size:14,
+          downLabel:"I've been and this isn't worth including", upLabel:"I've been and this is worth including",
+          beforeHint: lmkStar,
+          hint:"You've been here and this landmark is worth including (or isn't)."});
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
           ${photoHTML}
@@ -3088,7 +3094,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <div class="lmk-body">
               <a class="lmk-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>
               <p class="lmk-desc">${l[1]}</p>
-              <div class="lmk-vote-wrap">${lmkVote}${lmkStar}</div>
+              <div class="lmk-vote-wrap">${lmkVote}</div>
             </div>
           </div>
         </div>`;
@@ -5248,7 +5254,7 @@ function buildAdvisoryBanner(c, cityAdv){
       lmkPhotos = (window.NRA_LANDMARK_PHOTOS && NRA_LANDMARK_PHOTOS[c.city]) || [];
       const lmkBody = document.getElementById("lmk-section-body");
       const landmarksHTML = buildLandmarksHTML();
-      if (lmkBody) lmkBody.innerHTML = landmarksHTML ? `<p class="hood-intro">An overview of ${lmks.length} popular landmarks and sights worth a visit while in ${c.city} — hover a card to find it on the map, click one for the full photo and details, or hover a pin (tap on mobile) to see that landmark.</p>
+      if (lmkBody) lmkBody.innerHTML = landmarksHTML ? `<p class="hood-intro">An overview of ${lmks.length} popular landmarks and sights worth a visit while in ${c.city} — hover a card to find it on the map, click one for the full photo and details, or hover a pin (tap on mobile) to see that landmark. Star rating indicates a CAN'T miss place.</p>
       <div class="lmk-layout">
         <div class="lmk-map-col"><div id="lmk-map" class="lmk-map"></div></div>
         ${landmarksHTML}

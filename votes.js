@@ -24,7 +24,9 @@
      mountAll(root)   → wires up every .vote-widget and .vote-star-widget
                         under root (default: document)
      widgetHTML(opts) → builds a .vote-widget's markup (one icon shape, one
-                        place to edit it, used by every page — city.html and
+                        place to edit it; opts.beforeHint drops extra markup,
+                        e.g. a star widget, between the up button and the "i".
+                        Used by every page — city.html and
                         post.html both call this instead of hand-writing SVG)
      starHTML(opts)   → builds a .vote-star-widget's markup
    ===================================================================== */
@@ -43,6 +45,7 @@ window.NRA_VOTES = (function(){
     return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
     <button type="button" class="vote-btn vote-down" aria-label="${escAttr(opts.downLabel)}">${icon(true)}<span class="vote-count"></span></button>
     <button type="button" class="vote-btn vote-up" aria-label="${escAttr(opts.upLabel)}">${icon(false)}<span class="vote-count"></span></button>
+    ${opts.beforeHint || ""}
     <button type="button" class="note-btn hint-btn" data-hint="${escAttr(opts.hint)}" onclick="event.stopPropagation();this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
   </div>`;
   }

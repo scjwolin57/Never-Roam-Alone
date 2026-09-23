@@ -80,7 +80,13 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
 .vote-widget{display:inline-flex;align-items:center;gap:4px}
 .vote-btn{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
   padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
-.vote-btn:hover{border-color:var(--teal);color:var(--teal)}
+/* Each box is tinted in its own colour at 50% (Jeff, 2026-09-23): brand green
+   for like, brand rust for dislike, yellow for the must-not-miss star. Active
+   (your own vote) is the same colour at full strength. */
+.vote-btn.vote-up{background:rgba(92,105,51,.5);border-color:rgba(92,105,51,.55);color:var(--ink)}
+.vote-btn.vote-down{background:rgba(181,73,44,.5);border-color:rgba(181,73,44,.55);color:var(--ink)}
+.vote-btn.vote-up:hover{border-color:var(--teal);color:var(--teal)}
+.vote-btn.vote-down:hover{border-color:var(--coral);color:var(--coral)}
 .vote-btn.vote-up.active{background:var(--teal);border-color:var(--teal);color:#fff}
 .vote-btn.vote-down.active{background:var(--coral);border-color:var(--coral);color:#fff}
 .vote-btn[disabled]{opacity:.6;cursor:default}
@@ -95,13 +101,15 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
    twice already (visitors box, stay card). Center it under the icon instead,
    for every vote-widget everywhere, so the next surface doesn't repeat this. */
 .vote-widget .hint-btn::after{left:50%;right:auto;transform:translateX(-50%);max-width:min(210px,calc(100vw - 24px))}
-/* Single-button "star" toggle (landmark must-not-miss). Rust for active,
-   not gold — the brand palette is green/rust/parchment/ink only. */
+/* Single-button "star" toggle (landmark must-not-miss). Yellow, asked for by
+   Jeff on 2026-09-23 (decisions.md); it was rust before, because the brand
+   palette is green/rust/parchment/ink only. */
 .vote-star-widget{display:inline-flex;align-items:center}
 .vote-star{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
   padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
-.vote-star:hover{border-color:var(--coral);color:var(--coral)}
-.vote-star.active{background:var(--coral);border-color:var(--coral);color:#fff}
+.vote-star{background:rgba(217,165,32,.5);border-color:rgba(217,165,32,.6);color:var(--ink)}
+.vote-star:hover{border-color:#b98d16;color:#7a5c0d}
+.vote-star.active{background:#d9a520;border-color:#d9a520;color:var(--ink)}
 .vote-star[disabled]{opacity:.6;cursor:default}
 .vote-star-icon{display:block;flex-shrink:0}
 
