@@ -434,6 +434,11 @@
   .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
   .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
   .dtcard-vote{margin-top:10px}
+  /* Safety alert on a day trip (decisions.md 2026-09-23): the trip stays listed, the alert is noted. */
+  .dtcard-alert{display:flex;gap:6px;align-items:flex-start;margin:0 0 10px;padding:7px 9px;border-radius:2px;
+    background:#F6D5CE;color:#8B2500;border:1px solid #E29A87;font-size:.78rem;line-height:1.35;overflow-wrap:anywhere}
+  .dtcard-alert a{color:inherit}
+  .dtcard-alert .adv-date{opacity:.75;white-space:nowrap}
   /* Nearby guide cards: another Never Roam Alone guide within day-trip range. The whole card opens that guide;
      the ribbon is the neighborhood photos' "best for" tag (same colour, notched ends, emoji + label). */
   a.dtcard-guide{position:relative;display:block;padding-top:52px;color:inherit;text-decoration:none}
@@ -2525,6 +2530,26 @@ function advReaderSource(){
   } catch(e){ return null; }
 }
 
+/* Safety alert on a day trip (decisions.md 2026-09-23). The trip is never dropped for an
+   advisory; its data only says which area it is in and which tracked governments give their
+   top warning for that area: alert = {c: advisories.js country, area, by: ["us"|"uk"|"ca"], chk}.
+   Wording, link and date come live from advisories.js, and a reader with a passport country
+   sees only their own government's warning, as in the city banner. */
+const ADV_TOP_WORDS = { us:"Do Not Travel", uk:"Advises against all travel", ca:"Avoid all travel" };
+function dtAlertHTML(al){
+  if (!al || !al.by || !al.by.length) return "";
+  const all = (typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[al.c]) || null;
+  const mine = advReaderSource();
+  const by = al.by.filter(k => !mine || k === mine);
+  if (!by.length) return "";
+  const line = k => {
+    const a = all && all[k];
+    const who = a && a.url ? `<a href="${a.url}" target="_blank" rel="noopener">${ADV_SOURCES[k]}</a>` : ADV_SOURCES[k];
+    return `<br>${who}: ${ADV_TOP_WORDS[k]}${a && a.as_of ? ` <span class="adv-date">(${a.as_of})</span>` : ""}`;
+  };
+  return `<div class="dtcard-alert"><span aria-hidden="true">&#9888;</span><span><b>Safety alert:</b> ${al.area}${by.map(line).join("")}</span></div>`;
+}
+
 function buildAdvisoryBanner(c, cityAdv){
   const all = (typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[c.country]) || null;
   if (!all && !cityAdv) return "";
@@ -3045,6 +3070,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="dtcard">
           <div class="dtcard-name">${link}</div>
           <div class="dtcard-country">${t.country}</div>
+          ${dtAlertHTML(t.alert)}
           <p class="dtcard-blurb">${t.blurb}</p>
           ${more}
           ${vote}

@@ -1,0 +1,21 @@
+# Resume: day-trip safety alerts (started 2026-09-23)
+
+**Rule (Jeff, 2026-09-23):** no day trip is dropped for a travel advisory. A trip whose location is under a
+tracked government's **top-level** warning (US "Do Not Travel", UK "advises against all travel", Canada "Avoid
+all travel") is listed with a safety alert. The page builds the wording, link and date live from
+`advisories.js` and follows the reader's passport setting. Level-3 warnings ("reconsider", "all but
+essential", "non-essential") are not alerts.
+
+**Tools** (`_guidebuild/daytrips/alerts/`): `candidates.py` → `packets.py` → `split.py` make `rule.json`
+(175 trips, whole-country warnings, decided by rule) and `batches/b01-b15.json` (1,159 trips in countries
+with named top-level areas). Agents follow `BRIEF.md` → `out/bNN.json`, then an independent `CHECK.md` pass →
+`out/bNN_check.json`. `apply_alerts.py out/bNN.json ... [--rule]` writes day-trips.js, citydata and the sheet
+together. `recheck.py` runs after every `advisories/refresh.py`. `last_pass.txt` = date of the last full pass.
+
+**Also:** `out/readd.json` holds places dropped under the old rule (advisory-dropped-daytrips.md), to be
+added back with alerts.
+
+## Progress
+| Batch | Countries | Research | Check | Applied |
+|---|---|---|---|---|
+| rule | 21 whole-country | n/a | n/a | |

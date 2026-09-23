@@ -234,7 +234,7 @@ with verified data or reported as open, by name, in the add-city report. The
 tooling does not cover the whole page today (see 5.2), so until it does the
 add-city skill runs the extra steps by hand and says which ones it ran.
 
-### 5.1 Inventory of city.html (as of 2026-09-22, hood picks: a pick may be a flagged neighbor-hood pick via `near`)
+### 5.1 Inventory of city.html (as of 2026-09-23, day-trip safety alerts)
 
 Nine plates. "Key" is the field in `citydata/<slug>.json` unless noted; "Filled by"
 is what populates it for a new city *today*.
@@ -265,7 +265,7 @@ is what populates it for a new city *today*.
 | 04 Quarters | **coffee & takeaway**: one pick per kind (coffee / takeaway / bakery) per hood, same pick shape | `cafes` | in the schema since 2026-09-21; filled by `hoodpicks/` batches (412-city first phase); rest of the 893 later |
 | Food modal | local food & drink recommendations with places and photos | `food`, `food_photos` ← `city-food.js`, `city-food-photos.js` | **not researched by add_city.py**; folded by extend_citydata.py |
 | 05 Landmarks | top-10 sights: name, blurb, map pin, photo + credit, contribute-photo | `landmarks`, `lmk_coords`, `lmk_photos` ← `city-landmarks.js`, `-coords.js`, `-photos.js` | names/blurbs by add_city.py; **coords and photos: not handled** |
-| 06 Excursions | half-day and full-day trips, each list followed by **nearby guide cards** (another guide within day-trip range, "See Our Guide Page" ribbon, whole card links to it) | `daytrips` ← `day-trips.js`; `nearby` (site-only) | add_city.py; day trips verified 2026-09-21 (2,670, 66 cities empty); nearby via `daytrips/build_nearby.py` |
+| 06 Excursions | half-day and full-day trips, each list followed by **nearby guide cards** (another guide within day-trip range, "See Our Guide Page" ribbon, whole card links to it); a trip in an area under a tracked government's top-level warning carries a rust **Safety alert** line (area plus the government's live wording, link and date from `advisories.js`, passport-aware; never a reason to drop the trip; decisions.md 2026-09-23) | `daytrips` (+ optional `alert`) ← `day-trips.js`; `nearby` (site-only) | add_city.py; day trips verified 2026-09-21 (2,670, 66 cities empty); nearby via `daytrips/build_nearby.py` |
 | 07 Happenings | events in city (sheet-driven), submit-an-event form | events sheet tab | manual |
 | 07 Happenings | Roamers in town, Roamer's Connections board, Ask-a-Roamer link | user-generated; city must exist in `destinations.js` | add_city.py (destinations.js) |
 | 08 Insights | Traveler's Take / Local's Perspective: "Share" interview forms, and approved interviews as cards (newest 3, "Read the full interview", "Show all") | user-generated: Supabase `city_insights` (pending, admin-only) → `city_insights_public` view (approved, no email); approved in Admin → Insights via `approve-insight.js` | nothing to research; site-only, not in citydata or the sheet |

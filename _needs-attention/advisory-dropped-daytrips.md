@@ -44,3 +44,6 @@ cite both facts and an advisory; they are marked **(facts too)**.
 | Vilnius | Hrodna | US Level 4 for Belarus; drive 2 h 49 is inside the limit |
 
 Sources for each line are in `_guidebuild/daytrips/batches/*` and `empty68/*` (the `reason` and `note` fields).
+
+## Answered 2026-09-23
+Jeff: a trip with an active safety alert is listed and noted as a safety alert. Both questions are settled: re-research these places and add them back with an alert (in progress, `RESUME_daytrip-alerts.md`).
