@@ -22,3 +22,6 @@ added back with alerts.
 | b05 | Indonesia | 62, 0 covered | agreed, 0 changes | nothing to write |
 | b04 | Thailand | 66, 1 covered (Phanom Rung, Canada, 50 km Cambodia border) | agreed, 0 changes | this commit |
 | b06 | Brazil | 60, 1 covered (Itaipu Dam, US, 160 km border zone) | agreed, 0 changes | this commit |
+| b02 | Mexico | 82, 15 covered (US: Colima, Guerrero, Michoacán, Sinaloa, Zacatecas) | agreed; sources upgraded to the State Dept page (archive 2026-07-14) | this commit |
+| b03 | India | 75, 5 covered (Kashmir Valley x4, Pul Kanjari) | added US to all 5; 3 vague-area trips held for Jeff (daytrip-alerts-calls.md) | this commit |
+| b08 | Philippines, Egypt | 61, 6 covered | Wadi El Natrun x2 gained US; Coloured Canyon x2 held (vague "Middle Sinai", calls file) | this commit (4 alerts) |
