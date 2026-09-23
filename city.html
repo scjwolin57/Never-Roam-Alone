@@ -5365,7 +5365,8 @@ function buildAdvisoryBanner(c, cityAdv){
       return sb.from("city_favorite_counts").select("favorites").eq("city", btn.dataset.favCity).maybeSingle();
     }).then(function(res){
       var n = res && res.data && res.data.favorites || 0;
-      el.textContent = n > 0 ? n.toLocaleString() + (n === 1 ? " favorite" : " favorites") : "";
+      /* "FAVORITED 3 TIMES", "FAVORITED 1 TIME" (Jeff, 2026-09-23); nothing at zero */
+      el.textContent = n > 0 ? "FAVORITED " + n.toLocaleString() + " TIME" + (n === 1 ? "" : "S") : "";
     }).catch(function(){});
   }
   NRA_FAV.onChange(paintFavCount);
