@@ -47,3 +47,15 @@ Sources for each line are in `_guidebuild/daytrips/batches/*` and `empty68/*` (t
 
 ## Answered 2026-09-23
 Jeff: a trip with an active safety alert is listed and noted as a safety alert. Both questions are settled: re-research these places and add them back with an alert (in progress, `RESUME_daytrip-alerts.md`).
+
+## Result 2026-09-23
+16 put back with safety alerts: Niamey (Kouré giraffe zone, Boubon), Bangui (Boali Falls, Mbaïki), Juba (Mundari
+cattle camps), Lamu (Pate Island, Kiwayu Island), N'Djamena (Douguia, Hadjer el Hamis), Bamako (Siby, Kangaba),
+Beirut (Tyre), Baghdad (Ramadi, Fallujah), Bahir Dar (Awra Amba, Debre Tabor).
+Left out on facts, not advisories (12): Damascus-Tyre (over 3 h with the border), Goma-Bukavu (no confirmed
+same-day boat; 2 h 40 by road through Rwanda plus two borders), Zongo Falls (operator says 4 h each way; others
+2-3 h: your call), Nimule (7-8 h road), Hrodna (direct crossing closed), Lake Chad at Bol (4 h 43), Lac Faguibine
+and Niafunké (over 4-6 h), Kajuru Castle (3 h 16 to 4 h 30), Gorgora (over 3 h via Gondar), Nabatieh (no
+confirmed open sight), Mokowe (only a jetty).
+Found on the way: the US advisory reportedly names all of Lamu County, Lamu town included (search snippet; the
+US pages block automated reads), so the Lamu guide's own banner may understate it, like Bahir Dar's.

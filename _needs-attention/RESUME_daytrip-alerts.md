@@ -27,3 +27,4 @@ added back with alerts.
 | b08 | Philippines, Egypt | 61, 6 covered | Wadi El Natrun x2 gained US; Coloured Canyon x2 held (vague "Middle Sinai", calls file) | this commit (4 alerts) |
 | b07 | Türkiye, Algeria | 88, 11 covered (Tamanrasset x7 US province list; Djanet: Tadrart Rouge, Tin Merzouga, Tassili; Tlemcen, Canada 50 km Morocco) | 5 borderlines settled | this commit |
 | b10 | Morocco, Colombia, Saudi Arabia | 67, 6 covered (Valle del Cauca x4 US; Tanomah, Wadi Lajab Canada) | Wadi Lajab: US not counted (no public distance) | this commit |
+| readd | trips dropped under the old rule | 18 proposed, 10 left out (too far / no sight) | 8 ok, 8 fixed, 2 dropped (Damascus-Tyre over 3 h, Goma-Bukavu no same-day boat) | this commit (16 added) |
