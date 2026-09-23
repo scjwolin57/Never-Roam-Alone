@@ -30,3 +30,4 @@ added back with alerts.
 | readd | trips dropped under the old rule | 18 proposed, 10 left out (too far / no sight) | 8 ok, 8 fixed, 2 dropped (Damascus-Tyre over 3 h, Goma-Bukavu no same-day boat) | this commit (16 added) |
 | b09 | Pakistan, Peru, Malaysia | 79, 6 covered | Kharmang Valley not covered (sights 24-45 km from the LoC); Taxila to Jeff | this commit (5 alerts) |
 | b15 | 13 small countries | 26, 4 covered (UK: Sidon, Virunga, Bukavu from Bujumbura, Tiraspol) | agreed, 0 changes | this commit |
+| b12 | Nigeria, Kenya, Guatemala, Bolivia, Cambodia, Ukraine, Uzbekistan | 94, 13 covered | 2 borderlines settled; Kenya US list confirmed | this commit |
