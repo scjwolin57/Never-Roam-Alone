@@ -38,3 +38,15 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 15 | Harar … Pyatigorsk (25) | 53 | 4 | 19 | 30 | see git log |
 | 16 | Srimangal … Girona (25) | 68 | 12 | 28 | 28 | see git log |
 | 17 | Goma … Yangzhou (33) | 74 | 9 | 28 | 37 | see git log |
+
+## Finished 2026-09-23
+All 845 slots done in 17 batches. No food photo now has a Flickr link with a blank licence, or no source at all.
+
+| Result | Slots |
+|---|---|
+| Kept, real author and licence written | 128 |
+| Replaced with a Commons photo of the exact dish | 335 |
+| No photo ("We haven't found a photo for this") | 382 |
+
+Most drops were the wrong dish (a generic stock photo), 6 were deleted Flickr photos, a few had non-commercial or all-rights-reserved licences, and 113 local files did not match their credited Flickr photo.
+Still to do: merge this branch into main by key (it is 53 commits ahead of where it left main and behind main's newer work), then push.
