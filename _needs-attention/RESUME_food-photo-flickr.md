@@ -35,3 +35,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 12 | Belém … Nouméa (25) | 71 | 9 | 27 | 35 | see git log |
 | 13 | Cyangugu … Visby (25) | 59 | 10 | 19 | 30 | see git log |
 | 14 | Qinhuangdao … Osogbo (25) | 52 | 8 | 26 | 18 | see git log |
+| 15 | Harar … Pyatigorsk (25) | 53 | 4 | 19 | 30 | see git log |
