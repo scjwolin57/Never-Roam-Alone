@@ -384,6 +384,14 @@
   .food-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
   .food-item{display:block;width:100%;text-align:left;background:#faf7f0;border:1px solid rgba(0,0,0,.08);border-radius:3px;padding:10px 12px;font-family:inherit;cursor:pointer;transition:border-color .15s}
   .food-item:hover{border-color:var(--green)}
+  .food-item:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  /* no photo yet: say so, and invite one (same button as the hero and neighborhood photos) */
+  .food-item-thumb.food-item-nophoto{aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:var(--sand);border:1px dashed rgba(43,36,23,.25);border-radius:3px;padding:10px;text-align:center}
+  .food-nophoto-text{font-size:.78rem;color:var(--muted);line-height:1.35}
+  @media(max-width:400px){.food-item-thumb.food-item-nophoto{aspect-ratio:auto;padding:16px 10px}}
+  .food-item-nophoto .photo-contrib{position:static;border-color:var(--line);background:none;color:var(--muted)}
+  .food-item-nophoto .photo-contrib:hover,.food-item-nophoto .photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
   .food-item.has-photo{display:flex;align-items:flex-start;gap:11px}
   .food-item.has-photo .food-item-body{flex:1 1 50%;min-width:0}
   .food-item-thumb{flex:1 1 50%;min-width:0;display:block}
@@ -4793,14 +4801,14 @@ function buildAdvisoryBanner(c, cityAdv){
     const photos = (window.NRA_FOOD_PHOTOS && window.NRA_FOOD_PHOTOS[c.city]) || [];
     return `<p class="rt-intro">Local dishes and drinks worth seeking out in ${c.city}. Tap any item to see the best-reviewed places to try it.</p>
       <div class="food-list">${items.map((it, i) => `
-        <button type="button" class="food-item${photos[i] ? " has-photo" : ""}" onclick="showFoodPlaces(${i})">
+        <div class="food-item has-photo" role="button" tabindex="0" onclick="if(!event.target.closest('[data-contrib-kind]'))showFoodPlaces(${i})" onkeydown="if((event.key==='Enter'||event.key===' ')&&event.target===this){event.preventDefault();showFoodPlaces(${i})}">
           <span class="food-item-body">
           <span class="food-item-name">${it.name}</span><span class="food-item-tag${it.type === "drink" ? " food-tag-drink" : ""}">${it.type === "drink" ? "Drink" : "Dish"}</span>
           <p class="food-item-desc">${it.desc}</p>
           <p class="food-item-hint">Where to try it &rsaquo;</p>
           </span>
-          ${photos[i] ? `<span class="food-item-thumb"><img class="food-item-photo" src="${/^https?:/i.test(photos[i].img) ? photos[i].img : "images/food/" + photos[i].img}" alt="${it.name}" loading="lazy" onerror="this.closest('.food-item-thumb').remove()">${photos[i].by && photos[i].page ? `<span class="food-item-credit" title="Photo: ${photos[i].by}${photos[i].lic ? " · " + photos[i].lic : ""}${/^https?:/i.test(photos[i].img) ? "" : " · Wikimedia Commons"}" onclick="event.stopPropagation();window.open('${photos[i].page}','_blank','noopener')">${photos[i].by}</span>` : ""}</span>` : ""}
-        </button>`).join("")}
+          ${!photos[i] || /coming-soon/.test(photos[i].img || "") ? `<span class="food-item-thumb food-item-nophoto"><button type="button" class="photo-contrib" data-contrib-kind="food-dish" data-contrib-subject="${it.name.replace(/"/g,'&quot;')}" data-contrib-idx="${i}">Contribute a photo</button><span class="food-nophoto-text">We don't have an image for this yet</span></span>` : photos[i] ? `<span class="food-item-thumb"><img class="food-item-photo" src="${/^https?:/i.test(photos[i].img) ? photos[i].img : "images/food/" + photos[i].img}" alt="${it.name}" loading="lazy" onerror="this.closest('.food-item-thumb').remove()">${photos[i].by && photos[i].page ? `<span class="food-item-credit" title="Photo: ${photos[i].by}${photos[i].lic ? " · " + photos[i].lic : ""}${/^https?:/i.test(photos[i].img) ? "" : /flickr\.com/i.test(photos[i].page) ? " · Flickr" : " · Wikimedia Commons"}" onclick="event.stopPropagation();window.open('${photos[i].page}','_blank','noopener')">${photos[i].by}</span>` : ""}</span>` : ""}
+        </div>`).join("")}
       </div>`;
   }
   /* Second view: best places for one dish/drink */
