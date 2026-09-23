@@ -170,7 +170,7 @@ Checked at 320, 375 and desktop: no overflow, the banner stacks.
   Amhara, where the city is. The fix is a per-city override in citydata
   (`advisory.region`), which city.html already renders when present. Ethiopia's
   five cities are known and could be done first.
-- **US levels** for the other 180 countries, and a date for each.
+- ~~**US levels** for the other 180 countries, and a date for each.~~ **Done 2026-09-23:** the State Department publishes a JSON feed (`cadataapi.state.gov/api/TravelAdvisories`); `refresh.py` now reads it (several calls merged, since each returns part of the list). US levels for 226 of 232 country names, each with its own date; Macau carries a regional override (Level 3) because its country entry is Hong Kong (Level 2). 12 cities' per-city `advisory` fields brought in line (Kuwait City, Bissau, Ibadan, Kano, Kinshasa gained one; 6 Bangladesh cities and São Tomé dropped from Level 3 to 2). Solo comfort re-run for all 893 (28 changed).
 - The destination finder already asks for a passport country for visas. A
   signed-out reader who has set it there could see their own government too;
   Jeff said signed-out readers see the three, so this was not wired in.
