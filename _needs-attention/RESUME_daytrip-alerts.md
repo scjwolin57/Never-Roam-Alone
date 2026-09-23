@@ -34,3 +34,12 @@ added back with alerts.
 | b14 | Palestine, Cameroon, Myanmar, Venezuela and 11 more | 81, 10 covered | 3 borderlines settled; Bilene refiled to Mozambique | this commit |
 | b01 | China | 187, 0 covered by definition: no tracked government has a top-level area in China (US Level 2 reissued 2026-09-04, no Do Not Travel area; UK no advice against travel; Canada no "avoid all travel" region) | agent stopped after 35 min of geocoding, not needed | nothing to write |
 | b13 | Rwanda, Mozambique, Ecuador, Honduras, Turkey, Jordan, Georgia, Laos, Tanzania | 94, 10 proposed | Bugarama Hot Springs removed (13-14 km); 2 borderlines settled | this commit (9 alerts) |
+| b11 | Bangladesh, Tunisia, Ethiopia, Israel, Iraq | 88, 25 covered | 6 borderlines settled (Akko not covered: Old City is 1.1 km west of where Route 85 starts) | this commit |
+| all | final consolidated run | | labels: a named area now wins over "all of X"; every batch always applied together | this commit |
+
+## COMPLETE 2026-09-23
+287 trips carry an alert, in 105 cities and 46 countries (US 267, Canada 239, UK 176), out of 3,107 day trips.
+16 trips put back that the old rule had dropped. 6 trips held without an alert for Jeff's call
+(`daytrip-alerts-calls.md`). China (187 trips) needed no geocoding: no government has a top-level area there.
+Upkeep: after every `advisories/refresh.py`, run `alerts/recheck.py`; re-research what it lists with BRIEF.md,
+then `apply_alerts.py --rule` (always applies every batch together).
