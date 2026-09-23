@@ -31,3 +31,4 @@ added back with alerts.
 | b09 | Pakistan, Peru, Malaysia | 79, 6 covered | Kharmang Valley not covered (sights 24-45 km from the LoC); Taxila to Jeff | this commit (5 alerts) |
 | b15 | 13 small countries | 26, 4 covered (UK: Sidon, Virunga, Bukavu from Bujumbura, Tiraspol) | agreed, 0 changes | this commit |
 | b12 | Nigeria, Kenya, Guatemala, Bolivia, Cambodia, Ukraine, Uzbekistan | 94, 13 covered | 2 borderlines settled; Kenya US list confirmed | this commit |
+| b14 | Palestine, Cameroon, Myanmar, Venezuela and 11 more | 81, 10 covered | 3 borderlines settled; Bilene refiled to Mozambique | this commit |
