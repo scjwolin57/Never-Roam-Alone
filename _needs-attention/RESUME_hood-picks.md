@@ -185,3 +185,15 @@ Nothing was loaded: the sheet's Hood Picks tab has only the 409 baseline bars an
 | Cities done | Remaining | Picks loaded | Blank slots | Places calls used |
 |---|---|---|---|---|
 | 1 (25 cities loaded 2026-09-22, gap pass same day) | 387 | 726 new + 251 baseline bars = 983 of 1,212 slots (81%) | 0 mismatches | 1,193 (September; free allowance 1,000; credit spent $7.72 of $260; $40/1,000 past the allowance) |
+
+### Low-defect pilot, 2026-09-23 (hood-picks-low-defect-plan.md; decisions.md 2026-09-23): LOADED
+Five of batch 2's cities (Vatican City, Las Vegas, Lisbon, Hanoi, Ho Chi Minh City), 210 empty slots, from the cache, **0 Google calls**.
+Pipeline now: `annotate.py` (chain detector, big brands removed, name and hotel flags) → pick agents (CHECKLIST.md) → `gate.py` → `namecheck.py` → independent checker → fresh audit of every confirmed pick → bar safety search → `merge_pilot.py` → `load_picks.py stage / apply / parity`.
+| Round | Picks | Checker wrong | Audit wrong (of confirmed) |
+|---|---|---|---|
+| 1 | 104 | 28 (27%) | not run |
+| 2 | 87 | 10 (11%) | 3 of 73 (4%), fixed |
+| Empty-slot re-pick | 35 | 4 (1 caused by the gate cutting a note; gate fixed) | 2 of 34 (1 fixed, 1 dropped) |
+**Loaded: 105 picks** (Vatican City 15, Las Vegas 22, Lisbon 28, Hanoi 20, Ho Chi Minh City 20) = 105 of 210 slots (50%); plus the 20 baseline bars, untouched. Every loaded pick was confirmed by a checker and then by a fresh auditor; 7 were corrected after a check or audit (names, a chain count, a cut note, a blanked note). Bars: 38 safety-searched, 1 fail (The Balcony Beer, not loaded). Parity 0 mismatches.
+Still empty: 105 slots, mostly no loadable page, chain limits, strict hood edges, and Summerlin (Las Vegas) with no candidates at all.
+Next: the other 20 cities of batch 2 through the same pipeline (their batch-2 picks and checks are in `work/batch02r/`; re-pick from the cache).
