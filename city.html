@@ -1657,10 +1657,12 @@ let CITY_HOOD_DESC = {};
 /* Real lodging picks per neighborhood: [High-end, Mid-range, Budget], aligned to CITY_HOODS order */
 let CITY_LODGING = {};
 
+/* `k` is the vote key and must not change (it is inside every lodging vote's
+   target id); `label` is what the tile shows (Jeff, 2026-09-23). */
 const LODGE_TIERS = [
-  {k:"High-end", c:"#5c6933"},
-  {k:"Mid-range", c:"#5c6933"},
-  {k:"Budget", c:"#c0792c"}
+  {k:"High-end", label:"Luxury", c:"#5c6933"},
+  {k:"Mid-range", label:"Comfort", c:"#5c6933"},
+  {k:"Budget", label:"Budget", c:"#c0792c"}
 ];
 
 /* Average rainy days (1 mm or more) per month, for each quarter — NASA POWER 2015-2024, see CITY_SCHEMA.md */
@@ -2646,7 +2648,7 @@ function buildAdvisoryBanner(c, cityAdv){
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
       downLabel:"I've stayed and don't recommend this", upLabel:"I've stayed and recommend this",
       hint:"You've stayed here and recommend this pick (or don't)."});
-    const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
+    const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
     const stayHTML = lodgeRows ? `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
@@ -2850,8 +2852,8 @@ function buildAdvisoryBanner(c, cityAdv){
     const tiersRow = `
           <div class="hotel-row">
             <div class="ht"><span class="ht-k">Budget</span><span class="ht-v">${fmtPrice(hotelRange ? hotelRange.b : cost.hotel, code)}</span></div>
-            <div class="ht"><span class="ht-k">Mid</span><span class="ht-v">${fmtPrice(cost.hotel, code)}</span></div>
-            <div class="ht"><span class="ht-k">High-end</span><span class="ht-v">${fmtPrice(hotelRange ? hotelRange.h : cost.hotel, code)}</span></div>
+            <div class="ht"><span class="ht-k">Comfort</span><span class="ht-v">${fmtPrice(cost.hotel, code)}</span></div>
+            <div class="ht"><span class="ht-k">Luxury</span><span class="ht-v">${fmtPrice(hotelRange ? hotelRange.h : cost.hotel, code)}</span></div>
           </div>`;
     /* Laundry: wash + one dry in the chosen currency, from the sheet's researched
        figures. Most prices are a country-level figure (marked); where none is
@@ -2904,8 +2906,7 @@ function buildAdvisoryBanner(c, cityAdv){
         </div>
         <div class="fact cost-card">
           <span class="cost-icon" aria-hidden="true">${COST_ICONS.hotel}</span>
-          <div class="k">Hotel room &middot; per night &middot; avg<button type="button" class="note-btn hint-btn" data-hint="Prices are citywide averages and can vary a lot by neighborhood." onclick="this.classList.toggle('open')" aria-label="About these prices">${INFO_ICON}</button></div>
-          <div class="v">${fmtPrice(cost.hotel, code)}</div>
+          <div class="k">Hotel Room &middot; Nightly Avg<button type="button" class="note-btn hint-btn" data-hint="Prices are citywide averages and can vary a lot by neighborhood." onclick="this.classList.toggle('open')" aria-label="About these prices">${INFO_ICON}</button></div>
           ${tiersRow}
           <div class="hotel-extras">${laundryHTML}${gymHTML}</div>
           <button type="button" class="find-lg-btn">Find laundry &amp; gyms nearby &rarr;</button>
