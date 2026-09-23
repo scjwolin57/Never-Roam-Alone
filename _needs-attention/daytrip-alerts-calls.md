@@ -21,3 +21,8 @@ Nuweiba road; the checker placed it in "Middle Sinai" by using Canada's map band
 there are below top level. **Currently: no alert.** Options: leave as is, or add "US: Middle Sinai".
 (Western Desert alerts for Qara, the Fayoum desert and Wadi El Natrun are kept: the US names the Western
 Desert, and those places are in it geographically; the US "licensed tour company" condition does not lift it.)
+
+## 3. Pakistan: Taxila (from Islamabad)
+One Taxila site, Jaulian, is just inside Haripur district, Khyber Pakhtunkhwa, which the US warns against as a
+whole province. The museum, the town and the other main sites are in Punjab. **Currently: no alert.**
+Options: leave as is, or add "US: Khyber Pakhtunkhwa (the Jaulian site)".
