@@ -5231,7 +5231,7 @@ function buildAdvisoryBanner(c, cityAdv){
       </div>` : `<p class="hood-intro">Landmark picks for ${c.city} are coming soon.</p>`;
       const dtBody = document.getElementById("daytrips-section-body");
       const dayTripsHTML = buildDayTripsHTML();
-      if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trip picks for ${c.city} are coming soon.</p>`;
+      if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trips coming soon</p>`;
       initLmkMap();
       initLmkCardExpand();
       /* Both bodies are filled once, lazily, right here — mount their vote
