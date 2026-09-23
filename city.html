@@ -261,6 +261,8 @@
   .fl-list a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
   .fl-list a:hover{text-decoration:underline}
   .fl-sub{margin:12px 0 4px;font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700}
+  .fl-vote{margin-top:5px}
+  .fl-lm .fl-vote{margin-top:0}   /* .fl-lm li is already flex-column with gap:4px, no extra margin needed */
   .fl-list .fl-res .fl-n::before{content:"\2713\00a0";color:var(--green)}   /* researched: pass confirmed */
   .fl-foot{margin:14px 0 0;font-size:.74rem;color:var(--muted);font-style:italic;line-height:1.4}
   @media(max-width:600px){.fl-cols{grid-template-columns:1fr}}
@@ -1438,11 +1440,9 @@ function buildVisitSection(cityName){
         <div class="stay-days"><b>${n}</b> <span>${unit}</span></div>
         <div class="stay-label">${t.label}</div>
         <div class="stay-blurb">${t.blurb}</div>
-        <div class="vote-widget stay-vote" data-vote-type="stay_card" data-vote-id="${cityAttr}:${i}" data-vote-city="${cityAttr}">
-          <button type="button" class="vote-btn vote-down" aria-label="This stay length didn't feel right"><svg class="vote-icon vote-icon-down" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg><span class="vote-count"></span></button>
-          <button type="button" class="vote-btn vote-up" aria-label="This stay length felt right"><svg class="vote-icon" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg><span class="vote-count"></span></button>
-          <button type="button" class="note-btn hint-btn" data-hint="You've spent about this long here and it felt like the right amount of time (or it didn't)." onclick="this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
-        </div>
+        ${voteWidgetHTML({type:"stay_card", id:`${cityAttr}:${i}`, city:cityAttr, extraClass:"stay-vote", size:15,
+          downLabel:"This stay length didn't feel right", upLabel:"This stay length felt right",
+          hint:"You've spent about this long here and it felt like the right amount of time (or it didn't)."})}
       </div>`;
   }).join("");
   return `
@@ -1976,6 +1976,22 @@ const COST_ICONS = {
 };
 const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.6 9.3c-.6-.6-1.6-1-2.6-1-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1 0-2-.4-2.6-1"/></svg>`;
 const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
+
+/* Site-wide contribution feature (2026-09-22): one vote-widget builder for
+   every thumbs up/down surface, so the icon shape and markup only live in
+   one place — Jeff already asked for the hand shape to change once, and
+   there are 13 planned surfaces. Mounted by votes.js (NRA_VOTES.mountAll). */
+const VOTE_HAND_PATH = "M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z";
+function voteWidgetHTML(opts){
+  const esc = v => String(v == null ? "" : v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+  const s = opts.size || 16;
+  const icon = down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
+  return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${esc(opts.type)}" data-vote-id="${esc(opts.id)}" data-vote-city="${esc(opts.city)}">
+    <button type="button" class="vote-btn vote-down" aria-label="${esc(opts.downLabel)}">${icon(true)}<span class="vote-count"></span></button>
+    <button type="button" class="vote-btn vote-up" aria-label="${esc(opts.upLabel)}">${icon(false)}<span class="vote-count"></span></button>
+    <button type="button" class="note-btn hint-btn" data-hint="${esc(opts.hint)}" onclick="this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
+  </div>`;
+}
 
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 let CITY_TIP = {};
@@ -3077,11 +3093,9 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="hero-fav-row">
           <div class="hero-visitors-wrap">
             <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l ${c.est?'<span style="white-space:nowrap">visitors \u00b7 est.</span>':'visitors'}</span></div>
-            <div class="vote-widget" data-vote-type="visitors" data-vote-id="${c.city.replace(/"/g,'&quot;')}" data-vote-city="${c.city.replace(/"/g,'&quot;')}">
-              <button type="button" class="vote-btn vote-down" aria-label="I've visited and don't recommend this city"><svg class="vote-icon vote-icon-down" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg><span class="vote-count"></span></button>
-              <button type="button" class="vote-btn vote-up" aria-label="I've visited and recommend this city"><svg class="vote-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z"/></svg><span class="vote-count"></span></button>
-              <button type="button" class="note-btn hint-btn" data-hint="You have already visited and recommend others to visit this city (or don't)" onclick="this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
-            </div>
+            ${voteWidgetHTML({type:"visitors", id:c.city, city:c.city,
+              downLabel:"I've visited and don't recommend this city", upLabel:"I've visited and recommend this city",
+              hint:"You have already visited and recommend others to visit this city (or don't)"})}
           </div>
           <div class="hero-fav-wrap">
             <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
@@ -4493,7 +4507,11 @@ function buildAdvisoryBanner(c, cityAdv){
       const d = (pt.lat != null && typeof g.lat === "number") ? flKm(pt.lat, pt.lng, g.lat, g.lng) : null;
       const meta = [g.kind ? esc(g.kind) : null, g.chain ? "chain price" : null, d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null].filter(Boolean).join(" &middot; ");
       const map = typeof g.lat === "number" ? `https://www.google.com/maps/search/?api=1&query=${g.lat},${g.lng}` : (g.src || "#");
-      return `<li class="fl-res"><span class="fl-n">${esc(g.n)}</span> &middot; <a href="${map}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${bits.join(" &middot; ") || "pass available"}${meta ? " &middot; " + meta : ""}${g.src ? ` &middot; <a href="${esc(g.src)}" target="_blank" rel="noopener">source</a>` : ""}</span></li>`;
+      const gid = `${g.n}|${typeof g.lat === "number" ? g.lat.toFixed(5) + "," + g.lng.toFixed(5) : (g.hood || "city")}`;
+      const vote = voteWidgetHTML({type:"gym", id:gid, city:c.city, extraClass:"fl-vote", size:13,
+        downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
+        hint:"You've been here and the pass and price shown are accurate (or they're not)."});
+      return `<li class="fl-res"><span class="fl-n">${esc(g.n)}</span> &middot; <a href="${map}" target="_blank" rel="noopener">Map &rarr;</a><span class="fl-m">${bits.join(" &middot; ") || "pass available"}${meta ? " &middot; " + meta : ""}${g.src ? ` &middot; <a href="${esc(g.src)}" target="_blank" rel="noopener">source</a>` : ""}</span>${vote}</li>`;
     });
     return `<ul class="fl-list">${rows.join("")}</ul>`;
   }
@@ -4513,6 +4531,9 @@ function buildAdvisoryBanner(c, cityAdv){
       /* laundry facts are city-wide; listed laundromats are per neighborhood (Overture open data) */
       O.innerHTML = `<p class="fl-sub">Laundry in ${flEsc(c.city)}</p>${buildLaundryModal()}${flLaundromats(pt)}${more}`;
     }
+    /* fl-out is fully replaced on every dropdown/radio change, so its vote-widgets
+       (gym and laundromat listings) are brand new nodes each time and need mounting. */
+    if (window.NRA_VOTES) NRA_VOTES.mountAll(O);
   }
   /* Listed laundromats for the chosen point (CITY_LAUNDROMATS): a neighborhood's own, or all of them for "Anywhere".
      Each opens Google Maps through a plain link (no API call). */
@@ -4530,7 +4551,11 @@ function buildAdvisoryBanner(c, cityAdv){
       const meta = [x.k === "drop" ? "Drop-off &amp; fold" : "Self-service", x.addr ? flEsc(x.addr) : null,
                     d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null,
                     pt.key === "city" && hoods[x.hood] ? flEsc(hoods[x.hood]) : null].filter(Boolean).join(" &middot; ");
-      return `<li><span class="fl-n">${flEsc(x.n)}</span><span class="fl-m">${meta}</span><a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a></li>`;
+      const lid = `${x.n}|${typeof x.lat === "number" ? x.lat.toFixed(5) + "," + x.lng.toFixed(5) : (x.hood || "city")}`;
+      const vote = voteWidgetHTML({type:"laundromat", id:lid, city:c.city, extraClass:"fl-vote", size:13,
+        downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
+        hint:"You've been here and it's still open with the hours and service shown (or it's not)."});
+      return `<li><span class="fl-n">${flEsc(x.n)}</span><span class="fl-m">${meta}</span><a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a>${vote}</li>`;
     });
     return `<p class="fl-sub">Laundromats${pt.key === "city" ? "" : " in " + near}</p><ul class="fl-list fl-lm">${rows.join("")}</ul><p class="fl-credit">Laundromat listings: Overture Maps Foundation (open data).</p>`;
   }
