@@ -18,4 +18,7 @@ added back with alerts.
 ## Progress
 | Batch | Countries | Research | Check | Applied |
 |---|---|---|---|---|
-| rule | 21 whole-country | n/a | n/a | |
+| rule | 21 whole-country | n/a | n/a | 5c00cac8 (175 alerts) |
+| b05 | Indonesia | 62, 0 covered | agreed, 0 changes | nothing to write |
+| b04 | Thailand | 66, 1 covered (Phanom Rung, Canada, 50 km Cambodia border) | agreed, 0 changes | this commit |
+| b06 | Brazil | 60, 1 covered (Itaipu Dam, US, 160 km border zone) | agreed, 0 changes | this commit |
