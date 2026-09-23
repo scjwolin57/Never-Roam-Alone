@@ -42,6 +42,7 @@
   article.post h2{font-size:1.5rem;margin:34px 0 14px}
   .pullquote{border-left:3px solid var(--coral);padding:6px 0 6px 20px;margin:30px 0;
     font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.25rem;color:var(--teal)}
+  article.post .vote-widget{margin-top:30px;padding-top:22px;border-top:1px solid rgba(63,81,56,.15)}
 
   .post-foot{max-width:680px;margin:10px auto 0;padding:0 22px}
   .back{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:12px 22px;border-radius:0;transition:background .2s}
@@ -85,6 +86,7 @@
 <footer data-site-footer></footer>
 
 <script src="posts.js"></script>
+<script src="votes.js"></script>
 <script>
 /* Post content now lives in posts.js — the single source of truth.
    Add a post there and its article page works automatically. */
@@ -145,6 +147,9 @@ function showPost(){
       <article class="post i18n-ml">
         <div class="byline">${bylineHTML(post)}</div>
         ${post.body.map(render).join("\n")}
+        ${window.NRA_VOTES ? NRA_VOTES.widgetHTML({type:"blog_article", id:post.slug, city:"",
+          downLabel:"Not worth the read", upLabel:"Worth the read",
+          hint:"This article was accurate and worth reading (or it wasn't)."}) : ""}
       </article>
       <div class="post-foot"><a class="back" href="blog.html">&larr; Back to all stories</a></div>`;
   } else {
@@ -169,5 +174,22 @@ window.NRA_BLOG_REFRESH = showPost;
 <script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
+<script>
+(function(){
+  /* showPost() (above) can run before auth.js/nra-config.js have loaded, and
+     runs again later via NRA_BLOG_REFRESH for a database-sourced post — wait
+     for the vote widget to actually be in #content before mounting it,
+     same MutationObserver pattern city.html uses for its own async sections. */
+  function mountVotes(){
+    if (!window.NRA_VOTES) return;
+    if (content.querySelector(".vote-widget[data-vote-type]")) { NRA_VOTES.mountAll(content); return; }
+    var mo = new MutationObserver(function(){
+      if (content.querySelector(".vote-widget[data-vote-type]")) { mo.disconnect(); NRA_VOTES.mountAll(content); }
+    });
+    mo.observe(content, { childList: true, subtree: true });
+  }
+  mountVotes();
+})();
+</script>
 </body>
 </html>

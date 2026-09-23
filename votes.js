@@ -18,12 +18,41 @@
    so guest mode shows the buttons but a click opens the sign-in modal.
 
    Exposes window.NRA_VOTES:
-     mount(el)      → wires up one .vote-widget element
-     mountAll(root) → wires up every .vote-widget under root (default: document)
+     mount(el)        → wires up one .vote-widget element
+     mountStar(el)    → wires up one single-button .vote-star-widget (e.g. a
+                        landmark's must-not-miss star: up(1)/off(0), no down)
+     mountAll(root)   → wires up every .vote-widget and .vote-star-widget
+                        under root (default: document)
+     widgetHTML(opts) → builds a .vote-widget's markup (one icon shape, one
+                        place to edit it, used by every page — city.html and
+                        post.html both call this instead of hand-writing SVG)
+     starHTML(opts)   → builds a .vote-star-widget's markup
    ===================================================================== */
 window.NRA_VOTES = (function(){
   function signedIn(){ return !!(window.NRA_AUTH && NRA_AUTH.enabled && NRA_AUTH.user()); }
   function key(type, id){ return type + ":" + id; }
+
+  const VOTE_HAND_PATH = "M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z";
+  const VOTE_STAR_PATH = "M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z";
+  const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
+  const escAttr = v => String(v == null ? "" : v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
+
+  function widgetHTML(opts){
+    const s = opts.size || 16;
+    const icon = down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
+    return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
+    <button type="button" class="vote-btn vote-down" aria-label="${escAttr(opts.downLabel)}">${icon(true)}<span class="vote-count"></span></button>
+    <button type="button" class="vote-btn vote-up" aria-label="${escAttr(opts.upLabel)}">${icon(false)}<span class="vote-count"></span></button>
+    <button type="button" class="note-btn hint-btn" data-hint="${escAttr(opts.hint)}" onclick="event.stopPropagation();this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
+  </div>`;
+  }
+
+  function starHTML(opts){
+    const s = opts.size || 15;
+    return `<div class="vote-star-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
+    <button type="button" class="vote-star" aria-label="${escAttr(opts.label)}"><svg class="vote-star-icon" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_STAR_PATH}"/></svg><span class="vote-count"></span></button>
+  </div>`;
+  }
 
   const countCache = new Map();   // "type:id" -> {up, down}
   const mineCache = new Map();    // "type:id" -> -1 | 0 | 1
@@ -96,15 +125,51 @@ window.NRA_VOTES = (function(){
       upBtn.disabled = downBtn.disabled = true;
       cast(type, id, city, value).then(refresh).catch(()=>{}).finally(()=>{ upBtn.disabled = downBtn.disabled = false; });
     }
-    upBtn.addEventListener("click", () => onClick(1));
-    downBtn.addEventListener("click", () => onClick(-1));
+    /* Vote widgets often sit inside a bigger clickable surface (a hood tile
+       that switches tabs on any click, a landmark/day-trip card that may
+       link out) — stop the click there so voting never triggers it too. */
+    upBtn.addEventListener("click", e => { e.stopPropagation(); onClick(1); });
+    downBtn.addEventListener("click", e => { e.stopPropagation(); onClick(-1); });
+    refresh();
+    if (window.NRA_AUTH) NRA_AUTH.onChange(refresh);
+  }
+
+  /* A single-button "star" toggle (the landmark must-not-miss flag): same
+     up(1)/off(0) cast() mechanics as a regular vote, just one button and no
+     down state — reuses the same content_votes row shape via a distinct
+     target_id suffix (":star") on the type it's marking, not a new type. */
+  function mountStar(el){
+    if (!el || el.dataset.voteMounted) return;
+    el.dataset.voteMounted = "1";
+    const type = el.dataset.voteType, id = el.dataset.voteId, city = el.dataset.voteCity || "";
+    const btn = el.querySelector(".vote-star");
+    if (!type || !id || !btn) return;
+    const count = btn.querySelector(".vote-count");
+    function paint(counts, mine){
+      if (count) count.textContent = counts.up || "";
+      btn.classList.toggle("active", mine === 1);
+    }
+    function refresh(){
+      return Promise.all([fetchCounts(type, id), fetchMine(type, id)]).then(r => paint(r[0], r[1]));
+    }
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      if (!signedIn()){
+        if (window.NRA_AUTH) NRA_AUTH.openModal();
+        return;
+      }
+      btn.disabled = true;
+      cast(type, id, city, 1).then(refresh).catch(()=>{}).finally(()=>{ btn.disabled = false; });
+    });
     refresh();
     if (window.NRA_AUTH) NRA_AUTH.onChange(refresh);
   }
 
   function mountAll(root){
-    (root || document).querySelectorAll(".vote-widget[data-vote-type]").forEach(mount);
+    const scope = root || document;
+    scope.querySelectorAll(".vote-widget[data-vote-type]").forEach(mount);
+    scope.querySelectorAll(".vote-star-widget[data-vote-type]").forEach(mountStar);
   }
 
-  return { mount, mountAll };
+  return { mount, mountStar, mountAll, widgetHTML, starHTML };
 })();

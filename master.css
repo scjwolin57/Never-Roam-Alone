@@ -95,6 +95,15 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
    twice already (visitors box, stay card). Center it under the icon instead,
    for every vote-widget everywhere, so the next surface doesn't repeat this. */
 .vote-widget .hint-btn::after{left:50%;right:auto;transform:translateX(-50%);max-width:min(210px,calc(100vw - 24px))}
+/* Single-button "star" toggle (landmark must-not-miss). Rust for active,
+   not gold — the brand palette is green/rust/parchment/ink only. */
+.vote-star-widget{display:inline-flex;align-items:center}
+.vote-star{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
+  padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
+.vote-star:hover{border-color:var(--coral);color:var(--coral)}
+.vote-star.active{background:var(--coral);border-color:var(--coral);color:#fff}
+.vote-star[disabled]{opacity:.6;cursor:default}
+.vote-star-icon{display:block;flex-shrink:0}
 
 /* ---------- footer ----------
    The ONE footer style. The markup comes from footer.js on every page, and no

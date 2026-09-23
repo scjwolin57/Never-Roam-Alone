@@ -431,6 +431,7 @@
   .dtcard-country{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
   .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
   .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
+  .dtcard-vote{margin-top:10px}
   /* Nearby guide cards: another Never Roam Alone guide within day-trip range. The whole card opens that guide;
      the ribbon is the neighborhood photos' "best for" tag (same colour, notched ends, emoji + label). */
   a.dtcard-guide{position:relative;display:block;padding-top:52px;color:inherit;text-decoration:none}
@@ -492,6 +493,11 @@
   .cal-cell.has-events:hover{background:rgba(63,81,56,.20)}
   .cal-cell[disabled]{cursor:default;color:var(--muted)}
   .cal-dot{position:absolute;bottom:6px;right:7px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--green);color:#fff;font-size:.64rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  /* Past event days: clickable (so the vote widget on those events is reachable)
+     but visually muted, since the event itself has already happened. */
+  .cal-cell.has-events.cal-past{background:rgba(43,36,23,.06);font-weight:600}
+  .cal-cell.has-events.cal-past:hover{background:rgba(43,36,23,.12)}
+  .cal-cell.cal-past .cal-dot{background:var(--muted)}
   .cal-status{margin-top:12px;font-size:.82rem;color:var(--muted)}
   /* Event modals */
   .evt-overlay{position:fixed;inset:0;background:rgba(20,28,34,.55);display:none;align-items:flex-start;justify-content:center;z-index:200;padding:40px 16px;overflow-y:auto}
@@ -674,6 +680,7 @@
   .cost-snapshot{display:block;margin-top:18px}
   .csnap-box{background:var(--sand);border-radius:12px;padding:16px 18px;width:100%;box-sizing:border-box}
   .csnap-toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+  .csnap-vote-row{display:flex;justify-content:flex-end;margin-top:10px}
   .csnap-toggle{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--ink);cursor:pointer}
   .csnap-toggle input{width:17px;height:17px;flex-shrink:0;margin:0;cursor:pointer;accent-color:var(--green);
     border:1.5px solid rgba(63,81,56,.4);border-radius:0;background:#fff}
@@ -736,6 +743,12 @@
     color:#2b2417;background:#8a9a5b;border-radius:0;padding:6px 12px;
     text-decoration:none;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .hood-map-link:hover{background:#b0802f}
+  /* Vote widget on the neighborhood photo, top left — across from the "best for" flag at top right */
+  .hood-vote{position:absolute;top:14px;left:14px;z-index:2}
+  .hood-vote .vote-btn{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.85);background:rgba(255,255,255,.1)}
+  .hood-vote .vote-btn:hover{border-color:#fff;color:#fff}
+  .hood-vote .note-btn{color:#fff;opacity:.75}
+  .hood-vote .note-btn:hover{opacity:1}
   .avoid-sec{margin-top:30px}
   .avoid-title{font-size:1.15rem;font-weight:700;color:#7a1f14;margin:0 0 12px;display:flex;align-items:center;gap:8px}
   .avoid-ico{color:#b3261e;font-size:1.2rem}
@@ -755,17 +768,18 @@
   .hood-body{padding:22px;display:flex;flex-direction:column;flex:1}
   .hood-desc{color:var(--muted);font-size:.92rem;margin:0 0 16px;font-style:italic}
   .hood-lodging{margin-top:auto;border-top:1px solid rgba(0,0,0,.07);padding-top:14px;display:flex;flex-direction:column;gap:10px}
-  .lodge-row{display:flex;align-items:baseline;gap:10px}
+  .lodge-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .lodge-tier{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 0;border-radius:20px;color:#fff;width:84px;text-align:center}
   .lodge-name{font-size:.86rem;color:var(--muted);font-style:italic}
+  .pick-vote{flex-basis:100%;margin-top:2px}
 
   /* Bar / drinks picks inside a neighborhood card */
   .hood-bars{border-top:1px solid rgba(0,0,0,.07);padding-top:14px;margin-top:16px;
     display:flex;flex-direction:column;gap:10px}
   .hood-bars-head{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
     color:var(--muted);margin:0}
-  .bar-row{display:flex;align-items:baseline;gap:10px}
+  .bar-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .bar-kind{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 8px;border-radius:3px;background:rgba(85,107,47,.1);color:var(--teal);
     width:168px;text-align:center;line-height:1.3;text-wrap:balance}
@@ -1074,6 +1088,7 @@
   .lmk-name{font-weight:700;color:#2f3b22;text-decoration:none;border-bottom:1px dotted var(--teal)}
   .lmk-name:hover{color:var(--coral);border-bottom-color:var(--coral)}
   .lmk-desc{margin:6px 0 0;font-size:.88rem;color:var(--muted,#666);line-height:1.45}
+  .lmk-vote-wrap{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
   /* Pin hover -> enlarged card floating over the grid (desktop) */
   .lmk-cards-col{position:relative;min-width:0}
   .lmk-big{position:fixed;z-index:40;pointer-events:none;background:var(--card,#fff);
@@ -1977,21 +1992,14 @@ const COST_ICONS = {
 const TIP_ICON = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M14.6 9.3c-.6-.6-1.6-1-2.6-1-1.5 0-2.6.8-2.6 2s1.1 1.7 2.6 2 2.6.8 2.6 2-1.1 2-2.6 2c-1 0-2-.4-2.6-1"/></svg>`;
 const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="11" x2="12" y2="16.5"/><circle cx="12" cy="7.5" r="0.9" fill="currentColor" stroke="none"/></svg>`;
 
-/* Site-wide contribution feature (2026-09-22): one vote-widget builder for
-   every thumbs up/down surface, so the icon shape and markup only live in
-   one place — Jeff already asked for the hand shape to change once, and
-   there are 13 planned surfaces. Mounted by votes.js (NRA_VOTES.mountAll). */
-const VOTE_HAND_PATH = "M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-1.91l-.01-.01L23 10z";
-function voteWidgetHTML(opts){
-  const esc = v => String(v == null ? "" : v).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
-  const s = opts.size || 16;
-  const icon = down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
-  return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${esc(opts.type)}" data-vote-id="${esc(opts.id)}" data-vote-city="${esc(opts.city)}">
-    <button type="button" class="vote-btn vote-down" aria-label="${esc(opts.downLabel)}">${icon(true)}<span class="vote-count"></span></button>
-    <button type="button" class="vote-btn vote-up" aria-label="${esc(opts.upLabel)}">${icon(false)}<span class="vote-count"></span></button>
-    <button type="button" class="note-btn hint-btn" data-hint="${esc(opts.hint)}" onclick="this.classList.toggle('open')" aria-label="What this rates">${INFO_ICON}</button>
-  </div>`;
-}
+/* Site-wide contribution feature (2026-09-22): the vote-widget markup
+   builders live in votes.js now (NRA_VOTES.widgetHTML/.starHTML), since
+   post.html needs the same icon/markup for the blog-article surface and
+   duplicating it across pages is exactly the repeated-edit risk this was
+   built to avoid. These two names stay as thin aliases so every call site
+   already written against them (13 surfaces) needs no further changes. */
+function voteWidgetHTML(opts){ return NRA_VOTES.widgetHTML(opts); }
+function voteStarHTML(opts){ return NRA_VOTES.starHTML(opts); }
 
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 let CITY_TIP = {};
@@ -2563,10 +2571,14 @@ function buildAdvisoryBanner(c, cityAdv){
     const tagKey = (CITY_HOOD_TAG[c.city] && CITY_HOOD_TAG[c.city][i]) || null;
     const tm = tagKey && HOOD_TAG_META[tagKey];
     const tagHTML = tm ? `<span class="hood-tag" title="Best for: ${tm.label}"><span class="hood-tag-emoji">${tm.emoji}</span><span class="hood-tag-label">${tm.label}</span></span>` : '';
+    const hoodVote = voteWidgetHTML({type:"hood_photo", id:`${c.city}:${i}`, city:c.city, extraClass:"hood-vote", size:13,
+      downLabel:"This doesn't look like this neighborhood", upLabel:"This looks like this neighborhood",
+      hint:"You've been here and this photo is really this neighborhood (or it isn't)."});
     return `
         <div class="hood-tile" role="tab" id="hood-tab-${i}" aria-controls="hood-panel-${i}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? 0 : -1}" data-hood-idx="${i}">
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
             ${tagHTML}
+            ${hoodVote}
             <h3 class="hood-name">${name}</h3>
             <p class="hood-credit"></p>
           </div>
@@ -2580,9 +2592,12 @@ function buildAdvisoryBanner(c, cityAdv){
   /* A pick with `near` (source hood index) sits in a nearby neighborhood: the map link uses that hood and the row carries a flag. */
   const nearHood = p => (p.near != null && hoods[p.near]) ? hoods[p.near] : null;
   const nearFlag = p => { const h = nearHood(p); return h ? ` <span class="pick-near" title="This pick is in the nearby neighborhood ${escB(h)}">Nearby: ${escB(h)}</span>` : ''; };
-  const pickRows = (list, meta, hoodName) => list.map(p => {
+  const pickRows = (list, meta, hoodName, i, kind) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
-    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p)}</span></div>`;
+    const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
+      downLabel:"I've been and don't recommend this", upLabel:"I've been and recommend this",
+      hint:"You've been here and recommend this pick (or don't)."});
+    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p)}</span>${vote}</div>`;
   }).join('');
 
   /* Detail panels, one per hood; only the selected one is shown. */
@@ -2598,22 +2613,28 @@ function buildAdvisoryBanner(c, cityAdv){
               <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
               ${barList.map(b => {
                 const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
-                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b) || name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b)}</span></div>`;
+                const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
+                  downLabel:"I've been and don't recommend this", upLabel:"I've been and recommend this",
+                  hint:"You've been here and recommend this pick (or don't)."});
+                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b) || name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b)}</span>${vote}</div>`;
               }).join('')}
             </div>` : '';
     const eatList = (CITY_EAT[c.city] && CITY_EAT[c.city][i]) || [];
     const eatHTML = eatList.length ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Where to eat</p>
-              ${pickRows(eatList, EAT_KIND_META, name)}
+              ${pickRows(eatList, EAT_KIND_META, name, i, 'eat')}
             </div>` : '';
     const cafeList = (CITY_CAFES[c.city] && CITY_CAFES[c.city][i]) || [];
     const cafeHTML = cafeList.length ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Coffee &amp; takeaway</p>
-              ${pickRows(cafeList, CAFE_KIND_META, name)}
+              ${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
             </div>` : '';
-    const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${picks[ti]}</span></div>`).join(''); } return picks.map(n => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span></div>`).join(''); })();
+    const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13,
+      downLabel:"I've stayed and don't recommend this", upLabel:"I've stayed and recommend this",
+      hint:"You've stayed here and recommend this pick (or don't)."});
+    const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.k}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
     const stayHTML = lodgeRows ? `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
@@ -2643,11 +2664,14 @@ function buildAdvisoryBanner(c, cityAdv){
   const avoidHTML = avoid.length ? `
       <div class="avoid-sec">
         <h3 class="avoid-title"><span class="avoid-ico" aria-hidden="true">&#9888;</span> Safety notes / Areas to reconsider or avoid</h3>
-        ${avoid.map(a => `
+        ${avoid.map((a, ai) => `
           <div class="avoid-card avoid-${a.tier}">
             <p class="avoid-name">${a.area}</p>
             <p class="avoid-reason">${a.reason}</p>
             ${a.q ? `<a class="avoid-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(a.q + ', ' + c.city)}" target="_blank" rel="noopener">View on map &rarr;</a>` : ''}
+            ${voteWidgetHTML({type:"safety_note", id:`${c.city}:avoid:${ai}`, city:c.city, extraClass:"fl-vote", size:13,
+              downLabel:"This doesn't match what I experienced", upLabel:"This matches what I experienced",
+              hint:"You've been here and this note still matches what you found (or it doesn't)."})}
           </div>`).join('')}
       </div>` : '';
 
@@ -2802,6 +2826,9 @@ function buildAdvisoryBanner(c, cityAdv){
               <label class="csnap-toggle"><input type="checkbox" id="csnap-activities-toggle" ${csnapIncludeActivities ? "checked" : ""}> Include activities/tours</label>
               <label class="csnap-toggle"><input type="checkbox" id="csnap-solo-toggle" ${csnapSolo ? "checked" : ""}> I'm traveling solo (calculates lodging cost for one)</label>
             </div>
+            <div class="csnap-vote-row">${voteWidgetHTML({type:"cost_estimator", id:c.city, city:c.city, extraClass:"csnap-vote", size:14,
+              downLabel:"This doesn't match what I actually spent", upLabel:"This matches what I actually spent",
+              hint:"You've been here and this estimate is close to what you actually spent (or it isn't)."})}</div>
           </div>`;
   }
 
@@ -3013,12 +3040,16 @@ function buildAdvisoryBanner(c, cityAdv){
       ? `<a href="city.html?city=${encodeURIComponent(t.name)}">${t.name}</a>`
       : t.name;
     const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
+    const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14,
+      downLabel:"I've done this and it's not worth it", upLabel:"I've done this and it's worth it",
+      hint:"You've done this day trip and it's worth the time to get there (or it isn't)."});
     return `
         <div class="dtcard">
           <div class="dtcard-name">${link}</div>
           <div class="dtcard-country">${t.country}</div>
           <p class="dtcard-blurb">${t.blurb}</p>
           ${more}
+          ${vote}
         </div>`;
   }
   /* Landmark & day-trip data files are lazy-loaded (see loadLmkDtData below);
@@ -3036,6 +3067,11 @@ function buildAdvisoryBanner(c, cityAdv){
               <span class="lmk-soon-txt">Image coming soon</span>
               <button type="button" class="lmk-soon-btn" data-contrib-idx="${i}">Contribute</button>
             </div>`;
+        const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${i}`, city:c.city, extraClass:"lmk-vote-row", size:14,
+          downLabel:"I've been and this isn't worth including", upLabel:"I've been and this is worth including",
+          hint:"You've been here and this landmark is worth including (or isn't)."});
+        const lmkStar = voteStarHTML({type:"landmark", id:`${c.city}:${i}:star`, city:c.city, extraClass:"lmk-vote-row", size:15,
+          label:"Mark as a must-not-miss attraction"});
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
           ${photoHTML}
@@ -3044,6 +3080,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <div class="lmk-body">
               <a class="lmk-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>
               <p class="lmk-desc">${l[1]}</p>
+              <div class="lmk-vote-wrap">${lmkVote}${lmkStar}</div>
             </div>
           </div>
         </div>`;
@@ -3491,8 +3528,9 @@ function buildAdvisoryBanner(c, cityAdv){
         const evs = byDate[ds] || [];
         const has = evs.length > 0;
         const isToday = ds === todayStr;
+        const isPast = ds < todayStr;
         cells.push(
-          `<button type="button" class="cal-cell${has?" has-events":""}${isToday?" today":""}"` +
+          `<button type="button" class="cal-cell${has?" has-events":""}${isToday?" today":""}${has && isPast?" cal-past":""}"` +
           (has ? ` data-date="${ds}"` : " disabled") + `>` +
             `<span class="cal-num">${d}</span>` +
             (has ? `<span class="cal-dot">${evs.length}</span>` : "") +
@@ -3518,9 +3556,14 @@ function buildAdvisoryBanner(c, cityAdv){
         byDate = {};
         let upcoming = 0;
         (data || []).forEach(ev => {
-          if (ev.event_date < todayStr) return;      // past events drop off the public calendar
+          /* Past events stay on the calendar (clickable, muted) instead of
+             dropping off entirely, since only a past event carries a vote
+             widget — voting on whether it was worth attending only makes
+             sense after the fact. "Upcoming" below still counts future-only,
+             for the "no events yet" message. */
+          ev.isPast = ev.event_date < todayStr;
           (byDate[ev.event_date] = byDate[ev.event_date] || []).push(ev);
-          upcoming++;
+          if (!ev.isPast) upcoming++;
         });
         eventMonths = Array.from(new Set(Object.keys(byDate).map(d => d.slice(0,7)))).sort();
         statusEl.textContent = upcoming ? "" : "No upcoming events listed yet — be the first to submit one!";
@@ -3562,6 +3605,11 @@ function buildAdvisoryBanner(c, cityAdv){
         else if (ev.contact_type === "social") contact = `<a href="${v}" target="_blank" rel="noopener">${v} &#8599;</a>`;
         else                                   contact = `<a href="mailto:${v}">${v}</a>`;
       }
+      /* Votes only apply to a past event — whether it was worth attending
+         is only knowable after the fact. */
+      const vote = ev.isPast ? voteWidgetHTML({type:"event", id:ev.id, city:CITY, extraClass:"fl-vote",
+        downLabel:"I went and it wasn't worth it", upLabel:"I went and it was worth it",
+        hint:"You went to this event and it was worth attending (or it wasn't)."}) : "";
       return `<div class="evt-item">` +
         (ev.poster_url ? `<a class="evt-poster" href="${esc(ev.poster_url)}" target="_blank" rel="noopener"><img src="${esc(ev.poster_url)}" alt="" loading="lazy"></a>` : "") +
         `<div class="evt-body">` +
@@ -3570,6 +3618,7 @@ function buildAdvisoryBanner(c, cityAdv){
           (loc  ? `<div class="evt-meta">&#128205; ${loc}</div>` : "") +
           (contact ? `<div class="evt-meta">&#128172; <span>Questions:</span> ${contact}</div>` : "") +
           (ev.link ? `<a class="evt-link-btn" href="${esc(ev.link)}" target="_blank" rel="noopener">Event details &#8599;</a>` : "") +
+          vote +
         `</div></div>`;
     }
     const LANG = () => (window.NRA_i18n && window.NRA_i18n.lang && window.NRA_i18n.lang()) || "en";
@@ -3587,6 +3636,7 @@ function buildAdvisoryBanner(c, cityAdv){
         `</div>`;
       dayOv.querySelector(".evt-close").onclick = () => close(dayOv);
       if (window.NRA_i18n) { try { window.NRA_i18n.apply(); } catch(e){} }
+      if (window.NRA_VOTES) NRA_VOTES.mountAll(dayOv);
       open(dayOv);
     }
     daysEl.addEventListener("click", e => {
@@ -3950,10 +4000,14 @@ function buildAdvisoryBanner(c, cityAdv){
 
     function card(r){
       const all = pairs(r);
+      const vote = voteWidgetHTML({type:"insight", id:r.id, city:c.city, extraClass:"fl-vote",
+        downLabel:"Not a helpful perspective", upLabel:"A helpful perspective",
+        hint:"This traveler's account is honest and useful to other readers (or it isn't)."});
       return `<article class="ins-card">` +
           `<div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
           qa(all, 2) +
           (all.length > 2 ? `<button type="button" class="ins-link" data-ins-read="${esc(r.id)}">Read the full interview &rarr;</button>` : "") +
+          vote +
         `</article>`;
     }
     function paintList(type, showAll){
@@ -3963,6 +4017,7 @@ function buildAdvisoryBanner(c, cityAdv){
       const shown = showAll ? rows : rows.slice(0, SHOW);
       el.innerHTML = shown.map(card).join("") +
         (rows.length > shown.length ? `<button type="button" class="ins-link ins-more" data-ins-all="${type}">Show all ${rows.length} &rarr;</button>` : "");
+      if (window.NRA_VOTES) NRA_VOTES.mountAll(el);
     }
     function openRead(id){
       const r = published.find(x => x.id === id);
@@ -4269,6 +4324,8 @@ function buildAdvisoryBanner(c, cityAdv){
       if (actToggle) actToggle.addEventListener("change", () => { csnapIncludeActivities = actToggle.checked; renderCosts(); });
       const soloToggle = document.getElementById("csnap-solo-toggle");
       if (soloToggle) soloToggle.addEventListener("change", () => { csnapSolo = soloToggle.checked; renderCosts(); });
+      /* Rebuilt on every toggle/currency/rate change, same as flRun()'s modal. */
+      if (window.NRA_VOTES) NRA_VOTES.mountAll(sel);
     }
     const nel = document.getElementById("net-card");
     if (nel) { nel.innerHTML = buildNetCard(compareCode); nel.hidden = (net == null); }
@@ -4760,10 +4817,14 @@ function buildAdvisoryBanner(c, cityAdv){
         <span class="food-place-name">${p.name}</span><span class="food-place-area">${p.area}</span>
         <p class="food-place-note">${p.note}</p>
         <a class="food-place-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ", " + p.area + ", " + c.city)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+        ${voteWidgetHTML({type:"food_place", id:`${it.name}|${p.name}`, city:c.city, extraClass:"fl-vote", size:13,
+          downLabel:"I've been and this isn't accurate", upLabel:"I've been and this checks out",
+          hint:"You've been here and this place, and its take on the dish, are worth recommending (or aren't)."})}
       </div>`).join("")}
       <p class="food-contrib-row">Have a photo of ${it.name}?<button type="button" class="food-contrib-btn" data-contrib-kind="food-dish" data-contrib-subject="${it.name.replace(/"/g,'&quot;')}" data-contrib-idx="${idx}">Contribute one</button></p>
       <p class="food-src-note">Picks are based on recent traveler reviews and food articles — hours and quality can change, so double-check before you go.</p>`;
     modalBody.scrollTop = 0;
+    if (window.NRA_VOTES) NRA_VOTES.mountAll(modalBody);
   }
 
   function openModal(title) {
@@ -4795,6 +4856,12 @@ function buildAdvisoryBanner(c, cityAdv){
       }
     } else if (NOTE_MODALS[title] && cityNotes[NOTE_MODALS[title]]) {
       modalBody.innerHTML = `<p class="note-text">${cityNotes[NOTE_MODALS[title]]}</p>`;
+      if (title === "Safety notes") {
+        modalBody.innerHTML += voteWidgetHTML({type:"safety_note", id:`${c.city}:note`, city:c.city, extraClass:"csnap-vote",
+          downLabel:"This doesn't match what I experienced", upLabel:"This matches what I experienced",
+          hint:"You've been here and this note still matches what you found (or it doesn't)."});
+        if (window.NRA_VOTES) NRA_VOTES.mountAll(modalBody);
+      }
     } else if (SCORE_GUIDES[title]) {
       modalBody.innerHTML = buildScoreGuideModal(SCORE_GUIDES[title], SCORE_CURRENT[title]);
     } else if (title === "Laundry") {
@@ -5183,6 +5250,9 @@ function buildAdvisoryBanner(c, cityAdv){
       if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trip picks for ${c.city} are coming soon.</p>`;
       initLmkMap();
       initLmkCardExpand();
+      /* Both bodies are filled once, lazily, right here — mount their vote
+         widgets (landmark cards + stars, day-trip cards) now that they exist. */
+      if (window.NRA_VOTES){ if (lmkBody) NRA_VOTES.mountAll(lmkBody); if (dtBody) NRA_VOTES.mountAll(dtBody); }
     }).catch(err => {
       console.warn(err);
       lmkDtStarted = false; // allow a retry on the next scroll/interaction
