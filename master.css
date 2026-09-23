@@ -87,6 +87,14 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
 .vote-icon{display:block;flex-shrink:0}
 .vote-icon-down{transform:scaleY(-1)}
 .vote-count{font-size:.72rem;font-weight:700;min-width:.7em;text-align:left}
+/* The .hint-btn info icon's sitewide mobile flip (city.html, ~line 269:
+   left:auto;right:0) assumes the icon sits at the right edge of its row, so
+   opening leftward keeps it on screen. A vote-widget's info icon is the 3rd
+   of 3 in a row that's rarely pinned to a right edge (a centered hero row, a
+   centered card), so that flip runs it off the opposite edge instead — seen
+   twice already (visitors box, stay card). Center it under the icon instead,
+   for every vote-widget everywhere, so the next surface doesn't repeat this. */
+.vote-widget .hint-btn::after{left:50%;right:auto;transform:translateX(-50%);max-width:min(210px,calc(100vw - 24px))}
 
 /* ---------- footer ----------
    The ONE footer style. The markup comes from footer.js on every page, and no
