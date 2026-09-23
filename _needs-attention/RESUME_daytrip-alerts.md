@@ -25,3 +25,4 @@ added back with alerts.
 | b02 | Mexico | 82, 15 covered (US: Colima, Guerrero, Michoacán, Sinaloa, Zacatecas) | agreed; sources upgraded to the State Dept page (archive 2026-07-14) | this commit |
 | b03 | India | 75, 5 covered (Kashmir Valley x4, Pul Kanjari) | added US to all 5; 3 vague-area trips held for Jeff (daytrip-alerts-calls.md) | this commit |
 | b08 | Philippines, Egypt | 61, 6 covered | Wadi El Natrun x2 gained US; Coloured Canyon x2 held (vague "Middle Sinai", calls file) | this commit (4 alerts) |
+| b07 | Türkiye, Algeria | 88, 11 covered (Tamanrasset x7 US province list; Djanet: Tadrart Rouge, Tin Merzouga, Tassili; Tlemcen, Canada 50 km Morocco) | 5 borderlines settled | this commit |
