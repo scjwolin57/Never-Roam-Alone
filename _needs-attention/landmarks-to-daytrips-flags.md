@@ -1,5 +1,7 @@
 # Landmarks moved to day trips: items for Jeff (2026-09-23)
 
+**Jeff's answers, 2026-09-23:** 1 leave the heading as is; 2 Chief's Island removed; 3 the Giant Buddha stays a Leshan landmark and is off Chengdu (no change needed); 4 Mahan stays a landmark; 5 Chaiya merged into one half-day trip; 6 research worthy in-town landmarks for the five cities, else leave; 7 wait for the 2 October Google pass.
+
 The move is done (decisions.md 2026-09-23). These are the loose ends, each a yes/no.
 
 1. **The "Full day · 3 hours or less one way" heading** now sits over 19 trips that take longer (they carry
