@@ -343,6 +343,31 @@
   .note-btn:hover,.note-btn:focus-visible{opacity:1}
   .note-text{margin:0;font-size:.95rem;line-height:1.55}
 
+  /* Legend rows inside a score's "how to read this" modal (walk / safety & crime / solo).
+     Single-column guides (walk, solo) use the flex row; the two-column guide
+     (safety & crime) uses the grid row below so both value columns stay the
+     same width no matter how wide their content is — a justified table, not
+     text that happens to line up. */
+  .tier-row{display:flex;align-items:flex-start;flex-wrap:wrap;gap:0;margin:0 0 7px;font-size:.9rem;line-height:1.5;color:var(--ink)}
+  .tier-row:last-of-type{margin-bottom:0}
+  .tier-row .stat-dot{margin-top:8px;flex-shrink:0}
+  .tier-text{flex:1 1 0%;min-width:0}
+  .tier-row-grid{display:grid;grid-template-columns:14px 1fr 1fr auto;align-items:start;column-gap:6px;row-gap:2px;margin:0 0 8px;font-size:.9rem;line-height:1.5;color:var(--ink)}
+  .tier-row-grid:last-of-type{margin-bottom:0}
+  .tier-row-grid .stat-dot{margin-top:8px}
+  .tier-col{min-width:0}
+  .tier-col-name{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+  .tier-col-sub{display:block;font-size:.68rem;font-style:italic;color:var(--muted);margin-top:1px}
+  .tier-head{margin-bottom:6px}
+  .tier-note{grid-column:2 / -1;margin-top:2px;color:var(--muted);font-size:.85rem}
+
+  /* Highlighted callout at the top of a score-guide modal showing this
+     city's own number, so the legend below isn't the only thing on screen. */
+  .tier-current{display:flex;align-items:flex-start;gap:8px;margin:0 0 14px;padding:9px 11px;background:rgba(0,0,0,.045);border-left:3px solid;border-radius:3px;font-size:.92rem;color:var(--ink)}
+  .tier-current .stat-dot{flex-shrink:0;margin-top:6px}
+  .tier-current-text{flex:1 1 auto}
+  .tier-current-line{display:block;margin-top:2px}
+
   /* Local food & drink recommendations (meal cost card + modal) */
   .food-recs-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 10px;border-top:1px solid rgba(0,0,0,.08);width:100%;background:rgba(63,81,56,.09);border-left:none;border-right:none;border-bottom:none;border-radius:8px;font-family:inherit;font-size:.92rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer;text-align:left;transition:background .15s}
   .food-recs-btn:hover{background:rgba(63,81,56,.16)}
@@ -1461,6 +1486,70 @@ function crimeColor(s) {
   return "#e01010";              // 80–100  bright red
 }
 
+/* Legends behind the info icon next to Walk score, Safety & crime index and
+   Solo comfort — the scale itself, not a per-city note (that's cityNotes,
+   above via noteBtn). Same tiers and colours as walkInfo/safetyColor/
+   crimeColor/SOLO_META so the legend never drifts from what's on screen. */
+const SCORE_GUIDES = {
+  "Tourist ratio guide": {
+    intro: "Daily tourist-to-local ratio estimates how many tourists are in the city on an average day for every 100 residents: annual visitors &times; average length of stay &divide; 365, divided by resident population. Lower means the city feels more like itself; higher means tourists can outnumber or crowd out daily life.",
+    rows: [
+      { c:"#1d9a6c", label:"0&ndash;10% &middot; Feels local", note:"a good score &mdash; tourists are a small share of daily life" },
+      { c:"#e0a800", label:"11&ndash;30% &middot; Noticeably touristy" },
+      { c:"#e55039", label:"31%+ &middot; Tourist-heavy", note:"a bad score &mdash; expect crowds and tourist pricing in central areas" }
+    ]
+  },
+  "Walk score guide": {
+    intro: "Walk score rates how easy it is to get around on foot, from 0 to 100 &mdash; higher is better.",
+    rows: [
+      { c:"#1d9a6c", label:"90&ndash;100 &middot; Walker's paradise", note:"a good score &mdash; daily errands don't need a car" },
+      { c:"#1d9a6c", label:"70&ndash;89 &middot; Very walkable" },
+      { c:"#e0a800", label:"50&ndash;69 &middot; Somewhat walkable" },
+      { c:"#b5492c", label:"0&ndash;49 &middot; Car-dependent", note:"a bad score &mdash; plan on taxis, rideshare or transit for most trips" }
+    ]
+  },
+  "Safety & crime index guide": {
+    intro: "Safety index and crime index are Numbeo-style scores, 0&ndash;100, that run in opposite directions: a high safety index is good, a high crime index is bad. The two roughly sum to 100 for a city.",
+    cols: [
+      { name:"Safety", sub:"Higher = Better" },
+      { name:"Crime", sub:"Lower = Better" }
+    ],
+    rows: [
+      { c:"#1d9a6c", s:"80&ndash;100", cr:"0&ndash;19" },
+      { c:"#7cb342", s:"60&ndash;79", cr:"20&ndash;39" },
+      { c:"#e0a800", s:"40&ndash;59", cr:"40&ndash;59" },
+      { c:"#fd7e14", s:"20&ndash;39", cr:"60&ndash;79" },
+      { c:"#e01010", s:"0&ndash;19", cr:"80&ndash;100" }
+    ]
+  },
+  "Solo comfort guide": {
+    intro: "Solo comfort is computed (0&ndash;100) from five inputs: safety index, the Georgetown/PRIO Women, Peace and Security Index, government travel advisories, walk score, and English ease &mdash; see the site's SOLO_RUBRIC.md for the exact formula. Because it blends several already-capped 0&ndash;100 inputs, no city scores above the high 80s, so the tiers below reflect this score's real range, not 0&ndash;100 evenly split.",
+    rows: [
+      { c:SOLO_META.vh.c, label:`72&ndash;100 &middot; ${SOLO_META.vh.w}`, note:"a good score" },
+      { c:SOLO_META.h.c,  label:`60&ndash;71 &middot; ${SOLO_META.h.w}` },
+      { c:SOLO_META.m.c,  label:`48&ndash;59 &middot; ${SOLO_META.m.w}` },
+      { c:SOLO_META.l.c,  label:`39&ndash;47 &middot; ${SOLO_META.l.w}` },
+      { c:SOLO_META.vl.c, label:`0&ndash;38 &middot; ${SOLO_META.vl.w}`, note:"a bad score &mdash; extra planning is recommended" }
+    ]
+  }
+};
+function buildScoreGuideModal(guide, current) {
+  const cur = current
+    ? `<div class="tier-current" style="border-left-color:${current.c}"><span class="stat-dot" style="background:${current.c}"></span><span class="tier-current-text">${current.text}</span></div>`
+    : "";
+  if (guide.cols) {
+    const head = `<div class="tier-row-grid tier-head"><span></span>`
+      + guide.cols.map(cc => `<span class="tier-col"><span class="tier-col-name">${cc.name}</span><span class="tier-col-sub">${cc.sub}</span></span>`).join("")
+      + `<span></span></div>`;
+    const rows = guide.rows.map(r =>
+      `<div class="tier-row-grid"><span class="stat-dot" style="background:${r.c}"></span><span class="tier-col"><b>${r.s}</b></span><span class="tier-col"><b>${r.cr}</b></span><span class="tier-note">${r.note ? `&mdash; ${r.note}` : ""}</span></div>`
+    ).join("");
+    return `<p class="rt-intro">${guide.intro}</p>${cur}${head}${rows}`;
+  }
+  const rows = guide.rows.map(r => `<div class="tier-row"><span class="stat-dot" style="background:${r.c}"></span><span class="tier-text"><b>${r.label}</b>${r.note ? ` &mdash; ${r.note}` : ""}</span></div>`).join("");
+  return `<p class="rt-intro">${guide.intro}</p>${cur}${rows}`;
+}
+
 /* Five most popular neighborhoods per city */
 /* Most photographed landmark per neighborhood — used to fetch Wikipedia thumbnail */
 let CITY_HOOD_LANDMARK = {};
@@ -2344,10 +2433,28 @@ if(!c){
   const noteBtn = (key, title) => cityNotes[key]
     ? `<button type="button" class="note-btn" onclick="openModal('${title}')" aria-label="${title} — more info" title="More info">${INFO_ICON}</button>`
     : "";
+  /* Info icon next to a score that opens a generic legend explaining the
+     scale itself (what a good score and a bad score look like). Always
+     renders, unlike noteBtn above, since the scale is the same for every
+     city — only the per-city note is conditional. */
+  const scaleBtn = (title) =>
+    `<button type="button" class="note-btn" onclick="openModal('${title}')" aria-label="${title} — more info" title="More info">${INFO_ICON}</button>`;
   const walk = CITY_WALK[c.city];
   const walkLvl = walk != null ? walkInfo(walk) : null;
   const safety = CITY_SAFETY[c.city];
   const solo = CITY_SOLO[c.city];
+  /* This city's own numbers, shown as a highlighted line at the top of the
+     matching score-guide modal (see SCORE_GUIDES / buildScoreGuideModal). */
+  const SCORE_CURRENT = {
+    "Tourist ratio guide": touristRatio == null ? null
+      : { c: ratioColor(touristRatio), text: `${c.city}&rsquo;s ratio: <b>${touristRatio}%</b> &middot; ~${stayDays}-day avg stay` },
+    "Walk score guide": walkLvl == null ? null
+      : { c: walkLvl.c, text: `${c.city}&rsquo;s walk score: <b>${walk}/100</b> &middot; ${walkLvl.w}` },
+    "Safety & crime index guide": safety == null ? null
+      : { c: safetyColor(safety.safety), text: `${c.city}&rsquo;s scores:<span class="tier-current-line">Safety <b>${safety.safety}</b> &middot; Crime <b>${safety.crime}</b></span>` },
+    "Solo comfort guide": solo == null ? null
+      : { c: SOLO_META[solo.sc].c, text: `${c.city}&rsquo;s solo comfort: <b>${solo.score}/100</b> &middot; ${SOLO_META[solo.sc].w}` }
+  };
   const cityAdv = (typeof CITY_ADVISORY !== "undefined" && CITY_ADVISORY[c.city]) || null;
 
 /* Travel advisories. The site is read all over the world, so it does not show one
@@ -2983,11 +3090,11 @@ function buildAdvisoryBanner(c, cityAdv){
             <div class="sc-item"><div class="k">Annual visitors</div><div class="v">${num} M</div></div>
           </div>
           <div class="sc-metrics">
-            ${touristRatio == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${ratioColor(touristRatio)}"></span>Daily tourist-to-local ratio <b style="color:${ratioColor(touristRatio)}">${touristRatio}%</b> &middot; ~${stayDays}-day avg stay</div>`}
-            ${walkLvl == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${walkLvl.c}"></span>Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}${noteBtn("walk", "Walkability")}</div>`}
-            ${safety == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${safetyColor(safety.safety)}"></span>Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a>${noteBtn("safety", "Safety notes")}</div>`}
-            ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Solo comfort <b style="color:${SOLO_META[solo.sc].c}">${SOLO_META[solo.sc].w}</b></div>`}
-            ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Women traveling solo <b style="color:${SOLO_META[solo.sc].c}">${solo.f}</b></div>`}
+            ${touristRatio == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${ratioColor(touristRatio)}"></span>Daily tourist-to-local ratio <b style="color:${ratioColor(touristRatio)}">${touristRatio}%</b> &middot; ~${stayDays}-day avg stay${scaleBtn("Tourist ratio guide")}</div>`}
+            ${walkLvl == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${walkLvl.c}"></span>Walk score <b style="color:${walkLvl.c}">${walk}/100</b> &middot; ${walkLvl.w}${scaleBtn("Walk score guide")}${noteBtn("walk", "Walkability")}</div>`}
+            ${safety == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${safetyColor(safety.safety)}"></span>Safety index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' safety index')}" target="_blank" rel="noopener" style="color:${safetyColor(safety.safety)}">${safety.safety}</a> &middot; Crime index <a class="idx-link" href="http://www.google.de/search?q=${encodeURIComponent(c.city + ' crime index')}" target="_blank" rel="noopener" style="color:${crimeColor(safety.crime)}">${safety.crime}</a>${scaleBtn("Safety & crime index guide")}${noteBtn("safety", "Safety notes")}</div>`}
+            ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Solo comfort <b style="color:${SOLO_META[solo.sc].c}">${solo.score}/100</b> &middot; ${SOLO_META[solo.sc].w}${scaleBtn("Solo comfort guide")}</div>`}
+            ${solo == null ? "" : `<div class="ratio-line"><span class="stat-dot" style="background:${SOLO_META[solo.sc].c}"></span>Main factor <b style="color:${SOLO_META[solo.sc].c}">${solo.f}</b></div>`}
           </div>
           <p class="stat-disclaimer"><em>*these average figures are displayed for reference purposes and may not reflect real world conditions</em></p>
         </div>
@@ -4639,6 +4746,8 @@ function buildAdvisoryBanner(c, cityAdv){
       }
     } else if (NOTE_MODALS[title] && cityNotes[NOTE_MODALS[title]]) {
       modalBody.innerHTML = `<p class="note-text">${cityNotes[NOTE_MODALS[title]]}</p>`;
+    } else if (SCORE_GUIDES[title]) {
+      modalBody.innerHTML = buildScoreGuideModal(SCORE_GUIDES[title], SCORE_CURRENT[title]);
     } else if (title === "Laundry") {
       modalBody.innerHTML = buildLaundryModal();
     } else if (title === "Find laundry & gyms") {
