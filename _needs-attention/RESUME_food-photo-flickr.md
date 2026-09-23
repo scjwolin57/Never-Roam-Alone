@@ -22,3 +22,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 |---|---|---|---|---|---|---|
 | 1 | Delhi … Chamonix (25) | 36 | 13 | 10 | 13 | (this commit) |
 | 2 | Suzhou … Aswan (25) | 41 | 8 | 17 | 16 | see git log |
+| 3 | Casablanca … Baghdad (25) | 39 | 10 | 15 | 14 | see git log |
