@@ -32,3 +32,5 @@ added back with alerts.
 | b15 | 13 small countries | 26, 4 covered (UK: Sidon, Virunga, Bukavu from Bujumbura, Tiraspol) | agreed, 0 changes | this commit |
 | b12 | Nigeria, Kenya, Guatemala, Bolivia, Cambodia, Ukraine, Uzbekistan | 94, 13 covered | 2 borderlines settled; Kenya US list confirmed | this commit |
 | b14 | Palestine, Cameroon, Myanmar, Venezuela and 11 more | 81, 10 covered | 3 borderlines settled; Bilene refiled to Mozambique | this commit |
+| b01 | China | 187, 0 covered by definition: no tracked government has a top-level area in China (US Level 2 reissued 2026-09-04, no Do Not Travel area; UK no advice against travel; Canada no "avoid all travel" region) | agent stopped after 35 min of geocoding, not needed | nothing to write |
+| b13 | Rwanda, Mozambique, Ecuador, Honduras, Turkey, Jordan, Georgia, Laos, Tanzania | 94, 10 proposed | Bugarama Hot Springs removed (13-14 km); 2 borderlines settled | this commit (9 alerts) |
