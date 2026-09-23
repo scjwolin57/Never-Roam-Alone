@@ -25,3 +25,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 3 | Casablanca … Baghdad (25) | 39 | 10 | 15 | 14 | see git log |
 | 4 | Saint-Tropez … Bergen (25) | 40 | 4 | 12 | 24 | see git log |
 | 5 | Bridgetown … Córdoba (25) | 48 | 7 | 17 | 24 | see git log |
+| 6 | Poznań … Faro (25) | 46 | 8 | 17 | 21 | see git log |
