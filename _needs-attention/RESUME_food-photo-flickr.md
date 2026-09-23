@@ -29,3 +29,4 @@ Question file: `food-photos-flickr-no-licence.md`. Work is on the `food-photo-fi
 | 6 | Poznań … Faro (25) | 46 | 8 | 17 | 21 | see git log |
 | 7 | Bristol … Valparaíso (25) | 46 | 9 | 16 | 21 | see git log |
 | 8 | Pula … Plettenberg Bay (25) | 31 | 0 | 15 | 16 | see git log |
+| 9 | Gisenyi … Puerto Natales (25) | 46 | 7 | 24 | 15 | see git log |
