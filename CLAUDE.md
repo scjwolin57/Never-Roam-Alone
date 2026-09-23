@@ -72,9 +72,21 @@ wrong; say so and propose the rewrite.
 3. **Every figure has a source.** Money in USD, checked-date noted. Visitor
    figures are international, not domestic. Estimates are labelled as estimates
    in the data (e.g. `taxiEst`), never silently.
-4. **Counts are live, never hard-coded.** City count (893), country count (197),
+4. **Counts are live, never hard-coded.** City count (893), country count,
    event counts, etc. are read from the data at runtime. Do not type a number
-   into copy.
+   into copy. **Country count is never more than 197** — the total number of
+   UN-recognized sovereign countries in the world, a ceiling, not a target.
+   Raw `country` strings in `destinations.js`/citydata include territories
+   and dependencies (Puerto Rico, Hong Kong, Bermuda, French Polynesia, and
+   similar) as their own entries — a naive distinct-value count of that field
+   is NOT the country count and will read over 197. The real count folds each
+   territory into its sovereign parent and merges spelling variants (Turkey /
+   Türkiye) via `country-fold.js` (`window.NRA_foldCountry`, shared by
+   index.html's homepage stat and profile.html's "countries visited"
+   counter) — that fold is the single source of truth. If a page needs the
+   country count, it calls `NRA_foldCountry` per city and counts the distinct
+   results, exactly like index.html already does; it never counts raw
+   `country` strings directly.
 5. **The sheet and the site move together.** NRA-MASTER.xlsx ("Live Cities") is
    the master. Any per-city data change on the site is mirrored to the sheet in
    the same task, and vice versa. Check parity before saying done.
@@ -143,8 +155,11 @@ a decision made in chat and never written down.
 - **Format is uniform within a column.** If Religions shows "Catholic 33%",
   Languages shows "Spanish 92%". No bare names beside percentages, no prose in
   a numeric column, no lists joined per character.
-- **Counts are derived, never typed.** 893 cities and 197 countries are read
-  from the data wherever they appear.
+- **Counts are derived, never typed.** 893 cities and the country count are
+  read from the data wherever they appear. Country count tops out at 197 (all
+  UN-recognized sovereign countries) — see §3 rule 4 and `country-fold.js`; a
+  distinct-string count that exceeds it means a territory/dependency needs
+  mapping to its sovereign country, not that 197 needs raising.
 
 ### 4.3 Places: venues, landmarks, neighborhoods, day trips, photos
 
