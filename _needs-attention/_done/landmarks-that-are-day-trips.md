@@ -1,5 +1,7 @@
 # Landmarks that sit more than 30 km from their city
 
+**Superseded 2026-09-23.** Jeff ruled by drive time instead of the keep/move judgement below: over 30 min -> day trip (decisions.md). 295 moved; open items in `landmarks-to-daytrips-flags.md`. The 18 "pin wrong" rows stay for the Google pass.
+
 The rulebook says a landmark is inside the city and anything outside is a day trip, and that the two lists never overlap (CLAUDE.md 4.3, decisions.md 2026-09-18). After the 2026-09-22 pin pass, 317 landmark pins were more than 30 km out; Hebron's two were fixed the same day, leaving 315 here. Every one has a suggestion below. Nothing here has been changed.
 
 | Suggestion | Count | What it means |

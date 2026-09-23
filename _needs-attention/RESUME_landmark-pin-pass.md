@@ -134,3 +134,6 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
   day trips in the landmarks list, which the rulebook says never overlap.
 - Punta Cana's Manati Park is marked "Cerrado" (closed) in OpenStreetMap. The
   pin was fixed to the Bavaro site; whether the landmark should stay is his call.
+
+
+**2026-09-23: landmark indices shifted.** 295 far-out landmarks moved to day trips (decisions.md). `landmark-pins-for-google.csv` was re-indexed by landmark name after each batch and the moved rows dropped (2056 -> 1949 rows). Match rows by name, not by the stored index alone; apply_pins.py's old-value check refuses any slot whose pin changed.
