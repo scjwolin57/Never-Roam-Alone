@@ -23,3 +23,26 @@ The move is done (decisions.md 2026-09-23). These are the loose ends, each a yes
 
 Method note: drive times are OSRM car routes with no traffic, so real times run longer, most of all in big or
 congested countries. Trips timed 60-75 min could be full-day in practice.
+
+## Item 6 result (2026-09-23)
+
+Researched by one agent per city (rules: in town, official or OSM/Wikidata plus a second source, pinned, Commons photo
+location-checked and commercial-licensed; research files in `_guidebuild/daytrips/lmkmove/intown/`), then checked here.
+
+| City | Added | Now |
+|---|---|---|
+| San Pedro de Atacama | Valle de la Muerte (photo), Garganta del Diablo (no photo on Commons) | 6 |
+| Salalah | Nabi Imran Tomb (photo), Ayn Jarziz (photo), Khawr Ad Dahariz Nature Reserve (no photo) | 7 |
+| Tamanrasset | Bordj of Charles de Foucauld (photo); Hermitage at Assekrem removed (80 km out, already the Assekrem Plateau day trip) | 4 |
+| Enshi | Enshi Prefecture Museum (no photo on Commons) | 4 |
+| Djanet | nothing: the only find, the park museum, has no source describing it | 4 |
+
+**Still for Jeff:**
+- **Sefar and Jabbaren (Djanet landmarks)** are on the Tassili plateau with no road: a 4x4 to the Akba Tafilalet pass
+  (about 16 km), then a climb of about 4 h on foot; the usual treks run 7-9 days with a required guide (Terres
+  Touareg, fjexpeditions 2022-23). Neither a landmark nor a day trip by the rules. Remove, or keep?
+- **Two good places need a Google Maps pin** (not on OpenStreetMap or Wikidata): Lianzhu Pagoda, Enshi (1832, Hubei
+  provincial heritage site, on Wufeng Mountain about 1 km from the centre); Ahaggar National Park museum (OPNA),
+  Tamanrasset. Paste a pin and they go in.
+- Not added: Ayn Hamran (Salalah, 22 km, in Taqah: a day-trip candidate), Mirador de Kari (San Pedro, part of the
+  Valle de la Luna visit).
