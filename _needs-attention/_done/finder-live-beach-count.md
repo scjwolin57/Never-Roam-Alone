@@ -1,4 +1,4 @@
-# Finder: the live "mapped beaches" count still uses the old OpenStreetMap method
+# DONE 2026-09-24 (Jeff: B, label it "Beaches Score"). Finder: the live "mapped beaches" count still uses the old OpenStreetMap method
 
 *2026-09-24. Found while switching the Beaches score to v2. Nothing changed.*
 
