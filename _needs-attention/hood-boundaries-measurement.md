@@ -69,3 +69,27 @@ is also missing for most landmark-named neighborhoods, and Vietnam's 2025 ward r
 wards, not the old districts our neighborhood names come from.
 
 Files: measurement script and data in the session scratchpad; boundaries from Overture release 2026-08-19.0 (divisions theme).
+
+## Current picks that sit just outside the official boundary (checked 2026-09-24, nothing changed)
+These live picks were placed in their neighborhood by the agents from the address. The Overture boundary puts them
+within 300 m outside it. Rule 4.5 (newer does not beat verified): they stay as they are unless Jeff says otherwise.
+**Question for Jeff:** leave them unflagged (recommended: they are on the neighborhood's own edge streets), or show
+"Just outside <hood>" on them?
+
+| City | Hood | Section / kind | Pick |
+|---|---|---|---|
+| Lisbon | Alfama | eat / fine | Taberna Sal Grosso |
+| Lisbon | Baixa | eat / local | Can the Can (Praça do Comércio) |
+| Lisbon | Alfama | bars / pub | Tejo Bar |
+| Lisbon | Baixa | bars / cocktail | Lisboa Bar |
+| Lisbon | Baixa | bars / pub | A Ginjinha Espinheira |
+| Las Vegas | Chinatown | bars / dive | Moon Doggie's Bar |
+| Hanoi | Cau Giay | eat / casual | Chay Mộc Miên |
+| Hanoi | Dong Da | cafes / coffee | Skyline Coffee |
+| Hanoi | Dong Da | bars / cocktail | Bellanco |
+No live pick falls outside every area.
+
+## Follow-up
+The Tay Ho and Summerlin pins moved (commit after 6226fe81). Laundromats and gyms already listed keep their neighborhood
+(checked: 0 changes), but a laundromat newly within 1 km of a moved pin is not added until `load_laundromats.py` runs
+again for all cities. Run it when no other session is writing citydata.

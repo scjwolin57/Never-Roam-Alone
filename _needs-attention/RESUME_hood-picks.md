@@ -199,3 +199,19 @@ Pipeline now: `annotate.py` (chain detector, big brands removed, name and hotel 
 **Loaded: 105 picks** (Vatican City 15, Las Vegas 22, Lisbon 28, Hanoi 20, Ho Chi Minh City 20) = 105 of 210 slots (50%); plus the 20 baseline bars, untouched. Every loaded pick was confirmed by a checker and then by a fresh auditor; 7 were corrected after a check or audit (names, a chain count, a cut note, a blanked note). Bars: 38 safety-searched, 1 fail (The Balcony Beer, not loaded). Parity 0 mismatches.
 Still empty: 105 slots, mostly no loadable page, chain limits, strict hood edges, and Summerlin (Las Vegas) with no candidates at all.
 Next: the other 20 cities of batch 2 through the same pipeline (their batch-2 picks and checks are in `work/batch02r/`; re-pick from the cache).
+
+### Wider-area round, 2026-09-24 (decisions.md 2026-09-24): LOADED
+Same 5 cities. Search area per hood in `_guidebuild/hoodpicks/areas/<slug>.json` (whole boundary for Belém, Chinatown LV and the
+5 Hanoi 2025 wards; 800 m with boundary check for Alfama, Bairro Alto, Baixa, Borgo; 1.2 km for the other 12). Tay Ho and
+Summerlin pins moved to their venue-density peaks. `fetch_rank.py area`: **93 Google calls ($3.72)**. Only venues no agent had
+judged before were offered: 53 empty kinds to fill, 40 current picks open to challenge by a higher-ranked new venue.
+| Step | Result |
+|---|---|
+| Pick agents | 55 picks (29 fills, 26 challenges won by the picker) |
+| Gate | 1 rejected (a flagged chain with no outlet count) |
+| Checker | 45 confirmed, 9 wrong (5 of them challengers: the current pick stays), 1 renamed |
+| Audit of confirmed | 36 audited, 3 wrong (2 names, 1 note), all fixed; 1 bar held (Stage Door Casino, reviews mention solicitation) |
+**Loaded: 35 picks**: 22 fills (Summerlin 7 from zero) and 13 replacements (Hanoi 6, Ho Chi Minh City 4, Las Vegas 1, Vatican City 1,
+plus Lisbon 0), 1 "Just outside" pick (Le Paris Bakery, 280 m outside Chinatown's boundary). Parity 0 mismatches; baseline bars
+untouched; city.html shows "Just outside <hood>" (checked at 320, 375 and desktop). 9 live picks sit just outside an official
+boundary and stay unflagged pending Jeff (`hood-boundaries-measurement.md`).
