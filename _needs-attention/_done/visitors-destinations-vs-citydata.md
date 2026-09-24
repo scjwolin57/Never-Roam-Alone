@@ -14,3 +14,9 @@ Example: Bangkok is 22.8 in destinations.js and 26 in citydata. Kotor is 0.6 and
 **What the hood-picks run did:** it used `destinations.js`, as its spec says, which gives the 412 cities and 1,913 mapped neighborhoods the spec expects. Using citydata would have given 393 cities.
 
 **Question for Jeff:** which file holds the current figure? If destinations.js does, citydata (and the sheet, if it differs) should be regenerated from it in one commit. Nothing was changed.
+
+## RETIRED 2026-09-24
+Jeff: visitors = total international visitors. The sheet (= citydata, parity 0) is the source; destinations.js,
+index.html, compare.html and city-intl-visitors.js regenerated from it (sync_visitors.py; a second run changes
+nothing). Top-visited: 44 cities over 5 M, Bangkok first at 26 M. The "estimated" flag is a separate open question
+(decisions.md 2026-09-24).

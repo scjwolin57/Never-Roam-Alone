@@ -1,5 +1,7 @@
 # Resume note: Where to eat / Coffee & takeaway / Where to drink (started 2026-09-21)
 
+> **Scope changed 2026-09-24:** destinations.js visitors now equal the sheet (decisions.md 2026-09-24). Cities at 0.5 M+ are **393**, not 412 (28 newly in, 47 out; none of the 30 finished cities is out). Re-derive the batch plan from destinations.js before the next batch.
+
 *Read CLAUDE.md, then `decisions.md` (rows dated 2026-09-21 about hood picks), then this.
 The full reasoning is in `_done/hood-picks-plan.md`; where the two differ, THIS FILE wins.*
 
