@@ -104,7 +104,6 @@ window.NRA_HOOD_PHOTO = {
   "Brussels": {
     "Sablon": { img:"images/hoods/brussels--sablon.webp", page:"https://commons.wikimedia.org/wiki/File:Br%C3%BCssel%2C_Kirche_Notre-Dame_du_Sablon.jpg" },
     "Ixelles": { img:"images/hoods/brussels--ixelles.webp", page:"https://commons.wikimedia.org/wiki/File:MAISON-40.jpg" },
-    "Marolles": { img:"images/hoods/brussels--marolles.webp", page:"https://commons.wikimedia.org/wiki/File:Marolles_from_Place_Poelaert%2C_Brussels_(DSCF6759).jpg" },
     "Saint-Gilles": { img:"images/hoods/brussels--saint-gilles.webp", page:"https://commons.wikimedia.org/wiki/File:StGillesTownHall.jpg" },
     "European Quarter": { img:"images/hoods/brussels--european-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Belgique_-_Bruxelles_-_Schuman_-_Berlaymont_-_01.jpg" },
     "Grand Place": { img:"images/hoods/brussels--grand-place.webp", page:"https://commons.wikimedia.org/wiki/File:Dansaert,_1000_Brussel,_Belgium_-_panoramio_(5).jpg", src:"罗布泊" }
@@ -171,7 +170,6 @@ window.NRA_HOOD_PHOTO = {
     "Vesterbro": { img:"images/hoods/copenhagen--vesterbro.webp", page:"https://commons.wikimedia.org/wiki/File:Vesterbro_(15296780753).jpg", src:"Tony Webster from Portland, Oregon, United States" },
     "Norrebro": { img:"images/hoods/copenhagen--norrebro.webp", page:"https://commons.wikimedia.org/wiki/File:Cityscape_and_skyline_by_the_Copenhagen_Lakes%2C_Denmark_-_(36018109956).jpg" },
     "Christianshavn": { img:"images/hoods/copenhagen--christianshavn.webp", page:"https://commons.wikimedia.org/wiki/File:Christianshavns_Kanal_-_Kayaks.jpg" },
-    "Frederiksberg": { img:"images/hoods/copenhagen--frederiksberg.webp", page:"https://www.pexels.com/photo/white-birds-flying-in-front-of-frederiksberg-palace-15334742/", src:"Pexels" },
     "Osterbro": { img:"images/hoods/copenhagen--osterbro.webp", page:"https://commons.wikimedia.org/wiki/File:Copenhagen_-_the_little_mermaid_statue_-_2013.jpg" },
     "Indre By": { img:"images/hoods/copenhagen--indre-by.webp", page:"https://commons.wikimedia.org/wiki/File:Kejsergade.jpg", src:"Leif Jørgensen" }
   },
@@ -235,7 +233,6 @@ window.NRA_HOOD_PHOTO = {
     "Westend": { img:"images/hoods/frankfurt-am-main--westend.webp", page:"https://commons.wikimedia.org/wiki/File:Eingang_Palmengarten_Frankfurt.JPG" },
     "Bockenheim": { img:"images/hoods/frankfurt-am-main--bockenheim.webp", page:"https://www.pexels.com/photo/bockenheimer-warte-subway-station-entrance-in-frankfurt-am-main-germany-19335777/", src:"Pexels" },
     "Sachsenhausen": { img:"images/hoods/frankfurt-am-main--sachsenhausen.webp", page:"https://pixabay.com/photos/bridge-iron-main-frankfurt-2535355/", src:"Pixabay" },
-    "Bornheim": { img:"images/hoods/frankfurt-am-main--bornheim.webp", page:"https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Bornheim-Josefskirche_von_Suedosten-20131227.jpg" },
     "Nordend": { img:"images/hoods/frankfurt-am-main--nordend.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Frankfurter_Nordend.jpg", src:"EvaK" },
     "Innenstadt (Altstadt)": { img:"images/hoods/frankfurt-am-main--innenstadt-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Denkmaeler-Anton_Kirchner_20070725.jpg", src:"Mylius" }
   },
@@ -4367,7 +4364,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Salalah": {
     "Al Haffa": { img:"images/hoods/salalah--al-haffa.webp", page:"https://commons.wikimedia.org/wiki/File:Oman,_Salalah,_Haffa_Souq_(Souq_al-Hosn),_Frankincense.jpg", src:"Dr. Thomas Liptak" },
-    "Al Saada": { img:"images/hoods/salalah--al-saada.webp", page:"https://commons.wikimedia.org/wiki/File:BrankoSahamVsNasr.jpg", src:"Alhosniomani20 at English Wikipedia" },
     "Al Wadi": { img:"images/hoods/salalah--al-wadi.webp", page:"https://commons.wikimedia.org/wiki/File:Petroglyphs_in_Wadi_Ejili.jpg", src:"Alexandermcnabb" },
     "Salalah Central": { img:"images/hoods/salalah--salalah-central.webp", page:"https://commons.wikimedia.org/wiki/File:USS_BOXER_(LHD_4)_131101-N-GM561-158_(11027121104).jpg", src:"U.S. Naval Forces Central Command/U.S. Fifth Fleet" }
   },

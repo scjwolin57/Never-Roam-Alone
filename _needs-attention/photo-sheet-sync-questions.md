@@ -32,3 +32,20 @@
    per-city shape is 5. Which one goes in each?
 5. **Tooling:** `_guidebuild/add_city_to_sheet.py` does not fill the new landmark and food photo
    columns yet, so a new city would leave them blank until it does.
+
+## Status 2026-09-24 (Jeff's answers)
+
+1. **Source of the discrepancy:** neighborhoods were renamed, merged or moved to day trips on the site (city.html data,
+   then citydata) without the sheet being updated. Fixed 2026-09-19 (523f41c4); `check_sheet_parity.py` now compares
+   every hood name on each data commit, so it cannot drift silently again. **Closed.**
+2. **Were those hoods removed recently?** No, except Medina / Al-Anbariyah (2026-09-22). The other 10 (Abu Dhabi / Al
+   Reem Island, Florence / Santo Spirito, Honolulu / Kakaako and Manoa, Macau / Senado Square, Marne-la-Vallée / Val
+   d'Europe, Orlando / Thornton Park, Palma de Mallorca / Son Espanyolet, Sapporo / Chuo, Valencia / El Carmen) were
+   never neighborhoods in citydata: they were the sheet's old names and got photos in the 2026-09-15 sourcing. **Open:
+   delete these 11 photo entries and their files? (Jeff)**
+3. Tozeur and Şanlıurfa: **closed** (parity 0).
+4. **Done 2026-09-24** (Jeff: least popular for tourists, else farthest): Salalah drops Al Saada, Brussels Marolles,
+   Copenhagen Frederiksberg (medium confidence over Østerbro), all by popularity; Frankfurt drops Bornheim by distance
+   (popularity could not separate it). Each city now has 5; the sheet slots were rebuilt, so Hawana Salalah, Grand
+   Place, Indre By and Innenstadt (Altstadt) are in the sheet for the first time. Evidence: `_guidebuild/hoods/pointfix/sixth.json`.
+5. **Done 2026-09-24:** add_city_to_sheet.py fills the photo and food columns (6aefbd9f).
