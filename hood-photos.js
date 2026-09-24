@@ -8,7 +8,7 @@ window.NRA_HOOD_PHOTO = {
     "Al Soudah": { img:"images/hoods/abha--al-soudah.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%AC%D8%A8%D9%84_%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A9.jpg", src:"Muhammad Sobri" }
   },
   "Abu Dhabi": {
-    "Al Reem Island": { img:"images/hoods/abu-dhabi--al-reem-island.webp", page:"https://commons.wikimedia.org/wiki/File:Reem_Island_Mangroves.png" },
+
     "Yas Island": { img:"images/hoods/abu-dhabi--yas-island.webp", page:"https://www.pexels.com/photo/modern-city-by-river-7058845/", src:"Pexels" },
     "Corniche": { img:"images/hoods/abu-dhabi--corniche.webp", page:"https://www.pexels.com/photo/scenic-abu-dhabi-corniche-promenade-view-30322788/", src:"Pexels" },
     "Saadiyat Island": { img:"images/hoods/abu-dhabi--saadiyat-island.webp" },
@@ -225,7 +225,6 @@ window.NRA_HOOD_PHOTO = {
   "Florence": {
     "Santa Maria Novella": { img:"images/hoods/florence--santa-maria-novella.webp", page:"https://commons.wikimedia.org/wiki/File:Florence%2C_Santa_Maria_Novella%2C_facade.jpg" },
     "Santa Croce": { img:"images/hoods/florence--santa-croce.webp", page:"https://commons.wikimedia.org/wiki/File:Basilica_di_Santa_Croce_(12437).jpg" },
-    "Santo Spirito": { img:"images/hoods/florence--santo-spirito.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_Santo_Spirito%2C_Firenze.jpg" },
     "Oltrarno": { img:"images/hoods/florence--oltrarno.webp", page:"https://commons.wikimedia.org/wiki/File:Palazzo_Pitti_nel_tardo_pomeriggio.jpg" },
     "San Lorenzo": { img:"images/hoods/florence--san-lorenzo.webp", page:"https://www.pexels.com/photo/facade-of-san-lorenzo-basilica-in-florence-italy-36577423/", src:"Pexels" }
   },
@@ -287,8 +286,6 @@ window.NRA_HOOD_PHOTO = {
     "Waikiki": { img:"images/hoods/honolulu--waikiki.webp", page:"https://commons.wikimedia.org/wiki/File:Canoe_(6480766515).jpg", src:"Phil Whitehouse from London, United Kingdom" },
     "Ala Moana": { img:"images/hoods/honolulu--ala-moana.webp", page:"https://commons.wikimedia.org/wiki/File:Alamoanaaerial.jpg" },
     "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" },
-    "Kakaako": { img:"images/hoods/honolulu--kakaako.webp", page:"https://commons.wikimedia.org/wiki/File:Kakaako_Waterfront_Park_very_top_20100517.jpg" },
-    "Manoa": { img:"images/hoods/honolulu--manoa.webp", page:"https://commons.wikimedia.org/wiki/File:Manoa_from_ridge.jpg" },
     "Kahala": { img:"images/hoods/honolulu--kahala.webp", page:"https://commons.wikimedia.org/wiki/File:Walk_by_the_beach_(4807552983).jpg", src:"Daniel Ramirez from Honolulu, USA" }
   },
   "Hua Hin": {
@@ -409,7 +406,6 @@ window.NRA_HOOD_PHOTO = {
     "Taipa": { img:"images/hoods/macau--taipa.webp", page:"https://commons.wikimedia.org/wiki/File:Taipa_Building_-_panoramio.jpg" },
     "Coloane": { img:"images/hoods/macau--coloane.webp", page:"https://commons.wikimedia.org/wiki/File:Coloane_and_coastline_02.JPG" },
     "Macau Peninsula": { img:"images/hoods/macau--macau-peninsula.webp", page:"https://commons.wikimedia.org/wiki/File:S%C3%A3o_Louren%C3%A7o_(Macau)%2C_Macau_-_%E6%BE%B3%E9%96%80_(50163094326).jpg" },
-    "Senado Square": { img:"images/hoods/macau--senado-square.webp", page:"https://commons.wikimedia.org/wiki/File:Centre_of_Makau.jpg" },
     "Cotai": { img:"images/hoods/macau--cotai.webp", page:"https://commons.wikimedia.org/wiki/File:MC_%E6%BE%B3%E9%96%80_Macau_%E8%B7%AF%E6%B0%B9_Taipa_%E9%87%91%E5%85%89%E5%A4%A7%E9%81%93_Cotai_hotel_shuttle_view_November_2019_SS2_07_The_Venetian_Macao_bridge.jpg" }
   },
   "Madrid": {
@@ -420,7 +416,7 @@ window.NRA_HOOD_PHOTO = {
     "Salamanca": { img:"images/hoods/madrid--salamanca.webp", page:"https://commons.wikimedia.org/wiki/File:Madrid_-_40888267763_(cropped).jpg" }
   },
   "Marne-la-Vallée": {
-    "Val d'Europe": { img:"images/hoods/marne-la-vallee--val-d-europe.webp", page:"https://commons.wikimedia.org/wiki/File:France_-_Val_d%27Europe_-_Centre_commercial.JPG", src:"--Pinpin 13:28, 26 May 2006 (UTC)" },
+
     "Serris": { img:"images/hoods/marne-la-vallee--serris.webp", page:"https://commons.wikimedia.org/wiki/File:Serris_-_place_Toscane_02.jpg", src:"Fab5669" },
     "Bailly-Romainvilliers": { img:"images/hoods/marne-la-vallee--bailly-romainvilliers.webp", page:"https://commons.wikimedia.org/wiki/File:Mairie_Bailly_Romainvilliers_10.jpg", src:"Chabe01" },
     "Magny-le-Hongre": { img:"images/hoods/marne-la-vallee--magny-le-hongre.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%89tang_Boiserie_-_Magny-le-Hongre_(FR77)_-_2025-08-09_-_1.jpg", src:"Chabe01" },
@@ -441,7 +437,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Medina": {
     "Quba": { img:"images/hoods/medina--quba.webp", page:"https://commons.wikimedia.org/wiki/File:Quba_Mosque_Full_Picture_(2024).jpg" },
-    "Al-Anbariyah": { img:"images/hoods/medina--al-anbariyah.webp", page:"https://commons.wikimedia.org/wiki/File:Anbariya_Mosque,_Madinah,_Saudi_Arabia.jpg", src:"Richard Mortel" },
     "Qurban": { img:"images/hoods/medina--qurban.webp", page:"https://commons.wikimedia.org/wiki/File:Kebun_Kurma_Madinah_(Umroh_Ramadhan_2023)-6.jpg", src:"Indonesiagood" },
     "Central Area (Al Haram)": { img:"images/hoods/medina--central-area-al-haram.webp", page:"https://commons.wikimedia.org/wiki/File:Prophet_Mosque_-_panoramio.jpg", src:"GusJuned" }
   },
@@ -526,7 +521,6 @@ window.NRA_HOOD_PHOTO = {
     "Downtown Orlando": { img:"images/hoods/orlando--downtown-orlando.webp", page:"https://commons.wikimedia.org/wiki/File:Lake-eola-park-orlando-florida.jpg" },
     "International Drive": { img:"images/hoods/orlando--international-drive.webp", page:"https://commons.wikimedia.org/wiki/File:IDrive_Street_View.JPG" },
     "Winter Park": { img:"images/hoods/orlando--winter-park.webp", page:"https://www.pexels.com/photo/people-waiting-in-a-gazebo-at-winter-park-14071206/", src:"Pexels" },
-    "Thornton Park": { img:"images/hoods/orlando--thornton-park.webp", page:"https://commons.wikimedia.org/wiki/File:Lakeeola_09232006_trees.jpg" },
     "Lake Nona": { img:"images/hoods/orlando--lake-nona.webp", page:"https://commons.wikimedia.org/wiki/File:College_of_Medicine_-_panoramio.jpg", src:"East Park" }
   },
   "Osaka": {
@@ -547,7 +541,6 @@ window.NRA_HOOD_PHOTO = {
     "Casco Antiguo (Old Town)": { img:"images/hoods/palma-de-mallorca--casco-antiguo-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Esgl%C3%A9sia_de_Santa_F%C3%A8.jpg" },
     "El Terreno": { img:"images/hoods/palma-de-mallorca--el-terreno.webp", page:"https://commons.wikimedia.org/wiki/File:Carrer_de_la_Salut_El_Terreno_Palma.jpg" },
     "Portixol": { img:"images/hoods/palma-de-mallorca--portixol.webp", page:"https://commons.wikimedia.org/wiki/File:188_365_Portixol_(5914263191).jpg" },
-    "Son Espanyolet": { img:"images/hoods/palma-de-mallorca--son-espanyolet.webp", page:"https://commons.wikimedia.org/wiki/File:Palma._Son_Espanyolet._Entrada_historicista.jpg" },
     "Santa Catalina": { img:"images/hoods/palma-de-mallorca--santa-catalina.webp", page:"https://commons.wikimedia.org/wiki/File:Manche_der_Windm%C3%BChlen_im_Viertel_Es_Jonquiet_erstrahlen_in_neuem_Glanz_-_panoramio.jpg", src:"Martin Furtschegger" },
     "Playa de Palma": { img:"images/hoods/palma-de-mallorca--playa-de-palma.webp", page:"https://commons.wikimedia.org/wiki/File:14-01-20-palma-de-mallorca-RalfR-011.jpg", src:"Ralf Roletschek" }
   },
@@ -684,7 +677,6 @@ window.NRA_HOOD_PHOTO = {
     "Susukino": { img:"images/hoods/sapporo--susukino.webp", page:"https://commons.wikimedia.org/wiki/File:Spectaculars_of_Susukino-Sapporo.jpg" },
     "Odori": { img:"images/hoods/sapporo--odori.webp", page:"https://commons.wikimedia.org/wiki/File:Hokkaido_Sapporo_Odori_Park.jpg" },
     "Maruyama": { img:"images/hoods/sapporo--maruyama.webp", page:"https://pixabay.com/photos/autumn-autumnal-leaves-990448/", src:"Pixabay" },
-    "Chuo": { img:"images/hoods/sapporo--chuo.webp", page:"https://commons.wikimedia.org/wiki/File:Sapporo_-_Sapporo7175.jpg", src:"lumoplank" },
     "Kita (Station area)": { img:"images/hoods/sapporo--kita-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Hokkaido_University_in_Winter_-_panoramio_(1).jpg", src:"Kenneth Lee Sutherland" }
   },
   "Sarajevo": {
@@ -837,7 +829,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Valencia": {
     "Ciutat Vella": { img:"images/hoods/valencia--ciutat-vella.webp", page:"https://pixabay.com/photos/rambla-building-ciutat-vella-people-5301525/", src:"Pixabay" },
-    "El Carmen": { img:"images/hoods/valencia--el-carmen.webp", page:"https://www.pexels.com/photo/spanish-religious-niche-with-virgen-del-carmen-37026830/", src:"Pexels" },
     "Ruzafa (Russafa)": { img:"images/hoods/valencia--ruzafa-russafa.webp", page:"https://commons.wikimedia.org/wiki/File:Parroquia_de_San_Francisco_de_Borja%2C_Ruzafa%2C_Valencia_01.jpg" },
     "El Cabanyal": { img:"images/hoods/valencia--el-cabanyal.webp", page:"https://commons.wikimedia.org/wiki/File:Street_of_Caba%C3%B1al_-_51675229115.jpg", src:"Franck Michel" },
     "Eixample": { img:"images/hoods/valencia--eixample.webp", page:"https://commons.wikimedia.org/wiki/File:Mercado_colon_valencia.jpg", src:"Florencecassisi" }
