@@ -253,7 +253,7 @@ is what populates it for a new city *today*.
 | 02 Fast facts | emergency & embassy, tipping, tap water | `emergency`, `tip`, `water` | add_city.py |
 | 02 Fast facts | getting around the city (transit systems, payment, hours, map link) | `transit` | add_city.py |
 | 02 Fast facts | taxi / ride-hail chips with store links, taxi tips popup, **Bikes & scooters** | `taxi`, `rides`; `app-store-links.js` (country-keyed); `city-micromobility.js` | add_city.py; **micromobility: not handled** |
-| 02 Fast facts | areas to avoid, travel advisory (Level 3/4 only) | `avoid`, `advisory` | add_city.py |
+| 02 Fast facts | areas to avoid, travel advisory (Level 3/4 only); a city inside a government's named top-level area gets a "This city is in: <area>" line with each government's live wording (decisions.md 2026-09-23) | `avoid`, `advisory` (+ optional `advisory.area`) | add_city.py; area: `_guidebuild/daytrips/alerts/` city pass |
 | 02 Fast facts | info-icon notes for coded fields (only the 109 repaired cities) | `notes` | none: new cities must ship coded values, never prose |
 | 03 Passage | airport: name, km, drive, ride-hail, transit, taxi $, car service $, rentals, estimate flag | `airport` (+ `taxiEst`) | add_city.py |
 | 03 Passage | getting there: air / train / bus / car / ferry cards | `transport` | add_city.py |

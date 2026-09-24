@@ -164,7 +164,7 @@ Checked at 320, 375 and desktop: no overflow, the banner stacks.
 
 ### What is still open
 
-- **Stage 4, the regional read.** A city in a flagged region still shows the
+- ~~**Stage 4, the regional read.**~~ **Done 2026-09-23** (Jeff: "should be fixed"): 26 cities now carry `advisory.area` and a "This city is in: <area>" banner line with every covering government, live and passport-aware (decisions.md 2026-09-23; list there). The text below is kept for the record. A city in a flagged region still shows the
   country's line. Bahir Dar is the case that matters: a UK-passport reader sees
   "advises against all travel to parts of this country" when the FCDO means
   Amhara, where the city is. The fix is a per-city override in citydata

@@ -2560,7 +2560,13 @@ function buildAdvisoryBanner(c, cityAdv){
   /* The city's own region can be rated above its country (a Level 4 region in a
      Level 3 country). That override wins and is always shown. */
   const region = (cityAdv && cityAdv.region) ? cityAdv : null;
-  const worst = Math.max(region ? region.lvl : 0, ...show.map(k => all[k].scope === "country" ? all[k].lvl : 0));
+  /* The city itself inside a named top-level area (decisions.md 2026-09-23, same rules and data shape as a
+     day-trip alert): advisory.area = {c, area, by, chk}. Wording, link and date come live from advisories.js;
+     a reader with a passport country sees only their own government. */
+  const ar = (cityAdv && cityAdv.area && cityAdv.area.by) ? cityAdv.area : null;
+  const arBy = ar ? ar.by.filter(k => !mine || k === mine) : [];
+  const arAll = ar ? ((typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[ar.c]) || all || {}) : {};
+  const worst = Math.max(region ? region.lvl : 0, arBy.length ? 4 : 0, ...show.map(k => all[k].scope === "country" ? all[k].lvl : 0));
   const parts = show.filter(k => all[k].scope === "parts" && all[k].lvl >= 3);
   if (worst < 3 && !parts.length) return "";
 
@@ -2580,12 +2586,19 @@ function buildAdvisoryBanner(c, cityAdv){
       + (region.url ? ` <a class="adv-link" href="${region.url}" target="_blank" rel="noopener">source</a>` : "")
       + (region.as_of ? ` <span class="adv-date">(${region.as_of})</span>` : "") + `</div>`
     : "";
+  const areaLine = arBy.length
+    ? `<div class="adv-line"><b>This city is in: ${ar.area}</b>` + arBy.map(k => {
+        const g = arAll[k] || {};
+        return `<br>` + (g.url ? `<a class="adv-link" href="${g.url}" target="_blank" rel="noopener"><b>${ADV_SOURCES[k]}</b></a>` : `<b>${ADV_SOURCES[k]}</b>`)
+             + `: ${ADV_TOP_WORDS[k]}` + (g.as_of ? ` <span class="adv-date">(${g.as_of})</span>` : "");
+      }).join("") + `</div>`
+    : "";
   const onlyMine = (mine && all && all[mine])
     ? `<div class="adv-line adv-date">Shown for your passport country. <a class="adv-link" href="profile.html">Change it</a>, or see the <a class="adv-link" href="${(all.us||all.uk||all.ca).url}" target="_blank" rel="noopener">other governments</a>.</div>`
     : "";
   return `<div class="adv-banner adv-banner-lvl${Math.max(worst,3) >= 4 ? 4 : 3}">`
        + `<span class="adv-banner-ic">&#9888;</span> <span><b>${head}</b>`
-       + regionLine + show.map(line).join("") + note + onlyMine + `</span></div>`;
+       + regionLine + areaLine + show.map(line).join("") + note + onlyMine + `</span></div>`;
 }
 
   /* Common-phrases popup: look up the phrasebook entry for this city's
