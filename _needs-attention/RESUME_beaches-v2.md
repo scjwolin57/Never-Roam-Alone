@@ -23,3 +23,4 @@ About 5 research agents at a time; each finished batch gets its checker at once 
 | b01-b36 | all | started 2026-09-24 (Jeff: "run on all 36 batches") | | | |
 | b01 | Aachen to Amsterdam | yes | 18 confirmed, 7 corrected | yes | see git log |
 | b02 | Anaheim to Aurangabad | yes | 18 confirmed, 7 corrected | yes | see git log |
+| b05 | Bonn to Bursa | yes | 15 confirmed, 10 corrected (Bratislava Rusovce and Bujumbura Saga Plage removed: map-only; sources added for Bonn, Bordeaux, Boston, Budapest, Bursa; Busan +1 min); Bucharest stays unsure | yes | see git log |
