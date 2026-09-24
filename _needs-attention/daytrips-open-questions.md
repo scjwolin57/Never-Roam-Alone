@@ -20,7 +20,7 @@ person) exists but is not a hotel tier.
 card shows "Image coming soon / Contribute". The Walichu photos Jeff found on Flickr (Rodrigo Sepúlveda Schulz, Ricardo
 Cabral) are all CC BY-NC, so they need the photographer's permission first.
 
-# B. Safety-alert calls
+# B. Safety-alert calls  (closed 2026-09-24, Jeff: leave all three off)
 An alert is shown only where a government's own words clearly cover the place. These are too vague to say, so
 they have **no alert** until you decide. Your answer is recorded in `_guidebuild/daytrips/alerts/overrides.json`.
 
@@ -78,14 +78,17 @@ verification pass, search budget ran out). Run the check now?
 **D1. Flores (Guatemala): "Tikal National Park" is a neighborhood AND a full-day trip.** Same pattern as Chiang Rai
 (C4). Tikal is about 1 h 15 from Flores, a national park, not part of the town. Recommendation: keep the day trip,
 remove the neighborhood (Flores would drop to 4 neighborhoods). Your call.
+  **Done 2026-09-24 (Jeff: yes): neighborhood removed; Flores has 4.**
 
 **D2. Port-au-Prince: Sans-Souci Palace (landmark) and Citadelle Laferrière (full-day trip) are both at Milot, next
 to Cap-Haïtien**, 4 h or more away, and Cap-Haïtien has its own guide. Found by the C2/C5 checker (2026-09-24).
 Recommendation: remove both from Port-au-Prince (they are Cap-Haïtien sights; the guide card already links there if
 it is within range). Your call.
+  **Done 2026-09-24 (Jeff: yes): landmark and day trip removed; Port-au-Prince has 7 landmarks.**
 
 **D3. Hiroshima: Itsukushima Shrine and Mount Misen are landmarks, and "Miyajima (Itsukushima)" is also a half-day
 trip.** Miyajima is in Hatsukaichi, a separate city about 50 min away, so by the rulebook ("a landmark is inside the
 city; anything outside is a day trip") the two landmarks should leave Hiroshima's landmark list and the Miyajima trip
 covers them. The C6 re-check wanted to remove the day trip instead; I kept it (2026-09-24) and left the landmarks for
 you (same item as hoods-that-are-day-trips.md group 3). Recommendation: move both landmarks out; Hiroshima keeps 8.
+  **Done 2026-09-24 (Jeff: yes): both landmarks removed; Hiroshima has 8; the Miyajima trip stays.**
