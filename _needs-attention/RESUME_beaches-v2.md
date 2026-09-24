@@ -14,6 +14,11 @@ Definition, scale and pipeline: `_guidebuild/beaches/BEACH_NOTES.md`, section v2
   then `load_beaches.py score`, write the column through SheetEdit, `sync_city_scores.py --write`, one commit.
 - Candidates: `_guidebuild/beaches/nearest.py` (Wikidata beaches + OSRM drive times; Overpass was down 2026-09-24).
 
+## State 2026-09-24
+All 36 batches researched, checked and in the Beaches tab (893/893). Waiting on Jeff's six calls in
+`beaches-v2-calls.md`; then apply them, `load_beaches.py score`, write Beaches Score/Basis via SheetEdit,
+`sync_city_scores.py --write`, parity, one commit.
+
 ## Pace
 About 5 research agents at a time; each finished batch gets its checker at once and the next batch starts.
 
