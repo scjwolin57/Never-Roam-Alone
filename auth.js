@@ -66,11 +66,30 @@ window.NRA_AUTH = (function(){
      shared browser never shows the last person's setting. */
   function rememberPassport(){
     try{
-      const c = profile && profile.passport_country;
+      const list = (profile && Array.isArray(profile.passports) ? profile.passports : [])
+        .map(c => String(c || "").trim()).filter(Boolean);
+      const c = list[0] || (profile && profile.passport_country) || "";
       if (c) localStorage.setItem("nra_passport_country", c);
       else   localStorage.removeItem("nra_passport_country");
+      // every passport held, for pages that can use more than one (city advisories, visa tools)
+      const all = list.length ? list : (c ? [c] : []);
+      if (all.length) localStorage.setItem("nra_passports", JSON.stringify(all));
+      else            localStorage.removeItem("nra_passports");
     }catch(e){}
   }
+  /* Every passport the reader holds, for pages that render before any network call.
+     Signed out clears them, so a shared browser never shows the last person's setting. */
+  function passports(){
+    try{
+      const raw = JSON.parse(localStorage.getItem("nra_passports"));
+      if (Array.isArray(raw) && raw.length) return raw.filter(Boolean);
+    }catch(e){}
+    try{
+      const one = localStorage.getItem("nra_passport_country");
+      return one ? [one] : [];
+    }catch(e){ return []; }
+  }
+  window.NRA_PASSPORTS = passports;
 
   async function init(){
     if (!enabled){ readyResolve(); renderWidget(); renderNavWidget(); return; }
@@ -663,7 +682,7 @@ window.NRA_AUTH = (function(){
 
   /* Save profile fields (display name, bio, home city/country, travel style, socials).
      Only whitelisted columns are written. Returns {ok:true} or {ok:false, error:"…"}. */
-  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","passport_country","travel_style","travel_company","website","instagram","avatar_url","is_public",
+  const PROFILE_FIELDS = ["display_name","bio","home_city","home_country","passport_country","passports","travel_style","travel_company","website","instagram","avatar_url","is_public",
     "age","fav_destination","no_return_destination","bucket_list_destination","best_story","scary_story","extra_details",
     "facebook","twitter","tiktok","youtube","travel_photos","cover_url","avatar_caption","last_trip","next_trip","travel_goals","trip_duration","allow_messages","allow_message_emails",
     "visited_places","visited_bucket"];

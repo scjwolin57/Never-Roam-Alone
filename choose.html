@@ -2335,6 +2335,32 @@ visaFilterHint.addEventListener("click", e => {
   if(e.target.id === "visaClearFilter"){ activeCat = null; updateBubbleState(); renderGrid(passport.value, itemsFor(passport.value)); }
 });
 
+/* The passports on your profile drive this page: the first one is picked for you
+   unless you have already chosen one here (Jeff, 2026-09-23). */
+function applyProfilePassport(){
+  let held = [];
+  try{ const raw = JSON.parse(localStorage.getItem("nra_passports")); if (Array.isArray(raw)) held = raw.filter(Boolean); }catch(e){}
+  if (!held.length){ try{ const one = localStorage.getItem("nra_passport_country"); if (one) held = [one]; }catch(e){} }
+  const first = held.find(c => COUNTRIES.includes(c));
+  if (!first) return;
+  if (pendingPassport || passport.value || finderPassportEl.value) return;   // never override a choice already made here
+  try{   // the saved state is restored after this runs, so check it too
+    const saved = JSON.parse(localStorage.getItem("nra_choose_state_v2") || "{}");
+    if (saved && saved.passport) return;
+  }catch(e){}
+  pendingPassport = first;
+  passport.value = first;
+  finderPassportEl.value = first;
+  syncPassportInput();
+  if (visaFilterBar) visaFilterBar.hidden = false;
+  if (DATA && DATA.get(first)){ activeCat = null; render(first); }
+  renderFinder(); saveState();
+}
+window.addEventListener("load", () => {
+  applyProfilePassport();
+  if (window.NRA_AUTH && NRA_AUTH.ready) NRA_AUTH.ready().then(() => { applyProfilePassport(); NRA_AUTH.onChange(applyProfilePassport); });
+});
+
 passport.addEventListener("change", e => {
   activeCat = null; render(e.target.value);
   /* keep the finder in sync */

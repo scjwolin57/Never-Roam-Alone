@@ -259,6 +259,9 @@
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
   .fl-list .fl-n{font-weight:700}
+  .fl-kind{display:inline-block;margin-left:6px;padding:1px 6px;border:1px solid rgba(63,81,56,.35);border-radius:0;
+    font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);vertical-align:1px}
+  .fl-kind.is-self{background:var(--green);border-color:var(--green);color:#fff}
   .fl-list .fl-m{display:block;color:var(--muted);font-size:.78rem}
   .fl-list a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
   .fl-list a:hover{text-decoration:underline}
@@ -2523,11 +2526,18 @@ if(!c){
 const ADV_SOURCES = { us:"US State Department", uk:"UK Foreign Office", ca:"Government of Canada" };
 const ADV_PASSPORT_TO_SOURCE = { "United States":"us", "United Kingdom":"uk", "Canada":"ca" };
 
-function advReaderSource(){
-  try {
-    const p = localStorage.getItem("nra_passport_country");
-    return p ? (ADV_PASSPORT_TO_SOURCE[p] || null) : null;
-  } catch(e){ return null; }
+/* Which governments the reader's own passports belong to. A dual national sees
+   every one we track (Jeff, 2026-09-23); nobody signed in sees all three. */
+function myPassports(){
+  // read straight from localStorage: the banner renders before auth.js has loaded
+  try{
+    const raw = JSON.parse(localStorage.getItem("nra_passports"));
+    if (Array.isArray(raw) && raw.length) return raw.filter(Boolean);
+  }catch(e){}
+  try{ const one = localStorage.getItem("nra_passport_country"); return one ? [one] : []; }catch(e){ return []; }
+}
+function advReaderSources(){
+  return [...new Set(myPassports().map(p => ADV_PASSPORT_TO_SOURCE[p]).filter(Boolean))];
 }
 
 /* Safety alert on a day trip (decisions.md 2026-09-23). The trip is never dropped for an
@@ -2539,8 +2549,8 @@ const ADV_TOP_WORDS = { us:"Do Not Travel", uk:"Advises against all travel", ca:
 function dtAlertHTML(al){
   if (!al || !al.by || !al.by.length) return "";
   const all = (typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[al.c]) || null;
-  const mine = advReaderSource();
-  const by = al.by.filter(k => !mine || k === mine);
+  const mine = advReaderSources();
+  const by = al.by.filter(k => !mine.length || mine.includes(k));
   if (!by.length) return "";
   const line = k => {
     const a = all && all[k];
@@ -2553,9 +2563,10 @@ function dtAlertHTML(al){
 function buildAdvisoryBanner(c, cityAdv){
   const all = (typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[c.country]) || null;
   if (!all && !cityAdv) return "";
-  const mine = advReaderSource();
+  const mine = advReaderSources();
   const keys = ["us","uk","ca"].filter(k => all && all[k]);
-  const show = (mine && all && all[mine]) ? [mine] : keys;
+  const ours = keys.filter(k => mine.includes(k));
+  const show = ours.length ? ours : keys;
 
   /* The city's own region can be rated above its country (a Level 4 region in a
      Level 3 country). That override wins and is always shown. */
@@ -2564,7 +2575,7 @@ function buildAdvisoryBanner(c, cityAdv){
      day-trip alert): advisory.area = {c, area, by, chk}. Wording, link and date come live from advisories.js;
      a reader with a passport country sees only their own government. */
   const ar = (cityAdv && cityAdv.area && cityAdv.area.by) ? cityAdv.area : null;
-  const arBy = ar ? ar.by.filter(k => !mine || k === mine) : [];
+  const arBy = ar ? ar.by.filter(k => !ours.length || ours.includes(k)) : [];
   const arAll = ar ? ((typeof NRA_ADVISORIES !== "undefined" && NRA_ADVISORIES[ar.c]) || all || {}) : {};
   const worst = Math.max(region ? region.lvl : 0, arBy.length ? 4 : 0, ...show.map(k => all[k].scope === "country" ? all[k].lvl : 0));
   const parts = show.filter(k => all[k].scope === "parts" && all[k].lvl >= 3);
@@ -2577,7 +2588,7 @@ function buildAdvisoryBanner(c, cityAdv){
          + `<b>${ADV_SOURCES[k]}</b></a>: ${a.label}${date}</div>`;
   };
   const head = worst >= 3
-    ? (mine ? "Travel advisory for your passport country" : "Travel advisories")
+    ? (ours.length ? (ours.length > 1 ? "Travel advisories for your passport countries" : "Travel advisory for your passport country") : "Travel advisories")
     : "Regional travel advice";
   const note = (worst < 3 && parts.length)
     ? `<div class="adv-line adv-date">The warning covers parts of ${c.country}; check whether it reaches this city.</div>` : "";
@@ -2593,8 +2604,10 @@ function buildAdvisoryBanner(c, cityAdv){
              + `: ${ADV_TOP_WORDS[k]}` + (g.as_of ? ` <span class="adv-date">(${g.as_of})</span>` : "");
       }).join("") + `</div>`
     : "";
-  const onlyMine = (mine && all && all[mine])
-    ? `<div class="adv-line adv-date">Shown for your passport country. <a class="adv-link" href="profile.html">Change it</a>, or see the <a class="adv-link" href="${(all.us||all.uk||all.ca).url}" target="_blank" rel="noopener">other governments</a>.</div>`
+  const others = keys.filter(k => !ours.includes(k));
+  const onlyMine = ours.length
+    ? `<div class="adv-line adv-date">Shown for ${ours.length > 1 ? "your passport countries" : "your passport country"}. <a class="adv-link" href="profile.html">Change ${ours.length > 1 ? "them" : "it"}</a>`
+      + (others.length ? `, or see the <a class="adv-link" href="${all[others[0]].url}" target="_blank" rel="noopener">other governments</a>` : "") + `.</div>`
     : "";
   return `<div class="adv-banner adv-banner-lvl${Math.max(worst,3) >= 4 ? 4 : 3}">`
        + `<span class="adv-banner-ic">&#9888;</span> <span><b>${head}</b>`
@@ -4634,12 +4647,21 @@ function buildAdvisoryBanner(c, cityAdv){
     const rows = mine.map(x => {
       const d = (pt.lat != null && typeof x.lat === "number") ? flKm(pt.lat, pt.lng, x.lat, x.lng) : null;
       const q = `${x.n}, ${x.addr || hoods[x.hood] || ""}, ${c.city}`;
-      const meta = [x.k === "drop" ? "Drop-off &amp; fold" : "Self-service", x.addr ? flEsc(x.addr) : null,
+      /* The open data names the kind only when the listing's own name does (decisions.md
+         2026-09-24): "Laundromat" otherwise, the same word the sheet stores. Self-service
+         is the one travellers look for, so it is tagged in brand green. */
+      const kindTag = x.k === "self" ? `<span class="fl-kind is-self">Self-service</span>`
+                    : x.k === "drop" ? `<span class="fl-kind">Drop-off &amp; fold</span>`
+                    : `<span class="fl-kind">Laundromat</span>`;
+      /* some open-data names stack every search term they could think of
+         ("Self Service Laundry Athens / Coin laundry Athens / …"): show the first part */
+      const shortName = (x.n.split(/\s+[\/|]\s+/)[0] || x.n).trim() || x.n;   // spaces both sides, so "4/27" and "(a/b)" stay whole
+      const meta = [x.addr ? flEsc(x.addr) : null,
                     d != null ? (d < 1 ? Math.round(d * 1000) + " m" : d.toFixed(1) + " km") + " away" : null,
                     pt.key === "city" && hoods[x.hood] ? flEsc(hoods[x.hood]) : null].filter(Boolean).join(" &middot; ");
       const lid = `${x.n}|${typeof x.lat === "number" ? x.lat.toFixed(5) + "," + x.lng.toFixed(5) : (x.hood || "city")}`;
       const vote = voteWidgetHTML({type:"laundromat", id:lid, city:c.city, extraClass:"fl-vote", size:13});
-      return `<li><span class="fl-n">${flEsc(x.n)}</span><span class="fl-m">${meta}</span><a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a>${vote}</li>`;
+      return `<li><span class="fl-n">${flEsc(shortName)}</span>${kindTag}${meta ? `<span class="fl-m">${meta}</span>` : ""}<a class="fl-mapbtn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}" target="_blank" rel="noopener">See it on a map &rarr;</a>${vote}</li>`;
     });
     return `<p class="fl-sub">Laundromats${pt.key === "city" ? "" : " in " + near}</p><ul class="fl-list fl-lm">${rows.join("")}</ul><p class="fl-credit">Laundromat listings: Overture Maps Foundation (open data).</p>`;
   }
@@ -4657,8 +4679,8 @@ function buildAdvisoryBanner(c, cityAdv){
     const rows = [];
     if (ln.usd != null) rows.push(`<b>Wash + one dry:</b> about $${ln.usd}${ln.usdMax != null ? "&ndash;" + ln.usdMax : ""} USD${ln.scope === "country" ? " — a typical figure for the country, not this city specifically" : ""}${ln.asof ? ` (as of ${esc(ln.asof)})` : ""}`);
     if (ln.drop) rows.push(`<b>Drop-off (wash-and-fold):</b> ${esc(ln.drop)}${ln.cur ? ` ${esc(ln.cur)}` : ""}${/lb/i.test(ln.drop) ? "" : /kg|load/i.test(ln.drop) ? "" : " per kg"}${ln.scope === "country" ? " — a typical figure for the country" : ""}`);
-    if (ln.avail) rows.push(`<b>Self-service laundromats:</b> ${esc(ln.avail)}${ln.self != null ? ` &middot; ${ln.self} mapped within 12 km` : ""}`);
-    if (ln.pay) rows.push(`<b>Payment:</b> ${esc(ln.pay)}`);
+    /* no availability judgement and no payment line: the listed laundromats below are
+       the answer, and the judgement disagreed with them in 79 cities (Jeff, 2026-09-24) */
     if (ln.note) rows.push(esc(ln.note));
     if (ln.conf && ln.conf !== "none") rows.push(`<span class="net-est">Price confidence: ${esc(ln.conf)}</span>`);
     if (ln.src && /^https?:\/\//.test(ln.src)) rows.push(`<a href="${esc(ln.src)}" target="_blank" rel="noopener">Source</a>`);
@@ -5328,6 +5350,17 @@ function buildAdvisoryBanner(c, cityAdv){
     };
     embSel.addEventListener("input", embUpdate);
     embSel.addEventListener("change", embUpdate);
+    /* your own embassy: filled in from the passports on your profile (Jeff, 2026-09-23) */
+    const embFromProfile = () => {
+      if (embSel.value) return;
+      const hit = myPassports().map(embMatch).find(Boolean);
+      if (hit){ embSel.value = hit; embUpdate(); }
+    };
+    embFromProfile();
+    window.addEventListener("load", () => {
+      embFromProfile();
+      if (window.NRA_AUTH && NRA_AUTH.onChange) NRA_AUTH.onChange(embFromProfile);
+    });
   }
 
   /* Referenced from onclick/onmouseenter attributes in generated HTML, so they

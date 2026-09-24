@@ -75,6 +75,14 @@
   .photo-x:hover,.photo-x:focus-visible{background:var(--coral);border-color:var(--coral)}
   .avatar-wrap{position:relative}
   .avatar-wrap .photo-x{top:0;right:0}
+  .pp-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+  .pp-list:empty{display:none}
+  .pp-chip{display:flex;align-items:center;gap:6px;background:rgba(92,105,51,.09);color:var(--green);border-radius:0;padding:6px 8px 6px 12px;font-size:.88rem;font-weight:600}
+  .pp-chip button{border:none;background:none;color:var(--green);cursor:pointer;font-size:1rem;line-height:1;padding:2px 4px}
+  .pp-add{display:flex;gap:8px;align-items:center}
+  .pp-add input{flex:1;min-width:0}
+  .pp-hint{font-size:.78rem;line-height:1.5;color:var(--muted);margin:8px 0 0}
+  .pp-warn{color:var(--coral);font-weight:600}
   .tagline-row{display:flex;flex-direction:column;align-items:center;gap:6px}
   .tagline-label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:2px 0 -3px}
   /* desktop: the label sits beside the box; phones keep it above */
@@ -370,9 +378,15 @@
       </div>
 
       <div class="field">
-        <label for="p-passport">Passport country <span class="sub">(private — only you see it; used to show your own government's travel advisory on city guides)</span></label>
-        <input type="text" id="p-passport" list="passport-countries" maxlength="60" placeholder="e.g. United Kingdom" autocomplete="country-name" />
-        <datalist id="passport-countries"></datalist>
+        <label for="p-passport">Passports <span class="sub">(private)</span></label>
+        <div class="pp-list" id="pp-list"></div>
+        <div class="pp-add">
+          <input type="text" id="p-passport" list="passport-countries" maxlength="60" placeholder="e.g. United Kingdom" autocomplete="country-name" />
+          <datalist id="passport-countries"></datalist>
+          <button type="button" class="btn small" id="pp-add">Add</button>
+        </div>
+        <p class="pp-hint">Add every passport you hold. It is used to show the right government's travel advisory on city guides and on day trips. Only you can see it: it is kept with your account, never appears on your public profile, is never shown to other Roamers, and is never included in a shared link.</p>
+        <p class="pp-hint pp-warn" id="pp-warn" hidden>Passports can't be saved yet: run <b>passports.sql</b> in Supabase first.</p>
       </div>
 
       <div class="group-label">My typical travel preferences are:</div>
@@ -772,6 +786,37 @@
     });
   }
 
+  /* ---- passports: several per Roamer, private. PASSPORTS[0] is mirrored to
+     passport_country, which auth.js copies to localStorage and city.html reads
+     for the travel advisory, so the older single-passport path keeps working. ---- */
+  let PASSPORTS = [];
+  let HAS_PASSPORTS_COLUMN = true;   // false until passports.sql has been run
+  const ppEsc = v => String(v||"").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const ppNorm = v => String(v || "").trim().toLowerCase();
+  function renderPassports(){
+    const list = $("pp-list");
+    list.innerHTML = PASSPORTS.map((c, i) => `
+      <span class="pp-chip">${ppEsc(c)}<button type="button" data-pp-rm="${i}" title="Remove ${ppEsc(c)}" aria-label="Remove ${ppEsc(c)}">&times;</button></span>
+    `).join("");
+    list.querySelectorAll("[data-pp-rm]").forEach(b => b.addEventListener("click", () => {
+      PASSPORTS.splice(Number(b.dataset.ppRm), 1);
+      renderPassports();
+    }));
+  }
+  function addPassport(){
+    const input = $("p-passport");
+    const val = input.value.trim();
+    if (!val) return;
+    if (!PASSPORTS.some(c => ppNorm(c) === ppNorm(val))) PASSPORTS.push(val);
+    input.value = "";
+    renderPassports();
+    input.focus();
+  }
+  $("pp-add").addEventListener("click", addPassport);
+  $("p-passport").addEventListener("keydown", (e) => { if (e.key === "Enter"){ e.preventDefault(); addPassport(); } });
+  $("p-passport").addEventListener("change", () => { if ($("p-passport").value.trim()) addPassport(); });   // picked from the country list
+  fillPassportList();   // country suggestions are ready before the profile loads
+
   function fillForm(pOverride){
     const auth = window.NRA_AUTH;
     const user = auth.user();
@@ -782,7 +827,13 @@
     $("p-bio").value       = p.bio || "";
     $("p-city").value      = p.home_city || "";
     $("p-country").value   = p.home_country || "";
-    $("p-passport").value  = p.passport_country || "";
+    HAS_PASSPORTS_COLUMN = Object.prototype.hasOwnProperty.call(p, "passports");
+    $("pp-warn").hidden = HAS_PASSPORTS_COLUMN || !Object.keys(p).length;
+    PASSPORTS = Array.isArray(p.passports) && p.passports.length
+      ? p.passports.filter(Boolean).slice()
+      : (p.passport_country ? [p.passport_country] : []);
+    $("p-passport").value = "";
+    renderPassports();
     fillPassportList();
     $("p-style").value     = p.travel_style || "";
     $("p-company").value   = p.travel_company || "";
@@ -1008,7 +1059,7 @@
     "p-age-sel","p-age-txt","p-fav","p-noreturn","p-bucket","p-story","p-scary","p-extra",
     "p-avatar-caption","p-last-trip","p-next-trip","p-duration"];
   function formSnapshot(){
-    return SNAP_FIELDS.map(id => $(id).value).join("") + "" + $("p-public").checked + $("p-msgs").checked + $("p-msg-email").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
+    return SNAP_FIELDS.map(id => $(id).value).join("") + "" + PASSPORTS.join("") + "" + $("p-public").checked + $("p-msgs").checked + $("p-msg-email").checked + GOAL_FIELDS.map(([id]) => $(id).checked).join(",");
   }
   let savedSnapshot = "";
   window.addEventListener("beforeunload", (e) => {
@@ -1047,7 +1098,7 @@
       bio: $("p-bio").value.trim(),
       home_city: $("p-city").value.trim(),
       home_country: $("p-country").value.trim(),
-      passport_country: $("p-passport").value.trim(),
+      passport_country: PASSPORTS[0] || "",
       travel_style: $("p-style").value,
       travel_company: $("p-company").value,
       trip_duration: $("p-duration").value,
@@ -1072,6 +1123,8 @@
       allow_messages: $("p-msgs").checked,
       allow_message_emails: $("p-msg-email").checked
     };
+    // only write the list once passports.sql has added the column
+    if (HAS_PASSPORTS_COLUMN) fields.passports = PASSPORTS.slice();
     const btn = $("save-btn");
     btn.disabled = true; const original = btn.textContent; btn.textContent = "Saving…"; msg("");
     const res = await auth.updateProfile(fields);

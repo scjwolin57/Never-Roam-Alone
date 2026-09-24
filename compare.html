@@ -97,6 +97,12 @@
   .visa-panel select{font-size:1rem;font-family:inherit;padding:10px 14px;border-radius:3px;
     border:1.5px solid rgba(63,81,56,.3);margin-top:10px;width:100%;max-width:300px}
   .visa-status{font-size:.8rem;color:var(--muted);margin-top:8px}
+  /* the passports saved on the reader's profile: one tap to switch between them */
+  .visa-mine{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+  .visa-mine .vm-note{width:100%;font-size:.76rem;color:var(--muted)}
+  .visa-mine button{border:1.5px solid var(--green);background:transparent;color:var(--green);font-family:inherit;
+    font-weight:700;font-size:.8rem;padding:5px 11px;border-radius:3px;cursor:pointer}
+  .visa-mine button.on{background:var(--green);color:#fff}
   .visa-badges{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
   .visa-badge{padding:10px;border-radius:3px;font-weight:700;font-size:.88rem;color:#fff}
   .visa-badge small{display:block;font-weight:500;font-size:.7rem;opacity:.9;margin-top:3px}
@@ -180,6 +186,7 @@
       <h3>Do I need a visa?</h3>
       <div>I hold a passport from…</div>
       <select id="passport"><option value="" selected disabled>Select your country…</option></select>
+      <div class="visa-mine" id="visaMine" hidden></div>
       <p class="visa-status" id="visaStatus">Loading live visa data…</p>
       <div class="visa-badges" id="visaBadges" hidden></div>
     </div>
@@ -3874,10 +3881,38 @@ function renderVisa(){
 }
 passportSel.addEventListener("change", renderVisa);
 
+/* The passports saved on the profile drive this tool: the first is picked for you,
+   and if you hold more than one you can switch with a tap (Jeff, 2026-09-23). */
+const visaMineEl = document.getElementById("visaMine");
+function renderMyPassports(){
+  const held = (typeof window.NRA_PASSPORTS === "function") ? NRA_PASSPORTS() : [];
+  const known = held.filter(c => [...passportSel.options].some(o => o.value === c));
+  if (!known.length){ visaMineEl.hidden = true; visaMineEl.innerHTML = ""; return; }
+  if (!passportSel.value || (!known.includes(passportSel.value) && !passportSel.dataset.userPicked)){
+    passportSel.value = known[0];
+    renderVisa();
+  }
+  visaMineEl.hidden = false;
+  visaMineEl.innerHTML = `<span class="vm-note">${known.length > 1 ? "Your passports, from your profile" : "From your profile"}</span>`
+    + known.map(c => `<button type="button" data-vm="${c.replace(/"/g,"&quot;")}" class="${c === passportSel.value ? "on" : ""}">${c}</button>`).join("");
+  visaMineEl.querySelectorAll("[data-vm]").forEach(b => b.addEventListener("click", () => {
+    passportSel.value = b.dataset.vm;
+    passportSel.dataset.userPicked = "1";
+    renderVisa(); renderMyPassports();
+  }));
+}
+passportSel.addEventListener("change", () => { passportSel.dataset.userPicked = "1"; renderMyPassports(); });
+/* auth.js loads after this script, so wait for the page before asking it */
+window.addEventListener("load", () => {
+  renderMyPassports();
+  if (window.NRA_AUTH && NRA_AUTH.ready) NRA_AUTH.ready().then(() => { renderMyPassports(); NRA_AUTH.onChange(renderMyPassports); });
+});
+
 fetch(PI_URL).then(r=>r.text()).then(text=>{
   DATA = parseCSV(text);
   visaStatusEl.textContent = "Pick your passport country above to see visa requirements for both cities.";
   renderVisa();
+  renderMyPassports();
 }).catch(()=>{
   visaStatusEl.textContent = "Couldn't load live visa data right now — try again shortly.";
 });
