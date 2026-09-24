@@ -1,4 +1,4 @@
-# Hood picks: bar conflicts, two calls left
+# Hood picks: bar conflicts, one recheck left
 
 *Result of the 2026-09-24 recheck of the 33 existing bars that failed a script check (full table, sources and notes: `_guidebuild/hoodpicks/work/bar_conflicts_final.json`; the original list is in git history).*
 
@@ -7,12 +7,12 @@
 | Replaced with a verified bar | 10 |
 | Kept (checked, still fine) | 8 |
 | Slot left empty (no verified replacement) | 14 |
-| Held for your call | 1 |
+| Kept by your call (Old Blue Last) | 1 |
 
-## Your calls
+## Calls settled (Jeff, 2026-09-24)
 
-1. **London, Shoreditch, party slot.** The replacement found is The Blues Kitchen (4 venues, founded in Camden, so it passes the chain rule). But London's Camden hood already lists the Camden Blues Kitchen, so the page would show the same name twice. For now The Old Blue Last stays (its only fail is a 4.1 rating, limit 4.2). Answer: keep The Old Blue Last, or switch to The Blues Kitchen?
-2. **Dubai, Downtown Dubai, pub slot.** Double Decker was removed and the slot is empty: its only fail is 1,001 m from the hood point (limit 800 m), and the one alternative (The Irish Village) fails the chain rule. Answer: leave it empty, or put Double Decker back?
+1. London, Shoreditch: The Old Blue Last stays.
+2. Dubai, Downtown Dubai: the pub slot stays empty.
 
 ## To recheck
 
