@@ -72,15 +72,8 @@ Each needs a pin, or a decision that the hood is really a day trip. Paste a Goog
 - **kangding|1 / Zheduo River Corridor**: Current point is at 大桥湾 10 km up the Zheduo valley toward the pass, outside the town; no candidate point. The ribbon of town along the river is between the old town and the new town along the Zheduo, about 30.040, 101.960. Needs a chosen point in town, or merge into Old Town.
 - **kangding|2 / New Town (Xin Cheng)**: Current point is identical to the Old Town point (30.05441, 101.96308); New Town (新城) is a separate area downstream. Landmark geocode is a bus station 52 km away, OSM candidate is Prague. Needs a verified point for Kangding's new district / bus station.
 
-## Copy problems the triage noticed (not changed)
-
-- Koblenz: the Südliche Vorstadt text names Görresplatz, which is in the Altstadt.
-- Legaspi: Peñaranda Park is in the Old Albay District, not the Port District.
-- Lilongwe: one hood spans Kumbali and Lumbadzi, 19 km apart; the point is at Lumbadzi.
-- Pilsen: the zoo is in Lochotín/Vinice, not Bory. Paramaribo: Tourtonne is north of downtown, not south. Osogbo: about 2 km from Oja Oba, not 4.
-- Batumi: the "New Boulevard" hood's description (Alphabet Tower, Sheraton) is the Miracle Park end, which is the Seaside Boulevard hood; the point is on the southern New Boulevard.
-- Hangzhou: the Xiacheng description (Wulin Square) now points at Gongshu and overlaps the Grand Canal hood. Ulaanbaatar: the Khan-Uul landmark (Shangri-La) is downtown in Sukhbaatar.
-- Huangshan "Hongcun & Xidi", Qinhuangdao "Gold Coast", Plettenberg Bay "The Crags", Flores "El Remate", Chios "Volissos", Siddharthanagar "Lumbini": hoods that are really day trips 20 to 45 km out (rulebook: a landmark is inside the city; anything outside is a day trip).
+## Copy problems: DONE 2026-09-24
+The 13 corrections are live; the calls left over are in `hood-copy-followups.md`.
 
 ## For every future batch
 Run `python3 _guidebuild/hoodpicks/hoodpoint_check.py <slugs>` (Photon; the cache makes re-runs free) before `fetch_rank.py fetch`; triage any new suspect with `hoodpoint_review.py` and the triage brief. The 412-city scope is clean apart from the items above.
