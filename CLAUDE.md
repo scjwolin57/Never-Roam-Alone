@@ -384,6 +384,20 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
 ## 8. Git, branches and concurrency
 
 - **Never `git add -A`, `git add .` or `git commit -a`.** Stage by path.
+- **The task board enforces this** (`.githooks/nra_tasks.py`, decisions.md
+  2026-09-24). Hooks in `.claude/settings.json` claim every file a session
+  changes (Edit/Write, and files a Bash command changed), refuse an edit to a
+  file another live session holds, and refuse risky git commands (add -A,
+  commit -a, --no-verify, stash, reset, branch switching, clean). The
+  pre-commit hook refuses a commit from a Claude session when a staged file is
+  another session's or nobody's, or when the staged sheet and site data
+  disagree. At the start of work, name your task:
+  `python3 .githooks/nra_tasks.py name "<short task>"`; `board` shows every
+  task. If a script's change was missed, `claim <path>`; to let another task
+  commit your files, `give <path> --to <session>`. NRA-MASTER.xlsx can have
+  several holders; it is committed by one session only when no other live
+  session holds it, so two tasks' sheet changes go out in one commit with
+  both citydata sides. Jeff's Terminal commits are never blocked.
 - Before committing: `git status --short` and confirm every staged path is
   yours. After: `git show --stat` lists only your files.
 - More than one session may be working the same directory. Do not assume the
@@ -449,7 +463,8 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 | The one daily-cost formula | `cost-estimator.js` (city guide estimator, finder budget math, directory cost sort) |
 | Neighborhood geocoding, laundry sync, gym loader | `_guidebuild/hoods/`, `_guidebuild/laundry/`, `_guidebuild/gyms/` (gitignored; scripts read keys from `.env`) |
 | API keys | `.env` (gitignored): Pexels, Pixabay, Unsplash, `GOOGLE_MAPS_API_KEY`. Never in chat, commits or page code. No Google key is in page code (the Maps Embed key was removed 2026-09-18; decisions.md) |
-| Sheet ↔ site parity check | `_guidebuild/check_sheet_parity.py` (all mirrored columns, all cities; `-v` for examples); runs as a warning in `.githooks/pre-commit` (enable per clone: `git config core.hooksPath .githooks`) |
+| Sheet ↔ site parity check | `_guidebuild/check_sheet_parity.py` (all mirrored columns, all cities; `-v` for examples); `.githooks/pre-commit` runs it on the STAGED files and blocks a Claude session's commit when it is not 0 (a warning for Jeff's Terminal commits; enable per clone: `git config core.hooksPath .githooks`) |
+| Task board (who is changing what) | `.githooks/nra_tasks.py` (`board`, `name`, `claim`, `give`, `release`); hooks in `.claude/settings.json`; the board itself in `.git/nra-tasks/` (never committed) |
 | Decisions log | `_needs-attention/decisions.md` — add a row the day a decision is made; reverse with a new row, never by deleting |
 | Resume notes for long jobs | `_needs-attention/RESUME_*.md` |
 | Deploy | Netlify, from `main`; `_needs-attention/`, `netlify/`, root notes are pruned |
