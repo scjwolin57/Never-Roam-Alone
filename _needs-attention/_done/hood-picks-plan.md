@@ -96,3 +96,6 @@ Web searches are only needed for Step 4 and the checks. Most second sources come
 - **D6. Picks per section.** Up to 3 (one per kind), as the page is built. The alternative is fewer, for a shorter hood card on phones. This affects cost and time roughly in proportion.
 - **D7. Names in non-Latin scripts.** Suggested: the name the venue itself uses in Latin letters (on its sign, site or Google listing). Where there is none, the romanised name followed by the local script, for example `Sushi Dai (寿司大)`.
 - **D8. Re-checks.** Closures are the most common defect and data goes stale. Suggested: a status-only re-check twice a year (~$530 each), with closures removed and logged. Or never, and accept drift.
+
+## RETIRED 2026-09-23
+Superseded by RESUME_hood-picks.md ("THIS FILE wins") and decisions 2026-09-21/22; the 40 baseline-bar cities moved to hood-picks-bar-conflicts.md.

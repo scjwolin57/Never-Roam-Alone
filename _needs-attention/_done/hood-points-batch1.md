@@ -40,3 +40,6 @@ against the hood description and landmark, and only then spend Google calls. Exp
 - **Medina, Al Aqeeq and Al-Anbariyah**: superseded. Jeff had both neighborhoods removed from Medina entirely
   (decisions.md 2026-09-22) rather than resolved to a point — Medina now has 3 hoods (Quba, Qurban, Central Area
   (Al Haram)). See `_needs-attention/decisions.md`.
+
+## RETIRED 2026-09-23
+All 10 point fixes are in citydata; Medina reduced to 3 hoods in bac06bdb (checked 2026-09-23).

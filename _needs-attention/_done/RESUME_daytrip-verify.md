@@ -306,3 +306,6 @@ Glaciares, Upsala cruise, Estancia Cristina), 6 left; the five landmark places m
 "Outer Islets (Eneko & Bikendrik)" (citydata hoods + hood_landmark, hood-photos.js, sheet name + map link).
 17 cities stay honestly empty. The 111 proposed landmark-to-day-trip moves (landmarks-that-are-day-trips.md) are
 still unruled; if approved, they now shift indices separately. Flags: `daytrips-empty68-apply-flags.md`.
+
+## RETIRED 2026-09-23
+The 36-batch verification pass is complete. Its "Left for Jeff" items moved to daytrips-open-questions.md (C2-C6); the empty-city backlog is closed (8 cities honestly empty after the 2026-09-22/23 passes). The rules at the top stay valid; add-city SKILL.md points here.

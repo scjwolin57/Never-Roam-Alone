@@ -153,3 +153,6 @@ Sheet = NRA-MASTER.xlsx Live Cities, Hood 1-5 Name. Site = `citydata/<city>.json
 | Copenhagen | - | Indre By | 2026-09-17 (Gym pass research: batch 4, 25 more citi) |
 | Frankfurt am Main | - | Innenstadt (Altstadt) | 2026-08-31 (landmark modal) |
 | Salalah | - | Hawana Salalah | 2026-08-29 (events tab on dest finder) |
+
+## RETIRED 2026-09-23
+Sections 1-2 clean (0 sheet-only names). Section 3 (Brussels, Copenhagen, Frankfurt, Salalah sixth hood) is the same item as photo-sheet-sync-questions.md item 4, tracked there.

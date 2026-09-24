@@ -29,7 +29,7 @@ For the **optional** sections (`routes`, `daytrips`, `score`), include them if y
 
 **Day-trip safety alerts (decisions.md 2026-09-23):** never leave out a day trip because of a travel advisory. For each trip, check whether the US ("Do Not Travel"), UK ("advises against all travel") or Canada ("Avoid all travel") gives its top-level warning for the trip's location, and if so give it an `alert` (`{"c","area","by","chk"}`, CITY_SCHEMA.md). Rules and method: `_guidebuild/daytrips/alerts/BRIEF.md`. Report the alerts set in the add-city report.
 
-**Nearby guides:** a day-trip candidate that already has its own guide is not a day trip (rule 7 in `_needs-attention/RESUME_daytrip-verify.md`); add the pair to `_guidebuild/daytrips/nearby_classified.json` via `classify_nearby.py`, then run `build_nearby.py`. Also check the reverse: existing guides within day-trip range of the new city.
+**Nearby guides:** a day-trip candidate that already has its own guide is not a day trip (rule 7 in `_needs-attention/_done/RESUME_daytrip-verify.md`); add the pair to `_guidebuild/daytrips/nearby_classified.json` via `classify_nearby.py`, then run `build_nearby.py`. Also check the reverse: existing guides within day-trip range of the new city.
 
 Once `hood_geo` exists, run `python3 _guidebuild/laundry/load_laundromats.py` so the new city gets its `laundromats` list (Overture open data, up to 3 per neighborhood within 1 km; it rewrites the key for every city and rebuilds the sheet's Laundromats tab, which is safe to re-run).
 

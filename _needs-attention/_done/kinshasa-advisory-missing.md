@@ -11,3 +11,6 @@ Found 2026-09-22 during the day-trip research for the 68 empty cities. Nothing c
 **To check:** open the State Department's DR Congo advisory page. If it is Level 4 (or Level 3), Kinshasa's
 `advisory` field should say so, site and sheet together (city.html shows Level 3/4 only). It could not be
 edited now anyway: the hood-picks run is writing the city files.
+
+## RETIRED 2026-09-23
+Fixed by 6d1e801b: citydata/kinshasa.json shows Level 4, Do Not Travel; the sheet row reads "Level 4: Do Not Travel" (checked 2026-09-23).

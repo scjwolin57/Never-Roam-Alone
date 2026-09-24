@@ -18,3 +18,6 @@ Marinarium:
 - Photo: `images/landmarks/punta-cana-manati-park.webp`, page `https://commons.wikimedia.org/wiki/File:Ara_chloropterus_-Manati_Park_-Dominican_Republic-8a.jpg`
 
 The image file is still on disk. Do not pad the list to ten in the meantime.
+
+## RETIRED 2026-09-23
+Removed in a01bcdfe. Kept here for the restore details if the park reopens (decisions.md 2026-09-22 points to this file).

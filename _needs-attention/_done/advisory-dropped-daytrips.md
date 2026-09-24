@@ -59,3 +59,6 @@ and Niafunké (over 4-6 h), Kajuru Castle (3 h 16 to 4 h 30), Gorgora (over 3 h 
 confirmed open sight), Mokowe (only a jetty).
 Found on the way: the US advisory reportedly names all of Lamu County, Lamu town included (search snippet; the
 US pages block automated reads), so the Lamu guide's own banner may understate it, like Bahir Dar's.
+
+## RETIRED 2026-09-23
+Done 2026-09-23: 16 trips put back with alerts; the rest left out on facts. Zongo Falls moved to daytrips-open-questions.md (C1); the Lamu banner point to advisory-source-scope.md.

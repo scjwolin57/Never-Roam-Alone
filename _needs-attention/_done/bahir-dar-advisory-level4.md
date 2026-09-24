@@ -79,3 +79,5 @@ shows a reassuring level for a place the US says not to enter. Nothing is change
 - Debre Damo is two separate entries, one under Axum and one under Mek'ele, so removing it is two edits (and two
   again if it ever returns).
 
+## RETIRED 2026-09-23
+Day-trip side done (every Amhara and Tigray trip carries an alert, 2026-09-23). The city-banner fix for Bahir Dar, Gondar, Lalibela, Mek'ele and Axum, and Jeff's wider question, moved to advisory-source-scope.md (Stage 4).

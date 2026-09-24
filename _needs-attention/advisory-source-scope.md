@@ -16,7 +16,7 @@ keyed to US levels too. Nothing has been changed. This note is the decision.
 - That date is a hardcoded string in the page, the same for every city, and it
   is already wrong for some: the Amhara advisory was updated 27 Aug 2026.
 - The value is the country's level. Where a region differs, the city shows the
-  country's (Bahir Dar shows 3; Amhara is 4). See `bahir-dar-advisory-level4.md`.
+  country's (Bahir Dar shows 3; Amhara is 4). See `_done/bahir-dar-advisory-level4.md`.
 - The day-trip rules ("nothing in a Level 4 or advise-against-all-travel area")
   are written against the US level, so what is allowed on the site depends on
   one government's rating.
@@ -102,7 +102,7 @@ Whatever the display does, the internal rule should stop naming one government.
 Proposed wording: **a place is restricted when any tracked government advises
 against all travel there**, which is country-neutral, and is what actually
 decided Bahir Dar (both the US and the FCDO say do not go to Amhara). That also
-settles the open question in `bahir-dar-advisory-level4.md` without resting on
+settles the open question in `_done/bahir-dar-advisory-level4.md` without resting on
 the US rating alone.
 
 ## One caution on coverage
@@ -170,6 +170,13 @@ Checked at 320, 375 and desktop: no overflow, the banner stacks.
   Amhara, where the city is. The fix is a per-city override in citydata
   (`advisory.region`), which city.html already renders when present. Ethiopia's
   five cities are known and could be done first.
+  **Cities known to need the regional override (folded in from `_done/bahir-dar-advisory-level4.md`, 2026-09-23):**
+  Bahir Dar, Gondar, Lalibela (Amhara) and Mek'ele, Axum (Tigray): the US, UK and Canada all give their top
+  warning for both regions, but the guides show Ethiopia's country line (US Level 3). Also **Lamu**: the US July
+  2026 advisory reportedly names all of Lamu County, Lamu town included (search snippet only; the US pages block
+  automated reads), while the UK and Canada except Lamu and Manda islands. The day-trip side is done: every trip
+  in those regions now carries a safety alert (decisions.md 2026-09-23). Jeff's wider question from that file
+  still stands: keep these guides as they are with the right regional advisory shown, or do more?
 - ~~**US levels** for the other 180 countries, and a date for each.~~ **Done 2026-09-23:** the State Department publishes a JSON feed (`cadataapi.state.gov/api/TravelAdvisories`); `refresh.py` now reads it (several calls merged, since each returns part of the list). US levels for 226 of 232 country names, each with its own date; Macau carries a regional override (Level 3) because its country entry is Hong Kong (Level 2). 12 cities' per-city `advisory` fields brought in line (Kuwait City, Bissau, Ibadan, Kano, Kinshasa gained one; 6 Bangladesh cities and São Tomé dropped from Level 3 to 2). Solo comfort re-run for all 893 (28 changed).
 - The destination finder already asks for a passport country for visas. A
   signed-out reader who has set it there could see their own government too;

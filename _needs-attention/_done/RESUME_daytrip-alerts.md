@@ -43,3 +43,6 @@ added back with alerts.
 (`daytrip-alerts-calls.md`). China (187 trips) needed no geocoding: no government has a top-level area there.
 Upkeep: after every `advisories/refresh.py`, run `alerts/recheck.py`; re-research what it lists with BRIEF.md,
 then `apply_alerts.py --rule` (always applies every batch together).
+
+## RETIRED 2026-09-23
+Complete 2026-09-23: 287 trips carry an alert. Upkeep steps are in this file; open calls are in daytrips-open-questions.md.

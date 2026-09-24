@@ -26,3 +26,6 @@ Desert, and those places are in it geographically; the US "licensed tour company
 One Taxila site, Jaulian, is just inside Haripur district, Khyber Pakhtunkhwa, which the US warns against as a
 whole province. The museum, the town and the other main sites are in Punjab. **Currently: no alert.**
 Options: leave as is, or add "US: Khyber Pakhtunkhwa (the Jaulian site)".
+
+## RETIRED 2026-09-23
+Merged into daytrips-open-questions.md (B1-B3).

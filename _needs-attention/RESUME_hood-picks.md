@@ -1,7 +1,7 @@
 # Resume note: Where to eat / Coffee & takeaway / Where to drink (started 2026-09-21)
 
 *Read CLAUDE.md, then `decisions.md` (rows dated 2026-09-21 about hood picks), then this.
-The full reasoning is in `hood-picks-plan.md`; where the two differ, THIS FILE wins.*
+The full reasoning is in `_done/hood-picks-plan.md`; where the two differ, THIS FILE wins.*
 
 ## Scope (Jeff, 2026-09-21)
 - **412 cities** with 500,000 or more international visitors (`destinations.js` `visitors >= 0.5`), most-visited
@@ -132,7 +132,7 @@ The raw responses in `_guidebuild/hoodpicks/cache/` hold Google ratings and addr
 files once that batch is committed and audited. Only place IDs go into citydata and the sheet.
 
 ## Concurrency
-City files are one line each. Do not run another data job on citydata while this runs (see HANDOFF-2026-09-21.md,
+City files are one line each. Do not run another data job on citydata while this runs (see _done/HANDOFF-2026-09-21.md,
 "Traps"). Stage by exact path; never `git add -A`.
 
 ## Batch log
@@ -164,11 +164,11 @@ Nothing was loaded: the sheet's Hood Picks tab has only the 409 baseline bars an
 
 
 ### Batch 1 re-pick, 2026-09-22 (rules of decisions.md 2026-09-22): STAGED, NOT LOADED
-- Cache reused, no Google calls for the re-pick itself; 53 calls to re-fetch 10 hoods whose map point was wrong (`hood-points-batch1.md`). Counter: 845 of September's 1,000.
+- Cache reused, no Google calls for the re-pick itself; 53 calls to re-fetch 10 hoods whose map point was wrong (`_done/hood-points-batch1.md`). Counter: 845 of September's 1,000.
 - Re-pick of the 509 empty slots: 471 picks by 5 agents → independent check (5 agents, no search) 459 confirmed → bar safety pass (121 bars, 4 fail) → first fresh 10% audit: **5 defects in 46** (2 kind, 3 hood) → full re-check: kind of all 95 dive/local picks (38 refiled or dropped), hood fit of all 216 picks whose address does not name the hood (94 out), 10 hood points re-placed and their 63 slots re-picked and re-checked → second fresh 10% audit: **5 defects in 35** (1 kind, 4 hood on the sub-district question).
 - Result on disk: `work/batch01r/final/<slug>_final.json`, **641 picks** (301 kept from the first run + 340 new), `check_picks.py` clean, `load_picks.py stage --dry` = 641 rows, 0 baseline clashes. 6 neighbor-hood picks, 146 blank notes, 1 median-bar pick.
 - Fill per section (slots / baseline bars / new): eat 360 / 0 / 265 (74%), cafes 360 / 0 / 253 (70%), bars 470 / 251 / 123 (80%). Total 75%. Empty by design: dive (12 filled; Google's "bar" type rarely matches a cheap dive), party, cocktail in cities whose baseline already holds them.
-- **Third fresh 10% audit (2026-09-22, under Jeff's hood-fit reading A): 3 defects in 29 (10%)**: one unsupported note claim (blanked), a cocktail bar filed as `party` and a dessert cafe filed as `takeaway` (both dropped). No wrong venue, no wrong neighborhood. **Stop condition reached** (an audit still finds defects after the full re-check): 638 picks stay staged; Jeff decides in `hood-picks-batch1-load.md`. Medina remapped by hood name to its new 3-hood list (bac06bdb); the sheet's Hood Picks tab is untouched.
+- **Third fresh 10% audit (2026-09-22, under Jeff's hood-fit reading A): 3 defects in 29 (10%)**: one unsupported note claim (blanked), a cocktail bar filed as `party` and a dessert cafe filed as `takeaway` (both dropped). No wrong venue, no wrong neighborhood. **Stop condition reached** (an audit still finds defects after the full re-check): 638 picks stay staged; Jeff decides in `_done/hood-picks-batch1-load.md`. Medina remapped by hood name to its new 3-hood list (bac06bdb); the sheet's Hood Picks tab is untouched.
 - **Hood points (2026-09-22):** all 4,033 placed points checked site-wide before any further Google spend; 314 moved, 38 for Jeff (`hood-points-site-check.md`). Batch 1's ten were part of it. Pre-flight for every batch: `hoodpoint_check.py`.
 - **LOADED 2026-09-22 (option B done):** kind pass on 267 party/takeaway/bakery/coffee picks (223 keep, 2 refiled, 42 dropped), fourth fresh 10% audit 1 defect in 23 (a global chain the list missed; fixed for the whole batch by script), then `load_picks.py stage` (595 rows), `apply` (25 cities), `parity` 0 mismatches. 595 picks with place IDs are live in citydata plus the 251 baseline bars. Medina's Hood Picks rows re-numbered by hood name after its hood list shrank.
 - Batch 2 next: run `hoodpoint_check.py` on its 25 cities first (all points already checked site-wide), then the pipeline with REPICK_BRIEF + KINDPASS definitions. (hood-fit-definition.md is resolved: reading A) (which reading of "in the hood"). Then: one more fresh 10% audit under that reading → `load_picks.py stage work/batch01r/final` → `apply` → `parity` → browser check of a `near` flag → commit.

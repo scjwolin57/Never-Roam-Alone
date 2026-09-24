@@ -15,3 +15,6 @@ Examples: Hamilton's Paget hood lists Elbow Beach / Coco Reef / Greenbank in the
 **Suggested fix (after you choose):** regenerate the losing copy from the winner with a script, in one commit, with a parity check that must reach zero. Not started. The neighborhood fixes of 2026-09-18 wrote their own rows to the sheet correctly, but the older mismatches in those same cities were left alone.
 
 Also found: `_guidebuild/extend_citydata.py` must not be run as is. Its catalog files are older than `citydata/` (for example `city-food-photos.js` would blank or change food photos in almost every city, and `city-landmark-coords.js` fails its own parity check). It was run once on 2026-09-18, the damage was spotted before anything was committed, and every city file was restored. Day-trip changes are now written straight into `citydata/` and `day-trips.js` together.
+
+## RETIRED 2026-09-23
+Answered by decisions 2026-09-19, filled by 523f41c4; 0 hotel differences across 4,027 hoods (checked 2026-09-23). The 4 six-hood cities are tracked in photo-sheet-sync-questions.md item 4.

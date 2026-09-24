@@ -26,7 +26,7 @@ Lummus Park) was never looked at.
    a by-hand check. Everything else is left as it is.
 4. **Protected slots are never overwritten.** The 93 slots changed by this
    month's coordinate commits (4 of them from Jeff's pins) are compared only;
-   a disagreement goes to `landmark-pin-conflicts.md` for Jeff.
+   a disagreement goes to `_done/landmark-pin-conflicts.md` for Jeff.
 5. **A landmark found to be a day trip** (outside the city) gets its correct pin
    now and is listed in `landmarks-that-are-day-trips.md`; moving it is Jeff's call.
 6. **Batches of 25 cities, alphabetical, reviewed and committed per batch.**

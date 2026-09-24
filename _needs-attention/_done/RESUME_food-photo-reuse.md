@@ -54,3 +54,6 @@ Question file: `food-photos-reused-and-credits.md`. B (27 junk credits) done in 
 
 ## Finished 2026-09-21
 All 31 batches done (768 cities, 1,788 slots). Clean-up: 449 image files that this pass left unreferenced were removed; 111 files that were already unreferenced before the pass were left alone. No image is now shared by 4+ differently named dishes.
+
+## RETIRED 2026-09-23
+Job complete: all 31 batches logged with commits (last 8eb7bd1f), merged into main in 73188718 (recorded 247b71cf).

@@ -9,3 +9,6 @@ Nothing below was changed. Each is a yes/no for Jeff.
    Commons "Stromness Outer Holm seen from Stromness Museum" (Orkney). Wrong location; replace or drop.
 3. **El Calafate, "Walichu Caves (Punta Walichu)" landmark photo** uses the Cerro Frias 4x4 tours photo, the same
    file as the Cerro Frias slot. Wrong subject; replace or drop.
+
+## RETIRED 2026-09-23
+All 3 flags moved to daytrips-open-questions.md (A1-A3), still open there.

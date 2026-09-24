@@ -30,3 +30,6 @@ Cienfuegos Palacio de Valle.
 | Medan | 6 | Lake Toba | The lake is about 100 km long; both points are on it |
 | Ohrid | 6 | Old Bazaar and Čaršija | Wikidata matched an Old Bazaar 46 km away in Bitola |
 | Murree | 7 | Ayubia National Park | A park, not a point; both values are inside it |
+
+## RETIRED 2026-09-23
+Quito El Panecillo pin fixed in 1467abfe; the other 5 needed no action.

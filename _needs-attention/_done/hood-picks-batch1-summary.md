@@ -59,3 +59,6 @@ None of these were things the independent checker's instructions asked it to che
 - If clean: `check_picks.py picks` (already run clean, see above), `load_picks.py stage` → sheet, `load_picks.py apply` → citydata by span, `load_picks.py parity`, a browser check of one city's `query_place_id` map link, commit by path.
 - Milan (Porta Nuova) and Osaka (Tennoji) hood-point fixes, same treatment as Amsterdam.
 - Batches 2–17 (cities 26–412), same pipeline, tightened brief.
+
+## RETIRED 2026-09-23
+Its to-do list is done (c80456ac, 449e9213; Milan and Osaka points 3b54bf62). Remaining batches live in RESUME_hood-picks.md.
