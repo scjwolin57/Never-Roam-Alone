@@ -14,6 +14,8 @@ site, so moving them broke nothing.
 
 | File | Why it's closed |
 |---|---|
+| `_done/advisory-source-scope.md` | Retired 2026-09-24 (Jeff). Stages 1-3 and the city-area pass are live |
+| `_done/transit-popups-notes.md` | Retired 2026-09-24 (Jeff). The rollout is done; its 146 "double-check at publish" route notes were not re-checked |
 | `_done/cull_review.md` | Retired 2026-09-24 (Jeff): an early list from working out which cities made the site. Nothing reads it and no autocomplete row was deleted |
 | `_done/roamer-review-questions.md` | Trimmed 24 -> 16; the chosen questions are live in `city.html` |
 | `_done/local-interview-questions.md` | Trimmed 31 -> 15; the chosen questions are live in `city.html` |
@@ -50,7 +52,6 @@ Nothing was deleted, only moved. `master.css` points at the new path.
 | `coords-needing-review.csv` | 2,942 landmark coordinates never checked: 779 "not in OSM, 5 km+ from the other landmarks", 2,163 "not in OSM (unverifiable)". The 695 "OSM disagrees" rows are done | `_guidebuild/` |
 | `hood-geo-unresolved.md` | 175 of 4,053 neighborhoods without coordinates, so they are left out of the Find dropdown. Fix is a Maps pin per row | 2026-09-17 |
 | `beaches-under-mapped.md` | 41 coastal cities whose Beaches score may be too low; low priority | 2026-09-16 |
-| `transit-popups-notes.md` | The 145-city rollout is done (`city-routes.js` has all 893). What's left: 146 "double-check at publish" notes on services that come and go | project root |
 | `suggested-improvements.md` | Your general improvement backlog | project root |
 | `decisions.md` | Not a to-do: the decision log every session reads first | 2026-09-16 |
 
