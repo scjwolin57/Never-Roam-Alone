@@ -215,3 +215,21 @@ judged before were offered: 53 empty kinds to fill, 40 current picks open to cha
 plus Lisbon 0), 1 "Just outside" pick (Le Paris Bakery, 280 m outside Chinatown's boundary). Parity 0 mismatches; baseline bars
 untouched; city.html shows "Just outside <hood>" (checked at 320, 375 and desktop). 9 live picks sit just outside an official
 boundary and stay unflagged pending Jeff (`hood-boundaries-measurement.md`).
+
+### Batch 2, remaining 20 cities (2026-09-24): LOADED
+Cities: `_guidebuild/hoodpicks/work/b2rest_slugs.txt` (Vienna to Hurghada; the 5 pilot cities are done). Karbala is treated as
+alcohol-free (`DRY_SLUGS`, Iraq bans alcohol sales in its holy cities). Areas built by `build_areas.py` (a boundary is used only
+when its name matches the hood with no extra words and it contains the pin): 16 whole-boundary, 8 small-boundary, 70 at 1.2 km.
+`fetch_rank.py area` 480 calls + `gaps` 20 calls ($20.00; trial credit total $68.32 of $260). To-dos in `work/b2x/` (840 slots,
+115 big brands removed by `annotate.py`). Briefs: `B2X_BRIEF.md`, `B2X_CHECK_BRIEF.md`, `B2X_AUDIT_BRIEF.md`.
+To resume: for each `work/b2x/<slug>_picks.json` present -> `gate.py work/b2x <slug>` -> `namecheck.py work/b2x/<slug>_gated.json`
+-> checker (B2X_CHECK_BRIEF) -> audit of confirmed (B2X_AUDIT_BRIEF, input `<slug>_auditin.json`) -> bar safety (SAFETY_BRIEF)
+-> `HP_W=b2x python3 merge_pilot.py <slugs>` -> `load_picks.py stage work/b2x/final` (it takes the sheet lock itself) -> `apply` ->
+`parity` -> commit by path. A city with no picks file yet needs its pick agent (B2X_BRIEF) first.
+**Result:** 356 picks from 840 offered slots (7 pick agents) -> gate 1 rejected -> independent checker 41 wrong (dropped, or fixed
+from the checker's own evidence: 14) -> fresh audit of all 328 confirmed or fixed picks: 23 wrong (17 fixed: names, one outlet count,
+blank notes; 6 dropped), 2 held (MASSO: its own site says Adliya but the map puts it in Juffair; a Karbala sweets shop with a likely
+second branch and no romanised name) -> bar safety 67 searched: 2 fail (Rock Factory, FinUp, Pattaya), 2 held as possibly closed
+(Carol, Cairo; Stella Cocktail Club, Dublin). **Loaded: 316 picks in 19 cities** (Shanghai 0: almost no venue there lists a website),
+9 "just outside" picks; 87 baseline bars untouched; parity 0 mismatches. Google calls this batch: 500 ($20.00; credit $68.32 of $260).
+Next: batch 3 (cities 51-75 in scope412.json) with build_areas.py -> fetch_rank.py area -> gaps -> todo -> annotate -> the same pipeline.
