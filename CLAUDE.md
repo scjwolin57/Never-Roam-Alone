@@ -366,6 +366,11 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
   (`python3 _guidebuild/checkjs.py <page>.html`, `node --check <file>.js`) with
   zero errors.
 - Minified single-line JSON in `citydata/` is edited by span, never `json.dump`ed.
+- **The workbook is written only through `_guidebuild/sheet_write.py`:** `SheetEdit` for Live Cities cells,
+  `TabRows` for the Gyms, Laundromats and Hood Picks tabs and a new city's row. Both hold the lock, write only what
+  differs, re-apply on top of another job's save, and verify nothing else moved. Never `wb.save()` directly, and never
+  run `extend_citydata.py` (it rebuilds citydata from stale catalogs). After any data change,
+  `python3 _guidebuild/check_sheet_parity.py` must read 0 (the pre-commit hook warns when it does not).
 - **Add a city only through `_guidebuild/add_city.py` + `add_city_to_sheet.py`**
   (the add-city skill), and only against the full inventory in §5. Never
   hand-splice a city into the ten city-list files.

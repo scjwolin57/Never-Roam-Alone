@@ -116,3 +116,15 @@ Three September commits updated the catalogs but not citydata, and city.html
 renders citydata. 92 coordinate fixes in 73 cities, ten cities' photo lists and
 the Tozeur mosque merge were never live; Aomori's pin came from Jeff's own map
 link. Nothing failed, nothing conflicted, and no check caught it for six days.
+
+## RETIRED 2026-09-23
+Done. Every script that wrote the workbook now goes through `sheet_write.py`: `SheetEdit` (cells) in rain/apply_rain,
+hoods/sync_hood_geo_to_sheet, hoods/apply_hood_fixes, foodphotos/reuse/apply, hoodpicks/hoodpoint_review; the new
+`TabRows` (per-city row groups, same lock / only-what-differs / re-apply / verify guarantees) in gyms/load_gyms,
+laundry/load_laundromats, hoodpicks/load_picks (seed and stage) and add_city_to_sheet (new city row + Hood Picks).
+The one-time column builders (beaches/write_sheet, laundry/write_sheet) now exit with a RETIRED message. Dry runs on
+the live workbook: Gyms rebuilt from citydata = the tab exactly; hood-picks seed adds nothing; add-city skips an
+existing city; workbook byte-identical afterwards. The standing rules are now one bullet in CLAUDE.md §7, and
+`check_sheet_parity.py` (0 differences, venue tabs included) runs as a pre-commit warning.
+Found on the way, not changed: 61 cities' laundromat lists were built before the 2026-09-22 neighborhood-point fixes;
+re-running load_laundromats.py would re-file them (site and sheet agree today).
