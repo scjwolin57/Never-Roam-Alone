@@ -3117,10 +3117,12 @@ function buildAdvisoryBanner(c, cityAdv){
               <span class="lmk-soon-txt">Image coming soon</span>
               <button type="button" class="lmk-soon-btn" data-contrib-idx="${i}">Contribute</button>
             </div>`;
-        const lmkStar = voteStarHTML({type:"landmark", id:`${c.city}:${i}:star`, city:c.city, extraClass:"lmk-vote-row", size:15,
+        /* votes are keyed by the landmark's name, not its slot, so removing or reordering a landmark never moves
+           another landmark's votes (Jeff, 2026-09-24) */
+        const lmkStar = voteStarHTML({type:"landmark", id:`${c.city}:${l[0]}:star`, city:c.city, extraClass:"lmk-vote-row", size:15,
           label:"Mark as a must-not-miss attraction"});
         /* the star goes inside the widget so it sits left of the "i" hint (Jeff, 2026-09-23) */
-        const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${i}`, city:c.city, extraClass:"lmk-vote-row", size:14,
+        const lmkVote = voteWidgetHTML({type:"landmark", id:`${c.city}:${l[0]}`, city:c.city, extraClass:"lmk-vote-row", size:14,
           beforeHint: lmkStar});
         return `
         <div class="lmk-card" data-lmk-idx="${i}">
