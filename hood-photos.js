@@ -3880,7 +3880,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Paramaribo": {
     "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" },
-    "Tourtonne": { img:"images/hoods/paramaribo--tourtonne.webp", page:"https://commons.wikimedia.org/wiki/File:Op_den_westdam_van_Tourtonne_(titel_op_object),_NG-1994-65-2-32-2.jpg", src:"Rijksmuseum" },
     "Zorg en Hoop": { img:"images/hoods/paramaribo--zorg-en-hoop.webp", page:"https://commons.wikimedia.org/wiki/File:Zendapparatuur_waarschijnlijk_bij_de_airstrip_Zorg_en_Hoop_(Paramaribo),_Bestanddeelnr_252-2331.jpg", src:"Willem van de Poll" }
   },
   "Parma": {

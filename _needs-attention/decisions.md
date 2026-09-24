@@ -6,6 +6,7 @@ here the same day. See CLAUDE.md §4.5 (this file's companion rulebook).*
 
 | Date | Decision | Why / source |
 |---|---|---|
+| 2026-09-24 | **Lilongwe's Kumbali neighborhood sits at Area 44 per Jeff's pin (renamed "Kumbali (Area 44)"); Paramaribo's Tourtonne is removed as a neighborhood.** | Jeff (hood-copy-followups.md). |
 | 2026-09-24 | **Hoods outside the city become day trips: Plettenberg Bay "The Crags", Chios "Volissos & the Stone Villages" and Siddharthanagar "Lumbini (Sacred Garden)" are removed as neighborhoods and added as half-day trips. Koblenz Südliche Vorstadt's tag is "quiet".** | Jeff (hood-copy-followups.md items 3 and 5). |
 | 2026-09-24 | **Bar conflicts: London Shoreditch keeps The Old Blue Last (no second Blues Kitchen on the page); Dubai Downtown's pub slot stays empty (Double Decker not restored).** | Jeff, after the 33-bar recheck (hood-picks-bar-conflicts.md). |
 | 2026-09-24 | **The "~" (estimated) on a visitor figure follows the sheet's Intl Visitors Basis: "estimated" shows "~", "official" and "published" do not.** Applied everywhere by `_guidebuild/visitors/sync_visitors.py`: citydata `c.est` (728 cities changed; 739 now estimated), destinations.js (865 -> 739), index.html and compare.html (64 -> 48 each), city-intl-visitors.js. `check_sheet_parity.py` now fails if a city's flag and its basis disagree. | Jeff: "use the sheet's Intl Visitors Basis column (estimated means '~')". |
