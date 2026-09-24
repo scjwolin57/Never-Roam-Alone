@@ -53,3 +53,6 @@ Wired in the same day: Andorra la Vella / Prat de la Creu and Bologna / Bolognin
 ⚠ Both were added with **no credit line** (the "our own photos" convention). If either
 came from a stock site rather than Jeff's own camera, it needs a credit or removal —
 the Bolognina shot in particular looks professionally taken.
+
+## RETIRED 2026-09-23
+Closed 2026-09-23 per Jeff: Heraklion Poros and Mastampas and Bologna Bolognina stay on the "No photo yet / Contribute a photo" placeholder. Bolognina's uncredited photo (sheet said "Own photo") was removed; it is in git history if it is Jeff's. The site-wide count of hoods without a photo is a general backlog, not this file.

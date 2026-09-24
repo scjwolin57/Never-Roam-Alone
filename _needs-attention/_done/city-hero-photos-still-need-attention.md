@@ -151,3 +151,6 @@ While this work was going on, something else was editing the same repo. **None o
 - **`citydata/*.json` — around 40 files** have had lodging and neighborhood data rewritten, apparently a hotel pass. `citydata/capri.json` went from 5 neighborhoods to 4, dropping "Via Krupp / Gardens of Augustus" from `hoods`, `hood_tag` and `hood_desc`.
 
 Also changed in `city.html`: the lodging block now handles fewer than three hotel picks, and the "Compare with another city" arrow became an inline SVG. Both look intentional.
+
+## RETIRED 2026-09-23
+Both items done 2026-09-23 per Jeff: Ibiza hero is Es Vedrà from Cala d'Hort (Pixabay 3949782, marucha, Pixabay licence, credit "marucha / Pixabay"); Naha hero is the Shuri Kinjocho stone-paved road (Commons, 663highland, CC BY 2.5, in the Commons category Shuri Kinjocho-ishidatami-michi). Sheet City Photo Credit updated for both.

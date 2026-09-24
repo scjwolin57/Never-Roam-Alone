@@ -92,8 +92,7 @@ window.NRA_HOOD_PHOTO = {
     "Santo Stefano": { img:"images/hoods/bologna--santo-stefano.webp", page:"https://commons.wikimedia.org/wiki/File:Piazza_Santo_Stefano_(east_2).jpg" },
     "Quadrilatero": { img:"images/hoods/bologna--quadrilatero.webp", page:"https://commons.wikimedia.org/wiki/File:Quadrilatero%2C_Bologna%2C_Italy_-_panoramio_(5).jpg" },
     "Saragozza": { img:"images/hoods/bologna--saragozza.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna%2C_porta_saragozza_02.JPG" },
-    "San Donato": { img:"images/hoods/bologna--san-donato.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Porta_San_Donato_087.jpg" },
-    "Bolognina": { img:"images/hoods/bologna--bolognina.webp" }
+    "San Donato": { img:"images/hoods/bologna--san-donato.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Porta_San_Donato_087.jpg" }
   },
   "Bratislava": {
     "Old Town (Staré Mesto)": { img:"images/hoods/bratislava--old-town-stare-mesto.webp", page:"https://commons.wikimedia.org/wiki/File:Hlavn%C3%A9_n%C3%A1mestie-The_napoleonic_soldier%2C_Old_Town_Hall_and_Roland_Fountain-Bratislava.JPG" },
