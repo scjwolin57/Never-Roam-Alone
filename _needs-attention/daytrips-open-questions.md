@@ -6,12 +6,15 @@ the "Left for Jeff" part of `_done/RESUME_daytrip-verify.md` and the leftovers o
 
 # A. Wrong content live on the site (fix soon)
 
-**A1. Majuro, neighborhood 5 photo is in Scotland.** `images/hoods/majuro--outer-islets-eneko-bikendrik-arno.webp`
-is Commons "Stromness Outer Holm seen from Stromness Museum" (Orkney). Still live 2026-09-23. Replace or drop.
+**A1. Done 2026-09-23 (Jeff: replace).** Majuro's Outer Islets photo is now Commons "Eneko Islet 04" by Cliff
+Hansen (CC BY-SA 4.0), from a set the author describes as a trip to Eneko islet, geotagged at OpenStreetMap's own
+Eneko point; the same set includes the "Welcome to Eneko Island" sign. The Stromness (Orkney) photo is gone.
 
-**A2. Majuro, neighborhood 5 budget hotel "Arno B&B".** The hood is now "Outer Islets (Eneko & Bikendrik)"; Arno
-is a separate atoll and a day trip. If the B&B is on Arno (name suggests it, not verified), it no longer belongs
-here. Remove it (budget slot empty) or keep? Still live 2026-09-23.
+**A2. Done 2026-09-23 (Jeff: Arno stays a day trip; find another budget stay).** "Arno B&B" is on Arno Atoll, so
+it is out. Budget slot now "Eneko Island cabin rooms": basic twin rooms at $45 a night (Very Hungry Nomads, updated
+July 2025; Travel Obscure, visited August 2024: $45), inside Majuro's $45 budget band; booked at the RRE Hotel
+desk. Same operator as the mid-range pick (Eneko Island Getaway, the $150 beach cottage). Tent camping ($10 per
+person) exists but is not a hotel tier.
 
 **A3. El Calafate, "Walichu Caves (Punta Walichu)" landmark photo** is the Cerro Frias 4x4 tours photo (same
 picture as the Cerro Frias slot, re-encoded). Wrong subject; replace or drop.

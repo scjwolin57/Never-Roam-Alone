@@ -3222,7 +3222,7 @@ window.NRA_HOOD_PHOTO = {
   "Majuro": {
     "Uliga": { img:"images/hoods/majuro--uliga.webp", page:"https://commons.wikimedia.org/wiki/File:12.03_%E3%80%8C%E7%B9%81%E6%A6%AE%E5%8D%97%E5%B3%B6_%E6%99%BA%E6%85%A7%E6%B0%B8%E7%BA%8C%E3%80%8D%E7%B8%BD%E7%B5%B1%E8%A6%96%E5%AF%9F%E6%88%91%E5%9C%8B%E9%A7%90%E9%A6%AC%E5%9C%8B%E6%8A%80%E8%A1%93%E5%9C%98%E3%80%8C%E9%A6%AC%E7%B4%B9%E7%88%BE%E7%BE%A4%E5%B3%B6%E5%8F%8A%E5%8F%B0%E7%81%A3%E9%A7%90%E9%A6%AC%E5%9C%8B%E6%8A%80%E8%A1%93%E5%9C%98%E5%B8%82%E9%9B%86%E3%80%8D_(54180811614).jpg", src:"總統府" },
     "Delap": { img:"images/hoods/majuro--delap.webp", page:"https://commons.wikimedia.org/wiki/File:F20250713AH-3815_President_Donald_Trump_and_First_Lady_Melania_Trump_attend_the_FIFA_Club_World_Cup_Final_soccer_match.jpg", src:"The White House" },
-    "Outer Islets (Eneko & Bikendrik)": { img:"images/hoods/majuro--outer-islets-eneko-bikendrik-arno.webp", page:"https://commons.wikimedia.org/wiki/File:Stromness_Outer_Holm_seen_from_Stromness_Museum.jpg", src:"Ymblanter" }
+    "Outer Islets (Eneko & Bikendrik)": { img:"images/hoods/majuro--outer-islets-eneko-bikendrik.webp", page:"https://commons.wikimedia.org/wiki/File:Eneko_Islet_04.JPG", src:"Cliff Hansen" }
   },
   "Makassar": {
     "Pantai Losari": { img:"images/hoods/makassar--pantai-losari.webp", page:"https://commons.wikimedia.org/wiki/File:Makassar_2022_Bennylin_28.jpg", src:"Bennylin" },
