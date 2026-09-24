@@ -158,8 +158,7 @@ window.NRA_HOOD_PHOTO = {
     "V&A Waterfront": { img:"images/hoods/cape-town--v-a-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:Signal_Hill_and_Ferris_wheel_from_Victoria_Wharf_balcony%2C_Cape_Town.jpg" }
   },
   "Chiang Rai": {
-    "Mae Kok Riverside (Rim Kok)": { img:"images/hoods/chiang-rai--mae-kok-riverside-rim-kok.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Kok_River_-_Chiang_Rai_(18820240405).jpg", src:"cloud.shepherd" },
-    "Doi Mae Salong": { img:"images/hoods/chiang-rai--doi-mae-salong.webp", page:"https://commons.wikimedia.org/wiki/File:2014_0601_Mae_Salong_tea_plantations.jpg", src:"Takeaway" }
+    "Mae Kok Riverside (Rim Kok)": { img:"images/hoods/chiang-rai--mae-kok-riverside-rim-kok.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Kok_River_-_Chiang_Rai_(18820240405).jpg", src:"cloud.shepherd" }
   },
   "Chișinău": {
     "Centru": { img:"images/hoods/chisinau--centru.webp", page:"https://commons.wikimedia.org/wiki/File:Cl%C4%83direa_prim%C4%83riei_municipiului_Chi%C8%99in%C4%83u.jpg" },
