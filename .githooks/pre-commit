@@ -1,0 +1,18 @@
+#!/bin/sh
+# Sheet <-> site parity warning (never blocks a commit). Runs only when the commit touches the sheet or the
+# data the sheet mirrors. The checker lives in _guidebuild/ (gitignored, main folder only); if it is not here
+# (a fresh clone, a worktree), the hook says so and lets the commit through.
+# Enable once per clone:  git config core.hooksPath .githooks
+staged=$(git diff --cached --name-only)
+echo "$staged" | grep -Eq '^(NRA-MASTER\.xlsx|citydata/|city-photos\.js|hood-photos\.js|city-landmark-photos\.js|day-trips\.js)' || exit 0
+root=$(git rev-parse --show-toplevel)
+checker="$root/_guidebuild/check_sheet_parity.py"
+if [ ! -f "$checker" ]; then
+  echo "pre-commit: sheet parity not checked (no _guidebuild/check_sheet_parity.py here)"; exit 0
+fi
+out=$(cd "$root" && python3 "$checker" --quiet 2>&1)
+case "$out" in
+  *"0 differing cells in 0 cities"*) echo "pre-commit: $out" ;;
+  *) echo "pre-commit WARNING: $out"; echo "  The commit goes ahead; fix the sheet or the site so they match (CLAUDE.md 3.5)." ;;
+esac
+exit 0

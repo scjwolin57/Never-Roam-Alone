@@ -444,6 +444,7 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 | The one daily-cost formula | `cost-estimator.js` (city guide estimator, finder budget math, directory cost sort) |
 | Neighborhood geocoding, laundry sync, gym loader | `_guidebuild/hoods/`, `_guidebuild/laundry/`, `_guidebuild/gyms/` (gitignored; scripts read keys from `.env`) |
 | API keys | `.env` (gitignored): Pexels, Pixabay, Unsplash, `GOOGLE_MAPS_API_KEY`. Never in chat, commits or page code. No Google key is in page code (the Maps Embed key was removed 2026-09-18; decisions.md) |
+| Sheet ↔ site parity check | `_guidebuild/check_sheet_parity.py` (all mirrored columns, all cities; `-v` for examples); runs as a warning in `.githooks/pre-commit` (enable per clone: `git config core.hooksPath .githooks`) |
 | Decisions log | `_needs-attention/decisions.md` — add a row the day a decision is made; reverse with a new row, never by deleting |
 | Resume notes for long jobs | `_needs-attention/RESUME_*.md` |
 | Deploy | Netlify, from `main`; `_needs-attention/`, `netlify/`, root notes are pruned |

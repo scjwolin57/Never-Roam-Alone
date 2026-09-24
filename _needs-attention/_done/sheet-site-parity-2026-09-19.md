@@ -70,3 +70,13 @@ columns are written only after the day-trip verification pass (batch 1 of 36 don
 2. Group B: push the 23 emergency notes, 26 laundry ranges and Ulaanbaatar's events to the site?
 3. Add `check_sheet_parity.py` (this comparison, as a script) and run it as a pre-commit check
    so a commit that changes one copy without the other fails.
+
+## RETIRED 2026-09-23
+Fix 3 is built (Jeff: "build check sheet parity and follow the plan"): `_guidebuild/check_sheet_parity.py` compares
+every mirrored Live Cities column with the site for all 893 cities, using add_city_to_sheet.py's own row builder, plus
+hero, hood, landmark and food photo columns. Accepted format conventions and sheet-only columns are listed in its
+header. A warning-only pre-commit hook (`.githooks/pre-commit`, enabled with `git config core.hooksPath .githooks`)
+runs it whenever a commit touches the sheet or the mirrored data. First run: 8,287 → 15 real differing cells after the
+format conventions; fixed: the 6 landmark photos the site cleared on 2026-09-22 (sheet cells cleared, orphan files
+deleted), Ulaanbaatar's "transit map" link (ubcab.mn, a taxi site) cleared, Nicosia's two photos with a broken "ul"
+credit and no recorded source removed to the placeholder. Parity now 0.
