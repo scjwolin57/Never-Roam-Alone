@@ -1068,7 +1068,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Angra dos Reis": {
     "Centro Histórico": { img:"images/hoods/angra-dos-reis--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Usina_nuclear_de_Angra_dos_Reis_(3081691209).jpg", src:"Rodrigo Soldon from Rio de Janeiro, Brazil" },
-    "Ilha Grande (Abraão)": { img:"images/hoods/angra-dos-reis--ilha-grande-abraao.webp", page:"https://commons.wikimedia.org/wiki/File:Provet%C3%A1_-_Ilha_Grande.JPG", src:"Misstetei" },
     "Praia do Bonfim": { img:"images/hoods/angra-dos-reis--praia-do-bonfim.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Missa_na_Bas%C3%ADlica_Nossa_Senhora_da_Concei%C3%A7%C3%A3o_da_Praia_antes_da_Caminhada_Penitencial_2024.jpg", src:"Juba85" },
     "Boa Vista / Portogalo": { img:"images/hoods/angra-dos-reis--boa-vista-portogalo.webp", page:"https://commons.wikimedia.org/wiki/File:Boa_Vista-PB_-_pra%C3%A7a_da_cidade.jpg", src:"Jório de Araujo Oliveira" },
     "Praia do Frade": { img:"images/hoods/angra-dos-reis--praia-do-frade.webp", page:"https://commons.wikimedia.org/wiki/File:Igreja_Nossa_Senhora_do_Ros%C3%A1rio_de_Mambucaba_(3053558811).jpg", src:"Rodrigo Soldon from Rio de Janeiro, Brazil" }
@@ -1223,7 +1222,6 @@ window.NRA_HOOD_PHOTO = {
     "ACI 2000": { img:"images/hoods/bamako--aci-2000.webp", page:"https://commons.wikimedia.org/wiki/File:Window_Portrait_(29899853288).jpg", src:"Mark Fischer" },
     "Hippodrome": { img:"images/hoods/bamako--hippodrome.webp", page:"https://commons.wikimedia.org/wiki/File:FranceNormandieArgentanHippodromeGabrieleGelorminiEpicurien.jpg", src:"Ikmo-ned" },
     "Badalabougou": { img:"images/hoods/bamako--badalabougou.webp", page:"https://commons.wikimedia.org/wiki/File:Looking_across_the_old_bridge.jpg", src:"Robin Taylor" },
-    "Quartier du Fleuve": { img:"images/hoods/bamako--quartier-du-fleuve.webp", page:"https://commons.wikimedia.org/wiki/File:Pyramide_du_souvenir_-_Bamako.jpg", src:"Rgaudin" },
     "Missira / Route de Koulikoro": { img:"images/hoods/bamako--missira-route-de-koulikoro.webp", page:"https://commons.wikimedia.org/wiki/File:Missira.jpg", src:"Aboubacar223" }
   },
   "Bamberg": {
@@ -2158,8 +2156,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Flores": {
     "Flores Island (Isla de Flores)": { img:"images/hoods/flores--flores-island-isla-de-flores.webp", page:"https://commons.wikimedia.org/wiki/File:Cow_Bay_Beach_.jpg", src:"Mpaskevi" },
-    "Santa Elena": { img:"images/hoods/flores--santa-elena.webp", page:"https://commons.wikimedia.org/wiki/File:Ballenita_4.jpg", src:"Aaronmormot" },
-    "El Remate": { img:"images/hoods/flores--el-remate.webp", page:"https://commons.wikimedia.org/wiki/File:Guatemala_-_El_Remate_1996_-_Village_pr%C3%A8s_de_Tikal_au_bord_du_lac_de_Flores.jpg", src:"Jeanne Menjoulet from Paris, France" }
+    "Santa Elena": { img:"images/hoods/flores--santa-elena.webp", page:"https://commons.wikimedia.org/wiki/File:Ballenita_4.jpg", src:"Aaronmormot" }
   },
   "Florianópolis": {
     "Centro": { img:"images/hoods/florianopolis--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Floripa_(4396345444).jpg", src:"Francisco Anzola" },
@@ -2528,7 +2525,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Huangshan": {
     "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" },
-    "Hongcun & Xidi Ancient Villages": { img:"images/hoods/huangshan--hongcun-xidi-ancient-villages.webp", page:"https://commons.wikimedia.org/wiki/File:Hongcun_4.jpg", src:"EditQ" },
     "Tangkou": { img:"images/hoods/huangshan--tangkou.webp", page:"https://commons.wikimedia.org/wiki/File:Tangkou_Transfer_Hub,_Huangshan_20241125133106.jpg", src:"XiaYZ2023" }
   },
   "Huế": {
@@ -3323,7 +3319,6 @@ window.NRA_HOOD_PHOTO = {
     "Club Santiago / Miramar": { img:"images/hoods/manzanillo--club-santiago-miramar.webp", page:"https://www.flickr.com/photos/39558803@N00/3651710920/", src:"Carlos Varela" }
   },
   "Manzhouli": {
-    "Xingfu (Happiness) District": { img:"images/hoods/manzhouli--xingfu-happiness-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%96%B0%E5%AF%8C%E5%B8%82%E5%A0%B41127.jpg", src:"林高志" }
   },
   "Maputo": {
     "Polana (Cimento)": { img:"images/hoods/maputo--polana-cimento.webp", page:"https://commons.wikimedia.org/wiki/File:Escola_Secund%C3%A1ria_da_Polana_Maputo.JPG", src:"Jcornelius" },
@@ -4032,7 +4027,6 @@ window.NRA_HOOD_PHOTO = {
   "Poprad": {
     "City Centre (Stred)": { img:"images/hoods/poprad--city-centre-stred.webp", page:"https://commons.wikimedia.org/wiki/File:Kostol_sv%C3%A4t%C3%A9ho_Eg%C3%ADdia_%26_Zvonica_v_Poprade,_Poprad,_2026.jpg", src:"Antimuonium" },
     "Spišská Sobota": { img:"images/hoods/poprad--spisska-sobota.webp", page:"https://commons.wikimedia.org/wiki/File:Spi%C5%A1ska_Sobota_church_tower_-_panoramio.jpg", src:"Laima Gūtmane (simka…" },
-    "Juh": { img:"images/hoods/poprad--juh.webp", page:"https://commons.wikimedia.org/wiki/File:Kassa-D%C3%A9lv%C3%A1ros_eml%C3%A9kfa,_B%C3%A9ke_t%C3%A9r,_2017_Angyalf%C3%B6ld.jpg", src:"Globetrotter19" },
     "Veľká": { img:"images/hoods/poprad--velka.webp", page:"https://commons.wikimedia.org/wiki/File:Nagypaka-Kispaka_vil%C3%A1gh%C3%A1bor%C3%BAs_eml%C3%A9km%C5%B1_1.jpg", src:"Taz" },
     "AquaCity / Kvetnica": { img:"images/hoods/poprad--aquacity-kvetnica.webp", page:"https://www.flickr.com/photos/35124296@N00/844752920/", src:"canyonero" }
   },
@@ -4339,8 +4333,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Saint Martin's Island": {
     "Main Village (Jetty Area)": { img:"images/hoods/saint-martin-s-island--main-village-jetty-area.webp", page:"https://commons.wikimedia.org/wiki/File:Percy_Main_(geograph_2421107).jpg", src:"Peter McDermott" },
-    "West Beach": { img:"images/hoods/saint-martin-s-island--west-beach.webp", page:"https://commons.wikimedia.org/wiki/File:East_platform,_West_Palm_Beach_station.jpg", src:"Xnatedawgx" },
-    "Northern Coconut Groves": { img:"images/hoods/saint-martin-s-island--northern-coconut-groves.webp", page:"https://commons.wikimedia.org/wiki/File:Gavin_Newsom_signs_SB206_on_The_Shop_02.jpg", src:"Government of California" }
+    "West Beach": { img:"images/hoods/saint-martin-s-island--west-beach.webp", page:"https://commons.wikimedia.org/wiki/File:East_platform,_West_Palm_Beach_station.jpg", src:"Xnatedawgx" }
   },
   "Saint Petersburg": {
     "Admiralteysky (Nevsky Prospekt)": { img:"images/hoods/saint-petersburg--admiralteysky-nevsky-prospekt.webp", page:"https://commons.wikimedia.org/wiki/File:Municipal_Institutions_Building_(Sadovaya_Street)_gargoyle1.jpg", src:"SadPetzl" },

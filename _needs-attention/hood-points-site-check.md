@@ -20,6 +20,16 @@ So about 1 point in 13 was wrong. Every move has its old point, new point, sourc
 `_guidebuild/hoodpicks/work/hoodpoint_moves_scope.md`, `hoodpoint_moves_rest1.md` and `hoodpoint_moves_rest2.md`,
 and in the three commit bodies. The 165 neighborhoods with no point at all are unchanged (`hood-geo-unresolved.md`).
 
+## Your call (37 items): DONE 2026-09-24
+Jeff: "if these can't easily be identified then remove that neighborhood (as long as that doesn't make any city have
+no neighborhood)". Researched in two halves (`_guidebuild/hoods/pointfix/out_a.json`, `out_b.json`): **29 placed**
+from OpenStreetMap / Wikidata landmarks inside the hood, each reverse-geocoded (citydata hood_geo + sheet); **8
+removed**: Qinhuangdao Gold Coast (34-37 km out), Angra dos Reis Ilha Grande (21 km by boat), Flores El Remate (22.5 km),
+Huangshan Hongcun & Xidi (41-47 km), Manzhouli Xingfu (no such district), Saint Martin's Island Northern Coconut Groves
+(nothing mapped), Bamako Quartier du Fleuve (only a map-aggregator point) and Poprad Juh (only a search summary).
+Muscat Al Bustan placed although 21.5 km from the site's centre point (that point sits far west; Muttrah is 15.8 km).
+The list below is kept for the record.
+
 ## Your call (38 items)
 
 Each needs a pin, or a decision that the hood is really a day trip. Paste a Google Maps link per item and it is applied.
