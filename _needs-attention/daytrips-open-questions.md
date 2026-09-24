@@ -16,8 +16,9 @@ July 2025; Travel Obscure, visited August 2024: $45), inside Majuro's $45 budget
 desk. Same operator as the mid-range pick (Eneko Island Getaway, the $150 beach cottage). Tent camping ($10 per
 person) exists but is not a hotel tier.
 
-**A3. El Calafate, "Walichu Caves (Punta Walichu)" landmark photo** is the Cerro Frias 4x4 tours photo (same
-picture as the Cerro Frias slot, re-encoded). Wrong subject; replace or drop.
+**A3. Done 2026-09-23 (Jeff: remove, placeholder).** The Cerro Frias photo is gone from the Walichu Caves slot; the
+card shows "Image coming soon / Contribute". The Walichu photos Jeff found on Flickr (Rodrigo Sepúlveda Schulz, Ricardo
+Cabral) are all CC BY-NC, so they need the photographer's permission first.
 
 # B. Safety-alert calls
 An alert is shown only where a government's own words clearly cover the place. These are too vague to say, so

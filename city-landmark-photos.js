@@ -2927,7 +2927,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/el-calafate-glaciarium.webp", page:"https://commons.wikimedia.org/wiki/File:Glaciarium_v_El_Calafate_-_panoramio.jpg", credit:"Martin Cígler / CC BY-SA 3.0"},
     {img:"images/landmarks/el-calafate-laguna-nimez-nature-reserve.webp", page:"https://commons.wikimedia.org/wiki/File:El_Calafate_(25825005237).jpg", credit:"Deensel / CC BY 2.0"},
     {img:"images/landmarks/el-calafate-lago-argentino-and-bahia-redonda.webp", page:"https://commons.wikimedia.org/wiki/File:Tèmpanos_(iceberg)_Lago_Argentino_Brazo_Norte_Patagonia_Argentina_Luca_Galuzzi_2005.JPG", credit:"Luca Galuzzi ( Lucag ) / CC BY-SA 2.5"},
-    {img:"images/landmarks/el-calafate-walichu-caves-punta-walichu.webp", page:"https://commons.wikimedia.org/wiki/File:Cerro_Frias_4x4_tours.jpg", credit:"Murgatroyd49 / CC BY 4.0"},
+    null,
     {"img":"images/landmarks/el-calafate-cerro-frias.webp","page":"https://commons.wikimedia.org/wiki/File:Cerro_Frias_4x4_tours.jpg","credit":"Murgatroyd49 / CC BY 4.0"},
     {img:"images/landmarks/el-calafate-avenida-del-libertador.webp", page:"https://commons.wikimedia.org/wiki/File:Av._del_Libertador,_El_Calafate(1).jpg", credit:"Raf24~commonswiki / CC BY 4.0"},
   ],
