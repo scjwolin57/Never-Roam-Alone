@@ -1,0 +1,24 @@
+# Resume note: Beaches score v2 (started 2026-09-24)
+
+Jeff chose option A (research the nearest real swimming beach for every city) and added "more beaches score higher".
+Definition, scale and pipeline: `_guidebuild/beaches/BEACH_NOTES.md`, section v2. Decision rows: decisions.md 2026-09-24.
+
+## Rules (fixed at the start)
+- Batches of 25 cities, alphabetical (`_guidebuild/beaches/v2/batches/b01..b36.json`), 893 cities.
+- Per batch: research agent (`v2/RESEARCH_BRIEF.md`) → `v2/out/bNN.json`; independent checker (`v2/CHECK_BRIEF.md`) →
+  `v2/out/bNN_check.json`; `python3 _guidebuild/beaches/v2/load_beaches.py tab v2/out/bNN_check.json` → the sheet's
+  **Beaches** tab; commit the sheet per batch.
+- A beach counts only if named, public, swimming not banned, sourced; estuaries and tidal rivers are lake/river.
+  Unverifiable: left out, never guessed. At most 3 web searches per agent per batch (shared session cap).
+- The Live Cities **Beaches Score / Basis** columns and `city-scores.js` do not change until all 36 batches are in;
+  then `load_beaches.py score`, write the column through SheetEdit, `sync_city_scores.py --write`, one commit.
+- Candidates: `_guidebuild/beaches/nearest.py` (Wikidata beaches + OSRM drive times; Overpass was down 2026-09-24).
+
+## Pace
+About 5 research agents at a time; each finished batch gets its checker at once and the next batch starts.
+
+## Batch log
+| Batch | Cities | Researched | Checked | In tab | Commit |
+|---|---|---|---|---|---|
+| b01-b36 | all | started 2026-09-24 (Jeff: "run on all 36 batches") | | | |
+| b02 | Anaheim to Aurangabad | yes | 18 confirmed, 7 corrected | yes | see git log |
