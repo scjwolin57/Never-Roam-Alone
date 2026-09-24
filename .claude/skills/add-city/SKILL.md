@@ -50,6 +50,15 @@ python3 _guidebuild/add_city.py newcity.json
 python3 _guidebuild/add_city_to_sheet.py newcity.json
 ```
 
+**Photos go into the sheet in the same run (2026-09-24).** `add_city_to_sheet.py` now reads the city's citydata
+(written by `add_city.py`) and the photo catalogs, and fills City Photo, Hood 1-5 Photo, Landmark 1-10 Photo and
+Food 1-10 Name/Photo columns with the same function `check_sheet_parity.py` uses. So the photo research (hero,
+one location-verified photo per neighborhood, a commercial-licence photo per landmark, dish photos with credits:
+checklist items 1, 7, 8, 9) must be finished and written to `city-photos.js`, `hood-photos.js`,
+`city-landmark-photos.js` and the food photos BEFORE running `add_city.py` and this script; a slot still missing
+is reported, never filled with a guess. Finish with `python3 _guidebuild/check_sheet_parity.py --city "<City>"`:
+it must read 0.
+
 Always run BOTH, with the same JSON. The second one appends the city's row to `NRA-MASTER.xlsx` (the master spreadsheet in the project root) — **the sheet and the site must always be updated together**; a city in one but not the other is a bug (Jeff's parity rule, 2026-07-25). It needs `openpyxl` (`pip3 install openpyxl` if missing; when working through the device bridge, run it in the sandbox copy and commit the xlsx back). Read its blank-columns report and fill or flag what it lists.
 
 It's safe to re-run — already-present entries are skipped, not duplicated. Read its report carefully: `added` confirms what worked, `skipped/needs-followup` tells you exactly what still needs a human (a missing photo, an optional section you left out). Relay that report to the user plainly — don't just say "done," say what's done and what's still open.
