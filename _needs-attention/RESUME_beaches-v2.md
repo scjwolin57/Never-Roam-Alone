@@ -24,3 +24,4 @@ About 5 research agents at a time; each finished batch gets its checker at once 
 | b01 | Aachen to Amsterdam | yes | 18 confirmed, 7 corrected | yes | see git log |
 | b02 | Anaheim to Aurangabad | yes | 18 confirmed, 7 corrected | yes | see git log |
 | b05 | Bonn to Bursa | yes | 15 confirmed, 10 corrected (Bratislava Rusovce and Bujumbura Saga Plage removed: map-only; sources added for Bonn, Bordeaux, Boston, Budapest, Bursa; Busan +1 min); Bucharest stays unsure | yes | see git log |
+| b06 | Cabo Frio to Chamonix | yes | 20 confirmed, 5 corrected (Cali river bathing confirmed by 2026 local press, unsure -> medium; Calgary Sikome note; Cambridge and Cap-Haitien wrong OSM sources removed; Carcassonne +1 min); nothing removed | yes | see git log |
