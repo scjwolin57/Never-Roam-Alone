@@ -51,19 +51,41 @@ Options: leave as is, or add "US: Khyber Pakhtunkhwa (the Jaulian site)".
 
 **C1. Zongo Falls (from Kinshasa).** The tour operator says 4 h each way; other pages say 2 to 3 h. Left out.
 Add as a full-day trip (with its DR Congo alert), or leave out?
+  **Done 2026-09-24 (Jeff): added as a full-day trip with the long-drive line and the DR Congo alert.**
 
 **C2. Jacmel (from Port-au-Prince)** is live but was never verified: sources disagree on drive time. Keep, move
 to full, or remove? (The old worry about gang violence is now an alert question, not a reason to remove.)
+  **Done 2026-09-24 (Jeff: verify): Jacmel moved to full with the long-drive line (OSRM 88 min with no traffic; about 3 h per Wikivoyage and 2025 reports); Bassin Bleu, past Jacmel, got the same line.**
 
 **C3. Cusco's Machu Picchu, Rainbow Mountain and Humantay Lake** run past 3 h each way. The 2026-09-23 rule
 allows a full-day trip over 3 h if its blurb ends "Long drive time, look into overnight stay options." These
 three do not have that line yet. Add it to all three?
+  **Done 2026-09-24 (Jeff): all three kept; each blurb now ends with the long-drive line.**
 
 **C4. Chiang Rai** has "Doi Mae Salong" as neighborhood 2 and "Mae Salong" as a half-day trip: the same place
 twice (a hood is never a day trip). Which one goes?
+  **Done 2026-09-24 (Jeff: day trip): Doi Mae Salong removed as a neighborhood; Mae Salong stays a half-day trip.**
 
 **C5. Possible padding** flagged by the checker in older lists for Montevideo and Dushanbe (Tel Aviv's list was
 rebuilt since). Re-research both lists?
+  **Done 2026-09-24: Montevideo keeps 2 (Punta del Este fixed) and gains Atlántida, Juanicó winery, Piriápolis; Dushanbe keeps Kulob (fixed) and gains Hisor, Varzob Gorge, Nurek, Iskanderkul. Nothing padded.**
 
 **C6. 360 day-trip entries were applied without an independent check** (batches 21-24 and 36 of the
 verification pass, search budget ran out). Run the check now?
+  **Done 2026-09-24: all 414 trips in those 129 cities re-checked, every correction checked again: 305 confirmed, 109 corrected (17 removed, 18 moved, 74 fixed). New questions it raised are D1-D3 below.**
+# D. Found by the C6 re-check (2026-09-24)
+
+**D1. Flores (Guatemala): "Tikal National Park" is a neighborhood AND a full-day trip.** Same pattern as Chiang Rai
+(C4). Tikal is about 1 h 15 from Flores, a national park, not part of the town. Recommendation: keep the day trip,
+remove the neighborhood (Flores would drop to 4 neighborhoods). Your call.
+
+**D2. Port-au-Prince: Sans-Souci Palace (landmark) and Citadelle Laferrière (full-day trip) are both at Milot, next
+to Cap-Haïtien**, 4 h or more away, and Cap-Haïtien has its own guide. Found by the C2/C5 checker (2026-09-24).
+Recommendation: remove both from Port-au-Prince (they are Cap-Haïtien sights; the guide card already links there if
+it is within range). Your call.
+
+**D3. Hiroshima: Itsukushima Shrine and Mount Misen are landmarks, and "Miyajima (Itsukushima)" is also a half-day
+trip.** Miyajima is in Hatsukaichi, a separate city about 50 min away, so by the rulebook ("a landmark is inside the
+city; anything outside is a day trip") the two landmarks should leave Hiroshima's landmark list and the Miyajima trip
+covers them. The C6 re-check wanted to remove the day trip instead; I kept it (2026-09-24) and left the landmarks for
+you (same item as hoods-that-are-day-trips.md group 3). Recommendation: move both landmarks out; Hiroshima keeps 8.
