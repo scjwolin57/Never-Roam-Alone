@@ -873,7 +873,7 @@ window.NRA_CITY_SCORES = {
   "Brussels": { nightlife:65, restaurants:72, museums:75, architecture:78, nature:62, walkability:80, safety:44, beaches:0 },
   "Budapest": { nightlife:82, restaurants:68, museums:78, architecture:88, nature:65, walkability:78, safety:66, beaches:0 },
   "Guangzhou": { nightlife:60, restaurants:82, museums:52, architecture:55, nature:55, walkability:65, safety:72, beaches:0 },
-  "Nice": { nightlife:60, restaurants:68, museums:60, architecture:70, nature:82, walkability:85, safety:45, beaches:48 },
+  "Nice": { nightlife:60, restaurants:68, museums:60, architecture:70, nature:82, walkability:85, safety:45, beaches:71 },
   "Palma de Mallorca": { nightlife:68, restaurants:62, museums:48, architecture:62, nature:85, walkability:80, safety:63, beaches:100 },
   "Honolulu": { nightlife:58, restaurants:62, museums:45, architecture:40, nature:96, walkability:55, safety:52, beaches:100 },
   "Beijing": { nightlife:60, restaurants:78, museums:88, architecture:88, nature:60, walkability:55, safety:75, beaches:0 },
