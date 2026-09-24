@@ -142,3 +142,9 @@ Worktree moved onto origin/main e9ab316c first; all earlier fixes re-applied cle
 - Data items A (Garmisch trout photo) and B (Garmisch "Xocolatl ( talk )" credit): no answer yet.
 
 - **10 (update 2026-09-21):** moved to the "Profile page country/city search" session at Jeff's request. It applied the same column widths in the main folder's itinerary.html, plus padding-left:6px on the Nights column. Dropped from this worktree so the two don't clash. Item 4 (trip tabs 2x2) stays here.
+
+## RETIRED 2026-09-23
+All items closed. Item 11 re-checked in the preview signed in as Jeff: the travel map "Add a place" row (open a
+country, tick Other) fits at 320 (button right edge 254 px, panel 269 px) and 360 (294 vs 309), no sideways
+scroll; the travel map rebuild (c619187b) fixed it. Item 14 had shipped in e83648a9. Data item A: Garmisch's
+"Alpine trout" now shows Forelle Müllerin (Commons), fixed by the food-photo merge. Data item B fixed in 36eb8275.
