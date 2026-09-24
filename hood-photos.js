@@ -3992,8 +3992,7 @@ window.NRA_HOOD_PHOTO = {
   "Plettenberg Bay": {
     "Central Plett / Main Beach": { img:"images/hoods/plettenberg-bay--central-plett-main-beach.webp", page:"https://commons.wikimedia.org/wiki/File:TIMBER_SHED_PLETT_1.JPG", src:"Keith Lurie" },
     "Robberg Beach (Millionaire's Row)": { img:"images/hoods/plettenberg-bay--robberg-beach-millionaire-s-row.webp", page:"https://commons.wikimedia.org/wiki/File:Bosluiskop_(ZA),_Robberg_Nature_Reserve,_Strand_--_2024_--_2166.jpg", src:"Dietmar Rabich" },
-    "Keurbooms": { img:"images/hoods/plettenberg-bay--keurbooms.webp", page:"https://commons.wikimedia.org/wiki/File:Beacon_Island_Hotel.jpg", src:"Ossewa" },
-    "The Crags": { img:"images/hoods/plettenberg-bay--the-crags.webp", page:"https://commons.wikimedia.org/wiki/File:Cresswell_crags_-_panoramio_(1).jpg", src:"jondaniel" }
+    "Keurbooms": { img:"images/hoods/plettenberg-bay--keurbooms.webp", page:"https://commons.wikimedia.org/wiki/File:Beacon_Island_Hotel.jpg", src:"Ossewa" }
   },
   "Plovdiv": {
     "Old Town": { img:"images/hoods/plovdiv--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bulgaria_Bulgaria-0729_-_Near_Eastern_Gate_(7432374622).jpg", src:"Dennis G. Jarvis" },
@@ -4590,7 +4589,6 @@ window.NRA_HOOD_PHOTO = {
     "Terezian": { img:"images/hoods/sibiu--terezian.webp", page:"https://commons.wikimedia.org/wiki/File:Sibiu_Biserica_Terezian.jpg", src:"Andrei kokelburg" }
   },
   "Siddharthanagar": {
-    "Lumbini (Sacred Garden)": { img:"images/hoods/siddharthanagar--lumbini-sacred-garden.webp", page:"https://commons.wikimedia.org/wiki/File:Austrian_monastery.jpg", src:"Ummidnp" },
     "Belahiya (Sunauli Border)": { img:"images/hoods/siddharthanagar--belahiya-sunauli-border.webp", page:"https://commons.wikimedia.org/wiki/File:Inadia_Nepal_Border_Gate.jpg", src:"Sanu N" }
   },
   "Siem Reap": {
