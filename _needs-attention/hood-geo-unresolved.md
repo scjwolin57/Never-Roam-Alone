@@ -1,164 +1,19 @@
 # Neighborhoods with no map point
 
-*Cross-checked against citydata on 2026-09-24 (first generated 2026-09-17 by _guidebuild/hoods/geocode_hoods.py). These have no `hood_geo` coordinate, so the Find laundry & gym dropdown omits them. Fix by pasting a Maps pin per row; nothing was guessed.*
+*Updated 2026-09-24 after the OpenStreetMap placement pass (Jeff: "try again"): 145 of 156 placed, each reverse-geocoded. These 11 remain; each row says what would settle it (a rename, a removal, or a pin from Jeff).*
 
-**156 of 4,011 neighborhoods** in 123 cities. Since 2026-09-17: 19 of the original 175 were placed, renamed or removed (the hood-points check, Jeff's pins and the day-trip clean-ups).
+**11 of 4,011 neighborhoods.**
 
-| City | Country | Neighborhood | Why (2026-09-17 geocode) |
+| City | Country | Neighborhood | What would settle it |
 |---|---|---|---|
-| Agadez | Niger | Bougdouma | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Agadez | Niger | Nord | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Alanya | Türkiye | Mahmutlar | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Alice Springs | Australia | Desert Springs | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Alice Springs | Australia | Eastside | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Ankara | Türkiye | Çankaya | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Antalya | Türkiye | Belek | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Antsiranana | Madagascar | Ville Basse (Bord de Mer) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Aomori | Japan | Honmachi | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Aqaba | Jordan | Corniche Hotel Strip | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Aswan | Egypt | Corniche (East Bank) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Bamyan | Afghanistan | Bamyan Bazaar | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Baracoa | Cuba | El Paraíso | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Basseterre | St. Kitts and Nevis | Basseterre Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Basseterre | St. Kitts and Nevis | Fortlands | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Bodrum | Turkey | Gümüşlük | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Brades | Montserrat | Brades | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Brisbane | Australia | Brisbane CBD | rejected: locality at the city centre (Google returned the city itself); was exact 0.1km |
-| Brugge | Belgium | Station Quarter (Stationsbuurt) | rejected: locality at the city centre (Google returned the city itself); was partial 0.1km |
-| Bursa | Türkiye | Nilüfer | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Capri | Italy | Marina Grande | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Carcassonne | France | Canal du Midi (Bassin) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Chefchaouen | Morocco | Uta el-Hammam Square | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Chengde | China | Chengde Railway Station area | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Chios | Greece | Mastic Villages (Mesta & Pyrgi) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Colmar | France | Old Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Colmar | France | Quartier de la Gare | only the city itself / out of range |
-| Constantine | Algeria | Vieille Ville (Souika) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Coron | Philippines | Private Island Resorts | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Cortina d'Ampezzo | Italy | Pocol | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Cyangugu | Rwanda | Cyangugu (lakeshore) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Cyangugu | Rwanda | Kamembe | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Da Lat | Vietnam | City Centre (Hoa Binh Square & Xuan Huong Lake) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Da Lat | Vietnam | Phan Dinh Phung (Ward 2) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Dahab | Egypt | Medina | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Dali | China | Shuanglang | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Dali | China | Xizhou | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Darwin | Australia | Darwin CBD | rejected: locality at the city centre (Google returned the city itself); was exact 0.1km |
-| Denizli | Türkiye | Pamukkale Village | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Djanet | Algeria | Djanet Old Town | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Durham | United Kingdom | Neville's Cross | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| El Chaltén | Argentina | Village Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Faro | Portugal | Montenegro | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Fethiye | Türkiye | Kayaköy | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Flores | Guatemala | Santa Elena | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Geneva | Switzerland | Carouge | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Ghardaïa | Algeria | Ghardaïa Medina | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Gisenyi | Rwanda | Gisenyi Centre / Downtown | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Gustavia | Saint-Barthélemy | Gustavia (Harbour) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Gustavia | Saint-Barthélemy | Lorient | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Göreme | Turkey | Göreme Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Hebron | Palestine | Wadi al-Tuffah | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Heraklion | Greece | Nea Alikarnassos | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Heraklion | Greece | Old Town (Centro) | only the city itself / out of range |
-| Houmt El Souk | Tunisia | Aghir | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Houmt El Souk | Tunisia | Sidi Mahres Beach | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Inhambane | Mozambique | Inhambane Town (Centro) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Inhambane | Mozambique | Tofo Beach | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Irkutsk | Russia | City Center (Kirov Square) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Jaffna | Sri Lanka | Kokuvil | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Jakarta | Indonesia | Menteng | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kalamata | Greece | Analipsi (East Beach) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Karakol | Kyrgyzstan | Central Karakol | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Karakol | Kyrgyzstan | Przhevalsky District | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kashgar | China | Renmin Road (Downtown) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kayseri | Türkiye | Melikgazi | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kayseri | Türkiye | Talas | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kazan | Russia | Old Tatar Sloboda | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kigali | Rwanda | Nyamirambo | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Klaipėda | Lithuania | Fishing Village | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Klaipėda | Lithuania | New Town | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Krabi | Thailand | Ao Nang | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Kunming | China | Xishan & Dianchi Lake | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| La Ceiba | Honduras | El Centro | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| La Romana | Dominican Republic | Bayahíbe | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Laayoune | Western Sahara | Al Aouda (Al Wahda) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Laayoune | Western Sahara | Colomina (Colonial Quarter) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Lalibela | Ethiopia | Lalibela Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Leshan | China | Binjiang Road | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Leshan | China | Emeishan | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Lijiang | China | Jade Dragon Snow Mountain area | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Ljubljana | Slovenia | Trnovo | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Luanda | Angola | Talatona | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Madurai | India | Goripalayam | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Madurai | India | K.K. Nagar | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Majuro | Marshall Islands | Uliga | rejected: locality at the city centre (Google returned the city itself); was exact 0.2km |
-| Marigot | Saint-Martin | Anse Marcel | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Marsa Alam | Egypt | Abu Dabbab Bay | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Marsa Alam | Egypt | Marsa Alam Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Marsa Alam | Egypt | Port Ghalib | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Mombasa | Kenya | Diani Beach | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Monastir | Tunisia | Khniss | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Mont-Saint-Michel | France | Mainland Visitor Village | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Mont-Saint-Michel | France | Pontorson | rejected: locality at the city centre (Google returned the city itself); was exact 0.0km |
-| Murree | Pakistan | Jhika Gali | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Mérida | Mexico | Santiago | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Najaf | Iraq | Downtown Najaf | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Oaxaca | Mexico | Reforma | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Papeete | French Polynesia | Pirae | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Pemba | Mozambique | Cariacó | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Phitsanulok | Thailand | Aranyik | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Pilsen | Czechia | Brewery Quarter | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Pilsen | Czechia | Lochotín | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Pilsen | Czechia | Old Town | rejected: locality at the city centre (Google returned the city itself); was partial 0.0km |
-| Ponce | Puerto Rico | Canas | only the city itself / out of range |
-| Positano | Italy | Montepertuso | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Puerto Princesa | Philippines | Sabang | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Puno | Peru | Malecon/Puerto | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Pyongyang | North Korea | Central District (Chung-guyok) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Qingdao | China | Laoshan (Shilaoren) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Qom | Iran | Pardisan | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Quanzhou | China | Zhongshan Road | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Saint-Tropez | France | Vieux Port (Old Port) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Saipan | Northern Mariana Islands | San Roque | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Saipan | Northern Mariana Islands | Susupe / Chalan Kanoa | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| San Andrés | Colombia | San Luis | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| San Cristóbal de las Casas | Mexico | Barrio de Santa Lucía | rejected: locality at the city centre (Google returned the city itself); was exact 0.1km |
-| San Marino | San Marino | Borgo Maggiore | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| San Marino | San Marino | Dogana | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| San Marino | San Marino | Domagnano | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Santa Cruz de Tenerife | Spain | San Cristobal de La Laguna | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Santiago de Compostela | Spain | Zona Nova (New Town / Ensanche) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sanya | China | Haitang Bay | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Selçuk | Türkiye | Şirince | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sergiyev Posad | Russia | Klementyevo | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sergiyev Posad | Russia | Vifanka | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Shaoxing | China | Shangyu | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Siddharthanagar | Nepal | Bhairahawa Bazaar (City Center) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sochi | Russia | Krasnaya Polyana | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sochi | Russia | Tsentralny (Central Sochi) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sousse | Tunisia | Khezama | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Stanley | Falkland Islands | West Stanley | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sucre | Bolivia | San Roque | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Sukhothai | Thailand | New Sukhothai (Town) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| São Tomé | São Tomé and Príncipe | Riboque | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Tamanrasset | Algeria | Airport Road District | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Tamanrasset | Algeria | Town Center | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Taupo | New Zealand | Town Centre (Lakefront) | rejected: locality at the city centre (Google returned the city itself); was exact 0.2km |
-| Timbuktu | Mali | Abaradiou | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Timbuktu | Mali | Badjindé | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Timimoun | Algeria | Market Area | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Timimoun | Algeria | Old Ksar (Red Town) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Timimoun | Algeria | Palm Oasis | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Tofino | Canada | Clayoquot Sound / Around Tofino | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Trabzon | Turkey | Ortahisar | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Trujillo | Peru | Huanchaco | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Varna | Bulgaria | City Centre | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Veracruz | Mexico | Boca del Río | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Weno | Federated States of Micronesia | Nantaku | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Windermere | United Kingdom | Troutbeck | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Zhangye | China | Danxia Kou (Rainbow Mountains gateway) | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Zhangye | China | West Railway Station / New District | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Zhoushan | China | Zhujiajian Island | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| Ziguinchor | Senegal | Santhiaba | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| İzmir | Türkiye | Bornova | q1: only the city itself / out of range; q2: only the city itself / out of range |
-| İzmir | Türkiye | Karşıyaka | q1: only the city itself / out of range; q2: only the city itself / out of range |
+| Agadez | Niger | Bougdouma | no quarter by this name in OSM or Wikidata; rename to a mapped quarter (Hasna, Sabon Gari, Toudou, Obitara) or remove |
+| Agadez | Niger | Nord | no quarter by this name; landmark 'Kaocen Mausoleum' doubtful (Kaocen died in Murzuk, Libya); rename or remove |
+| Basseterre | St. Kitts and Nevis | Fortlands | real area but not mapped; candidate reverse-geocodes to Irish Town / Port Zante |
+| Coron | Philippines | Private Island Resorts | not a place: resorts spread across Coron Bay (Bulalacao Island 27 km); rename to one island or remove |
+| Kalamata | Greece | Analipsi (East Beach) | no Analipsi in Kalamata (a village 13 km west has the name); the east beach is Kalamata Beach: rename, then place |
+| Laayoune | Western Sahara | Colomina (Colonial Quarter) | not mapped; candidate (former cathedral) reverse-geocodes to Souk Jemal |
+| Marsa Alam | Egypt | Abu Dabbab Bay | candidate point fell in the sea on the Nominatim check; needs a point on the bay's beach |
+| Oaxaca | Mexico | Reforma | candidate reverse-geocodes to América Norte / Jalatlaco, not Colonia Reforma |
+| Sergiyev Posad | Russia | Vifanka | candidate (Spaso-Vifansky Monastery) reverse-geocodes to Ptitsegrad; the landmark name mixes two monasteries |
+| Tamanrasset | Algeria | Airport Road District | no quarter by this name; the airport road is 8 km of desert; rename (Sersouf or Tahaggart are mapped) or remove |
+| Timbuktu | Mali | Abaradiou | not in OSM, Photon or Wikipedia under any spelling tried; a pin from Jeff or rename (Sareikeina is mapped) |
