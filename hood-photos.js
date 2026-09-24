@@ -3087,7 +3087,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Lilongwe": {
     "Area 10 / Presidential Way": { img:"images/hoods/lilongwe--area-10-presidential-way.webp", page:"https://commons.wikimedia.org/wiki/File:Sheung_Shui_Heung_Sitting-out_Area_No._10_2025.jpg", src:"Tombus20032000" },
-    "Kumbali / Lumbadzi (near airport)": { img:"images/hoods/lilongwe--kumbali-lumbadzi-near-airport.webp", page:"https://commons.wikimedia.org/wiki/File:Banheiro_no_meio_do_mato_(3031082329).jpg", src:"Leandro Neumann Ciuffo" },
+    "Kumbali (Area 44)": { img:"images/hoods/lilongwe--kumbali-lumbadzi-near-airport.webp", page:"https://commons.wikimedia.org/wiki/File:Banheiro_no_meio_do_mato_(3031082329).jpg", src:"Leandro Neumann Ciuffo" },
     "Area 47 / Area 43": { img:"images/hoods/lilongwe--area-47-area-43.webp", page:"https://www.flickr.com/photos/75062596@N00/24194440261/", src:"Lars Plougmann" }
   },
   "Liverpool": {
