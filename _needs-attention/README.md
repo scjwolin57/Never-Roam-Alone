@@ -8,13 +8,13 @@ site, so moving them broke nothing.
 
 | File | What it needs | Moved from |
 |---|---|---|
-| `cull_review.md` | Review 1,595 autocomplete-list rows proposed for deletion, before anything is deleted. Nothing has been removed yet. Careful: the remove lists include places that have guides (Hurghada, Bodrum, Krabi, Phuket, Cozumel) | project root |
 | `city-hero-photos-still-need-attention.md` (+ `city-hero-photo-audit-2026-08-25.xlsx`) | All 893 heroes are in. Two items left: Ibiza's hero has no credit link, and your call on Naha's Shuri Castle photo (the castle burned in 2019). Move both files to `_done/` once settled | project root |
 
 ## Done — moved to `_done/` (15 September 2026)
 
 | File | Why it's closed |
 |---|---|
+| `_done/cull_review.md` | Retired 2026-09-24 (Jeff): an early list from working out which cities made the site. Nothing reads it and no autocomplete row was deleted |
 | `_done/roamer-review-questions.md` | Trimmed 24 -> 16; the chosen questions are live in `city.html` |
 | `_done/local-interview-questions.md` | Trimmed 31 -> 15; the chosen questions are live in `city.html` |
 | `_done/transport-pilot-review.md` | Format was approved and rolled out — `city-routes.js` now carries all **893** cities with substantive route data (verified 2026-09-16) |

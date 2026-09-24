@@ -2515,8 +2515,7 @@ window.NRA_HOOD_PHOTO = {
     "Qixingtan Beach": { img:"images/hoods/hualien-city--qixingtan-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Cisingtan_in_Hualien_(5453195141).jpg", src:"edwin.11" }
   },
   "Huangshan": {
-    "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" },
-    "Tangkou": { img:"images/hoods/huangshan--tangkou.webp", page:"https://commons.wikimedia.org/wiki/File:Tangkou_Transfer_Hub,_Huangshan_20241125133106.jpg", src:"XiaYZ2023" }
+    "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" }
   },
   "Huế": {
     "Phú Hội": { img:"images/hoods/hue--phu-hoi.webp", page:"https://commons.wikimedia.org/wiki/File:Hue_Hotel_Saigon_(24675543497).jpg", src:"dronepicr" },
