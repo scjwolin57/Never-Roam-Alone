@@ -156,6 +156,7 @@
       <button class="tab" type="button" data-tab="events">Events</button>
       <button class="tab" type="button" data-tab="photos">Photos</button>
       <button class="tab" type="button" data-tab="insights">Insights</button>
+      <button class="tab" type="button" data-tab="suggestions">Suggestions</button>
       <button class="tab" type="button" data-tab="conn">Connections</button>
       <button class="tab" type="button" data-tab="emails">Emails</button>
     </div>
@@ -213,6 +214,17 @@
         <input type="checkbox" id="ins-show-done"> Also show interviews I've already dealt with
       </label>
       <div id="ins-list"></div>
+    </section>
+
+    <!-- ========== PLACE SUGGESTIONS (city-page "Suggest a place") ========== -->
+    <section id="tab-suggestions" class="tabpane" hidden>
+      <div class="topbar"><h2>Suggestions — places to stay, eat, drink</h2></div>
+      <p class="sect-note">Places visitors suggested from the bottom of a neighborhood card. A suggestion never goes on the guide by itself: check the venue through the hood-picks pipeline and add it to the sheet first. Then <b>Mark published</b> records it and thanks the person once, if they asked (a message in their Never Roam Alone inbox if they were signed in, otherwise an email), and gives a signed-in member the recommendation points. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="admin-msg" id="sug-msg"></p>
+      <label class="evt-check" style="display:flex;align-items:center;gap:8px;margin:0 0 14px;font-weight:600">
+        <input type="checkbox" id="sug-show-done"> Also show suggestions I've already dealt with
+      </label>
+      <div id="sug-list"></div>
     </section>
 
     <!-- ========== EVENTS ========== -->
@@ -400,9 +412,11 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     if (wantTab === "insights") insReview = params.get("review") || "";
+    if (wantTab === "suggestions") sugReview = params.get("review") || "";
     await loadEvents();
     await loadPhotos();
     await loadInsights();
+    await loadSuggestions();
     await loadConn();
     loadEmailsTab();
   }
@@ -678,9 +692,138 @@
     }
   });
 
+  /* ======================================================================
+     SUGGESTIONS — "Suggest a place" from city pages (place_suggestions,
+     place-suggestions-setup.sql). Reading, declining and deleting use the
+     admin-only table policies directly. "Mark published" goes through
+     approve-suggestion, which thanks the person once and awards the points;
+     when that thank-you is an inbox message, message-alert sends the usual
+     new-message email, exactly as messages.html does after a send.
+     ====================================================================== */
+  let sRows = [];
+  let sugReview = "";   // ?tab=suggestions&review=<id> from the submission email
+  const SUG_SECTION = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out" };
+
+  async function loadSuggestions(){
+    setMsg($("sug-msg"), "Loading suggestions…");
+    const { data, error } = await sb.from("place_suggestions").select("*").order("created_at", { ascending: false });
+    if (error){
+      setMsg($("sug-msg"), "Couldn't load suggestions: " + (error.message || "unknown error") +
+        " — has place-suggestions-setup.sql been run in Supabase?", true);
+      $("sug-list").innerHTML = ""; return;
+    }
+    sRows = (data || []).sort((a, b) => (a.status === "pending" ? 0 : 1) - (b.status === "pending" ? 0 : 1));
+    const waiting = sRows.filter(r => r.status === "pending").length;
+    setMsg($("sug-msg"), waiting
+      ? `${waiting} suggestion${waiting === 1 ? "" : "s"} awaiting review.`
+      : (sRows.length ? "Nothing waiting on you." : ""));
+    renderSuggestions();
+  }
+
+  function renderSuggestions(){
+    const wrap = $("sug-list");
+    const showDone = $("sug-show-done") && $("sug-show-done").checked;
+    const list = sRows.filter(r => showDone || r.status === "pending" || r.id === sugReview);
+    if (!list.length){
+      wrap.innerHTML = `<div class="empty">${sRows.length ? "Nothing waiting on you." : "No suggestions yet."}</div>`;
+      return;
+    }
+    const cityLink = c => "city.html?city=" + encodeURIComponent(c);
+    wrap.innerHTML = list.map(r => {
+      const chip = r.status === "pending" ? `<span class="chip pending">Pending review</span>`
+                 : r.status === "published" ? `<span class="chip live">Published</span>`
+                 : `<span class="chip hidden">Declined</span>`;
+      const from = r.user_id ? "Signed-in member" : (r.email ? esc(r.email) : "Visitor, no contact details");
+      const contact = !r.contact ? "no contact wanted"
+        : r.notified ? "thanked" : (r.user_id ? "wants an inbox message" : "wants an email");
+      return `
+      <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
+        <div class="ihead">
+          <div class="info">
+            <div class="title">${esc(r.kind_label || r.kind)} · ${esc(r.hood_name)}, <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
+            <div class="sub">${esc(SUG_SECTION[r.section] || r.section)} · ${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
+            <div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps</a>${r.website_url ? ` · <a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website</a>` : ""}</div>
+            ${r.info ? `<div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${esc(r.info)}</div>` : ""}
+          </div>
+          <div class="acts">
+            ${r.status !== "published" ? `<button class="btn small coral" data-sact="publish" type="button">Mark published</button>` : ""}
+            ${r.status === "pending" ? `<button class="btn small" data-sact="decline" type="button">Decline</button>` : ""}
+            ${r.status === "declined" ? `<button class="btn small" data-sact="reopen" type="button">Back to pending</button>` : ""}
+            <button class="btn small danger" data-sact="delete" type="button">Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+    if (sugReview){
+      const row = wrap.querySelector(`.irow[data-id="${CSS.escape(sugReview)}"]`);
+      if (row){
+        row.scrollIntoView({ behavior: "smooth", block: "start" });
+        row.classList.add("flash");
+        setTimeout(() => row.classList.remove("flash"), 2600);
+      }
+      sugReview = "";
+    }
+  }
+
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === "sug-show-done") renderSuggestions();
+  });
+
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest("#sug-list button[data-sact]");
+    if (!btn) return;
+    const rowEl = btn.closest(".irow");
+    const r = sRows.find(x => x.id === rowEl.dataset.id);
+    if (!r) return;
+    const act = btn.dataset.sact;
+    const what = `${r.kind_label || "the suggestion"} in ${r.hood_name}, ${r.city}`;
+    if (act === "publish" && !confirm(`Is ${what} on the guide now? Marking it published thanks the person${r.contact ? "" : " (they didn't ask to be contacted, so no message goes out)"}.`)) return;
+    if (act === "delete" && !confirm(`Delete the suggestion for ${what}? This can't be undone.`)) return;
+    btn.disabled = true;
+    try {
+      if (act === "publish"){
+        setMsg($("sug-msg"), "Marking published…");
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/approve-suggestion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        /* the thank-you went to their inbox: send the usual new-message email alert */
+        if (d.messageId){
+          fetch("/.netlify/functions/message-alert", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+            body: JSON.stringify({ messageId: d.messageId })
+          }).catch(() => {});
+        }
+        await loadSuggestions();
+        setMsg($("sug-msg"), `Marked ${what} as published.` +
+          (d.via === "message" ? " We sent them a message in their inbox." : d.via === "email" ? " We emailed them." :
+           d.alreadyNotified ? "" : d.wanted ? " (The thank-you didn't go out.)" : "") +
+          (d.points ? " They earned the recommendation points." : ""));
+        return;
+      }
+      let error;
+      if (act === "decline") ({ error } = await sb.from("place_suggestions").update({ status: "declined" }).eq("id", r.id));
+      if (act === "reopen")  ({ error } = await sb.from("place_suggestions").update({ status: "pending" }).eq("id", r.id));
+      if (act === "delete")  ({ error } = await sb.from("place_suggestions").delete().eq("id", r.id));
+      if (error) throw error;
+      await loadSuggestions();
+      setMsg($("sug-msg"), act === "decline" ? `Declined ${what}. Nobody was told.` : act === "reopen" ? "Back in the pending list." : "Deleted.");
+    } catch(err){
+      btn.disabled = false;
+      setMsg($("sug-msg"), (err && err.message) || "Something went wrong.", true);
+    }
+  });
+
   /* ---------- tabs ---------- */
   function showTab(name){
-    ["posts","forum","events","photos","insights","conn","emails"].forEach(t => {
+    ["posts","forum","events","photos","insights","suggestions","conn","emails"].forEach(t => {
       const pane = $("tab-" + t);
       if (pane) pane.hidden = (t !== name);
     });

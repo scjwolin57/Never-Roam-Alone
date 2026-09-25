@@ -778,18 +778,30 @@
   .hood-body{padding:22px;display:flex;flex-direction:column;flex:1}
   .hood-desc{color:var(--muted);font-size:.92rem;margin:0 0 16px;font-style:italic}
   .hood-lodging{margin-top:auto;border-top:1px solid rgba(0,0,0,.07);padding-top:14px;display:flex;flex-direction:column;gap:10px}
-  .lodge-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  /* Recommendation rows (stay / eat / coffee / drink): the tier tag and the like/dislike thumbs share the
+     first line, the venue name and note sit on their own line below (Jeff, 2026-09-24). */
+  .lodge-row,.bar-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px}
+  .lodge-row>.lodge-tier,.bar-row>.bar-kind{grid-column:1;grid-row:1;justify-self:start;max-width:100%}
+  .lodge-row>.pick-vote,.bar-row>.pick-vote{grid-column:2;grid-row:1;margin:0}
+  .lodge-row>.lodge-name,.lodge-row>.bar-info,.bar-row>.bar-info{grid-column:1/-1;grid-row:2;min-width:0}
+  .lodge-row-plain>.lodge-name{grid-column:1;grid-row:1}   /* no tier tag: the name takes the first line beside the thumbs */
   .lodge-tier{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 0;border-radius:20px;color:#fff;width:84px;text-align:center}
   .lodge-name{font-size:.86rem;color:var(--muted);font-style:italic}
-  .pick-vote{flex-basis:100%;margin-top:2px}
+  /* Their thumbs are the icon alone, in its colour (like green, dislike rust), no box; your own vote is underlined. */
+  .pick-vote{gap:2px}
+  .pick-vote .vote-btn,.pick-vote .vote-btn.vote-up,.pick-vote .vote-btn.vote-down{background:none;border:0;border-bottom:2px solid transparent;padding:3px 4px}
+  .pick-vote .vote-btn.vote-up,.pick-vote .vote-btn.vote-up:hover{color:var(--teal)}
+  .pick-vote .vote-btn.vote-down,.pick-vote .vote-btn.vote-down:hover{color:var(--coral)}
+  .pick-vote .vote-btn:hover:not([disabled]){opacity:.75}
+  .pick-vote .vote-btn.vote-up.active,.pick-vote .vote-btn.vote-down.active{background:none;border-bottom-color:currentColor}
+  .pick-vote .vote-count{color:var(--muted)}
 
   /* Bar / drinks picks inside a neighborhood card */
   .hood-bars{border-top:1px solid rgba(0,0,0,.07);padding-top:14px;margin-top:16px;
     display:flex;flex-direction:column;gap:10px}
   .hood-bars-head{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
     color:var(--muted);margin:0}
-  .bar-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
   .bar-kind{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 8px;border-radius:3px;background:rgba(85,107,47,.1);color:var(--teal);
     width:168px;text-align:center;line-height:1.3;text-wrap:balance}
@@ -801,8 +813,7 @@
   .pick-near{display:inline-block;font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     color:#b5492c;border:1px solid #b5492c;padding:1px 6px;margin-left:6px;line-height:1.4;vertical-align:middle}
   @media(max-width:520px){
-    .bar-row{flex-direction:column;gap:3px}
-    .bar-kind{width:auto;align-self:flex-start;padding:2px 8px}
+    .bar-kind{width:auto;padding:2px 8px}
   }
 
   /* Neighborhood guide, tabbed: one row of portrait photo tiles (the tabs)
@@ -837,6 +848,10 @@
   .hood-panel .hood-map-link{position:static;box-shadow:none}
   .hood-panel .photo-contrib{position:static;border-color:var(--line);background:none;color:var(--muted)}
   .hood-panel .photo-contrib:hover,.hood-panel .photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
+  /* "Suggest a place" at the bottom of each stay / eat / coffee / drink card, styled like "Contribute a photo" above */
+  .hood-suggest{margin-top:auto;align-self:flex-start;max-width:100%;border:1px solid var(--line);border-radius:3px;background:none;
+    color:var(--muted);padding:5px 10px;font:inherit;font-size:.72rem;font-weight:600;line-height:1.25;text-align:left;cursor:pointer}
+  .hood-suggest:hover,.hood-suggest:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
   /* A hood we have no verified photo of yet borrows this city's own photo as a
      clearly-marked stand-in. Blending it to the brand green keeps it from
      reading as a photograph of the neighborhood itself, and the credit line
@@ -868,12 +883,37 @@
   .hood-toggle-all:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
   @media(max-width:820px){.hood-groups{grid-template-columns:1fr}}
   @media(max-width:640px){
-    .hood-tiles{overflow-x:auto;gap:12px;padding:4px 4px 12px;margin:0 -4px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+    .hood-tiles{overflow-x:auto;gap:12px;padding:4px 4px 12px;margin:0 -4px;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}   /* the arrow bar below replaces the scrollbar */
+    .hood-tiles::-webkit-scrollbar{display:none}
     .hood-tile{flex:0 0 100%;max-width:none;scroll-snap-align:center}   /* one neighborhood photo at a time (Jeff, 2026-09-23) */
     .hood-tile[aria-selected="true"]{transform:none}
     .hood-tile[aria-selected="true"]::after{display:none}
-    .pick-row{flex-direction:column;gap:3px}
-    .lodge-tier.pick-kind{align-self:flex-start}
+    /* Stay / eat / coffee / drink: one section at a time, swiped sideways like the photos above (Jeff, 2026-09-24) */
+    .hood-groups{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
+    .hood-groups::-webkit-scrollbar{display:none}
+    .hood-groups>*{flex:0 0 100%;min-width:0;scroll-snap-align:start;border:1px solid var(--line-soft);padding:12px}
+  }
+  /* Arrow bar under a sideways-scrolling row (hood photos, hood sections): phones only, built by initSwipeHint() */
+  .swipe-hint{display:none}
+  @media(max-width:640px){
+    .swipe-hint{display:grid;grid-template-columns:1fr auto 1fr;align-items:start;gap:14px;margin:8px 0 2px}
+    .hood-tiles+.swipe-hint{margin:0 0 14px}
+    /* each side: the arrow box, and under it the name of the slide it leads to (Jeff, 2026-09-24) */
+    .swipe-step{display:flex;flex-direction:column;gap:5px;min-width:0;max-width:100%;padding:0;border:0;border-radius:0;
+      background:none;color:inherit;font:inherit;cursor:pointer}
+    .swipe-prev{justify-self:end;align-items:flex-end;text-align:right}
+    .swipe-next{justify-self:start;align-items:flex-start;text-align:left}
+    .swipe-arrow{width:40px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+      border:1px solid var(--teal);color:var(--teal);transition:background .15s,color .15s}
+    .swipe-step:hover:not([disabled]) .swipe-arrow,.swipe-step:focus-visible .swipe-arrow{background:var(--teal);color:#fff}
+    .swipe-step:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+    .swipe-step[disabled]{cursor:default}
+    .swipe-step[disabled] .swipe-arrow{opacity:.35}
+    .swipe-name{font-size:.7rem;font-weight:600;line-height:1.25;color:var(--muted);max-width:100%;overflow-wrap:anywhere}
+    .swipe-dots{display:flex;align-items:center;gap:6px;height:32px}
+    .swipe-dot{width:8px;height:8px;background:var(--line);transition:width .2s,background .2s}
+    .swipe-dot.on{width:20px;background:var(--teal)}
+    .swipe-count{display:flex;align-items:center;height:32px;font-size:.78rem;font-weight:700;color:var(--teal);white-space:nowrap}
   }
 
   .sec-head{font-size:1.8rem;margin:0 0 22px}
@@ -1228,6 +1268,18 @@
     .lmk-map{height:340px}
   }
   @media(max-width:560px){.lmk-grid{grid-template-columns:1fr}}
+  /* Phones: landmark cards and each day-trip list scroll sideways one card at a time, with the arrow
+     bar from initSwipeHint() under them, like the neighborhoods (Jeff, 2026-09-24). The side padding
+     keeps the cards' border and shadow from being clipped by the scrolling row. */
+  @media(max-width:640px){
+    .lmk-grid,.daytrip-grid{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+      scrollbar-width:none;padding:4px 4px 14px;margin:0 -4px}
+    .lmk-grid::-webkit-scrollbar,.daytrip-grid::-webkit-scrollbar{display:none}
+    .lmk-grid>*,.daytrip-grid>*{flex:0 0 100%;min-width:0;scroll-snap-align:center}
+    .daytrip-grid>.dtcard{box-shadow:0 5px 9px -4px rgba(43,36,23,.28)}   /* a shadow short enough to fit the row's padding, not cut off by it */
+    .lmk-grid+.swipe-hint,.daytrip-grid+.swipe-hint{margin-top:2px}
+    .lmk-grid.is-muted+.swipe-hint{visibility:hidden}   /* an opened landmark covers the row; its arrows wait until it closes */
+  }
   .adv-line{margin-top:6px}
   .adv-link{text-decoration:none;border-bottom:1px dotted currentColor}
   .adv-date{font-size:.75rem;color:var(--muted,#888)}
@@ -2656,6 +2708,8 @@ function buildAdvisoryBanner(c, cityAdv){
   const nearFlag = (p, i) => {
     if (p.near != null && p.near === i && hoods[i]) return ` <span class="pick-near" title="This pick is just outside ${escB(hoods[i])}, a short walk from its edge">Just outside ${escB(hoods[i])}</span>`;
     const h = nearHood(p, i); return h ? ` <span class="pick-near" title="This pick is in the nearby neighborhood ${escB(h)}">Nearby: ${escB(h)}</span>` : ''; };
+  /* "Suggest a place" button at the bottom of each card: opens suggest-place.js's form (Jeff, 2026-09-24). */
+  const suggestBtn = (section, i, label, dry) => `<button type="button" class="hood-suggest" data-suggest="${section}" data-hood-idx="${i}"${dry ? ' data-dry="1"' : ''}>+ ${label}</button>`;
   const pickRows = (list, meta, hoodName, i, kind) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
     const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
@@ -2678,18 +2732,21 @@ function buildAdvisoryBanner(c, cityAdv){
                 const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
                 return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b, i) || name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b, i)}</span>${vote}</div>`;
               }).join('')}
+              ${suggestBtn('bars', i, dryHood ? 'Suggest a place to go out' : 'Suggest a place to drink', dryHood)}
             </div>` : '';
     const eatList = (CITY_EAT[c.city] && CITY_EAT[c.city][i]) || [];
     const eatHTML = eatList.length ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Where to eat</p>
               ${pickRows(eatList, EAT_KIND_META, name, i, 'eat')}
+              ${suggestBtn('eat', i, 'Suggest a place to eat')}
             </div>` : '';
     const cafeList = (CITY_CAFES[c.city] && CITY_CAFES[c.city][i]) || [];
     const cafeHTML = cafeList.length ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Coffee &amp; takeaway</p>
               ${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
+              ${suggestBtn('cafes', i, 'Suggest a coffee or takeaway spot')}
             </div>` : '';
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
     const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
@@ -2697,6 +2754,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
               ${lodgeRows}
+              ${suggestBtn('stay', i, 'Suggest a place to stay')}
             </div>` : '';
     return `
         <div class="hood hood-panel" role="tabpanel" id="hood-panel-${i}" aria-labelledby="hood-tab-${i}"${i === 0 ? '' : ' hidden'}>
@@ -3108,6 +3166,7 @@ function buildAdvisoryBanner(c, cityAdv){
   /* Landmark & day-trip data files are lazy-loaded (see loadLmkDtData below);
      these start empty and are filled in when the data arrives. */
   let dt = null, lmks = [], lmkCoords = [], lmkPhotos = [];
+  let lmkHint = null;   // arrow bar under the landmark row on phones (initSwipeHint)
   function buildLandmarksHTML(){ return !lmks.length ? "" : `
       <div class="lmk-cards-col">
       <div class="lmk-grid">` + lmks.map((l, i) => {
@@ -4191,6 +4250,65 @@ function buildAdvisoryBanner(c, cityAdv){
     });
   })();
 
+  /* ---------- Sideways rows on phones (640px and under) ----------
+     The neighborhood photos, each neighborhood's stay / eat / coffee / drink row, the landmark cards and
+     the day-trip lists scroll sideways one card at a time. initSwipeHint() puts an arrow bar under a row:
+     back and forward arrows, each naming the card it leads to, and dots (a "3 / 10" count past 6 cards).
+     The bar is hidden by CSS above 640px (Jeff, 2026-09-24). */
+  const SWIPE_PHONE = window.matchMedia('(max-width:640px)');
+  const SWIPE_ARROW = d => `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="${d < 0 ? '15 5 8 12 15 19' : '9 5 16 12 9 19'}"/></svg>`;
+  function initSwipeHint(track, noun, nameSel, onSettle) {
+    const items = [...track.children];
+    if (items.length < 2) return null;
+    const names = items.map(el => { const n = el.querySelector(nameSel); return n ? n.textContent.trim() : ''; });
+    const counted = items.length > 6;
+    const bar = document.createElement('div');
+    bar.className = 'swipe-hint';
+    bar.innerHTML = `<button type="button" class="swipe-step swipe-prev"><span class="swipe-arrow">${SWIPE_ARROW(-1)}</span><span class="swipe-name"></span></button>` +
+      (counted ? `<span class="swipe-count" aria-hidden="true"></span>`
+               : `<span class="swipe-dots" aria-hidden="true">${items.map(() => '<span class="swipe-dot"></span>').join('')}</span>`) +
+      `<button type="button" class="swipe-step swipe-next"><span class="swipe-arrow">${SWIPE_ARROW(1)}</span><span class="swipe-name"></span></button>`;
+    track.after(bar);
+    const dots = [...bar.querySelectorAll('.swipe-dot')];
+    const count = bar.querySelector('.swipe-count');
+    const [prev, next] = bar.querySelectorAll('.swipe-step');
+    const pos = j => items[j].offsetLeft - items[0].offsetLeft;
+    let at = -1, settle = 0;
+    /* each arrow names the card it leads to; at either end that arrow is disabled and unnamed */
+    const label = (btn, j, dir) => {
+      const n = names[j] || '';
+      btn.disabled = j < 0 || j >= items.length;
+      btn.querySelector('.swipe-name').textContent = btn.disabled ? '' : n;
+      btn.setAttribute('aria-label', `${dir} ${noun}${!btn.disabled && n ? ': ' + n : ''}`);
+    };
+    function update() {
+      let best = 0;
+      items.forEach((el, j) => { if (Math.abs(pos(j) - track.scrollLeft) < Math.abs(pos(best) - track.scrollLeft)) best = j; });
+      if (best !== at) {
+        at = best;
+        dots.forEach((d, j) => d.classList.toggle('on', j === at));
+        if (count) count.textContent = `${at + 1} / ${items.length}`;
+        label(prev, at - 1, 'Previous');
+        label(next, at + 1, 'Next');
+      }
+      return at;
+    }
+    function goTo(j) {
+      j = Math.max(0, Math.min(items.length - 1, j));
+      if (Math.abs(pos(j) - track.scrollLeft) > 2) track.scrollTo({ left: pos(j), behavior: 'smooth' });
+    }
+    prev.addEventListener('click', () => goTo(at - 1));
+    next.addEventListener('click', () => goTo(at + 1));
+    track.addEventListener('scroll', () => {
+      update();
+      clearTimeout(settle);
+      settle = setTimeout(() => { if (onSettle) onSettle(update()); }, 140);
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+    return { update, goTo };
+  }
+
   /* ---------- Neighborhood tiles -> detail panel ----------
      The tiles are tabs: one panel shows at a time (arrow keys move between
      them) unless "Show all" is on, which stacks every panel. */
@@ -4235,8 +4353,13 @@ function buildAdvisoryBanner(c, cityAdv){
       tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i ? 'true' : 'false'); t.tabIndex = j === i ? 0 : -1; });
       panels.forEach((p, j) => { if (p) p.hidden = showAll ? false : j !== i; });
       if (focus) tabs[i].focus();
+      if (tileHint) tileHint.goTo(i);
+      groupHints.forEach(h => h.update());
     }
     tabs.forEach((t, i) => t.addEventListener('click', () => select(i)));
+    /* Phones: swiping the photos selects that neighborhood, so the panel always matches the photo (Jeff, 2026-09-24). */
+    const tileHint = initSwipeHint(list, 'neighborhood', '.hood-name', j => { if (SWIPE_PHONE.matches && j !== current) select(j); });
+    const groupHints = [...document.querySelectorAll('.hood-panel .hood-groups')].map(g => initSwipeHint(g, 'section', '.hood-bars-head')).filter(Boolean);
     list.addEventListener('keydown', e => {
       const k = e.key;
       /* The tiles are divs with role="tab", not <button>s — a tile holds its
@@ -5037,8 +5160,21 @@ function buildAdvisoryBanner(c, cityAdv){
     const expandEl = document.getElementById("lmk-expand");
     /* The expanded card is the source of truth for which pin is lit. */
     document.addEventListener("lmk:focus", e => {
-      const i = e.detail && e.detail.idx;
+      let i = e.detail && e.detail.idx;
+      /* Phones: a pin is always lit, the one for the card in view (pin 1 on load, and again after a card is closed; Jeff, 2026-09-24). */
+      if (typeof i !== "number" && SWIPE_PHONE.matches && lmkHint && gridElL) {
+        const card = gridElL.children[lmkHint.update()];
+        if (card) i = Number(card.dataset.lmkIdx);
+      }
       setActiveLmk(typeof i === "number" ? i : null);
+    });
+    /* Phones: the card the landmark row settles on (arrow, swipe or pin) lights its pin and brings the map to it,
+       as hovering a card does on desktop (Jeff, 2026-09-24). */
+    document.addEventListener("lmk:slide", e => {
+      const i = e.detail && e.detail.idx;
+      const p = typeof i === "number" ? lmkCoords[i] : null;
+      setActiveLmk(typeof i === "number" ? i : null);
+      if (p && p.lat != null) lmkMap.flyTo({ center: [p.lng, p.lat], zoom: Math.max(lmkMap.getZoom(), 14), speed: 1.2, curve: 1.4, essential: true });
     });
 
     function setActiveLmk(i) {
@@ -5088,6 +5224,16 @@ function buildAdvisoryBanner(c, cityAdv){
     }
     function liftCard(i) {
       if (!gridElL) return;
+      /* Phones: the cards are a sideways row, so the pin scrolls the row to its card instead of moving it. */
+      if (SWIPE_PHONE.matches && lmkHint) {
+        restoreLmkOrder();
+        const card = gridElL.querySelector('.lmk-card[data-lmk-idx="' + i + '"]');
+        if (!card) return;
+        lmkHint.goTo(lmkOrder.indexOf(card));
+        setActiveLmk(i);
+        gridElL.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        return;
+      }
       if (liftedIdx === i) { restoreLmkOrder(); setActiveLmk(null); return; }
       restoreLmkOrder();
       const card = gridElL.querySelector('.lmk-card[data-lmk-idx="' + i + '"]');
@@ -5154,6 +5300,22 @@ function buildAdvisoryBanner(c, cityAdv){
     });
   });
 
+  /* "Suggest a place" at the bottom of each neighborhood card: the form's dropdown offers that card's own
+     listings (the lodging tiers, or the eat / coffee / drink kinds; an alcohol-free hood offers its own kinds). */
+  const DRY_BAR_KINDS = ["cafe", "hangout", "mocktail"];
+  document.addEventListener("click", e => {
+    const b = e.target.closest(".hood-suggest");
+    if (!b || !window.NRA_SUGGEST) return;
+    const i = Number(b.dataset.hoodIdx), section = b.dataset.suggest;
+    const fromMeta = meta => Object.keys(meta).map(k => ({ k, label: meta[k].label }));
+    const kinds = section === "stay" ? LODGE_TIERS.map(t => ({ k: t.k, label: t.label }))
+      : section === "eat" ? fromMeta(EAT_KIND_META)
+      : section === "cafes" ? fromMeta(CAFE_KIND_META)
+      : fromMeta(BAR_KIND_META).filter(o => b.dataset.dry ? DRY_BAR_KINDS.includes(o.k) : !DRY_BAR_KINDS.includes(o.k));
+    NRA_SUGGEST.open({ city: c.city, hoodIdx: i, hoodName: (CITY_HOODS[c.city] || [])[i], section,
+      title: b.textContent.replace(/^\+\s*/, ""), kinds });
+  });
+
   /* ---------- Landmark card -> expanded panel covering the card grid ----------
      Click (or tap) a card to open it; clicking the same card again closes it.
      Also closes on the X, Escape, or a click outside the column. */
@@ -5210,6 +5372,10 @@ function buildAdvisoryBanner(c, cityAdv){
         if (pim.complete) orient(); else pim.addEventListener("load", orient, {once:true});
       }
       requestAnimationFrame(() => panel.classList.add("is-open"));
+      /* Phones: the row is one card tall, so the column grows to hold the opened card rather than it covering the day trips. */
+      const fitCol = () => { colEl.style.minHeight = SWIPE_PHONE.matches ? (panel.offsetTop + panel.offsetHeight) + "px" : ""; };
+      fitCol();
+      if (pim && !pim.complete) pim.addEventListener("load", fitCol, {once:true});
       document.dispatchEvent(new CustomEvent("lmk:focus", {detail:{idx:i}}));
     }
     function closeExpand(){
@@ -5219,7 +5385,7 @@ function buildAdvisoryBanner(c, cityAdv){
       panel.classList.remove("is-open");
       gridEl.classList.remove("is-muted");
       clearTimeout(closeTimer);
-      closeTimer = setTimeout(() => { panel.hidden = true; panel.innerHTML = ""; }, 200);
+      closeTimer = setTimeout(() => { panel.hidden = true; panel.innerHTML = ""; colEl.style.minHeight = ""; }, 200);
     }
 
     gridEl.addEventListener("click", e => {
@@ -5298,8 +5464,15 @@ function buildAdvisoryBanner(c, cityAdv){
       const dtBody = document.getElementById("daytrips-section-body");
       const dayTripsHTML = buildDayTripsHTML();
       if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trips coming soon</p>`;
+      const lmkGridEl = lmkBody && lmkBody.querySelector(".lmk-grid");
+      if (lmkGridEl) lmkHint = initSwipeHint(lmkGridEl, "landmark", ".lmk-name", j => {
+        const card = lmkGridEl.children[j];
+        if (SWIPE_PHONE.matches && card) document.dispatchEvent(new CustomEvent("lmk:slide", {detail:{idx: Number(card.dataset.lmkIdx)}}));
+      });
+      if (dtBody) dtBody.querySelectorAll(".daytrip-grid").forEach(g => initSwipeHint(g, "day trip", ".dtcard-name"));
       initLmkMap();
       initLmkCardExpand();
+      if (lmkGridEl) document.dispatchEvent(new CustomEvent("lmk:focus", {detail:{idx:null}}));   // phones: light the pin of the card in view
       /* Both bodies are filled once, lazily, right here — mount their vote
          widgets (landmark cards + stars, day-trip cards) now that they exist. */
       if (window.NRA_VOTES){ if (lmkBody) NRA_VOTES.mountAll(lmkBody); if (dtBody) NRA_VOTES.mountAll(dtBody); }
@@ -5398,6 +5571,7 @@ function buildAdvisoryBanner(c, cityAdv){
 <script src="trip-add.js"></script>
 <script src="auth.js"></script>
 <script src="contribute-photo.js"></script>
+<script src="suggest-place.js"></script>
 <script src="roamer-connections.js" defer></script>
 <script src="favorites.js"></script>
 <script>
