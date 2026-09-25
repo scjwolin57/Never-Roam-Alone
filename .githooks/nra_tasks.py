@@ -21,11 +21,10 @@ HOW
   reset, checkout of a branch, --no-verify ...) are refused for every Claude session.
 - The git pre-commit hook refuses a commit from a Claude session when a staged file belongs to another
   session or to nobody, and when the staged sheet and site data disagree (sheet parity on the STAGED copy).
-- NRA-MASTER.xlsx is one binary file shared by every job, so it can have several holders. It can be
-  committed only by a session that holds it when no other live session does; otherwise the tasks hand their
-  files to one of them (`give`) and that one commits both sides together.
-- sheet_write.py registers the sheet rows it writes (per city) and refuses a city whose citydata file or sheet
-  row another live session holds.
+- NRA-MASTER.xlsx is one binary file git cannot merge, so it has ONE holder at a time (decisions.md
+  2026-09-25). sheet_write.py refuses to write it while another session holds it (live: wait for that task to
+  commit, or it `give`s the sheet to you; closed, or no holder at all: someone must check its uncommitted
+  changes and `claim --adopt` them first). It also refuses a city whose citydata another live session holds.
 - Jeff's own commits from Terminal (no session id) are never blocked; they print a warning instead.
   `git commit --no-verify` from Terminal skips everything.
 
@@ -34,7 +33,7 @@ A session is live while its Claude process runs and it was active in the last 24
 """
 import fcntl, json, os, re, subprocess, sys, tempfile, time
 
-SHARED = {"NRA-MASTER.xlsx"}          # one file written by many jobs; several holders allowed
+SHEET = "NRA-MASTER.xlsx"             # one holder at a time (decisions.md 2026-09-25)
 LIVE_FOR = 24 * 3600
 GRACE = 600
 PARITY_PATHS = re.compile(r"^(NRA-MASTER\.xlsx|citydata/|city-photos\.js|hood-photos\.js|city-landmark-photos\.js"
@@ -218,11 +217,8 @@ class Board:
         if c is None:
             self.d["claims"][k] = {"owners": [sid], "since": self.now, "how": how}
         elif sid not in c["owners"]:
-            if rel in SHARED:
-                c["owners"].append(sid)
-            else:
-                c["owners"] = [sid]
-                c["since"], c["how"] = self.now, how
+            c["owners"] = [sid]
+            c["since"], c["how"] = self.now, how
 
     def row_holders(self, city, top=None):
         """Sessions holding a sheet row (any tab) for this city."""
@@ -371,7 +367,7 @@ def hook(event):
             live = [o for o in others if b.live(o)]
             city = city_of(top, rel)
             rowlive = [o for o in (b.row_holders(city) if city else ()) if o != sid and b.live(o)]
-            if rel not in SHARED and live:
+            if live:
                 return out(event, deny=f"Blocked by the task board: {rel} has uncommitted changes from task "
                                        f"{b.label(live[0])}. Do not edit it; tell Jeff. The owner can hand it over "
                                        f"with `{TOOL} give {rel} --to {sid[:8]}`.")
@@ -410,16 +406,27 @@ def hook(event):
             after = dirty(top)
             changed = [p for p, sig in after.items() if before["dirty"].get(p) != sig]
             warn = []
+            took = []
             for rel in changed:
-                live = [o for o in b.owners(rel) if o != sid and b.live(o)]
-                if rel not in SHARED and live:
+                others = [o for o in b.owners(rel) if o != sid]
+                live = [o for o in others if b.live(o)]
+                if live:
                     warn.append(f"{rel} (held by {b.label(live[0])})")
                     continue
+                if others:
+                    took.append(f"{rel} (was {b.label(others[0])})")
                 b.claim(sid, rel, "bash")
+        msgs = []
         if warn:
-            out(event, context="Task board: these files changed while your command ran, but another live task "
-                               "holds them. Either your command wrote them or that task did at the same moment. Do "
-                               "not commit them; tell Jeff which it was:\n  " + "\n  ".join(warn))
+            msgs.append("Task board: these files changed while your command ran, but another live task holds them. "
+                        "Either your command wrote them or that task did at the same moment. Do not commit them; "
+                        "tell Jeff which it was:\n  " + "\n  ".join(warn))
+        if took:
+            msgs.append("Task board: your command changed files a closed task still held; they are yours now, with "
+                        "its unfinished changes inside. Check `git diff` on each before committing:\n  "
+                        + "\n  ".join(took))
+        if msgs:
+            out(event, context="\n".join(msgs))
         return
 
     if event in ("SessionStart", "UserPromptSubmit"):
@@ -520,12 +527,27 @@ def precommit():
 # ---------------------------------------------------------------- sheet rows (called by sheet_write.py)
 
 def rows_claim(sheet, keys, top):
-    """Refuse (exit 3) when another live task holds one of these cities; otherwise record the rows."""
+    """Refuse (exit 3) unless this session may write the sheet: nobody else holds it (one holder at a time,
+    decisions.md 2026-09-25), it has no unclaimed changes, and no other live task holds these cities' citydata.
+    Otherwise record the rows and the sheet as this session's."""
     sid = os.environ.get("CLAUDE_CODE_SESSION_ID")
     if not sid:
         return 0
     with Board(top) as b:
         b.touch(sid, os.environ.get("CLAUDE_PID"))
+        others = [o for o in b.owners(SHEET) if o != sid]
+        live = [o for o in others if b.live(o)]
+        if live:
+            print(f"Task board: the sheet is held by task {b.label(live[0])}. One task changes the sheet at a time.\n"
+                  "Nothing was written. Wait until that task commits, or ask it to hand the sheet over with "
+                  f"`{TOOL} give {SHEET} --to {sid[:8]}` (its sheet rows move with it).")
+            return 3
+        if others or (SHEET in dirty(top) and sid not in b.owners(SHEET)):
+            who = f"closed task {b.label(others[0])}" if others else "no task (Jeff, or a session without the hooks)"
+            print(f"Task board: the sheet has uncommitted changes from {who}.\nNothing was written. Those changes "
+                  "would ride in your commit. Tell Jeff; after checking them, "
+                  f"`{TOOL} claim --adopt {SHEET}` takes them over.")
+            return 3
         clash = []
         for city in keys:
             for o in b.row_holders(city):
@@ -561,6 +583,12 @@ def main(argv):
         return 0
     if argv[:1] == ["precommit"]:
         return precommit()
+    if argv[:1] == ["postcommit"]:      # loading the board prunes the claims of files the commit made clean
+        top = toplevel(os.getcwd())
+        if top:
+            with Board(top):
+                pass
+        return 0
     top = toplevel(os.getcwd())
     if not top:
         print("not inside the never-roam-alone repo")
@@ -614,7 +642,7 @@ def main(argv):
                     print(f"{rel}: no uncommitted change, nothing to claim"); continue
                 live = [o for o in owners if o != sid and b.live(o)]
                 stale = [o for o in owners if o != sid and not b.live(o)]
-                if live and rel not in SHARED:
+                if live:
                     print(f"{rel}: refused, task {b.label(live[0])} holds it. Ask it to `give` it to you.")
                     rc = 1; continue
                 if stale and not adopt:

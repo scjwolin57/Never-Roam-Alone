@@ -394,10 +394,15 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
   disagree. At the start of work, name your task:
   `python3 .githooks/nra_tasks.py name "<short task>"`; `board` shows every
   task. If a script's change was missed, `claim <path>`; to let another task
-  commit your files, `give <path> --to <session>`. NRA-MASTER.xlsx can have
-  several holders; it is committed by one session only when no other live
-  session holds it, so two tasks' sheet changes go out in one commit with
-  both citydata sides. Jeff's Terminal commits are never blocked.
+  commit your files, `give <path> --to <session>`. **One task changes the
+  sheet at a time** (decisions.md 2026-09-25): `sheet_write.py` refuses to
+  write NRA-MASTER.xlsx while another session holds it, or while it has
+  uncommitted changes from a closed task or from nobody (check them, then
+  `claim --adopt`). Run sheet tasks one after another, commit sheet and
+  citydata together at the end of every batch, and never close a session
+  with the sheet dirty. Site-only tasks (layout, copy, features) can run in
+  parallel, best in their own worktree. Jeff's Terminal commits are never
+  blocked.
 - Before committing: `git status --short` and confirm every staged path is
   yours. After: `git show --stat` lists only your files.
 - More than one session may be working the same directory. Do not assume the

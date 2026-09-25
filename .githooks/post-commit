@@ -1,0 +1,6 @@
+#!/bin/sh
+# Task board (decisions.md 2026-09-24): a claim ends when its file is clean again. Load the board right after
+# every commit so the committed files are released at once, before another job can change them again.
+root=$(git rev-parse --show-toplevel)
+[ -f "$root/.githooks/nra_tasks.py" ] && python3 "$root/.githooks/nra_tasks.py" postcommit >/dev/null 2>&1
+exit 0
