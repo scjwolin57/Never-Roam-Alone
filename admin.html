@@ -119,6 +119,19 @@
   .ied input:focus,.ied textarea:focus{outline:none;border-color:var(--green)}
   .ied .actions{margin-top:18px}
 
+  /* suggestion auto-check panel (netlify/functions/check-suggestion.js, Jeff 2026-09-25) */
+  .sug-check{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(20,40,50,.18);font-size:.82rem}
+  .sug-check[hidden]{display:none}
+  .sug-check dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:0 0 10px}
+  .sug-check dt{font-weight:700;color:var(--muted)}
+  .sug-check dd{margin:0}
+  .sug-check .warn{color:#8a6d1a}
+  .sug-check .bad{color:#c05135}
+  .sug-check .ok{color:var(--green)}
+  .sug-check pre{background:#f2efe6;border:1px solid #ddd4c2;padding:9px 11px;font-family:'SF Mono',Menlo,Consolas,monospace;
+    font-size:.76rem;line-height:1.5;white-space:pre-wrap;word-break:break-word;margin:0 0 8px}
+  .sug-check .note{color:var(--muted);font-size:.76rem;margin:4px 0 0}
+
 
   /* ================= EXPLORER THEME (overrides) ================= */
   .fact,.tile,.tcard,.dtcard,.stay-card,.hood,.card{border:1px solid var(--ink);border-radius:3px}
@@ -219,7 +232,7 @@
     <!-- ========== PLACE SUGGESTIONS (city-page "Suggest a place") ========== -->
     <section id="tab-suggestions" class="tabpane" hidden>
       <div class="topbar"><h2>Suggestions — places to stay, eat, drink</h2></div>
-      <p class="sect-note">Places visitors suggested from the bottom of a neighborhood card. A suggestion never goes on the guide by itself: check the venue through the hood-picks pipeline and add it to the sheet first (one row, Origin = roamer: <code>python3 _guidebuild/hoodpicks/load_picks.py roamer &lt;slug&gt; &lt;hood#&gt; &lt;stay|eat|cafes|bars&gt; &lt;kind&gt; "&lt;name&gt;" --pid &lt;place id&gt; --note "…" --by &lt;member id&gt;</code>, then <code>apply &lt;slug&gt;</code>; it then shows in the card's "From Roamers" group with the member's picture). Then <b>Mark published</b> records it and thanks the person once, if they asked (a message in their Never Roam Alone inbox if they were signed in, otherwise an email), and gives a signed-in member the recommendation points. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="sect-note">Places visitors suggested from the bottom of a neighborhood card. A suggestion never goes on the guide by itself: check the venue through the hood-picks pipeline and add it to the sheet first. <b>Check</b> looks the venue up on Google (rating, review count, open, distance from the hood, a possible duplicate) and builds the exact command for you &mdash; read its checks, then run the command yourself (or fix it first): <code>python3 _guidebuild/hoodpicks/load_picks.py roamer &lt;slug&gt; &lt;hood#&gt; &lt;stay|eat|cafes|bars&gt; &lt;kind&gt; "&lt;name&gt;" --pid &lt;place id&gt; --note "…" --by &lt;member id&gt;</code>, then <code>apply &lt;slug&gt;</code>; it then shows in the card's "From Roamers" group with the member's picture. Then <b>Mark published</b> records it and thanks the person once, if they asked (a message in their Never Roam Alone inbox if they were signed in, otherwise an email), and gives a signed-in member the recommendation points. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
       <p class="admin-msg" id="sug-msg"></p>
       <label class="evt-check" style="display:flex;align-items:center;gap:8px;margin:0 0 14px;font-weight:600">
         <input type="checkbox" id="sug-show-done"> Also show suggestions I've already dealt with
@@ -703,6 +716,36 @@
   let sRows = [];
   let sugReview = "";   // ?tab=suggestions&review=<id> from the submission email
   const SUG_SECTION = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out" };
+  let sChecks = {};   // suggestion id -> last check-suggestion.js result, kept for this page load only
+
+  /* One line per fact the check returned, plain and unstyled beyond pass/warn/bad, so Jeff still reads
+     and judges them himself — this never renders a verdict, only what Google and citydata say. */
+  function renderSugCheck(d){
+    const cls = v => /^pass/.test(v) ? "ok" : /no Google|GOOGLE_MAPS|no rating|no review|unknown|isn't set/.test(v) ? "" : "warn";
+    const rows = [];
+    if (d.resolved && d.resolved.name) rows.push(["Resolved name", esc(d.resolved.name)]);
+    else if (d.resolved && d.resolved.blocked) rows.push(["Resolved name", `<span class="warn">Google showed a consent page instead of the venue &mdash; open the Maps link by hand</span>`]);
+    else if (d.resolved && d.resolved.error) rows.push(["Resolved name", `<span class="warn">Couldn't resolve the link (${esc(d.resolved.error)}) &mdash; open it by hand</span>`]);
+    if (d.place){
+      rows.push(["Google match", esc(d.place.name || "") + (d.candidateCount > 1 ? ` <span class="note" style="display:inline">(${d.candidateCount} candidates &mdash; confirm this is the right one)</span>` : "")]);
+      if (d.place.formattedAddress) rows.push(["Address", esc(d.place.formattedAddress)]);
+    }
+    if (d.checks){
+      if (d.checks.open) rows.push(["Open", `<span class="${cls(d.checks.open)}">${esc(d.checks.open)}</span>`]);
+      if (d.checks.rating) rows.push(["Rating", `<span class="${cls(d.checks.rating)}">${esc(d.checks.rating)}</span>`]);
+      if (d.checks.reviews) rows.push(["Reviews", `<span class="${cls(d.checks.reviews)}">${esc(d.checks.reviews)}</span>`]);
+      if (d.checks.distance) rows.push(["Distance", `<span class="${cls(d.checks.distance)}">${esc(d.checks.distance)}</span>`]);
+      if (d.checks.duplicate) rows.push(["Duplicate?", `<span class="bad">${esc(d.checks.duplicate)}</span>`]);
+    }
+    if (!d.slugFound) rows.push(["City", `<span class="warn">not found in citydata/_index.json &mdash; check the city name</span>`]);
+    if (d.placesError) rows.push(["Google Places", `<span class="warn">${esc(d.placesError)}</span>`]);
+    if (!d.apiKeyConfigured) rows.push(["Google Places", `<span class="note" style="display:inline">GOOGLE_MAPS_API_KEY isn't set in Netlify yet &mdash; add it under Site configuration &rarr; Environment variables for rating, reviews and a place ID here</span>`]);
+    return `<div class="sug-check">
+      <dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+      ${d.command ? `<pre>${esc(d.command)}</pre><button type="button" class="btn small" data-copy-cmd="${esc(d.command)}">Copy command</button>`
+                  : `<p class="note">Couldn't build a command &mdash; the link didn't resolve to a venue name.</p>`}
+    </div>`;
+  }
 
   async function loadSuggestions(){
     setMsg($("sug-msg"), "Loading suggestions…");
@@ -746,12 +789,14 @@
             ${r.info ? `<div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${esc(r.info)}</div>` : ""}
           </div>
           <div class="acts">
+            ${r.status !== "published" ? `<button class="btn small" data-sact="check" type="button">${sChecks[r.id] ? "Recheck" : "Check"}</button>` : ""}
             ${r.status !== "published" ? `<button class="btn small coral" data-sact="publish" type="button">Mark published</button>` : ""}
             ${r.status === "pending" ? `<button class="btn small" data-sact="decline" type="button">Decline</button>` : ""}
             ${r.status === "declined" ? `<button class="btn small" data-sact="reopen" type="button">Back to pending</button>` : ""}
             <button class="btn small danger" data-sact="delete" type="button">Delete</button>
           </div>
         </div>
+        ${sChecks[r.id] ? renderSugCheck(sChecks[r.id]) : ""}
       </div>`;
     }).join("");
     if (sugReview){
@@ -769,6 +814,14 @@
     if (e.target && e.target.id === "sug-show-done") renderSuggestions();
   });
 
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[data-copy-cmd]");
+    if (!b) return;
+    navigator.clipboard.writeText(b.dataset.copyCmd).then(() => {
+      const was = b.textContent; b.textContent = "Copied"; setTimeout(() => { b.textContent = was; }, 1400);
+    }).catch(() => setMsg($("sug-msg"), "Couldn't copy — select the command text instead.", true));
+  });
+
   document.addEventListener("click", async e => {
     const btn = e.target.closest("#sug-list button[data-sact]");
     if (!btn) return;
@@ -781,6 +834,22 @@
     if (act === "delete" && !confirm(`Delete the suggestion for ${what}? This can't be undone.`)) return;
     btn.disabled = true;
     try {
+      if (act === "check"){
+        btn.textContent = "Checking…";
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/check-suggestion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        sChecks[r.id] = d;
+        renderSuggestions();
+        return;
+      }
       if (act === "publish"){
         setMsg($("sug-msg"), "Marking published…");
         const { data: { session } } = await sb.auth.getSession();
