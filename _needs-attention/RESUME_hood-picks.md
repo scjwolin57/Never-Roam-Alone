@@ -233,3 +233,24 @@ second branch and no romanised name) -> bar safety 67 searched: 2 fail (Rock Fac
 (Carol, Cairo; Stella Cocktail Club, Dublin). **Loaded: 316 picks in 19 cities** (Shanghai 0: almost no venue there lists a website),
 9 "just outside" picks; 87 baseline bars untouched; parity 0 mismatches. Google calls this batch: 500 ($20.00; credit $68.32 of $260).
 Next: batch 3 (cities 51-75 in scope412.json) with build_areas.py -> fetch_rank.py area -> gaps -> todo -> annotate -> the same pipeline.
+
+### Batch 3, cities 51-75 (started 2026-09-24): 20 CITIES LOADED 2026-09-25; Sharm el-Sheikh, Jeddah, Najaf in progress
+Cities: `_guidebuild/hoodpicks/work/b3_slugs.txt` (Sharm el-Sheikh to Fukuoka). Najaf added to `DRY_SLUGS` (Iraq holy city).
+Pre-flight: `hoodpoint_check.py` 123 points, 18 flagged, 2 moved (Beijing Chaoyang -> Sanlitun; Chiang Mai Riverside -> Wat Ket;
+commit "Batch 3 pin pre-flight"). `build_areas.py` now requires the boundary's name to equal the hood's name (or its bracketed
+alternate): 26 boundaries used (e.g. all 5 Berlin Ortsteile, Seville Triana), the rest 1.2 km. Google: base fetch 360 + area 642
++ gaps ~420 calls (about $56.50; credit $125.20 of $260; one network timeout stopped the area run once, resumed from cache).
+To-dos in `work/b3/` (1,204 slots; Shenzhen pool 0, Beijing 9, Najaf 7). Briefs `B3_BRIEF.md`, `B3_CHECK_BRIEF.md`,
+`B3_AUDIT_BRIEF.md`. Same resume steps as batch 2 with `work/b3` and `HP_W=b3`.
+
+Batch 3 loaded 2026-09-25: 533 picks in 20 cities (Berlin 38, San Francisco 37, Budapest 36, Vancouver 34, San Diego 33,
+Chiang Mai 32, Munich 32, Valletta 32, Toronto 29, Heraklion 27, Sydney 27, Palma 26 incl. 5 from the Playa de Palma re-pick
+in work/b3pp, Seville 26, Ibiza 24, Mexico City 24, Marrakech 17, Nha Trang 17, Niagara Falls 17, Fukuoka 13, Da Nang 12).
+Every pick: gate -> name check -> independent check -> fixes marked fixed_after_check -> fresh audit (fixes logged in the
+audit evidence as "FIXED by the lead") -> bar safety search (5 groups, 205 bars: 202 ok, 1 fail Baybar Beach Club, 2 pending
+MINIMAL and Milch und Bar, all kept off). Left out after the checks: 71, listed by `HP_W=b3 python3 merge_pilot.py <slugs>`.
+Held for Jeff (owner-group question, `_needs-attention/hood-picks-owner-groups.md`): Blue Coffee, Maruni, Half Penny,
+Baltazár, Pierrot. Rules applied in this batch: a kind shown only by the page title is not evidence (Casa Portuguesa,
+Sabor Italiano dropped); a venue on another listed hood's streets is wrong for any other hood even with a nearer pin
+(Sydney CBD vs Darling Harbour). Shenzhen and Beijing: no picks (pools 0 and 9).
+Still to do: Sharm el-Sheikh (7 picks gated), Jeddah, Najaf -> check -> audit -> load.
