@@ -166,7 +166,7 @@ window.NRA_SUGGEST = (function(){
         '<label for="sp-email" style="font-weight:600;font-size:.8rem">Your email</label>' +
         '<input type="email" id="sp-email" autocomplete="email" value="' + esc(emailVal) + '">' +
         '<p class="cf-note">Only used to tell you it\'s published. Never shown on the site.' +
-        (a && a.enabled ? ' <button type="button" class="sp-signin-btn" id="sp-signin">Or sign in to get a message in your inbox</button>' : '') + '</p>';
+        (a && a.enabled ? ' <button type="button" class="sp-signin-btn" id="sp-signin">Or sign in to get a message in your NRA inbox</button>' : '') + '</p>';
       var b = $("sp-signin");
       if (b) b.addEventListener("click", function(){ var a2 = AUTH(); if (a2 && a2.openModal) a2.openModal(); });
     }
