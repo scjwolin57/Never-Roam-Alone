@@ -275,3 +275,5 @@ audit: Sheen (modern take, not local), Plato Rooftop (not a cocktail bar), ObakÃ
 403 picks in 25 cities. Next: batch 5 (cities 101-125 in scope412.json).
 
 Press-path pilot 2026-09-25 (CHECKLIST F, decisions.md): 5 picks kept in Jakarta 3, Tbilisi 1, Riyadh 1 (loaded); 7 made in 285 slot-tries across two rounds; result and question in `_needs-attention/hood-picks-press-path-pilot.md`. Working files `work/b4px`, `work/b4px2`.
+
+Batch 4 second look 2026-09-25 (decisions.md 2026-09-25; rating 4.0, reviews 50 by env; briefs B4S_*): 1,054 website candidates the first pickers never reviewed, in 450 open slots, 9 pickers told to log every candidate. 72 picked -> check 14 of 69 wrong (20%) -> audit 4 of 52 wrong (8%), 1 held (Dolce Ragusa: born in Italy, all 5 stores in Riyadh; question for Jeff) -> safety 20 bars ok. Loaded 49 picks in 19 cities; 25 of them passed only under the looser floors. Working files `work/b4s`; loaded files `work/b4s/load`.
