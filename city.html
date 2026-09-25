@@ -876,6 +876,21 @@
   .hood-groups .hood-lodging,.hood-groups .hood-bars{margin-top:0;border-top:0;padding-top:0}
   .hood-picks{display:flex;flex-direction:column;gap:10px}
   .lodge-tier.pick-kind{width:auto;min-width:84px;padding:3px 10px}
+  /* "From Roamers": approved visitor suggestions listed under our picks in each stay / eat / coffee / drink card,
+     with a Show / Hide text button; the member who sent one is credited with their profile picture, linked to
+     their profile (Jeff, 2026-09-25: option C). Data: citydata `roamer_picks`, sheet "Hood Picks" rows with Origin = roamer. */
+  .roamer-picks{display:flex;flex-direction:column;gap:10px;border-top:1px dashed var(--line);padding-top:10px}
+  .roamer-picks-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#b5492c;margin:0}
+  .roamer-picks-head small{font-size:.66rem;font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)}
+  .roamer-toggle{margin-left:auto;font:inherit;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b5492c;background:none;border:0;padding:0;cursor:pointer}
+  .roamer-toggle:hover{text-decoration:underline}
+  .roamer-toggle:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+  .roamer-picks-body{display:flex;flex-direction:column;gap:10px}
+  .roamer-picks-body[hidden]{display:none}
+  .pick-by{display:inline-flex;align-items:center;gap:5px;margin-left:8px;vertical-align:middle;font-size:.72rem;font-style:normal;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;max-width:100%}
+  .pick-by:hover,.pick-by:focus-visible{color:var(--coral);border-bottom-color:currentColor}
+  .pick-by-av{width:20px;height:20px;flex-shrink:0;border-radius:50%;background:var(--green);background-size:cover;background-position:center;color:#fff;font-size:.6rem;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+  .pick-by-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .hood-foot{display:flex;justify-content:flex-end;margin-top:-6px}
   .hood-toggle-all{font-family:'Work Sans',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
     color:#b5492c;background:none;border:none;padding:0;cursor:pointer}
@@ -1691,6 +1706,11 @@ const EAT_KIND_META = {
 /* Coffee shop / takeaway picks per neighborhood, same shape;
    k = coffee | takeaway | bakery. */
 let CITY_CAFES = {};
+
+/* Approved visitor suggestions ("Suggest a place"), per section, 5 arrays in hood order, same pick shape plus
+   `by` = the member's id when a signed-in Roamer sent it: {"eat":[[...]], "cafes":[[...]], "bars":[[...]], "stay":[[...]]}.
+   Shown as a "From Roamers" group under our picks (decisions.md 2026-09-25). */
+let CITY_ROAMER = {};
 const CAFE_KIND_META = {
   coffee:   { label: "Coffee shop",       c: "#5c6933" },
   takeaway: { label: "Takeaway",          c: "#5c6933" },
@@ -2447,7 +2467,7 @@ async function loadCityData(){
   fill(CITY_HOODS, rec.hoods);         fill(CITY_HOOD_TAG, rec.hood_tag);
   fill(CITY_HOOD_DESC, rec.hood_desc); fill(CITY_LODGING, rec.lodging);
   fill(CITY_BARS, rec.bars);           fill(CITY_EAT, rec.eat);
-  fill(CITY_CAFES, rec.cafes);
+  fill(CITY_CAFES, rec.cafes);         fill(CITY_ROAMER, rec.roamer_picks);
   fill(CITY_RAIN, rec.rain);           fill(CITY_WATER, rec.water);
   fill(CITY_DRINKS, rec.drinks);       fill(CITY_TRANSIT, rec.transit);
   fill(CITY_TRANSPORT, rec.transport); fill(CITY_AIRPORT, rec.airport);
@@ -2710,50 +2730,70 @@ function buildAdvisoryBanner(c, cityAdv){
     const h = nearHood(p, i); return h ? ` <span class="pick-near" title="This pick is in the nearby neighborhood ${escB(h)}">Nearby: ${escB(h)}</span>` : ''; };
   /* "Suggest a place" button at the bottom of each card: opens suggest-place.js's form (Jeff, 2026-09-24). */
   const suggestBtn = (section, i, label, dry) => `<button type="button" class="hood-suggest" data-suggest="${section}" data-hood-idx="${i}"${dry ? ' data-dry="1"' : ''}>+ ${label}</button>`;
+  /* Member credit on an approved suggestion: profile picture (filled in by paintRoamerCredits) linked to their profile. */
+  const byHTML = p => p.by ? ` <a class="pick-by" href="roamer.html?id=${encodeURIComponent(p.by)}" data-roamer="${escB(p.by)}" title="Suggested by this Roamer. See their profile"><span class="pick-by-av" aria-hidden="true">R</span><span class="pick-by-name">Roamer</span></a>` : '';
   const pickRows = (list, meta, hoodName, i, kind) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
     const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p, i) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p, i)}</span>${vote}</div>`;
+    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p, i) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p, i)}${byHTML(p)}</span>${vote}</div>`;
   }).join('');
+  const barRows = (list, hoodName, i) => list.map(b => {
+    const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
+    const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
+    return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b, i) || hoodName)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b, i)}${byHTML(b)}</span>${vote}</div>`;
+  }).join('');
+  /* Stay picks from Roamers use the lodging tier as their kind (High-end / Mid-range / Budget), labelled like the tier tags. */
+  const LODGE_META = Object.fromEntries(LODGE_TIERS.map(t => [t.k, { label: t.label, c: t.c }]));
+  /* "From Roamers" group: the approved suggestions for one section of one hood, under our picks, with a Show / Hide
+     button. Empty when there are none. The visitor's choice to hide them is kept in this browser (nra_roamer_picks). */
+  const roamerList = (sec, i) => (CITY_ROAMER[c.city] && CITY_ROAMER[c.city][sec] && CITY_ROAMER[c.city][sec][i]) || [];
+  let roamerHidden = false; try { roamerHidden = localStorage.getItem('nra_roamer_picks') === 'hide'; } catch (e) {}
+  const roamerGroup = (sec, i, name, rowsHTML) => {
+    const list = roamerList(sec, i); if (!list.length) return '';
+    const id = `roamer-${sec}-${i}`;
+    return `<div class="roamer-picks"><p class="roamer-picks-head"><span>From Roamers</span><small>checked by us</small>`
+         + `<button type="button" class="roamer-toggle" aria-controls="${id}" aria-expanded="${roamerHidden ? 'false' : 'true'}">${roamerHidden ? 'Show' : 'Hide'}</button></p>`
+         + `<div class="roamer-picks-body" id="${id}"${roamerHidden ? ' hidden' : ''}>${rowsHTML(list)}</div></div>`;
+  };
 
   /* Detail panels, one per hood; only the selected one is shown. */
   const hoodPanelsHTML = hoods.map((name, i) => {
     const tagKey = (CITY_HOOD_TAG[c.city] && CITY_HOOD_TAG[c.city][i]) || null;
     const tm = tagKey && HOOD_TAG_META[tagKey];
     const tagHTML = tm ? `<span class="hood-tag" title="Best for: ${tm.label}"><span class="hood-tag-emoji">${tm.emoji}</span><span class="hood-tag-label">${tm.label}</span></span>` : '';
-    /* Bar picks for this hood — omitted entirely when we have no verified venues. */
+    /* Bar picks for this hood — omitted entirely when we have no verified venues (ours or a Roamer's). */
     const barList = (CITY_BARS[c.city] && CITY_BARS[c.city][i]) || [];
     const dryHood = barList.length > 0 && !barList.some(b => b.k === 'dive' || b.k === 'party' || b.k === 'cocktail' || b.k === 'pub');
-    const barsHTML = barList.length ? `
+    const barsHTML = (barList.length || roamerList('bars', i).length) ? `
             <div class="hood-bars">
               <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
-              ${barList.map(b => {
-                const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
-                const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-                return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b, i) || name)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b, i)}</span>${vote}</div>`;
-              }).join('')}
+              ${barRows(barList, name, i)}
+              ${roamerGroup('bars', i, name, l => barRows(l, name, i))}
               ${suggestBtn('bars', i, dryHood ? 'Suggest a place to go out' : 'Suggest a place to drink', dryHood)}
             </div>` : '';
     const eatList = (CITY_EAT[c.city] && CITY_EAT[c.city][i]) || [];
-    const eatHTML = eatList.length ? `
+    const eatHTML = (eatList.length || roamerList('eat', i).length) ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Where to eat</p>
               ${pickRows(eatList, EAT_KIND_META, name, i, 'eat')}
+              ${roamerGroup('eat', i, name, l => pickRows(l, EAT_KIND_META, name, i, 'eat'))}
               ${suggestBtn('eat', i, 'Suggest a place to eat')}
             </div>` : '';
     const cafeList = (CITY_CAFES[c.city] && CITY_CAFES[c.city][i]) || [];
-    const cafeHTML = cafeList.length ? `
+    const cafeHTML = (cafeList.length || roamerList('cafes', i).length) ? `
             <div class="hood-picks">
               <p class="hood-bars-head">Coffee &amp; takeaway</p>
               ${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
+              ${roamerGroup('cafes', i, name, l => pickRows(l, CAFE_KIND_META, name, i, 'cafes'))}
               ${suggestBtn('cafes', i, 'Suggest a coffee or takeaway spot')}
             </div>` : '';
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
     const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
-    const stayHTML = lodgeRows ? `
+    const stayHTML = (lodgeRows || roamerList('stay', i).length) ? `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
               ${lodgeRows}
+              ${roamerGroup('stay', i, name, l => pickRows(l, LODGE_META, name, i, 'stay'))}
               ${suggestBtn('stay', i, 'Suggest a place to stay')}
             </div>` : '';
     return `
@@ -5315,6 +5355,49 @@ function buildAdvisoryBanner(c, cityAdv){
     NRA_SUGGEST.open({ city: c.city, hoodIdx: i, hoodName: (CITY_HOODS[c.city] || [])[i], section,
       title: b.textContent.replace(/^\+\s*/, ""), kinds });
   });
+
+  /* "From Roamers" Show / Hide: one choice for every group on the page, remembered in this browser. */
+  document.addEventListener("click", e => {
+    const t = e.target.closest(".roamer-toggle");
+    if (!t) return;
+    const hide = t.getAttribute("aria-expanded") === "true";
+    document.querySelectorAll(".roamer-toggle").forEach(b => { b.textContent = hide ? "Show" : "Hide"; b.setAttribute("aria-expanded", hide ? "false" : "true"); });
+    document.querySelectorAll(".roamer-picks-body").forEach(d => { d.hidden = hide; });
+    try { localStorage.setItem("nra_roamer_picks", hide ? "hide" : "show"); } catch (err) {}
+  });
+
+  /* Member credits on Roamer picks: fetch the public profiles (public_profiles view: display name and
+     picture only) for every `by` id on the page and fill the placeholders. Quiet when accounts are unavailable. */
+  (async function paintRoamerCredits(){
+    const links = [...document.querySelectorAll(".pick-by[data-roamer]")];
+    if (!links.length) return;
+    const ids = [...new Set(links.map(a => a.dataset.roamer))];
+    const sb = await new Promise(resolve => {
+      let tries = 0;
+      (function poll(){
+        if (window.NRA_AUTH && window.NRA_AUTH.enabled){
+          Promise.resolve(window.NRA_AUTH.ready && window.NRA_AUTH.ready())
+            .then(() => resolve(window.NRA_AUTH.client ? window.NRA_AUTH.client() : null)).catch(() => resolve(null));
+          return;
+        }
+        if (tries++ > 100){ resolve(null); return; }
+        setTimeout(poll, 100);
+      })();
+    });
+    if (!sb) return;
+    const { data, error } = await sb.from("public_profiles").select("id,display_name,avatar_url").in("id", ids);
+    if (error || !data) return;
+    const byId = Object.fromEntries(data.map(p => [p.id, p]));
+    links.forEach(a => {
+      const p = byId[a.dataset.roamer]; if (!p) return;
+      const name = p.display_name || "Roamer";
+      const av = a.querySelector(".pick-by-av"), nm = a.querySelector(".pick-by-name");
+      if (av && p.avatar_url) { av.style.backgroundImage = `url('${String(p.avatar_url).replace(/'/g, "%27")}')`; av.textContent = ""; }
+      else if (av) av.textContent = name.trim().split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join("").toUpperCase() || "R";
+      if (nm) nm.textContent = name;
+      a.title = `Suggested by ${name}. See their profile`;
+    });
+  })();
 
   /* ---------- Landmark card -> expanded panel covering the card grid ----------
      Click (or tap) a card to open it; clicking the same card again closes it.
