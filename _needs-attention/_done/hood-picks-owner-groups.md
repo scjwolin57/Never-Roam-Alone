@@ -21,3 +21,5 @@ already live with the "local chain" mark under either reading.
 
 Found by the batch 3 fresh audits (work/b3/*_audit.json, verdict HELD). Answer here or in chat. The decision gets a
 row in decisions.md, and the held picks are loaded or dropped in one pass.
+
+**Answered 2026-09-25 by Jeff: "brand".** The limit counts the brand only; the 5 picks were released (decisions.md 2026-09-25).
