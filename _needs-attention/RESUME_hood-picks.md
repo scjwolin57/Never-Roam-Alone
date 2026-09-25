@@ -254,3 +254,18 @@ Baltazár, Pierrot. Rules applied in this batch: a kind shown only by the page t
 Sabor Italiano dropped); a venue on another listed hood's streets is wrong for any other hood even with a nearer pin
 (Sydney CBD vs Darling Harbour). Shenzhen and Beijing: no picks (pools 0 and 9).
 Finished 2026-09-25: Sharm el-Sheikh 7 picks, Jeddah 8 (baseline bars kept; Granny's Cuisine order-only, French Pastries uncounted branches: dropped). Najaf 0: one candidate with a website, the shrine's guest house. Owner-group ruling (Jeff: brand) released the 5 held picks. Batch 3 total 553 picks in 22 cities.
+
+### Batch 4, cities 76-100 (started 2026-09-25): 21 CITIES LOADED 2026-09-25; Amman, Alanya, Mashhad, Muscat and Hoi An's Cam Thanh pick in progress
+Cities: `_guidebuild/hoodpicks/work/b4_slugs.txt` (Delhi to Amman). Pre-flight: `hoodpoint_check.py` 125 points, 30 flagged, 0
+moved (each flag was OSM's point for the name being far off or a non-place object; the pin's own district matched).
+Areas: 26 boundaries (Melbourne, Edinburgh and Buenos Aires hoods, Playa del Carmen colonias, Delhi Hauz Khas/Karol Bagh/Saket,
+Menteng, Bandra West, Vieux Nice, Le Port, Miramar, Intramuros), the rest 1.2 km. Google: 1,319 calls ($56.64; credit $182.28 of
+$260; one network timeout stopped the first fetch, resumed from cache). To-dos in `work/b4/` (1,220 slots). Briefs `B4_BRIEF.md`
+(adds batch 3's lessons), `B4_CHECK_BRIEF.md`, `B4_AUDIT_BRIEF.md`. Dry: Riyadh, Mashhad. 8 pick agents launched.
+Same resume steps as batch 2 with `work/b4` and `HP_W=b4`.
+Pins moved during the batch (sheet and citydata together): Manila BGC 14.527516,121.026465 (Fort Bonifacio by Villamor, all
+candidates were Pasay) -> 14.551193,121.049326 (Bonifacio High Street); Hoi An Cam Thanh 15.886487,108.357265 (Cua Dai road, old
+Cam Chau ward) -> 15.886624,108.363493 (Cam Thanh commune house). Each hood re-searched (cache deleted, ~30 calls) and re-picked
+in `work/b4pp`. Loaded 2026-09-25: 372 picks in 21 cities. Bar safety: Kiss Bar Ao Nang (hostess drinks), Clandestino RoofTop,
+The Red Room Bar (reports may be about Tulum's Red Room), The Highlander failed; Fermento Wine Bar pending; all kept off.
+Credit after the re-searches: $182.64 of $260.
