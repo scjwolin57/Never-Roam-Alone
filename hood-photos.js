@@ -11,7 +11,6 @@ window.NRA_HOOD_PHOTO = {
 
     "Yas Island": { img:"images/hoods/abu-dhabi--yas-island.webp", page:"https://www.pexels.com/photo/modern-city-by-river-7058845/", src:"Pexels" },
     "Corniche": { img:"images/hoods/abu-dhabi--corniche.webp", page:"https://www.pexels.com/photo/scenic-abu-dhabi-corniche-promenade-view-30322788/", src:"Pexels" },
-    "Saadiyat Island": { img:"images/hoods/abu-dhabi--saadiyat-island.webp" },
     "Khalifa City": { img:"images/hoods/abu-dhabi--khalifa-city.webp", page:"https://commons.wikimedia.org/wiki/File:Shaikh_Khalifa_Medical_City.jpg", src:"Nepenthes" },
     "Al Maryah Island": { img:"images/hoods/abu-dhabi--al-maryah-island.webp", page:"https://commons.wikimedia.org/wiki/File:Cityview_from_Al_Maryah_Island.jpg", src:"Vprime g" }
   },
@@ -70,7 +69,7 @@ window.NRA_HOOD_PHOTO = {
   "Beijing": {
     "Chaoyang": { img:"images/hoods/beijing--chaoyang.webp", page:"https://commons.wikimedia.org/wiki/File:Parkview_Green_and_CBD_skyline_(20210927131419).jpg" },
     "Dongcheng": { img:"images/hoods/beijing--dongcheng.webp", page:"https://commons.wikimedia.org/wiki/File:Tian'anmen_from_E_Chang'an_Ave_(20200825104049).jpg" },
-    "Xicheng": { img:"images/hoods/beijing--xicheng.webp", page:"https://commons.wikimedia.org/wiki/File:Jingshan_Park_Peak_Pagoda_(8022849811).jpg" },
+    "Xicheng": { img:"images/hoods/beijing--xicheng.webp", page:"https://commons.wikimedia.org/wiki/File:Beihai_Park_White_Pagoda-20110104-RM-105854.jpg", src:"Ermell" },
     "Haidian": { img:"images/hoods/beijing--haidian.webp", page:"https://commons.wikimedia.org/wiki/File:Beijing_Haidian_panorama_1.jpg" },
     "Sanlitun": { img:"images/hoods/beijing--sanlitun.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B8%89%E9%87%8C%E5%B1%AF%E5%A4%AA%E5%8F%A4%E9%87%8C%E5%8C%97%E5%8C%BA.jpg" }
   },
@@ -90,7 +89,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Bologna": {
     "Santo Stefano": { img:"images/hoods/bologna--santo-stefano.webp", page:"https://commons.wikimedia.org/wiki/File:Piazza_Santo_Stefano_(east_2).jpg" },
-    "Quadrilatero": { img:"images/hoods/bologna--quadrilatero.webp", page:"https://commons.wikimedia.org/wiki/File:Quadrilatero%2C_Bologna%2C_Italy_-_panoramio_(5).jpg" },
+    "Quadrilatero": { img:"images/hoods/bologna--quadrilatero.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Via_Pescherie_Vecchie_01.jpg", src:"https://www.flickr.com/photos/121083587@N03/" },
     "Saragozza": { img:"images/hoods/bologna--saragozza.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna%2C_porta_saragozza_02.JPG" },
     "San Donato": { img:"images/hoods/bologna--san-donato.webp", page:"https://commons.wikimedia.org/wiki/File:Bologna_Porta_San_Donato_087.jpg" }
   },
@@ -112,7 +111,7 @@ window.NRA_HOOD_PHOTO = {
     "Old Town (Lipscani)": { img:"images/hoods/bucharest--old-town-lipscani.webp", page:"https://commons.wikimedia.org/wiki/File:Curtea_Veche_1.jpg" },
     "Calea Victoriei / University Square": { img:"images/hoods/bucharest--calea-victoriei-university-square.webp", page:"https://commons.wikimedia.org/wiki/File:Bucharest_University_Square.jpg" },
     "Herăstrău / Băneasa": { img:"images/hoods/bucharest--herastrau-baneasa.webp", page:"https://commons.wikimedia.org/wiki/File:Herestrau_lake_on_House_of_the_Free_Press.jpg" },
-    "Dorobanți / Floreasca": { img:"images/hoods/bucharest--dorobanti-floreasca.webp", page:"https://www.pexels.com/photo/open-market-in-pia-a-mare-sibiu-romania-38305074/", src:"Pexels" },
+    "Dorobanți / Floreasca": { img:"images/hoods/bucharest--dorobanti-floreasca.webp", page:"https://commons.wikimedia.org/wiki/File:Bucuresti_(3491173680).jpg", src:"George M. Groutas from Dali, Nicosia, Cyprus" },
     "Piața Unirii / Centrul Civic": { img:"images/hoods/bucharest--piata-unirii-centrul-civic.webp", page:"https://commons.wikimedia.org/wiki/File:Bucharest_Day_1_-_Unirii_(9327522447).jpg", src:"Stefan Jurca from Munich, Germany" }
   },
   "Budapest": {
@@ -120,13 +119,13 @@ window.NRA_HOOD_PHOTO = {
     "Erzsebetvaros (District VII)": { img:"images/hoods/budapest--erzsebetvaros-district-vii.webp", page:"https://commons.wikimedia.org/wiki/File:Synagogue-Budapest.jpg" },
     "Jozsefvaros (District VIII)": { img:"images/hoods/budapest--jozsefvaros-district-viii.webp", page:"https://commons.wikimedia.org/wiki/File:Magyar_Nemzeti_M%C3%BAzeum.jpg" },
     "Buda Castle District (Var)": { img:"images/hoods/budapest--buda-castle-district-var.webp", page:"https://commons.wikimedia.org/wiki/File:Budav%C3%A1ri_Palota%2C_ABCDEF_%C3%A9p%C3%BClet.jpg" },
-    "Ujlipotvaros (District XIII)": { img:"images/hoods/budapest--ujlipotvaros-district-xiii.webp", page:"https://commons.wikimedia.org/wiki/File:Budapest_Donauinsel_2.jpg" }
+    "Ujlipotvaros (District XIII)": { img:"images/hoods/budapest--ujlipotvaros-district-xiii.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_Stephen_Park_01.JPG", src:"Kmiki87" }
   },
   "Buenos Aires": {
-    "San Telmo": { img:"images/hoods/buenos-aires--san-telmo.webp", page:"https://commons.wikimedia.org/wiki/File:San_Telmo_montage.jpg" },
+    "San Telmo": { img:"images/hoods/buenos-aires--san-telmo.webp", page:"https://commons.wikimedia.org/wiki/File:Buenos_Aires_-_Plaza_Dorrego_-_20061204d.jpg", src:"Taken by the uploader, w:es:Usuario:Barcex" },
     "La Boca": { img:"images/hoods/buenos-aires--la-boca.webp", page:"https://commons.wikimedia.org/wiki/File:LaBoca_ST_98.jpg" },
-    "Palermo": { img:"images/hoods/buenos-aires--palermo.webp", page:"https://commons.wikimedia.org/wiki/File:Palermo_montage.jpg" },
-    "Puerto Madero": { img:"images/hoods/buenos-aires--puerto-madero.webp", page:"https://commons.wikimedia.org/wiki/File:Puerto_Madero_montage.jpg" },
+    "Palermo": { img:"images/hoods/buenos-aires--palermo.webp", page:"https://commons.wikimedia.org/wiki/File:Lago_Parque_Tres_de_Febrero_Rosedal_02.jpg", src:"Roberto Fiadone" },
+    "Puerto Madero": { img:"images/hoods/buenos-aires--puerto-madero.webp", page:"https://commons.wikimedia.org/wiki/File:Buenos_Aires_Puente_de_la_Mujer_1030985.jpg", src:"Ermell" },
     "Recoleta": { img:"images/hoods/buenos-aires--recoleta.webp", page:"https://commons.wikimedia.org/wiki/File:La_Recoleta_Cemetery_(41054043562).jpg" }
   },
   "Busan": {
@@ -137,7 +136,7 @@ window.NRA_HOOD_PHOTO = {
     "Gwangbok": { img:"images/hoods/busan--gwangbok.webp", page:"https://commons.wikimedia.org/wiki/File:Gwangbok-dong_Street_1.png" }
   },
   "Cairo": {
-    "Maadi": { img:"images/hoods/cairo--maadi.webp", page:"https://commons.wikimedia.org/wiki/File:Egypt_Nile_2.jpg" },
+    "Maadi": { img:"images/hoods/cairo--maadi.webp", page:"https://commons.wikimedia.org/wiki/File:St_John%27s_Maadi.jpg", src:"Stephen Sizer" },
     "Heliopolis": { img:"images/hoods/cairo--heliopolis.webp", page:"https://commons.wikimedia.org/wiki/File:Baron_Palace.jpg" },
     "Garden City": { img:"images/hoods/cairo--garden-city.webp", page:"https://commons.wikimedia.org/wiki/File:Picture_of_a_street_in_Garden_City.jpg" },
     "Downtown Cairo": { img:"images/hoods/cairo--downtown-cairo.webp", page:"https://commons.wikimedia.org/wiki/File:Suar%C3%A8s_Palace_at_Mostafa_Kamel_Square_in_Cairo_in_2017.jpg" },
@@ -184,7 +183,6 @@ window.NRA_HOOD_PHOTO = {
     "Sanur": { img:"images/hoods/denpasar--sanur.webp", page:"https://pixabay.com/photos/sanur-beach-bali-indonesia-sea-6826203/", src:"Pixabay" },
     "Panjer": { img:"images/hoods/denpasar--panjer.webp", page:"https://commons.wikimedia.org/wiki/File:Gereja_Katedral_Roh_Kudus_Denpasar_Pagi_Hari.jpg" },
     "Renon": { img:"images/hoods/denpasar--renon.webp", page:"https://commons.wikimedia.org/wiki/File:Lapangan_Puputan_Renon-Monumen_Bajra_Sandhi_-_panoramio.jpg", src:"musnahterinjak" },
-    "Sesetan": { img:"images/hoods/denpasar--sesetan.webp", page:"https://commons.wikimedia.org/wiki/File:Festival_Omed-omedan_Setelah_Nyepi.jpg", src:"Yohana Afrita" },
     "Kesiman": { img:"images/hoods/denpasar--kesiman.webp", page:"https://commons.wikimedia.org/wiki/File:Tempel_te_Kesiman_bij_Denpasar,_KITLV_163916.tiff", src:"AnonymousUnknown author" }
   },
   "Doha": {
@@ -203,15 +201,15 @@ window.NRA_HOOD_PHOTO = {
   },
   "Dublin": {
     "Ballsbridge": { img:"images/hoods/dublin--ballsbridge.webp", page:"https://commons.wikimedia.org/wiki/File:Herbert_Park%2C_Ballsbridge.jpg" },
-    "Temple Bar": { img:"images/hoods/dublin--temple-bar.webp", page:"https://commons.wikimedia.org/wiki/File:Temple_Bar_street_scenes%2C_Dublin.jpg" },
+    "Temple Bar": { img:"images/hoods/dublin--temple-bar.webp", page:"https://commons.wikimedia.org/wiki/File:20130807_dublin014.JPG", src:"Jean Housen" },
     "Rathmines": { img:"images/hoods/dublin--rathmines.webp", page:"https://commons.wikimedia.org/wiki/File:Rathmines_in_the_autumn_sun.jpg" },
-    "The Liberties": { img:"images/hoods/dublin--the-liberties.webp", page:"https://commons.wikimedia.org/wiki/File:TheLibertiesDublin.jpg" },
+    "The Liberties": { img:"images/hoods/dublin--the-liberties.webp", page:"https://commons.wikimedia.org/wiki/File:Dublin_GuinnessBrewery_SaintJamesGate_220_IMG_20250804_2043.jpg", src:"Karlunun" },
     "Smithfield": { img:"images/hoods/dublin--smithfield.webp", page:"https://commons.wikimedia.org/wiki/File:Smithfield_Market_Area_Of_Dublin_-_panoramio_(9).jpg" }
   },
   "Dubrovnik": {
     "Gruž": { img:"images/hoods/dubrovnik--gruz.webp", page:"https://commons.wikimedia.org/wiki/File:Montenegro_Urlaub_2014_-_panoramio_(1).jpg" },
     "Old Town": { img:"images/hoods/dubrovnik--old-town.webp", page:"https://www.pexels.com/photo/old-town-of-dubrovnik-15552997/", src:"Pexels" },
-    "Ploče": { img:"images/hoods/dubrovnik--ploce.webp", page:"https://www.pexels.com/photo/scenic-marina-view-in-ploce-croatia-31698314/", src:"Pexels" },
+    "Ploče": { img:"images/hoods/dubrovnik--ploce.webp", page:"https://commons.wikimedia.org/wiki/File:Banje_Beach_in_Dubrovnik,_Croatia_(48612622823).jpg", src:"dronepicr" },
     "Lapad": { img:"images/hoods/dubrovnik--lapad.webp", page:"https://commons.wikimedia.org/wiki/File:Lapad_Beach_at_sunset%2C_Dubrovnik%2C_Croatia%2C_(PPL2-Enhanced)_julesvernex2.jpg" },
     "Babin Kuk": { img:"images/hoods/dubrovnik--babin-kuk.webp", page:"https://commons.wikimedia.org/wiki/File:Valamar_Lacroma_Resort_Dubrovnik_view_2023.jpg", src:"Furkan Akkurt" }
   },
@@ -219,7 +217,7 @@ window.NRA_HOOD_PHOTO = {
     "Morningside": { img:"images/hoods/edinburgh--morningside.webp", page:"https://commons.wikimedia.org/wiki/File:Morningside_Clock%2C_Edinburgh.jpg" },
     "Old Town": { img:"images/hoods/edinburgh--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Edinburgh_Old_Town_(5797254849).jpg", src:"Ronnie Macdonald from Chelmsford, United Kingdom" },
     "Leith": { img:"images/hoods/edinburgh--leith.webp", page:"https://commons.wikimedia.org/wiki/File:Rth_Edin_Leith_.Forth.Fife_26.10.11_edited-2.jpg" },
-    "New Town": { img:"images/hoods/edinburgh--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:Lothian_buses_913.JPG", src:"Ad Meskens" },
+    "New Town": { img:"images/hoods/edinburgh--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:Princes_Street,_Edinburgh,_3_June_2006.jpg", src:"J Brew from near Seattle, USA" },
     "Stockbridge": { img:"images/hoods/edinburgh--stockbridge.webp", page:"https://www.pexels.com/photo/charming-brick-corner-in-edinburgh-s-stockbridge-30312595/", src:"Pexels" }
   },
   "Florence": {
@@ -239,15 +237,15 @@ window.NRA_HOOD_PHOTO = {
     "Nakasu": { img:"images/hoods/fukuoka--nakasu.webp", page:"https://commons.wikimedia.org/wiki/File:NakasuKawabata_FukuokaSubway.jpg" },
     "Ohori": { img:"images/hoods/fukuoka--ohori.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92_(3360365578).jpg" },
     "Hakata": { img:"images/hoods/fukuoka--hakata.webp", page:"https://www.pexels.com/photo/fukuoka-urban-nightscape-at-hakata-station-35196016/", src:"Pexels" },
-    "Tenjin": { img:"images/hoods/fukuoka--tenjin.webp", page:"https://pixabay.com/photos/shrine-clear-skies-tenjin-autumn-3730098/", src:"Pixabay" },
+    "Tenjin": { img:"images/hoods/fukuoka--tenjin.webp", page:"https://commons.wikimedia.org/wiki/File:Tenjin-Chikagai_Shopping_Street_20161115.jpg", src:"そらみみ" },
     "Daimyo": { img:"images/hoods/fukuoka--daimyo.webp", page:"https://commons.wikimedia.org/wiki/File:Fukuoka_Daimy%C5%8D_Garden_City_the_NE_side_Daimyo_2-ch%C5%8Dme_Ch%C5%AB%C5%8D-ku_Fukuoka_20250113.jpg" }
   },
   "Guangzhou": {
-    "Liwan": { img:"images/hoods/guangzhou--liwan.webp", page:"https://www.pexels.com/photo/liwan-museum-entrance-in-guangzhou-china-35272134/", src:"Pexels" },
+    "Liwan": { img:"images/hoods/guangzhou--liwan.webp", page:"https://commons.wikimedia.org/wiki/File:Shamian_Island_03144-Guangzhou_(32604466380).jpg", src:"xiquinhosilva" },
     "Haizhu": { img:"images/hoods/guangzhou--haizhu.webp", page:"https://www.pexels.com/photo/haizhu-lake-in-guangzhou-in-china-20710668/", src:"Pexels" },
     "Tianhe": { img:"images/hoods/guangzhou--tianhe.webp", page:"https://commons.wikimedia.org/wiki/File:Guangzhou_International_Finance_Center.jpg" },
     "Yuexiu": { img:"images/hoods/guangzhou--yuexiu.webp", page:"https://commons.wikimedia.org/wiki/File:Sun_Yat-sen_Memorial_Hall_Guangzhou.jpg" },
-    "Panyu": { img:"images/hoods/guangzhou--panyu.webp", page:"https://commons.wikimedia.org/wiki/File:BaakSaaLou.jpg", src:"WKDx417" }
+    "Panyu": { img:"images/hoods/guangzhou--panyu.webp", page:"https://commons.wikimedia.org/wiki/File:Guangzhou_Panyu_Changlong_Huanle_Shijie_2023-03-10_17.40.11.jpg", src:"古海岸遗址" }
   },
   "Hanoi": {
     "Ba Dinh": { img:"images/hoods/hanoi--ba-dinh.webp", page:"https://www.pexels.com/photo/scenic-view-of-ba-dinh-square-in-hanoi-34477004/", src:"Pexels" },
@@ -295,20 +293,20 @@ window.NRA_HOOD_PHOTO = {
   },
   "Istanbul": {
     "Kadıköy": { img:"images/hoods/istanbul--kad-koy.webp", page:"https://commons.wikimedia.org/wiki/File:Haydarpasa_train_station_(cropped).jpg" },
-    "Beşiktaş": { img:"images/hoods/istanbul--besiktas.webp", page:"https://commons.wikimedia.org/wiki/File:Besiktas_Montage.jpg" },
+    "Beşiktaş": { img:"images/hoods/istanbul--besiktas.webp", page:"https://commons.wikimedia.org/wiki/File:Dolmabahce_Mosque,_Dolmabahce_Palace_and_the_Bosphorus_Bridge_in_Istanbul.jpg", src:"ArildV" },
     "Beyoğlu (Taksim)": { img:"images/hoods/istanbul--beyoglu-taksim.webp", page:"https://commons.wikimedia.org/wiki/File:Istiklal_Avenue_in_Istanbul_-_Turkey.jpg" },
     "Sultanahmet": { img:"images/hoods/istanbul--sultanahmet.webp", page:"https://commons.wikimedia.org/wiki/File:Istanbul_(34223582516)_(cropped).jpg" },
     "Karaköy": { img:"images/hoods/istanbul--karakoy.webp", page:"https://commons.wikimedia.org/wiki/File:Istanbul_asv2020-02_img46_Galata_Bridge_and_Tower.jpg" }
   },
   "Jasper": {
-    "Athabasca River Cabins": { img:"images/hoods/jasper--athabasca-river-cabins.webp", page:"https://commons.wikimedia.org/wiki/File:MK04281_Athabasca_River.jpg", src:"Martin Kraft" },
+    "Athabasca River Cabins": { img:"images/hoods/jasper--athabasca-river-cabins.webp", page:"https://commons.wikimedia.org/wiki/File:Lac_Beavart_and_Jasper_Park_Lodge.jpg", src:"Shaun Syvertsen" },
     "Jasper Townsite / Patricia Street": { img:"images/hoods/jasper--jasper-townsite-patricia-street.webp", page:"https://commons.wikimedia.org/wiki/File:Icefields_Parkway_(05)_(9580660752).jpg", src:"Mike from Vancouver, Canada" },
     "Pyramid Lake / Patricia Lake": { img:"images/hoods/jasper--pyramid-lake-patricia-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Pyramid_Lake_in_winter,_Jasper_National_Park,_Alberta.jpg", src:"Takaraashley" }
   },
   "Jerusalem": {
-    "Old City": { img:"images/hoods/jerusalem--old-city.webp", page:"https://commons.wikimedia.org/wiki/File:2014-06_East_Jerusalem_090_(14936890061).jpg" },
+    "Old City": { img:"images/hoods/jerusalem--old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Jerusalen201608.jpg", src:"AMPERIO" },
     "German Colony": { img:"images/hoods/jerusalem--german-colony.webp", page:"https://commons.wikimedia.org/wiki/File:Cremieux_Street%2C_German_Colony%2C_Jerusalem.jpg" },
-    "Mea Shearim": { img:"images/hoods/jerusalem--mea-shearim.webp", page:"https://commons.wikimedia.org/wiki/File:Small100shearim.jpg" },
+    "Mea Shearim": { img:"images/hoods/jerusalem--mea-shearim.webp", page:"https://commons.wikimedia.org/wiki/File:147696_mea_shearim_neighborhood_PikiWiki_Israel.jpg", src:"שלמה רודד" },
     "Nachlaot": { img:"images/hoods/jerusalem--nachlaot.webp", page:"https://commons.wikimedia.org/wiki/File:Nachlaot.JPG" },
     "Rehavia": { img:"images/hoods/jerusalem--rehavia.webp", page:"https://commons.wikimedia.org/wiki/File:RehaviaMay062023.jpg" }
   },
@@ -349,7 +347,7 @@ window.NRA_HOOD_PHOTO = {
   "Kyiv": {
     "Podil": { img:"images/hoods/kyiv--podil.webp", page:"https://commons.wikimedia.org/wiki/File:2017_-_%D0%9A%D0%B8%D1%97%D0%B2_-_%D0%9C%D1%96%D1%81%D1%8F%D1%87%D0%BD%D0%B8%D0%B9_%D0%B2%D0%B5%D1%87%D1%96%D1%80_%D0%BD%D0%B0_%D0%97%D0%B0%D0%BC%D0%BA%D0%BE%D0%B2%D1%96%D0%B9_%D0%B3%D0%BE%D1%80%D1%96.jpg" },
     "Vokzalna (Railway Station Area)": { img:"images/hoods/kyiv--vokzalna-railway-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A7%D0%A14-174%2C_%D0%A3%D0%BA%D1%80%D0%B0%D0%B8%D0%BD%D0%B0%2C_%D0%9A%D0%B8%D0%B5%D0%B2%2C_%D1%81%D1%82%D0%B0%D0%BD%D1%86%D0%B8%D1%8F_%D0%9A%D0%B8%D0%B5%D0%B2-%D0%9F%D0%B0%D1%81%D1%81%D0%B0%D0%B6%D0%B8%D1%80%D1%81%D0%BA%D0%B8%D0%B9_(Trainpix_147805).jpg" },
-    "Pechersk": { img:"images/hoods/kyiv--pechersk.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9B%D1%8F%D0%B4%D1%81%D1%8C%D0%BA%D1%96_%D0%B2%D0%BE%D1%80%D0%BE%D1%82%D0%B0_04.jpg", src:"Мандрівниця" },
+    "Pechersk": { img:"images/hoods/kyiv--pechersk.webp", page:"https://commons.wikimedia.org/wiki/File:Kyiv_Pechersk_Lavra_(1).jpg", src:"Xsandriel" },
     "Khreshchatyk / City Center": { img:"images/hoods/kyiv--khreshchatyk-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Maidan_Nezalezhnosti_view.jpg" },
     "Shevchenkivskyi (Golden Gate)": { img:"images/hoods/kyiv--shevchenkivskyi-golden-gate.webp", page:"https://commons.wikimedia.org/wiki/File:Golden_Gate_Kiev_2018_G1.jpg" }
   },
@@ -384,7 +382,7 @@ window.NRA_HOOD_PHOTO = {
   "Ljubljana": {
     "Center (Old Town)": { img:"images/hoods/ljubljana--center-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Pre%C5%A1eren_Square_from_the_Ljubljana_Castle_Viewing_Tower%2C_Ljubljana%2C_2013.jpg" },
     "Tabor": { img:"images/hoods/ljubljana--tabor.webp", page:"https://commons.wikimedia.org/wiki/File:Metelkova_mesto1.jpg" },
-    "Trnovo": { img:"images/hoods/ljubljana--trnovo.webp", page:"https://commons.wikimedia.org/wiki/File:Tromostovje_from_below.jpg" },
+    "Trnovo": { img:"images/hoods/ljubljana--trnovo.webp", page:"https://commons.wikimedia.org/wiki/File:Ple%C4%8Dnikov_most_Trnovo_17jul.2025.jpg", src:"Peter Legiša" },
     "Bežigrad": { img:"images/hoods/ljubljana--bezigrad.webp", page:"https://commons.wikimedia.org/wiki/File:Be%C5%BEigrad.JPG" },
     "Vič": { img:"images/hoods/ljubljana--vic.webp", page:"https://commons.wikimedia.org/wiki/File:Vic_Slovenia_-_old_village_core.JPG", src:"Doremo" }
   },
@@ -392,7 +390,7 @@ window.NRA_HOOD_PHOTO = {
     "Kensington": { img:"images/hoods/london--kensington.webp", page:"https://commons.wikimedia.org/wiki/File:Kensington_High_Street_2_Londres.jpg" },
     "Notting Hill": { img:"images/hoods/london--notting-hill.webp", page:"https://commons.wikimedia.org/wiki/File:London_110.jpg" },
     "Shoreditch": { img:"images/hoods/london--shoreditch.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_Curtain_Road%2C_Shoreditch.jpg" },
-    "Camden": { img:"images/hoods/london--camden.webp", page:"https://commons.wikimedia.org/wiki/File:St_Pancras_Renaissance_London_Hotel_2011-06-19.jpg" },
+    "Camden": { img:"images/hoods/london--camden.webp", page:"https://commons.wikimedia.org/wiki/File:Camden_High_Street_-_geograph.org.uk_-_7960744.jpg", src:"Stephen McKay" },
     "Soho & Westminster": { img:"images/hoods/london--soho-westminster.webp", page:"https://commons.wikimedia.org/wiki/File:Ronnie_Scott_-_39_Gerrard_Street,_Soho,_London,_W1D_5QD,_City_of_Westminster.jpg", src:"Spudgun67" }
   },
   "Los Angeles": {
@@ -409,7 +407,7 @@ window.NRA_HOOD_PHOTO = {
     "Cotai": { img:"images/hoods/macau--cotai.webp", page:"https://commons.wikimedia.org/wiki/File:MC_%E6%BE%B3%E9%96%80_Macau_%E8%B7%AF%E6%B0%B9_Taipa_%E9%87%91%E5%85%89%E5%A4%A7%E9%81%93_Cotai_hotel_shuttle_view_November_2019_SS2_07_The_Venetian_Macao_bridge.jpg" }
   },
   "Madrid": {
-    "Chueca": { img:"images/hoods/madrid--chueca.webp", page:"https://commons.wikimedia.org/wiki/File:Madrid_Pride_Orgullo_2015_58360_(19339362381).jpg" },
+    "Chueca": { img:"images/hoods/madrid--chueca.webp", page:"https://commons.wikimedia.org/wiki/File:Madrid_-_Plaza_de_Chueca_2.jpg", src:"Zarateman" },
     "Lavapiés": { img:"images/hoods/madrid--lavapies.webp", page:"https://commons.wikimedia.org/wiki/File:Lavapi%C3%A9s.JPG" },
     "La Latina": { img:"images/hoods/madrid--la-latina.webp", page:"https://commons.wikimedia.org/wiki/File:Real-Basilica-San-Francisco-el-Grande-Madrid.jpg" },
     "Malasaña": { img:"images/hoods/madrid--malasana.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_de_Manuela_Malasa%C3%B1a_(4426392822).jpg", src:"Pedro Belleza from Porto Alegre, Brasil" },
@@ -442,7 +440,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Melbourne": {
     "St Kilda": { img:"images/hoods/melbourne--st-kilda.webp", page:"https://commons.wikimedia.org/wiki/File:Melbourne_(AU)%2C_St_Kilda_Beach_--_2019_--_1590.jpg" },
-    "Fitzroy": { img:"images/hoods/melbourne--fitzroy.webp", page:"https://commons.wikimedia.org/wiki/File:The_Fitzroy_skyline.jpg" },
+    "Fitzroy": { img:"images/hoods/melbourne--fitzroy.webp", page:"https://commons.wikimedia.org/wiki/File:Perseverance_hotel_August_2016.jpg", src:"Nick-D" },
     "Richmond": { img:"images/hoods/melbourne--richmond.webp", page:"https://commons.wikimedia.org/wiki/File:Swan_Street%2C_Richmond.jpg" },
     "Southbank": { img:"images/hoods/melbourne--southbank.webp", page:"https://commons.wikimedia.org/wiki/File:Southbank-Melbourne_skyscrapers_in_January_2021.jpg" },
     "Carlton": { img:"images/hoods/melbourne--carlton.webp", page:"https://commons.wikimedia.org/wiki/File:AUS_Melbourne,_Melbourne,_Carlton_Gardens_025.jpg", src:"-wuppertaler" }
@@ -450,7 +448,7 @@ window.NRA_HOOD_PHOTO = {
   "Mexico City": {
     "Roma": { img:"images/hoods/mexico-city--roma.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_R%C3%ADo_de_Janeiro_Colonia_Roma.JPG" },
     "Polanco": { img:"images/hoods/mexico-city--polanco.webp", page:"https://commons.wikimedia.org/wiki/File:Obelisco_Polanco_Ciudad_de_M%C3%A9xico.jpg" },
-    "Coyoacan": { img:"images/hoods/mexico-city--coyoacan.webp", page:"https://commons.wikimedia.org/wiki/File:Puerta_a_Coyoac%C3%A1n.JPG" },
+    "Coyoacan": { img:"images/hoods/mexico-city--coyoacan.webp", page:"https://commons.wikimedia.org/wiki/File:Frida_Kahlo_House.jpg", src:"Manuel Ortiz Hernández" },
     "Condesa": { img:"images/hoods/mexico-city--condesa.webp", page:"https://commons.wikimedia.org/wiki/File:Fountain_at_Plaza_Popcat%C3%A9petl%2C_col._Hip%C3%B3dromo%2C_Condesa%2C_Mexico_City.JPG" },
     "Centro Historico": { img:"images/hoods/mexico-city--centro-historico.webp", page:"https://pixabay.com/photos/dome-palace-of-fine-arts-df-cdmx-4597099/", src:"Pixabay" }
   },
@@ -494,13 +492,13 @@ window.NRA_HOOD_PHOTO = {
     "Khamovniki (near Gorky Park)": { img:"images/hoods/moscow--khamovniki-near-gorky-park.webp", page:"https://commons.wikimedia.org/wiki/File:Moscow_Kholzunova_Lane_7_2025-02_017.jpg" },
     "Red Square / Kitay-Gorod": { img:"images/hoods/moscow--red-square-kitay-gorod.webp", page:"https://commons.wikimedia.org/wiki/File:Kremlin_and_Red_Square.1.jpg" },
     "Krasny Oktyabr / Bolotnaya (Red October)": { img:"images/hoods/moscow--krasny-oktyabr-bolotnaya-red-october.webp", page:"https://www.pexels.com/photo/ferries-on-the-river-with-a-view-of-the-krasny-oktyabr-factory-in-moscow-russia-10879011/", src:"Pexels" },
-    "Zamoskvorechye": { img:"images/hoods/moscow--zamoskvorechye.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%97%D0%B0%D0%BA%D0%B0%D1%82_%D0%B2_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B5_%D0%B2_%D0%BD%D0%BE%D1%8F%D0%B1%D1%80%D0%B5.jpg", src:"Fominnn" }
+    "Zamoskvorechye": { img:"images/hoods/moscow--zamoskvorechye.webp", page:"https://commons.wikimedia.org/wiki/File:Moscou_-_Fa%C3%A7ade_Tretiakov.jpg", src:"Concierge.2C" }
   },
   "Munich": {
     "Schwabing": { img:"images/hoods/munich--schwabing.webp", page:"https://commons.wikimedia.org/wiki/File:Siegestor_bei_Nacht.JPG" },
     "Haidhausen": { img:"images/hoods/munich--haidhausen.webp", page:"https://commons.wikimedia.org/wiki/File:An_der_Kreppe_5_(denkmalgesch%C3%BCtztes_Geb%C3%A4ude%2C_Au%C3%9Fenansicht)_in_M%C3%BCnchen-Haidhausen_-_2007.jpg" },
     "Altstadt": { img:"images/hoods/munich--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Rathaus_and_Marienplatz_from_Peterskirche_-_August_2006.jpg" },
-    "Maxvorstadt": { img:"images/hoods/munich--maxvorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Siegestor_Munich_at_dusk,_5_June_2015.jpg", src:"Martin Falbisoner" },
+    "Maxvorstadt": { img:"images/hoods/munich--maxvorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Propylaea_(Munich).jpg", src:"Einaz80" },
     "Glockenbachviertel": { img:"images/hoods/munich--glockenbachviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Das_Staatstheater_am_G%C3%A4rtnerplatz_04.jpg" }
   },
   "New York": {
@@ -514,7 +512,7 @@ window.NRA_HOOD_PHOTO = {
     "Cimiez": { img:"images/hoods/nice--cimiez.webp", page:"https://commons.wikimedia.org/wiki/File:Ar%C3%A8nes_de_Cimiez_Nice.JPG", src:"Tubantia" },
     "Le Port": { img:"images/hoods/nice--le-port.webp", page:"https://commons.wikimedia.org/wiki/File:Le_port_de_Nice.jpg", src:"Lefebvre stephane" },
     "Liberation": { img:"images/hoods/nice--liberation.webp", page:"https://commons.wikimedia.org/wiki/File:Nice--nizza-lignes-dazur-849066.jpg" },
-    "Quartier des Musiciens": { img:"images/hoods/nice--quartier-des-musiciens.webp", page:"https://commons.wikimedia.org/wiki/File:Nice-Musiciens-Alphonse13b.jpg" },
+    "Quartier des Musiciens": { img:"images/hoods/nice--quartier-des-musiciens.webp", page:"https://commons.wikimedia.org/wiki/File:Nice_(06)_Boulevard_Victor-Hugo_24_075.jpg", src:"GFreihalter" },
     "Vieux Nice": { img:"images/hoods/nice--vieux-nice.webp", page:"https://commons.wikimedia.org/wiki/File:Nice,_France_(Unsplash_bLF3vK_X2Vc).jpg", src:"Paul Rysz" }
   },
   "Orlando": {
@@ -547,13 +545,13 @@ window.NRA_HOOD_PHOTO = {
   "Paris": {
     "Champs-Élysées": { img:"images/hoods/paris--champs-elysees.webp", page:"https://commons.wikimedia.org/wiki/File:Avenue_des_Champs-%C3%89lys%C3%A9es_July_24%2C_2009_N1.jpg" },
     "Latin Quarter": { img:"images/hoods/paris--latin-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:P1300734_Paris_V_place_de_la_Sorbonne_rwk.jpg" },
-    "Montmartre": { img:"images/hoods/paris--montmartre.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_Notre-Dame_de_Paris%2C_24_June_2014_004.jpg" },
+    "Montmartre": { img:"images/hoods/paris--montmartre.webp", page:"https://commons.wikimedia.org/wiki/File:Sacr%C3%A9-C%C5%93ur_Basilica_in_Montmartre,_2_May_2018.jpg", src:"Pedro Szekely from Los Angeles, USA" },
     "Le Marais": { img:"images/hoods/paris--le-marais.webp", page:"https://commons.wikimedia.org/wiki/File:Paris_Hotel_de_Sens_dsc04028.jpg" },
     "Saint-Germain-des-Prés": { img:"images/hoods/paris--saint-germain-des-pres.webp", page:"https://commons.wikimedia.org/wiki/File:Abbaye_de_Saint-Germain-des-Pr%C3%A9s_140131_1.jpg" }
   },
   "Pattaya-Chonburi": {
-    "Central Pattaya": { img:"images/hoods/pattaya-chonburi--central-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:CentralFestival_Pattaya_Beach_Atrium_201801.jpg" },
-    "North Pattaya": { img:"images/hoods/pattaya-chonburi--north-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:Pattaya_beach_from_view_point.jpg" },
+    "Central Pattaya": { img:"images/hoods/pattaya-chonburi--central-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:DZ6_0614_Sunny_beachfront_scene_with_palm-lined_promenade_rows_of_beach_umbrellas_and_jet_skis_cruising_along_the_shoreline.jpg", src:"PattayaPatrol" },
+    "North Pattaya": { img:"images/hoods/pattaya-chonburi--north-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:DFC_4029_Sunny_morning_at_the_city_beach_-_small_boats_bobbing_in_the_calm_bay_with_high-rises_rising_in_the_background.jpg", src:"PattayaPatrol" },
     "Jomtien Beach": { img:"images/hoods/pattaya-chonburi--jomtien-beach.webp", page:"https://pixabay.com/photos/seascape-sea-beach-ocean-sand-5542469/", src:"Pixabay" },
     "Naklua": { img:"images/hoods/pattaya-chonburi--naklua.webp", page:"https://pixabay.com/photos/naklua-thailand-asia-beach-sea-5321943/", src:"Pixabay" },
     "South Pattaya": { img:"images/hoods/pattaya-chonburi--south-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:Pattaya%2C_Walking_Street_at_night%2C_Thailand.jpg" }
@@ -566,7 +564,7 @@ window.NRA_HOOD_PHOTO = {
     "Kamala": { img:"images/hoods/phuket--kamala.webp", page:"https://commons.wikimedia.org/wiki/File:Kamala_Beach.jpg" }
   },
   "Ponce": {
-    "Canas": { img:"images/hoods/ponce--canas.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_Solace_by_the_Sea_(antiguo_Hotel_Ponce_Quality_Inn),_Sector_Las_Cucharas,_Bo._Canas,_Ponce,_Puerto_Rico,_mirando_al_suroeste_(DSC02893B).jpg", src:"Carmelo Ruro" },
+    "Canas": { img:"images/hoods/ponce--canas.webp", page:"https://commons.wikimedia.org/wiki/File:Laguna_de_las_Salinas,_Bo._Canas,_Ponce,_Puerto_Rico,_vista_desde_el_Hotel_Ponce_Holiday_Inn,_mirando_al_sur_(DSC02873).jpg", src:"Carmelo Ruro" },
     "Ponce Pueblo (Historic Center)": { img:"images/hoods/ponce--ponce-pueblo-historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_del_Mercado_entrance_-_Ponce_Puerto_Rico.jpg", src:"Ian Poellet" },
     "Playa de Ponce": { img:"images/hoods/ponce--playa-de-ponce.webp", page:"https://commons.wikimedia.org/wiki/File:Puesta_de_Sol_Club_Nautico_de_Ponce_-_panoramio.jpg", src:"Les &amp; Omy" }
   },
@@ -596,7 +594,7 @@ window.NRA_HOOD_PHOTO = {
   "Reykjavík": {
     "Laugardalur": { img:"images/hoods/reykjavik--laugardalur.webp", page:"https://commons.wikimedia.org/wiki/File:Run_or_walk_(5873983902).jpg" },
     "101 Reykjavík / City Centre": { img:"images/hoods/reykjavik--101-reykjavik-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Austurv%C3%B6llur_2023.jpg" },
-    "Old Harbour (Grandi)": { img:"images/hoods/reykjavik--old-harbour-grandi.webp", page:"https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_Maritime_Museum%2C_2020.jpg" },
+    "Old Harbour (Grandi)": { img:"images/hoods/reykjavik--old-harbour-grandi.webp", page:"https://commons.wikimedia.org/wiki/File:20170823-121749LC_(28070372668).jpg", src:"Luc Coekaerts" },
     "Vesturbær (West End)": { img:"images/hoods/reykjavik--vesturb-r-west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Reykjav%C3%ADk_-_Su%C3%B0urgata_8.jpg" },
     "Laugavegur / Hlemmur": { img:"images/hoods/reykjavik--laugavegur-hlemmur.webp", page:"https://commons.wikimedia.org/wiki/File:Laugavegur%2C_Reykjavik.jpg" }
   },
@@ -623,17 +621,15 @@ window.NRA_HOOD_PHOTO = {
   "Riyadh": {
     "Al Malaz": { img:"images/hoods/riyadh--al-malaz.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Malaz_Riyadh%2C_Nov_2023.jpg" },
     "Olaya": { img:"images/hoods/riyadh--olaya.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline.jpg" },
-    "Diplomatic Quarter": { img:"images/hoods/riyadh--diplomatic-quarter.webp", page:"https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg" },
-    "King Abdullah Financial District": { img:"images/hoods/riyadh--king-abdullah-financial-district.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline_showing_the_King_Abdullah_Financial_District_(KAFD)_and_the_famous_Kingdom_Tower_.jpg" }
+    "Diplomatic Quarter": { img:"images/hoods/riyadh--diplomatic-quarter.webp", page:"https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg" }
   },
   "Jeddah": {
-    "Al-Balad": { img:"images/hoods/jeddah--al-balad.webp", page:"https://commons.wikimedia.org/wiki/File:Bait_Al_Balad,_Jeddah_1.jpg" },
+    "Al-Balad": { img:"images/hoods/jeddah--al-balad.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Jeddah_(8).jpg", src:"Radosław Botev" },
     "Ash Shati": { img:"images/hoods/jeddah--ash-shati.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rahmah_Mosque_2.jpg" },
-    "Al Hamra": { img:"images/hoods/jeddah--al-hamra.webp", page:"https://commons.wikimedia.org/wiki/File:King_Fahd%27s_Fountain_Jeddah_Fountain_(5129797428).jpg" },
-    "Al Rawdah": { img:"images/hoods/jeddah--al-rawdah.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rawdah,_Jeddah_Saudi_Arabia_-_panoramio.jpg" }
+    "Al Hamra": { img:"images/hoods/jeddah--al-hamra.webp", page:"https://commons.wikimedia.org/wiki/File:JadFauW.JPG", src:"Mghamdi" }
   },
   "Rome": {
-    "Monti": { img:"images/hoods/rome--monti.webp", page:"https://commons.wikimedia.org/wiki/File:Rome_via_dei_fori_imperiali_20050922.jpg" },
+    "Monti": { img:"images/hoods/rome--monti.webp", page:"https://commons.wikimedia.org/wiki/File:P_za_Madonna_dei_Monti,_via_dei_serpenti_e_via_Baccina_P1080717.JPG", src:"Lalupa" },
     "Trastevere": { img:"images/hoods/rome--trastevere.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_di_Santa_Margherita_in_Trastevere.jpg", src:"Air fans" },
     "Testaccio": { img:"images/hoods/rome--testaccio.webp", page:"https://commons.wikimedia.org/wiki/File:Porta_San_Paolo_-_Piramid_Cestius.JPG" },
     "Centro Storico": { img:"images/hoods/rome--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Trevi_Fountain_-_Roma.jpg" },
@@ -649,7 +645,7 @@ window.NRA_HOOD_PHOTO = {
   "San Marino": {
     "Dogana": { img:"images/hoods/san-marino--dogana.webp", page:"https://commons.wikimedia.org/wiki/File:San-Marino-Dogana-1268.jpg" },
     "Borgo Maggiore": { img:"images/hoods/san-marino--borgo-maggiore.webp", page:"https://commons.wikimedia.org/wiki/File:Borgo_Maggiore_seen_from_San_Marino_-_June_2016.jpg" },
-    "Domagnano": { img:"images/hoods/san-marino--domagnano.webp", page:"https://commons.wikimedia.org/wiki/File:DomagnanoBorgoMaggioreRSMPanorama.JPG" },
+    "Domagnano": { img:"images/hoods/san-marino--domagnano.webp", page:"https://commons.wikimedia.org/wiki/File:DomagnanoChiesaSanMicheleArcangelo.JPG", src:"LigaDue" },
     "Città di San Marino (Historic Center)": { img:"images/hoods/san-marino--citta-di-san-marino-historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:Guaita_Fortress_-_San_Marino_-_2024_02_13_-_GT_02_(details).jpg" }
   },
   "Santiago": {
@@ -657,7 +653,7 @@ window.NRA_HOOD_PHOTO = {
     "Las Condes": { img:"images/hoods/santiago--las-condes.webp", page:"https://commons.wikimedia.org/wiki/File:Las_Condes_(39032459385).jpg" },
     "Nunoa": { img:"images/hoods/santiago--nunoa.webp", page:"https://commons.wikimedia.org/wiki/File:Cuartel_General_de_Bomberos,_%C3%91u%C3%B1oa_-_A740192.jpg", src:"Rjcastillo" },
     "Providencia": { img:"images/hoods/santiago--providencia.webp", page:"https://commons.wikimedia.org/wiki/File:Santiago_de_Chile_from_Gran_torre_Santiago%2C_Mapocho_river.JPG" },
-    "Bellavista": { img:"images/hoods/santiago--bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:San_Crist%C3%B3bal_altura.jpg" }
+    "Bellavista": { img:"images/hoods/santiago--bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Recoleta,_Santiago_Metropolitan_Region,_Chile_-_panoramio.jpg", src:"jofwooster" }
   },
   "Santorini": {
     "Firostefani": { img:"images/hoods/santorini--firostefani.webp", page:"https://commons.wikimedia.org/wiki/File:Santorini,_Route_9,_22M8922,_Firostefani_and_Fira.jpg", src:"Zde" },
@@ -669,7 +665,7 @@ window.NRA_HOOD_PHOTO = {
   "São Paulo": {
     "Itaim Bibi": { img:"images/hoods/sao-paulo--itaim-bibi.webp", page:"https://commons.wikimedia.org/wiki/File:Itaim_Bibi_(232990015)_(cropped).jpeg" },
     "Jardins": { img:"images/hoods/sao-paulo--jardins.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_dos_jardins_em_s%C3%A3o_paulo.jpg" },
-    "Vila Madalena": { img:"images/hoods/sao-paulo--vila-madalena.webp", page:"https://commons.wikimedia.org/wiki/File:Vila_Madalena_metro_station%2C_SP%2C_2021.jpg" },
+    "Vila Madalena": { img:"images/hoods/sao-paulo--vila-madalena.webp", page:"https://commons.wikimedia.org/wiki/File:Street_art_on_a_house_at_Vila_Madalena,_Sao_Paulo.jpg", src:"Slyronit" },
     "Liberdade": { img:"images/hoods/sao-paulo--liberdade.webp", page:"https://commons.wikimedia.org/wiki/File:Liberdade%2C_S%C3%A3o_Paulo%2C_Brasil_-_panoramio.jpg" },
     "Pinheiros": { img:"images/hoods/sao-paulo--pinheiros.webp", page:"https://commons.wikimedia.org/wiki/File:Largo_da_Batata.jpg" }
   },
@@ -708,8 +704,7 @@ window.NRA_HOOD_PHOTO = {
     "Former French Concession": { img:"images/hoods/shanghai--former-french-concession.webp", page:"https://commons.wikimedia.org/wiki/File:Wukang_Mansion_20251128.jpg" }
   },
   "Sharjah": {
-    "Al Khan": { img:"images/hoods/sharjah--al-khan.webp", page:"https://commons.wikimedia.org/wiki/File:Khan_al-Saboon.jpg", src:"Qamar Barutchi" },
-    "Al Majaz": { img:"images/hoods/sharjah--al-majaz.webp", page:"https://commons.wikimedia.org/wiki/File:AL_MAJAZ_NIGHT_VIEW.jpg", src:"SHARON VISHAKHAM" },
+    "Al Khan": { img:"images/hoods/sharjah--al-khan.webp", page:"https://commons.wikimedia.org/wiki/File:Sharjah_Al_Khan_-_Sharafeldin_1.jpg", src:"Sharaf01" },
     "Al Taawun": { img:"images/hoods/sharjah--al-taawun.webp", page:"https://commons.wikimedia.org/wiki/File:A_beautiful_view_from_a_balcony.jpg", src:"Tasniem mohamed" },
     "Al Nahda": { img:"images/hoods/sharjah--al-nahda.webp", page:"https://commons.wikimedia.org/wiki/File:Al_amman_signal_-_panoramio.jpg", src:"Bin Al Stroker" },
     "Heart of Sharjah": { img:"images/hoods/sharjah--heart-of-sharjah.webp", page:"https://commons.wikimedia.org/wiki/File:Heart_of_Sharjah.jpg", src:"Alexandermcnabb" }
@@ -762,10 +757,10 @@ window.NRA_HOOD_PHOTO = {
     "Bondi": { img:"images/hoods/sydney--bondi.webp", page:"https://commons.wikimedia.org/wiki/File:Bondi_from_above.jpg" }
   },
   "Taipei": {
-    "Shilin": { img:"images/hoods/taipei--shilin.webp", page:"https://commons.wikimedia.org/wiki/File:Tianmu%2C_Taipei_at_night_20241012.jpg" },
+    "Shilin": { img:"images/hoods/taipei--shilin.webp", page:"https://commons.wikimedia.org/wiki/File:202606_the_night_view_of_Danan_Rd._section_on_Shilin_Night_Market.jpg", src:"Junyu-K" },
     "Da'an": { img:"images/hoods/taipei--da-an.webp", page:"https://commons.wikimedia.org/wiki/File:Cityscape_from_Taipei_101_08.23_(8).jpg" },
     "Xinyi": { img:"images/hoods/taipei--xinyi.webp", page:"https://commons.wikimedia.org/wiki/File:Taipei_Skyline_2026.jpg" },
-    "Zhongshan": { img:"images/hoods/taipei--zhongshan.webp", page:"https://commons.wikimedia.org/wiki/File:Minquan_West_Road_East_View_20150509a.jpg" },
+    "Zhongshan": { img:"images/hoods/taipei--zhongshan.webp", page:"https://commons.wikimedia.org/wiki/File:Xingtian_Temple_07.23.jpg", src:"This Photo was taken by Supanut Arunoprayote.\n\nFeel free to use any of my images" },
     "Ximending": { img:"images/hoods/taipei--ximending.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%BE%9E%E5%B1%88%E8%87%A3%E6%B0%8F%E8%A5%BF%E9%96%80%E9%96%80%E5%B8%82%E5%88%B0%E9%8C%A2%E6%AB%83%E5%8F%B0%E5%8C%97%E4%B8%AD%E8%8F%AF%E6%96%B0%E9%A4%A8_20211204.jpg" }
   },
   "Tallinn": {
@@ -795,7 +790,7 @@ window.NRA_HOOD_PHOTO = {
     "Florentin": { img:"images/hoods/tel-aviv--florentin.webp", page:"https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_69381_old_building_in_south_tel_aviv.jpg", src:"Israel Preker / PikiWiki Israel" }
   },
   "Thessaloniki": {
-    "Panorama": { img:"images/hoods/thessaloniki--panorama.webp", page:"https://commons.wikimedia.org/wiki/File:Thessaloniki_from_Panorama.jpg" },
+    "Panorama": { img:"images/hoods/thessaloniki--panorama.webp", page:"https://commons.wikimedia.org/wiki/File:Panorama_war_memorial_-_2018-04-26_-_Andy_Mabbett_-_05.jpg", src:"Andy Mabbett" },
     "Kalamaria": { img:"images/hoods/thessaloniki--kalamaria.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Kalamaria%2C_Greece.jpg" },
     "Ano Poli": { img:"images/hoods/thessaloniki--ano-poli.webp", page:"https://commons.wikimedia.org/wiki/File:Thessalonikki%2C_Macedonia%2C_Greece779.jpg" },
     "Ladadika": { img:"images/hoods/thessaloniki--ladadika.webp", page:"https://commons.wikimedia.org/wiki/File:Thessalonikki%2C_Greece_Street_Scene_45.jpg" },
@@ -805,7 +800,7 @@ window.NRA_HOOD_PHOTO = {
     "Blloku": { img:"images/hoods/tirana--blloku.webp", page:"https://commons.wikimedia.org/wiki/File:Former_Enver_Hoxha_House.jpg" },
     "Center (Skanderbeg Square)": { img:"images/hoods/tirana--center-skanderbeg-square.webp", page:"https://commons.wikimedia.org/wiki/File:Skanderbeg_square_from_the_Municipality_building_rooftop.jpeg" },
     "Komuna e Parisit": { img:"images/hoods/tirana--komuna-e-parisit.webp", page:"https://commons.wikimedia.org/wiki/File:Tirana_from_South.jpg" },
-    "Pyramid / Artificial Lake area": { img:"images/hoods/tirana--pyramid-artificial-lake-area.webp", page:"https://www.pexels.com/photo/the-pyramide-postdam-germany-22690534/", src:"Pexels" },
+    "Pyramid / Artificial Lake area": { img:"images/hoods/tirana--pyramid-artificial-lake-area.webp", page:"https://commons.wikimedia.org/wiki/File:Pyramid_of_Tirana_2.jpg", src:"BBB2021" },
     "Pazari i Ri (New Bazaar)": { img:"images/hoods/tirana--pazari-i-ri-new-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Pazari_i_ri.jpg" }
   },
   "Tokyo": {
@@ -813,7 +808,7 @@ window.NRA_HOOD_PHOTO = {
     "Shibuya": { img:"images/hoods/tokyo--shibuya.webp", page:"https://commons.wikimedia.org/wiki/File:Shibuya_skyline_from_Tokyu_Plaza_in_Omotesando%2C_Harajuku%2C_Tokyo%2C_2024_May.jpg" },
     "Asakusa": { img:"images/hoods/tokyo--asakusa.webp", page:"https://commons.wikimedia.org/wiki/File:Day2-2_(40909714314).jpg" },
     "Ginza": { img:"images/hoods/tokyo--ginza.webp", page:"https://commons.wikimedia.org/wiki/File:Ginza-WAKO_at_night.jpg" },
-    "Shinjuku": { img:"images/hoods/tokyo--shinjuku.webp", page:"https://commons.wikimedia.org/wiki/File:Businesses_in_Shinjuku.jpg", src:"Nacaru" }
+    "Shinjuku": { img:"images/hoods/tokyo--shinjuku.webp", page:"https://commons.wikimedia.org/wiki/File:Colorful_neon_street_signs_in_Kabukich%C5%8D,_Shinjuku,_Tokyo.jpg", src:"Basile Morin" }
   },
   "Toronto": {
     "The Annex": { img:"images/hoods/toronto--the-annex.webp", page:"https://commons.wikimedia.org/wiki/File:The_Annex_2022.jpg" },
@@ -828,13 +823,13 @@ window.NRA_HOOD_PHOTO = {
     "Triesen": { img:"images/hoods/vaduz--triesen.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesen.jpg" }
   },
   "Valencia": {
-    "Ciutat Vella": { img:"images/hoods/valencia--ciutat-vella.webp", page:"https://pixabay.com/photos/rambla-building-ciutat-vella-people-5301525/", src:"Pixabay" },
+    "Ciutat Vella": { img:"images/hoods/valencia--ciutat-vella.webp", page:"https://commons.wikimedia.org/wiki/File:L04_227_Valencia,_Plaza_de_la_Reina.jpg", src:"Falk2" },
     "Ruzafa (Russafa)": { img:"images/hoods/valencia--ruzafa-russafa.webp", page:"https://commons.wikimedia.org/wiki/File:Parroquia_de_San_Francisco_de_Borja%2C_Ruzafa%2C_Valencia_01.jpg" },
     "El Cabanyal": { img:"images/hoods/valencia--el-cabanyal.webp", page:"https://commons.wikimedia.org/wiki/File:Street_of_Caba%C3%B1al_-_51675229115.jpg", src:"Franck Michel" },
     "Eixample": { img:"images/hoods/valencia--eixample.webp", page:"https://commons.wikimedia.org/wiki/File:Mercado_colon_valencia.jpg", src:"Florencecassisi" }
   },
   "Valletta": {
-    "Valletta": { img:"images/hoods/valletta--valletta.webp", page:"https://www.pexels.com/photo/grand-harbour-in-valletta-malta-18021128/", src:"Pexels" },
+    "Valletta": { img:"images/hoods/valletta--valletta.webp", page:"https://commons.wikimedia.org/wiki/File:St_Johns_Co-Cathedral_Valetta_1_(6949794425).jpg", src:"Tony Hisgett from Birmingham, UK" },
     "Sliema": { img:"images/hoods/valletta--sliema.webp", page:"https://commons.wikimedia.org/wiki/File:55_Triq_Ix_-_Xatt,_Tas-Sliema_SLM_1022,_Malta_-_panoramio_(10).jpg", src:"Alan C. Bonnici" },
     "St Julian's / Paceville": { img:"images/hoods/valletta--st-julian-s-paceville.webp", page:"https://commons.wikimedia.org/wiki/File:Valletta,_Malta_-_panoramio_(34).jpg", src:"Michelle Maria" },
     "Mdina & Rabat": { img:"images/hoods/valletta--mdina-rabat.webp", page:"https://commons.wikimedia.org/wiki/File:Malta_-_Mdina_(Triq_San_Oswald)_02_ies.jpg" },
@@ -843,7 +838,7 @@ window.NRA_HOOD_PHOTO = {
   "Vancouver": {
     "Gastown": { img:"images/hoods/vancouver--gastown.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_2018-20180422-2108_(42138196834).jpg" },
     "West End": { img:"images/hoods/vancouver--west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_west_end.jpg" },
-    "Mount Pleasant": { img:"images/hoods/vancouver--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:Mount_Pleasant_in_Vancouver_2018.jpg" },
+    "Mount Pleasant": { img:"images/hoods/vancouver--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:2414_Main_Street_Vancouver.JPG", src:"Canadian2006" },
     "Kitsilano": { img:"images/hoods/vancouver--kitsilano.webp", page:"https://commons.wikimedia.org/wiki/File:Vine_Street_in_Kitsilano.JPG" },
     "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" }
   },
