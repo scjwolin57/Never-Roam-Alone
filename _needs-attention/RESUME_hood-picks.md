@@ -273,3 +273,5 @@ Finished 2026-09-25: Amman 12, Alanya 10, Muscat 6, Mashhad 2, plus Hoi An Cam T
 audit: Sheen (modern take, not local), Plato Rooftop (not a cocktail bar), Obaköy (outside Cleopatra Beach's area), Toast House
 (sit-down, not takeaway), آبمیوه سجاد (6+ branches uncounted); 4 Facebook-only picks UNVERIFIED (login wall). Batch 4 total:
 403 picks in 25 cities. Next: batch 5 (cities 101-125 in scope412.json).
+
+Press-path pilot 2026-09-25 (CHECKLIST F, decisions.md): 5 picks kept in Jakarta 3, Tbilisi 1, Riyadh 1 (loaded); 7 made in 285 slot-tries across two rounds; result and question in `_needs-attention/hood-picks-press-path-pilot.md`. Working files `work/b4px`, `work/b4px2`.
