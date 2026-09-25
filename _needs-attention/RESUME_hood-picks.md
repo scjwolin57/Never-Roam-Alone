@@ -255,7 +255,7 @@ Sabor Italiano dropped); a venue on another listed hood's streets is wrong for a
 (Sydney CBD vs Darling Harbour). Shenzhen and Beijing: no picks (pools 0 and 9).
 Finished 2026-09-25: Sharm el-Sheikh 7 picks, Jeddah 8 (baseline bars kept; Granny's Cuisine order-only, French Pastries uncounted branches: dropped). Najaf 0: one candidate with a website, the shrine's guest house. Owner-group ruling (Jeff: brand) released the 5 held picks. Batch 3 total 553 picks in 22 cities.
 
-### Batch 4, cities 76-100 (started 2026-09-25): 21 CITIES LOADED 2026-09-25; Amman, Alanya, Mashhad, Muscat and Hoi An's Cam Thanh pick in progress
+### Batch 4, cities 76-100 (started 2026-09-25): LOADED 2026-09-25 (25 cities, 403 picks)
 Cities: `_guidebuild/hoodpicks/work/b4_slugs.txt` (Delhi to Amman). Pre-flight: `hoodpoint_check.py` 125 points, 30 flagged, 0
 moved (each flag was OSM's point for the name being far off or a non-place object; the pin's own district matched).
 Areas: 26 boundaries (Melbourne, Edinburgh and Buenos Aires hoods, Playa del Carmen colonias, Delhi Hauz Khas/Karol Bagh/Saket,
@@ -269,3 +269,7 @@ Cam Chau ward) -> 15.886624,108.363493 (Cam Thanh commune house). Each hood re-s
 in `work/b4pp`. Loaded 2026-09-25: 372 picks in 21 cities. Bar safety: Kiss Bar Ao Nang (hostess drinks), Clandestino RoofTop,
 The Red Room Bar (reports may be about Tulum's Red Room), The Highlander failed; Fermento Wine Bar pending; all kept off.
 Credit after the re-searches: $182.64 of $260.
+Finished 2026-09-25: Amman 12, Alanya 10, Muscat 6, Mashhad 2, plus Hoi An Cam Thanh 1 (Lantern Restaurant). Dropped at the
+audit: Sheen (modern take, not local), Plato Rooftop (not a cocktail bar), Obaköy (outside Cleopatra Beach's area), Toast House
+(sit-down, not takeaway), آبمیوه سجاد (6+ branches uncounted); 4 Facebook-only picks UNVERIFIED (login wall). Batch 4 total:
+403 picks in 25 cities. Next: batch 5 (cities 101-125 in scope412.json).
