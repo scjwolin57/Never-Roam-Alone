@@ -234,7 +234,7 @@ second branch and no romanised name) -> bar safety 67 searched: 2 fail (Rock Fac
 9 "just outside" picks; 87 baseline bars untouched; parity 0 mismatches. Google calls this batch: 500 ($20.00; credit $68.32 of $260).
 Next: batch 3 (cities 51-75 in scope412.json) with build_areas.py -> fetch_rank.py area -> gaps -> todo -> annotate -> the same pipeline.
 
-### Batch 3, cities 51-75 (started 2026-09-24): 20 CITIES LOADED 2026-09-25; Sharm el-Sheikh, Jeddah, Najaf in progress
+### Batch 3, cities 51-75 (started 2026-09-24): LOADED 2026-09-25 (22 cities; Najaf, Shenzhen, Beijing have no picks)
 Cities: `_guidebuild/hoodpicks/work/b3_slugs.txt` (Sharm el-Sheikh to Fukuoka). Najaf added to `DRY_SLUGS` (Iraq holy city).
 Pre-flight: `hoodpoint_check.py` 123 points, 18 flagged, 2 moved (Beijing Chaoyang -> Sanlitun; Chiang Mai Riverside -> Wat Ket;
 commit "Batch 3 pin pre-flight"). `build_areas.py` now requires the boundary's name to equal the hood's name (or its bracketed
@@ -253,4 +253,4 @@ Held for Jeff (owner-group question, `_needs-attention/hood-picks-owner-groups.m
 Baltazár, Pierrot. Rules applied in this batch: a kind shown only by the page title is not evidence (Casa Portuguesa,
 Sabor Italiano dropped); a venue on another listed hood's streets is wrong for any other hood even with a nearer pin
 (Sydney CBD vs Darling Harbour). Shenzhen and Beijing: no picks (pools 0 and 9).
-Still to do: Sharm el-Sheikh (7 picks gated), Jeddah, Najaf -> check -> audit -> load.
+Finished 2026-09-25: Sharm el-Sheikh 7 picks, Jeddah 8 (baseline bars kept; Granny's Cuisine order-only, French Pastries uncounted branches: dropped). Najaf 0: one candidate with a website, the shrine's guest house. Owner-group ruling (Jeff: brand) released the 5 held picks. Batch 3 total 553 picks in 22 cities.
