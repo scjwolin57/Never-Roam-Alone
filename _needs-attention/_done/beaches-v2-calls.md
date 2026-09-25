@@ -1,4 +1,4 @@
-# Beaches v2: six calls before the new score goes live
+# Beaches v2: six calls, all settled 2026-09-24 (Jeff: 1-6 as recommended; 4 with a reduced score for sea-like water)
 
 *2026-09-24. All 893 cities are researched and independently checked (36 batches, in the sheet's Beaches tab).
 The finder still shows the old score. Once these calls are made, the Beaches Score column and `city-scores.js`

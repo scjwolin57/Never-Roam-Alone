@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "SessionStart": [
+      { "hooks": [ { "type": "command", "timeout": 20,
+        "command": "f=\"$CLAUDE_PROJECT_DIR/.githooks/nra_tasks.py\"; [ -f \"$f\" ] && python3 \"$f\" hook SessionStart || true" } ] }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [ { "type": "command", "timeout": 20,
+        "command": "f=\"$CLAUDE_PROJECT_DIR/.githooks/nra_tasks.py\"; [ -f \"$f\" ] && python3 \"$f\" hook UserPromptSubmit || true" } ] }
+    ],
+    "PreToolUse": [
+      { "matcher": "Edit|Write|NotebookEdit|Bash",
+        "hooks": [ { "type": "command", "timeout": 20,
+        "command": "f=\"$CLAUDE_PROJECT_DIR/.githooks/nra_tasks.py\"; [ -f \"$f\" ] && python3 \"$f\" hook PreToolUse || true" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Bash",
+        "hooks": [ { "type": "command", "timeout": 20,
+        "command": "f=\"$CLAUDE_PROJECT_DIR/.githooks/nra_tasks.py\"; [ -f \"$f\" ] && python3 \"$f\" hook PostToolUse || true" } ] }
+    ]
+  }
+}

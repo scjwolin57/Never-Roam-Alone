@@ -1051,7 +1051,7 @@ const PRIORITY_DEFS = [
   { key:"museums",      label:"Museums & culture",          short:"Museums",      osm:"Museums & Culture" },
   { key:"architecture", label:"Architecture",               short:"Architecture", osm:"Architecture" },
   { key:"nature",       label:"Nature & Outdoor Adventure", short:"Nature",       osm:"Nature" },
-  { key:"beaches",      label:"Beaches & Relaxation",       short:"Beaches",      osm:"Beaches" },
+  { key:"beaches",      label:"Beaches & Relaxation",       short:"Beaches Score", osm:null },   /* researched score only; the live OSM beach count counted river sand (Jeff 2026-09-24) */
   { key:"walkability",  label:"Walkable City",              short:"Walkable",     osm:null },
   { key:"safety",       label:"Feels Safe",                 short:"Feels safe",   osm:null }
 ];
@@ -1069,8 +1069,7 @@ const ACTIVITY_OSM = {
   "Restaurants":       { sel:'node["amenity"="restaurant"]',                    label:"restaurants" },
   "Museums & Culture": { sel:'nwr["tourism"~"^(museum|gallery)$"]',             label:"museums & galleries" },
   "Architecture":      { sel:'node["historic"]',                                label:"historic landmarks & monuments" },
-  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" },
-  "Beaches":           { sel:'nwr["natural"="beach"]',                          label:"mapped beaches & sandy shorelines" }
+  "Nature":            { sel:'nwr["leisure"~"^(park|nature_reserve|garden)$"]', label:"parks, gardens & nature reserves" }
 };
 const OSM_ENDPOINTS = ["https://overpass-api.de/api/interpreter", "https://overpass.kumi.systems/api/interpreter"];
 const ACT_CACHE_DAYS = 30;
