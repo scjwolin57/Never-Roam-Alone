@@ -50,3 +50,5 @@ If you choose B, it gets a row in decisions.md amending the 2026-09-23 chain rul
 ## Related
 Jeff plans a separate dessert / ice cream listing. That is a new city.html section, so it goes through the section 5.3
 change protocol. It is logged in suggested-improvements.md. Ice-cream shops are kept out of takeaway until then.
+
+**Answered 2026-09-26:** Jeff said yes to pizza by the slice and option B (national-chain fallback). Rules in decisions.md and CHECKLIST.md H2.
