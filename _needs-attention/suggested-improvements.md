@@ -152,6 +152,8 @@
 
 **49. Best months mini-strip (S/M)** — the finder's season/weather data shown as 12 small month dots on the city page itself.
 
+**50. Dessert / ice cream picks per neighborhood (M)** (added 2026-09-26, Jeff) — a separate listing beside coffee & takeaway. Ice-cream shops were kept out of takeaway for it (decisions.md 2026-09-26). A new city.html section: goes through the CLAUDE.md §5.3 change protocol; the hood-picks cache already holds Google's ice_cream_shop and dessert_shop candidates.
+
 ## ⚠️ Pending fix (added July 19, 2026)
 
 **50. ~~Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.~~ *Done: fonts self-hosted in `/fonts`, no page requests Google Fonts, and the privacy claim is true (checked 2026-09-17).*
