@@ -17,13 +17,24 @@ already in it, so `--limit N` just keeps going where the last run stopped.
     python3 _guidebuild/daytrips/fetch_daytrip_photos.py --limit 150
     python3 _guidebuild/daytrips/fetch_daytrip_photos.py --city "Kotor"      # one city, for testing/redo
 
-## Progress (2026-09-28, as of the third commit, 19fbab69)
-- Cities visited by the pipeline: 332 of 893 (check the state file's `done` count for the current figure).
-- Cities with at least one photo: 302 of 893.
-- Trips with a photo: 823 of 3,100.
-- Three commits landed on branch `daytrip-photos-pilot`: "batch 1" (59 cities, 146 photos, 490c49ed),
-  "batch 2" (100 more, 382 total, 8c33124e), "batch 3" (150 more, 823 total, 19fbab69). Not yet merged to
-  main or pushed -- check `git log` before assuming what's live.
+## Progress (2026-09-28, as of the final commit, db61780e) -- FULL PASS COMPLETE
+- Cities visited by the pipeline: 893 of 893. The alphabetical pass is done.
+- Trips with a photo: 2,099 of 3,100. The remaining ~1,000 have no honest Commons match at the required
+  quality bar and stay without a photo (rule 2) -- getting more of them needs a fresh search pass on the
+  still-empty trips specifically, which is a separate task from here.
+- Eight commits landed on branch `daytrip-photos-pilot`: "batch 1" (59 cities, 146 photos, 490c49ed),
+  "batch 2" (100 more, 382 total, 8c33124e), "batch 3" (150 more, 823 total, 19fbab69), "batch 4" (200 more,
+  1235 total, 4235230b), "batch 7" (664 more, 2245 total after review fixes removed one, 1976cbdf -- note
+  this batch also fixed the file-wide-search scope bug below), "batch 8" (final 83 cities, 2099 total after
+  review fixes, db61780e). Not yet merged to main or pushed -- check `git log` before assuming what's live.
+- A third pipeline bug found and fixed in batch 7: `apply_city()`'s photo replacement searched the WHOLE
+  citydata file for a `"name": "<trip name>"` match, which crashed when a city had the same name in both
+  `daytrips` and the food/drink modal (Ica's "Pisco" existed in both). Fixed by scoping the search/replace to
+  the `"daytrips": {...}` span first. All later hand-fix scripts use the same scoped-replace pattern.
+- A fourth, cosmetic bug found and fixed in batch 7: Commons' extmetadata sometimes literally doubles the
+  visible artist text for an unattributed upload ("Unknown authorUnknown author", sometimes with "or not
+  provided"). Collapsed to "Unknown author" across citydata and day-trips.js (10 occurrences, including 5
+  from earlier-committed batches: Anchorage, Charlotte Amalie, Gold Coast, Orlando, and this batch's Pécs).
 - Two real bugs found and fixed during this pass (both already fixed in the committed script):
   1. Credit text kept the wiki "(page does not exist)" suffix on a red-link username. Fixed in
      `short_author()`; 79 already-saved credits were bulk-corrected with a plain text substitution
@@ -74,18 +85,21 @@ Commons "red link" usernames (someone whose Commons user page doesn't exist yet)
    it through `xargs ... claim`).
 8. Commit with a log: cities/trips done, what was hand-fixed and why.
 
-## Left open when this note was written
-- 561 cities not yet visited by the pipeline.
+## Left open now that the pass is complete
+- The pipeline has visited every city; 2,099/3,100 trips have a photo, ~1,000 do not and were never forced
+  to a wrong or substandard match. A follow-on task could re-search specifically the still-empty trips
+  (`daytrips[].{half,full}[]` entries with no `photo` key) for a Commons match that clears the quality bar --
+  this is meaningfully harder than the first pass since the easy matches are already used.
 - Not yet merged into main or pushed. Bring the branch up to date with main first (other sessions are
   actively committing), then merge and push per the usual process, resolving the decisions.md /
   CLAUDE.md-row conflicts by hand (both sides keep their own rows/edits).
-- CLAUDE.md §5.1's "as of" line and photo counts want a final update once the run is complete.
-- No new quality-bug *classes* found after the credit fix and the broadened title filter (engravings,
-  paintings, lithographs, etc.), but each new batch still turns up a handful of wrong-subject photos the
-  automated checks cannot catch by text alone: wrong-Wikidata-entity matches (an administrative division
-  or a namesake instead of the real place), close-up portraits of people, event/ceremony photos, and old
-  archival photos that are technically photographs but not usable "hero" shots. Expect roughly 3-6% of a
-  batch to need a hand fix; budget time for it, do not skip the contact-sheet review step to save time.
+- CLAUDE.md §5.1's "as of" line and photo counts are updated as of the batch 8 commit.
+- No new quality-bug *classes* found after the batch-3 credit fix, batch-7's scope-bug fix, and the broadened
+  title filter (engravings, paintings, lithographs, etc.), but every batch through the end of the pass still
+  turned up a handful of wrong-subject photos the automated checks cannot catch by text alone:
+  wrong-Wikidata-entity matches, close-up portraits of people, event/ceremony photos, old archival photos
+  and postcards, hand-drawn maps and survey documents, satellite/Landsat images, in-frame watermarks (a news
+  agency logo), and once the exact same wrong military photo reused across two different cities' "Koh
+  Phangan" trips. Expect roughly 3-8% of a batch to need a hand fix; never skip the contact-sheet review.
 - A decisions.md row (2026-09-28, "Day trip cards carry a hero photo") and a project memory note
-  (`daytrip-hero-photos`) were written the same day this pass ran; update the memory note's counts when the
-  run finishes.
+  (`daytrip-hero-photos`) are updated with the final counts.
