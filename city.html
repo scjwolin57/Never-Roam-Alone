@@ -430,6 +430,12 @@
   .daytrip-sub:first-of-type{margin-top:6px}
   .daytrip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
   .dtcard{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+  /* hero photo edge to edge across the top of a trip card (pilot 2026-09-28); credit on the photo like .lmk-photo-credit */
+  .dtcard-photo{position:relative;margin:-16px -18px 14px;aspect-ratio:3/2;overflow:hidden;border-radius:2px 2px 0 0;background:#e4dcc8}
+  .dtcard-photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .dtcard-photo-credit{position:absolute;bottom:4px;right:8px;left:8px;text-align:right;font-size:.62rem;color:rgba(255,255,255,.92);
+    text-shadow:0 1px 3px rgba(0,0,0,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dtcard-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
   .dtcard-name{font-weight:700;font-size:.98rem;margin:0 0 2px}
   .dtcard-name a{color:inherit;text-decoration:none}
   .dtcard-name a:hover{color:var(--green);text-decoration:underline}
@@ -3234,8 +3240,11 @@ function buildAdvisoryBanner(c, cityAdv){
       : t.name;
     const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
     const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14});
+    /* hero photo: Commons, location-checked, credited like the landmark cards; a trip with no verified photo has none */
+    const ph = t.photo && t.photo.img ? `
+          <div class="dtcard-photo"><img src="${t.photo.img}" alt="${String(t.name).replace(/"/g, "&quot;")}" loading="lazy" decoding="async">${creditHTML(t.photo, "dtcard-photo-credit")}</div>` : "";
     return `
-        <div class="dtcard">
+        <div class="dtcard">${ph}
           <div class="dtcard-head">
             <div class="dtcard-name">${link}</div>
             ${vote}
