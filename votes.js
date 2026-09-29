@@ -237,15 +237,25 @@ window.NRA_VOTES = (function(){
   }
   let popFor = null;                      // the button the bubble belongs to
   function hidePop(){ popFor = null; if (popEl) popEl.classList.remove("open"); document.querySelectorAll(".hint-btn.open").forEach(b => b.classList.remove("open")); }
+  /* The bubble stays inside the card its icon sits in (Jeff, 2026-09-27): no wider than the card, never past
+     its edges, below the icon or above it, whichever fits inside the card. An icon outside these cards (a blog
+     article) keeps the old rule: anywhere on screen. Either way it is always fully on screen. */
+  const HINT_BOUNDS = ".hood-groups > *, .lmk-card, .dtcard, .stay-card, .avoid-card, .fact, .modal-card, .hood-panel, .hero";
   function placePop(btn){
     const el = pop();
+    const pad = 8, vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    const card = btn.closest(HINT_BOUNDS);
+    const c = card ? card.getBoundingClientRect() : { left: 0, right: vw, top: 0, bottom: vh };
+    const minL = Math.max(pad, c.left + pad), maxR = Math.min(vw - pad, c.right - pad);
+    el.style.maxWidth = Math.max(120, Math.min(240, maxR - minL)) + "px";
     const r = btn.getBoundingClientRect(), b = el.getBoundingClientRect();
-    const pad = 8;
     let left = r.left + r.width / 2 - b.width / 2;
-    left = Math.max(pad, Math.min(left, document.documentElement.clientWidth - b.width - pad));
-    let top = r.bottom + 6;                                   // below the icon,
-    if (top + b.height > window.innerHeight - pad) top = r.top - b.height - 6;   // or above it when that would run off the bottom
-    top = Math.max(pad, Math.min(top, window.innerHeight - b.height - pad));     // and always fully on screen
+    left = Math.max(minL, Math.min(left, maxR - b.width));
+    const minT = Math.max(pad, c.top + pad), maxB = Math.min(vh - pad, c.bottom - pad);
+    let top = r.bottom + 6;                                                  // below the icon,
+    if (top + b.height > maxB && r.top - b.height - 6 >= minT) top = r.top - b.height - 6;   // or above it when only that fits
+    top = Math.max(minT, Math.min(top, maxB - b.height));                    // inside the card
+    top = Math.max(pad, Math.min(top, vh - b.height - pad));                 // and always fully on screen
     el.style.left = Math.round(left) + "px";
     el.style.top = Math.round(top) + "px";
   }
