@@ -430,13 +430,29 @@
   .daytrip-sub:first-of-type{margin-top:6px}
   .daytrip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
   .dtcard{background:var(--card);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow);min-width:0}
+  /* hero photo edge to edge across the top of a trip card (pilot 2026-09-28); credit on the photo like .lmk-photo-credit */
+  .dtcard-photo{position:relative;margin:-16px -18px 14px;aspect-ratio:3/2;overflow:hidden;border-radius:2px 2px 0 0;background:#e4dcc8}
+  .dtcard-photo img{display:block;width:100%;height:100%;object-fit:cover}
+  .dtcard-photo-credit{position:absolute;bottom:4px;right:8px;left:8px;text-align:right;font-size:.62rem;color:rgba(255,255,255,.92);
+    text-shadow:0 1px 3px rgba(0,0,0,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dtcard-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
   .dtcard-name{font-weight:700;font-size:.98rem;margin:0 0 2px}
   .dtcard-name a{color:inherit;text-decoration:none}
   .dtcard-name a:hover{color:var(--green);text-decoration:underline}
   .dtcard-country{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
   .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
   .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
-  .dtcard-vote{margin-top:10px}
+  /* name on the left, like / dislike across from it on the right (Jeff, 2026-09-24) */
+  .dtcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+  .dtcard-head .dtcard-name{min-width:0}
+  .dtcard-head .dtcard-vote{margin-top:0;flex:none}
+  /* GetYourGuide tour link: divider row in brand green, like "Find laundry & gyms" (Jeff picked option 2, 2026-09-24) */
+  .dtcard-tours{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 8px;margin-top:12px;
+    padding:10px 0 0;border-top:1px solid rgba(0,0,0,.08);color:var(--green);text-decoration:none;transition:color .2s}
+  .dtcard-tours:hover,.dtcard-tours:focus-visible{color:var(--coral)}
+  .dtcard-tours-k{font-weight:700;font-size:.82rem}
+  .dtcard-tours-v{font-size:.72rem;color:var(--muted)}
+  .dtcard-foot{margin:14px 0 0;font-size:.74rem;color:var(--muted);line-height:1.4}
   /* Safety alert on a day trip (decisions.md 2026-09-23): the trip stays listed, the alert is noted. */
   .dtcard-alert{display:flex;gap:6px;align-items:flex-start;margin:0 0 10px;padding:7px 9px;border-radius:2px;
     background:#F6D5CE;color:#8B2500;border:1px solid #E29A87;font-size:.78rem;line-height:1.35;overflow-wrap:anywhere}
@@ -444,9 +460,10 @@
   .dtcard-alert .adv-date{opacity:.75;white-space:nowrap}
   /* Nearby guide cards: another Never Roam Alone guide within day-trip range. The whole card opens that guide;
      the ribbon is the neighborhood photos' "best for" tag (same colour, notched ends, emoji + label). */
-  a.dtcard-guide{position:relative;display:block;padding-top:52px;color:inherit;text-decoration:none}
+  a.dtcard-guide{display:block;color:inherit;text-decoration:none}
   a.dtcard-guide:hover .dtcard-name,a.dtcard-guide:focus-visible .dtcard-name{color:var(--green);text-decoration:underline}
-  .dt-guide-flag{position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);
+  /* the ribbon sits at the bottom right of the card, under the blurb (Jeff, 2026-09-24) */
+  .dt-guide-flag{display:flex;width:fit-content;margin:12px 0 0 auto;align-items:center;gap:7px;max-width:100%;
     padding:7px 20px;background:#b5492c;color:#fff;font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.02em;white-space:nowrap;
     text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);
     clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
@@ -1177,7 +1194,8 @@
   @media(max-width:600px){
     .lmk-vote-wrap .hint-btn::after,
     .csnap-vote .hint-btn::after,
-    .fl-vote .hint-btn::after{left:auto;right:0;transform:none}
+    .fl-vote .hint-btn::after,
+    .dtcard-head .hint-btn::after{left:auto;right:0;transform:none}
   }
   /* Pin hover -> enlarged card floating over the grid (desktop) */
   .lmk-cards-col{position:relative;min-width:0}
@@ -3205,20 +3223,37 @@ function buildAdvisoryBanner(c, cityAdv){
   }
 
   /* ---------- Day trips section ---------- */
+  /* GetYourGuide affiliate: each trip's stored search link (t.gyg, built from its name) plus our partner ID.
+     Search links, not per-tour picks: the partner API needs 100k visits a month (decisions.md 2026-09-21, 2026-09-24). */
+  const GYG_PARTNER_ID = "NCT4RBD";
+  function dtTourHTML(t){
+    if (!t.gyg) return "";
+    const href = t.gyg + "&partner_id=" + GYG_PARTNER_ID + "&utm_medium=online_publisher&cmp=daytrip";
+    return `<a class="dtcard-tours" href="${href}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Tours to ${t.name} &rarr;</span>
+            <span class="dtcard-tours-v">on GetYourGuide</span>
+          </a>`;
+  }
   function dtCardHTML(t){
     const link = t.featured
       ? `<a href="city.html?city=${encodeURIComponent(t.name)}">${t.name}</a>`
       : t.name;
     const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
     const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14});
+    /* hero photo: Commons, location-checked, credited like the landmark cards; a trip with no verified photo has none */
+    const ph = t.photo && t.photo.img ? `
+          <div class="dtcard-photo"><img src="${t.photo.img}" alt="${String(t.name).replace(/"/g, "&quot;")}" loading="lazy" decoding="async">${creditHTML(t.photo, "dtcard-photo-credit")}</div>` : "";
     return `
-        <div class="dtcard">
-          <div class="dtcard-name">${link}</div>
+        <div class="dtcard">${ph}
+          <div class="dtcard-head">
+            <div class="dtcard-name">${link}</div>
+            ${vote}
+          </div>
           <div class="dtcard-country">${t.country}</div>
           ${dtAlertHTML(t.alert)}
           <p class="dtcard-blurb">${t.blurb}</p>
           ${more}
-          ${vote}
+          ${dtTourHTML(t)}
         </div>`;
   }
   /* Landmark & day-trip data files are lazy-loaded (see loadLmkDtData below);
@@ -3268,10 +3303,10 @@ function buildAdvisoryBanner(c, cityAdv){
     const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
     return `
         <a class="dtcard dtcard-guide" href="city.html?city=${encodeURIComponent(g.city)}" aria-label="${esc(g.city)}: see our guide page">
-          <span class="dt-guide-flag"><span class="dt-guide-emoji" aria-hidden="true">\u{1F9ED}</span><span>See Our Guide Page</span></span>
           <div class="dtcard-name">${esc(g.city)}</div>
           <div class="dtcard-country">${esc(g.country)}</div>
           <p class="dtcard-blurb">${esc(g.blurb)}</p>
+          <span class="dt-guide-flag"><span class="dt-guide-emoji" aria-hidden="true">\u{1F9ED}</span><span>See Our Guide Page</span></span>
         </a>`;
   }
   function buildDayTripsHTML(){
@@ -3283,7 +3318,8 @@ function buildAdvisoryBanner(c, cityAdv){
       ${half.length || nh.length ? `<div class="daytrip-sub">Half day &middot; 1.5 hours or less one way</div>
       <div class="daytrip-grid">${half.map(dtCardHTML).join("")}${nh.map(dtGuideCardHTML).join("")}</div>` : ""}
       ${full.length || nf.length ? `<div class="daytrip-sub">Full day &middot; 3 hours or less one way</div>
-      <div class="daytrip-grid">${full.map(dtCardHTML).join("")}${nf.map(dtGuideCardHTML).join("")}</div>` : ""}`; }
+      <div class="daytrip-grid">${full.map(dtCardHTML).join("")}${nf.map(dtGuideCardHTML).join("")}</div>` : ""}
+      ${half.concat(full).some(t => t.gyg) ? `<p class="dtcard-foot">Tour links open GetYourGuide. They are affiliate links: they cost you nothing extra and help keep Never Roam Alone free.</p>` : ""}`; }
 
   const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")
     ? `${Math.abs(c.lat).toFixed(4)}\u00b0 ${c.lat>=0?"N":"S"} \u00b7 ${Math.abs(c.lng).toFixed(4)}\u00b0 ${c.lng>=0?"E":"W"}` : "";
