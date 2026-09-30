@@ -85,21 +85,90 @@ Commons "red link" usernames (someone whose Commons user page doesn't exist yet)
    it through `xargs ... claim`).
 8. Commit with a log: cities/trips done, what was hand-fixed and why.
 
+## The matcher bug and fix (2026-09-30, commit 17232dfa)
+Jeff pasted a Commons link for Jaipur's Abhaneri (Chand Baori) stepwell asking why it
+wasn't used. Root cause, in `find_photo()`: for a trip named "Town (Landmark)",
+`name_variants()` tries the town before the landmark, and the loop breaks at the
+*first* Wikidata match with a valid coordinate -- so "Abhaneri" resolved to the
+village's own Wikidata item (Q4667324, description "village in Rajasthan, India")
+and took its P18 image (a temple in the same village), before "Chand Baori" was ever
+tried. This is the same failure class as the "Ancient Olympia Municipality" mismatch
+noted above, just via a different path (a real, valid-but-wrong entity beating the
+right one, rather than a bad Commons file passing the filters).
+
+Fix: a `SETTLEMENT_DESC` regex checks each Wikidata candidate's short English
+description for settlement/administrative-division/historical-polity language
+(village, town, city, municipality, district, county, province, former country,
+kingdom, khanate, sultanate, dynasty, etc.). A match there is stashed as a fallback,
+not accepted immediately; every remaining name variant is still tried for something
+more specific, and the fallback is used only if nothing better ever turns up. Also
+added `--retry-empty`: re-runs every city already in the state file but skips any
+trip that already has a photo, so the fixed matcher can be pointed at just the empty
+backlog without redoing 2,100 already-good trips.
+
+**This fix lives only in this worktree's own `_guidebuild/daytrips/fetch_daytrip_photos.py`.**
+`_guidebuild` is gitignored and, before this fix, existed only in the main checkout;
+a worktree-isolated session cannot write there, so the file was recreated locally in
+this worktree instead. **Someone needs to copy this worktree's version over the main
+checkout's copy by hand**, or the next add-city run (which uses the main checkout's
+tooling) will hit the same class of bug on a new city's day trips.
+
+Verified before running at scale: Abhaneri now resolves correctly; Khiva (already
+correctly photographed) doesn't regress -- and testing it surfaced a second instance
+of the same bug class ("Khiva" alone resolving to "Khanate of Khiva", a former
+country, whose own image was an unrelated portrait), caught by the same fix; Danube
+Delta (via Tulcea) correctly declines rather than substituting Tulcea town's photo.
+
+## The re-search pass (2026-09-30)
+Ran `--retry-empty` (no `--limit`) across all 893 cities. 15 new candidates, all
+contact-sheet reviewed:
+- **Kept as-is (11):** Baden-Baden/Karlsruhe, Batumi/Kobuleti, Hamburg/Sylt, Palma de
+  Mallorca/Valldemossa, Santa Cruz de Tenerife/Teide National Park, Surabaya/Trowulan,
+  Sydney/Blue Mountains, Sydney/Port Stephens, Wellington/Cape Palliser,
+  Zacatecas/La Quemada (Chicomostoc), plus Jaipur/Abhaneri (already hand-fixed before
+  this run reached it).
+- **Replaced (2):** Chennai/Vellore's candidate was a person's inauguration-ceremony
+  photo; Nelspruit/Sudwala Caves' candidate was a close-up portrait of a caver's face.
+  Both swapped for a verified Vellore Fort and Sudwala Caves entrance photo.
+- **Rejected, left empty (4):** Algiers/El Achir (a collage; the town's only other
+  Commons coverage is bird photos and a coat-of-arms SVG -- no honest replacement
+  exists); Ashgabat/Anau (the same painting already flagged as a dead end above, plus
+  a second candidate that's also a portrait-orientation historical illustration);
+  Savonlinna/Kolovesi National Park (the *same* trail-marker file already rejected
+  once -- confirms there is genuinely no qualifying photo for this park); Weno/Tonoas
+  (Dublon) (a 1944 wartime bombing-run aerial photo, caught by eye -- BAD_TITLE
+  doesn't catch this category; a genuinely good modern photo of the island exists but
+  is portrait orientation, which the hero slot doesn't take per rule 7, so the trip
+  stays without a photo).
+- This pass also caught and fixed a citydata/day-trips.js parity drift from an
+  interrupted earlier test run (a throwaway sandbox was deleted before its citydata
+  write got copied back, leaving day-trips.js with a photo citydata never received) --
+  a reminder that a sandbox must be copied back (or its state discarded entirely)
+  before being deleted, never left half-applied.
+
+Net: **2,110/3,100 trips have a photo** (was 2,099). The matcher fix itself is the
+more durable win -- it's a permanent correctness improvement independent of this
+pass's modest yield, and it protects every city added from here on.
+
 ## Left open now that the pass is complete
-- The pipeline has visited every city; 2,099/3,100 trips have a photo, ~1,000 do not and were never forced
-  to a wrong or substandard match. A follow-on task could re-search specifically the still-empty trips
-  (`daytrips[].{half,full}[]` entries with no `photo` key) for a Commons match that clears the quality bar --
-  this is meaningfully harder than the first pass since the easy matches are already used.
-- Not yet merged into main or pushed. Bring the branch up to date with main first (other sessions are
-  actively committing), then merge and push per the usual process, resolving the decisions.md /
-  CLAUDE.md-row conflicts by hand (both sides keep their own rows/edits).
-- CLAUDE.md §5.1's "as of" line and photo counts are updated as of the batch 8 commit.
-- No new quality-bug *classes* found after the batch-3 credit fix, batch-7's scope-bug fix, and the broadened
-  title filter (engravings, paintings, lithographs, etc.), but every batch through the end of the pass still
-  turned up a handful of wrong-subject photos the automated checks cannot catch by text alone:
-  wrong-Wikidata-entity matches, close-up portraits of people, event/ceremony photos, old archival photos
-  and postcards, hand-drawn maps and survey documents, satellite/Landsat images, in-frame watermarks (a news
-  agency logo), and once the exact same wrong military photo reused across two different cities' "Koh
-  Phangan" trips. Expect roughly 3-8% of a batch to need a hand fix; never skip the contact-sheet review.
-- A decisions.md row (2026-09-28, "Day trip cards carry a hero photo") and a project memory note
-  (`daytrip-hero-photos`) are updated with the final counts.
+- 2,110/3,100 trips have a photo; ~990 do not and were never forced to a wrong or
+  substandard match. A further re-search pass on the still-empty trips would need to
+  go beyond Wikidata matching (a direct Commons category/text search per trip) since
+  the matcher-level fixes are now applied and the remaining gaps are mostly genuine
+  coverage gaps, not matching bugs.
+- **The matcher fix needs to be copied from this worktree's `_guidebuild/daytrips/fetch_daytrip_photos.py`
+  into the main checkout's copy of the same file by hand** -- see above. Until that
+  happens, a new city added via `add_city.py` will not benefit from the fix.
+- Commit `17232dfa` (this pass) is on branch `daytrip-photos-pilot`, on top of the
+  batch 1-8 commits that were already merged (fast-forward) and pushed to `origin/main`
+  earlier the same day. It still needs the same merge-and-push treatment. Check
+  `git log origin/main` for the current state before assuming what's live -- another
+  session was seen mid-merge of unrelated open branches around the same time.
+- CLAUDE.md §5.1's day-trip-photo count is stale at 2,099/3,100 (the batch-8 figure)
+  and wants updating to 2,110/3,100 in the same commit that merges this pass.
+- No new quality-bug *classes* found beyond what's logged above and in this section,
+  but the settlement-matcher fix shows the "wrong-but-valid Wikidata entity" failure
+  mode was more common than the earlier batches' spot review alone suggested --
+  future batches should keep watching for it specifically.
+- A decisions.md row (2026-09-30) and the `daytrip-hero-photos` memory note are
+  updated with the final counts and the matcher-fix note.
