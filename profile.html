@@ -166,6 +166,15 @@
   .map-add-suggest li.none{cursor:default;color:var(--muted)}
   .country-cities .map-add-row{margin-bottom:0}
   .country-cities .map-add-row input{border-radius:3px;width:100%;box-sizing:border-box}
+  .all-places-btn{margin:0 0 12px}
+  .all-places{border:1px solid rgba(63,81,56,.18);padding:14px 16px;margin:0 0 14px;max-width:100%;overflow-wrap:anywhere}
+  .all-places h4{margin:14px 0 6px;font-size:.95rem;color:var(--green)}
+  .all-places h4:first-child{margin-top:0}
+  .all-places ul{list-style:none;margin:0;padding:0}
+  .all-places li{padding:3px 0;font-size:.9rem}
+  .all-places .ap-country{color:var(--muted);font-size:.8rem}
+  .all-places .ap-count{color:var(--muted);font-weight:400}
+  .all-places .ap-none{color:var(--muted);font-size:.9rem;margin:0}
   .bucket-progress-row{margin-top:18px}
   .bucket-progress-text{font-size:.9rem;color:var(--ink);margin-bottom:6px}
   .bucket-progress-text strong{color:var(--coral)}
@@ -614,6 +623,8 @@
         <div class="vc-stat"><strong id="vc-countries">0</strong><span id="vc-countries-label">countries visited</span></div>
         <div class="vc-stat vc-landmarks"><strong id="vc-landmarks">0</strong><span id="vc-landmarks-label">NRA bucket list landmarks</span></div>
       </div>
+      <button type="button" class="btn small all-places-btn" id="all-places-btn" aria-expanded="false" aria-controls="all-places">See my cities, countries, and bucket list landmarks</button>
+      <div class="all-places" id="all-places" hidden></div>
       <p class="map-progress" id="map-progress"></p>
       <div id="travel-map" class="travel-map"></div>
       <p class="osm-credit" id="osm-credit" hidden>Some pins placed with <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">&copy; OpenStreetMap contributors</a></p>
@@ -1595,8 +1606,47 @@
     $("bucket-count").textContent = `${bucketCount}/${bucketTotal}`;
     $("vc-landmarks").textContent = bucketCount;
     $("vc-landmarks-label").textContent = `of ${bucketTotal} NRA bucket list landmarks`;
-    $("bucket-bar-fill").style.width = Math.min(100, Math.round((bucketCount/bucketTotal)*100)) + "%";
+    $("bucket-bar-fill").style.width = Math.min(100, Math.round((bucketCount/bucketTotal)*100)) + "%";    renderAllPlaces();
   }
+
+  /* "See my cities, countries, and bucket list landmarks": every entered place, grouped by country */
+  function renderAllPlaces(){
+    const box = $("all-places");
+    if (box.hidden || !window.NRA_VISITED) return;
+    const fold = c => window.NRA_foldCountry ? NRA_foldCountry(c) : c;
+    const places = NRA_VISITED.places();
+    const byCountry = new Map(), unknown = [];
+    places.forEach(pl => {
+      const c = T.countryOf(pl);
+      const k = c ? fold(c) : null;
+      if (!k){ unknown.push(pl); return; }
+      if (!byCountry.has(k)) byCountry.set(k, []);
+      byCountry.get(k).push(pl);
+    });
+    const list = a => a.slice().sort((x, y) => x.localeCompare(y));
+    const countries = [...byCountry.keys()].sort((x, y) => x.localeCompare(y));
+    const names = new Set(NRA_VISITED.bucket().map(norm));
+    const lms = (window.NRA_BUCKET || []).filter(b => names.has(norm(b.name)))
+      .sort((x, y) => x.name.localeCompare(y.name));
+    const ul = arr => "<ul>" + arr.join("") + "</ul>";
+    let h = `<h4>Countries <span class="ap-count">(${countries.length})</span></h4>`;
+    h += countries.length ? ul(countries.map(c => `<li>${esc(c)}</li>`)) : '<p class="ap-none">None yet.</p>';
+    h += `<h4>Cities <span class="ap-count">(${places.length})</span></h4>`;
+    h += places.length
+      ? ul(countries.flatMap(c => list(byCountry.get(c)).map(pl => `<li>${esc(T.additionCountry(pl) ? pl.slice(0, pl.lastIndexOf(",")).trim() : pl)} <span class="ap-country">${esc(c)}</span></li>`))
+          .concat(list(unknown).map(pl => `<li>${esc(pl)}</li>`)))
+      : '<p class="ap-none">None yet.</p>';
+    h += `<h4>Bucket list landmarks <span class="ap-count">(${lms.length})</span></h4>`;
+    h += lms.length ? ul(lms.map(b => `<li>${esc(b.name)} <span class="ap-country">${esc(b.country || "")}</span></li>`)) : '<p class="ap-none">None yet.</p>';
+    box.innerHTML = h;
+  }
+  $("all-places-btn").addEventListener("click", () => {
+    const box = $("all-places"), open = box.hidden;
+    box.hidden = !open;
+    $("all-places-btn").setAttribute("aria-expanded", open);
+    $("all-places-btn").textContent = open ? "Hide my cities, countries, and bucket list landmarks" : "See my cities, countries, and bucket list landmarks";
+    renderAllPlaces();
+  });
 
   function renderCustom(){
     if (!window.NRA_VISITED) return;
