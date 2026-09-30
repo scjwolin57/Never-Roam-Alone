@@ -77,19 +77,31 @@ nav.links a.active{color:var(--teal);border-color:var(--coral)}
    item, one vote per signed-in visitor per item. Page-specific placements
    (e.g. city.html's dark hero) override colors locally, same pattern as
    the rest of this file's components. ---------- */
-.vote-widget{display:inline-flex;align-items:center;gap:4px}
-.vote-btn{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
-  padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
-/* Each box is tinted in its own colour at 50% (Jeff, 2026-09-23): brand green
-   for like, brand rust for dislike, yellow for the must-not-miss star. Active
-   (your own vote) is the same colour at full strength. */
-.vote-btn.vote-up{background:rgba(92,105,51,.5);border-color:rgba(92,105,51,.55);color:var(--ink)}
-.vote-btn.vote-down{background:rgba(181,73,44,.5);border-color:rgba(181,73,44,.55);color:var(--ink)}
-.vote-btn.vote-up:hover{border-color:var(--teal);color:var(--teal)}
-.vote-btn.vote-down:hover{border-color:var(--coral);color:var(--coral)}
-.vote-btn.vote-up.active{background:var(--teal);border-color:var(--teal);color:#fff}
-.vote-btn.vote-down.active{background:var(--coral);border-color:var(--coral);color:#fff}
+.vote-widget{display:inline-flex;align-items:center;gap:2px}
+/* Every like / dislike set is the icon alone in its colour, no box: brand green
+   like, brand rust dislike; your own vote is underlined in that colour (Jeff,
+   2026-09-24 on the recommendation cards, 2026-09-29 everywhere). */
+.vote-btn{display:inline-flex;align-items:center;gap:3px;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;
+  padding:3px 4px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
+.vote-btn.vote-up{color:var(--teal)}
+.vote-btn.vote-down{color:var(--coral)}
+.vote-btn:hover:not([disabled]){opacity:.75}
+.vote-btn.vote-up.active,.vote-btn.vote-down.active{border-bottom-color:currentColor}
+.vote-btn .vote-count{color:var(--muted)}
 .vote-btn[disabled]{opacity:.6;cursor:default}
+/* The boxed set, kept for the city hero only (`vote-boxed`, Jeff 2026-09-29): each box tinted in
+   its own colour at 50%, your own vote the same colour at full strength (Jeff, 2026-09-23). :where()
+   keeps these rules exactly as specific as the old ones, so the hero's own colours in city.html still win. */
+.vote-boxed{gap:4px}
+:where(.vote-boxed) .vote-btn{border:1px solid var(--line);padding:4px 7px}
+:where(.vote-boxed) .vote-btn .vote-count{color:inherit}
+:where(.vote-boxed) .vote-btn.vote-up{background:rgba(92,105,51,.5);border-color:rgba(92,105,51,.55);color:var(--ink)}
+:where(.vote-boxed) .vote-btn.vote-down{background:rgba(181,73,44,.5);border-color:rgba(181,73,44,.55);color:var(--ink)}
+:where(.vote-boxed) .vote-btn:hover:not([disabled]){opacity:1}
+:where(.vote-boxed) .vote-btn.vote-up:hover{border-color:var(--teal);color:var(--teal)}
+:where(.vote-boxed) .vote-btn.vote-down:hover{border-color:var(--coral);color:var(--coral)}
+:where(.vote-boxed) .vote-btn.vote-up.active{background:var(--teal);border-color:var(--teal);color:#fff}
+:where(.vote-boxed) .vote-btn.vote-down.active{background:var(--coral);border-color:var(--coral);color:#fff}
 .vote-icon{display:block;flex-shrink:0}
 .vote-icon-down{transform:scaleY(-1)}
 .vote-count{font-size:.72rem;font-weight:700;min-width:.7em;text-align:left}
@@ -123,13 +135,15 @@ html.has-hint-pop .hint-btn::after{content:none}
 .vote-widget .hint-btn::after{left:50%;right:auto;transform:translateX(-50%);max-width:min(210px,calc(100vw - 24px))}
 /* Single-button "star" toggle (landmark must-not-miss). Yellow, asked for by
    Jeff on 2026-09-23 (decisions.md); it was rust before, because the brand
-   palette is green/rust/parchment/ink only. */
+   palette is green/rust/parchment/ink only. It sits inside the landmark's
+   like / dislike set, so it matches it: the icon alone, underlined when it is
+   your vote (2026-09-29). */
 .vote-star-widget{display:inline-flex;align-items:center}
-.vote-star{display:inline-flex;align-items:center;gap:3px;background:none;border:1px solid var(--line);border-radius:0;
-  padding:4px 7px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.15s;line-height:1}
-.vote-star{background:rgba(217,165,32,.5);border-color:rgba(217,165,32,.6);color:var(--ink)}
-.vote-star:hover{border-color:#b98d16;color:#7a5c0d}
-.vote-star.active{background:#d9a520;border-color:#d9a520;color:var(--ink)}
+.vote-star{display:inline-flex;align-items:center;gap:3px;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;
+  padding:3px 4px;cursor:pointer;font-family:inherit;color:#b98d16;transition:.15s;line-height:1}
+.vote-star .vote-count{color:var(--muted)}
+.vote-star:hover:not([disabled]){opacity:.75}
+.vote-star.active{border-bottom-color:currentColor}
 .vote-star[disabled]{opacity:.6;cursor:default}
 .vote-star-icon{display:block;flex-shrink:0}
 

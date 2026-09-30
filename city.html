@@ -814,14 +814,6 @@
   .lodge-tier{flex-shrink:0;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:3px 0;border-radius:20px;color:#fff;width:84px;text-align:center}
   .lodge-name{font-size:.86rem;color:var(--muted);font-style:italic}
-  /* Their thumbs are the icon alone, in its colour (like green, dislike rust), no box; your own vote is underlined. */
-  .pick-vote{gap:2px}
-  .pick-vote .vote-btn,.pick-vote .vote-btn.vote-up,.pick-vote .vote-btn.vote-down{background:none;border:0;border-bottom:2px solid transparent;padding:3px 4px}
-  .pick-vote .vote-btn.vote-up,.pick-vote .vote-btn.vote-up:hover{color:var(--teal)}
-  .pick-vote .vote-btn.vote-down,.pick-vote .vote-btn.vote-down:hover{color:var(--coral)}
-  .pick-vote .vote-btn:hover:not([disabled]){opacity:.75}
-  .pick-vote .vote-btn.vote-up.active,.pick-vote .vote-btn.vote-down.active{background:none;border-bottom-color:currentColor}
-  .pick-vote .vote-count{color:var(--muted)}
 
   /* Bar / drinks picks inside a neighborhood card */
   .hood-bars{border-top:1px solid rgba(0,0,0,.07);padding-top:14px;margin-top:16px;
@@ -3338,7 +3330,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="hero-fav-row">
           <div class="hero-visitors-wrap">
             <div class="chip"><b>${c.est?'~':''}${num}M</b><span>annual int'l ${c.est?'<span style="white-space:nowrap">visitors \u00b7 est.</span>':'visitors'}</span></div>
-            ${voteWidgetHTML({type:"visitors", id:c.city, city:c.city})}
+            ${voteWidgetHTML({type:"visitors", id:c.city, city:c.city, extraClass:"vote-boxed"})}
           </div>
           <div class="hero-fav-wrap">
             <button type="button" class="hero-fav" id="hero-fav-btn" data-fav-city="${c.city.replace(/"/g,'&quot;')}" data-fav-country="${c.country.replace(/"/g,'&quot;')}" title="Save to Favorites" aria-label="Save ${c.city} to Favorites"><span class="hero-fav-icon">&#9825;</span><span class="hero-fav-label">Favorite</span></button>
