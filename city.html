@@ -882,6 +882,10 @@
   .hood-suggest{align-self:center;max-width:100%;border:1px solid var(--line);border-radius:3px;background:none;
     color:var(--muted);padding:5px 10px;font:inherit;font-size:.72rem;font-weight:600;line-height:1.25;text-align:center;cursor:pointer}   /* centred on the card (Jeff, 2026-09-25) */
   .hood-suggest:hover,.hood-suggest:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
+  /* "Suggest a day trip" under "No day trips available" (Jeff, 2026-09-30): same button as "Suggest a place" */
+  .dt-suggest{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:4px}
+  .dt-suggest-hint{margin:0;font-size:.9rem;color:var(--muted)}
+  .dt-suggest .hood-suggest{align-self:flex-start;font-size:.78rem}
   /* A hood we have no verified photo of yet borrows this city's own photo as a
      clearly-marked stand-in. Blending it to the brand green keeps it from
      reading as a photograph of the neighborhood itself, and the credit line
@@ -5450,6 +5454,12 @@ function buildAdvisoryBanner(c, cityAdv){
       title: b.textContent.replace(/^\+\s*/, ""), kinds });
   });
 
+  /* "Suggest a day trip" under "No day trips available" opens suggest-daytrip.js's form. */
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".dt-suggest-btn") || !window.NRA_SUGGEST_TRIP) return;
+    NRA_SUGGEST_TRIP.open({ city: c.city });
+  });
+
   /* "From Roamers" Show / Hide: one choice for every group on the page, remembered in this browser. */
   document.addEventListener("click", e => {
     const t = e.target.closest(".roamer-toggle");
@@ -5640,7 +5650,10 @@ function buildAdvisoryBanner(c, cityAdv){
       </div>` : `<p class="hood-intro">Landmark picks for ${c.city} are coming soon.</p>`;
       const dtBody = document.getElementById("daytrips-section-body");
       const dayTripsHTML = buildDayTripsHTML();
-      if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">Day trips coming soon</p>`;
+      /* No day trips: say so, and invite one (Jeff, 2026-09-30; suggest-daytrip.js). */
+      if (dtBody) dtBody.innerHTML = dayTripsHTML || `<p class="hood-intro">No day trips available</p>
+        <div class="dt-suggest"><p class="dt-suggest-hint">Have a day trip to suggest?</p>
+          <button type="button" class="hood-suggest dt-suggest-btn">+ Suggest a day trip</button></div>`;
       const lmkGridEl = lmkBody && lmkBody.querySelector(".lmk-grid");
       if (lmkGridEl) lmkHint = initSwipeHint(lmkGridEl, "landmark", ".lmk-name", j => {
         const card = lmkGridEl.children[j];
@@ -5749,6 +5762,7 @@ function buildAdvisoryBanner(c, cityAdv){
 <script src="auth.js"></script>
 <script src="contribute-photo.js"></script>
 <script src="suggest-place.js"></script>
+<script src="suggest-daytrip.js"></script>
 <script src="roamer-connections.js" defer></script>
 <script src="favorites.js"></script>
 <script>

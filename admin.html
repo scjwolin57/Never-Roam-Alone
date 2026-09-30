@@ -238,6 +238,11 @@
         <input type="checkbox" id="sug-show-done"> Also show suggestions I've already dealt with
       </label>
       <div id="sug-list"></div>
+
+      <div class="topbar" style="margin-top:28px"><h2>Suggestions — day trips</h2></div>
+      <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip", daytrip-suggestions-setup.sql). A suggestion never goes on the guide by itself: check it against the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city) and add it to <code>day-trips.js</code>, citydata and the sheet first. Then <b>Mark added</b> records it. If they agreed, you can email them with questions (the address is shown). <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="admin-msg" id="dts-msg"></p>
+      <div id="dts-list"></div>
     </section>
 
     <!-- ========== EVENTS ========== -->
@@ -425,11 +430,12 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     if (wantTab === "insights") insReview = params.get("review") || "";
-    if (wantTab === "suggestions") sugReview = params.get("review") || "";
+    if (wantTab === "suggestions") { sugReview = params.get("review") || ""; dtsReview = params.get("tripreview") || ""; }
     await loadEvents();
     await loadPhotos();
     await loadInsights();
     await loadSuggestions();
+    await loadDaytripSuggestions();
     await loadConn();
     loadEmailsTab();
   }
@@ -887,6 +893,105 @@
     } catch(err){
       btn.disabled = false;
       setMsg($("sug-msg"), (err && err.message) || "Something went wrong.", true);
+    }
+  });
+
+  /* ======================================================================
+     DAY TRIP SUGGESTIONS — "Suggest a day trip" from a city page with no day
+     trips (daytrip_suggestions, daytrip-suggestions-setup.sql; Jeff 2026-09-30).
+     Admin-only table policies; the "Also show suggestions I've already dealt
+     with" box above covers this list too.
+     ====================================================================== */
+  let dtsRows = [];
+  let dtsReview = "";   // ?tab=suggestions&tripreview=<id> from the submission email
+  const DTS_DIST = { half: "1.5 hours/half day", full: "3+ hours/full days" };
+
+  async function loadDaytripSuggestions(){
+    const { data, error } = await sb.from("daytrip_suggestions").select("*").order("created_at", { ascending: false });
+    if (error){
+      setMsg($("dts-msg"), "Couldn't load day trip suggestions: " + (error.message || "unknown error") +
+        " — has daytrip-suggestions-setup.sql been run in Supabase?", true);
+      $("dts-list").innerHTML = ""; return;
+    }
+    dtsRows = (data || []).sort((a, b) => (a.status === "pending" ? 0 : 1) - (b.status === "pending" ? 0 : 1));
+    const waiting = dtsRows.filter(r => r.status === "pending").length;
+    setMsg($("dts-msg"), waiting ? `${waiting} day trip suggestion${waiting === 1 ? "" : "s"} awaiting review.` : "");
+    renderDaytripSuggestions();
+  }
+
+  function renderDaytripSuggestions(){
+    const wrap = $("dts-list");
+    const showDone = $("sug-show-done") && $("sug-show-done").checked;
+    const list = dtsRows.filter(r => showDone || r.status === "pending" || r.id === dtsReview);
+    if (!list.length){
+      wrap.innerHTML = `<div class="empty">${dtsRows.length ? "Nothing waiting on you." : "No day trip suggestions yet."}</div>`;
+      return;
+    }
+    const cityLink = c => "city.html?city=" + encodeURIComponent(c);
+    wrap.innerHTML = list.map(r => {
+      const chip = r.status === "pending" ? `<span class="chip pending">Pending review</span>`
+                 : r.status === "added" ? `<span class="chip live">Added</span>`
+                 : `<span class="chip hidden">Declined</span>`;
+      const from = r.user_id ? (r.show_profile
+          ? `Signed-in member, <a href="roamer.html?id=${encodeURIComponent(r.user_id)}" target="_blank" rel="noopener">show their Roamer profile</a>`
+          : "Signed-in member, profile not to be shown")
+        : "Visitor";
+      const contact = r.contact ? (r.email ? `may be emailed: <a href="mailto:${esc(r.email)}">${esc(r.email)}</a>` : "may be emailed (no address on file)") : "no contact wanted";
+      return `
+      <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
+        <div class="ihead">
+          <div class="info">
+            <div class="title">${esc(r.place_name)} · from <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
+            <div class="sub">${esc(DTS_DIST[r.distance] || r.distance)} each way · ${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
+            ${r.website_url ? `<div class="sub"><a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website / booking</a></div>` : ""}
+            <div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px"><b>How to get there:</b> ${esc(r.how_to_get)}</div>
+          </div>
+          <div class="acts">
+            ${r.status !== "added" ? `<button class="btn small coral" data-dact="added" type="button">Mark added</button>` : ""}
+            ${r.status === "pending" ? `<button class="btn small" data-dact="decline" type="button">Decline</button>` : ""}
+            ${r.status !== "pending" ? `<button class="btn small" data-dact="reopen" type="button">Back to pending</button>` : ""}
+            <button class="btn small danger" data-dact="delete" type="button">Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+    if (dtsReview){
+      const row = wrap.querySelector(`.irow[data-id="${CSS.escape(dtsReview)}"]`);
+      if (row){
+        row.scrollIntoView({ behavior: "smooth", block: "start" });
+        row.classList.add("flash");
+        setTimeout(() => row.classList.remove("flash"), 2600);
+      }
+      dtsReview = "";
+    }
+  }
+
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === "sug-show-done") renderDaytripSuggestions();
+  });
+
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest("#dts-list button[data-dact]");
+    if (!btn) return;
+    const r = dtsRows.find(x => x.id === btn.closest(".irow").dataset.id);
+    if (!r) return;
+    const act = btn.dataset.dact;
+    const what = `${r.place_name} from ${r.city}`;
+    if (act === "added" && !confirm(`Is ${what} on the guide now (day-trips.js, citydata and the sheet)?`)) return;
+    if (act === "delete" && !confirm(`Delete the suggestion for ${what}? This can't be undone.`)) return;
+    btn.disabled = true;
+    try {
+      let error;
+      if (act === "added")   ({ error } = await sb.from("daytrip_suggestions").update({ status: "added" }).eq("id", r.id));
+      if (act === "decline") ({ error } = await sb.from("daytrip_suggestions").update({ status: "declined" }).eq("id", r.id));
+      if (act === "reopen")  ({ error } = await sb.from("daytrip_suggestions").update({ status: "pending" }).eq("id", r.id));
+      if (act === "delete")  ({ error } = await sb.from("daytrip_suggestions").delete().eq("id", r.id));
+      if (error) throw error;
+      await loadDaytripSuggestions();
+      setMsg($("dts-msg"), act === "added" ? `Marked ${what} as added.` : act === "decline" ? `Declined ${what}. Nobody was told.` : act === "reopen" ? "Back in the pending list." : "Deleted.");
+    } catch(err){
+      btn.disabled = false;
+      setMsg($("dts-msg"), (err && err.message) || "Something went wrong.", true);
     }
   });
 

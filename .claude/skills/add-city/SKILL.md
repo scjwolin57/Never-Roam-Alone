@@ -33,6 +33,8 @@ For the **optional** sections (`routes`, `daytrips`, `score`), include them if y
 
 **Day-trip hero photos (decisions.md 2026-09-28):** after `add_city.py` runs, run `python3 _guidebuild/daytrips/fetch_daytrip_photos.py --city "<Name>"` to give each trip a location-checked Commons photo. Never hand-pick or hand-type a `photo` field. Look at every photo it finds for the new city before reporting -- the automated checks catch bad licences and portrait crops but not everything (a flag or a close-up of a person has gotten through before); replace or remove anything that fails rule 7. A trip with no verified photo keeps a plain card. Report each trip filled or open by name.
 
+**No honest day trip (2026-09-30):** a city that ships with no day trips and no nearby guides shows "No day trips available" with a Suggest a day trip form on its own; nothing to add. Report it as "day trips: none found" in the add-city report, never pad.
+
 **Nearby guides:** a day-trip candidate that already has its own guide is not a day trip (rule 7 in `_needs-attention/_done/RESUME_daytrip-verify.md`); add the pair to `_guidebuild/daytrips/nearby_classified.json` via `classify_nearby.py`, then run `build_nearby.py`. Also check the reverse: existing guides within day-trip range of the new city.
 
 Once `hood_geo` exists, run `python3 _guidebuild/laundry/load_laundromats.py` so the new city gets its `laundromats` list (Overture open data, up to 3 per neighborhood within 1 km; it rewrites the key for every city and rebuilds the sheet's Laundromats tab, which is safe to re-run).
