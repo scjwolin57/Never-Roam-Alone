@@ -455,6 +455,9 @@
     .stop{flex-wrap:wrap}
     .suggest{right:0}
     .ig-stop{flex-wrap:wrap}
+    /* date boxes shrink to fit the card instead of running off its right edge */
+    .ig-stop .dates label{max-width:100%}
+    .ig-stop .dates input{flex:1 1 0;min-width:0;width:100%}
     .wish-stop{flex-wrap:wrap}
     .ig-head{flex-basis:100%}
     .ig-actions{flex-basis:100%}
@@ -661,7 +664,7 @@
      dates land on a holiday that actually shuts businesses. Silent when
      there's nothing to say, or when the holiday files aren't loaded. */
   function paintHol(row){
-    if (!row) return;
+    if (!row || type === "past") return;   // no "things may be closed" / seasonal-event notes on trips that already happened
     const slot = row.querySelector("[data-hol]");
     if (!slot || !window.NRA_HOLIDAY_BANNER) return;
     const place = row.dataset.holPlace || "", country = row.dataset.holCountry || "";
@@ -843,7 +846,7 @@
     }
     listEl.innerHTML = "";
     if (!items.length){
-      emptyEl.style.display = "";
+      emptyEl.style.display = (type === "past" && signedIn()) ? "none" : "";   // signed-in Past has no top search, so no "search above" hint
       emptyEl.textContent = type === "past"
         ? "No past trips yet — search above to add the places you've been."
         : type === "favorite"
