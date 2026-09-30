@@ -70,7 +70,7 @@
   @media(max-width:520px){.trip-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px}}
 
   /* ---------- Card ---------- */
-  .wrap{max-width:720px;margin:-28px auto 60px;padding:0 22px}
+  .wrap{max-width:860px;margin:-28px auto 60px;padding:0 22px}
   .card{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:30px 28px}
 
   .save-note{font-size:.82rem;color:var(--muted);margin:0 0 18px}
@@ -95,7 +95,7 @@
   .suggest{
     position:absolute;top:calc(100% + 6px);left:0;right:58px;z-index:30;
     background:#fff;border-radius:14px;box-shadow:0 16px 40px rgba(20,40,50,.22);
-    overflow:hidden;display:none;max-height:320px;overflow-y:auto;
+    overflow:hidden;display:none;max-height:400px;overflow-y:auto;
   }
   .suggest.open{display:block}
   .suggest .opt{
@@ -105,6 +105,9 @@
   }
   .suggest .opt:hover, .suggest .opt.hl{background:rgba(63,81,56,.08)}
   .suggest .opt .country{color:var(--muted);font-size:.8rem}
+  .suggest .sug-head{padding:9px 14px 5px;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);border-top:1px solid rgba(63,81,56,.12);background:rgba(63,81,56,.04)}
+  .suggest .sug-head:first-child{border-top:none}
+  .suggest .opt.req{border-top:1px solid rgba(63,81,56,.12);font-weight:700;color:#b34a3a}
   .chip{flex-shrink:0;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border-radius:10px;padding:3px 9px}
   .chip.guide{background:rgba(63,81,56,.12);color:var(--green)}
   .chip.noguide{background:rgba(179,74,58,.1);color:#b34a3a}
@@ -211,8 +214,8 @@
   .view-switch.table .knob{transform:translateX(100%)}
 
   /* ---------- per-trip Edit/Table toggle (Upcoming tab cards) ---------- */
-  .ig-view-wrap{display:contents}
-  .ig-view-label{display:none;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .ig-view-wrap{display:flex;flex-direction:column;align-items:center;gap:3px}
+  .ig-view-label{display:block;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
   .ig-view-switch{display:flex;gap:4px;background:rgba(63,81,56,.1);border-radius:3px;padding:3px;margin:0 8px}
   .ig-view-switch button{border:none;background:none;cursor:pointer;font-family:inherit;font-weight:700;
     font-size:.78rem;color:var(--muted);padding:5px 10px;border-radius:13px;transition:background .2s,color .2s}
@@ -278,7 +281,9 @@
   /* ---------- Footer ---------- */
 
   /* ---------- My Itineraries tab ---------- */
-  .itin-new-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+  .itin-new-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;padding-bottom:20px;border-bottom:1px solid rgba(63,81,56,.28)}
+  /* Past tab: divider between the page intro and the trip cards */
+  .itin-groups.is-past:not(:empty){border-top:1px solid rgba(63,81,56,.28);padding-top:4px;margin-top:6px}
   .itin-new-row input{
     flex:1;min-width:0;padding:12px 14px;border:2px solid rgba(63,81,56,.22);border-radius:14px;
     background:#fff;font-size:1rem;color:var(--ink);font-family:inherit;outline:none;transition:.15s;
@@ -293,7 +298,7 @@
 
   .itin-group{
     border:1px solid transparent;border-radius:0;padding:16px 16px 6px;margin-top:16px;background:#fff;
-    margin-left:-28px;margin-right:-28px;max-width:calc(100% + 56px);overflow-x:hidden;
+    margin-left:-28px;margin-right:-28px;max-width:calc(100% + 56px);overflow-x:hidden;overflow-x:clip;   /* clip (not hidden) so the search dropdown can hang below the card */
   }
   .ig-badge{
     display:inline-block;font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;
@@ -302,8 +307,8 @@
   .ig-badge.is-current{background:rgba(92,105,51,.15);color:var(--green)}
   .ig-badge.is-upcoming{background:rgba(181,73,44,.12);color:var(--coral)}
   .ig-badge.is-past{background:rgba(0,0,0,.06);color:var(--muted)}
-  .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:0}
-  .ig-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+  .ig-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:14px}
+  .ig-actions{display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;margin-bottom:6px}
   .ig-public-wrap{display:inline-flex;align-items:center;gap:6px;flex-shrink:0}
   .ig-name{
     flex:1;font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:700;color:var(--ink);
@@ -406,8 +411,25 @@
   /* the city-search row when it sits inside the selected trip card */
   .itin-group .search-row{margin-top:14px;padding-top:14px;border-top:1px solid rgba(63,81,56,.12)}
 
+  /* ---------- Past tab: add a stop to a past trip (search lives here only) ---------- */
+  .past-add{margin:14px 0 6px;padding-top:14px;border-top:1px solid rgba(63,81,56,.28);cursor:default}
+  .past-add-title{margin:0 0 2px;font-weight:800;font-size:.95rem;color:var(--ink)}
+  .past-add-note{margin:0 0 4px;font-size:.78rem;color:var(--muted)}
+  .past-add .search-row{margin-top:8px;padding-top:0;border-top:none;flex-wrap:wrap}
+  .past-add .search-row input{flex:1 1 220px}
+  .past-add .add-btn{width:auto;padding:0 18px;font-size:.85rem;line-height:1.2;white-space:nowrap}
+  .past-add .suggest{right:0}
+  .past-add-dates{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:10px}
+  .past-add-dates label{display:flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--muted)}
+  .pa-conflict{margin-top:12px;padding:11px 14px;background:rgba(168,72,42,.12);border:1px solid rgba(168,72,42,.4);color:#b34a3a;font-size:.85rem;font-weight:600}
+  .pa-conflict p{margin:0 0 10px}
+  .pa-conflict .pa-btns{display:flex;flex-wrap:wrap;gap:8px}
+  .pa-conflict button{border:2px solid rgba(179,74,58,.5);background:#fff;color:#b34a3a;font-family:inherit;font-weight:700;font-size:.78rem;padding:7px 12px;cursor:pointer;border-radius:0}
+  .pa-conflict button.pa-replace{background:#b34a3a;color:#fff}
+  .pa-conflict button:hover{background:#b34a3a;color:#fff}
+
   /* ---------- Wishlist tab ---------- */
-  .wish-actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .wish-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 6px}
   .wish-actions button{
     border:2px solid rgba(63,81,56,.35);background:none;color:var(--green);cursor:pointer;
     font-weight:700;font-size:.85rem;font-family:inherit;padding:9px 16px;border-radius:20px;transition:.2s;
@@ -441,8 +463,7 @@
     .ig-head{flex-direction:column-reverse;align-items:center;gap:6px;margin-bottom:12px}
     .ig-name{width:100%;text-align:center}
     .ig-actions{justify-content:center}
-    .ig-view-wrap{display:flex;flex-direction:column;align-items:center;gap:4px;flex-basis:100%}
-    .ig-view-label{display:block}
+    .ig-view-wrap{flex-basis:100%}
     .itin-new-row input{flex-basis:100%}
     .itin-new-row button{flex-basis:100%}
     .ig-cal-cell{min-height:44px;padding:2px}
@@ -495,8 +516,8 @@
   <p id="hero-sub">Build your route — add the cities and places you're planning to roam.</p>
   <div class="trip-toggle" role="tablist">
     <button type="button" id="tab-upcoming" data-type="upcoming">Current & Upcoming</button>
-    <button type="button" id="tab-wishlist" data-type="wishlist">Wishlist</button>
     <button type="button" id="tab-past" data-type="past">Past trips</button>
+    <button type="button" id="tab-wishlist" data-type="wishlist">Wishlist</button>
     <button type="button" id="tab-favorite" data-type="favorite">♥ Favorites</button>
   </div>
 </div>
@@ -618,7 +639,17 @@
   const searchRowEl = document.querySelector(".search-row");
   const searchHomeParent = searchRowEl ? searchRowEl.parentNode : null;
   const searchHomeNext = searchRowEl ? searchRowEl.nextSibling : null;
-  function parkSearchRow(){ if (searchRowEl && searchHomeParent) searchHomeParent.insertBefore(searchRowEl, searchHomeNext); }
+  const addBtnEl = document.getElementById("add-btn");
+  function setAddBtnMode(wide){   // "+" everywhere, "Add stop to past trip" inside a past trip being edited
+    if (!addBtnEl) return;
+    addBtnEl.textContent = wide ? "Add stop to past trip" : "+";
+    addBtnEl.title = addBtnEl.ariaLabel = wide ? "Add stop to past trip" : "Add to itinerary";
+    addBtnEl.setAttribute("aria-label", addBtnEl.title);
+  }
+  function parkSearchRow(){
+    if (searchRowEl && searchHomeParent) searchHomeParent.insertBefore(searchRowEl, searchHomeNext);
+    setAddBtnMode(false);
+  }
 
   /* ---- featured cities (these have guide pages) ---- */
   const FEATURED = (window.NRA_DESTINATIONS || []).map(d => ({city:d.city, country:d.country}));
@@ -773,6 +804,25 @@
     }
   }
 
+  /* ---- email the site owner a "please build a guide for this city" request ---- */
+  async function sendGuideRequest(place, country){
+    const user = signedIn() ? NRA_AUTH.user() : null;
+    const res = await fetch("/.netlify/functions/request-guide", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        place,
+        country: country || "",
+        tripType: type,
+        requesterName: (window.NRA_AUTH && NRA_AUTH.displayName && NRA_AUTH.displayName()) || "",
+        requesterEmail: (user && user.email) || ""
+      })
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok || !body.sent) throw new Error(body.error || "send failed");
+    markRequested(place);
+  }
+
   /* ---- render the list ---- */
   async function render(){
     paintSaveNote();
@@ -866,21 +916,7 @@
       const place = b.dataset.req;
       b.disabled = true; const orig = b.textContent; b.textContent = "Requesting…";
       try{
-        const user = signedIn() ? NRA_AUTH.user() : null;
-        const res = await fetch("/.netlify/functions/request-guide", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            place,
-            country: b.dataset.ctry || "",
-            tripType: type,
-            requesterName: (window.NRA_AUTH && NRA_AUTH.displayName && NRA_AUTH.displayName()) || "",
-            requesterEmail: (user && user.email) || ""
-          })
-        });
-        const body = await res.json().catch(() => ({}));
-        if (!res.ok || !body.sent) throw new Error(body.error || "send failed");
-        markRequested(place);
+        await sendGuideRequest(place, b.dataset.ctry || "");
         b.textContent = "Guide requested ✓";
         status(`Request sent! We'll work on a guide for ${place}.`, "ok");
       }catch(e){
@@ -1032,22 +1068,58 @@
   const CNAMES_ = () => window.NRA_COUNTRY_NAMES || {};
   // accent-insensitive: "malaga" matches "Málaga", "zurich" matches "Zürich"
   const norm = s => String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[øœæłđðþ]/g,c=>({"ø":"o","œ":"oe","æ":"ae","ł":"l","đ":"d","ð":"d","þ":"th"}[c])).replace(/ß/g,"ss").replace(/ı/g,"i").trim();
+  // typo helper: edit distance where swapping two neighbouring letters counts once ("Lanarca" -> "Larnaca")
+  function editDist(a, b){
+    const al = a.length, bl = b.length;
+    const d = [];
+    for (let i = 0; i <= al; i++){ d[i] = [i]; }
+    for (let j = 1; j <= bl; j++) d[0][j] = j;
+    for (let i = 1; i <= al; i++) for (let j = 1; j <= bl; j++){
+      const c = a[i-1] === b[j-1] ? 0 : 1;
+      d[i][j] = Math.min(d[i-1][j] + 1, d[i][j-1] + 1, d[i-1][j-1] + c);
+      if (i > 1 && j > 1 && a[i-1] === b[j-2] && a[i-2] === b[j-1]) d[i][j] = Math.min(d[i][j], d[i-2][j-2] + 1);
+    }
+    return d[al][bl];
+  }
+  function optHTML(city, country){
+    const hasGuide = !!guideOf(city);
+    return `<button type="button" class="opt" data-city="${esc(city)}" data-ctry="${esc(country)}">`
+      + `<span>${esc(city)} <span class="country">· ${esc(country)}</span></span>`
+      + (hasGuide ? `<span class="chip guide">Guide</span>` : `<span class="chip noguide">Request guide</span>`)
+      + `</button>`;
+  }
   function openSug(q){
     const needle = norm(q);
     if (!needle){ closeSug(); return; }
-    const seen = new Set(), results = [];
-    const add = (city, country) => {
-      const key = (city + "|" + country).toLowerCase();
-      if (seen.has(key)) return;
-      seen.add(key); results.push({ city, country });
-    };
-    // featured cities first (these have full guides)
-    FEATURED.forEach(f => {
-      if (norm(f.city).includes(needle) || norm(f.country).includes(needle)) add(f.city, f.country);
-    });
-    // then the full world list: name-starts-with first, then name/country contains
-    const starts = [], contains = [];
     const WORLD = WORLD_(), CNAMES = CNAMES_();
+    const shown = new Set();
+    const key = (city, country) => (city + "|" + country).toLowerCase();
+    let html = "";
+
+    // 1) a country name: list every city we have a guide for in that country
+    if (needle.length >= 3){
+      const byCountry = {};
+      FEATURED.forEach(f => { if (norm(f.country).startsWith(needle)) (byCountry[f.country] = byCountry[f.country] || []).push(f.city); });
+      Object.keys(byCountry).sort().slice(0, 3).forEach(ctry => {
+        const cities = byCountry[ctry].sort((x, y) => x.localeCompare(y));
+        html += `<div class="sug-head">${esc(ctry)} · ${cities.length} ${cities.length === 1 ? "city guide" : "city guides"}</div>`;
+        cities.slice(0, 12).forEach(c => { html += optHTML(c, ctry); shown.add(key(c, ctry)); });
+      });
+      if (!Object.keys(byCountry).length){
+        const known = Object.keys(CNAMES).map(k => CNAMES[k]).find(n => norm(n) === needle);
+        if (known) html += `<div class="sug-head">No city guides in ${esc(known)} yet — pick a city below to request one</div>`;
+      }
+    }
+
+    // 2) cities by name (guides first, then the world list)
+    const results = [];
+    const add = (city, country) => {
+      const k = key(city, country);
+      if (shown.has(k)) return;
+      shown.add(k); results.push({ city, country });
+    };
+    FEATURED.forEach(f => { if (norm(f.city).includes(needle)) add(f.city, f.country); });
+    const starts = [], contains = [];
     for (let i = 0; i < WORLD.length; i++){
       const r = WORLD[i], nl = norm(r[0]), country = CNAMES[r[1]] || r[1];
       if (nl.startsWith(needle)) starts.push([r[0], country]);
@@ -1057,33 +1129,75 @@
     starts.forEach(x => add(x[0], x[1]));
     contains.forEach(x => add(x[0], x[1]));
     const top = results.slice(0, 8);
-    let html = "";
-    top.forEach(f => {
-      const hasGuide = !!guideOf(f.city);
-      html += `<button type="button" class="opt" data-city="${esc(f.city)}" data-ctry="${esc(f.country)}">`
-        + `<span>${esc(f.city)} <span class="country">· ${esc(f.country)}</span></span>`
-        + (hasGuide ? `<span class="chip guide">Guide</span>` : `<span class="chip noguide">Request guide</span>`)
-        + `</button>`;
-    });
-    const exact = top.some(f => f.city.toLowerCase() === needle);
-    if (!exact){
-      html += `<button type="button" class="opt" data-city="${esc(q.trim())}" data-ctry="">
-        <span>Add &ldquo;${esc(q.trim())}&rdquo;</span><span class="chip noguide">Request guide</span></button>`;
+    if (top.length){
+      if (html) html += `<div class="sug-head">Cities</div>`;
+      top.forEach(f => { html += optHTML(f.city, f.country); });
+    }
+
+    // 3) nothing matched: offer close spellings ("Lanarca" -> Larnaca)
+    if (!html && needle.length >= 4){
+      const maxD = needle.length >= 7 ? 2 : 1, near = [];
+      const consider = (city, country) => {
+        const nl = norm(city);
+        if (Math.abs(nl.length - needle.length) > maxD) return;
+        const dist = editDist(needle, nl);
+        if (dist <= maxD) near.push({ city, country, dist });
+      };
+      FEATURED.forEach(f => consider(f.city, f.country));
+      for (let i = 0; i < WORLD.length; i++) consider(WORLD[i][0], CNAMES[WORLD[i][1]] || WORLD[i][1]);
+      near.sort((x, y) => x.dist - y.dist || (guideOf(y.city) ? 1 : 0) - (guideOf(x.city) ? 1 : 0));
+      const seenN = new Set();
+      const uniq = near.filter(n => { const k = key(n.city, n.country); if (seenN.has(k)) return false; seenN.add(k); return true; }).slice(0, 5);
+      if (uniq.length){
+        html += `<div class="sug-head">Did you mean…</div>`;
+        uniq.forEach(n => { html += optHTML(n.city, n.country); });
+      }
+    }
+
+    // 4) not on the site (or not a real match)? let them add it as typed, or ask us for a guide
+    const typed = q.trim();
+    const exactGuide = FEATURED.some(f => f.city.toLowerCase() === typed.toLowerCase());
+    if (!exactGuide){
+      const exactWorld = results.find(r => norm(r.city) === needle);
+      const reqCity = exactWorld ? exactWorld.city : typed, reqCtry = exactWorld ? exactWorld.country : "";
+      if (type !== "past" && !exactWorld){
+        html += `<button type="button" class="opt" data-city="${esc(typed)}" data-ctry="">
+          <span>Add &ldquo;${esc(typed)}&rdquo; to my trip</span><span class="chip noguide">Free text</span></button>`;
+      }
+      html += requested(reqCity)
+        ? `<button type="button" class="opt req" disabled><span>Guide already requested for ${esc(reqCity)} ✓</span></button>`
+        : `<button type="button" class="opt req" data-reqcity="${esc(reqCity)}" data-reqctry="${esc(reqCtry)}">
+          <span>Not on Never Roam Alone yet? Request a city guide for &ldquo;${esc(reqCity)}&rdquo;</span><span class="chip noguide">Request</span></button>`;
     }
     sug.innerHTML = html;
     sug.classList.add("open"); hlIndex = -1;
-    sug.querySelectorAll(".opt").forEach(o => o.addEventListener("click", () => {
-      doAdd(o.dataset.city, o.dataset.ctry);
-    }));
+    sug.querySelectorAll(".opt").forEach(o => o.addEventListener("click", () => pickOpt(o)));
   }
-  input.addEventListener("input", () => openSug(input.value));
+  async function pickOpt(o){
+    if (o.disabled) return;
+    if (o.dataset.reqcity){
+      const place = o.dataset.reqcity;
+      o.disabled = true;
+      try{
+        await sendGuideRequest(place, o.dataset.reqctry || "");
+        input.value = ""; closeSug();
+        status(`Request sent! We'll work on a guide for ${place}.`, "ok");
+      }catch(e){
+        o.disabled = false;
+        status("Couldn't send the request — please try again in a moment.", "err");
+      }
+      return;
+    }
+    doAdd(o.dataset.city, o.dataset.ctry);
+  }
+  input.addEventListener("input", () => { if (pastPick && norm(input.value) !== norm(pastPick.place)) pastPick = null; openSug(input.value); });
   input.addEventListener("keydown", (e) => {
     const opts = Array.from(sug.querySelectorAll(".opt"));
     if (e.key === "ArrowDown" && opts.length){ e.preventDefault(); hlIndex = (hlIndex+1) % opts.length; opts.forEach((o,i)=>o.classList.toggle("hl", i===hlIndex)); }
     else if (e.key === "ArrowUp" && opts.length){ e.preventDefault(); hlIndex = (hlIndex-1+opts.length) % opts.length; opts.forEach((o,i)=>o.classList.toggle("hl", i===hlIndex)); }
     else if (e.key === "Enter"){
       e.preventDefault();
-      if (hlIndex >= 0 && opts[hlIndex]) doAdd(opts[hlIndex].dataset.city, opts[hlIndex].dataset.ctry);
+      if (hlIndex >= 0 && opts[hlIndex]) pickOpt(opts[hlIndex]);
       else addFromInput();
     }
     else if (e.key === "Escape") closeSug();
@@ -1096,6 +1210,13 @@
     if (!place){ status("Type a city or place first.", "err"); return; }
     const g = guideOf(place);
     if (g){ place = g.city; country = g.country; }  // tidy capitalization for featured cities
+    if (type === "past" && pastTripId && signedIn()){
+      // inside a past trip: remember the pick; dates + the "Add stop to past trip" button finish it
+      pastPick = { place, country: country || "" };
+      input.value = place; closeSug();
+      const a = $("pa-arrive"); if (a && a._flatpickr) a._flatpickr.open(); else if (a) a.focus();
+      return;
+    }
     if (type === "upcoming"){
       // picking a city here opens the shared popup: choose a trip, the wishlist, or a new trip.
       // closeAfterAdd → the popup closes itself once the city is added and the trip refreshes.
@@ -1128,7 +1249,9 @@
     if (match) doAdd(match.city, match.country);
     else doAdd(cityPart, parts.slice(1).join(",").trim());
   }
-  $("add-btn").addEventListener("click", addFromInput);
+  $("add-btn").addEventListener("click", () => {
+    if (type === "past" && pastTripId && signedIn()) pastSubmit(); else addFromInput();
+  });
 
   /* ---- Edit / Table view switch ---- */
   $("view-switch").querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
@@ -1153,7 +1276,10 @@
     if (!isTrips) parkSearchRow();   // put the search row back at the top on every other tab
     // search works on every tab, but on the account-only tabs it needs a sign-in first.
     // on Upcoming it's hidden here and revealed by applyTripSelection() below the selected trip.
-    if (sr) sr.style.display = (isTrips || ((isWish) && !signedIn())) ? "none" : "";
+    // Past tab: the search only exists inside a past trip being edited (applyPastAdd); signed-out visitors keep the top box for their browser-only list
+    const hidePast = (type === "past" && signedIn());
+    if (sr) sr.style.display = (isTrips || hidePast || ((isWish) && !signedIn())) ? "none" : "";
+    $("itin-groups").classList.toggle("is-past", type === "past");
     $("itin-new-row").style.display = (isTrips && signedIn()) ? "" : "none";
     $("itin-groups").style.display = (isTrips || type === "past") ? "" : "none";
     $("wish-wrap").style.display = isWish ? "" : "none";
@@ -1289,10 +1415,10 @@
       const calendarHtml = buildTripCalendar(cities);
       const badge = (type === "past") ? "Past Trip" : tripStatus(cities);
       const badgeClass = badge === "Current Trip" ? "is-current" : (badge === "Past Trip" ? "is-past" : "is-upcoming");
-      const viewSwitchHtml = cardView === "edit" ? "" : `<div class="ig-view-wrap"><span class="ig-view-label">Itinerary View</span><div class="ig-view-switch" role="radiogroup" aria-label="Itinerary view">
+      const viewSwitchHtml = cardView === "edit" ? "" : `<div class="ig-view-wrap"><div class="ig-view-switch" role="radiogroup" aria-label="Switch view">
             <button type="button" role="radio" aria-checked="${cardView === "table"}" class="${cardView === "table" ? "active" : ""}" data-set-view="table" data-trip="${esc(String(it.id))}">📋 Table</button>
             <button type="button" role="radio" aria-checked="${cardView === "calendar"}" class="${cardView === "calendar" ? "active" : ""}" data-set-view="calendar" data-trip="${esc(String(it.id))}">📅 Calendar</button>
-          </div></div>`;
+          </div><span class="ig-view-label">Switch view</span></div>`;
       card.innerHTML = `
         <div class="ig-head">
           <input class="ig-name" type="text" value="${esc(it.name)}" maxlength="80" aria-label="Trip name">
@@ -1312,20 +1438,22 @@
         <div class="ig-stops" style="display:${cardView === "edit" ? "" : "none"}">${rows}</div>
         <div class="ig-table" style="display:${cardView === "table" ? "" : "none"}">${tableHtml}</div>
         <div class="ig-calendar" style="display:${cardView === "calendar" ? "" : "none"}">${calendarHtml}</div>
-        <div class="ig-foot"><button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button>${tipsOK ? `<label class="ig-tips"><input type="checkbox" data-tips="${esc(String(it.id))}"${it.receive_tips ? " checked" : ""}> ✉️ Email me tips for this trip</label><span class="ig-tips-msg" data-tipsmsg="${esc(String(it.id))}"></span>` : ""}</div>
-        <div class="ns-panel" data-ns="${esc(String(it.id))}" style="display:none"></div>
+        <div class="ig-foot">${type === "past" ? "" : `<button class="ig-suggest" type="button" data-suggest="${esc(String(it.id))}">✨ Suggest next stop</button>`}${tipsOK ? `<label class="ig-tips"><input type="checkbox" data-tips="${esc(String(it.id))}"${it.receive_tips ? " checked" : ""}> ✉️ Email me tips for this trip</label><span class="ig-tips-msg" data-tipsmsg="${esc(String(it.id))}"></span>` : ""}</div>
+        ${type === "past" ? "" : `<div class="ns-panel" data-ns="${esc(String(it.id))}" style="display:none"></div>`}
         <p class="ig-warn">⚠️ These stops aren't in date order — drag to match the dates, or leave it if that's on purpose.</p>`;
       card._cities = cities;
       groups.appendChild(card);
     });
     wireItinEvents();
-    if (type === "upcoming") applyTripSelection();   // Past tab keeps the search row for the flat list, not tucked into a card
+    if (type === "upcoming") applyTripSelection();
+    else if (type === "past") applyPastAdd();        // search + "Add stop to past trip" sit inside the trip being edited
   }
 
   /* ---- Upcoming tab: highlight the selected trip and put the search box inside it ----
      The first trip is selected by default (grey fill + green ring); the city-search
      row lives inside that trip's card. Clicking another trip moves it there. */
   function applyTripSelection(){
+    if (type === "past"){ applyPastAdd(); return; }
     const groups = $("itin-groups"), sr = searchRowEl;
     const cards = Array.from(groups.querySelectorAll(".itin-group"));
     if (type !== "upcoming" || !cards.length || !signedIn()){
@@ -1348,6 +1476,123 @@
       else selCard.appendChild(sr);
     } else if (sr){
       parkSearchRow(); sr.style.display = "none";
+    }
+  }
+
+  /* ---- Past tab: "Add stop to past trip" ----
+     The only place the city search lives on the Past tab. It sits inside the past
+     trip being edited, with the dates of the stop; if those dates overlap a stop
+     already in the trip, we warn and let the person replace it or keep both. */
+  let pastTripId = null, pastPick = null, pastBox = null;
+  function pastAddBox(){
+    if (pastBox) return pastBox;
+    pastBox = document.createElement("div");
+    pastBox.className = "past-add";
+    pastBox.innerHTML = `<p class="past-add-title">Add a stop to this past trip</p>
+      <p class="past-add-note">Changed your route while you were away? Search the place, set the dates, then add it.</p>
+      <div class="past-add-dates">
+        <label>Arrive <input type="text" class="date-field" id="pa-arrive" placeholder="Pick a date"></label>
+        <label>Depart <input type="text" class="date-field" id="pa-depart" placeholder="Pick a date"></label>
+      </div>
+      <div class="pa-conflict" id="pa-conflict" style="display:none"></div>`;
+    const dates = pastBox.querySelector(".past-add-dates");
+    pastBox.insertBefore(searchRowEl, dates);
+    if (window.flatpickr){
+      const inA = pastBox.querySelector("#pa-arrive"), inD = pastBox.querySelector("#pa-depart");   // box isn't in the page yet, so no getElementById
+      const fd = flatpickr(inD, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", onChange: hideConflict });
+      flatpickr(inA, { dateFormat: "Y-m-d", altInput: true, altFormat: "M j, Y", onChange: () => { fd.set("minDate", inA.value || null); hideConflict(); } });
+    }
+    return pastBox;
+  }
+  function hideConflict(){ const c = $("pa-conflict"); if (c){ c.style.display = "none"; c.innerHTML = ""; } }
+  function applyPastAdd(){
+    if (type !== "past" || !signedIn()){ pastTripId = null; return; }
+    const groups = $("itin-groups");
+    const editing = Array.from(groups.querySelectorAll(".itin-group")).filter(c => (tripCardView[c.dataset.id] || "table") === "edit");
+    if (!editing.length){
+      pastTripId = null; pastPick = null;
+      parkSearchRow(); if (searchRowEl) searchRowEl.style.display = "none";
+      return;
+    }
+    const card = editing.find(c => c.dataset.id === selectedTripId) || editing[0];
+    if (pastTripId !== card.dataset.id){ pastPick = null; hideConflict(); }
+    pastTripId = card.dataset.id;
+    const box = pastAddBox();
+    searchRowEl.style.display = "";
+    if (searchRowEl.parentNode !== box) box.insertBefore(searchRowEl, box.querySelector(".past-add-dates"));
+    setAddBtnMode(true);
+    const foot = card.querySelector(".ig-foot");
+    if (box.parentNode !== card || box.nextElementSibling !== foot){
+      if (foot) card.insertBefore(box, foot); else card.appendChild(box);
+    }
+  }
+  const stopRange = p => { const s0 = p.arrive || p.depart || "", e0 = p.depart || p.arrive || ""; return s0 ? { s: s0, e: e0 } : null; };
+  function stopsOverlap(a, d, p){
+    const ns = a || d, ne = d || a, r = stopRange(p);
+    if (!ns || !r) return false;
+    if (ns === ne || r.s === r.e) return ns <= r.e && ne >= r.s;     // a single day counts as inside a range
+    return ns < r.e && ne > r.s;                                     // leaving and arriving on the same day is fine
+  }
+  async function pastSubmit(){
+    const card = pastTripId && $("itin-groups").querySelector('.itin-group[data-id="' + pastTripId + '"]');
+    if (!card) return;
+    let place = "", country = "";
+    if (pastPick){ place = pastPick.place; country = pastPick.country; }
+    else {
+      const parts = input.value.trim().split(",");
+      place = parts[0].trim(); country = parts.slice(1).join(",").trim();
+      const g = guideOf(place); if (g){ place = g.city; country = g.country; }
+    }
+    if (!place){ status("Search for a city or place first.", "err"); input.focus(); return; }
+    const a = $("pa-arrive").value, d = $("pa-depart").value;
+    if (a && d && d < a){ status("The depart date can't be before the arrive date.", "err"); return; }
+    const conflicts = (card._cities || []).filter(p => stopsOverlap(a, d, p));
+    if (!conflicts.length){ await pastCommit(card, place, country, a, d, []); return; }
+    const names = conflicts.map(p => `${esc(p.place)} (${esc(dateRange(p.arrive, p.depart))})`).join("; ");
+    const box = $("pa-conflict");
+    box.style.display = "";
+    box.innerHTML = `<p>⚠️ These dates overlap ${conflicts.length === 1 ? "a stop" : "stops"} already in this trip: ${names}.</p>
+      <div class="pa-btns">
+        <button type="button" class="pa-replace" data-pa="replace">Replace ${conflicts.length === 1 ? esc(conflicts[0].place) : "them"} with ${esc(place)}</button>
+        <button type="button" data-pa="both">Keep both</button>
+        <button type="button" data-pa="cancel">Cancel</button>
+      </div>`;
+    box.querySelectorAll("[data-pa]").forEach(b => b.addEventListener("click", async () => {
+      const act = b.dataset.pa;
+      if (act === "cancel"){ hideConflict(); return; }
+      box.querySelectorAll("button").forEach(x => x.disabled = true);
+      await pastCommit(card, place, country, a, d, act === "replace" ? conflicts : []);
+    }));
+  }
+  async function pastCommit(card, place, country, a, d, replaceStops){
+    try{
+      const sb = NRA_AUTH.client(), uid = NRA_AUTH.user().id, tripId = card.dataset.id;
+      if (replaceStops.length){
+        const { error } = await sb.from("itinerary_places").delete().in("id", replaceStops.map(p => p.id));
+        if (error) throw error;
+      }
+      const gone = new Set(replaceStops.map(p => String(p.id)));
+      const rest = (card._cities || []).filter(p => !gone.has(String(p.id)));
+      const { data: row, error } = await sb.from("itinerary_places")
+        .insert({ itinerary_id: tripId, user_id: uid, place, country, arrive: a || null, depart: d || null, sort_order: rest.length })
+        .select("id").single();
+      if (error) throw error;
+      // slot the new stop in by date (undated stops stay where they are; an undated new stop goes last)
+      const start = a || d || "";
+      let at = rest.length;
+      if (start){ const i = rest.findIndex(p => (p.arrive || p.depart || "") > start); if (i >= 0) at = i; }
+      const order = rest.map(p => p.id); order.splice(at, 0, row.id);
+      for (let i = 0; i < order.length; i++){
+        const { error: e2 } = await sb.from("itinerary_places").update({ sort_order: i }).eq("id", order[i]);
+        if (e2) throw e2;
+      }
+      input.value = ""; pastPick = null; hideConflict(); closeSug();
+      ["pa-arrive","pa-depart"].forEach(id => { const el = $(id); if (el && el._flatpickr) el._flatpickr.clear(); else if (el) el.value = ""; });
+      status(replaceStops.length ? `${place} replaced ${replaceStops.map(p => p.place).join(", ")}.` : `${place} added to this trip.`, "ok");
+      renderItineraries();
+    }catch(e){
+      status("Couldn't add that stop — please try again.", "err");
+      hideConflict();
     }
   }
 
@@ -1709,6 +1954,7 @@
         const card = b.closest(".itin-group");
         const id = card.dataset.id;
         tripCardView[id] = (tripCardView[id] || "table") === "edit" ? (tripLastView[id] || "table") : "edit";
+        selectedTripId = id;
         renderItineraries();
       });
     });
