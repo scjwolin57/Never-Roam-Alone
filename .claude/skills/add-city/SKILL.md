@@ -31,6 +31,8 @@ For the **optional** sections (`routes`, `daytrips`, `score`), include them if y
 
 **Day-trip tour links (decisions.md 2026-09-28):** do not type a `gyg` field. `add_city.py` builds each trip's GetYourGuide search link from its name, and city.html adds the partner ID. Check in the report that every trip in `day-trips.js` and the citydata file has one.
 
+**Day-trip hero photos (decisions.md 2026-09-28):** after `add_city.py` runs, run `python3 _guidebuild/daytrips/fetch_daytrip_photos.py --city "<Name>"` to give each trip a location-checked Commons photo. Never hand-pick or hand-type a `photo` field. Look at every photo it finds for the new city before reporting -- the automated checks catch bad licences and portrait crops but not everything (a flag or a close-up of a person has gotten through before); replace or remove anything that fails rule 7. A trip with no verified photo keeps a plain card. Report each trip filled or open by name.
+
 **Nearby guides:** a day-trip candidate that already has its own guide is not a day trip (rule 7 in `_needs-attention/_done/RESUME_daytrip-verify.md`); add the pair to `_guidebuild/daytrips/nearby_classified.json` via `classify_nearby.py`, then run `build_nearby.py`. Also check the reverse: existing guides within day-trip range of the new city.
 
 Once `hood_geo` exists, run `python3 _guidebuild/laundry/load_laundromats.py` so the new city gets its `laundromats` list (Overture open data, up to 3 per neighborhood within 1 km; it rewrites the key for every city and rebuilds the sheet's Laundromats tab, which is safe to re-run).
