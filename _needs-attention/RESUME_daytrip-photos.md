@@ -204,38 +204,60 @@ since there's no separate "already tried with search-fallback" tracking). Found 
   ones, the same failure mode caught twice by hand in the pilot (a Bolivia lake and a China archive
   photo, both for Comoros trips, both looked fine at a glance).
 
+## Round 2 (2026-10-01, commit 8b0d3f6b): retry-empty with the matcher fix
+- Ran `--retry-empty --web-search-fallback` across the then-251-trip empty backlog with the
+  settlement-fallback matcher fix in place. Got 63 new candidates (up from zero on a naive retry,
+  since the matcher fix lets previously-stuck trips resolve past their settlement/country item).
+- Visual review (6-column contact sheet, same as every batch this project): 10 genuinely good,
+  52 bad.
+- **The resurfacing bug recurs one level down.** Blocklisting the exact bad files that were found
+  the first time just promotes the next-worst candidate from the same thin source pool on a later
+  run. Confirmed directly this round: Port Sudan/Arous Village matched a *different* Syrian postage
+  stamp; Djibouti City/Arta Beach matched another photo from the same DVIDS military series;
+  Atlanta/Helen matched Mount St Helens (the Washington volcano) instead of its earlier bad match
+  (a painting of Helen of Troy). This is now documented as a known, recurring limitation directly
+  in the `REJECTED_TITLES` section's code comment, since it will keep happening on any future
+  `--retry-empty` re-run against the hardest-to-photograph trips.
+- Added 52 new entries (53 counting a missed Boston/Newport catch, found afterward via `git status`
+  showing a file I hadn't put on the keep list) to `REJECTED_TITLES`, each commented with the trip
+  it was rejected for.
+- Kept: Belfast/Giant's Causeway & Antrim Coast, Berlin/Sachsenhausen Memorial (a memorial plaque,
+  not an archival photo), Asmara/Debre Bizen Monastery, Abidjan/Divo, Bandar Seri Begawan/Miri,
+  Baku/Gabala, Dubrovnik/Ston, Dubrovnik/Korčula, Bodrum/Kos, Malabo/Moka.
+- Verified: `node --check day-trips.js` OK; 9 citydata files valid JSON; `check_parity_photos.py`
+  893 cities, 0 mismatches; 10 new images, 0 broken (PIL verify); sheet synced via `sheet_write.py`
+  (10 cells changed, matching the 10 keeps) and `check_sheet_parity.py` reads 0 differing cells in
+  0 cities; final count **2,859/3,100** trips have a photo (up from 2,849).
+- The patched `fetch_daytrip_photos.py` (matcher fix + full 76-entry `REJECTED_TITLES` blocklist)
+  was copied to the main checkout's `_guidebuild/daytrips/` so future `add_city.py` runs and manual
+  invocations benefit from both fixes.
+
 ## Left open now that this pass is complete
-- 2,849/3,100 trips have a photo; ~251 do not. Some are genuine coverage gaps (no Commons or
+- 2,859/3,100 trips have a photo; 241 do not. Some are genuine coverage gaps (no Commons or
   Flickr coverage exists at all); some are simply not yet researched by hand via Flickr the way
-  Weno and Tadjoura were in this pass, since that's a manual, one-trip-at-a-time process.
-- **The matcher fix and blocklist need to be copied from this worktree's
-  `_guidebuild/daytrips/fetch_daytrip_photos.py` into the main checkout's copy by hand** -- a
-  worktree-isolated session cannot write there directly. Until that happens, a new city added via
-  `add_city.py` will not benefit from either fix, and any hand-rejected photo for a new city's
-  trip needs its own `REJECTED_TITLES` entry added to both copies to stay rejected.
-- Commits `17232dfa` and `e8f0d654` (and the doc-only commits alongside them) are on branch
-  `daytrip-photos-pilot`, on top of the batch 1-8 work that was already merged and pushed earlier.
-  They still need the same merge-and-push treatment -- check `git log origin/main` first, other
-  sessions have been actively merging unrelated branches the same day.
-- CLAUDE.md §5.1's day-trip-photo count is stale (last set to 2,110/3,100) and wants updating to
-  2,849/3,100 in the same commit that merges this pass.
-- A decisions.md row (2026-09-30, second addendum) and the `daytrip-hero-photos` memory note want
-  updating with this pass's counts and the two new defect classes (recurrence, content-sensitivity).
+  Weno and Tadjoura were in an earlier pass, since that's a manual, one-trip-at-a-time process.
+- A further `--retry-empty` pass against the remaining 241 should be expected to surface more bad
+  candidates for the hardest trips, needing the same blocklist-and-remove cycle again -- this is
+  an inherent limitation of file-level blocklisting against a thin, uniformly-poor candidate pool,
+  not a bug to "fix" once and for all.
+- Commits on branch `daytrip-photos-pilot` (round 1 and round 2) still need merge-and-push to
+  `main` when Jeff asks for it -- check `git log origin/main` first, other sessions have been
+  actively merging unrelated branches the same day.
+- CLAUDE.md §5.1's day-trip-photo count wants updating to 2,859/3,100 in the same commit that
+  merges this pass.
 - A registered Flickr API key would let the Flickr fallback run at pipeline scale instead of by
-  hand, if Jeff wants to close more of the remaining ~251 gaps that way.
+  hand, if Jeff wants to close more of the remaining 241 gaps that way.
 
 
-## The 251 trips with no photo, as of 2026-09-30 (commit e8f0d654)
-One per line: `City | half/full | Trip name | Country`. Regenerate with the same one-liner as
-before (see the earlier version of this section in git history, or just filter day-trips.js for
-trips with no `photo` key).
+## The 241 trips with no photo, as of 2026-10-01 (commit 8b0d3f6b)
+One per line: `City | half/full | Trip name | Country`. Regenerate by decoding day-trips.js's
+`NRA_DAYTRIPS` object and filtering for trips with no `photo` key.
 
 <details>
-<summary>251 trips (click to expand)</summary>
+<summary>241 trips (click to expand)</summary>
 
 ```
 Abha | full | Tanomah | Saudi Arabia
-Abidjan | full | Divo | Côte d'Ivoire
 Agadez | half | Azel Village | Niger
 Agra | full | Chand Baori (Abhaneri) | India
 Algiers | full | Ech Chettia | Algeria
@@ -248,22 +270,16 @@ Antsiranana | full | Nosy Hara Marine Park | Madagascar
 Aomori | full | Lake Towada & Oirase Gorge | Japan
 Ashgabat | half | Anau | Turkmenistan
 Ashgabat | half | Gökdepe | Turkmenistan
-Asmara | full | Debre Bizen Monastery | Eritrea
 Aswan | full | Wadi el-Sebua & Lake Nasser Temples | Aswan Governorate, Egypt
 Atlanta | full | Helen | United States
 Bahir Dar | full | Tana Kirkos Island | Ethiopia
-Baku | full | Gabala | Gabala District, Azerbaijan
 Bamyan | full | Yakawlang (Chehelburj and Redchasht Lake) | Afghanistan
-Bandar Seri Begawan | full | Miri | Malaysia
 Bandar Seri Begawan | half | Labuan | Malaysia
 Bangui | full | Boali Falls | Central African Republic
 Baracoa | half | Playa Nibujón | Cuba
 Battambang | full | Ang Trapeang Thmor Reserve | Cambodia
 Batumi | half | Makhuntseti Waterfall & Machakhela National Park | Georgia
-Belfast | full | Giant's Causeway & Antrim Coast | County Antrim, Northern Ireland
-Berlin | half | Sachsenhausen Memorial | Oranienburg, Brandenburg, Germany
 Blantyre | half | Thyolo Tea Estates | Southern Region, Malawi
-Bodrum | half | Kos | Greece
 Bologna | full | Brescia | Italy
 Boracay | half | Nabaoy River | Philippines
 Bordeaux | half | Médoc wine route | France
@@ -292,9 +308,7 @@ Djibouti City | full | Arta Beach | Djibouti
 Djibouti City | half | Décan Refuge | Djibouti
 Doha | full | Khor Al Adaid (Inland Sea) | Southern Qatar
 Doha | half | Al Jassasiya Rock Carvings | Northeastern coast, Qatar
-Dubrovnik | full | Korčula | Croatia
 Dubrovnik | half | Mljet National Park | Croatia
-Dubrovnik | half | Ston | Croatia
 Durban | half | PheZulu Safari Park | South Africa
 Eilat | half | Hai-Bar Yotvata Nature Reserve | Israel
 El Calafate | full | Estancia Cristina and Upsala Glacier | Argentina
@@ -371,7 +385,6 @@ Longyearbyen | half | Templefjorden | Norway (Svalbard)
 Luoyang | full | Yuntaishan Geopark | China
 Lyon | half | Beaujolais wine region | France
 Majuro | full | Arno Atoll | Marshall Islands
-Malabo | full | Moka | Bioko Island, Equatorial Guinea
 Malé | half | Huraa | Kaafu Atoll, Maldives
 Mamoudzou | half | Mont Bénara | Mayotte
 Manado | half | Tunan Waterfall | Indonesia
