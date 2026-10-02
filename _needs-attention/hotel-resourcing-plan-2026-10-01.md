@@ -165,9 +165,14 @@ Rewritten 2026-10-02 to Jeff's call:
 Expedia's inventory is thinner than Agoda's in parts of Asia, which is why Agoda is the
 proposed backup; the pilot reports how many picks each program carries per region.
 Agoda's six-month no-bookings clause and its clause 4.4.1 question (section 8) apply
-from the day its first link goes live. The site stores only partner and
-property ID; one template per partner in `hotel-affiliates.js` builds the URL with our
-code, so a code change is one line.
+from the day its first link goes live.
+
+**How links are stored (changed 2026-10-02, see section 11):** Expedia's terms (16.2 to
+16.4) forbid building or changing its links ourselves, so for Expedia the site stores
+the exact link Expedia's own tool produced, one per hotel, plus the property ID for
+checking. Agoda and Hostelworld links can be built from the property ID and our partner
+code, so for those one template per partner in `hotel-affiliates.js` builds the URL and
+a code change stays a one-line edit.
 
 ## 6. What changes on city.html
 
@@ -263,15 +268,103 @@ binding rules are the T&Cs of 9 Nov 2023 (summarised in the programs note).
 | 11 | Payment and tax details | Jeff only | Bank account for transfer (no PayPal), US tax form, in Jeff's name |
 | 12 | Social accounts | Unknown | The program is pitched at social creators; the form may ask for handles. A website alone is allowed by the help centre |
 
-**Not verified, and the biggest open question for scale:** Expedia's help centre shows
-links made one at a time (the Creator Toolbox "Get link" button, or pasting a page URL
-into the link builder). Nothing public says links can be built by adding our ID to any
-property URL, or in bulk. With about 10,000 hotels that matters: one by one by hand is
-not workable. First task after approval: read the dashboard's link documentation and
-test whether a parameter-style link (our ID added to a property URL) tracks. If it does
-not, ask Expedia's support for a bulk method before the pilot.
+**Bulk links:** answered in section 11. In short, we may not build Expedia links
+ourselves; bulk needs Expedia to switch on its Data Feed or Deeplink Generator for us.
+
+**Do we fit the program's criteria? Yes** (terms section 7.1 and the help centre's
+rejection article, read 2026-10-02): live and complete site, original content with
+credited and licensed photos, no misinformation, not a travel agent, not a sub-affiliate
+network, nothing that looks like Expedia, privacy policy that explains tracking. No
+traffic minimum is stated. Commission "up to 4%".
+
+**When applying:** the "Join now" button on creator.expediagroup.com/affiliates opens
+the sign-up with `initial=travel_video`. Choose the affiliate / website option and enter
+neverroamalone.com, with contact@neverroamalone.com as the email.
 
 Sources: [Travel Creator Program](https://creator.expediagroup.com/),
 [How do I create Affiliate Links?](https://help.creator.expediagroup.com/hc/en-us/articles/13164069784727-How-do-I-create-Affiliate-Links),
 [Page types you can link to](https://help.creator.expediagroup.com/hc/en-us/articles/12480156695191-What-are-the-different-types-of-pages-you-can-link-to),
+all read 2026-10-02.
+
+## 11. Building about 10,700 Expedia links (checked 2026-10-02)
+
+### What we found
+
+| # | Finding | Source |
+|---|---|---|
+| 1 | The Travel Creator Program has no API access | Help centre, "Do you offer API access?" (updated 2025-07-16) |
+| 2 | Links are made one at a time: the Creator Toolbox "Get link" button on any Expedia page, or the Link Builder (paste a page address) | Help centre, "How to create and copy an affiliate link" |
+| 3 | A creator link is a random short code (`expedia.com/affiliate/3yRyX67`), so it cannot be worked out from a hotel's address. Seven public examples found, all the same shape | public code on GitHub |
+| 4 | Opening one shows the tracking it adds: `affcid=US.DIRECT.PHG.<publisher>.<campaign>` plus an ID made at the moment of the click. PHG is Partnerize, so the privacy page is right to name it | one link opened in the browser |
+| 5 | **We may not build or change Expedia links ourselves.** 16.2: "you will not alter, modify or otherwise change the Program Links without Expedia's prior written consent". 16.3: the same for links from the Deeplink Generator | T&Cs |
+| 6 | Driving the Toolbox by script across thousands of pages runs into 11.1.10 (no bypassing measures that limit access) and the no-scraping clauses (11.1.21, 11.1.22) | T&Cs |
+| 7 | **Two tools in the terms would solve it, both at Expedia's discretion:** the **Data Feed** (16.5: accommodation content "through a flat file generator", an Excel download or an XML interface) and the **Deeplink Generator** (16.3: "a direct link to... the infosite page for a certain hotel"). Neither is described on the public creator pages | T&Cs |
+| 8 | 16.18: no Expedia content shown in translation without consent. We show only hotel names and links, not Expedia's descriptions or photos | T&Cs |
+| 9 | Accounts made after 23 January 2024 need no separate Partnerize account | Help centre, Partnerize article |
+| 10 | An account with no clicks for 12 months can be closed after notice | Help centre, inactivity FAQ (updated 2026-08-11) |
+
+### Order of work
+
+1. ~~Jeff applies (website option, not travel video).~~ **Done: approved 2026-10-02.**
+2. ~~The day it is approved, Jeff sends the email below to creatorsupport@expediagroup.com.~~ **Sent 2026-10-02; waiting for Expedia's answer.**
+3. If Expedia grants Data Feed or Deeplink Generator access: read its guidelines, then
+   run the 25-city pilot with links from that tool.
+4. If Expedia says no, compare before the pilot:
+   - **(B)** join Expedia through a network (CJ), whose deep-link format is normally
+     built from any page address. Not verified that Expedia's network program allows it;
+     the Creator Toolbox is not available to network members.
+   - **(C)** the Toolbox one link at a time by hand: about 10,700 links at about 20
+     seconds each, roughly 60 hours (estimate).
+   - **(D)** Agoda as the main program in more regions, since Agoda allows links built
+     from the property ID.
+
+### Email for Jeff to send after approval
+
+To: creatorsupport@expediagroup.com
+From: contact@neverroamalone.com
+Subject: Bulk hotel deep links for neverroamalone.com (Data Feed or Deeplink Generator access)
+
+> Hello,
+>
+> I run Never Roam Alone (https://neverroamalone.com), an independent site with free
+> city guides. My Travel Creator account was approved on [date]; my account email is
+> contact@neverroamalone.com.
+>
+> Each guide recommends hotels by neighborhood: for every neighborhood we name one
+> 5-star, one 3–4 star and one 1–2 star hotel. Across the site that is about 10,700
+> named hotels, and I would like each one to carry an Expedia link to that hotel's own
+> page.
+>
+> At that scale, making the links one at a time with the Creator Toolbox is not
+> practical, and I understand from the Program Terms (16.2 to 16.4) that I may not build
+> or change links myself. Could you give my account access to one of these?
+>
+> 1. The Data Feed (Terms 16.5), so I can match our hotels to Expedia property IDs and
+>    their tracked links; or
+> 2. The Deeplink Generator (Terms 16.3) with a way to create links in bulk, for example
+>    by uploading a list of property pages; or
+> 3. Your written consent (Terms 16.2) to a fixed link format, built from your property
+>    page address plus my tracking code, if you have one you approve.
+>
+> How the links would appear: one plain text link per hotel ("Check rates"), marked as
+> sponsored, with a commission disclosure next to it and in our privacy policy. No
+> redirects through our site, no shortened links, no scripts or frames, and no Expedia
+> prices, photos, reviews or descriptions copied onto our pages. Our pages offer a
+> language switcher, but only the hotel name and the link would come from Expedia.
+>
+> If none of these is available for my account, could you tell me the recommended way
+> to link this many individual hotels?
+>
+> Thank you,
+> Jeff
+> Never Roam Alone
+> contact@neverroamalone.com
+
+Sources: [Expedia affiliate program page](https://creator.expediagroup.com/affiliates),
+[Expedia affiliate T&Cs](https://creator.expediagroup.com/doc/affiliate),
+[Do you offer API access?](https://help.creator.expediagroup.com/hc/en-us/articles/33222360022295),
+[How to create and copy an affiliate link](https://help.creator.expediagroup.com/hc/en-us/articles/18048954202391),
+[Why was my account rejected?](https://help.creator.expediagroup.com/hc/en-us/articles/15361594064791),
+[Partnerize article](https://help.creator.expediagroup.com/hc/en-us/articles/1500003709001),
+[Inactivity FAQ](https://help.creator.expediagroup.com/hc/en-us/articles/41947042654743),
 all read 2026-10-02.
