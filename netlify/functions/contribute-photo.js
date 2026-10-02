@@ -25,7 +25,7 @@ const MAX_BYTES = 12 * 1024 * 1024;
 const OK_TYPES = { "image/jpeg": "jpg", "image/png": "png", "image/webp": "webp" };
 // Photo slots the form may be raised from. Anything else is stored as "other"
 // so a made-up value can never end up in the review queue as a real category.
-const OK_KINDS = ["landmark", "city-hero", "neighborhood-hero", "food-dish", "other"];
+const OK_KINDS = ["landmark", "city-hero", "neighborhood-hero", "food-dish", "daytrip", "other"];
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -165,12 +165,12 @@ exports.handler = async (event) => {
       console.error("[contribute-photo] STOP: storage rejected upload. HTTP", ur.status, (await ur.text()).slice(0, 300));
       return json(502, { sent: false, error: "Could not store the photo." });
     }
-    const ir = await fetch(`${SUPABASE_URL}/rest/v1/landmark_photo_contributions`, {
+    const insertRow = (k, ctx) => fetch(`${SUPABASE_URL}/rest/v1/landmark_photo_contributions`, {
       method: "POST",
       headers: Object.assign({ "Content-Type": "application/json", Prefer: "return=representation" }, H),
       body: JSON.stringify({
         city, country, landmark, landmark_idx: idx, storage_path: path,
-        subject_kind: kind, subject_label: kindLabel, subject_context: context || null,
+        subject_kind: k, subject_label: kindLabel, subject_context: ctx || null,
         taken_month: month, taken_year: year, credit_mode: mode,
         credit_name: creditName || null, work_url: workUrl || null,
         rights_confirmed: true, status: "pending",
@@ -179,8 +179,16 @@ exports.handler = async (event) => {
         agreed_at: agreedAt, page_url: pageUrl || null
       })
     });
+    let ir = await insertRow(kind, context);
+    let failText = ir.ok ? "" : await ir.text();
+    // A day-trip photo before day-trip-photo-kind.sql has been run: the database does not know the "daytrip" kind yet,
+    // so file it as "other" with the context "Day trip". contributed-photos.js reads both, so the photo is never lost.
+    if (!ir.ok && kind === "daytrip" && /lpc_subject_kind_chk/.test(failText)) {
+      ir = await insertRow("other", "Day trip");
+      failText = ir.ok ? "" : await ir.text();
+    }
     if (!ir.ok) {
-      console.error("[contribute-photo] STOP: insert failed. HTTP", ir.status, (await ir.text()).slice(0, 300));
+      console.error("[contribute-photo] STOP: insert failed. HTTP", ir.status, failText.slice(0, 300));
       return json(502, { sent: false, error: "Could not save the submission." });
     }
     const row = (await ir.json())[0] || {};

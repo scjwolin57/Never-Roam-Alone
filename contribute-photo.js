@@ -43,6 +43,7 @@ window.NRA_PHOTO_CONTRIB = (function(){
     "city-hero":        { label: "City hero photo",       hint: "Wide landscape shots work best — this one runs full width across the top of the page." },
     "neighborhood-hero":{ label: "Neighborhood hero photo", hint: "This one fills a tall 3:4 tile. Upright shots fit best, but a normal landscape photo works too as long as the subject sits near the middle — it gets centre-cropped. Very wide panoramas don't survive the crop." },
     "food-dish":        { label: "Food dish",             hint: "A clear, well-lit shot of the dish itself works best." },
+    "daytrip":          { label: "Day trip",              hint: "Landscape shots of the place itself suit the day-trip cards best." },
     "other":            { label: "Photo",                 hint: "Landscape shots suit the guide layout best." }
   };
 

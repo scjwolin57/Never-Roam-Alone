@@ -13,6 +13,7 @@
      neighborhood-hero  -> NRA_HOOD_PHOTO[city][hood]  {img, page, src}
      landmark           -> NRA_LANDMARK_PHOTOS[city][i]{img, page, credit}
      food-dish          -> NRA_FOOD_PHOTOS[city][i]    {img, page, by}
+     daytrip            -> the trip's own .photo in NRA_DAYTRIPS[city] (half or full), matched by trip name {img, page, credit}
 
    Two rules this module holds to:
 
@@ -153,6 +154,26 @@ window.NRA_CONTRIBUTED = (function(){
         while (arr.length <= li) arr.push({});
         arr[li] = { img: img, page: page, credit: who };
         used++;
+        return;
+      }
+
+      /* "daytrip", or "other" with the context "Day trip" (how contribute-photo.js files one before
+         day-trip-photo-kind.sql has been run) */
+      if (row.subject_kind === "daytrip" || (row.subject_kind === "other" && row.subject_context === "Day trip")) {
+        var trips = (window.NRA_DAYTRIPS || {})[key];
+        if (!trips) return;
+        var wantTrip = String(row.subject || "").trim().toLowerCase();
+        var lists = [trips.half, trips.full];
+        for (var l = 0; l < lists.length; l++) {
+          var arr2 = lists[l] || [];
+          for (var t = 0; t < arr2.length; t++) {
+            if (String(arr2[t].name || "").trim().toLowerCase() === wantTrip) {
+              arr2[t].photo = { img: img, page: page, credit: who };
+              used++;
+              return;
+            }
+          }
+        }
         return;
       }
 

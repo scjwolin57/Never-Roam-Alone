@@ -96,7 +96,8 @@
   .stay-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   .stay-card{background:var(--card);border:1px solid #e7e0d2;
     border-top:4px solid var(--teal);border-radius:12px;padding:16px 14px 18px;
-    box-shadow:var(--shadow);text-align:center;transition:transform .18s,box-shadow .18s}
+    box-shadow:var(--shadow);text-align:center;transition:transform .18s,box-shadow .18s;
+    display:flex;flex-direction:column}
   .stay-card:nth-child(1){border-top-color:#8bbf9f}
   .stay-card:nth-child(2){border-top-color:var(--teal)}
   .stay-card:nth-child(3){border-top-color:var(--green)}
@@ -107,7 +108,7 @@
   .stay-days span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
   .stay-label{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:5px}
   .stay-blurb{font-size:.78rem;color:var(--muted);line-height:1.4}
-  .stay-vote{margin-top:12px}
+  .stay-vote{margin-top:auto;padding-top:12px;align-self:flex-end}   /* bottom right of the card (Jeff, 2026-09-30) */
   @media(max-width:820px){.stay-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:460px){.stay-grid{grid-template-columns:1fr}}
 
@@ -436,6 +437,8 @@
   .dtcard-photo-credit{position:absolute;bottom:4px;right:8px;left:8px;text-align:right;font-size:.62rem;color:rgba(255,255,255,.92);
     text-shadow:0 1px 3px rgba(0,0,0,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .dtcard-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
+  /* no photo yet: the same strip the landmark cards use, with the Contribute button (Jeff, 2026-09-30) */
+  .dtcard-photo-soon{background:linear-gradient(180deg,#efe9da,#e4dcc8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px}
   .dtcard-name{font-weight:700;font-size:.98rem;margin:0 0 2px}
   .dtcard-name a{color:inherit;text-decoration:none}
   .dtcard-name a:hover{color:var(--green);text-decoration:underline}
@@ -460,14 +463,21 @@
   .dtcard-alert .adv-date{opacity:.75;white-space:nowrap}
   /* Nearby guide cards: another Never Roam Alone guide within day-trip range. The whole card opens that guide;
      the ribbon is the neighborhood photos' "best for" tag (same colour, notched ends, emoji + label). */
-  a.dtcard-guide{display:block;color:inherit;text-decoration:none}
-  a.dtcard-guide:hover .dtcard-name,a.dtcard-guide:focus-visible .dtcard-name{color:var(--green);text-decoration:underline}
-  /* the ribbon sits at the bottom right of the card, under the blurb (Jeff, 2026-09-24) */
-  .dt-guide-flag{display:flex;width:fit-content;margin:12px 0 0 auto;align-items:center;gap:7px;max-width:100%;
-    padding:7px 20px;background:#b5492c;color:#fff;font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.02em;white-space:nowrap;
+  .dtcard-guide{position:relative;cursor:pointer}
+  .dtcard-guide-link::after{content:"";position:absolute;inset:0;z-index:1}
+  .dtcard-guide:hover .dtcard-name a,.dtcard-guide-link:focus-visible{color:var(--green);text-decoration:underline}
+  .dtcard-guide .dtcard-photo-credit{z-index:2}   /* the photo credit link stays clickable above the stretched name link */
+  /* the ribbon sits in the top right corner of the card, across from the city name (Jeff, 2026-09-30; it was
+     under the blurb from 2026-09-24). When the name would be squeezed, the ribbon drops to its own line, right-aligned. */
+  .dtcard-head-guide{flex-wrap:wrap;gap:8px 10px}
+  .dtcard-head-guide .dtcard-name{flex:1 1 auto}   /* beside the flag when the whole name fits, else the flag drops below */
+  .dtcard-head-guide .dt-guide-flag{flex:none}
+  /* two short lines ("See Our / Guide Page") so the ribbon is only ~108px wide and the name keeps room beside it */
+  .dt-guide-flag{display:flex;width:fit-content;margin:0 0 0 auto;align-items:center;gap:5px;max-width:100%;
+    padding:6px 14px;background:#b5492c;color:#fff;font-size:.68rem;font-weight:700;line-height:1.15;letter-spacing:.02em;text-align:left;
     text-shadow:0 1px 2px rgba(0,0,0,.28);box-shadow:0 3px 10px rgba(0,0,0,.3);
-    clip-path:polygon(0 0,100% 0,calc(100% - 11px) 50%,100% 100%,0 100%,11px 50%)}
-  .dt-guide-flag .dt-guide-emoji{font-size:.92rem;line-height:1}
+    clip-path:polygon(0 0,100% 0,calc(100% - 9px) 50%,100% 100%,0 100%,9px 50%)}
+  .dt-guide-flag .dt-guide-emoji{font-size:.85rem;line-height:1}
 
   /* Events calendar section */
   .cal-head-row{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:6px}
@@ -1173,12 +1183,13 @@
   .lmk-photo{width:100%;height:130px;background-size:cover;background-position:center;position:relative;flex:none;overflow:hidden;border-radius:3px 3px 0 0}
   .lmk-photo-credit{position:absolute;bottom:4px;right:8px;font-size:.62rem;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.7)}
   .lmk-photo-credit a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5)}
-  .lmk-card-row{display:flex;gap:12px;align-items:flex-start;padding:14px 16px}
+  .lmk-card-row{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;flex:1}
   .lmk-num{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
   .lmk-name{font-weight:700;color:#2f3b22;text-decoration:none;border-bottom:1px dotted var(--teal)}
   .lmk-name:hover{color:var(--coral);border-bottom-color:var(--coral)}
   .lmk-desc{margin:6px 0 0;font-size:.88rem;color:var(--muted,#666);line-height:1.45}
-  .lmk-vote-wrap{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .lmk-body{flex:1;min-width:0;align-self:stretch;display:flex;flex-direction:column}
+  .lmk-vote-wrap{display:flex;align-items:center;justify-content:flex-end;gap:8px;margin-top:auto;padding-top:8px;flex-wrap:wrap}   /* bottom right of the card (Jeff, 2026-09-30) */
   /* Vote widgets that sit at the right edge of their card (landmark row, the
      cost estimator's corner, a safety note) open the bubble leftward from that
      edge on a phone; the sitewide centered default ran them off a 320px screen.
@@ -3232,9 +3243,16 @@ function buildAdvisoryBanner(c, cityAdv){
       : t.name;
     const more = t.featured ? `<span class="dtcard-link">See guide &rarr;</span>` : "";
     const vote = voteWidgetHTML({type:"daytrip", id:`${c.city}:${t.name}`, city:c.city, extraClass:"dtcard-vote", size:14});
-    /* hero photo: Commons, location-checked, credited like the landmark cards; a trip with no verified photo has none */
+    /* hero photo: Commons, location-checked, credited like the landmark cards. A trip with no verified photo shows a
+       placeholder with a "Contribute a photo" button instead, never a filler image (Jeff, 2026-09-30). */
+    const tn = String(t.name).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
     const ph = t.photo && t.photo.img ? `
-          <div class="dtcard-photo"><img src="${t.photo.img}" alt="${String(t.name).replace(/"/g, "&quot;")}" loading="lazy" decoding="async">${creditHTML(t.photo, "dtcard-photo-credit")}</div>` : "";
+          <div class="dtcard-photo"><img src="${t.photo.img}" alt="${tn}" loading="lazy" decoding="async">${creditHTML(t.photo, "dtcard-photo-credit")}</div>` : `
+          <div class="dtcard-photo dtcard-photo-soon">
+            <svg class="lmk-soon-ic" viewBox="0 0 44 34" aria-hidden="true"><rect x="2" y="2" width="40" height="30" rx="4"/><circle cx="13" cy="12" r="4"/><path d="M4 28l12-12 9 9 6-5 9 8"/></svg>
+            <span class="lmk-soon-txt">Image coming soon</span>
+            <button type="button" class="lmk-soon-btn" data-contrib-kind="daytrip" data-contrib-subject="${tn}">Contribute a photo</button>
+          </div>`;
     return `
         <div class="dtcard">${ph}
           <div class="dtcard-head">
@@ -3293,13 +3311,21 @@ function buildAdvisoryBanner(c, cityAdv){
      it is shown after that list's day trips, nearest first, and the whole card opens the guide. */
   function dtGuideCardHTML(g){
     const esc = s => String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    /* the other city's own hero photo (city-photos.js holds all of them), the small 640px version, credited the same way
+       the hero credits it (Jeff, 2026-09-30) */
+    const hp = (window.NRA_CITY_PHOTO || {})[g.city];
+    const ph = hp && hp.img ? `
+          <div class="dtcard-photo"><img src="${esc(hp.img.replace(/\.webp$/, "-sm.webp"))}" alt="${esc(g.city)}" loading="lazy" decoding="async">${creditHTML({page: hp.page, credit: hp.credit || (/pexels\.com/.test(hp.page || "") ? "Pexels" : /unsplash\.com/.test(hp.page || "") ? "Unsplash" : "Wikimedia Commons")}, "dtcard-photo-credit")}</div>` : "";
+    /* the whole card still opens the guide: the city name is the link and stretches over the card; the photo credit link sits above it */
     return `
-        <a class="dtcard dtcard-guide" href="city.html?city=${encodeURIComponent(g.city)}" aria-label="${esc(g.city)}: see our guide page">
-          <div class="dtcard-name">${esc(g.city)}</div>
+        <div class="dtcard dtcard-guide">${ph}
+          <div class="dtcard-head dtcard-head-guide">
+            <div class="dtcard-name"><a class="dtcard-guide-link" href="city.html?city=${encodeURIComponent(g.city)}" aria-label="${esc(g.city)}: see our guide page">${esc(g.city)}</a></div>
+            <span class="dt-guide-flag"><span class="dt-guide-emoji" aria-hidden="true">\u{1F9ED}</span><span>See Our<br>Guide Page</span></span>
+          </div>
           <div class="dtcard-country">${esc(g.country)}</div>
           <p class="dtcard-blurb">${esc(g.blurb)}</p>
-          <span class="dt-guide-flag"><span class="dt-guide-emoji" aria-hidden="true">\u{1F9ED}</span><span>See Our Guide Page</span></span>
-        </a>`;
+        </div>`;
   }
   function buildDayTripsHTML(){
     const half = (dt && dt.half) || [], full = (dt && dt.full) || [];
