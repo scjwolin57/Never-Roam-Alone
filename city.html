@@ -886,6 +886,7 @@
   .dt-suggest{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:4px}
   .dt-suggest-hint{margin:0;font-size:.9rem;color:var(--muted)}
   .dt-suggest .hood-suggest{align-self:flex-start;font-size:.78rem}
+  .lmk-suggest{margin-top:18px}
   /* A hood we have no verified photo of yet borrows this city's own photo as a
      clearly-marked stand-in. Blending it to the brand green keeps it from
      reading as a photograph of the neighborhood itself, and the credit line
@@ -5459,6 +5460,11 @@ function buildAdvisoryBanner(c, cityAdv){
     if (!e.target.closest(".dt-suggest-btn") || !window.NRA_SUGGEST_TRIP) return;
     NRA_SUGGEST_TRIP.open({ city: c.city });
   });
+  /* "Suggest a landmark" under the landmarks opens the same form in landmark mode. */
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".lmk-suggest-btn") || !window.NRA_SUGGEST_TRIP) return;
+    NRA_SUGGEST_TRIP.open({ city: c.city, kind: "landmark" });
+  });
 
   /* "From Roamers" Show / Hide: one choice for every group on the page, remembered in this browser. */
   document.addEventListener("click", e => {
@@ -5648,6 +5654,9 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="lmk-map-col"><div id="lmk-map" class="lmk-map"></div></div>
         ${landmarksHTML}
       </div>` : `<p class="hood-intro">Landmark picks for ${c.city} are coming soon.</p>`;
+      /* "Suggest a landmark" under every city's landmarks (Jeff, 2026-10-02; suggest-daytrip.js, landmark mode). */
+      if (lmkBody) lmkBody.insertAdjacentHTML("beforeend", `<div class="dt-suggest lmk-suggest"><p class="dt-suggest-hint">Know a sight in ${c.city} we should feature?</p>
+          <button type="button" class="hood-suggest lmk-suggest-btn">+ Suggest a landmark</button></div>`);
       const dtBody = document.getElementById("daytrips-section-body");
       const dayTripsHTML = buildDayTripsHTML();
       /* No day trips: say so, and invite one (Jeff, 2026-09-30; suggest-daytrip.js). */

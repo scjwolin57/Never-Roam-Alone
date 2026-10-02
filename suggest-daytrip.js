@@ -5,7 +5,13 @@
 
    Open it with:
 
-     NRA_SUGGEST_TRIP.open({ city: "Yaren" });
+     NRA_SUGGEST_TRIP.open({ city: "Yaren" });                     // a day trip
+     NRA_SUGGEST_TRIP.open({ city: "Lisbon", kind: "landmark" });  // a landmark (2026-10-02)
+
+   Landmark mode ("Suggest a landmark" under every city's Landmarks): the
+   name, the Google Maps link (required, so we can check where it is), why
+   it's worth seeing, a website (optional), and the same profile and contact
+   choices. Both kinds go to the same function and the same Admin list.
 
    The fields (Jeff's list): name of the place, how to get there, how far
    it is each way (1.5 hours/half day, 3+ hours/full days), a website for
@@ -66,20 +72,33 @@ window.NRA_SUGGEST_TRIP = (function(){
     opts = opts || {};
     var city = String(opts.city || "").trim();
     if (!city) return;
+    var lmk = opts.kind === "landmark";
+    var what = lmk ? "landmark" : "day trip";
     ensureCSS();
 
     var back = document.createElement("div");
     back.className = "cf-back";
     back.innerHTML =
-      '<div class="cf-box" role="dialog" aria-modal="true" aria-label="Suggest a day trip">' +
+      '<div class="cf-box" role="dialog" aria-modal="true" aria-label="Suggest a ' + what + '">' +
         '<button type="button" class="cf-close" aria-label="Close">&times;</button>' +
-        '<h3>Suggest a day trip</h3>' +
-        '<p class="cf-sub">From ' + esc(city) + '. We check every suggestion before it goes on the guide.</p>' +
+        '<h3>Suggest a ' + what + '</h3>' +
+        '<p class="cf-sub">' + (lmk ? 'In ' + esc(city) + '. A landmark is inside the city; somewhere further out is a day trip.' : 'From ' + esc(city) + '.') + ' We check every suggestion before it goes on the guide.</p>' +
         '<form id="sdt-form" novalidate>' +
           '<div class="cf-f">' +
-            '<label for="sdt-name">Name of place visiting</label>' +
+            '<label for="sdt-name">' + (lmk ? 'Name of the landmark' : 'Name of place visiting') + '</label>' +
             '<input type="text" id="sdt-name" required maxlength="160" autocomplete="off">' +
           '</div>' +
+          (lmk ?
+          '<div class="cf-f">' +
+            '<label for="sdt-maps">Google Maps link</label>' +
+            '<input type="url" id="sdt-maps" required placeholder="https://maps.app.goo.gl/..." autocomplete="off">' +
+            '<p class="cf-note">Open the place in Google Maps, tap Share, and paste the link.</p>' +
+          '</div>' +
+          '<div class="cf-f">' +
+            '<label for="sdt-why">Why it\'s worth seeing</label>' +
+            '<textarea id="sdt-why" rows="3" required maxlength="600"></textarea>' +
+          '</div>'
+          :
           '<div class="cf-f">' +
             '<label for="sdt-how">How to get there</label>' +
             '<textarea id="sdt-how" rows="3" required maxlength="1000" placeholder="Car, bus, train, boat, tour..."></textarea>' +
@@ -90,7 +109,7 @@ window.NRA_SUGGEST_TRIP = (function(){
               '<label><input type="radio" name="sdt-dist" value="half"> 1.5 hours/half day</label>' +
               '<label><input type="radio" name="sdt-dist" value="full"> 3+ hours/full days</label>' +
             '</div>' +
-          '</div>' +
+          '</div>') +
           '<div class="cf-f">' +
             '<label for="sdt-site">Website for more information or booking links <span class="sp-opt">(optional)</span></label>' +
             '<input type="url" id="sdt-site" placeholder="https://" autocomplete="off">' +
@@ -170,16 +189,24 @@ window.NRA_SUGGEST_TRIP = (function(){
       var msg = $("sdt-msg"), btn = $("sdt-submit");
       var fail = function(text, focusId){ msg.className = "cf-msg err"; msg.textContent = text; if (focusId && $(focusId)) $(focusId).focus(); };
       var name = ($("sdt-name").value || "").trim();
-      var how = ($("sdt-how").value || "").trim();
+      var how = lmk ? "" : ($("sdt-how").value || "").trim();
+      var mapsUrl = lmk ? ($("sdt-maps").value || "").trim() : "";
+      var why = lmk ? ($("sdt-why").value || "").trim() : "";
       var distEl = back.querySelector('input[name="sdt-dist"]:checked');
       var dist = distEl ? distEl.value : "";
       var siteUrl = ($("sdt-site").value || "").trim();
       var contact = $("sdt-contact").checked;
       var showProfile = !!($("sdt-profile") && $("sdt-profile").checked);
       var email = $("sdt-email") ? ($("sdt-email").value || "").trim() : "";
-      if (!name) return fail("Please add the name of the place.", "sdt-name");
-      if (!how) return fail("Please say how to get there.", "sdt-how");
-      if (!dist) { fail("Please choose how far it is each way."); var r0 = back.querySelector('input[name="sdt-dist"]'); if (r0) r0.focus(); return; }
+      if (!name) return fail(lmk ? "Please add the name of the landmark." : "Please add the name of the place.", "sdt-name");
+      if (lmk) {
+        if (!mapsUrl) return fail("Please add the Google Maps link.", "sdt-maps");
+        if (!window.NRA_SUGGEST || !NRA_SUGGEST.isMapsUrl || !NRA_SUGGEST.isMapsUrl(mapsUrl)) return fail("That doesn't look like a Google Maps link. Open the place in Google Maps, tap Share, and paste the link.", "sdt-maps");
+        if (!why) return fail("Please say why it's worth seeing.", "sdt-why");
+      } else {
+        if (!how) return fail("Please say how to get there.", "sdt-how");
+        if (!dist) { fail("Please choose how far it is each way."); var r0 = back.querySelector('input[name="sdt-dist"]'); if (r0) r0.focus(); return; }
+      }
       if (siteUrl && !isWebUrl(siteUrl)) return fail("The website link should start with http:// or https://", "sdt-site");
       var token = await accessToken();
       if (contact && !token) {
@@ -193,6 +220,7 @@ window.NRA_SUGGEST_TRIP = (function(){
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            kind: lmk ? "landmark" : "daytrip", mapsUrl: mapsUrl, why: why,
             city: city, placeName: name, howToGet: how, distance: dist, websiteUrl: siteUrl,
             showProfile: token ? showProfile : false, contact: contact, email: token ? "" : email, accessToken: token,
             website: $("sdt-website").value,          /* honeypot */
@@ -203,7 +231,7 @@ window.NRA_SUGGEST_TRIP = (function(){
         try { out = await r.json(); } catch (e2) { /* non-JSON error page */ }
         if (!r.ok || !out.sent) throw new Error(out.error || ("Sending failed (" + r.status + ")"));
         back.querySelector(".cf-box").innerHTML =
-          '<h3>Thank you</h3><p class="cf-sub">Your day trip suggestion from ' + esc(city) + ' has been sent. We check every suggestion before it goes on the guide.</p>' +
+          '<h3>Thank you</h3><p class="cf-sub">Your ' + what + ' suggestion ' + (lmk ? 'in ' : 'from ') + esc(city) + ' has been sent. We check every suggestion before it goes on the guide.</p>' +
           '<div class="cf-actions"><button type="button" class="cf-submit" id="sdt-done">Close</button></div>';
         back.querySelector("#sdt-done").addEventListener("click", close);
       } catch (err) {

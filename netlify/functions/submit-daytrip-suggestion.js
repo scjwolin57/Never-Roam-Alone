@@ -1,5 +1,7 @@
 // Netlify serverless function: a visitor sends the "Suggest a day trip" form
-// from a city page that has no day trips (Jeff, 2026-09-30). Built from
+// from a city page that has no day trips (Jeff, 2026-09-30), or the
+// "Suggest a landmark" form under a city's Landmarks (kind "landmark",
+// 2026-10-02; landmark-suggestions-setup.sql adds its columns). Built from
 // submit-suggestion.js. The suggestion is saved to the daytrip_suggestions
 // table as PENDING (daytrip-suggestions-setup.sql) and the site owner is
 // emailed a copy with a link to review it on the Admin page. Nothing reaches
@@ -38,7 +40,11 @@ exports.handler = async (event) => {
   let p;
   try { p = JSON.parse(event.body || "{}"); } catch (e) { return json(400, { error: "Bad JSON" }); }
 
+  const kind       = p.kind === "landmark" ? "landmark" : "daytrip";
+  const lmk        = kind === "landmark";
   const city       = clip(p.city, 80);
+  const mapsUrl    = clip(p.mapsUrl, 500);
+  const why        = clip(p.why, 600);
   const placeName  = clip(p.placeName, 160);
   const howToGet   = clip(p.howToGet, 1000);
   const distance   = String(p.distance || "");
@@ -57,9 +63,15 @@ exports.handler = async (event) => {
 
   // --- the fields ---
   if (!city) return json(400, { error: "Missing the city." });
-  if (!placeName) return json(400, { error: "Please add the name of the place." });
-  if (!howToGet) return json(400, { error: "Please say how to get there." });
-  if (!DIST_LABEL[distance]) return json(400, { error: "Please choose how far it is each way." });
+  if (!placeName) return json(400, { error: lmk ? "Please add the name of the landmark." : "Please add the name of the place." });
+  if (lmk) {
+    if (!mapsUrl) return json(400, { error: "Please add the Google Maps link." });
+    if (!isMapsUrl(mapsUrl)) return json(400, { error: "That doesn't look like a Google Maps link. Open the place in Google Maps, tap Share, and paste the link." });
+    if (!why) return json(400, { error: "Please say why it's worth seeing." });
+  } else {
+    if (!howToGet) return json(400, { error: "Please say how to get there." });
+    if (!DIST_LABEL[distance]) return json(400, { error: "Please choose how far it is each way." });
+  }
   if (websiteUrl && !isWebUrl(websiteUrl)) return json(400, { error: "The website link should start with http:// or https://" });
 
   // --- who is sending it: a signed-in member, checked server-side ---
@@ -97,10 +109,11 @@ exports.handler = async (event) => {
       const ir = await fetch(`${SUPABASE_URL}/rest/v1/daytrip_suggestions`, {
         method: "POST",
         headers: { ...svc, "Content-Type": "application/json", Prefer: "return=representation" },
-        body: JSON.stringify({
-          city, place_name: placeName, how_to_get: howToGet, distance, website_url: websiteUrl || null,
-          show_profile: showProfile, contact, email: email || null, user_id: userId, status: "pending"
-        })
+        body: JSON.stringify(Object.assign(
+          lmk ? { kind, maps_url: mapsUrl, why, how_to_get: null, distance: null }   // landmark columns: landmark-suggestions-setup.sql
+              : { how_to_get: howToGet, distance },
+          { city, place_name: placeName, website_url: websiteUrl || null,
+            show_profile: showProfile, contact, email: email || null, user_id: userId, status: "pending" }))
       });
       if (ir.ok) {
         const created = await ir.json();
@@ -125,20 +138,20 @@ exports.handler = async (event) => {
         from: "Never Roam Alone <hello@neverroamalone.com>",
         to: [toEmail],
         ...(email ? { reply_to: email } : {}),
-        subject: `Day trip suggestion: ${placeName} from ${city}`,
+        subject: lmk ? `Landmark suggestion: ${placeName} in ${city}` : `Day trip suggestion: ${placeName} from ${city}`,
         html: `
           <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:24px;color:#1d2a32">
-            <h2 style="color:#5c6933;margin:0 0 6px">New day trip suggestion</h2>
-            <p style="margin:0 0 16px;color:#3a4a52">From <a href="${escapeHtml(cityUrl)}">${escapeHtml(city)}</a></p>
+            <h2 style="color:#5c6933;margin:0 0 6px">New ${lmk ? "landmark" : "day trip"} suggestion</h2>
+            <p style="margin:0 0 16px;color:#3a4a52">${lmk ? "In" : "From"} <a href="${escapeHtml(cityUrl)}">${escapeHtml(city)}</a></p>
             <table style="border-collapse:collapse;font-size:15px;margin:0 0 16px">
               ${row("Place", escapeHtml(placeName))}
-              ${row("Each way", escapeHtml(DIST_LABEL[distance]))}
+              ${lmk ? row("Google Maps", `<a href="${escapeHtml(mapsUrl)}">${escapeHtml(mapsUrl)}</a>`) : row("Each way", escapeHtml(DIST_LABEL[distance]))}
               ${row("Website", websiteUrl ? `<a href="${escapeHtml(websiteUrl)}">${escapeHtml(websiteUrl)}</a>` : "")}
               ${row("From", who)}
               ${row("Contact", contact ? "Yes, by email" : "No")}
             </table>
-            <div style="background:#f6f1e7;padding:12px 14px;margin:0 0 16px;white-space:pre-wrap"><b>How to get there</b><br>${escapeHtml(howToGet)}</div>
-            <p style="margin:0 0 16px;color:#3a4a52">${reviewId ? "It's saved as <strong>pending</strong>. Nothing changes on the site until the trip passes the day-trip checks and you add it." : "<strong>It was not saved for review</strong> (the database didn't accept it; has daytrip-suggestions-setup.sql been run?). The details are above."}</p>
+            <div style="background:#f6f1e7;padding:12px 14px;margin:0 0 16px;white-space:pre-wrap"><b>${lmk ? "Why it's worth seeing" : "How to get there"}</b><br>${escapeHtml(lmk ? why : howToGet)}</div>
+            <p style="margin:0 0 16px;color:#3a4a52">${reviewId ? "It's saved as <strong>pending</strong>. Nothing changes on the site until it passes the " + (lmk ? "landmark" : "day-trip") + " checks and you add it." : "<strong>It was not saved for review</strong> (the database didn't accept it; has " + (lmk ? "landmark-suggestions-setup.sql" : "daytrip-suggestions-setup.sql") + " been run?). The details are above."}</p>
             ${reviewId ? `<p style="margin:0 0 20px"><a href="${escapeHtml(reviewUrl)}" style="display:inline-block;background:#5c6933;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px">Review on the Admin page &rarr;</a></p>` : ""}
           </div>`
       })
@@ -156,6 +169,17 @@ exports.handler = async (event) => {
   }
 };
 
+function isMapsUrl(u) {   // same rule as submit-suggestion.js
+  let x;
+  try { x = new URL(u); } catch (e) { return false; }
+  if (x.protocol !== "https:" && x.protocol !== "http:") return false;
+  const h = x.hostname.toLowerCase();
+  if (h === "maps.app.goo.gl") return x.pathname.length > 1;
+  if (h === "goo.gl") return x.pathname.startsWith("/maps");
+  if (/^maps\.google\.[a-z]{2,3}(\.[a-z]{2})?$/.test(h)) return true;
+  if (/^(www\.)?google\.[a-z]{2,3}(\.[a-z]{2})?$/.test(h)) return x.pathname.startsWith("/maps");
+  return false;
+}
 function isWebUrl(u) {
   try { const x = new URL(u); return (x.protocol === "https:" || x.protocol === "http:") && x.hostname.includes("."); } catch (e) { return false; }
 }

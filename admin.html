@@ -239,8 +239,8 @@
       </label>
       <div id="sug-list"></div>
 
-      <div class="topbar" style="margin-top:28px"><h2>Suggestions — day trips</h2></div>
-      <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip", daytrip-suggestions-setup.sql). A suggestion never goes on the guide by itself: check it against the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city) and add it to <code>day-trips.js</code>, citydata and the sheet first. Then <b>Mark added</b> records it. If they agreed, you can email them with questions (the address is shown). <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <div class="topbar" style="margin-top:28px"><h2>Suggestions — day trips and landmarks</h2></div>
+      <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip") and landmarks suggested under any city's Landmarks ("Suggest a landmark"; daytrip-suggestions-setup.sql, then landmark-suggestions-setup.sql). A suggestion never goes on the guide by itself. A day trip must pass the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city); a landmark must be inside the city, confirmed at its Google Maps link, with a pin and a licensed photo. Add it to <code>day-trips.js</code> or the landmark catalogs, citydata and the sheet, and push. Then <b>Mark added</b>: you type the name it has on the guide, the server checks it is on the live guide, marks it added, gives a signed-in member their 10 points (votes on that card then count toward their rating) and thanks them if they asked.</p>
       <p class="admin-msg" id="dts-msg"></p>
       <div id="dts-list"></div>
     </section>
@@ -915,7 +915,7 @@
     }
     dtsRows = (data || []).sort((a, b) => (a.status === "pending" ? 0 : 1) - (b.status === "pending" ? 0 : 1));
     const waiting = dtsRows.filter(r => r.status === "pending").length;
-    setMsg($("dts-msg"), waiting ? `${waiting} day trip suggestion${waiting === 1 ? "" : "s"} awaiting review.` : "");
+    setMsg($("dts-msg"), waiting ? `${waiting} day trip or landmark suggestion${waiting === 1 ? "" : "s"} awaiting review.` : "");
     renderDaytripSuggestions();
   }
 
@@ -924,7 +924,7 @@
     const showDone = $("sug-show-done") && $("sug-show-done").checked;
     const list = dtsRows.filter(r => showDone || r.status === "pending" || r.id === dtsReview);
     if (!list.length){
-      wrap.innerHTML = `<div class="empty">${dtsRows.length ? "Nothing waiting on you." : "No day trip suggestions yet."}</div>`;
+      wrap.innerHTML = `<div class="empty">${dtsRows.length ? "Nothing waiting on you." : "No day trip or landmark suggestions yet."}</div>`;
       return;
     }
     const cityLink = c => "city.html?city=" + encodeURIComponent(c);
@@ -941,10 +941,12 @@
       <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
         <div class="ihead">
           <div class="info">
-            <div class="title">${esc(r.place_name)} · from <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
-            <div class="sub">${esc(DTS_DIST[r.distance] || r.distance)} each way · ${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
+            <div class="title"><span class="chip">${r.kind === "landmark" ? "Landmark" : "Day trip"}</span> ${esc(r.place_name)} · ${r.kind === "landmark" ? "in" : "from"} <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
+            <div class="sub">${r.kind === "landmark" ? "" : esc(DTS_DIST[r.distance] || r.distance || "") + " each way · "}${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
+            ${r.added_name ? `<div class="sub">On the guide as <b>${esc(r.added_name)}</b></div>` : ""}
+            ${r.maps_url ? `<div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps link</a></div>` : ""}
             ${r.website_url ? `<div class="sub"><a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website / booking</a></div>` : ""}
-            <div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px"><b>How to get there:</b> ${esc(r.how_to_get)}</div>
+            <div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${r.kind === "landmark" ? `<b>Why it's worth seeing:</b> ${esc(r.why || "")}` : `<b>How to get there:</b> ${esc(r.how_to_get || "")}`}</div>
           </div>
           <div class="acts">
             ${r.status !== "added" ? `<button class="btn small coral" data-dact="added" type="button">Mark added</button>` : ""}
@@ -976,19 +978,45 @@
     const r = dtsRows.find(x => x.id === btn.closest(".irow").dataset.id);
     if (!r) return;
     const act = btn.dataset.dact;
-    const what = `${r.place_name} from ${r.city}`;
-    if (act === "added" && !confirm(`Is ${what} on the guide now (day-trips.js, citydata and the sheet)?`)) return;
+    const what = `${r.place_name} ${r.kind === "landmark" ? "in" : "from"} ${r.city}`;
+    /* Mark added goes through approve-trip-suggestion: it checks the name is on the live guide, gives the
+       member their points and vote link, and thanks them once if they asked. */
+    let addedName = "";
+    if (act === "added") {
+      addedName = prompt(`Is ${what} on the live guide now? Type the exact name it has there:`, r.added_name || r.place_name);
+      if (!addedName || !addedName.trim()) return;
+    }
     if (act === "delete" && !confirm(`Delete the suggestion for ${what}? This can't be undone.`)) return;
     btn.disabled = true;
     try {
       let error;
-      if (act === "added")   ({ error } = await sb.from("daytrip_suggestions").update({ status: "added" }).eq("id", r.id));
+      let note = "";
+      if (act === "added") {
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/approve-trip-suggestion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id, name: addedName.trim() })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        if (d.messageId) {
+          fetch("/.netlify/functions/message-alert", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+            body: JSON.stringify({ messageId: d.messageId })
+          }).catch(() => {});
+        }
+        note = (d.points ? " Points given." : "") + (d.notified ? (d.via === "message" ? " Thanked in their inbox." : " Thanked by email.") : d.wanted && !d.alreadyAdded ? " Couldn't thank them; check the logs." : "");
+      }
       if (act === "decline") ({ error } = await sb.from("daytrip_suggestions").update({ status: "declined" }).eq("id", r.id));
       if (act === "reopen")  ({ error } = await sb.from("daytrip_suggestions").update({ status: "pending" }).eq("id", r.id));
       if (act === "delete")  ({ error } = await sb.from("daytrip_suggestions").delete().eq("id", r.id));
       if (error) throw error;
       await loadDaytripSuggestions();
-      setMsg($("dts-msg"), act === "added" ? `Marked ${what} as added.` : act === "decline" ? `Declined ${what}. Nobody was told.` : act === "reopen" ? "Back in the pending list." : "Deleted.");
+      setMsg($("dts-msg"), act === "added" ? `Marked ${what} as added.${note}` : act === "decline" ? `Declined ${what}. Nobody was told.` : act === "reopen" ? "Back in the pending list." : "Deleted.");
     } catch(err){
       btn.disabled = false;
       setMsg($("dts-msg"), (err && err.message) || "Something went wrong.", true);
