@@ -9,6 +9,7 @@
   // The one and only footer link list. Order = display order.
   var FOOTER_LINKS = [
     { label: "Home",                    href: "index.html" },
+    { label: "About",                   href: "about.html" },
     { label: "Where to Go This Month",  href: "best-time-to-visit.html" },
     { label: "Destination Finder",      href: "choose.html" },
     { label: "City Guides",             href: "cities.html" },
@@ -26,7 +27,7 @@
     '<div class="foot-links">' +
       FOOTER_LINKS.map(function (l) { return '<a href="' + l.href + '">' + l.label + '</a>'; }).join("") +
     '</div>' +
-    '<small class="foot-disclosure">Some links on this site are affiliate links: if you book through them we may earn a small commission at NO EXTRA COST TO YOU.<br>' +
+    '<small class="foot-disclosure">Some links on this site are affiliate links: if you book through them we earn a small commission at NO EXTRA COST TO YOU.<br>' +
       'Using our links helps keep the site up to date. <b><em>THANK YOU FOR YOUR CONTRIBUTION.</em></b> ' +
       'Details in our <a href="privacy.html">Privacy Policy</a>.</small>';
 
