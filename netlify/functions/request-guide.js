@@ -25,7 +25,7 @@ exports.handler = async (event) => {
   try { payload = JSON.parse(event.body || "{}"); } catch (e) { return json(400, { error: "Bad JSON" }); }
   const place = String(payload.place || "").trim().slice(0, 80);
   const country = String(payload.country || "").trim().slice(0, 60);
-  const tripType = payload.tripType === "past" ? "past" : "upcoming";
+  const tripType = payload.tripType === "past" ? "past" : payload.tripType === "home" ? "home" : "upcoming";
   const requesterName = String(payload.requesterName || "").trim().slice(0, 40);
   const requesterEmail = String(payload.requesterEmail || "").trim().slice(0, 120);
   if (!place) return json(400, { error: "No place given" });
@@ -49,9 +49,9 @@ exports.handler = async (event) => {
             <div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:14px 0 20px">
               <p style="margin:0 0 4px;font-size:18px;font-weight:bold">${escapeHtml(place)}${country ? ", " + escapeHtml(country) : ""}</p>
               <p style="margin:0;color:#3a4a52">Requested by: ${who}</p>
-              <p style="margin:4px 0 0;color:#3a4a52">It's on their <strong>${tripType}</strong> trips list.</p>
+              <p style="margin:4px 0 0;color:#3a4a52">${tripType === "home" ? "It's their <strong>home city</strong> (from their profile)." : `It's on their <strong>${tripType}</strong> trips list.`}</p>
             </div>
-            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the itinerary page on ${escapeHtml(SITE_URL || "Never Roam Alone")}.</p>
+            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${tripType === "home" ? "profile" : "itinerary"} page on ${escapeHtml(SITE_URL || "Never Roam Alone")}.</p>
           </div>`
       })
     });

@@ -17,6 +17,8 @@
 //                           they're missing the email still goes out, but
 //                           there is nothing to approve on the Admin page.
 
+const { memberFromToken, insertWithMember } = require("./_shared/contrib");   // credit the signed-in member on approval
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
 
@@ -85,11 +87,12 @@ exports.handler = async (event) => {
       }
     } catch (e) { /* if the check itself fails, don't block a genuine submission */ }
     try {
-      const ir = await fetch(`${SUPABASE_URL}/rest/v1/city_insights`, {
-        method: "POST",
-        headers: { ...svc, "Content-Type": "application/json", Prefer: "return=representation" },
-        body: JSON.stringify({ city, type, name, email, answers, response: response || null, published: false, pending: true })
-      });
+      // A signed-in member is credited when the interview is approved (contribution-rating-setup.sql).
+      const memberId = await memberFromToken(SUPABASE_URL, SUPABASE_SERVICE_KEY, p.accessToken);
+      const row = { city, type, name, email, answers, response: response || null, published: false, pending: true };
+      if (memberId) row.user_id = memberId;
+      const ir = await insertWithMember(`${SUPABASE_URL}/rest/v1/city_insights`,
+        { ...svc, "Content-Type": "application/json", Prefer: "return=representation" }, row, "user_id");
       if (ir.ok) {
         const created = await ir.json();
         reviewId = (created && created[0] && created[0].id) || "";

@@ -16,6 +16,8 @@
 // Environment variables (same ones the other functions already use):
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
+const { award } = require("./_shared/contrib");   // points + vote key for the member who sent it
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
   const { SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL } = process.env;
@@ -83,6 +85,11 @@ exports.handler = async (event) => {
   } catch (e) { return json(502, { error: "Couldn't publish the interview." }); }
   console.log("[approve-insight] published", id, row.type, "in", row.city, "by", adminEmail);
 
+  // Credit a signed-in member: 20 points, and votes on the interview card count toward their rating.
+  const credit = await award({ url: SUPABASE_URL, key: SUPABASE_SERVICE_KEY, userId: row.user_id, kind: "insight",
+                               sourceTable: "city_insights", sourceId: id, city: row.city,
+                               targets: [{ type: "insight", id }] });
+
   // Tell the submitter, once.
   let notified = false;
   if (row.email && !row.notified && RESEND_API_KEY) {
@@ -119,7 +126,7 @@ exports.handler = async (event) => {
     }
   }
 
-  return json(200, { published: true, notified, alreadyNotified: !!row.notified });
+  return json(200, { published: true, notified, alreadyNotified: !!row.notified, points: credit.points });
 };
 
 function clip(s, n) { return String(s == null ? "" : s).trim().slice(0, n); }

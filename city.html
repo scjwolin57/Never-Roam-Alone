@@ -2129,6 +2129,14 @@ const INFO_ICON = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" s
 function voteWidgetHTML(opts){ return NRA_VOTES.widgetHTML(opts); }
 function voteStarHTML(opts){ return NRA_VOTES.starHTML(opts); }
 
+/* The signed-in member's session token, sent with the event and interview forms so approving the
+   submission can credit them (Contribution score, contribution-rating-setup.sql). "" for a guest. */
+async function nraAccessToken(){
+  try { const sb = window.NRA_AUTH && NRA_AUTH.client && NRA_AUTH.client(); if (!sb) return "";
+        const res = await sb.auth.getSession(); return (res && res.data && res.data.session && res.data.session.access_token) || ""; }
+  catch (e) { return ""; }
+}
+
 /* Restaurant tipping custom per city: s = status, r = typical rate / note */
 let CITY_TIP = {};
 
@@ -3534,10 +3542,10 @@ function buildAdvisoryBanner(c, cityAdv){
     </section>
 
     <section style="padding-top:0">
-      ${plate("09","Dispatches")}
+      <!-- Plate 09 (Dispatches) hidden 2026-10-02 (Jeff) until the first blog post exists,
+           so no guide shows an empty "coming soon" section. To bring it back, restore:
+           plate("09","Dispatches") + <h2 class="sec-head">Stories from <em>city</em></h2> -->
       <div class="dispatches-empty">
-        <h2 class="sec-head">Stories from <em>${c.city}</em></h2>
-        <p class="hood-intro">Blog articles will be added soon.</p>
         <p style="margin-top:34px"><a class="back" href="${backHref}">${backLabel}</a></p>
       </div>
     </section>`;
@@ -3980,6 +3988,7 @@ function buildAdvisoryBanner(c, cityAdv){
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            accessToken: await nraAccessToken(),
             city: CITY, name, location: get("location"), mapLink: get("mapLink"),
             date, startTime: get("startTime"), endTime: get("endTime"),
             link: get("link"), posterUrl,
@@ -4177,6 +4186,7 @@ function buildAdvisoryBanner(c, cityAdv){
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
+              accessToken: await nraAccessToken(),
               city: c.city, type: get("type"), name, email, response, answers,
               website: get("website"), elapsedMs: Date.now() - openedAt
             })
@@ -4205,6 +4215,17 @@ function buildAdvisoryBanner(c, cityAdv){
         if (first) setTimeout(() => first.focus(), 30);
       });
     });
+
+    /* Deep link from the Community Contributions page: city.html?city=X#share-traveler (or
+       #share-local) scrolls to Insights and opens that interview form (Jeff, 2026-10-02). */
+    const shareHash = (location.hash.match(/^#share-(traveler|local)$/) || [])[1];
+    if (shareHash) {
+      const target = document.querySelector(`.insights-open-btn[data-insight-type="${shareHash}"]`);
+      if (target) {
+        target.scrollIntoView({ block: "center" });
+        setTimeout(() => target.click(), 400);
+      }
+    }
 
     /* Approved interviews (city_insights_public: published rows only, no
        email). Each column shows its newest three as cards with the first two

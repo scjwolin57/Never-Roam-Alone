@@ -106,6 +106,12 @@
   .field input:disabled{background:#f2efe7;color:var(--muted)}
   .field textarea{min-height:96px;resize:vertical}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  /* home city matched to a guide (home-city.js) */
+  .city-match{margin:6px 0 0;font-size:.8rem;line-height:1.4;color:var(--muted)}
+  .city-match:empty{display:none}
+  .city-match a{color:var(--teal);font-weight:700}
+  .city-match button{margin-top:6px;font:inherit;font-weight:700;font-size:.78rem;padding:6px 12px;border:1px solid var(--ink);border-radius:3px;background:var(--sand);color:var(--ink);cursor:pointer}
+  .city-match button:disabled{opacity:.6;cursor:default}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
   .group-label{font-weight:700;font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:22px 0 8px}
   .charcount{float:right;font-size:.72rem;color:var(--muted);font-weight:400}
@@ -378,7 +384,9 @@
       <div class="row2">
         <div class="field">
           <label for="p-city">Home city</label>
-          <input type="text" id="p-city" maxlength="60" placeholder="e.g. Chicago" />
+          <input type="text" id="p-city" maxlength="60" placeholder="Start typing, e.g. Chicago" list="guide-cities" autocomplete="off" />
+          <datalist id="guide-cities"></datalist>
+          <p class="city-match" id="p-city-match" aria-live="polite"></p>
         </div>
         <div class="field">
           <label for="p-country">Home country</label>
@@ -615,6 +623,12 @@
     <!-- Personal Travel Map: "been there" toggle on every map pin, plus
          a free-text box for places that aren't on the map, plus a
          Bucket List progress bar (see visited.js) -->
+    <!-- Contribution score, level and Trusted Traveler Rating (contrib-score.js); filled once signed in -->
+    <div class="travel-map-zone" id="contrib-zone" hidden>
+      <h3>Your contributions</h3>
+      <div id="contrib-box"></div>
+    </div>
+
     <div class="travel-map-zone">
       <h3>Personal travel map</h3>
       <p>Pick a country below and tick the cities you've been to, then search the NRA bucket list for landmarks you've seen. Cities show as green pins and landmarks as red pins. Tap a pin to remove it.</p>
@@ -730,6 +744,8 @@
 <script src="world-cities.js"></script>
 <script src="country-fold.js"></script>
 <script src="travel-stats.js"></script>
+<script src="home-city.js"></script>
+<script src="contrib-score.js"></script>
 <script>
 /* ==================================================================
    PROFILE PAGE
@@ -741,6 +757,49 @@
 ================================================================== */
 (function(){
   const $ = id => document.getElementById(id);
+
+  /* Home city -> one of our guides (home-city.js). Picking "City, Country" from the list fills both
+     fields; a city we have no guide for gets a "Request a guide" button (request-guide.js, tripType "home"). */
+  function paintCityMatch(){
+    const box = $("p-city-match"); if (!box || !window.NRA_HOMECITY) return;
+    const city = $("p-city").value.trim(), country = $("p-country").value.trim();
+    if (!city){ box.innerHTML = ""; return; }
+    const esc = s => String(s).replace(/[&<>"']/g, ch => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[ch]));
+    const d = NRA_HOMECITY.find(city, country);
+    if (d){ box.innerHTML = `&#10003; Matches our <a href="${NRA_HOMECITY.guideUrl(d)}">${esc(d.city)} guide</a>. You can share a Local's Perspective there.`; return; }
+    let asked = false; try { asked = localStorage.getItem("nra_home_req_" + NRA_HOMECITY.norm(city)) === "1"; } catch (e) {}
+    box.innerHTML = `We don't have a guide for ${esc(city)} yet.` +
+      (asked ? " You've requested one: thanks!" : ` <br><button type="button" id="p-city-request">Request a guide for ${esc(city)}</button>`);
+    const b = $("p-city-request"); if (!b) return;
+    b.addEventListener("click", async () => {
+      b.disabled = true; b.textContent = "Sending…";
+      try {
+        const user = window.NRA_AUTH && NRA_AUTH.user && NRA_AUTH.user();
+        const res = await fetch("/.netlify/functions/request-guide", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ place: city, country, tripType: "home",
+            requesterName: (window.NRA_AUTH && NRA_AUTH.displayName && NRA_AUTH.displayName()) || "",
+            requesterEmail: (user && user.email) || "" })
+        });
+        const body = await res.json().catch(() => ({}));
+        if (!res.ok || !body.sent) throw new Error();
+        try { localStorage.setItem("nra_home_req_" + NRA_HOMECITY.norm(city), "1"); } catch (e) {}
+        box.innerHTML = `We don't have a guide for ${esc(city)} yet. Requested: thanks!`;
+      } catch (e) { b.disabled = false; b.textContent = "Couldn't send. Try again"; }
+    });
+  }
+  (function wireCityMatch(){
+    const inp = $("p-city"), dl = $("guide-cities"); if (!inp || !dl) return;
+    inp.addEventListener("focus", () => { if (!dl.options.length && window.NRA_HOMECITY) dl.innerHTML = NRA_HOMECITY.optionsHTML(); });
+    inp.addEventListener("input", () => {
+      if (window.NRA_HOMECITY && inp.value.includes(",")){
+        const s = NRA_HOMECITY.split(inp.value);
+        if (s.country){ inp.value = s.city; $("p-country").value = s.country; }
+      }
+      paintCityMatch();
+    });
+    $("p-country").addEventListener("input", paintCityMatch);
+  })();
 
   /* ---- "what brings you here" checkboxes: pairs checkbox id -> saved goal text ---- */
   const GOAL_FIELDS = [
@@ -838,6 +897,7 @@
     $("p-bio").value       = p.bio || "";
     $("p-city").value      = p.home_city || "";
     $("p-country").value   = p.home_country || "";
+    paintCityMatch();
     HAS_PASSPORTS_COLUMN = Object.prototype.hasOwnProperty.call(p, "passports");
     $("pp-warn").hidden = HAS_PASSPORTS_COLUMN || !Object.keys(p).length;
     PASSPORTS = Array.isArray(p.passports) && p.passports.length
@@ -893,6 +953,7 @@
   let filledFor = null;        // account id the form is currently filled for
   let filledWithData = false;  // true once we've filled from a real (loaded) profile, not an empty one
   let healing = false;         // guards the direct profile re-fetch below
+  let contribFor = null;       // account id the contribution numbers were loaded for
   async function render(){
     renderSharedTrips();   // independent of the form below; hides itself when signed out
     const auth = window.NRA_AUTH;
@@ -929,6 +990,16 @@
     // Fill for a new person, OR when real data finally arrives after we had to
     // paint an empty form first. Once filled from real data we stop, so a
     // background token renewal can't wipe someone's unsaved typing (07-08 fix).
+    // Your own contribution numbers (shown even while the profile is private).
+    if (window.NRA_CONTRIB && contribFor !== user.id){
+      contribFor = user.id;
+      NRA_CONTRIB.fetchStats(auth.client && auth.client(), user.id, true).then(st => {
+        if (!st || !auth.user() || auth.user().id !== user.id) return;
+        document.getElementById("contrib-box").innerHTML = NRA_CONTRIB.html(st, { howTo: true });
+        document.getElementById("contrib-zone").hidden = false;
+      });
+    }
+
     if (filledFor !== user.id || (!filledWithData && hasData)){
       filledFor = user.id;
       filledWithData = hasData;

@@ -26,7 +26,7 @@
 // Environment variables (same ones the other functions already use):
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
-const RECOMMENDATION_POINTS = 5;   // contribution-points-setup.sql: "approved restaurant/bar/takeout/coffee = 5"
+const { award } = require("./_shared/contrib");   // points (5) + vote keys for the member who sent it
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -80,24 +80,17 @@ exports.handler = async (event) => {
   } catch (e) { return json(502, { error: "Couldn't mark it published." }); }
   console.log("[approve-suggestion] published", id, row.section, row.kind, "in", row.hood_name, "/", row.city, "by", admin.email);
 
-  // Points for a signed-in member, once per suggestion.
-  let points = false;
+  // Credit a signed-in member, once: 5 points, and the vote keys of their pick(s) on the guide, so
+  // thumbs up / down on it count toward their Trusted Traveler Rating. The pick reaches the guide
+  // through load_picks.py before this button is pressed, so its final name and neighborhood are read
+  // from the live city file: the rows in roamer_picks[section][hood] that carry this member's id.
+  let points = false, targets = [];
   if (row.user_id) {
-    try {
-      const er = await fetch(`${SUPABASE_URL}/rest/v1/contribution_events?source_table=eq.place_suggestions&source_id=eq.${encodeURIComponent(id)}&select=id`, { headers: svc });
-      const existing = er.ok ? await er.json() : null;
-      if (Array.isArray(existing) && !existing.length) {
-        const ir = await fetch(`${SUPABASE_URL}/rest/v1/contribution_events`, {
-          method: "POST", headers: svc,
-          body: JSON.stringify({ user_id: row.user_id, kind: "recommendation", points: RECOMMENDATION_POINTS,
-                                 source_table: "place_suggestions", source_id: id, city: row.city })
-        });
-        points = ir.ok;
-        if (!ir.ok) console.error("[approve-suggestion] points insert failed HTTP", ir.status, (await ir.text()).slice(0, 300));
-      } else if (Array.isArray(existing)) {
-        points = true;   // already awarded on an earlier publish
-      }
-    } catch (e) { console.error("[approve-suggestion] points threw:", (e && e.message) || e); }
+    targets = await roamerPickKeys(siteBase, row).catch(e => { console.error("[approve-suggestion] pick keys:", (e && e.message) || e); return []; });
+    const credit = await award({ url: SUPABASE_URL, key: SUPABASE_SERVICE_KEY, userId: row.user_id, kind: "recommendation",
+                                 sourceTable: "place_suggestions", sourceId: id, city: row.city, targets });
+    points = credit.points;
+    if (!targets.length) console.warn("[approve-suggestion] no matching pick found on the", row.city, "guide yet; points given, rating link not made");
   }
 
   // Thank them, once, only if they asked.
@@ -171,6 +164,26 @@ exports.handler = async (event) => {
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
+
+// The vote keys city.html gives this member's pick(s), matching its voteWidgetHTML ids:
+//   eat / cafes / stay: "<city>:<hood index>:<section>:<name>"   bars: "<city>:<hood index>:bar:<name>"
+async function roamerPickKeys(siteBase, row) {
+  const ir = await fetch(siteBase + "/citydata/_index.json");
+  if (!ir.ok) return [];
+  const slug = ((await ir.json()).slug || {})[row.city];
+  if (!slug) return [];
+  const cr = await fetch(siteBase + "/citydata/" + encodeURIComponent(slug) + ".json");
+  if (!cr.ok) return [];
+  const rec = await cr.json();
+  const hoods = rec.hoods || [];
+  let hi = hoods.indexOf(row.hood_name);
+  if (hi < 0 && Number.isInteger(row.hood_idx)) hi = row.hood_idx;
+  const lists = (rec.roamer_picks && rec.roamer_picks[row.section]) || [];
+  const picks = (lists[hi] || []).filter(pk => pk && pk.by === row.user_id && pk.n);
+  const part = row.section === "bars" ? "bar" : row.section;
+  return picks.map(pk => ({ type: "recommendation", id: `${row.city}:${hi}:${part}:${pk.n}` }));
+}
+
 function json(statusCode, body) {
   return { statusCode, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) };
 }

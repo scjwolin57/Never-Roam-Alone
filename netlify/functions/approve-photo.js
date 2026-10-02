@@ -30,6 +30,7 @@
 
 const crypto = require("crypto");
 
+const { award } = require("./_shared/contrib");   // points for the member who sent it
 const PRIVATE_BUCKET = "landmark-contributions";
 const PUBLIC_BUCKET  = "landmark-photos";
 const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
@@ -135,6 +136,13 @@ async function review(id, action, env) {
 
   const updated = await patchRow(id, patch, env);
   if (!updated) return { ok: false, code: 502, message: "Couldn't save the decision." };
+
+  // Credit a signed-in member: 10 points. A photo has no vote of its own (votes on a landmark
+  // or neighborhood card are about the place), so it adds to the score, not the rating.
+  if (action === "approve" && updated.submitted_by) {
+    await award({ url: env.SUPABASE_URL, key: env.SUPABASE_SERVICE_KEY, userId: updated.submitted_by, kind: "photo",
+                  sourceTable: "landmark_photo_contributions", sourceId: id, city: updated.city });
+  }
 
   // Tell the contributor their photo is up — only possible when they were
   // signed in, since the form never asks anyone for an email address.

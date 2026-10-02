@@ -14,6 +14,7 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
 const crypto = require("crypto");
+const { award } = require("./_shared/contrib");   // points + vote key for the member who sent it
 
 exports.handler = async (event) => {
   const { SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL } = process.env;
@@ -115,6 +116,10 @@ async function publishAndNotify(id, env) {
       method: "PATCH", headers: svc, body: JSON.stringify({ published: true, pending: false })
     });
   } catch (e) { return { ok: false, code: 502, message: "Couldn't publish the event." }; }
+
+  // Credit a signed-in member: 5 points, and votes on the event count toward their rating.
+  await award({ url: SUPABASE_URL, key: SUPABASE_SERVICE_KEY, userId: ev.submitted_by, kind: "event",
+                sourceTable: "city_events", sourceId: id, city: ev.city, targets: [{ type: "event", id }] });
 
   // Notify the submitter once.
   let notified = false;

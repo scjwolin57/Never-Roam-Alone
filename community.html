@@ -46,13 +46,11 @@
   .legal-hero h1{font-size:clamp(2rem,5vw,3rem);margin:0 0 8px}
   .legal-hero p.sub{color:var(--muted);font-size:1rem;margin:0 auto;max-width:560px}
 
-  /* ---------- Contribution options ---------- */
-  .options{max-width:960px;margin:22px auto 0;padding:0 22px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-  .options a.jump{
-    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.9rem;
-    padding:10px 18px;border-radius:3px;border:1.5px solid var(--teal);color:var(--teal);background:#fff;transition:.15s;
-  }
-  .options a.jump:hover{background:var(--coral);color:#fff}
+  /* ---------- Three ways to contribute ---------- */
+  .way-card .card-intro{margin-bottom:18px}
+  .way-card .field{margin-bottom:14px}
+  .local-action p{margin:0 0 12px;font-size:.92rem}
+  .local-action .way-btn,.local-action a.way-btn{display:block;text-align:center;text-decoration:none}
 
   /* ---------- Form card ---------- */
   .form-card{
@@ -137,16 +135,39 @@
 <div class="legal-hero">
   <p class="kicker">Get involved</p>
   <h1>Community Contributions</h1>
-  <p class="sub">Never Roam Alone is built by roamers, for roamers. Share a story from the road, or step up as a Trusted Traveler to help fellow travelers explore with confidence.</p>
+  <p class="sub">Never Roam Alone is built by roamers, for roamers. Three ways to help fellow travelers: write for the blog, share what a city was like to visit, or tell travelers about the city you live in.</p>
 </div>
 
-<div class="options">
-  <a class="jump" href="#blog-post">✍️ Share a blog post</a>
-  <a class="jump" href="#trusted-traveler">🌍 Become a Trusted Traveler</a>
-</div>
+<!-- ===== Three ways to contribute (Jeff, 2026-10-02) ===== -->
+<section class="form-card way-card" id="way-blog">
+  <p class="card-kicker">1 &middot; Write for the blog</p>
+  <h2>Share a Blog Post</h2>
+  <p class="card-intro">Been somewhere memorable? Pitch a story from the road. Our editors read every pitch and reply by email, and a published post counts toward your Contribution score.</p>
+  <button type="button" class="submit-btn way-btn" id="open-blog">Write a blog post</button>
+</section>
+
+<section class="form-card way-card" id="way-traveler">
+  <p class="card-kicker">2 &middot; You've visited</p>
+  <h2>Become a Trusted Traveler</h2>
+  <p class="card-intro">Share a Traveler's Take on a city you've been to. We check every interview before it goes on the guide, and each one adds to your Contribution score. At <span data-trusted-at>100</span> points you get the Trusted Traveler badge, and the thumbs up other travelers give your contributions build your Trusted Traveler Rating.</p>
+  <div class="field">
+    <label for="tt-city">Which city did you visit?</label>
+    <input type="text" id="tt-city" list="guide-cities" placeholder="Start typing a city" autocomplete="off">
+    <datalist id="guide-cities"></datalist>
+  </div>
+  <button type="button" class="submit-btn way-btn" id="go-traveler">Go to that city's Traveler's Take</button>
+  <div class="status-msg" id="tt-status" role="status"></div>
+</section>
+
+<section class="form-card way-card" id="way-local">
+  <p class="card-kicker">3 &middot; You live there</p>
+  <h2>Share a Local's Perspective</h2>
+  <p class="card-intro">Live in one of our cities? Tell travelers what it's really like, in your own words. We use the home city on your profile to take you to the right guide.</p>
+  <div id="local-action" class="local-action"><p class="hint">Loading&hellip;</p></div>
+</section>
 
 <!-- ===== Blog post contribution form ===== -->
-<main class="form-card" id="blog-post">
+<main class="form-card" id="blog-post" hidden>
   <p class="card-kicker">Contribute a story</p>
   <h2>Share a Blog Post</h2>
   <p class="card-intro">Been somewhere memorable? Pitch a post and our editors may feature it on the blog. Tell us what happened and why it matters to fellow roamers.</p>
@@ -186,40 +207,6 @@
   </form>
 </main>
 
-<!-- ===== Trusted Traveler form ===== -->
-<main class="form-card" id="trusted-traveler">
-  <p class="card-kicker">Join the team</p>
-  <h2>Become a Trusted Traveler</h2>
-  <p class="card-intro">Trusted Travelers are experienced roamers who answer questions, vouch for places, and help newcomers feel at home. Tell us where you know well and why you'd be a great guide.</p>
-  <form id="trusted-form" novalidate>
-    <div class="field">
-      <label for="tt-name">Full name</label>
-      <input type="text" id="tt-name" name="name" maxlength="80" autocomplete="name" required>
-    </div>
-    <div class="field">
-      <label for="tt-email">Your email</label>
-      <input type="email" id="tt-email" name="email" maxlength="120" autocomplete="email" required>
-    </div>
-    <div class="field">
-      <label for="tt-home">Where are you based?</label>
-      <input type="text" id="tt-home" name="home" maxlength="120" placeholder="Home city and country" required>
-    </div>
-    <div class="field">
-      <label for="tt-regions">Places you know well</label>
-      <input type="text" id="tt-regions" name="regions" maxlength="200" placeholder="Cities, countries, or regions you can speak to" required>
-    </div>
-    <div class="field">
-      <label for="tt-link">Profile or social link <span class="opt">(optional)</span></label>
-      <input type="url" id="tt-link" name="link" maxlength="500" placeholder="https://…">
-    </div>
-    <div class="field">
-      <label for="tt-about">Why you'd make a great Trusted Traveler</label>
-      <textarea id="tt-about" name="about" maxlength="4000" placeholder="Tell us about your travels and how you like to help others…" required></textarea>
-    </div>
-    <button type="submit" class="submit-btn">Apply to be a Trusted Traveler</button>
-    <div class="status-msg" id="tt-status" role="status"></div>
-  </form>
-</main>
 
 <footer data-site-footer></footer>
 
@@ -228,15 +215,18 @@
 <script src="footer.js"></script>
 <script src="nav.js"></script>
 <script src="i18n.js"></script>
+<script src="destinations.js"></script>
+<script src="home-city.js"></script>
+<script src="contrib-score.js"></script>
 <script>
 (function(){
   "use strict";
 
-  // These forms aren't wired to a backend yet — they'll be connected later.
-  // For now, show a friendly "coming soon" note and keep what the visitor typed.
-  var COMING_SOON = "Thanks! This form isn't live just yet — we're putting the finishing touches on it. Please check back soon.";
+  // Both forms send to netlify/functions/community.js, which emails the
+  // answers to the site owner (same setup as the Contact form).
+  var MAX_PHOTO = 4 * 1024 * 1024;
 
-  // Show the chosen filename for the blog-post cover photo (visual only).
+  // Show the chosen filename for the blog-post cover photo.
   var pickBtn = document.getElementById("bp-pick-btn");
   var fileInput = document.getElementById("bp-photo");
   var filenameEl = document.getElementById("bp-filename");
@@ -248,19 +238,124 @@
     });
   }
 
-  function wire(formId, statusId){
+  function readPhoto(){
+    var file = fileInput && fileInput.files && fileInput.files[0];
+    if (!file) return Promise.resolve(null);
+    if (!/^image\//.test(file.type)) return Promise.reject(new Error("The cover photo must be an image."));
+    if (file.size > MAX_PHOTO) return Promise.reject(new Error("The photo is too large: please choose one under 4 MB."));
+    return new Promise(function(resolve, reject){
+      var r = new FileReader();
+      r.onload = function(){ resolve({ name: file.name, type: file.type, data: String(r.result) }); };
+      r.onerror = function(){ reject(new Error("The photo could not be read.")); };
+      r.readAsDataURL(file);
+    });
+  }
+
+  function show(el, msg, ok){
+    el.textContent = msg;
+    el.className = "status-msg " + (ok ? "ok" : "err");
+    el.scrollIntoView({behavior:"smooth", block:"center"});
+  }
+
+  function wire(formId, statusId, kind){
     var form = document.getElementById(formId);
     var statusEl = document.getElementById(statusId);
     if (!form) return;
+    var btn = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", function(e){
       e.preventDefault();
-      statusEl.textContent = COMING_SOON;
-      statusEl.className = "status-msg ok";
-      statusEl.scrollIntoView({behavior:"smooth", block:"center"});
+      var missing = [].filter.call(form.querySelectorAll("[required]"), function(f){ return !f.value.trim(); });
+      if (missing.length){ show(statusEl, "Please fill in every field that isn't marked optional.", false); missing[0].focus(); return; }
+      var emailEl = form.querySelector('input[type="email"]');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())){ show(statusEl, "Please enter a valid email address.", false); emailEl.focus(); return; }
+      var data = { kind: kind };
+      [].forEach.call(form.elements, function(f){ if (f.name && f.type !== "file") data[f.name] = f.value; });
+      btn.disabled = true;
+      (kind === "blogpost" ? readPhoto() : Promise.resolve(null)).then(function(photo){
+        if (photo) data.photo = photo;
+        return fetch("/.netlify/functions/community", {
+          method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data)
+        }).then(function(res){
+          return res.json().catch(function(){ return {}; }).then(function(j){
+            if (!res.ok || !j.sent) throw new Error(j.error || "Something went wrong. Please try again, or email contact@neverroamalone.com.");
+          });
+        });
+      }).then(function(){
+        form.reset();
+        if (filenameEl) filenameEl.textContent = "No file chosen";
+        show(statusEl, kind === "blogpost"
+          ? "Thanks! Your story is with our editors. We'll reply by email."
+          : "Thanks! We've received your application and will reply by email.", true);
+      }).catch(function(err){
+        show(statusEl, err.message, false);
+      }).then(function(){ btn.disabled = false; });
     });
   }
-  wire("blogpost-form", "bp-status");
-  wire("trusted-form", "tt-status");
+  wire("blogpost-form", "bp-status", "blogpost");
+
+  /* ---------- 1. Blog: the button opens the pitch form ---------- */
+  var blogCard = document.getElementById("blog-post");
+  document.getElementById("open-blog").addEventListener("click", function(){
+    blogCard.hidden = false;
+    blogCard.scrollIntoView({behavior:"smooth", block:"start"});
+    setTimeout(function(){ var f = document.getElementById("bp-name"); if (f) f.focus({preventScroll:true}); }, 400);
+  });
+  if (location.hash === "#blog-post") blogCard.hidden = false;
+
+  /* The badge threshold comes from contrib-score.js, so this page never disagrees with the profiles. */
+  [].forEach.call(document.querySelectorAll("[data-trusted-at]"), function(el){
+    if (window.NRA_CONTRIB) el.textContent = NRA_CONTRIB.TRUSTED_AT;
+  });
+
+  /* ---------- 2. Trusted Traveler: pick a city, open its Traveler's Take form ---------- */
+  var HC = window.NRA_HOMECITY;
+  var ttCity = document.getElementById("tt-city"), dl = document.getElementById("guide-cities");
+  ttCity.addEventListener("focus", function(){ if (HC && !dl.options.length) dl.innerHTML = HC.optionsHTML(); });
+  function goTraveler(){
+    var st = document.getElementById("tt-status");
+    var s = HC ? HC.split(ttCity.value) : { city: ttCity.value, country: "" };
+    var d = HC && HC.find(s.city, s.country);
+    if (!d){ show(st, ttCity.value.trim() ? "We don't have a guide for that city yet. Pick one from the list." : "Pick a city from the list first.", false); ttCity.focus(); return; }
+    location.href = HC.guideUrl(d, "share-traveler");
+  }
+  document.getElementById("go-traveler").addEventListener("click", goTraveler);
+  ttCity.addEventListener("keydown", function(e){ if (e.key === "Enter"){ e.preventDefault(); goTraveler(); } });
+
+  /* ---------- 3. Local: their profile's home city decides the guide ---------- */
+  var localBox = document.getElementById("local-action");
+  function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function paintLocal(){
+    var A = window.NRA_AUTH;
+    var user = A && A.user && A.user();
+    if (!user){
+      localBox.innerHTML = '<p>Sign in, then add your home city to your profile, and we\'ll take you to its guide.</p>' +
+        '<button type="button" class="submit-btn way-btn" id="local-signin">Sign in</button>';
+      document.getElementById("local-signin").addEventListener("click", function(){ if (A && A.openModal) A.openModal(); });
+      return;
+    }
+    var p = (A.profile && A.profile()) || {};
+    var city = (p.home_city || "").trim();
+    if (!city){
+      localBox.innerHTML = '<p>Add your home city to your profile first, so we know which guide is yours.</p>' +
+        '<a class="submit-btn way-btn" href="profile.html">Add my home city</a>';
+      return;
+    }
+    var d = HC && HC.find(city, p.home_country);
+    if (d){
+      localBox.innerHTML = '<p>Your home city on your profile is <b>' + esc(d.city) + '</b>.</p>' +
+        '<a class="submit-btn way-btn" href="' + HC.guideUrl(d, "share-local") + '">Share a Local\'s Perspective on ' + esc(d.city) + '</a>';
+      return;
+    }
+    localBox.innerHTML = '<p>Your home city on your profile is <b>' + esc(city) + '</b>, and we don\'t have a guide for it yet. ' +
+      'You can request one on your profile page, or change your home city there if it\'s listed under another name.</p>' +
+      '<a class="submit-btn way-btn" href="profile.html">Go to my profile</a>';
+  }
+  if (window.NRA_AUTH && NRA_AUTH.ready){
+    NRA_AUTH.ready().then(paintLocal);
+    if (NRA_AUTH.onChange) NRA_AUTH.onChange(paintLocal);
+  } else {
+    paintLocal();
+  }
 })();
 </script>
 </body>

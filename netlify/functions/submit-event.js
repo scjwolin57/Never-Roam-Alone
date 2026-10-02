@@ -18,6 +18,8 @@
 
 const crypto = require("crypto");
 
+const { memberFromToken, insertWithMember } = require("./_shared/contrib");   // credit the signed-in member on approval
+
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
 
@@ -90,15 +92,15 @@ exports.handler = async (event) => {
       }
     } catch (e) { /* if the check itself fails, don't block a genuine submission */ }
     try {
-      const ir = await fetch(`${SUPABASE_URL}/rest/v1/city_events`, {
-        method: "POST",
-        headers: {
+      // A signed-in member is credited when the event is approved (contribution-rating-setup.sql).
+      const memberId = await memberFromToken(SUPABASE_URL, SUPABASE_SERVICE_KEY, p.accessToken);
+      const ir = await insertWithMember(`${SUPABASE_URL}/rest/v1/city_events`, {
           apikey: SUPABASE_SERVICE_KEY,
           Authorization: "Bearer " + SUPABASE_SERVICE_KEY,
           "Content-Type": "application/json",
           Prefer: "return=representation"
-        },
-        body: JSON.stringify({
+        }, {
+          submitted_by: memberId || undefined,
           city, name,
           location: location || null,
           map_link: mapLink || null,
@@ -114,8 +116,7 @@ exports.handler = async (event) => {
           submitter_email: subEmail || null,
           published: false,
           pending: true
-        })
-      });
+        }, "submitted_by");
       if (ir.ok) {
         const created = await ir.json();
         reviewId = (created && created[0] && created[0].id) || "";

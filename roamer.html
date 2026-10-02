@@ -270,7 +270,7 @@
 
   /* ---- full-design: identity polish ---- */
   .whoname{font-family:'Fraunces',serif!important;font-weight:900!important}
-  .tt-badge{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;letter-spacing:.06em!important}
+  .tt-badge{background:var(--coral)!important;color:#fff!important;border-radius:0!important;font-family:'Work Sans',monospace!important;letter-spacing:.06em!important}
   .bio{font-style:italic;font-family:'Fraunces',serif!important}
   .avatar{border-radius:50%}
   .r-travel-map,.travelmap-zone [id="r-travel-map"]{border:1px solid var(--ink);border-radius:0}
@@ -308,7 +308,7 @@
         <p class="avatar-caption" id="r-avatar-caption" style="display:none"></p>
       </div>
       <div class="p-id">
-        <p class="whoname"><span id="r-name">Roamer</span><span class="age-pill" id="r-age" style="display:none"></span><span class="tt-badge" id="r-badge" style="display:none">&#9998; Trusted traveler</span></p>
+        <p class="whoname"><span id="r-name">Roamer</span><span class="age-pill" id="r-age" style="display:none"></span><span class="tt-badge" id="r-badge" style="display:none">&#9733; Trusted Traveler</span></p>
         <p class="p-meta" id="r-meta"></p>
       </div>
       <div class="p-actions" id="r-actions">
@@ -326,6 +326,9 @@
     </div>
 
     <div class="p-body">
+
+    <!-- Contribution score and Trusted Traveler Rating (contrib-score.js) -->
+    <div id="r-contrib"></div>
 
     <p class="bio" id="r-bio" style="display:none"></p>
 
@@ -412,6 +415,7 @@
 <script src="bucketlist.js"></script>
 <script src="country-fold.js"></script>
 <script src="travel-stats.js"></script>
+<script src="contrib-score.js"></script>
 <script>
 /* ==================================================================
    ROAMER.HTML — public profile page.
@@ -619,8 +623,16 @@
     $("r-actions").style.display = (previewMode && !isOwner) ? "none" : "";
     if (previewMode) $("r-share").style.display = "none";
 
+    /* Contribution score, level and rating; the badge comes automatically at NRA_CONTRIB.TRUSTED_AT points. */
+    if (window.NRA_CONTRIB) {
+      NRA_CONTRIB.fetchStats(NRA_AUTH.client && NRA_AUTH.client(), p.id, isOwner).then(st => {
+        if (!st) return;
+        $("r-contrib").innerHTML = NRA_CONTRIB.html(st);
+        if (NRA_CONTRIB.trusted(st)) $("r-badge").style.display = "";
+      });
+    }
+
     if (articles.length){
-      $("r-badge").style.display = "";
       $("r-articles").style.display = "";
       $("r-articles-list").innerHTML = articles.map(a =>
         '<a class="art-card" href="post.html?post=' + esc(a.slug) + '">' +
