@@ -21,13 +21,13 @@
 
 **0. - Events on destination finder, from the events spreadsheet
 
-**1. Travel buddy matching (L)** — the feature the name promises. Signed-in users post "Lisbon, Oct 12–19, into food & museums"; others browse by city and date overlap and connect. Builds on existing profiles, photos, socials, forum. Needs: a trips table in Supabase, a browse/match page, messaging or contact-share, and safety/reporting basics. Highest retention potential on this list.
+~~**1. Travel buddy matching (L)** — the feature the name promises. Signed-in users post "Lisbon, Oct 12–19, into food & museums"; others browse by city and date overlap and connect. Builds on existing profiles, photos, socials, forum. Needs: a trips table in Supabase, a browse/match page, messaging or contact-share, and safety/reporting basics. Highest retention potential on this list.~~
 
 ## 💚 Personal & sticky (make accounts worth having)
 
 **2. ~~"My Trips" — save cities from the finder (M)** — heart icon on cards/pins saves a city; saved list feeds the itinerary builder, pulling in transit, neighborhoods, and season data automatically.~~
 
-**3. Personal travel map (M)** — "been there" checkboxes light up a world map on your profile (reuse the MapLibre stack), plus Bucket List progress ("31/100"). Highly shareable.
+~~**3. Personal travel map (M)** — "been there" checkboxes light up a world map on your profile (reuse the MapLibre stack), plus Bucket List progress ("31/100"). Highly shareable.~~
 
 **4. Monthly "Where to go in {month}" page/newsletter (S/M)** — auto-generated from the season & events data: ideal-weather cities, festivals, what to avoid. Fresh content monthly with no writing; gives the mailing list a purpose.
 
@@ -39,19 +39,19 @@
 
 **7. Pre-trip checklist builder (M)** — extend the visa checker: visa status, passport-validity rule, insurance, eSIM, currency. Natural honest affiliate slots (matches monetization-plan.md).
 
-**8. Language survival card (S)** — city pages already know each city's languages; add ~10 key phrases per language, printable wallet card.
+**8. ~~Language survival card (S)** — city pages already know each city's languages; add ~10 key phrases per language, printable wallet card.~~
 
 **9. Offline guides / PWA (M/L)** — save a city guide to the phone for use while traveling without data.
 
 ## 🔎 Discovery (use the data you're sitting on)
 
-**10. ~~Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.~~
+~~**10. ~~Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.~~~~
 
 **11. Weekend finder preset (S)** — "I have 3 days, I live in Berlin" button → filters to destinations under ~5h door-to-door.
 
-**12. ~~Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").~~
+~~**12. ~~Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").~~~~
 
-**13. ~~Auto-generated seasonal collections (S/M)** — "Warm in January," "Christmas market cities," from the season/event data.~~
+**1~~3. ~~Auto-generated seasonal collections (S/M)** — "Warm in January," "Christmas market cities," from the season/event data.~~~~
 
 ## 👥 Community
 
@@ -71,9 +71,9 @@
 
 ## 🔧 Polish & trust (small, high value)
 
-**20. "Was this estimate right?" feedback (S)** — thumbs up/down on price estimates to tune the honesty of the math over time.
+~~**20. "Was this estimate right?" feedback (S)** — thumbs up/down on price estimates to tune the honesty of the math over time.~~
 
-**21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the `city-meta` edge function stamps each city's title, description and photo (checked 2026-09-18).*
+**21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the* `city-meta` *edge function stamps each city's title, description and photo (checked 2026-09-18).*
 
 **22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) is still open.*
 
@@ -92,19 +92,19 @@
 
 **24. ~~Per-city titles & descriptions (M)** ⭐ *biggest ranking win* — today every city guide shows Google the same generic title. A small Netlify edge function stamps "Tokyo Solo Travel Guide" (plus matching description and photo) into each page before it's sent. Solves item 21 (per-city link previews) at the same time. Same fix applies to blog posts.~~ *Done: same edge function, all 893 cities; since 2026-09-17 it also adds a canonical tag, a server-side heading and summary.*
 
-**25. ~~Canonical tags (S)** — one line per page telling Google each page's official address, so share links with extra URL bits don't count as duplicate pages.~~ *Done 2026-09-17/18: canonical on every public page and every city guide (`6fc184c7`, `443ed13f`).*
+**25. ~~Canonical tags (S)** — one line per page telling Google each page's official address, so share links with extra URL bits don't count as duplicate pages.~~ *Done 2026-09-17/18: canonical on every public page and every city guide (*`6fc184c7`*,* `443ed13f`*).*
 
-**26. ~~Structured data (S/M)** — hidden labels (schema.org) telling Google "this is a travel guide about Tokyo" / "this is a blog post." Can earn richer search listings; part of item 22.~~ *Done 2026-09-18: TravelGuide + breadcrumb on city guides, Organization + WebSite on the home page (`6fc184c7`).*
+**26. ~~Structured data (S/M)** — hidden labels (schema.org) telling Google "this is a travel guide about Tokyo" / "this is a blog post." Can earn richer search listings; part of item 22.~~ *Done 2026-09-18: TravelGuide + breadcrumb on city guides, Organization + WebSite on the home page (*`6fc184c7`*).*
 
 **27. Page-speed pass (M)** — city.html is over half a megabyte of code before photos. Move shared styles/data into cached files, serve WebP images. Test with PageSpeed Insights; speed is a ranking factor. *Partly done by the August performance audit; deferring city.html's heavy scripts (about 1.45 MB) is still open.*
 
 **28. Bing Webmaster Tools (S)** — 10-minute sibling of Search Console; covers Bing, DuckDuckGo, and AI search tools that use Bing's index.
 
-**29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working. *2026-09-18: Plausible chosen and the script is on every page (`6fc184c7`); waiting on Jeff's Plausible signup. City guides get it from the edge function until city.html carries it.*
+**29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working. *2026-09-18: Plausible chosen and the script is on every page (*`6fc184c7`*); waiting on Jeff's Plausible signup. City guides get it from the edge function until city.html carries it.*
 
 **30. Alt text audit (S)** — descriptive captions on photos for image search + accessibility; part of item 22.
 
-**31. ~~Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.~~ *Done: `404.html` exists and unknown city names now return a real 404 (`443ed13f`).*
+**31. ~~Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.~~ *Done:* `404.html` *exists and unknown city names now return a real 404 (*`443ed13f`*).*
 
 **32. Backlinks — the real ranking fuel (ongoing)** — Google ranks sites other sites link to. Share guides on r/solotravel and travel forums (genuinely, not spammy), get listed in travel directories, offer guest posts. Items 12 (city vs city) and 13 (seasonal collections) create pages people naturally link to.
 
@@ -156,7 +156,7 @@
 
 ## ⚠️ Pending fix (added July 19, 2026)
 
-**50. ~~Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.~~ *Done: fonts self-hosted in `/fonts`, no page requests Google Fonts, and the privacy claim is true (checked 2026-09-17).*
+**50. ~~Self-host fonts + fix privacy policy claim (S)** — Jeff plans to change site fonts and then self-host them. Once the new fonts are applied: (1) serve them from our own server instead of fonts.googleapis.com (GDPR — German court rulings on Google Fonts), and (2) the privacy.html line "The site's display font is hosted on our own server, so no font request is sent to Google" becomes true — verify it, or amend it if any Google-hosted font remains. Currently Fraunces, Work Sans, and IBM Plex Mono are still hotlinked from Google on nearly every page.~~ *Done: fonts self-hosted in* `/fonts`*, no page requests Google Fonts, and the privacy claim is true (checked 2026-09-17).*
 
 ---
 
