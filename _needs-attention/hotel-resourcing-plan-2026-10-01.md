@@ -368,3 +368,49 @@ Sources: [Expedia affiliate program page](https://creator.expediagroup.com/affil
 [Partnerize article](https://help.creator.expediagroup.com/hc/en-us/articles/1500003709001),
 [Inactivity FAQ](https://help.creator.expediagroup.com/hc/en-us/articles/41947042654743),
 all read 2026-10-02.
+
+## 12. Expedia's answer (received by Jeff, read 2026-10-02) and the options now
+
+Expedia Travel Creator Program support, in short:
+
+1. No API access and no data feeds for property IDs and tracked links.
+2. No bulk deep-link upload; every link is made one at a time (Link Builder or Creator Toolbox).
+3. No written consent for a fixed link format; links must be used exactly as their tools make them (Terms 16.2 to 16.4).
+4. For high-volume deep linking they recommend **Expedia Group Partner Solutions (EPS)** or the **XAP APIs** (developers.expediagroup.com).
+
+### What XAP offers (developer pages read 2026-10-02)
+
+- **Lodging Listings API**: search Expedia hotels by latitude/longitude (or region, keyword, hotel IDs), up to 1,000 per response. Each result carries the hotel ID, address, coordinates, **StarRating**, **GuestRating**, **GuestReviewCount**, property type, brand, a price for the requested dates, and a ready-made **link to that hotel on Expedia**. That one call covers candidates, the star tier, the 8.0 guest-score gate, the price check and the link: most of section 4 without Google.
+- Catch 1: the links are made for specific dates (check-in and check-out are required in the search), so a stored link goes stale. A live link would need our own small function that asks XAP at click time, which XAP's terms would have to allow.
+- Catch 2: access is by application ("brief review of your site functionality"), then an Expedia account manager issues the key. How a link-off partner is paid under XAP, and whether a site our size is accepted, is not on the public pages.
+- EPS (Rapid) is built for travel companies that take the booking on their own site; it does not fit a guide site that links out.
+
+### Options
+
+| | Route | For | Against |
+|---|---|---|---|
+| A | Apply to XAP (free form) | Everything the pipeline needs in one API, from Expedia itself | Acceptance and pay model unknown; dated links |
+| B | Agoda as the main link partner, Expedia only by hand where Agoda lacks a hotel | Agoda allows links built from the hotel ID and our partner code, so all links can be made by script; strongest in Asia | Reverses Jeff's 2026-10-02 call (Expedia main); Agoda's six-month no-bookings clause |
+| C | Expedia by hand for every hotel (Toolbox) | Stays with the current plan, allowed by the terms | About 10,700 links, roughly 60 hours (estimate); every re-pick needs a new link by hand |
+| D | Expedia through the CJ network | CJ deep links are normally built from any page address | Not verified that Expedia runs a program on CJ or allows it there |
+
+Recommendation: send the XAP form now (A) and, without waiting, run the 25-city pilot with Agoda links (B) so the pipeline is proven; hotels Agoda lacks get an Expedia link by hand (C, small numbers). If XAP accepts us, Expedia can be switched back in as the main partner without redoing the picks, because the picks never depend on the partner.
+
+**Update, same day: XAP is closed to new partners.** Expedia's developer hub says new API applications are paused "due to the volume of requests", covering the Travel Redirect APIs (Lodging Listings included); no reopening date (Jeff, confirmed by search 2026-10-02). Option A is off for now. Still worth one question back to Expedia: their help centre says partners who join through a network ("such as Partnerize and CJ Affiliate") get the network's own link tools. Partnerize and CJ both normally offer a deep-link format built from any page address; if Expedia confirms that format counts as a Program Link for network members, option D gives Expedia links by script. Until that is answered, the workable routes are B (Agoda main, by script) and C (Expedia by hand).
+
+**Option D question, drafted 2026-10-02 for Jeff to send as a reply in the same Expedia thread:**
+
+> Thank you for the clear answer. One follow-up: your help centre says partners who join the program through an affiliate network, such as Partnerize or CJ Affiliate, use that network's link tools instead of the Creator Toolbox. Both networks offer a deep-link format that is built from any Expedia page address plus the partner's tracking code. If I joined through one of those networks, would links made with that network's deep-link format count as Program Links under your terms (16.2 to 16.4), so I could create them for each hotel page without making every link by hand? If so, which network do you recommend for a website partner based in the United States?
+
+**Expedia's answer to the option D question (received by Jeff, read 2026-10-05):** joining through Partnerize or CJ Affiliate puts the partner under that network's terms and tools, and "the deep-link formats provided by these networks are authorized for use within their respective programs", with "more automated deep-linking" than the Creator Hub. Both networks are fine for a US website; Partnerize support for Expedia is expedia.support@partnerize.com. Expedia's Creator support only covers the Creator Hub. **Option D is open: Expedia links can be made by script through a network.**
+
+Proposed next steps (for Jeff's OK):
+1. **Network: Partnerize** (proposed over CJ): Expedia's own tracking already runs on it (the PHG code in every Creator link), Hostelworld is on it too, so one network account would serve two partners.
+2. **Ask Partnerize three things before joining:** (a) can an existing Creator Hub member also join the Expedia program on Partnerize, or must the Creator account close; (b) is the deep-link format (destination = any Expedia hotel page) available to a new website publisher from day one; (c) does the Expedia program on Partnerize offer a hotel product feed (hotel IDs, page addresses, star class), which would replace one web search per hotel when matching our picks to Expedia.
+3. Remaining bottleneck either way: each pick still has to be matched to its Expedia hotel page. Without a feed that is one search plus one page read per hotel (pilot 2's method); the pilot measures it.
+
+**Partnerize's answer (received by Jeff, read 2026-10-05):** (1) an existing Affiliate Hub (Creator) account can be used to log in to Partnerize and apply to other campaigns; access is opened by the Affiliate Hub team at affiliatehubsupport@expediagroup.com. A separate Partnerize account is the alternative but has no tie to the Creator account. (2) Deep linking is available as soon as a partner is approved onto a campaign (Tracking tab, after choosing the campaign). (3) Feeds are up to each advertiser; check the Content tab after approval.
+
+Proposed: open Partnerize access on the existing Creator account (one login, one payout; the Expedia approval carries over), then apply to the Expedia and Hostelworld campaigns there, then check Tracking (deep-link format) and Content (any hotel feed) for each.
+
+**Decided 2026-10-05 (decisions.md):** a new Partnerize account; apply there to the Expedia (US) and Hostelworld campaigns; only Partnerize links on the site; the Creator account is left unused.
