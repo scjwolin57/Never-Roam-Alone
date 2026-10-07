@@ -127,6 +127,25 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
    and their fixes were never live (fixed 2026-09-22, commit b906db8d).
 5. The two cleared pins are in the CSV marked CLEARED; they need a real point.
 
+### Phase 2 run attempt, 2026-10-06/07: stopped at the gates, 0 Google calls
+
+- **Gate B failed.** Session "DiscoverCars links on city pages" (375e9223, live)
+  has 632 uncommitted `citydata/*.json` edits in its worktree
+  `.claude/worktrees/discovercars-links` (branch `worktree-discovercars-links`).
+  Writing pins to the same one-line files now would leave two branches that git
+  cannot merge. The pass waits until that work is merged to main.
+- **Gate A not verified.** The Cloud console needs a Google sign-in, which an
+  unattended run cannot do, and no API-key call can read the usage figure. The
+  only other way is to spend test calls, which was not done while Gate B was
+  failing. Note: hood picks spent Places calls from the same project on the
+  trial credit ($190.96 of $260 by 2026-09-26); Geocoding has its own free cap.
+- **Also seen:** main is 2 commits behind origin/main (pushed from the
+  `daytrip-photos-pilot` branch on 2026-10-06). Pull before the pass starts.
+- Rescheduled the task to 2026-10-08 09:00. For it to run, Jeff: (1) let the
+  DiscoverCars task commit and merge its citydata changes, and (2) either sign
+  in to the Cloud console in the app's browser pane, or check APIs & Services >
+  Geocoding API > Metrics yourself and say "October geocoding is near zero".
+
 ## Open for Jeff
 
 - `landmarks-that-are-day-trips.md` - 317 landmark pins now sit more than 30 km
