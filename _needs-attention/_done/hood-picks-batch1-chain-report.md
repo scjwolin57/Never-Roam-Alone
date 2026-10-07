@@ -159,3 +159,56 @@ Rule since 2026-09-23 (Jeff: "use 10 and founded here"): a chain stays only with
 | taipei | Da'an | cafes / bakery | CUPETIT (卡柏蒂) | local: homepage links to a branch list ('門市據點') (scope: agent confirms every branch is in this city) |
 
 The 181 weak-evidence picks are in `_guidebuild/hoodpicks/work/chain_live.json` (not listed here).
+
+## Result (2026-10-07, Jeff: "yes, item 1")
+
+Page check by 5 agents, then every pick that would change rechecked by 4 fresh agents (3 disagreements, settled on the brand's own current store list). Rule as clarified in decisions.md 2026-10-07. Zero Google calls.
+
+| Outcome | Picks |
+|---|---|
+| Single venue, no change | 24 |
+| Kept as a local chain, note marked (name shortened to the brand where it carried a branch label) | 48 |
+| Removed: breaks the rule | 51 |
+| Removed: outlet count or home city could not be found | 10 |
+| Removed later: Gyumon Halal Ramen (Tokyo), 27 GYUMON outlets found by the re-pick checker | 1 |
+
+Re-pick of the 62 emptied slots, from the Google results saved on 2026-09-22 only: 33 picks made, 29 passed the checker, 27 passed a 100% audit, plus Chatterbox kept with a rewritten note = **28 filled**. Commits d49bac06 (check) and 8800eca0 (re-pick).
+
+**Still empty (34 slots; no saved candidate passed):**
+
+- Antalya, Lara: cafes coffee (was Reev Coffee Lara)
+- Antalya, Konyaaltı: eat casual (was Shakespeare Coffee & Bistro)
+- Barcelona, Gothic Quarter: cafes coffee (was Right Side Coffee Bar)
+- Dubai, Dubai Marina: eat casual (was Bosporus Turkish Cuisine)
+- Hong Kong, Central: eat local (was Tim Ho Wan (Central))
+- Hong Kong, Causeway Bay: cafes coffee (was Artista Perfetto)
+- Istanbul, Sultanahmet: cafes bakery (was Hafiz Mustafa 1864)
+- Istanbul, Beyoğlu (Taksim): cafes bakery (was Hafız Mustafa 1864 Pera)
+- Kuala Lumpur, KLCC: eat local (was Oriental Kopi • Suria KLCC)
+- Kuala Lumpur, Bangsar: cafes coffee (was ZUS Coffee (Menara UOA Bangsar))
+- London, Soho & Westminster: cafes takeaway (was JUNK)
+- Los Angeles, Santa Monica: eat local (was Sweet Maple)
+- Los Angeles, Santa Monica: cafes takeaway (was Bacio di Latte)
+- Los Angeles, Beverly Hills: eat fine (was The Penthouse at Mastro's)
+- Los Angeles, Beverly Hills: cafes takeaway (was Joe's Pizza Beverly Hills)
+- Macau, Cotai: cafes bakery (was Lord Stow's Bakery & Cafe)
+- Madrid, Malasaña: eat casual (was Honest Greens Gran Vía)
+- Mecca, Al Aziziyah: cafes coffee (was Barn's)
+- Mecca, Al Shubaikah: eat local (was الرومانسية أبراج جبل عُمر Al romansiah)
+- Mecca, Al Shubaikah: cafes coffee (was Address Cafe (عنوان القهوة))
+- Medina, Central Area (Al Haram): cafes takeaway (was ALBAIK)
+- Milan, Duomo / Centro: eat casual (was Spontini)
+- Milan, Duomo / Centro: cafes coffee (was Caffè Napoli Giardino)
+- Milan, Navigli: cafes bakery (was Cioccolatitaliani)
+- Milan, Isola: eat local (was Assaje)
+- Osaka, Namba (Minami): eat casual (was 551 Horai Honten)
+- Osaka, Namba (Minami): cafes takeaway (was Takoyaki Wanaka Sennichimae)
+- Paris, Champs-Élysées: bars pub (was O'Sullivans)
+- Phuket, Karon: cafes bakery (was Garang Karon)
+- Phuket, Phuket Old Town: eat fine (was Blue Elephant Phuket)
+- Prague, Old Town: cafes coffee (was The Miners Coffee)
+- Rome, Monti: cafes takeaway (was Trieste Pizza)
+- Seoul, Gangnam: cafes coffee (was Nata O Bica)
+- Tokyo, Asakusa: eat local (was Gyumon Halal Ramen)
+
+Not done here: the 181 "weak evidence" picks (usually duplicate map records) were not page-checked. A fresh Google search for the empty slots would cost calls; not run.
