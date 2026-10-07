@@ -420,6 +420,11 @@
   .tcard:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(20,40,50,.16)}
   .tcard:focus-visible{outline:2px solid var(--green);outline-offset:2px}
   .tcard-more{margin-top:auto;padding-top:14px;font-size:.76rem;font-weight:700;color:var(--green)}
+  /* Car rental card: no popup (its link goes straight to DiscoverCars, 2026-10-06), so no lift or pointer; the link sits at the foot */
+  .tcard-static{cursor:default}
+  .tcard-static:hover{transform:none;box-shadow:var(--shadow)}
+  .tcard-static .car-info{margin-bottom:12px}
+  .tcard-static .dtcard-tours{margin-top:auto}
   .tcard-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
   .tcard-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700;margin-bottom:10px}
   .tcard-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -1430,6 +1435,7 @@ window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"
      Provides window.NRA_ESIM / _HOSTS / _AFF / _PROVIDERS for the
      "Travel eSIMs" modal behind the Connectivity banner's Buy an eSIM button. -->
 <script src="esim-providers.js"></script>
+<script src="rental-notes.js"></script>
 <!-- Travel advisories by country from the three governments the site tracks
      (US, UK, Canada; decisions.md 2026-09-22). Country level; a city whose region
      is rated differently carries its own override in citydata. ~118 KB. -->
@@ -1503,6 +1509,8 @@ let CITY_HOTEL = {};
 let CITY_LAUNDRY = {};   // wash+dry price, availability, note — synced from the sheet's Laundry columns
 let CITY_HOOD_GEO = {};  // [lat,lng] per neighborhood (aligned with hoods; null = not placed) — from geocode_hoods.py
 let CITY_LAUNDROMATS = {}; // laundromats per neighborhood from Overture open data (CITY_SCHEMA.md "laundromats"); undefined = not loaded, [] = none listed
+let CITY_CARHIRE = {};   // DiscoverCars page for the city or its airport: {u,k,n} (CITY_SCHEMA.md "carhire"; site-only)
+let CITY_DRIVER = {};    // Kiwitaxi car-with-a-driver hub page: {u,k,n} (CITY_SCHEMA.md "driver"; site-only)
 let CITY_NEARBY = {};    // other guides within day-trip range: [{city,tier,mins,country,blurb}] (CITY_SCHEMA.md "nearby"; built by _guidebuild/daytrips/build_nearby.py)
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
@@ -2502,7 +2510,8 @@ async function loadCityData(){
   fill(CITY_COST, rec.cost);
   fill(CITY_HOTEL, rec.hotel);         fill(CITY_RIDES, rec.rides);
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
-  fill(CITY_NEARBY, rec.nearby);
+  fill(CITY_NEARBY, rec.nearby);       fill(CITY_CARHIRE, rec.carhire);
+  fill(CITY_DRIVER, rec.driver);
   fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
@@ -3206,6 +3215,55 @@ function buildAdvisoryBanner(c, cityAdv){
     return `<span class="${cls}"><a href="${esc(ph.page)}" target="_blank" rel="noopener" title="${esc(tip)}">${esc(shown)}</a></span>`;
   }
 
+  /* DiscoverCars affiliate: the city's own DiscoverCars page, or the guide's airport page where the city has none
+     (CITY_SCHEMA.md "carhire"; coverage check in _needs-attention/discovercars-coverage-2026-10-05.md). */
+  const DISCOVERCARS_AID = "NRA2026";
+  function carHireHTML(){
+    const h = CITY_CARHIRE[c.city];
+    if (!h || !h.u) return "";
+    const where = h.k === "airport" && h.n ? `at ${h.n}` : `in ${c.city}`;
+    return `<a class="dtcard-tours" href="https://www.discovercars.com/${encodeURI(h.u)}?a_aid=${DISCOVERCARS_AID}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Compare rental cars ${where} &rarr;</span>
+            <span class="dtcard-tours-v">on DiscoverCars</span>
+          </a>`;
+  }
+  /* Kiwitaxi affiliate: a car with a driver, for cities no self-drive site covers (CITY_SCHEMA.md "driver";
+     car-rental-second-program-2026-10-06.md); the city's Kiwitaxi hub page, or its airport's */
+  const KIWITAXI_TAG = "utm_source=kiwitaxi_business&utm_medium=link&influencer_id=bfcb9b64-70b7-41e6-b694-6142f07d4085";
+  function driverHTML(){
+    const d = CITY_DRIVER[c.city];
+    if (!d || !d.u) return "";
+    const where = d.k === "airport" && d.n ? `from ${d.n}` : `in ${c.city}`;
+    return `<a class="dtcard-tours" href="https://kiwitaxi.com/en/${encodeURI(d.u)}?${KIWITAXI_TAG}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Car with a driver ${where} &rarr;</span>
+            <span class="dtcard-tours-v">on Kiwitaxi</span>
+          </a>`;
+  }
+  function bookLinksHTML(){ return carHireHTML() + driverHTML(); }
+
+  /* "Before you rent" note for this country (rental-notes.js; CITY_SCHEMA.md "rental notes"), or null */
+  function rentNote(){
+    const n = (typeof NRA_RENT_NOTES !== "undefined") && NRA_RENT_NOTES[c.country];
+    return n && n.n ? n : null;
+  }
+  function rentAffLine(){
+    const p = [CITY_CARHIRE[c.city] && "DiscoverCars", CITY_DRIVER[c.city] && "Kiwitaxi"].filter(Boolean);
+    if (!p.length) return "";
+    const many = p.length > 1;
+    return `<p class="dtcard-foot">The booking link${many ? "s open" : " opens"} ${p.join(" and ")}. ${many ? "They are affiliate links" : "It is an affiliate link"}: it costs you nothing extra and helps keep Never Roam Alone free.</p>`;
+  }
+  function buildCarModal(){
+    const n = rentNote();
+    if (!n) return `<p class="modal-placeholder">More information about car rental in ${c.city} is coming soon.</p>`;
+    const src = (n.src || []).map(s => `<a class="inline" href="${s.u}" target="_blank" rel="noopener">${s.t}</a>${s.d ? ` (${s.d})` : ""}`).join(", ");
+    const link = bookLinksHTML();
+    return `
+      <h4 class="air-sub">Before you rent</h4>
+      <p class="rt-intro">${n.n}</p>
+      ${src ? `<p class="air-foot">Source: ${src}. Rules can change; check with your rental company before you travel.</p>` : ""}
+      ${link ? `<h4 class="air-sub">Book</h4>${link}${rentAffLine()}` : ""}`;
+  }
+
   /* Build the transportation cards; car rental price uses currency `code` */
   function buildTransport(code) {
     const t = CITY_TRANSPORT[c.city];
@@ -3220,16 +3278,19 @@ function buildAdvisoryBanner(c, cityAdv){
           <span class="tcard-more">More info &rarr;</span>
         </div>`;
     const side = t.car.side === "left" ? "Left" : "Right";
+    /* A country with a "before you rent" note opens a popup (the note first, then the booking links);
+       elsewhere the booking link sits on the card itself (decisions.md 2026-10-06) */
+    const note = rentNote();
     const carCard = `
-        <div class="tcard" tabindex="0" role="button" data-info="Car rental" aria-label="Car rental — more info">
+        <div class="tcard${note ? "" : " tcard-static"}"${note ? ` tabindex="0" role="button" data-info="Car rental" aria-label="Car rental — before you rent"` : ""}>
           <span class="tcard-icon" aria-hidden="true">${TRANSPORT_ICONS.car}</span>
           <div class="tcard-k">Car rental</div>
           <div class="car-info">
             <div class="car-row"><span class="car-k">Drives on</span><span class="car-v">${side} side</span></div>
             <div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${t.car.idp}</span></div>
-            <div class="car-row"><span class="car-k">Mid-size &middot; day</span><span class="car-v">${fmtPrice(t.car.rental, code)}</span></div>
+            <div class="car-row"><span class="car-k">Mid-size &middot; day avg</span><span class="car-v">${fmtPrice(t.car.rental, code)}</span></div>
           </div>
-          <span class="tcard-more">More info &rarr;</span>
+          ${note ? `<span class="tcard-more">More info &rarr;</span>` : bookLinksHTML()}
         </div>`;
     return listCard(TRANSPORT_ICONS.air, "Major airports", t.air, "—")
          + listCard(TRANSPORT_ICONS.train, "Major train stations", t.train, "No intercity rail")
@@ -3472,6 +3533,7 @@ function buildAdvisoryBanner(c, cityAdv){
       ${plate("03","Passage")}
       <h2 class="sec-head">Getting to/from <em>${c.city}</em>${noteBtn("transport", "Getting to and from the city")}</h2>
       ${CITY_TRANSPORT[c.city] ? '<div id="transport-cards" class="transport-grid"></div>' : `<p class="hood-intro">Detailed getting-around info for ${c.city} is coming soon.</p>`}
+      ${CITY_TRANSPORT[c.city] && !rentNote() ? rentAffLine() : ""}
       <div id="transit-card" class="fact transit-banner" hidden></div>
     </section>
 
@@ -5195,6 +5257,8 @@ function buildAdvisoryBanner(c, cityAdv){
           .then(() => { if (!modal.hidden && modalTitle.textContent === `${title} — ${forCity}`) modalBody.innerHTML = buildFoodModal(); })
           .catch(() => { if (!modal.hidden) modalBody.innerHTML = `<p class="modal-placeholder">Couldn't load the food recommendations. Please check your connection and try again.</p>`; });
       }
+    } else if (title === "Car rental") {
+      modalBody.innerHTML = buildCarModal();
     } else if (title === "Bike & scooter share") {
       if (window.NRA_MICRO) {
         modalBody.innerHTML = buildMicroModal();
@@ -5228,11 +5292,13 @@ function buildAdvisoryBanner(c, cityAdv){
       if (info === "Major train stations" || info === "Major bus stations" || info === "Ferry / boat ports") loadRoutesData().catch(() => {});
     });
     transportEl.addEventListener("click", e => {
+      if (e.target.closest("a")) return;   // the car rental link opens DiscoverCars, not the card's popup
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) openModal(card.dataset.info);
     });
     transportEl.addEventListener("keydown", e => {
       if (e.key !== "Enter" && e.key !== " ") return;
+      if (e.target.closest("a")) return;
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) { e.preventDefault(); openModal(card.dataset.info); }
     });
