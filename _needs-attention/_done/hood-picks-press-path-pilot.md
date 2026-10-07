@@ -35,3 +35,7 @@ Kultúra (Riyadh, KAFD, coffee; its own site loads now, 4 outlets, all in Riyadh
 - Zalata (Riyadh): Saudi comfort food, but an AlUla outlet with no store list.
 
 Answer here or in chat. The decision gets a row in decisions.md.
+
+## Decision (2026-10-07)
+
+Jeff: "stop it". The press path is not made a standard step and is not used again. The 5 confirmed picks above stay live. CHECKLIST.md section F is marked stopped.
