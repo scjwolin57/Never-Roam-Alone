@@ -129,3 +129,42 @@ These were **not** changed. Most compare the card to UK guidance, so a few may s
 - Barbados abolished its visitor driving permit on 15 October 2025 (Barbados Revenue Authority). The Barbados card says "Recommended", which is consistent.
 - Montserrat: the card already names the local permit; FCDO adds it must be applied for online at least 72 hours before travel.
 - Kiwitaxi: once Jeff's partner link arrives, the popup's "Book" section gets a "car with a driver" link for the 39 cities in `car-rental-second-program-2026-10-06.md` (17 of them in China, which now has the note).
+
+## Follow-up 2026-10-07 (Jeff: settle the held countries with each country's own authority; find a second source for the one-source notes)
+
+**Rule now:** every note has at least two independent sources. Live: **23 countries (24 names), 147 city guides**; 66 of them have a booking link inside the popup.
+
+**Second sources found (kept, some reworded):**
+
+| Country | Result | Change |
+|---|---|---|
+| Kosovo | confirmed (Alamo Belgrade bars Kosovo; Enterprise Pristina bars Serbia) | sources added |
+| DR Congo | confirmed (US State Dept 2026-09-17: reputable firms include a driver) | sources added |
+| Samoa | confirmed (Canada 2026-05-26; Samoa Land Transport Authority road code) | reworded: full-licence holders only; an LTA-endorsed IDP also works |
+| Serbia | partly: Alamo and National at Belgrade bar Kosovo but allow Albania, and EU countries for a fee | reworded: "some also exclude Albania or Bulgaria" |
+| Sri Lanka | partly: Canada says home licence **or** IDP, plus the Sri Lankan temporary licence | reworded |
+
+**Removed (no second source, or contradicted):**
+- Nepal: State Dept, Canada and the Australian Embassy all require an IDP but none names a version; only FCDO says 1968-only.
+- Ukraine: Ukraine's own Resolution 340 (para 30) asks for "an international driving permit" with no version; US advice tells Americans to get one (the US issues 1949). Only FCDO says the 1949 permit is refused.
+- Mongolia: same pattern as Ukraine (State Dept says US tourists may drive with an international licence); removed for consistency.
+
+**The 16 held countries, settled against national sources:**
+
+| Country | Verdict | Source that settled it |
+|---|---|---|
+| South Korea | no note | Road Traffic Act art. 96 (law.go.kr, in force 2026-07-01): permits under both 1949 and 1968 conventions accepted for a year |
+| Argentina | no note | argentina.gob.ar: licences from 1949 and 1968 parties valid up to a year |
+| Morocco | no note | Road code Law 52-05 art. 2: a valid foreign licence works up to a year (read via search extract of the Justice Ministry PDF; the site refused connections) |
+| Timor-Leste | no note | Road code, Decree-Law 6/2003 art. 119 (timor-leste.gov.tl): foreign licences and IDPs valid; nothing bars self-drive |
+| Ghana, India, Iraq, Rwanda, Tajikistan, Turkmenistan | no note | national sources found name no permit version and refuse nothing |
+| Turkey / Türkiye | still held | regulation art. 88 could not be read (mevzuat.gov.tr would not serve it); FCDO vs State Dept stands |
+| Lebanon | still held | no Lebanese law or authority page found |
+| Chad | still held | no Chadian source found; State Dept vs FCDO stands |
+| Armenia | still held | hartak.am (with the Road Police) says a foreign licence must meet the 1968 format; does not say a 1949 IDP is refused |
+| Azerbaijan | still held | no national source found |
+| Bangladesh | still held | Road Transport Act 2018 s.9(1): a foreign licence must be endorsed by the BRTA; unclear whether that applies to a visiting renter |
+
+Retry later: Turkey (mevzuat.gov.tr art. 88), Azerbaijan (e-qanun.az), Morocco's law PDF once its host answers, any Lebanese or Chadian authority page. Raw results: `settle_a.json`, `settle_b.json`, `second_src.json` (scratchpad; to copy into `_guidebuild/discovercars/` with the rest).
+
+**Far airports (Jeff 2026-10-07: keep, add a note):** an airport link 100 km or more from its city shows "This airport is about N km (M mi) from <city>, but it is the usual airport for arriving here." 13 cities: Ica, Saint-Louis, Kusatsu, Sigiriya, Nakuru, Windermere, Pai, Vaduz, Kanchanaburi, Galle, Himeji, Chefchaouen, Kandy. Threshold `FAR_AIRPORT_KM = 100` in city.html.

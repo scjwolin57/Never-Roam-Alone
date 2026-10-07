@@ -7,7 +7,8 @@
    country's own authority, US State Department, UK FCDO, Canada), and a rental company's own
    terms only for a company rule. A permit-type note needs a source that says outright the other
    permit is refused; treaty membership alone is not enough. Contradicted or hedged rules are left
-   out. Never written from memory. `one: true` = rests on a single government source.
+   out. Never written from memory. Every note has at least two independent sources
+   (Jeff, 2026-10-07); a one-source rule is held in the research log, not shown.
    A city whose country has a note shows "More info" on its Car rental card; the popup shows
    the note, then the booking link(s).
    Shape: { "<country>": { n: "note, max 2 sentences", k: [kinds], src: [{t, u, d}], chk, one? } }
@@ -17,7 +18,7 @@
   const DOS = (page, d) => ({ t: "US State Department", u: "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/" + page + ".html", d });
   const CA = (slug, d) => ({ t: "Government of Canada", u: "https://travel.gc.ca/destinations/" + slug, d });
   const congo = { n: "Self-drive cars are hard to find here: most car hire companies in Kinshasa only rent a car with a driver.",
-    k: ["no_self_drive"], src: [FCDO("democratic-republic-of-the-congo/safety-and-security", "2026-09-16")], chk: "2026-10-06", one: true };
+    k: ["no_self_drive"], src: [FCDO("democratic-republic-of-the-congo/safety-and-security", "2026-09-16"), { t: "US State Department (data feed)", u: "https://cadataapi.state.gov/api/CountryTravelInformation", d: "2026-09-17" }], chk: "2026-10-07" };
   window.NRA_RENT_NOTES = {
     "Belarus": { n: "Because of sanctions, almost no banks in Belarus accept foreign cards, and your own bank may block your card there. Check how the rental company will take payment and the deposit before you book.",
       k: ["booking"], src: [FCDO("belarus/safety-and-security", "2026-09-10"), { t: "German Federal Foreign Office", u: "https://www.auswaertiges-amt.de/de/reiseundsicherheit/belarussicherheit-201904", d: "2026-06-19" }], chk: "2026-10-06" },
@@ -44,11 +45,7 @@
     "Japan": { n: "Japan accepts only the 1949 Geneva version of the International Driving Permit; the 1968 version is not valid. Licences from Switzerland, Germany, France, Belgium, Monaco and Taiwan need an official Japanese translation instead.",
       k: ["convention"], src: [{ t: "Tokyo Metropolitan Police", u: "https://www.keishicho.metro.tokyo.lg.jp/multilingual/english/finding_services/faq/drivers_license.html", d: "2021-09-21" }, { t: "National Police Agency, Japan", u: "https://www.npa.go.jp/policies/application/license_renewal/pdf/english_leaflet_web_ver2.pdf", d: "undated" }, FCDO("japan/safety-and-security", "2026-08-28")], chk: "2026-10-06" },
     "Kosovo": { n: "Many rental companies in Serbia do not allow their cars into Kosovo, and companies in Kosovo often do not allow theirs into Serbia. Check the cross-border rules before you book.",
-      k: ["area"], src: [FCDO("kosovo/safety-and-security", "2026-09-23")], chk: "2026-10-06", one: true },
-    "Mongolia": { n: "Mongolia accepts only the 1968 version of the International Driving Permit; the 1949 version, the kind issued in the US, is no longer accepted.",
-      k: ["convention"], src: [FCDO("mongolia", "2026-08-07"), DOS("Mongolia", "2025-08-28")], chk: "2026-10-06" },
-    "Nepal": { n: "Nepal accepts only the 1968 version of the International Driving Permit; the 1949 version, the kind issued in the US, is no longer accepted.",
-      k: ["convention"], src: [FCDO("nepal", "2026-10-01")], chk: "2026-10-06", one: true },
+      k: ["area"], src: [FCDO("kosovo/safety-and-security", "2026-09-23"), { t: "Alamo, Belgrade airport rental terms", u: "https://www.alamo.com/en/car-rental-locations/rs/belgrade-nikola-tesla-airport-jo59.html", d: "undated" }, { t: "Enterprise, Pristina airport rental terms", u: "https://www.enterprise.com/en/car-rental-locations/rs/pristina-international-airport-jjk4.html", d: "undated" }], chk: "2026-10-07" },
     "North Korea": { n: "Visitors may not drive in North Korea without a North Korean driving licence, and International Driving Permits are not valid there.",
       k: ["licence", "no_self_drive"], src: [DOS("KoreaDemocraticPeoplesRepublicof", "2023-07-20"), FCDO("north-korea", "2025-12-10")], chk: "2026-10-06" },
     "Palestine": { n: "Many Israeli rental companies do not allow their cars into Area A, the Palestinian-run parts of the West Bank, and their cover does not apply there. A fully insured car from a company in East Jerusalem may be easier.",
@@ -59,16 +56,14 @@
       k: ["licence"], src: [DOS("SaintLucia", "2025-01-21"), FCDO("st-lucia/safety-and-security", "2025-12-10")], chk: "2026-10-06" },
     "Saint Vincent and the Grenadines": { n: "Visitors need a temporary driving permit from the Licensing Authority, and an International Driving Permit must be registered there before you drive. Car hire companies usually help.",
       k: ["licence"], src: [FCDO("st-vincent-and-the-grenadines/safety-and-security", "2026-04-23"), { t: "Ministry of Finance, St Vincent and the Grenadines", u: "https://finance.gov.vc/finance/index.php/frequently-asked-questions/248-what-is-the-procedure-for-obtaining-a-temporary-driving-permit", d: "undated" }], chk: "2026-10-06" },
-    "Samoa": { n: "All visitors need a temporary Samoan driving permit as well as their home licence. Car rental companies help arrange it.",
-      k: ["licence"], src: [FCDO("samoa/safety-and-security", "2026-03-19")], chk: "2026-10-06", one: true },
-    "Serbia": { n: "Many Serbian rental firms do not allow their cars into Kosovo, Albania or Bulgaria. Check the cross-border rules before you book.",
-      k: ["area"], src: [FCDO("serbia/safety-and-security", "2026-08-13")], chk: "2026-10-06", one: true },
-    "Sri Lanka": { n: "To drive a hire car you need a Sri Lankan recognition permit as well as your licence and International Driving Permit. It is issued in Colombo, including at the airport.",
-      k: ["licence"], src: [FCDO("sri-lanka", "2026-09-21")], chk: "2026-10-06", one: true },
+    "Samoa": { n: "Visitors need a temporary Samoan driving licence, issued only to holders of a full licence, unless the Land Transport Authority has endorsed their International Driving Permit. Rental companies help arrange it.",
+      k: ["licence"], src: [FCDO("samoa/safety-and-security", "2026-03-19"), CA("samoa", "2026-05-26"), { t: "Samoa Land Transport Authority, National Road Code", u: "https://lta.gov.ws/wp-content/uploads/2023/12/SAMOA-NATIONAL-ROAD-CODE.pdf", d: "2023-12" }], chk: "2026-10-07" },
+    "Serbia": { n: "Many Serbian rental firms do not allow their cars into Kosovo, and some also exclude Albania or Bulgaria. Check the cross-border rules before you book.",
+      k: ["area"], src: [FCDO("serbia/safety-and-security", "2026-08-13"), { t: "Alamo, Belgrade airport rental terms", u: "https://www.alamo.com/en/car-rental-locations/rs/belgrade-nikola-tesla-airport-jo59.html", d: "undated" }, { t: "National, Belgrade airport rental terms", u: "https://www.nationalcar.com/en/car-rental-locations/rs/belgrade-nikola-tesla-airport-jo60.html", d: "undated" }], chk: "2026-10-07" },
+    "Sri Lanka": { n: "Your home licence or International Driving Permit is not enough on its own to drive a hire car; you also need a Sri Lankan temporary licence (recognition permit). Get it at the counter at Colombo airport or the Department of Motor Traffic.",
+      k: ["licence"], src: [FCDO("sri-lanka", "2026-09-21"), CA("sri-lanka", "2026-07-07")], chk: "2026-10-07" },
     "St. Kitts and Nevis": { n: "You must buy a local visitor's driving licence; your own licence or an International Driving Permit is not enough on its own. Rental companies usually help arrange it.",
       k: ["licence"], src: [DOS("SaintKittsandNevis", "2024-12-31"), FCDO("st-kitts-and-nevis", "2026-01-05")], chk: "2026-10-06" },
-    "Ukraine": { n: "Ukraine accepts only the 1968 version of the International Driving Permit; the 1949 version, the kind issued in the US, is no longer accepted.",
-      k: ["convention"], src: [FCDO("ukraine", "2026-10-02")], chk: "2026-10-06", one: true },
     "Vietnam": { n: "Vietnam accepts only the 1968 version of the International Driving Permit. A US licence, even with a US-issued permit, is not valid for driving there.",
       k: ["convention"], src: [{ t: "US Embassy Vietnam", u: "https://vn.usembassy.gov/driving-in-vietnam/", d: "undated" }, FCDO("vietnam", "2026-09-21")], chk: "2026-10-06" }
   };

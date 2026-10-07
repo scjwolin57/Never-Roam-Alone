@@ -425,6 +425,7 @@
   .tcard-static:hover{transform:none;box-shadow:var(--shadow)}
   .tcard-static .car-info{margin-bottom:12px}
   .tcard-static .dtcard-tours{margin-top:auto}
+  .car-far{margin:6px 0 0;font-size:.72rem;line-height:1.35;color:var(--muted)}
   .tcard-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
   .tcard-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700;margin-bottom:10px}
   .tcard-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -3218,14 +3219,19 @@ function buildAdvisoryBanner(c, cityAdv){
   /* DiscoverCars affiliate: the city's own DiscoverCars page, or the guide's airport page where the city has none
      (CITY_SCHEMA.md "carhire"; coverage check in _needs-attention/discovercars-coverage-2026-10-05.md). */
   const DISCOVERCARS_AID = "NRA2026";
+  const FAR_AIRPORT_KM = 100;   // the one place this threshold is set
   function carHireHTML(){
     const h = CITY_CARHIRE[c.city];
     if (!h || !h.u) return "";
     const where = h.k === "airport" && h.n ? `at ${h.n}` : `in ${c.city}`;
+    /* An airport link far from the city says how far, and that it is still the usual arrival airport (Jeff, 2026-10-07) */
+    const a = CITY_AIRPORT[c.city];
+    const far = h.k === "airport" && a && a.km >= FAR_AIRPORT_KM
+      ? `<p class="car-far">This airport is about ${a.km} km (${Math.round(a.km * 0.621371)} mi) from ${c.city}, but it is the usual airport for arriving here.</p>` : "";
     return `<a class="dtcard-tours" href="https://www.discovercars.com/${encodeURI(h.u)}?a_aid=${DISCOVERCARS_AID}" target="_blank" rel="noopener sponsored">
             <span class="dtcard-tours-k">Compare rental cars ${where} &rarr;</span>
             <span class="dtcard-tours-v">on DiscoverCars</span>
-          </a>`;
+          </a>${far}`;
   }
   /* Kiwitaxi affiliate: a car with a driver, for cities no self-drive site covers (CITY_SCHEMA.md "driver";
      car-rental-second-program-2026-10-06.md); the city's Kiwitaxi hub page, or its airport's */
