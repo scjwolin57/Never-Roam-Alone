@@ -627,7 +627,6 @@ window.NRA_HOOD_PHOTO = {
   "Santiago": {
     "Vitacura": { img:"images/hoods/santiago--vitacura.webp", page:"https://commons.wikimedia.org/wiki/File:Chile-02647_-_Santiago_(49032503503).jpg" },
     "Las Condes": { img:"images/hoods/santiago--las-condes.webp", page:"https://commons.wikimedia.org/wiki/File:Las_Condes_(39032459385).jpg" },
-    "Nunoa": { img:"images/hoods/santiago--nunoa.webp", page:"https://commons.wikimedia.org/wiki/File:Cuartel_General_de_Bomberos,_%C3%91u%C3%B1oa_-_A740192.jpg", src:"Rjcastillo" },
     "Providencia": { img:"images/hoods/santiago--providencia.webp", page:"https://commons.wikimedia.org/wiki/File:Santiago_de_Chile_from_Gran_torre_Santiago%2C_Mapocho_river.JPG" },
     "Bellavista": { img:"images/hoods/santiago--bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Recoleta,_Santiago_Metropolitan_Region,_Chile_-_panoramio.jpg", src:"jofwooster" }
   },
@@ -3948,10 +3947,7 @@ window.NRA_HOOD_PHOTO = {
     "Barrio Croata": { img:"images/hoods/punta-arenas--barrio-croata.webp", page:"https://commons.wikimedia.org/wiki/File:Baum_Veli_Losinj.JPG", src:"-jkb-" }
   },
   "Pyatigorsk": {
-    "Prospekt Kirova (Centre)": { img:"images/hoods/pyatigorsk--prospekt-kirova-centre.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_18%D0%B0_IMG_0275.jpg", src:"Figure19" },
-    "Mount Mashuk & Proval": { img:"images/hoods/pyatigorsk--mount-mashuk-proval.webp", page:"https://commons.wikimedia.org/wiki/File:P.B._Le_proval_a_Piatigorsk_(TyP._J._Claye)._(Fussart)._Floriant_Gille._Lettres_sur_le_Caucase_et_la_Crim%C3%A9e._1859.jpg", src:"Floriant Gille" },
-    "Goryachevodsky": { img:"images/hoods/pyatigorsk--goryachevodsky.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9F%D1%8F%D1%82%D0%B8%D0%B3%D0%BE%D1%80%D1%81%D0%BA._%D0%93%D0%BE%D1%80%D1%8F%D1%87%D0%B0%D1%8F_%D0%B3%D0%BE%D1%80%D0%B0_-_panoramio.jpg", src:"Николай Максимович" },
-    "Novopyatigorsk": { img:"images/hoods/pyatigorsk--novopyatigorsk.webp", page:"https://commons.wikimedia.org/wiki/File:Novopyatigorsk.jpg", src:"Alexander Roumega" }
+    "Prospekt Kirova (Centre)": { img:"images/hoods/pyatigorsk--prospekt-kirova-centre.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_18%D0%B0_IMG_0275.jpg", src:"Figure19" }
   },
   "Pyongyang": {
     "Central District (Chung-guyok)": { img:"images/hoods/pyongyang--central-district-chung-guyok.webp", page:"https://commons.wikimedia.org/wiki/File:Cromwell_Gorge_(1).jpg", src:"AnnWoolliams" },
@@ -3972,15 +3968,11 @@ window.NRA_HOOD_PHOTO = {
     "Nandaihe": { img:"images/hoods/qinhuangdao--nandaihe.webp", page:"https://commons.wikimedia.org/wiki/File:Nandaihe_-_panoramio.jpg", src:"cameramancn" }
   },
   "Qom": {
-    "Haram (Shrine District)": { img:"images/hoods/qom--haram-shrine-district.webp", page:"https://commons.wikimedia.org/wiki/File:Haram_Qom.jpg", src:"PhDITM" },
-    "Jamkaran": { img:"images/hoods/qom--jamkaran.webp", page:"https://commons.wikimedia.org/wiki/File:Jamkar%C4%81n,_Qom,_Iran_-_panoramio.jpg", src:"meisam hassanzadeh" },
-    "Pardisan": { img:"images/hoods/qom--pardisan.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_de_Teher%C3%A1n_desde_la_Torre_Milad,_Ir%C3%A1n,_2016-09-17,_DD_76_(cropped).jpg", src:"Diego Delso" },
-    "Bazaar / Old Town": { img:"images/hoods/qom--bazaar-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Grand_Timcheh_of_Qom_2007_and_2009_Photographer_Mostafa_Meraji_15.jpg", src:"Mostafameraji" }
+    "Haram (Shrine District)": { img:"images/hoods/qom--haram-shrine-district.webp", page:"https://commons.wikimedia.org/wiki/File:Haram_Qom.jpg", src:"PhDITM" }
   },
   "Quanzhou": {
     "Tumen Street & Qingjing Mosque": { img:"images/hoods/quanzhou--tumen-street-qingjing-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Quanzhou_Tonghuai_Guanyue_Miao_20120229-01.jpg", src:"Zhangzhugang" },
-    "Zhongshan Road": { img:"images/hoods/quanzhou--zhongshan-road.webp", page:"https://commons.wikimedia.org/wiki/File:20240730_106_Zhongshan_Road.jpg", src:"Windmemories" },
-    "Xunpu Village": { img:"images/hoods/quanzhou--xunpu-village.webp", page:"https://commons.wikimedia.org/wiki/File:Xunpu_Village_1.jpg", src:"H2v5o68z" }
+    "Zhongshan Road": { img:"images/hoods/quanzhou--zhongshan-road.webp", page:"https://commons.wikimedia.org/wiki/File:20240730_106_Zhongshan_Road.jpg", src:"Windmemories" }
   },
   "Québec": {
     "Vieux-Québec – Haute-Ville (Upper Town)": { img:"images/hoods/quebec--vieux-quebec-haute-ville-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_du_Qu%C3%A9bec_(la_nuit)_-_panoramio.jpg", src:"Daniel Hu" },
@@ -3998,8 +3990,7 @@ window.NRA_HOOD_PHOTO = {
     "La Mariscal": { img:"images/hoods/quito--la-mariscal.webp", page:"https://commons.wikimedia.org/wiki/File:Calle-foch-quito.jpg", src:"Pedro M. Martínez Corada (www.martinezcorada.es)" },
     "Centro Histórico (Old Town)": { img:"images/hoods/quito--centro-historico-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:(El_Centro_Hist%C3%B3rico_de_Quito)_pic.bb1a.jpg", src:"David Adam Kess" },
     "La Floresta": { img:"images/hoods/quito--la-floresta.webp", page:"https://commons.wikimedia.org/wiki/File:QuitoMorning.jpg", src:"Gwen Bloomsburg" },
-    "La Carolina": { img:"images/hoods/quito--la-carolina.webp", page:"https://commons.wikimedia.org/wiki/File:Parada_Metro_Parque_La_Carolina.jpg", src:"Freddy eduardo" },
-    "Cumbayá": { img:"images/hoods/quito--cumbaya.webp", page:"https://commons.wikimedia.org/wiki/File:Quito_teleferico.jpg", src:"Byron S. Calisto I" }
+    "La Carolina": { img:"images/hoods/quito--la-carolina.webp", page:"https://commons.wikimedia.org/wiki/File:Parada_Metro_Parque_La_Carolina.jpg", src:"Freddy eduardo" }
   },
   "Rabat": {
     "Medina": { img:"images/hoods/rabat--medina.webp", page:"https://commons.wikimedia.org/wiki/File:A_street_in_the_old_Medina_of_Rabat_08112020.jpg", src:"Yamen" },
@@ -4018,8 +4009,7 @@ window.NRA_HOOD_PHOTO = {
     "Altstadt": { img:"images/hoods/regensburg--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Jakobstra%C3%9Fe_-_Regensburg_006.jpg", src:"DALIBRI" },
     "Stadtamhof": { img:"images/hoods/regensburg--stadtamhof.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%A4he_Dultplatz_-_panoramio_(2).jpg", src:"Hans100" },
     "Ostenviertel": { img:"images/hoods/regensburg--ostenviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Luitpoldstra%C3%9Fe_9_-_Regensburg.jpg", src:"High Contrast" },
-    "Kumpfmühl": { img:"images/hoods/regensburg--kumpfmuhl.webp", page:"https://commons.wikimedia.org/wiki/File:St_Theresia_-_Regensburg_003.jpg", src:"DALIBRI" },
-    "Universitätsviertel": { img:"images/hoods/regensburg--universitatsviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Zum_Guten_Hirten_Universit%C3%A4tsviertel_Kruzifix.jpg", src:"Cyber Herbert" }
+    "Kumpfmühl": { img:"images/hoods/regensburg--kumpfmuhl.webp", page:"https://commons.wikimedia.org/wiki/File:St_Theresia_-_Regensburg_003.jpg", src:"DALIBRI" }
   },
   "Reims": {
     "Cathédrale": { img:"images/hoods/reims--cathedrale.webp", page:"https://commons.wikimedia.org/wiki/File:Maitrise_cath%C3%A9drale_1520282.jpg", src:"G.Garitan" },
@@ -4031,7 +4021,6 @@ window.NRA_HOOD_PHOTO = {
   "Reno": {
     "Downtown Reno": { img:"images/hoods/reno--downtown-reno.webp", page:"https://commons.wikimedia.org/wiki/File:Reno_(Nevada).JPG", src:"Lómelinde" },
     "Midtown": { img:"images/hoods/reno--midtown.webp", page:"https://commons.wikimedia.org/wiki/File:RTS_Bar_Safari_-_Midtown_Lounge_-_panoramio.jpg", src:"Scott Thompson" },
-    "Northwest Reno": { img:"images/hoods/reno--northwest-reno.webp", page:"https://commons.wikimedia.org/wiki/File:Carpenter_surveyor_tenleytown.jpg", src:"District of Columbia Surveyor" },
     "South Reno": { img:"images/hoods/reno--south-reno.webp", page:"https://commons.wikimedia.org/wiki/File:South_Reno,_Nevada_(17578685734).jpg", src:"Ken Lund from Reno, Nevada, USA" }
   },
   "Rimini": {
@@ -4054,8 +4043,7 @@ window.NRA_HOOD_PHOTO = {
     "Stadtmitte (Altstadt)": { img:"images/hoods/rostock--stadtmitte-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Rostock_Wendenstr.jpg", src:"Schiwago" },
     "Kröpeliner-Tor-Vorstadt (KTV)": { img:"images/hoods/rostock--kropeliner-tor-vorstadt-ktv.webp", page:"https://commons.wikimedia.org/wiki/File:Cygnus_olor_Kabutzenhof_mirroring_ice_surface_2011-03-05_A.jpg", src:"Grand-Duc" },
     "Warnemünde": { img:"images/hoods/rostock--warnemunde.webp", page:"https://commons.wikimedia.org/wiki/File:Warnemuende_Kirche_2017.jpg", src:"Dansch79" },
-    "Steintor-Vorstadt": { img:"images/hoods/rostock--steintor-vorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Rostock_Augustenstrasse_90_Holzpflaster_2011-09-10.jpg", src:"Schiwago" },
-    "Hohe Düne": { img:"images/hoods/rostock--hohe-dune.webp", page:"https://commons.wikimedia.org/wiki/File:Rostock_Warnemuende_Lotsenstation_2011-05-17.jpg", src:"Schiwago" }
+    "Steintor-Vorstadt": { img:"images/hoods/rostock--steintor-vorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Rostock_Augustenstrasse_90_Holzpflaster_2011-09-10.jpg", src:"Schiwago" }
   },
   "Rotorua": {
     "Lakefront": { img:"images/hoods/rotorua--lakefront.webp", page:"https://commons.wikimedia.org/wiki/File:Cultura_Maori,_Rotorua,_Nueva_Zelanda_-_panoramio.jpg", src:"Nelson Pérez" },
@@ -4079,8 +4067,7 @@ window.NRA_HOOD_PHOTO = {
   "Rovaniemi": {
     "City Centre (Keskusta)": { img:"images/hoods/rovaniemi--city-centre-keskusta.webp", page:"https://commons.wikimedia.org/wiki/File:Muurola_road_sign.jpg", src:"Samuli Lintula" },
     "Santa Claus Village": { img:"images/hoods/rovaniemi--santa-claus-village.webp", page:"https://commons.wikimedia.org/wiki/File:Arctic_Circle_marker_Santa_Claus_Village_Rovaniemi_2022-09-15_06.jpg", src:"Leonhard Lenz" },
-    "Ounasvaara": { img:"images/hoods/rovaniemi--ounasvaara.webp", page:"https://commons.wikimedia.org/wiki/File:Ounasvaara_2.jpg", src:"kallerna" },
-    "Saarenkylä": { img:"images/hoods/rovaniemi--saarenkyla.webp", page:"https://commons.wikimedia.org/wiki/File:Church_of_Saari_in_Finland.JPG", src:"SeppVei" }
+    "Ounasvaara": { img:"images/hoods/rovaniemi--ounasvaara.webp", page:"https://commons.wikimedia.org/wiki/File:Ounasvaara_2.jpg", src:"kallerna" }
   },
   "Sa Pa": {
     "Sa Pa Town Center": { img:"images/hoods/sa-pa--sa-pa-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:EXAMPLE_OF_STONE_END_WITH_SLIT_VENTILATORS_-_Barn,_County_Road,_Strasburg,_Lancaster_County,_PA_HABS_PA,36-STRAS.V,1A-1.tif" },
@@ -4140,13 +4127,11 @@ window.NRA_HOOD_PHOTO = {
   "Salt Lake City": {
     "Downtown / Temple Square": { img:"images/hoods/salt-lake-city--downtown-temple-square.webp", page:"https://commons.wikimedia.org/wiki/File:Corvette_C7,_Lexus_LFA,_Corvette_C5_and_Nissan_GT-R.jpg", src:"Supercarwaar" },
     "Sugar House": { img:"images/hoods/salt-lake-city--sugar-house.webp", page:"https://commons.wikimedia.org/wiki/File:Arbuckle_House_SLC.jpeg", src:"Ntsimp" },
-    "Central Ninth / Granary District": { img:"images/hoods/salt-lake-city--central-ninth-granary-district.webp", page:"https://commons.wikimedia.org/wiki/File:110329-F-XA488-066_USAF_Female_F-15E_Pilot_Maj._Tracy_Schmidt_suits_up_at_Bagram_Airfield,_Afghanistan.jpg", src:"U.S. Air Force photo by Senior Airman Sheila deVera" },
-    "The Avenues": { img:"images/hoods/salt-lake-city--the-avenues.webp", page:"https://www.flickr.com/photos/75683070@N00/9387970277/", src:"Ken Lund" }
+    "Central Ninth / Granary District": { img:"images/hoods/salt-lake-city--central-ninth-granary-district.webp", page:"https://commons.wikimedia.org/wiki/File:110329-F-XA488-066_USAF_Female_F-15E_Pilot_Maj._Tracy_Schmidt_suits_up_at_Bagram_Airfield,_Afghanistan.jpg", src:"U.S. Air Force photo by Senior Airman Sheila deVera" }
   },
   "Salta": {
     "Centro Histórico": { img:"images/hoods/salta--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Salta_-_America_Cultural_Center_01.jpg", src:"P. Hughes" },
     "Tres Cerritos": { img:"images/hoods/salta--tres-cerritos.webp", page:"https://commons.wikimedia.org/wiki/File:Bajo_la_sombra_de_un_mezquite.JPG", src:"Oguh noel" },
-    "San Lorenzo": { img:"images/hoods/salta--san-lorenzo.webp", page:"https://commons.wikimedia.org/wiki/File:L%C3%ADmite_hist%C3%B3rico_en_base_a_los_hitos_de_1898_fijados_por_los_peritos_en_el_Campo_de_Hielo_Patag%C3%B3nico_Sur_(Chile-Argentina).png", src:"Janitoalevic" },
     "Parque San Martín / Cerro San Bernardo": { img:"images/hoods/salta--parque-san-martin-cerro-san-bernardo.webp", page:"https://commons.wikimedia.org/wiki/File:SALTA2022480.jpg", src:"Lmalena" },
     "Balcarce": { img:"images/hoods/salta--balcarce.webp", page:"https://commons.wikimedia.org/wiki/File:Balcarce_01.jpg", src:"jikatu" }
   },
@@ -4168,7 +4153,6 @@ window.NRA_HOOD_PHOTO = {
     "Registan & Old City": { img:"images/hoods/samarkand--registan-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Andijan_Old_City,_Registan_square.jpg", src:"Xasanboy off" },
     "University Boulevard": { img:"images/hoods/samarkand--university-boulevard.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%B4._%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80,_3_03.jpg", src:"Екатерина Борисова" },
     "Siyob Bazaar & Bibi-Khanym": { img:"images/hoods/samarkand--siyob-bazaar-bibi-khanym.webp", page:"https://commons.wikimedia.org/wiki/File:Registan,_Samarkand_(8612696877).jpg", src:"Aleksandr Zykov from Russia" },
-    "Silk Road Samarkand": { img:"images/hoods/samarkand--silk-road-samarkand.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%B4,_%D0%BC%D1%83%D0%B7%D0%B5%D0%B9_%D0%A8%D1%91%D0%BB%D0%BA%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE_%D0%BF%D1%83%D1%82%D0%B8,_%D0%B1%D0%BB%D1%8E%D0%B4%D0%B0_03.jpg", src:"Екатерина Борисова" },
     "Bogishamol": { img:"images/hoods/samarkand--bogishamol.webp", page:"https://commons.wikimedia.org/wiki/File:Boqiy_shahar.jpg", src:"Sultonova M" }
   },
   "San Andrés": {
@@ -4178,13 +4162,11 @@ window.NRA_HOOD_PHOTO = {
   "San Antonio": {
     "Downtown / River Walk": { img:"images/hoods/san-antonio--downtown-river-walk.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_San_Antonio,_TX,_USA_-_panoramio_(10).jpg", src:"organic_veggie" },
     "Southtown": { img:"images/hoods/san-antonio--southtown.webp", page:"https://commons.wikimedia.org/wiki/File:312_of_%27(Our_own_country._Descriptive,_historical,_pictorial.)%27_(11177382603).jpg", src:"The British Library" },
-    "Alamo Heights": { img:"images/hoods/san-antonio--alamo-heights.webp", page:"https://commons.wikimedia.org/wiki/File:Alamo_Heights,_San_Antonio,_TX,_USA_-_panoramio.jpg", src:"organic_veggie" },
     "Pearl District": { img:"images/hoods/san-antonio--pearl-district.webp", page:"https://www.flickr.com/photos/97402086@N00/39167537325/", src:"nan palmero" }
   },
   "San Cristóbal de las Casas": {
     "Centro Histórico": { img:"images/hoods/san-cristobal-de-las-casas--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Sede_del_Centro_de_Investigaciones_Multidisciplinarias_sobre_Chiapas_y_la_Frontera_Sur,_San_Crist%C3%B3bal_de_Las_Casas.jpg", src:"Jordi Martínez Martínez" },
     "Real de Guadalupe": { img:"images/hoods/san-cristobal-de-las-casas--real-de-guadalupe.webp", page:"https://commons.wikimedia.org/wiki/File:RealGuadalupeSanCris.JPG", src:"AlejandroLinaresGarcia" },
-    "Barrio de Guadalupe": { img:"images/hoods/san-cristobal-de-las-casas--barrio-de-guadalupe.webp", page:"https://commons.wikimedia.org/wiki/File:Barrio_de_Guadalupe_durante_la_celebraci%C3%B3n_del_12_de_diciembre_de_2014,_Aguascalientes_11.JPG", src:"Luisalvaz" },
     "Barrio de Santa Lucía": { img:"images/hoods/san-cristobal-de-las-casas--barrio-de-santa-lucia.webp", page:"https://commons.wikimedia.org/wiki/File:Vitoria_-_Santa_Luc%C3%ADa.jpg", src:"Zarateman" },
     "Barrio del Cerrillo": { img:"images/hoods/san-cristobal-de-las-casas--barrio-del-cerrillo.webp", page:"https://commons.wikimedia.org/wiki/File:Convento_Santo_Domingo_01_ID_12_DBannasch.jpg", src:"Dbannasch" }
   },
@@ -4197,7 +4179,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "San José": {
     "Barrio Escalante": { img:"images/hoods/san-jose--barrio-escalante.webp", page:"https://commons.wikimedia.org/wiki/File:Km4_moran.JPG", src:"Gonce" },
-    "Escazú": { img:"images/hoods/san-jose--escazu.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_San_Rafael,_Lent_2009_-_panoramio.jpg", src:"Glenn M. Harden" },
     "Paseo Colón/Sabana": { img:"images/hoods/san-jose--paseo-colon-sabana.webp", page:"https://commons.wikimedia.org/wiki/File:Paseo_Col%C3%B3n,_La_Esquina_m%C3%A1s_ruidosa_-_panoramio.jpg", src:"Mario Alberto Matamo…" },
     "Los Yoses/San Pedro": { img:"images/hoods/san-jose--los-yoses-san-pedro.webp", page:"https://commons.wikimedia.org/wiki/File:Fatima-2.jpg", src:"Balharry" }
   },
@@ -4242,13 +4223,10 @@ window.NRA_HOOD_PHOTO = {
   "Santa Cruz de la Sierra": {
     "Centro (Casco Viejo)": { img:"images/hoods/santa-cruz-de-la-sierra--centro-casco-viejo.webp", page:"https://commons.wikimedia.org/wiki/File:Banco_de_la_Naci%C3%B3n_y_Consulado_Argentino_en_Santa_Cruz_de_la_Sierra_-_panoramio.jpg", src:"Julio Benitez" },
     "Equipetrol": { img:"images/hoods/santa-cruz-de-la-sierra--equipetrol.webp", page:"https://commons.wikimedia.org/wiki/File:Ventura_Mall,_San_Cruz.jpg", src:"Ana Luz MH" },
-    "Urubo (Colinas del Urubo)": { img:"images/hoods/santa-cruz-de-la-sierra--urubo-colinas-del-urubo.webp", page:"https://commons.wikimedia.org/wiki/File:Buho_Athene_cunicularia.png", src:"F. Soria" },
-    "Zona Norte": { img:"images/hoods/santa-cruz-de-la-sierra--zona-norte.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_Flamboyant_no_bairro_Minas_Gerais,_Zona_Norte_de_Uberl%C3%A2ndia.jpg", src:"Will7" }
+    "Urubo (Colinas del Urubo)": { img:"images/hoods/santa-cruz-de-la-sierra--urubo-colinas-del-urubo.webp", page:"https://commons.wikimedia.org/wiki/File:Buho_Athene_cunicularia.png", src:"F. Soria" }
   },
   "Santa Cruz de Tenerife": {
     "Los Llanos": { img:"images/hoods/santa-cruz-de-tenerife--los-llanos.webp", page:"https://commons.wikimedia.org/wiki/File:Los_Llanos_de_Aridane,_Santa_Cruz_de_Tenerife,_Canary_Islands,_Spain_(CAPELLA_C10_SP_GEO_HH_20240803010929_20240803010957).tiff", src:"Capella Space" },
-    "La Salle": { img:"images/hoods/santa-cruz-de-tenerife--la-salle.webp", page:"https://commons.wikimedia.org/wiki/File:Izquierda_Unida_Canaria,_antigua_sede.jpg", src:"Mentxuwiki" },
-    "San Andres & Las Teresitas": { img:"images/hoods/santa-cruz-de-tenerife--san-andres-las-teresitas.webp", page:"https://commons.wikimedia.org/wiki/File:Cementerio_de_San_Andres_Teneriffe.jpg", src:"Szombat78" },
     "San Cristobal de La Laguna": { img:"images/hoods/santa-cruz-de-tenerife--san-cristobal-de-la-laguna.webp", page:"https://commons.wikimedia.org/wiki/File:At_Tenerife_2019_643.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
     "Zona Centro": { img:"images/hoods/santa-cruz-de-tenerife--zona-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_Castillo.JPG", src:"Mataparda" }
   },
