@@ -606,8 +606,7 @@ window.NRA_HOOD_PHOTO = {
     "Haight-Ashbury": { img:"images/hoods/san-francisco--haight-ashbury.webp", page:"https://commons.wikimedia.org/wiki/File:1550_Page_St.,_San_Francisco,_CA_3-4-2012_4-13-37_PM.JPG", src:"Sanfranman59" },
     "Mission District": { img:"images/hoods/san-francisco--mission-district.webp", page:"https://commons.wikimedia.org/wiki/File:Mission_High_School_(cropped).jpg" },
     "Nob Hill": { img:"images/hoods/san-francisco--nob-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Fairmont_Hotel%2C_San_Francisco.jpg" },
-    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/", src:"Pexels" },
-    "The Castro": { img:"images/hoods/san-francisco--the-castro.webp", page:"https://www.pexels.com/photo/signage-on-a-white-and-red-concrete-building-7409340/", src:"Pexels" }
+    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/", src:"Pexels" }
   },
   "San Marino": {
     "Dogana": { img:"images/hoods/san-marino--dogana.webp", page:"https://commons.wikimedia.org/wiki/File:San-Marino-Dogana-1268.jpg" },
@@ -663,7 +662,6 @@ window.NRA_HOOD_PHOTO = {
   "Shanghai": {
     "Jing'an": { img:"images/hoods/shanghai--jing-an.webp", page:"https://commons.wikimedia.org/wiki/File:201907_Jing_An_Kerry_Centre.jpg" },
     "The Bund": { img:"images/hoods/shanghai--the-bund.webp", page:"https://commons.wikimedia.org/wiki/File:The_Bund_2.jpg" },
-    "Xintiandi": { img:"images/hoods/shanghai--xintiandi.webp", page:"https://commons.wikimedia.org/wiki/File:Xintiandi5.jpg" },
     "Lujiazui": { img:"images/hoods/shanghai--lujiazui.webp", page:"https://commons.wikimedia.org/wiki/File:Huangpu_Park_20124-Shanghai_(32208802494).jpg" },
     "Former French Concession": { img:"images/hoods/shanghai--former-french-concession.webp", page:"https://commons.wikimedia.org/wiki/File:Wukang_Mansion_20251128.jpg" }
   },
@@ -677,8 +675,7 @@ window.NRA_HOOD_PHOTO = {
     "Futian": { img:"images/hoods/shenzhen--futian.webp", page:"https://commons.wikimedia.org/wiki/File:Futian_Railway_Station.jpg" },
     "Luohu": { img:"images/hoods/shenzhen--luohu.webp", page:"https://pixabay.com/photos/luohu-shenzhen-railway-station-207245/", src:"Pixabay" },
     "Nanshan": { img:"images/hoods/shenzhen--nanshan.webp", page:"https://commons.wikimedia.org/wiki/File:SHENZHEN_BAY_(DEEP_BAY)_(110).jpg", src:"Dinkun Chen" },
-    "OCT (Overseas Chinese Town)": { img:"images/hoods/shenzhen--oct-overseas-chinese-town.webp", page:"https://commons.wikimedia.org/wiki/File:OCT_HARBOUR%2C_SHENZHEN_(9).jpg" },
-    "Bao'an": { img:"images/hoods/shenzhen--bao-an.webp", page:"https://commons.wikimedia.org/wiki/File:Bay_Glory_2022.jpg", src:"Iswzo" }
+    "OCT (Overseas Chinese Town)": { img:"images/hoods/shenzhen--oct-overseas-chinese-town.webp", page:"https://commons.wikimedia.org/wiki/File:OCT_HARBOUR%2C_SHENZHEN_(9).jpg" }
   },
   "Sigiriya": {
     "Inamaluwa": { img:"images/hoods/sigiriya--inamaluwa.webp", page:"https://commons.wikimedia.org/wiki/File:Inamaluwa,_Sri_Lanka_-_panoramio.jpg", src:"Daibo Taku" },
@@ -777,7 +774,6 @@ window.NRA_HOOD_PHOTO = {
   "Toronto": {
     "The Annex": { img:"images/hoods/toronto--the-annex.webp", page:"https://commons.wikimedia.org/wiki/File:The_Annex_2022.jpg" },
     "Yorkville": { img:"images/hoods/toronto--yorkville.webp", page:"https://commons.wikimedia.org/wiki/File:Village_of_Yorkville_Park_(37649654622).jpg" },
-    "Distillery District": { img:"images/hoods/toronto--distillery-district.webp", page:"https://commons.wikimedia.org/wiki/File:Gooderham.jpg" },
     "Kensington Market": { img:"images/hoods/toronto--kensington-market.webp", page:"https://commons.wikimedia.org/wiki/File:Kensington_Market_Toronto_August_2017_01.jpg" },
     "Queen West": { img:"images/hoods/toronto--queen-west.webp", page:"https://commons.wikimedia.org/wiki/File:Graffiti_Alley_Toronto%2C_June_24_2026_(02).jpg" }
   },
@@ -837,7 +833,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Warsaw": {
     "Srodmiescie": { img:"images/hoods/warsaw--srodmiescie.webp", page:"https://commons.wikimedia.org/wiki/File:Aleja_Niepdleglosci_Warsaw_2022_aerial_(cropped).jpg" },
-    "Mokotow": { img:"images/hoods/warsaw--mokotow.webp", page:"https://commons.wikimedia.org/wiki/File:Ulica_Wo%C5%82oska_w_Warszawie_2019.jpg" },
     "Wilanow": { img:"images/hoods/warsaw--wilanow.webp", page:"https://commons.wikimedia.org/wiki/File:Garden_facade_of_the_Wilan%C3%B3w_Palace%2C_2019%2C_02.jpg" },
     "Stare Miasto (Old Town)": { img:"images/hoods/warsaw--stare-miasto-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Horsecarriage_on_Stare_Miasto_(Warsaw)_market_square.jpg" },
     "Praga": { img:"images/hoods/warsaw--praga.webp", page:"https://commons.wikimedia.org/wiki/File:Centrum_Koneser_Warsaw-Praga_(1).jpg" }
@@ -846,8 +841,7 @@ window.NRA_HOOD_PHOTO = {
     "Georgetown": { img:"images/hoods/washington-d-c--georgetown.webp", page:"https://commons.wikimedia.org/wiki/File:Riggs_Bank%2C_Georgetown.jpg" },
     "Dupont Circle": { img:"images/hoods/washington-d-c--dupont-circle.webp", page:"https://commons.wikimedia.org/wiki/File:Dupont_Circle_fountain_-_facing_southwest.JPG" },
     "Capitol Hill": { img:"images/hoods/washington-d-c--capitol-hill.webp", page:"https://commons.wikimedia.org/wiki/File:8th_Street_SE_sidewalk_scene.jpg" },
-    "Adams Morgan": { img:"images/hoods/washington-d-c--adams-morgan.webp", page:"https://commons.wikimedia.org/wiki/File:1800_block_of_California_Street%2C_NW.JPG" },
-    "Shaw": { img:"images/hoods/washington-d-c--shaw.webp", page:"https://commons.wikimedia.org/wiki/File:Asbury_Dwellings_(cropped2).jpg" }
+    "Adams Morgan": { img:"images/hoods/washington-d-c--adams-morgan.webp", page:"https://commons.wikimedia.org/wiki/File:1800_block_of_California_Street%2C_NW.JPG" }
   },
   "Zhuhai": {
     "Hengqin": { img:"images/hoods/zhuhai--hengqin.webp", page:"https://commons.wikimedia.org/wiki/File:The_Financial_Island_(Shizimen_CBD)_of_Hengqin_New_Area.jpg" },
@@ -3840,7 +3834,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Puerto Plata": {
     "Playa Dorada": { img:"images/hoods/puerto-plata--playa-dorada.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_en_Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg", src:"Juan Espaillat" },
-    "Sosúa": { img:"images/hoods/puerto-plata--sosua.webp", page:"https://commons.wikimedia.org/wiki/File:Eleutherodactylus_weinlandi.jpg", src:"Martin Reith" },
     "Cofresí": { img:"images/hoods/puerto-plata--cofres.webp", page:"https://commons.wikimedia.org/wiki/File:Ocean_World_Park,_Puerto_Plata,_Dominican_Republic.jpg", src:"anokarina (Flickr)" }
   },
   "Puerto Princesa": {
@@ -3932,8 +3925,7 @@ window.NRA_HOOD_PHOTO = {
   "Regensburg": {
     "Altstadt": { img:"images/hoods/regensburg--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Jakobstra%C3%9Fe_-_Regensburg_006.jpg", src:"DALIBRI" },
     "Stadtamhof": { img:"images/hoods/regensburg--stadtamhof.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%A4he_Dultplatz_-_panoramio_(2).jpg", src:"Hans100" },
-    "Ostenviertel": { img:"images/hoods/regensburg--ostenviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Luitpoldstra%C3%9Fe_9_-_Regensburg.jpg", src:"High Contrast" },
-    "Kumpfmühl": { img:"images/hoods/regensburg--kumpfmuhl.webp", page:"https://commons.wikimedia.org/wiki/File:St_Theresia_-_Regensburg_003.jpg", src:"DALIBRI" }
+    "Ostenviertel": { img:"images/hoods/regensburg--ostenviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Luitpoldstra%C3%9Fe_9_-_Regensburg.jpg", src:"High Contrast" }
   },
   "Reims": {
     "Cathédrale": { img:"images/hoods/reims--cathedrale.webp", page:"https://commons.wikimedia.org/wiki/File:Maitrise_cath%C3%A9drale_1520282.jpg", src:"G.Garitan" },
@@ -4001,7 +3993,6 @@ window.NRA_HOOD_PHOTO = {
   "Saint-Denis": {
     "Le Barachois": { img:"images/hoods/saint-denis--le-barachois.webp", page:"https://commons.wikimedia.org/wiki/File:Houle_cyclonique_2008_-_panoramio.jpg", src:"franek2" },
     "Sainte-Clotilde": { img:"images/hoods/saint-denis--sainte-clotilde.webp", page:"https://commons.wikimedia.org/wiki/File:Bo%C3%AEte_Lettres_Poste_A2C2G4_Avenue_Sainte_Clotilde_-_Gagny_(FR93)_-_2021-04-10_-_1.jpg", src:"Chabe01" },
-    "Bellepierre": { img:"images/hoods/saint-denis--bellepierre.webp", page:"https://commons.wikimedia.org/wiki/File:Saint-Denis_vu_depuis_le_belv%C3%A9d%C3%A8re_de_la_Montagne.jpg", src:"Clémenceau Lauret" },
     "La Montagne": { img:"images/hoods/saint-denis--la-montagne.webp", page:"https://commons.wikimedia.org/wiki/File:Le_colorado_et_les_hauts_de_Saint-Denis_-_panoramio.jpg", src:"regulator974" }
   },
   "Saint-Louis": {
@@ -4044,9 +4035,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Salerno": {
     "Lungomare Trieste": { img:"images/hoods/salerno--lungomare-trieste.webp", page:"https://commons.wikimedia.org/wiki/File:Binari_del_raccordo_portule_di_Salerno_sul_lungomare_Trieste.jpg", src:"Giuseppe Masino" },
-    "Carmine / Stazione": { img:"images/hoods/salerno--carmine-stazione.webp", page:"https://commons.wikimedia.org/wiki/File:Momento_della_processione_del_Corpus_Domini_e_passaggio_di_alcuni_membri_della_confraternita_della_chiesa_di_Santa_Maria_del_Carmine_presso_piazza_Annunziata_di_Angri_(Sa).jpg", src:"GiovAngri;" },
-    "Torrione": { img:"images/hoods/salerno--torrione.webp", page:"https://commons.wikimedia.org/wiki/File:Metropolitana_in_arrivo_Salerno_Centrale.jpg", src:"Ferdinando Traversa" },
-    "Pastena": { img:"images/hoods/salerno--pastena.webp", page:"https://commons.wikimedia.org/wiki/File:Pastena,_chiesa_di_Santa_Maria_Maggiore_-_Interno_verso_la_controfacciata.jpg", src:"Pufui PcPifpef" }
+    "Carmine / Stazione": { img:"images/hoods/salerno--carmine-stazione.webp", page:"https://commons.wikimedia.org/wiki/File:Momento_della_processione_del_Corpus_Domini_e_passaggio_di_alcuni_membri_della_confraternita_della_chiesa_di_Santa_Maria_del_Carmine_presso_piazza_Annunziata_di_Angri_(Sa).jpg", src:"GiovAngri;" }
   },
   "Salt Lake City": {
     "Downtown / Temple Square": { img:"images/hoods/salt-lake-city--downtown-temple-square.webp", page:"https://commons.wikimedia.org/wiki/File:Corvette_C7,_Lexus_LFA,_Corvette_C5_and_Nissan_GT-R.jpg", src:"Supercarwaar" },
@@ -4056,7 +4045,6 @@ window.NRA_HOOD_PHOTO = {
   "Salta": {
     "Centro Histórico": { img:"images/hoods/salta--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Salta_-_America_Cultural_Center_01.jpg", src:"P. Hughes" },
     "Tres Cerritos": { img:"images/hoods/salta--tres-cerritos.webp", page:"https://commons.wikimedia.org/wiki/File:Bajo_la_sombra_de_un_mezquite.JPG", src:"Oguh noel" },
-    "Parque San Martín / Cerro San Bernardo": { img:"images/hoods/salta--parque-san-martin-cerro-san-bernardo.webp", page:"https://commons.wikimedia.org/wiki/File:SALTA2022480.jpg", src:"Lmalena" },
     "Balcarce": { img:"images/hoods/salta--balcarce.webp", page:"https://commons.wikimedia.org/wiki/File:Balcarce_01.jpg", src:"jikatu" }
   },
   "Salvador": {
@@ -4146,8 +4134,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Santa Cruz de la Sierra": {
     "Centro (Casco Viejo)": { img:"images/hoods/santa-cruz-de-la-sierra--centro-casco-viejo.webp", page:"https://commons.wikimedia.org/wiki/File:Banco_de_la_Naci%C3%B3n_y_Consulado_Argentino_en_Santa_Cruz_de_la_Sierra_-_panoramio.jpg", src:"Julio Benitez" },
-    "Equipetrol": { img:"images/hoods/santa-cruz-de-la-sierra--equipetrol.webp", page:"https://commons.wikimedia.org/wiki/File:Ventura_Mall,_San_Cruz.jpg", src:"Ana Luz MH" },
-    "Urubo (Colinas del Urubo)": { img:"images/hoods/santa-cruz-de-la-sierra--urubo-colinas-del-urubo.webp", page:"https://commons.wikimedia.org/wiki/File:Buho_Athene_cunicularia.png", src:"F. Soria" }
+    "Equipetrol": { img:"images/hoods/santa-cruz-de-la-sierra--equipetrol.webp", page:"https://commons.wikimedia.org/wiki/File:Ventura_Mall,_San_Cruz.jpg", src:"Ana Luz MH" }
   },
   "Santa Cruz de Tenerife": {
     "Los Llanos": { img:"images/hoods/santa-cruz-de-tenerife--los-llanos.webp", page:"https://commons.wikimedia.org/wiki/File:Los_Llanos_de_Aridane,_Santa_Cruz_de_Tenerife,_Canary_Islands,_Spain_(CAPELLA_C10_SP_GEO_HH_20240803010929_20240803010957).tiff", src:"Capella Space" },
@@ -4315,8 +4302,7 @@ window.NRA_HOOD_PHOTO = {
     "Old Town (Diocletian's Palace)": { img:"images/hoods/split--old-town-diocletian-s-palace.webp", page:"https://www.flickr.com/photos/42201095@N03/44360273215/", src:"Jocelyn777" }
   },
   "Srimangal": {
-    "Tea Garden Belt": { img:"images/hoods/srimangal--tea-garden-belt.webp", page:"https://commons.wikimedia.org/wiki/File:Ordnance_Survey_Half-Inch_Sheet_9_Harrogate_Leeds_and_Bradford,_Published_1912.jpg", src:"Director General of the Ordnance Survey, UK" },
-    "Lawachara National Park": { img:"images/hoods/srimangal--lawachara-national-park.webp", page:"https://commons.wikimedia.org/wiki/File:A_piece_of_peace.jpg", src:"Dipsphotography" }
+    "Tea Garden Belt": { img:"images/hoods/srimangal--tea-garden-belt.webp", page:"https://commons.wikimedia.org/wiki/File:Ordnance_Survey_Half-Inch_Sheet_9_Harrogate_Leeds_and_Bradford,_Published_1912.jpg", src:"Director General of the Ordnance Survey, UK" }
   },
   "Srinagar": {
     "Boulevard Road (Dal Lake)": { img:"images/hoods/srinagar--boulevard-road-dal-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Close-up_on_the_Pedestrian_overpass_on_Taiwan_Blvd._near_Henan_Rd._03.jpg", src:"Tosdos0012" },
@@ -4379,9 +4365,7 @@ window.NRA_HOOD_PHOTO = {
   "Suzhou": {
     "Gusu / Old Town (Pingjiang Road)": { img:"images/hoods/suzhou--gusu-old-town-pingjiang-road.webp", page:"https://commons.wikimedia.org/wiki/File:Suzhou_Sunset_-_panoramio.jpg", src:"ogwen" },
     "Suzhou Industrial Park (Jinji Lake)": { img:"images/hoods/suzhou--suzhou-industrial-park-jinji-lake.webp", page:"https://commons.wikimedia.org/wiki/File:A_passenger_swipe_the_ID_card_on_the_new_gate_in_Suzhou_Industrial_Park_Railway_Station.jpg", src:"Shwangtianyuan" },
-    "Shantang Street": { img:"images/hoods/suzhou--shantang-street.webp", page:"https://commons.wikimedia.org/wiki/File:Gusu,_Suzhou,_Jiangsu,_China_-_panoramio_(104).jpg", src:"stone wu" },
-    "Wuzhong (Mudu / Lake Tai)": { img:"images/hoods/suzhou--wuzhong-mudu-lake-tai.webp", page:"https://commons.wikimedia.org/wiki/File:Wuzhong,_Suzhou,_Jiangsu,_China_-_panoramio_(334).jpg", src:"song songroov" },
-    "Huqiu / Tiger Hill": { img:"images/hoods/suzhou--huqiu-tiger-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Platform_(to_SND)_of_Huqiu_Sta._of_Suzhou_Metro_Line_4_20260628.jpg", src:"4084470 0.smil" }
+    "Shantang Street": { img:"images/hoods/suzhou--shantang-street.webp", page:"https://commons.wikimedia.org/wiki/File:Gusu,_Suzhou,_Jiangsu,_China_-_panoramio_(104).jpg", src:"stone wu" }
   },
   "Sylhet": {
     "Zindabazar": { img:"images/hoods/sylhet--zindabazar.webp", page:"https://commons.wikimedia.org/wiki/File:Sylheti_Nagari_Alphabet_Monument.jpg", src:"Sajibur" },
@@ -4492,8 +4476,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Thiruvananthapuram": {
     "Palayam & MG Road": { img:"images/hoods/thiruvananthapuram--palayam-mg-road.webp", page:"https://commons.wikimedia.org/wiki/File:NightViewMGRoadTrvm.jpg", src:"Arunpnair 787" },
-    "Kovalam": { img:"images/hoods/thiruvananthapuram--kovalam.webp", page:"https://commons.wikimedia.org/wiki/File:Kovalam_beach(1).jpg", src:"Hellowikidoc" },
-    "Technopark (Kazhakkoottam)": { img:"images/hoods/thiruvananthapuram--technopark-kazhakkoottam.webp", page:"https://commons.wikimedia.org/wiki/File:Highmast_light_Technopark.jpg", src:"Arunravi.signs" }
+    "Kovalam": { img:"images/hoods/thiruvananthapuram--kovalam.webp", page:"https://commons.wikimedia.org/wiki/File:Kovalam_beach(1).jpg", src:"Hellowikidoc" }
   },
   "Timbuktu": {
     "Djingareyber": { img:"images/hoods/timbuktu--djingareyber.webp", page:"https://commons.wikimedia.org/wiki/File:Djingareiber_cour.jpg", src:"KaTeznik" },
@@ -4513,8 +4496,7 @@ window.NRA_HOOD_PHOTO = {
     "Downtown Tofino": { img:"images/hoods/tofino--downtown-tofino.webp", page:"https://commons.wikimedia.org/wiki/File:Pacific_Terminus_(522840541).jpg", src:"Michael Hanna from Vancouver, Canada" },
     "Chesterman Beach": { img:"images/hoods/tofino--chesterman-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Wickaninnish_Inn_-_panoramio.jpg", src:"Jack Borno" },
     "Cox Bay": { img:"images/hoods/tofino--cox-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Driftwood,_Cox_Bay_(5946417240).jpg", src:"Roy Luck" },
-    "MacKenzie Beach": { img:"images/hoods/tofino--mackenzie-beach.webp", page:"https://commons.wikimedia.org/wiki/File:MacKenzie_Beach_(4137179444).jpg", src:"Hardo Müller from Southampton, United Kingdom" },
-    "Clayoquot Sound / Around Tofino": { img:"images/hoods/tofino--clayoquot-sound-around-tofino.webp", page:"https://commons.wikimedia.org/wiki/File:Birds_in_Provincial_Park_on_Flores_Island.jpg", src:"Toni Wöhrl" }
+    "MacKenzie Beach": { img:"images/hoods/tofino--mackenzie-beach.webp", page:"https://commons.wikimedia.org/wiki/File:MacKenzie_Beach_(4137179444).jpg", src:"Hardo Müller from Southampton, United Kingdom" }
   },
   "Tórshavn": {
     "Viðarlund": { img:"images/hoods/torshavn--vi-arlund.webp", page:"https://commons.wikimedia.org/wiki/File:A_walk_in_the_woods_(7447699988).jpg", src:"Tyne &amp; Wear Archives &amp; Museums" }
@@ -4562,7 +4544,6 @@ window.NRA_HOOD_PHOTO = {
   "Trinidad": {
     "Plaza Mayor": { img:"images/hoods/trinidad--plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Perspectiva_basada_en_la_verja_de_Plaza_Mayor_-_panoramio.jpg", src:"DnTrotaMundos ☮" },
     "Barrio La Popa": { img:"images/hoods/trinidad--barrio-la-popa.webp", page:"https://commons.wikimedia.org/wiki/File:Postal_Cartegena_de_Indias_-_Barrio_al_Pie_de_la_Popa.jpg", src:"Tichnor Bros., Inc." },
-    "Calle Colón / San Procopio": { img:"images/hoods/trinidad--calle-colon-san-procopio.webp", page:"https://commons.wikimedia.org/wiki/File:Archivo_Municipal_e_Instituto_de_la_Mujer_(5017127689).jpg", src:"Daniel Lobo" },
     "Playa Ancón": { img:"images/hoods/trinidad--playa-ancon.webp", page:"https://commons.wikimedia.org/wiki/File:Caribe-Grill_-_panoramio.jpg", src:"prinsenweier" }
   },
   "Tripoli": {
@@ -4641,7 +4622,6 @@ window.NRA_HOOD_PHOTO = {
   "Varna": {
     "City Centre": { img:"images/hoods/varna--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Mikhail_Vorontsov_Monument_in_Odesa2025.jpg", src:"StarDeg" },
     "Primorski (Sea Garden)": { img:"images/hoods/varna--primorski-sea-garden.webp", page:"https://commons.wikimedia.org/wiki/File:Bul._%22Primorski%22_121_Varna_01.jpg", src:"Alicia Fagerving" },
-    "Asparuhovo": { img:"images/hoods/varna--asparuhovo.webp", page:"https://commons.wikimedia.org/wiki/File:Asparuhovo_Rayon_administration_1.jpg", src:"Spiritia" },
     "Chaika": { img:"images/hoods/varna--chaika.webp", page:"https://commons.wikimedia.org/wiki/File:Chaika_district_in_Varna.JPG", src:"Свилен Енев" }
   },
   "Vatican City": {
@@ -4650,8 +4630,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Velikiy Novgorod": {
     "Kremlin (Detinets)": { img:"images/hoods/velikiy-novgorod--kremlin-detinets.webp", page:"https://commons.wikimedia.org/wiki/File:NV_Kreml_10.jpg", src:"Wikingenge" },
-    "Yaroslav's Court (Torgovaya Storona)": { img:"images/hoods/velikiy-novgorod--yaroslav-s-court-torgovaya-storona.webp", page:"https://commons.wikimedia.org/wiki/File:Kolokolnia_Nokolsk.jpg", src:"Дар Ветер" },
-    "Antonovo": { img:"images/hoods/velikiy-novgorod--antonovo.webp", page:"https://commons.wikimedia.org/wiki/File:Antonovo_dog.jpg", src:"Андрей Романенко" }
+    "Yaroslav's Court (Torgovaya Storona)": { img:"images/hoods/velikiy-novgorod--yaroslav-s-court-torgovaya-storona.webp", page:"https://commons.wikimedia.org/wiki/File:Kolokolnia_Nokolsk.jpg", src:"Дар Ветер" }
   },
   "Veracruz": {
     "Centro Histórico": { img:"images/hoods/veracruz--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:R%C3%B3tulos_de_calles_en_el_Centro_Hist%C3%B3rico_de_Veracruz_01.jpg", src:"Isaacvp" },
@@ -4760,9 +4739,7 @@ window.NRA_HOOD_PHOTO = {
   "Xi'an": {
     "Beilin / City Wall & Bell Tower": { img:"images/hoods/xi-an--beilin-city-wall-bell-tower.webp", page:"https://commons.wikimedia.org/wiki/File:Xian_35_(5459468538).jpg", src:"Ronnie Macdonald from Chelmsford, United Kingdom" },
     "Muslim Quarter (Huimin Jie)": { img:"images/hoods/xi-an--muslim-quarter-huimin-jie.webp", page:"https://commons.wikimedia.org/wiki/File:Ablaq_IMG_1544.jpg", src:"Deror Avi" },
-    "Yanta / Big Wild Goose Pagoda": { img:"images/hoods/xi-an--yanta-big-wild-goose-pagoda.webp", page:"https://commons.wikimedia.org/wiki/File:Hi-tech_Shangquan,_Xi%27an,_Shaanxi,_China_-_panoramio_-_monicker.jpg", src:"monicker" },
-    "Qujiang New District": { img:"images/hoods/xi-an--qujiang-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E7%A7%8B%E7%9A%84%E6%9B%B2%E6%B1%9F%E9%81%97%E5%9D%80%E5%85%AC%E5%9B%AD_-_panoramio.jpg", src:"dayu490301" },
-    "Weiyang / High-tech Zone": { img:"images/hoods/xi-an--weiyang-high-tech-zone.webp", page:"https://commons.wikimedia.org/wiki/File:1999%E5%B9%B4%E5%BB%BA%E6%88%90%E7%9A%84%E5%9F%8E%E8%BF%90%E6%9D%91_-_panoramio.jpg", src:"monicker" }
+    "Yanta / Big Wild Goose Pagoda": { img:"images/hoods/xi-an--yanta-big-wild-goose-pagoda.webp", page:"https://commons.wikimedia.org/wiki/File:Hi-tech_Shangquan,_Xi%27an,_Shaanxi,_China_-_panoramio_-_monicker.jpg", src:"monicker" }
   },
   "Xiamen": {
     "Siming / Zhongshan Road (Old Town)": { img:"images/hoods/xiamen--siming-zhongshan-road-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Xiamen-Zhongshan_gongyuan_bonsai.jpg", src:"Popolon" },
@@ -4786,13 +4763,11 @@ window.NRA_HOOD_PHOTO = {
   },
   "Yangzhou": {
     "Old City (Dongguan Street)": { img:"images/hoods/yangzhou--old-city-dongguan-street.webp", page:"https://commons.wikimedia.org/wiki/File:Yangzhou_-_Looking_south_from_Yangjiang_Road_bridge_-_P1130221.JPG", src:"User:Vmenkov" },
-    "Wenchang Pavilion (Downtown)": { img:"images/hoods/yangzhou--wenchang-pavilion-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%9B%A8%E4%B8%AD%E7%9A%84%E6%96%87%E6%98%8C%E9%98%81_-_panoramio.jpg", src:"江上清风1961" },
-    "Hanjiang New District": { img:"images/hoods/yangzhou--hanjiang-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8F%B2%E5%8F%AF%E6%B3%95%E7%BA%AA%E5%BF%B5%E9%A6%8620230805_01.jpg", src:"西安兵马俑" }
+    "Wenchang Pavilion (Downtown)": { img:"images/hoods/yangzhou--wenchang-pavilion-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%9B%A8%E4%B8%AD%E7%9A%84%E6%96%87%E6%98%8C%E9%98%81_-_panoramio.jpg", src:"江上清风1961" }
   },
   "Yaoundé": {
     "Bastos": { img:"images/hoods/yaounde--bastos.webp", page:"https://commons.wikimedia.org/wiki/File:Bastos_under_the_moon.jpg", src:"Shaowu Fan" },
     "Nlongkak": { img:"images/hoods/yaounde--nlongkak.webp", page:"https://commons.wikimedia.org/wiki/File:Vue_du_rond_point_nlongkak.jpg", src:"ADA MBITA" },
-    "Mvog-Betsi": { img:"images/hoods/yaounde--mvog-betsi.webp", page:"https://commons.wikimedia.org/wiki/File:Deux_lionnes_dans_un_parc_zoologique_camerounais.jpg", src:"Fotsingboris" },
     "Mokolo": { img:"images/hoods/yaounde--mokolo.webp", page:"https://commons.wikimedia.org/wiki/File:Messa_02.jpg", src:"gtankam" }
   },
   "Yaren": {
@@ -4860,8 +4835,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Zaragoza": {
     "Casco Antiguo": { img:"images/hoods/zaragoza--casco-antiguo.webp", page:"https://commons.wikimedia.org/wiki/File:Casco_Antiguo,_Zaragoza,_Spain_-_panoramio.jpg", src:"Santi Garcia" },
-    "Delicias": { img:"images/hoods/zaragoza--delicias.webp", page:"https://commons.wikimedia.org/wiki/File:Manos_Monumento_a_la_protecci%C3%B3n_del_Planeta.jpg", src:"Campeones 2008" },
-    "Actur-Rey Fernando": { img:"images/hoods/zaragoza--actur-rey-fernando.webp", page:"https://commons.wikimedia.org/wiki/File:Bloque_de_viviendas_Actur.jpg", src:"Campeones 2008" }
+    "Delicias": { img:"images/hoods/zaragoza--delicias.webp", page:"https://commons.wikimedia.org/wiki/File:Manos_Monumento_a_la_protecci%C3%B3n_del_Planeta.jpg", src:"Campeones 2008" }
   },
   "Zhangjiajie": {
     "Yongding District (Downtown Zhangjiajie)": { img:"images/hoods/zhangjiajie--yongding-district-downtown-zhangjiajie.webp", page:"https://commons.wikimedia.org/wiki/File:China_IMG_2806_(29474763552).jpg", src:"Kuruman from Tokyo, Japan" },
