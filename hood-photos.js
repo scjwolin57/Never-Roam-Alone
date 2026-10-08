@@ -2640,8 +2640,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Karbala": {
     "Al-Abbasiyah (New Karbala)": { img:"images/hoods/karbala--al-abbasiyah-new-karbala.webp", page:"https://commons.wikimedia.org/wiki/File:Le_Caire._Sebil_de_la_rue_Abbassiyeh_-_btv1b53120182p_(2_of_2).jpg" },
-    "Bab Baghdad": { img:"images/hoods/karbala--bab-baghdad.webp", page:"https://commons.wikimedia.org/wiki/File:Talisman_Gate,_Sarre,_Friedrich_Paul_Theodor,_1911.jpg", src:"Friedrich Paul Theodor Sarre (22 June 1865, in Berlin – 31 May 1945, in Neubabel" },
-    "Al-Hurr": { img:"images/hoods/karbala--al-hurr.webp", page:"https://commons.wikimedia.org/wiki/File:Madrasah_Khoja_Ahrar_4697.JPG", src:"Bobyrr" }
+    "Bab Baghdad": { img:"images/hoods/karbala--bab-baghdad.webp", page:"https://commons.wikimedia.org/wiki/File:Talisman_Gate,_Sarre,_Friedrich_Paul_Theodor,_1911.jpg", src:"Friedrich Paul Theodor Sarre (22 June 1865, in Berlin – 31 May 1945, in Neubabel" }
   },
   "Karimabad": {
     "Karimabad Bazaar": { img:"images/hoods/karimabad--karimabad-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Red_Fort_Meena_Bazaar_Buddha_Artifact.jpg", src:"Pallav.journo" },
@@ -2653,7 +2652,6 @@ window.NRA_HOOD_PHOTO = {
   "Karlovy Vary": {
     "Lázeňské centrum": { img:"images/hoods/karlovy-vary--lazenske-centrum.webp", page:"https://commons.wikimedia.org/wiki/File:J%C3%A1chymov_1.jpg", src:"Jitka Radimska" },
     "Drahovice": { img:"images/hoods/karlovy-vary--drahovice.webp", page:"https://commons.wikimedia.org/wiki/File:Karlovy_Vary_sm%C3%ADr%C4%8D%C3%AD_k%C5%99%C3%AD%C5%BE_v_Drahovic%C3%ADch_duben_2019_(1).jpg", src:"Lubor Ferenc" },
-    "Rybáře": { img:"images/hoods/karlovy-vary--rybare.webp", page:"https://commons.wikimedia.org/wiki/File:Pivovar_Karlovy_Vary_%E2%80%93_Ryb%C3%A1%C5%99e.jpg", src:"U.username" },
     "Tuhnice": { img:"images/hoods/karlovy-vary--tuhnice.webp", page:"https://commons.wikimedia.org/wiki/File:Karlovy_Vary_Tuhnice_Moskevsk%C3%A1_ulice_vila_N%C3%BCrburg_(2).jpg", src:"Lubor Ferenc" },
     "Stará Role": { img:"images/hoods/karlovy-vary--stara-role.webp", page:"https://commons.wikimedia.org/wiki/File:Kostel_nanebevstoupen%C3%AD_p%C3%A1n%C4%9B_star%C3%A1_role_Interi%C3%A9r_nyn%C3%AD.jpg", src:"Juliejustikova" }
   },
@@ -2680,17 +2678,14 @@ window.NRA_HOOD_PHOTO = {
     "Cumhuriyet Meydanı (Old City)": { img:"images/hoods/kayseri--cumhuriyet-meydani-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Samsunspor_2023_%C3%BCst_lige_y%C3%BCkselme_kutlamalar%C4%B1,_Meydan.jpg", src:"𐰇𐱅𐰚𐰤" },
     "Melikgazi": { img:"images/hoods/kayseri--melikgazi.webp", page:"https://commons.wikimedia.org/wiki/File:C5_Yunus_Emre_ap._(RMZN)_-_panoramio.jpg", src:"İmam-ı Gazzali" },
     "Kocasinan": { img:"images/hoods/kayseri--kocasinan.webp", page:"https://commons.wikimedia.org/wiki/File:ERCIYES_DAGI.KAYSERI_-_panoramio.jpg", src:"Kayhan ERTUGRUL" },
-    "Talas": { img:"images/hoods/kayseri--talas.webp", page:"https://commons.wikimedia.org/wiki/File:TALAS_-_panoramio_-_cankurtaran_(2).jpg", src:"cankurtaran" },
-    "Hisarcık (Erciyes)": { img:"images/hoods/kayseri--hisarcik-erciyes.webp", page:"https://commons.wikimedia.org/wiki/File:Stele_Hisarc%C4%B1k1_02.jpg", src:"Ingeborg Simon" }
+    "Talas": { img:"images/hoods/kayseri--talas.webp", page:"https://commons.wikimedia.org/wiki/File:TALAS_-_panoramio_-_cankurtaran_(2).jpg", src:"cankurtaran" }
   },
   "Kazan": {
     "Kazan Kremlin & Embankment": { img:"images/hoods/kazan--kazan-kremlin-embankment.webp", page:"https://commons.wikimedia.org/wiki/File:Kremlin_quay,_Kazan_(2023-06-06)_09.jpg", src:"Vyacheslav Kirillin" },
-    "Old Tatar Sloboda": { img:"images/hoods/kazan--old-tatar-sloboda.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C._%D0%A2%D0%B0%D1%82%D0%B0%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0_(2).jpg", src:"Legioner2016" },
-    "Sovetsky District": { img:"images/hoods/kazan--sovetsky-district.webp", page:"https://commons.wikimedia.org/wiki/File:Mixail_%C4%B0say%C4%B1f_q%C3%A4bere.jpg", src:"Marat-avgust" }
+    "Old Tatar Sloboda": { img:"images/hoods/kazan--old-tatar-sloboda.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C._%D0%A2%D0%B0%D1%82%D0%B0%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%BB%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0_(2).jpg", src:"Legioner2016" }
   },
   "Kelowna": {
     "Downtown & Waterfront": { img:"images/hoods/kelowna--downtown-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:Kelowna_(BC,_Canada),_Waterfront_Promenade_--_2022_--_201951.jpg", src:"Dietmar Rabich" },
-    "Lower Mission": { img:"images/hoods/kelowna--lower-mission.webp", page:"https://commons.wikimedia.org/wiki/File:Missionsgravar_-_1905_-_Diadia_missionsstation,_Kongo,_0964.0892.jpg", src:"Unknown" },
     "Glenmore / North End": { img:"images/hoods/kelowna--glenmore-north-end.webp", page:"https://commons.wikimedia.org/wiki/File:Warung_Glenmore_(1).jpg", src:"Okkisafire" },
     "Rutland": { img:"images/hoods/kelowna--rutland.webp", page:"https://commons.wikimedia.org/wiki/File:Egg_Plant_Flower_(aubergine).jpg", src:"Accuruss" }
   },
@@ -2709,7 +2704,6 @@ window.NRA_HOOD_PHOTO = {
   "Kigali": {
     "Kiyovu": { img:"images/hoods/kigali--kiyovu.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_Gorillas,_Kigali_-_Flickr_-_Dave_Proffer.jpg", src:"Dave Proffer" },
     "Kimihurura": { img:"images/hoods/kigali--kimihurura.webp", page:"https://commons.wikimedia.org/wiki/File:Kigali_Restaurants.jpg", src:"Uwasegrace" },
-    "Nyarutarama": { img:"images/hoods/kigali--nyarutarama.webp", page:"https://commons.wikimedia.org/wiki/File:Stade_Amahoro_Rwanda.jpeg", src:"Cedrickarungu921" },
     "Nyamirambo": { img:"images/hoods/kigali--nyamirambo.webp", page:"https://commons.wikimedia.org/wiki/File:Gang%27s.jpg", src:"GATETE Pacifique" }
   },
   "Kingston": {
@@ -2719,28 +2713,24 @@ window.NRA_HOOD_PHOTO = {
   "Kingstown": {
     "Kingstown City Centre": { img:"images/hoods/kingstown--kingstown-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Kingstown_Harbour_plans,_1830_Dun_Loaghaire.jpg", src:"Internet Archive Book Images" },
     "Villa/Indian Bay": { img:"images/hoods/kingstown--villa-indian-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Lindenfels_Villa_Luthmer_-_Christina.jpeg", src:"FriedeWie" },
-    "Calliaqua/Blue Lagoon": { img:"images/hoods/kingstown--calliaqua-blue-lagoon.webp", page:"https://commons.wikimedia.org/wiki/File:Ogcocephalus_parvus_(Saint_Vincent_and_the_Grenadines).jpg", src:"Barry Peters" },
-    "Arnos Vale": { img:"images/hoods/kingstown--arnos-vale.webp", page:"https://commons.wikimedia.org/wiki/File:St._Vincent,_Karibik_-_E.T._Joshua_Airport_in_Kingstown_-_panoramio.jpg", src:"giggel" }
+    "Calliaqua/Blue Lagoon": { img:"images/hoods/kingstown--calliaqua-blue-lagoon.webp", page:"https://commons.wikimedia.org/wiki/File:Ogcocephalus_parvus_(Saint_Vincent_and_the_Grenadines).jpg", src:"Barry Peters" }
   },
   "Kinshasa": {
     "Gombe": { img:"images/hoods/kinshasa--gombe.webp", page:"https://commons.wikimedia.org/wiki/File:2_Pru_gombe.jpg", src:"Tauraaroo" },
     "Ngaliema": { img:"images/hoods/kinshasa--ngaliema.webp", page:"https://commons.wikimedia.org/wiki/File:Pont_de_Kinsuka,_pollution.jpg", src:"Steeve P" },
     "Limete": { img:"images/hoods/kinshasa--limete.webp", page:"https://commons.wikimedia.org/wiki/File:Viaduc_vu_du_premier_%C3%A9tage_de_la_tour_de_l%27%C3%89changeur.jpg", src:"Steeve P" },
-    "Lemba": { img:"images/hoods/kinshasa--lemba.webp", page:"https://commons.wikimedia.org/wiki/File:Notre-Dame_a_UNIKIN.jpg", src:"ByaduniaEspoir" },
     "Kintambo": { img:"images/hoods/kinshasa--kintambo.webp", page:"https://commons.wikimedia.org/wiki/File:D%C3%A9chet_caniveau_kintambo_v%C3%A9lodrome.jpg", src:"Kabemba Mervella" }
   },
   "Klaipėda": {
     "New Town": { img:"images/hoods/klaipeda--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:St_Johns_Anglican_New_Town.jpg", src:"SurveyorMJF" },
     "Melnragė": { img:"images/hoods/klaipeda--melnrage.webp", page:"https://commons.wikimedia.org/wiki/File:Ztrosk1Lo%C4%8F55.753194,_21.07913.jpg", src:"Kusurija" },
-    "Smiltynė": { img:"images/hoods/klaipeda--smiltyne.webp", page:"https://commons.wikimedia.org/wiki/File:%C5%BDvejybos_laiv%C5%B3_ekspozicija,_Smyltin%C4%97,_Litva_01.jpg", src:"Fry72, Karel Frydrýšek" },
     "Fishing Village": { img:"images/hoods/klaipeda--fishing-village.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B5%B7%E5%B2%B8%E7%9E%AD%E6%9C%9B%E5%8F%B0.jpg", src:"Lt2818" }
   },
   "Knysna": {
     "Knysna Central / Waterfront": { img:"images/hoods/knysna--knysna-central-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:Knysna_(ZA),_Bahnhof,_Drehscheibe_--_2024_--_2347.jpg", src:"Dietmar Rabich" },
     "Thesen Islands": { img:"images/hoods/knysna--thesen-islands.webp", page:"https://commons.wikimedia.org/wiki/File:KNYSNA_-_Residential_area_on_Thesen_Island,_Knysna,_South_Africa,_2017.jpg", src:"Josep M. Gracia" },
     "Leisure Isle": { img:"images/hoods/knysna--leisure-isle.webp", page:"https://commons.wikimedia.org/wiki/File:Solent_and_Wightline_Cruises_Jenny_M_2.jpg", src:"Editor5807" },
-    "The Heads": { img:"images/hoods/knysna--the-heads.webp", page:"https://commons.wikimedia.org/wiki/File:Knysna_Heads_05.jpg", src:"Ad Meskens You are free to use this picture for any purpose as long as you credi" },
-    "Brenton-on-Sea": { img:"images/hoods/knysna--brenton-on-sea.webp", page:"https://commons.wikimedia.org/wiki/File:Brenton-on-Sea,_near_Knysna_(8226174867).jpg", src:"Darren Glanville from Acle, Norfolk, UK" }
+    "The Heads": { img:"images/hoods/knysna--the-heads.webp", page:"https://commons.wikimedia.org/wiki/File:Knysna_Heads_05.jpg", src:"Ad Meskens You are free to use this picture for any purpose as long as you credi" }
   },
   "Ko Samui": {
     "Chaweng": { img:"images/hoods/ko-samui--chaweng.webp", page:"https://commons.wikimedia.org/wiki/File:Thailand,_Koh-Samui,_Chaweng_beach_-_Monkey_bay,_2011_-_panoramio.jpg", src:"ivanich" },
@@ -2753,14 +2743,12 @@ window.NRA_HOOD_PHOTO = {
     "Sannomiya": { img:"images/hoods/kobe--sannomiya.webp", page:"https://commons.wikimedia.org/wiki/File:151003_Sannomiya_Kobe_Japan02s3.jpg", src:"663highland" },
     "Kitano": { img:"images/hoods/kobe--kitano.webp", page:"https://commons.wikimedia.org/wiki/File:Kitano_Street_Kobe02s3s4272.jpg", src:"663highland" },
     "Motomachi & Nankinmachi": { img:"images/hoods/kobe--motomachi-nankinmachi.webp", page:"https://commons.wikimedia.org/wiki/File:Kobe_20221209164915_(52647714977).jpg", src:"inunami" },
-    "Harborland & Meriken Park": { img:"images/hoods/kobe--harborland-meriken-park.webp", page:"https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_and_Cruise_ship_%22Concerto%22_at_Kobe_Port_at_night_3.jpg", src:"そらみみ" },
-    "Nada": { img:"images/hoods/kobe--nada.webp", page:"https://commons.wikimedia.org/wiki/File:Minatokanko_Bus_Saka-bus_01.jpg", src:"Suikotei" }
+    "Harborland & Meriken Park": { img:"images/hoods/kobe--harborland-meriken-park.webp", page:"https://commons.wikimedia.org/wiki/File:Kobe_Meriken_Park_Oriental_Hotel_and_Cruise_ship_%22Concerto%22_at_Kobe_Port_at_night_3.jpg", src:"そらみみ" }
   },
   "Koblenz": {
     "Altstadt": { img:"images/hoods/koblenz--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Erker_Dreik%C3%B6nigenhaus_Koblenz_2011.jpg", src:"Holger Weinandt" },
     "Ehrenbreitstein": { img:"images/hoods/koblenz--ehrenbreitstein.webp", page:"https://commons.wikimedia.org/wiki/File:Koblenz,_Festung_Ehrenbreitstein_--_2015_--_7638.jpg", src:"Dietmar Rabich" },
     "Südliche Vorstadt": { img:"images/hoods/koblenz--sudliche-vorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:B%C3%BCchertelefonzelle_Koblenz_s%C3%BCdliche_Vorstadt.jpg", src:"David Rabel" },
-    "Lützel": { img:"images/hoods/koblenz--lutzel.webp", page:"https://commons.wikimedia.org/wiki/File:Bahnhof_Koblenz-L%C3%BCtzel_2010.jpg", src:"Holger Weinandt" },
     "Neustadt": { img:"images/hoods/koblenz--neustadt.webp", page:"https://commons.wikimedia.org/wiki/File:Deutsche_bundesbank_filiale_koblenz.jpg", src:"Panek" }
   },
   "Kolkata": {
@@ -2773,8 +2761,7 @@ window.NRA_HOOD_PHOTO = {
   "Konstanz": {
     "Altstadt (Old Town)": { img:"images/hoods/konstanz--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Altstadt,_78462_Konstanz,_Germany_-_panoramio_(2).jpg", src:"jens@storchenhof-pap…" },
     "Petershausen": { img:"images/hoods/konstanz--petershausen.webp", page:"https://commons.wikimedia.org/wiki/File:MFH_Zumsteinstr._11_in_Konstanz_(2022).jpg", src:"JoachimKohler-HB" },
-    "Paradies": { img:"images/hoods/konstanz--paradies.webp", page:"https://commons.wikimedia.org/wiki/File:Blaue_Haust%C3%BCr_im_Paradies_(Konstanz,_2020).jpg", src:"JoachimKohler-HB" },
-    "Mainau / Litzelstetten": { img:"images/hoods/konstanz--mainau-litzelstetten.webp", page:"https://commons.wikimedia.org/wiki/File:Mainau_-_Deutschordenschloss_-_G%C3%A4rtnerturm_001.jpg", src:"Mummelgrummel" }
+    "Paradies": { img:"images/hoods/konstanz--paradies.webp", page:"https://commons.wikimedia.org/wiki/File:Blaue_Haust%C3%BCr_im_Paradies_(Konstanz,_2020).jpg", src:"JoachimKohler-HB" }
   },
   "Konya": {
     "Mevlana / City Center (Karatay)": { img:"images/hoods/konya--mevlana-city-center-karatay.webp", page:"https://commons.wikimedia.org/wiki/File:Mevlevi_Dergahi_in_Konya_Mevlana_House.jpg", src:"Campo Carlo Magno" },
@@ -2783,7 +2770,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Koror": {
     "Malakal Island": { img:"images/hoods/koror--malakal-island.webp", page:"https://commons.wikimedia.org/wiki/File:Sea_Passion_Hotel_from_Palau_Vacation_Hotel.jpg", src:"Mandrusian" },
-    "Airai (near airport)": { img:"images/hoods/koror--airai-near-airport.webp", page:"https://commons.wikimedia.org/wiki/File:Palau_International_Airport,_Arrivals.jpg", src:"Mandrusian" },
     "Ngerbeched/Ngermid": { img:"images/hoods/koror--ngerbeched-ngermid.webp", page:"https://commons.wikimedia.org/wiki/File:Spotted_Jellyfish,_Aquarium_at_Palau_International_Coral_Reef_Center,_Koror_(9723403702).jpg", src:"Matt Kieffer from London, United Kingdom" },
     "Meyuns (Arakabesang Peninsula)": { img:"images/hoods/koror--meyuns-arakabesang-peninsula.webp", page:"https://commons.wikimedia.org/wiki/File:Belau_National_Hospital.JPG", src:"Abasaa" }
   },
@@ -2791,7 +2777,6 @@ window.NRA_HOOD_PHOTO = {
     "Tanjung Aru": { img:"images/hoods/kota-kinabalu--tanjung-aru.webp", page:"https://commons.wikimedia.org/wiki/File:Jalan_Mat_Salleh,_Kota_Kinabalu_20260504_135811.jpg", src:"Wiki Farazi" },
     "Likas": { img:"images/hoods/kota-kinabalu--likas.webp", page:"https://commons.wikimedia.org/wiki/File:Bird_Watch_Tower_at_KK_-_panoramio.jpg", src:"Annette Teng" },
     "Sutera Harbour (Sembulan)": { img:"images/hoods/kota-kinabalu--sutera-harbour-sembulan.webp", page:"https://commons.wikimedia.org/wiki/File:Jalan_Sutera_Singkat,_88100_Kota_Kinabalu,_Sabah,_Malaysia_-_panoramio_(2).jpg", src:"mohigan" },
-    "Pulau Gaya": { img:"images/hoods/kota-kinabalu--pulau-gaya.webp", page:"https://commons.wikimedia.org/wiki/File:Gaya_Island_1.jpg", src:"Mx. Granger" },
     "City Centre & Waterfront": { img:"images/hoods/kota-kinabalu--city-centre-waterfront.webp", page:"https://www.flickr.com/photos/26978304@N08/42122703042/", src:"thienzieyung" }
   },
   "Kralendijk": {
@@ -2817,17 +2802,11 @@ window.NRA_HOOD_PHOTO = {
     "Asokwa": { img:"images/hoods/kumasi--asokwa.webp", page:"https://commons.wikimedia.org/wiki/File:Sunday_dawn_in_Asokwa,_Kumasi.jpg", src:"ArnPrah" }
   },
   "Kunming": {
-    "Green Lake (Cuihu) & Wuhua": { img:"images/hoods/kunming--green-lake-cuihu-wuhua.webp", page:"https://commons.wikimedia.org/wiki/File:55506-Kunming-Green-Lake-Park.jpg", src:"xiquinhosilva" },
-    "Panlong District": { img:"images/hoods/kunming--panlong-district.webp", page:"https://commons.wikimedia.org/wiki/File:Kunming_Railway_Palace_of_Culture_-_P1340588.JPG", src:"User:Vmenkov" },
-    "Xishan & Dianchi Lake": { img:"images/hoods/kunming--xishan-dianchi-lake.webp", page:"https://commons.wikimedia.org/wiki/File:20260222_Kunming_Dianchi_Lake_02.jpg", src:"Ngguls" },
-    "Guandu Old Town": { img:"images/hoods/kunming--guandu-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%AE%98%E6%B8%A1%E5%8F%A4%E9%95%87-%E9%BA%A6%E5%BD%93%E5%8A%B3_2025-07-01.jpg", src:"Harald Groven" }
+    "Green Lake (Cuihu) & Wuhua": { img:"images/hoods/kunming--green-lake-cuihu-wuhua.webp", page:"https://commons.wikimedia.org/wiki/File:55506-Kunming-Green-Lake-Park.jpg", src:"xiquinhosilva" }
   },
   "Kurashiki": {
     "Bikan Historical Quarter": { img:"images/hoods/kurashiki--bikan-historical-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA_by_takeokahp_-_panoramio_(1).jpg", src:"takeokahp" },
-    "Kurashiki Station / Achi": { img:"images/hoods/kurashiki--kurashiki-station-achi.webp", page:"https://commons.wikimedia.org/wiki/File:JR_Kurashiki_Sta._-_panoramio.jpg", src:"Nagono" },
-    "Honmachi & Higashimachi": { img:"images/hoods/kurashiki--honmachi-higashimachi.webp", page:"https://commons.wikimedia.org/wiki/File:Honmachi_-_panoramio_(87).jpg", src:"DVMG" },
-    "Kojima (Jeans Street)": { img:"images/hoods/kurashiki--kojima-jeans-street.webp", page:"https://commons.wikimedia.org/wiki/File:Ch%C5%ABgoku_Bank_Kojima_Branch.jpg", src:"ラハール" },
-    "Tamashima": { img:"images/hoods/kurashiki--tamashima.webp", page:"https://commons.wikimedia.org/wiki/File:%E7%8E%89%E5%B3%B6%E7%94%BA%E4%B8%A6%E3%81%BF%E4%BF%9D%E5%AD%98%E5%9C%B0%E5%8C%BA_%EF%BC%88%E4%BB%B2%E8%B2%B7%E7%94%BA%EF%BC%89.jpg", src:"ありきゃん" }
+    "Kurashiki Station / Achi": { img:"images/hoods/kurashiki--kurashiki-station-achi.webp", page:"https://commons.wikimedia.org/wiki/File:JR_Kurashiki_Sta._-_panoramio.jpg", src:"Nagono" }
   },
   "Kuşadası": {
     "Ladies Beach (Kadınlar Denizi)": { img:"images/hoods/kusadasi--ladies-beach-kadinlar-denizi.webp", page:"https://commons.wikimedia.org/wiki/File:Turkey_Ku%C5%9Fadas%C4%B1_Ladys_Beach_-_panoramio.jpg", src:"Tutku Çetinel" },
