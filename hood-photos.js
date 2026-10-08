@@ -176,20 +176,23 @@ window.NRA_HOOD_PHOTO = {
     "The Pearl-Qatar": { img:"images/hoods/doha--the-pearl-qatar.webp", page:"https://commons.wikimedia.org/wiki/File:Building_under_construction_at_Qanat_Quartier_in_The_Pearl-Qatar.jpg" },
     "West Bay": { img:"images/hoods/doha--west-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_-_West_Bay_Skyline_01.jpg", src:"P. Hughes" },
     "Msheireb": { img:"images/hoods/doha--msheireb.webp", page:"https://en.wikipedia.org/wiki/File:Msheireb_Doha.jpg" },
-    "Katara": { img:"images/hoods/doha--katara.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_Qatar_-_Masjid_Katara.jpg" }
+    "Katara": { img:"images/hoods/doha--katara.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_Qatar_-_Masjid_Katara.jpg" },
+    "Souq Waqif": { img:"images/hoods/doha--souq-waqif.webp", page:"https://commons.wikimedia.org/wiki/File:Souq_waqif_doha_qatar_07.jpg", src:"Arwcheek (talk)" }
   },
   "Dubai": {
     "Deira": { img:"images/hoods/dubai--deira.webp", page:"https://commons.wikimedia.org/wiki/File:Deira_Clocktower.jpg" },
     "Jumeirah": { img:"images/hoods/dubai--jumeirah.webp", page:"https://commons.wikimedia.org/wiki/File:Sunset_of_Jumeirah_Fish_Village.jpg" },
     "Dubai Marina": { img:"images/hoods/dubai--dubai-marina.webp", page:"https://commons.wikimedia.org/wiki/File:Dubai_Marina_Skyline.jpg" },
-    "Business Bay": { img:"images/hoods/dubai--business-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Burj_Dubai_and_Business_Bay%2C_seen_from_Safa_Park.jpg" },
-    "Downtown Dubai": { img:"images/hoods/dubai--downtown-dubai.webp", page:"https://commons.wikimedia.org/wiki/File:Burj_Khalifa_(worlds_tallest_building)_and_the_Dubai_skyline_(25781049892).jpg" }
+    "Downtown Dubai": { img:"images/hoods/dubai--downtown-dubai.webp", page:"https://commons.wikimedia.org/wiki/File:Burj_Khalifa_(worlds_tallest_building)_and_the_Dubai_skyline_(25781049892).jpg" },
+    "Bur Dubai": { img:"images/hoods/dubai--bur-dubai.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Fahidi_fort.jpg", src:"Chris Waits" }
   },
   "Dublin": {
     "Ballsbridge": { img:"images/hoods/dublin--ballsbridge.webp", page:"https://commons.wikimedia.org/wiki/File:Herbert_Park%2C_Ballsbridge.jpg" },
     "Temple Bar": { img:"images/hoods/dublin--temple-bar.webp", page:"https://commons.wikimedia.org/wiki/File:20130807_dublin014.JPG", src:"Jean Housen" },
     "The Liberties": { img:"images/hoods/dublin--the-liberties.webp", page:"https://commons.wikimedia.org/wiki/File:Dublin_GuinnessBrewery_SaintJamesGate_220_IMG_20250804_2043.jpg", src:"Karlunun" },
-    "Smithfield": { img:"images/hoods/dublin--smithfield.webp", page:"https://commons.wikimedia.org/wiki/File:Smithfield_Market_Area_Of_Dublin_-_panoramio_(9).jpg" }
+    "Smithfield": { img:"images/hoods/dublin--smithfield.webp", page:"https://commons.wikimedia.org/wiki/File:Smithfield_Market_Area_Of_Dublin_-_panoramio_(9).jpg" },
+    "O'Connell Street": { img:"images/hoods/dublin--o-connell-street.webp", page:"https://commons.wikimedia.org/wiki/File:The_General_Post_Office_%26_The_Spire,_O%27Connell_St_Lower,_Dublin_(507179)_(32030566634).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
+    "St Stephen's Green / Grafton Street": { img:"images/hoods/dublin--st-stephen-s-green-grafton-street.webp", page:"https://commons.wikimedia.org/wiki/File:Centre_of_St_Stephens_Green.jpg", src:"CraftyCaedus" }
   },
   "Dubrovnik": {
     "Gruž": { img:"images/hoods/dubrovnik--gruz.webp", page:"https://commons.wikimedia.org/wiki/File:Montenegro_Urlaub_2014_-_panoramio_(1).jpg" },
@@ -203,7 +206,8 @@ window.NRA_HOOD_PHOTO = {
     "Old Town": { img:"images/hoods/edinburgh--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Edinburgh_Old_Town_(5797254849).jpg", src:"Ronnie Macdonald from Chelmsford, United Kingdom" },
     "Leith": { img:"images/hoods/edinburgh--leith.webp", page:"https://commons.wikimedia.org/wiki/File:Rth_Edin_Leith_.Forth.Fife_26.10.11_edited-2.jpg" },
     "New Town": { img:"images/hoods/edinburgh--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:Princes_Street,_Edinburgh,_3_June_2006.jpg", src:"J Brew from near Seattle, USA" },
-    "Stockbridge": { img:"images/hoods/edinburgh--stockbridge.webp", page:"https://www.pexels.com/photo/charming-brick-corner-in-edinburgh-s-stockbridge-30312595/", src:"Pexels" }
+    "Stockbridge": { img:"images/hoods/edinburgh--stockbridge.webp", page:"https://www.pexels.com/photo/charming-brick-corner-in-edinburgh-s-stockbridge-30312595/", src:"Pexels" },
+    "West End / Haymarket": { img:"images/hoods/edinburgh--west-end-haymarket.webp", page:"https://commons.wikimedia.org/wiki/File:The_Haymarket,_Edinburgh_-_geograph.org.uk_-_3727930.jpg", src:"Bill Boaden" }
   },
   "Florence": {
     "Santa Maria Novella": { img:"images/hoods/florence--santa-maria-novella.webp", page:"https://commons.wikimedia.org/wiki/File:Florence%2C_Santa_Maria_Novella%2C_facade.jpg" },
@@ -215,7 +219,8 @@ window.NRA_HOOD_PHOTO = {
     "Westend": { img:"images/hoods/frankfurt-am-main--westend.webp", page:"https://commons.wikimedia.org/wiki/File:Eingang_Palmengarten_Frankfurt.JPG" },
     "Bockenheim": { img:"images/hoods/frankfurt-am-main--bockenheim.webp", page:"https://www.pexels.com/photo/bockenheimer-warte-subway-station-entrance-in-frankfurt-am-main-germany-19335777/", src:"Pexels" },
     "Sachsenhausen": { img:"images/hoods/frankfurt-am-main--sachsenhausen.webp", page:"https://pixabay.com/photos/bridge-iron-main-frankfurt-2535355/", src:"Pixabay" },
-    "Innenstadt (Altstadt)": { img:"images/hoods/frankfurt-am-main--innenstadt-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Denkmaeler-Anton_Kirchner_20070725.jpg", src:"Mylius" }
+    "Innenstadt (Altstadt)": { img:"images/hoods/frankfurt-am-main--innenstadt-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Denkmaeler-Anton_Kirchner_20070725.jpg", src:"Mylius" },
+    "Bahnhofsviertel": { img:"images/hoods/frankfurt-am-main--bahnhofsviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Kaiserstraße_-_Francfort-sur-le-Main_(DE71)_-_2025-11-24_-_3.jpg", src:"Chabe01" }
   },
   "Fukuoka": {
     "Nakasu": { img:"images/hoods/fukuoka--nakasu.webp", page:"https://commons.wikimedia.org/wiki/File:NakasuKawabata_FukuokaSubway.jpg" },
@@ -233,7 +238,8 @@ window.NRA_HOOD_PHOTO = {
     "Ba Dinh": { img:"images/hoods/hanoi--ba-dinh.webp", page:"https://www.pexels.com/photo/scenic-view-of-ba-dinh-square-in-hanoi-34477004/", src:"Pexels" },
     "Dong Da": { img:"images/hoods/hanoi--dong-da.webp", page:"https://www.pexels.com/photo/statue-at-dong-da-hill-park-hanoi-vietnam-38003938/", src:"Pexels" },
     "Hoan Kiem (Old Quarter)": { img:"images/hoods/hanoi--hoan-kiem-old-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Hanoi_Vietnam_Houses-in-Ho%C3%A0n-Ki%E1%BA%BFm-District-01.jpg" },
-    "Tay Ho (West Lake)": { img:"images/hoods/hanoi--tay-ho-west-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Swan_boats_at_Tay_Ho_in_2015_01.jpg", src:"Vuong Tri Binh" }
+    "Tay Ho (West Lake)": { img:"images/hoods/hanoi--tay-ho-west-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Swan_boats_at_Tay_Ho_in_2015_01.jpg", src:"Vuong Tri Binh" },
+    "French Quarter": { img:"images/hoods/hanoi--french-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Hanoi_Opera_House_(9753397985).jpg", src:"Gary Todd from Xinzheng, China" }
   },
   "Helsinki": {
     "Toolo": { img:"images/hoods/helsinki--toolo.webp", page:"https://commons.wikimedia.org/wiki/File:T%C3%B6%C3%B6l%C3%B6%2C_Helsinki_from_the_olympic_stadium_tower.jpg" },
@@ -263,7 +269,8 @@ window.NRA_HOOD_PHOTO = {
   "Honolulu": {
     "Waikiki": { img:"images/hoods/honolulu--waikiki.webp", page:"https://commons.wikimedia.org/wiki/File:Canoe_(6480766515).jpg", src:"Phil Whitehouse from London, United Kingdom" },
     "Ala Moana": { img:"images/hoods/honolulu--ala-moana.webp", page:"https://commons.wikimedia.org/wiki/File:Alamoanaaerial.jpg" },
-    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" }
+    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" },
+    "Kakaako": { img:"images/hoods/honolulu--kakaako.webp", page:"https://commons.wikimedia.org/wiki/File:Diamond_Head_from_Kakaako_-_panoramio.jpg", src:"Eric Tessmer" }
   },
   "Hua Hin": {
     "North Hua Hin (Soi 5-25)": { img:"images/hoods/hua-hin--north-hua-hin-soi-5-25.webp", page:"https://commons.wikimedia.org/wiki/File:Hua_Hin_hotels_-_panoramio.jpg", src:"Andreas Hörstemeier" },
@@ -2168,7 +2175,8 @@ window.NRA_HOOD_PHOTO = {
   "Göreme": {
     "Göreme Town Center": { img:"images/hoods/goreme--goreme-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Elmal%C4%B1_Kilise_Entry_into_Jerusalem_in_2004_6816.jpg", src:"Dosseman" },
     "Uçhisar": { img:"images/hoods/goreme--uchisar.webp", page:"https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Kalesi_Front.jpg", src:"Tolga Alan" },
-    "Avanos (Kızılırmak riverside)": { img:"images/hoods/goreme--avanos-kizilirmak-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Avanos_Carsisinda_Kabartma_-_panoramio.jpg", src:"Talha Sariyürek" }
+    "Avanos (Kızılırmak riverside)": { img:"images/hoods/goreme--avanos-kizilirmak-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Avanos_Carsisinda_Kabartma_-_panoramio.jpg", src:"Talha Sariyürek" },
+    "Ürgüp": { img:"images/hoods/goreme--urgup.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_Temenni_Tepesi_02.jpg", src:"Codas" }
   },
   "Gothenburg": {
     "Inom Vallgraven": { img:"images/hoods/gothenburg--inom-vallgraven.webp", page:"https://commons.wikimedia.org/wiki/File:Porten_till_Lilla_Kyrkogatan_2.JPG", src:"Eskil Malmberg" },
@@ -2350,7 +2358,8 @@ window.NRA_HOOD_PHOTO = {
     "Downtown": { img:"images/hoods/houston--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:EaDoChineseshoppingcenter.JPG", src:"WhisperToMe" },
     "Montrose": { img:"images/hoods/houston--montrose.webp", page:"https://commons.wikimedia.org/wiki/File:Montrose_district_sign.jpg", src:"WhisperToMe" },
     "Museum District": { img:"images/hoods/houston--museum-district.webp", page:"https://commons.wikimedia.org/wiki/File:Yellow_strings_(117229470).jpg", src:"M Glasgow" },
-    "Midtown": { img:"images/hoods/houston--midtown.webp", page:"https://commons.wikimedia.org/wiki/File:Bichngahairskincare.jpg", src:"WhisperToMe" }
+    "Midtown": { img:"images/hoods/houston--midtown.webp", page:"https://commons.wikimedia.org/wiki/File:Bichngahairskincare.jpg", src:"WhisperToMe" },
+    "Galleria / Uptown": { img:"images/hoods/houston--galleria-uptown.webp", page:"https://commons.wikimedia.org/wiki/File:Williams_Tower1.jpg", src:"Alex" }
   },
   "Hualien City": {
     "City Center / Dongdamen Night Market": { img:"images/hoods/hualien-city--city-center-dongdamen-night-market.webp", page:"https://commons.wikimedia.org/wiki/File:Former_Hualien_Brewery,_chimney_(Taiwan).jpg", src:"Mk2010" },
@@ -2405,7 +2414,8 @@ window.NRA_HOOD_PHOTO = {
     "Altstadt (Old Town)": { img:"images/hoods/innsbruck--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:12-06-05-innsbruck-by-ralfr-107.jpg", src:"Ralf Roletschek (talk) - Infos über Fahrräder auf fahrradmonteur.deWiki-Technolo" },
     "Wilten": { img:"images/hoods/innsbruck--wilten.webp", page:"https://commons.wikimedia.org/wiki/File:2926-2927_-_Innsbruck_-_Stiftskirche_Wilten.jpg", src:"Andrew Bossi" },
     "Saggen": { img:"images/hoods/innsbruck--saggen.webp", page:"https://commons.wikimedia.org/wiki/File:Innsbruck,_Beethovenstra%C3%9Fe_1.JPG", src:"Kwerdenker" },
-    "Pradl": { img:"images/hoods/innsbruck--pradl.webp", page:"https://commons.wikimedia.org/wiki/File:Kindergarten_Pradl_02.jpg", src:"Luftschiffhafen" }
+    "Pradl": { img:"images/hoods/innsbruck--pradl.webp", page:"https://commons.wikimedia.org/wiki/File:Kindergarten_Pradl_02.jpg", src:"Luftschiffhafen" },
+    "Igls": { img:"images/hoods/innsbruck--igls.webp", page:"https://commons.wikimedia.org/wiki/File:Pfarrkirche_Igls_Innsbruck-Igls_2026-05-10_02.jpg", src:"Leonhard Lenz" }
   },
   "Inverness": {
     "Crown": { img:"images/hoods/inverness--crown.webp", page:"https://commons.wikimedia.org/wiki/File:Provost_lamp_-_Beaufort_Road,_Inverness_(8695202167).jpg", src:"Glen Wallace from Inverness, Scotland" },
