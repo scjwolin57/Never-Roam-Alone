@@ -255,8 +255,7 @@ window.NRA_HOOD_PHOTO = {
     "District 1": { img:"images/hoods/ho-chi-minh-city--district-1.webp", page:"https://commons.wikimedia.org/wiki/File:A_%5E_C_TOWER,_qu%E1%BA%ADn_1.tpho_chi_minh_,_vietnam_-_panoramio.jpg", src:"trungydang" },
     "District 3": { img:"images/hoods/ho-chi-minh-city--district-3.webp", page:"https://commons.wikimedia.org/wiki/File:District_3_Skyline.jpg" },
     "Cholon (District 5)": { img:"images/hoods/ho-chi-minh-city--cholon-district-5.webp", page:"https://commons.wikimedia.org/wiki/File:Cholon%2C_Ho_Chi_Minh_City_(49057494416).jpg" },
-    "Thao Dien (District 2)": { img:"images/hoods/ho-chi-minh-city--thao-dien-district-2.webp", page:"https://commons.wikimedia.org/wiki/File:Thao_Dien_Station_(MRT_1)%2C_Qu%E1%BB%91c_H%C6%B0%C6%A1ng%2C_Th%E1%BA%A3o_%C4%90i%E1%BB%81n%2C_H%E1%BB%93_Ch%C3%AD_Minh_-_54690900645.jpg" },
-    "Phu My Hung (District 7)": { img:"images/hoods/ho-chi-minh-city--phu-my-hung-district-7.webp", page:"https://commons.wikimedia.org/wiki/File:Chung_cu_sky_3_-_Phu_my_hung_q7_tphcm_-_panoramio.jpg", src:"trungydang" }
+    "Thao Dien (District 2)": { img:"images/hoods/ho-chi-minh-city--thao-dien-district-2.webp", page:"https://commons.wikimedia.org/wiki/File:Thao_Dien_Station_(MRT_1)%2C_Qu%E1%BB%91c_H%C6%B0%C6%A1ng%2C_Th%E1%BA%A3o_%C4%90i%E1%BB%81n%2C_H%E1%BB%93_Ch%C3%AD_Minh_-_54690900645.jpg" }
   },
   "Hong Kong": {
     "Wan Chai": { img:"images/hoods/hong-kong--wan-chai.webp", page:"https://commons.wikimedia.org/wiki/File:Wan_Chai_Overview_2008.jpg" },
@@ -268,8 +267,7 @@ window.NRA_HOOD_PHOTO = {
   "Honolulu": {
     "Waikiki": { img:"images/hoods/honolulu--waikiki.webp", page:"https://commons.wikimedia.org/wiki/File:Canoe_(6480766515).jpg", src:"Phil Whitehouse from London, United Kingdom" },
     "Ala Moana": { img:"images/hoods/honolulu--ala-moana.webp", page:"https://commons.wikimedia.org/wiki/File:Alamoanaaerial.jpg" },
-    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" },
-    "Kahala": { img:"images/hoods/honolulu--kahala.webp", page:"https://commons.wikimedia.org/wiki/File:Walk_by_the_beach_(4807552983).jpg", src:"Daniel Ramirez from Honolulu, USA" }
+    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" }
   },
   "Hua Hin": {
     "North Hua Hin (Soi 5-25)": { img:"images/hoods/hua-hin--north-hua-hin-soi-5-25.webp", page:"https://commons.wikimedia.org/wiki/File:Hua_Hin_hotels_-_panoramio.jpg", src:"Andreas Hörstemeier" },
@@ -285,8 +283,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Jasper": {
     "Athabasca River Cabins": { img:"images/hoods/jasper--athabasca-river-cabins.webp", page:"https://commons.wikimedia.org/wiki/File:Lac_Beavart_and_Jasper_Park_Lodge.jpg", src:"Shaun Syvertsen" },
-    "Jasper Townsite / Patricia Street": { img:"images/hoods/jasper--jasper-townsite-patricia-street.webp", page:"https://commons.wikimedia.org/wiki/File:Icefields_Parkway_(05)_(9580660752).jpg", src:"Mike from Vancouver, Canada" },
-    "Pyramid Lake / Patricia Lake": { img:"images/hoods/jasper--pyramid-lake-patricia-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Pyramid_Lake_in_winter,_Jasper_National_Park,_Alberta.jpg", src:"Takaraashley" }
+    "Jasper Townsite / Patricia Street": { img:"images/hoods/jasper--jasper-townsite-patricia-street.webp", page:"https://commons.wikimedia.org/wiki/File:Icefields_Parkway_(05)_(9580660752).jpg", src:"Mike from Vancouver, Canada" }
   },
   "Jerusalem": {
     "Old City": { img:"images/hoods/jerusalem--old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Jerusalen201608.jpg", src:"AMPERIO" },
@@ -2367,8 +2364,7 @@ window.NRA_HOOD_PHOTO = {
     "Kamiyacho-Hatchobori": { img:"images/hoods/hiroshima--kamiyacho-hatchobori.webp", page:"https://commons.wikimedia.org/wiki/File:Hiroshima_Branch_of_the_Chugoku_Bank.jpg", src:"そらみみ" },
     "Peace Memorial Park (Naka)": { img:"images/hoods/hiroshima--peace-memorial-park-naka.webp", page:"https://commons.wikimedia.org/wiki/File:Autumn_Leaves_in_Hiroshima_Peace_Memorial_Park.jpg", src:"そらみみ" },
     "Nagarekawa": { img:"images/hoods/hiroshima--nagarekawa.webp", page:"https://commons.wikimedia.org/wiki/File:Nakagin-sideview-oct4-2015.jpg", src:"Nesnad" },
-    "Hiroshima Station (Ekimae)": { img:"images/hoods/hiroshima--hiroshima-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Ekimae_Ohashi_Line_and_new_Hiroshima_Station_building_under_construction.jpg", src:"Anago1234" },
-    "Yokogawa": { img:"images/hoods/hiroshima--yokogawa.webp", page:"https://commons.wikimedia.org/wiki/File:Yokogawa_Station_20170311.jpg", src:"そらみみ" }
+    "Hiroshima Station (Ekimae)": { img:"images/hoods/hiroshima--hiroshima-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Ekimae_Ohashi_Line_and_new_Hiroshima_Station_building_under_construction.jpg", src:"Anago1234" }
   },
   "Hobart": {
     "Hobart CBD (Sullivans Cove)": { img:"images/hoods/hobart--hobart-cbd-sullivans-cove.webp", page:"https://commons.wikimedia.org/wiki/File:Southern_Hobart_CBD_and_Battery_Point_in_the_afternoon_July_2017.jpg", src:"Nick-D" },
@@ -2403,8 +2399,7 @@ window.NRA_HOOD_PHOTO = {
     "City Center / Dongdamen Night Market": { img:"images/hoods/hualien-city--city-center-dongdamen-night-market.webp", page:"https://commons.wikimedia.org/wiki/File:Former_Hualien_Brewery,_chimney_(Taiwan).jpg", src:"Mk2010" },
     "Station District": { img:"images/hoods/hualien-city--station-district.webp", page:"https://commons.wikimedia.org/wiki/File:DC_Main_Sewerage_Pumping_Station_-_North_side.jpg", src:"Kumioko" },
     "Meilun District": { img:"images/hoods/hualien-city--meilun-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E8%87%BA%E7%81%A3%E8%8A%B1%E8%93%AE%E5%9C%B0%E6%96%B9%E6%B3%95%E9%99%A2_2012-02-21.jpg", src:"lienyuan lee" },
-    "Nanbin (South Shore)": { img:"images/hoods/hualien-city--nanbin-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%BF%B1%E5%85%AC%E5%9C%92_-_panoramio.jpg", src:"Foxy Who \\(^∀^)/" },
-    "Qixingtan Beach": { img:"images/hoods/hualien-city--qixingtan-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Cisingtan_in_Hualien_(5453195141).jpg", src:"edwin.11" }
+    "Nanbin (South Shore)": { img:"images/hoods/hualien-city--nanbin-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%BF%B1%E5%85%AC%E5%9C%92_-_panoramio.jpg", src:"Foxy Who \\(^∀^)/" }
   },
   "Huangshan": {
     "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" }
@@ -2442,8 +2437,7 @@ window.NRA_HOOD_PHOTO = {
   "Ica": {
     "Plaza de Armas (Centro)": { img:"images/hoods/ica--plaza-de-armas-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Font_de_la_Plaza_de_Armas_d%27Ica.jpg", src:"Pitxiquin" },
     "Huacachina": { img:"images/hoods/ica--huacachina.webp", page:"https://commons.wikimedia.org/wiki/File:Malecon_de_la_Huacachina_-_panoramio.jpg", src:"calmeydao" },
-    "Cachiche": { img:"images/hoods/ica--cachiche.webp", page:"https://commons.wikimedia.org/wiki/File:Bruja_de_la_sabidur%C3%ADa.jpg", src:"Hee.nanda" },
-    "San Juan Bautista": { img:"images/hoods/ica--san-juan-bautista.webp", page:"https://commons.wikimedia.org/wiki/File:El_Carmen_Catholic_church.jpg", src:"Agthorn" }
+    "Cachiche": { img:"images/hoods/ica--cachiche.webp", page:"https://commons.wikimedia.org/wiki/File:Bruja_de_la_sabidur%C3%ADa.jpg", src:"Hee.nanda" }
   },
   "Inhambane": {
     "Tofo Beach": { img:"images/hoods/inhambane--tofo-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_do_Tofo,_RTW_2012_(8356998153).jpg", src:"Ana Raquel S. Hernandes from Sao Paulo, Brazil" },
@@ -2454,21 +2448,17 @@ window.NRA_HOOD_PHOTO = {
   "Innsbruck": {
     "Altstadt (Old Town)": { img:"images/hoods/innsbruck--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:12-06-05-innsbruck-by-ralfr-107.jpg", src:"Ralf Roletschek (talk) - Infos über Fahrräder auf fahrradmonteur.deWiki-Technolo" },
     "Wilten": { img:"images/hoods/innsbruck--wilten.webp", page:"https://commons.wikimedia.org/wiki/File:2926-2927_-_Innsbruck_-_Stiftskirche_Wilten.jpg", src:"Andrew Bossi" },
-    "Hötting": { img:"images/hoods/innsbruck--hotting.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_vom_Rennweg_auf_H%C3%B6tting_im_Morgenlicht.jpg", src:"Hermann Hammer (User:Haneburger)" },
     "Saggen": { img:"images/hoods/innsbruck--saggen.webp", page:"https://commons.wikimedia.org/wiki/File:Innsbruck,_Beethovenstra%C3%9Fe_1.JPG", src:"Kwerdenker" },
     "Pradl": { img:"images/hoods/innsbruck--pradl.webp", page:"https://commons.wikimedia.org/wiki/File:Kindergarten_Pradl_02.jpg", src:"Luftschiffhafen" }
   },
   "Inverness": {
     "Crown": { img:"images/hoods/inverness--crown.webp", page:"https://commons.wikimedia.org/wiki/File:Provost_lamp_-_Beaufort_Road,_Inverness_(8695202167).jpg", src:"Glen Wallace from Inverness, Scotland" },
-    "Merkinch": { img:"images/hoods/inverness--merkinch.webp", page:"https://commons.wikimedia.org/wiki/File:Pretty_flowers_-_geograph.org.uk_-_2647836.jpg", src:"Ian Paterson" },
-    "Ballifeary": { img:"images/hoods/inverness--ballifeary.webp", page:"https://commons.wikimedia.org/wiki/File:Ballifeary_Lane_and_Ballifeary_Road.jpg", src:"Mx. Granger" },
-    "Culduthel": { img:"images/hoods/inverness--culduthel.webp", page:"https://commons.wikimedia.org/wiki/File:Culduthel_Park,_Lochardil,_Inverness_-_geograph.org.uk_-_2887462.jpg", src:"Julian Paren" }
+    "Ballifeary": { img:"images/hoods/inverness--ballifeary.webp", page:"https://commons.wikimedia.org/wiki/File:Ballifeary_Lane_and_Ballifeary_Road.jpg", src:"Mx. Granger" }
   },
   "Iquitos": {
     "Centro (Plaza de Armas)": { img:"images/hoods/iquitos--centro-plaza-de-armas.webp", page:"https://commons.wikimedia.org/wiki/File:Uno_de_los_Edificios_antiguos_de_Iquitos.jpg", src:"Bettyreategui" },
     "Malecón Tarapacá": { img:"images/hoods/iquitos--malecon-tarapaca.webp", page:"https://commons.wikimedia.org/wiki/File:C010_Sin_nombre_1.jpg", src:"EdwinJs" },
-    "Punchana": { img:"images/hoods/iquitos--punchana.webp", page:"https://commons.wikimedia.org/wiki/File:Dasyprocta_fuliginosa_114445190.jpg", src:"thibaudaronson" },
-    "San Juan Bautista": { img:"images/hoods/iquitos--san-juan-bautista.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_Matriz_de_Iquitos_2.jpg", src:"Ibrehaut" }
+    "Punchana": { img:"images/hoods/iquitos--punchana.webp", page:"https://commons.wikimedia.org/wiki/File:Dasyprocta_fuliginosa_114445190.jpg", src:"thibaudaronson" }
   },
   "Irkutsk": {
     "130 Kvartal (Irkutsk Sloboda)": { img:"images/hoods/irkutsk--130-kvartal-irkutsk-sloboda.webp", page:"https://commons.wikimedia.org/wiki/File:3th_July_12.jpg", src:"VSerebrenikov" },
@@ -2541,8 +2531,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Jingdezhen": {
     "Zhushan (Old Town)": { img:"images/hoods/jingdezhen--zhushan-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:201901_HXN5-0294_at_Jingdezhen_Station.jpg", src:"MNXANL" },
-    "Sanbao Village": { img:"images/hoods/jingdezhen--sanbao-village.webp", page:"https://commons.wikimedia.org/wiki/File:Concourse_of_Sanbao_Station_(6),_202509.jpg", src:"Benteds" },
-    "Changjiang (New City)": { img:"images/hoods/jingdezhen--changjiang-new-city.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%99%AF%E5%BE%B7%E9%95%87%E6%9E%AB%E6%A0%91%E5%B1%B1%E5%85%AC%E4%BA%A4%E7%AB%99.jpg", src:"Liuxingy" }
+    "Sanbao Village": { img:"images/hoods/jingdezhen--sanbao-village.webp", page:"https://commons.wikimedia.org/wiki/File:Concourse_of_Sanbao_Station_(6),_202509.jpg", src:"Benteds" }
   },
   "Jinghong": {
     "Gaozhuang Night Market": { img:"images/hoods/jinghong--gaozhuang-night-market.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%91%8A%E5%BA%84%E8%A5%BF%E5%8F%8C%E6%99%AF_2026-04-02_03.jpg", src:"Roller Coaster Philosophy" }
@@ -2578,14 +2567,12 @@ window.NRA_HOOD_PHOTO = {
   "Kagoshima": {
     "Tenmonkan": { img:"images/hoods/kagoshima--tenmonkan.webp", page:"https://commons.wikimedia.org/wiki/File:G3_Arcade_of_Temmonkan_Shopping_Street_from_Kagoshima_City_Tram.jpg", src:"そらみみ" },
     "Kagoshima-Chuo Station": { img:"images/hoods/kagoshima--kagoshima-chuo-station.webp", page:"https://commons.wikimedia.org/wiki/File:Kagoshima_City_Tram_No._101_and_Railway_near_Kagoshima-Chuo_Ekimae_Station.jpg", src:"そらみみ" },
-    "Shiroyama": { img:"images/hoods/kagoshima--shiroyama.webp", page:"https://commons.wikimedia.org/wiki/File:Climbing_way_of_Mount_Shiroyama.jpg", src:"そらみみ" },
     "Waterfront (Kagoshima Port)": { img:"images/hoods/kagoshima--waterfront-kagoshima-port.webp", page:"https://www.flickr.com/photos/127339305@N05/15476719475/", src:"lublud" }
   },
   "Kaifeng": {
     "Gulou (Drum Tower)": { img:"images/hoods/kaifeng--gulou-drum-tower.webp", page:"https://commons.wikimedia.org/wiki/File:Kaifeng_%E9%96%8B%E5%B0%81_(5066509897).jpg", src:"tak.wing" },
     "Longting District": { img:"images/hoods/kaifeng--longting-district.webp", page:"https://commons.wikimedia.org/wiki/File:Kaifengbei_Railway_Station.jpg", src:"RabbitMeow" },
     "Shunhe Hui District": { img:"images/hoods/kaifeng--shunhe-hui-district.webp", page:"https://commons.wikimedia.org/wiki/File:20210902_View_of_Dahuangjia_Hutong_in_Kaifeng.jpg", src:"Windmemories" },
-    "Jinming District": { img:"images/hoods/kaifeng--jinming-district.webp", page:"https://commons.wikimedia.org/wiki/File:20220804_Henan_National_Defense_and_Traffic_Education_Base_at_Jinming_Service_Area.jpg", src:"Windmemories" },
     "Yuwangtai District": { img:"images/hoods/kaifeng--yuwangtai-district.webp", page:"https://commons.wikimedia.org/wiki/File:20210902_Bank_of_China_Kaifeng_Branch.jpg", src:"Windmemories" }
   },
   "Kairouan": {
@@ -2626,8 +2613,7 @@ window.NRA_HOOD_PHOTO = {
     "River Kwai Raft Houses": { img:"images/hoods/kanchanaburi--river-kwai-raft-houses.webp", page:"https://commons.wikimedia.org/wiki/File:River_Qwai_and_Sugar_Cane_Raft_Houses_-_panoramio_(1).jpg", src:"ekeidar" }
   },
   "Kandy": {
-    "Peradeniya": { img:"images/hoods/kandy--peradeniya.webp", page:"https://commons.wikimedia.org/wiki/File:Amherstia_nobilis_Jardin_botanique_de_Peradeniya_Kandy.JPG", src:"PIERRE ANDRE LECLERCQ" },
-    "Ampitiya": { img:"images/hoods/kandy--ampitiya.webp", page:"https://commons.wikimedia.org/wiki/File:My_Grandma%27s_Home.jpg", src:"Mervyn.prakash" }
+    "Peradeniya": { img:"images/hoods/kandy--peradeniya.webp", page:"https://commons.wikimedia.org/wiki/File:Amherstia_nobilis_Jardin_botanique_de_Peradeniya_Kandy.JPG", src:"PIERRE ANDRE LECLERCQ" }
   },
   "Kangding": {
     "New Town (Xin Cheng)": { img:"images/hoods/kangding--new-town-xin-cheng.webp", page:"https://commons.wikimedia.org/wiki/File:Moxi_Catholic_Church_03_2014-09.JPG", src:"猫猫的日记本" }
@@ -2645,15 +2631,12 @@ window.NRA_HOOD_PHOTO = {
     "Clifton": { img:"images/hoods/karachi--clifton.webp", page:"https://commons.wikimedia.org/wiki/File:SBBPark.jpg", src:"Crosji" },
     "Defence (DHA)": { img:"images/hoods/karachi--defence-dha.webp", page:"https://commons.wikimedia.org/wiki/File:Defence_Masjid,_Karachi_-_panoramio.jpg", src:"Najamuddin Shahwani" },
     "Saddar": { img:"images/hoods/karachi--saddar.webp", page:"https://commons.wikimedia.org/wiki/File:MUNICIPAL_CORPORATION_HADDID_UDDIN_-_panoramio.jpg", src:"Haddid Uddin" },
-    "Gulshan-e-Iqbal": { img:"images/hoods/karachi--gulshan-e-iqbal.webp", page:"https://commons.wikimedia.org/wiki/File:Gulshan-e-Iqbal_Park_6.jpg", src:"Tahir mq" },
     "PECHS/Shahrah-e-Faisal": { img:"images/hoods/karachi--pechs-shahrah-e-faisal.webp", page:"https://commons.wikimedia.org/wiki/File:PK_Karachi_asv2020-02_img90_Highway_at_PECHS.jpg", src:"A.Savin" }
   },
   "Karakol": {
     "Central Karakol": { img:"images/hoods/karakol--central-karakol.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D1%80%D0%B0%D0%B2%D0%B0%D0%B9%D0%BA%D0%B0_%D0%B2_%D0%BF%D0%BE%D0%BB%D1%91%D1%82%D0%B5.jpg", src:"Максат79" },
     "Dungan Mosque Quarter": { img:"images/hoods/karakol--dungan-mosque-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Minaret_in_the_Muslim_Quarter_of_Hami_and_Ruin_of_the_Mosque_Destroyed_by_Rebels_in_1872._Hami,_Xinjiang,_China,_1875_WDL1929.png", src:"Adolf Nikolay Boyarsky" },
-    "Przhevalsky District": { img:"images/hoods/karakol--przhevalsky-district.webp", page:"https://commons.wikimedia.org/wiki/File:St.Petersburg_Russia_Statue_Kid.jpg", src:"Victorgrigas" },
-    "Karakol Bazaar": { img:"images/hoods/karakol--karakol-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Karakol_-_205_(49355687272).jpg", src:"Bruno Rijsman" },
-    "Ski Base Road": { img:"images/hoods/karakol--ski-base-road.webp", page:"https://commons.wikimedia.org/wiki/File:Skiing_the_Bunsen_Peak_Road_Ski_Trail_(5)_(41258610861).jpg", src:"Yellowstone National Park" }
+    "Karakol Bazaar": { img:"images/hoods/karakol--karakol-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Karakol_-_205_(49355687272).jpg", src:"Bruno Rijsman" }
   },
   "Karbala": {
     "Al-Abbasiyah (New Karbala)": { img:"images/hoods/karbala--al-abbasiyah-new-karbala.webp", page:"https://commons.wikimedia.org/wiki/File:Le_Caire._Sebil_de_la_rue_Abbassiyeh_-_btv1b53120182p_(2_of_2).jpg" },
