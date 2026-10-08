@@ -11,7 +11,6 @@ window.NRA_HOOD_PHOTO = {
 
     "Yas Island": { img:"images/hoods/abu-dhabi--yas-island.webp", page:"https://www.pexels.com/photo/modern-city-by-river-7058845/", src:"Pexels" },
     "Corniche": { img:"images/hoods/abu-dhabi--corniche.webp", page:"https://www.pexels.com/photo/scenic-abu-dhabi-corniche-promenade-view-30322788/", src:"Pexels" },
-    "Khalifa City": { img:"images/hoods/abu-dhabi--khalifa-city.webp", page:"https://commons.wikimedia.org/wiki/File:Shaikh_Khalifa_Medical_City.jpg", src:"Nepenthes" },
     "Al Maryah Island": { img:"images/hoods/abu-dhabi--al-maryah-island.webp", page:"https://commons.wikimedia.org/wiki/File:Cityview_from_Al_Maryah_Island.jpg", src:"Vprime g" }
   },
   "Amsterdam": {
@@ -29,7 +28,6 @@ window.NRA_HOOD_PHOTO = {
     "Prat de la Creu": { img:"images/hoods/andorra-la-vella--prat-de-la-creu.webp", page:"https://commons.wikimedia.org/wiki/File:080_Casa_de_la_Vall_(Andorra_la_Vella),_portal_exterior_nord_i_torre.JPG", src:"Enfo" }
   },
   "Annecy": {
-    "Talloires": { img:"images/hoods/annecy--talloires.webp", page:"https://commons.wikimedia.org/wiki/File:Abbaye_de_Talloires,_Lake_Annecy,_France_-_panoramio.jpg", src:"David Broad" },
     "Vieille Ville (Old Town)": { img:"images/hoods/annecy--vieille-ville-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Annecy_(74)_Palais_de_l%27Isle_116.jpg", src:"GFreihalter" },
     "Lakefront (Bord du Lac)": { img:"images/hoods/annecy--lakefront-bord-du-lac.webp", page:"https://commons.wikimedia.org/wiki/File:Bord_du_lac_d%27Annecy_%C3%A0_Veyrier_en_fin_de_journ%C3%A9e_(novembre_2024).JPG", src:"Florian Pépellin" }
   },
@@ -37,7 +35,6 @@ window.NRA_HOOD_PHOTO = {
     "Lara": { img:"images/hoods/antalya--lara.webp", page:"https://commons.wikimedia.org/wiki/File:Antalya_Lara_T%C3%BCrkiye_-_panoramio.jpg" },
     "Konyaaltı": { img:"images/hoods/antalya--konyaalt.webp", page:"https://commons.wikimedia.org/wiki/File:Falezlerden_Antalya_Konyaalt%C4%B1_Plaj%C4%B1na_do%C4%9Fru_bir_g%C3%B6r%C3%BCn%C3%BCm.jpg" },
     "Belek": { img:"images/hoods/antalya--belek.webp", page:"https://commons.wikimedia.org/wiki/File:Belek_820DSC_0372_(48307298676).jpg" },
-    "Muratpaşa": { img:"images/hoods/antalya--muratpasa.webp", page:"https://commons.wikimedia.org/wiki/File:Kalei%C3%A7i_g%C3%B6r%C3%BCn%C3%BCm%C3%BC.JPG" },
     "Kaleiçi (Old Town)": { img:"images/hoods/antalya--kaleici-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Antalya_kalei%C3%A7i_2.jpg" }
   },
   "Athens": {
@@ -48,7 +45,6 @@ window.NRA_HOOD_PHOTO = {
     "Psyrri": { img:"images/hoods/athens--psyrri.webp", page:"https://commons.wikimedia.org/wiki/File:Psyrri_square_Athens.jpg" }
   },
   "Avignon": {
-    "Villeneuve-lès-Avignon": { img:"images/hoods/avignon--villeneuve-les-avignon.webp", page:"https://commons.wikimedia.org/wiki/File:Fort_Saint-Andr%C3%A9,_remparts_sud,_Villeneuve-l%C3%A8s-Avignon,_2026.jpg", src:"Antimuonium" },
     "Intra-Muros (Walled Old Town)": { img:"images/hoods/avignon--intra-muros-walled-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Urbino_20000_07.jpg", src:"FrDr" },
     "Île de la Barthelasse": { img:"images/hoods/avignon--ile-de-la-barthelasse.webp", page:"https://commons.wikimedia.org/wiki/File:Avignon_-_Jardin_des_Doms_(Rocher_des_Doms)_-_Panorama_View_on_Rh%C3%B4ne_valley_-_Escaliers_du_Rocher_des_Doms_04.jpg", src:"Txllxt TxllxT" }
   },
@@ -911,13 +907,11 @@ window.NRA_HOOD_PHOTO = {
     "Le Plateau": { img:"images/hoods/abidjan--le-plateau.webp", page:"https://commons.wikimedia.org/wiki/File:WikiConvFr23_en_cote_d%27Ivoire_grande_Mosqu%C3%A9e_du_plateau_%C3%A0_Abidjan_02.jpg", src:"Adoscam" },
     "Cocody": { img:"images/hoods/abidjan--cocody.webp", page:"https://commons.wikimedia.org/wiki/File:Felix_Houphouet_Boigny_University_ap_001.JPG", src:"Ariel Palmon" },
     "Marcory (Zone 4)": { img:"images/hoods/abidjan--marcory-zone-4.webp", page:"https://commons.wikimedia.org/wiki/File:Alyssa_K._Barry_Marcory,_Abidjan,_Ivory_Coast.jpg", src:"Kalyss" },
-    "Port-Bouët (Airport area)": { img:"images/hoods/abidjan--port-bouet-airport-area.webp", page:"https://commons.wikimedia.org/wiki/File:Entree_de_la_mairie_de_port_bouet.jpg", src:"Touremyriam01" },
     "Riviera": { img:"images/hoods/abidjan--riviera.webp", page:"https://www.flickr.com/photos/22168167@N00/4017225203/", src:"abdallahh" }
   },
   "Abuja": {
     "Maitama": { img:"images/hoods/abuja--maitama.webp", page:"https://commons.wikimedia.org/wiki/File:Abuja_hotel_view_(7955265376).jpg", src:"Bryn Pinzgauer" },
     "Wuse II": { img:"images/hoods/abuja--wuse-ii.webp", page:"https://commons.wikimedia.org/wiki/File:Embassy_of_Switzerland,_Abuja.jpg", src:"Niegodzisie" },
-    "Asokoro": { img:"images/hoods/abuja--asokoro.webp", page:"https://commons.wikimedia.org/wiki/File:Ecowas_Secretariat_(56815788).jpeg", src:"Blaize Itodo" },
     "Garki": { img:"images/hoods/abuja--garki.webp", page:"https://commons.wikimedia.org/wiki/File:African_Child_Celebration_2024_at_Federal_Government_Boys_College_(FGBC)_Abuja_04.jpg", src:"Oby Ezeilo" }
   },
   "Acapulco de Juarez": {
@@ -991,8 +985,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Ålesund": {
     "Sentrum": { img:"images/hoods/alesund--sentrum.webp", page:"https://commons.wikimedia.org/wiki/File:Soldiering_On_(7808126).jpeg", src:"Glen Darrud" },
-    "Aspøya": { img:"images/hoods/alesund--aspoya.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Aspoya.jpg", src:"GangerRolf" },
-    "Volsdalen": { img:"images/hoods/alesund--volsdalen.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Voldsdalen_kirke_-_Exterior.jpg", src:"GangerRolf" }
+    "Aspøya": { img:"images/hoods/alesund--aspoya.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Aspoya.jpg", src:"GangerRolf" }
   },
   "Alexandria": {
     "Corniche / Stanley": { img:"images/hoods/alexandria--corniche-stanley.webp", page:"https://commons.wikimedia.org/wiki/File:Alexandria_Corniche_(2346973947).jpg", src:"Francisco Anzola" },
@@ -1004,7 +997,6 @@ window.NRA_HOOD_PHOTO = {
     "Hydra": { img:"images/hoods/algiers--hydra.webp", page:"https://commons.wikimedia.org/wiki/File:Val_D%E2%80%99hydra_Alger.jpg", src:"Sabrine Chelihi" },
     "El Biar": { img:"images/hoods/algiers--el-biar.webp", page:"https://commons.wikimedia.org/wiki/File:El_Biar,_Algeria_-_panoramio.jpg", src:"Andris Malygin" },
     "Mohammadia (Pins Maritimes)": { img:"images/hoods/algiers--mohammadia-pins-maritimes.webp", page:"https://commons.wikimedia.org/wiki/File:ARDIS_%D8%A7%D8%B1%D8%AF%D9%8A%D8%B3_-_panoramio_(2).jpg", src:"habib kaki" },
-    "Bab Ezzouar": { img:"images/hoods/algiers--bab-ezzouar.webp", page:"https://commons.wikimedia.org/wiki/File:Sun_hidden_behind_a_cloudy_day.jpg", src:"Sabrine Chelihi" },
     "Algiers Centre (Casbah)": { img:"images/hoods/algiers--algiers-centre-casbah.webp", page:"https://www.flickr.com/photos/20013462@N05/29385381762/", src:"PhR610" }
   },
   "Alicante": {
@@ -1016,17 +1008,13 @@ window.NRA_HOOD_PHOTO = {
   },
   "Alice Springs": {
     "Town Centre (Todd Mall)": { img:"images/hoods/alice-springs--town-centre-todd-mall.webp", page:"https://commons.wikimedia.org/wiki/File:Melopsittacus_undulatus_Alice_Springs_Desert_Park_(crop_1).jpg", src:"Melopsittacus undulatus Alice Springs Desert Park.jpg: Richard.Fisher derivative" },
-    "Eastside": { img:"images/hoods/alice-springs--eastside.webp", page:"https://commons.wikimedia.org/wiki/File:1_Drews.jpg", src:"ProfReader" },
-    "The Gap": { img:"images/hoods/alice-springs--the-gap.webp", page:"https://commons.wikimedia.org/wiki/File:Rock_formation_at_the_Gap,_Alice_Springs_IMG_2540_05.jpg", src:"Carpentarian" },
-    "Larapinta": { img:"images/hoods/alice-springs--larapinta.webp", page:"https://commons.wikimedia.org/wiki/File:Red_Centre_Way_monument,_October_2025_04.jpg", src:"DaHuzyBru" },
-    "Desert Springs": { img:"images/hoods/alice-springs--desert-springs.webp", page:"https://commons.wikimedia.org/wiki/File:Alice_Springs_Desert_Park,_October_2025_02.jpg", src:"DaHuzyBru" }
+    "The Gap": { img:"images/hoods/alice-springs--the-gap.webp", page:"https://commons.wikimedia.org/wiki/File:Rock_formation_at_the_Gap,_Alice_Springs_IMG_2540_05.jpg", src:"Carpentarian" }
   },
   "Almaty": {
     "Golden Square (Panfilov Park)": { img:"images/hoods/almaty--golden-square-panfilov-park.webp", page:"https://commons.wikimedia.org/wiki/File:Independence_Monument_in_Almaty_(AP4M2204_1PS)_(20569120951).jpg", src:"Alexandru Panoiu from Bucharest, Romania" },
     "Republic Square / City Center": { img:"images/hoods/almaty--republic-square-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Magnolia_in_Almaty_(AP4P0268)_(28194900024).jpg", src:"Alexandru Panoiu from Bucharest, Romania" },
     "Dostyk Avenue": { img:"images/hoods/almaty--dostyk-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:E8605-Almaty-wedding-procession.jpg", src:"User:Vmenkov" },
-    "Al-Farabi Avenue (Esentai)": { img:"images/hoods/almaty--al-farabi-avenue-esentai.webp", page:"https://commons.wikimedia.org/wiki/File:Almaty,_Kazakhstan_-_panoramio_(12).jpg", src:"Anton Yefimov" },
-    "Kok-Tobe / Bostandyk": { img:"images/hoods/almaty--kok-tobe-bostandyk.webp", page:"https://commons.wikimedia.org/wiki/File:Kok_Tobe_Cableway_station.jpg", src:"Davide Mauro" }
+    "Al-Farabi Avenue (Esentai)": { img:"images/hoods/almaty--al-farabi-avenue-esentai.webp", page:"https://commons.wikimedia.org/wiki/File:Almaty,_Kazakhstan_-_panoramio_(12).jpg", src:"Anton Yefimov" }
   },
   "Amman": {
     "Al-Balad (Downtown)": { img:"images/hoods/amman--al-balad-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Balad,_Yeda,_Arabia_Saudita,_2025-05-24,_DD_22.jpg", src:"Diego Delso" },
@@ -1067,8 +1055,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Anshun": {
     "Xixiu (City Center)": { img:"images/hoods/anshun--xixiu-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Anshun_Chengqiang_20250814_181831.jpg", src:"Zhangzhugang" },
-    "Hongshan Lake": { img:"images/hoods/anshun--hongshan-lake.webp", page:"https://commons.wikimedia.org/wiki/File:South_Lake_Campus_IMG_20141012_161051.jpg", src:"Geographyinitiative" },
-    "Anshun West Railway Station": { img:"images/hoods/anshun--anshun-west-railway-station.webp", page:"https://commons.wikimedia.org/wiki/File:Anshunxi_Railway_Station_20250815_142339.jpg", src:"Zhangzhugang" }
+    "Hongshan Lake": { img:"images/hoods/anshun--hongshan-lake.webp", page:"https://commons.wikimedia.org/wiki/File:South_Lake_Campus_IMG_20141012_161051.jpg", src:"Geographyinitiative" }
   },
   "Antananarivo": {
     "Haute-Ville (Upper Town)": { img:"images/hoods/antananarivo--haute-ville-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Inscription_des_horaires_malgaches_dans_le_chalet_d%E2%80%99Ambohipotsy,_La_Haute_Ville_d%E2%80%99Antananarivo..jpg", src:"Anai171" },
@@ -1120,13 +1107,11 @@ window.NRA_HOOD_PHOTO = {
   "Arusha": {
     "Njiro": { img:"images/hoods/arusha--njiro.webp", page:"https://commons.wikimedia.org/wiki/File:A_valley_with_a_river_at_Njiro_Arusha.jpg", src:"Praygod mwanga" },
     "Kijenge / Themi": { img:"images/hoods/arusha--kijenge-themi.webp", page:"https://commons.wikimedia.org/wiki/File:Kvarnen_Furusund.jpg", src:"Udo Schröter" },
-    "Sakina": { img:"images/hoods/arusha--sakina.webp", page:"https://commons.wikimedia.org/wiki/File:WikiAru44.jpg", src:"Bajcetic" },
-    "Usa River": { img:"images/hoods/arusha--usa-river.webp", page:"https://commons.wikimedia.org/wiki/File:Bridge_at_Ngaresero,Usa_River,_Meru_District.jpg", src:"Mangapwani" }
+    "Sakina": { img:"images/hoods/arusha--sakina.webp", page:"https://commons.wikimedia.org/wiki/File:WikiAru44.jpg", src:"Bajcetic" }
   },
   "Ashgabat": {
     "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" },
-    "City Center (Turkmenbashy Avenue)": { img:"images/hoods/ashgabat--city-center-turkmenbashy-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:56Y1337.jpg", src:"DRPROTS" },
-    "Ashgabat Stadium / Sports District": { img:"images/hoods/ashgabat--ashgabat-stadium-sports-district.webp", page:"https://commons.wikimedia.org/wiki/File:Rustam_Minnikhanov_in_Turkmenistan_(2017-09-17)_22.jpg", src:"Михаил Фролов" }
+    "City Center (Turkmenbashy Avenue)": { img:"images/hoods/ashgabat--city-center-turkmenbashy-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:56Y1337.jpg", src:"DRPROTS" }
   },
   "Asmara": {
     "Harnet Avenue (City Center)": { img:"images/hoods/asmara--harnet-avenue-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Asmara,_cattedrale_cattolica,_campanile_01.JPG", src:"sailko" }
@@ -1174,15 +1159,12 @@ window.NRA_HOOD_PHOTO = {
   },
   "Axum": {
     "Northern Stelae Park": { img:"images/hoods/axum--northern-stelae-park.webp", page:"https://commons.wikimedia.org/wiki/File:ET_Axum_asv2018-01_img37_Stelae_Park.jpg", src:"A.Savin" },
-    "Church of Our Lady Mary of Zion": { img:"images/hoods/axum--church-of-our-lady-mary-of-zion.webp", page:"https://commons.wikimedia.org/wiki/File:ET_Axum_asv2018-01_img32_StMary_of_Zion_Church.jpg", src:"A.Savin" },
-    "Queen of Sheba's Bath": { img:"images/hoods/axum--queen-of-sheba-s-bath.webp", page:"https://commons.wikimedia.org/wiki/File:ET_Axum_asv2018-01_img22_Queen_of_Sheba_Bath.jpg", src:"A.Savin" }
+    "Church of Our Lady Mary of Zion": { img:"images/hoods/axum--church-of-our-lady-mary-of-zion.webp", page:"https://commons.wikimedia.org/wiki/File:ET_Axum_asv2018-01_img32_StMary_of_Zion_Church.jpg", src:"A.Savin" }
   },
   "Baden-Baden": {
     "Kurgebiet (Spa Quarter)": { img:"images/hoods/baden-baden--kurgebiet-spa-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Bad_Sooden-Allendorf_-_Kurgebiet_mir_Brunnen,_Fachwerkh%C3%A4user.JPG", src:"Franzfoto" },
     "Altstadt (Old Town)": { img:"images/hoods/baden-baden--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Baden_Baden_-_Burgstra%C3%9Fe_-_View_SW.jpg", src:"Txllxt TxllxT" },
-    "Lichtental": { img:"images/hoods/baden-baden--lichtental.webp", page:"https://commons.wikimedia.org/wiki/File:Baden-Baden-Lichtental_Bonifatiuskirche_02_von_Sueden-gje.jpg", src:"Gerd Eichmann" },
-    "Rebland": { img:"images/hoods/baden-baden--rebland.webp", page:"https://commons.wikimedia.org/wiki/File:Baden-Baden_10-2015_img28_Zhukovsky_bust.jpg", src:"A.Savin" },
-    "Ebersteinburg": { img:"images/hoods/baden-baden--ebersteinburg.webp", page:"https://commons.wikimedia.org/wiki/File:Burg_Alt-Eberstein_(1).jpg", src:"Harke" }
+    "Lichtental": { img:"images/hoods/baden-baden--lichtental.webp", page:"https://commons.wikimedia.org/wiki/File:Baden-Baden-Lichtental_Bonifatiuskirche_02_von_Sueden-gje.jpg", src:"Gerd Eichmann" }
   },
   "Baghdad": {
     "Karrada": { img:"images/hoods/baghdad--karrada.webp", page:"https://commons.wikimedia.org/wiki/File:%22%D9%85%D9%88%D9%82%D8%B9_%D8%A7%D9%86%D9%81%D8%AC%D8%A7%D8%B1_%D8%A7%D9%84%D9%83%D8%B1%D8%A7%D8%AF%D8%A9_%D9%81%D9%8A_%D8%A8%D8%BA%D8%AF%D8%A7%D8%AF_%D8%A8%D8%B9%D8%AF_%D8%A7%D9%84%D8%AA%D9%81%D8%AC%D9%8A%D8%B1_%D8%A7%D9%84%D8%A5%D8%B1%D9%87%D8%A7%D8%A8%D9%8A_%E2%80%93_%D8%AA%D9%85%D9%88%D8%B2_2016%22.jpg", src:"كيان المغوار الكاريوكي" },
@@ -1194,15 +1176,13 @@ window.NRA_HOOD_PHOTO = {
     "Session Road / City Center": { img:"images/hoods/baguio--session-road-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Philippine_Commission%27s_First_Session_in_Baguio_Historical_Marker.jpg", src:"Carlo Joseph Moskito" },
     "Camp John Hay": { img:"images/hoods/baguio--camp-john-hay.webp", page:"https://commons.wikimedia.org/wiki/File:Camp_John_Hay_signage_(12438122175).jpg", src:"Andrew and Annemarie" },
     "Mines View Park": { img:"images/hoods/baguio--mines-view-park.webp", page:"https://commons.wikimedia.org/wiki/File:Mines_View_Park_(30377345360).jpg", src:"Pulencio from Tarlac, Philippines" },
-    "Wright Park / The Mansion": { img:"images/hoods/baguio--wright-park-the-mansion.webp", page:"https://commons.wikimedia.org/wiki/File:Wright_Park_High_Stairways,_Baguio_City,_Feb_2025.jpg", src:"Ralff Nestor Nacor" },
-    "Baguio Public Market": { img:"images/hoods/baguio--baguio-public-market.webp", page:"https://commons.wikimedia.org/wiki/File:9847Rosario,_La_Union_Public_Market_02.jpg", src:"Judgefloro" }
+    "Wright Park / The Mansion": { img:"images/hoods/baguio--wright-park-the-mansion.webp", page:"https://commons.wikimedia.org/wiki/File:Wright_Park_High_Stairways,_Baguio_City,_Feb_2025.jpg", src:"Ralff Nestor Nacor" }
   },
   "Baku": {
     "Icherisheher (Old City)": { img:"images/hoods/baku--icherisheher-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Baku_IcheriSheher_Fountain_004_2262.jpg", src:"Ludvig14" },
     "Fountains Square / Nizami Street": { img:"images/hoods/baku--fountains-square-nizami-street.webp", page:"https://commons.wikimedia.org/wiki/File:Baku_15_13_39_132000.jpeg", src:"Robot8A" },
     "Sabayil / Boulevard (Bulvar)": { img:"images/hoods/baku--sabayil-boulevard-bulvar.webp", page:"https://commons.wikimedia.org/wiki/File:Bayil_Castle_description_in_Baku_Boulevard.jpg", src:"Interfase" },
-    "Nasimi": { img:"images/hoods/baku--nasimi.webp", page:"https://commons.wikimedia.org/wiki/File:N%C9%99simi_2017.10.29.jpg", src:"Araz Yaquboglu" },
-    "Yasamal": { img:"images/hoods/baku--yasamal.webp", page:"https://commons.wikimedia.org/wiki/File:Yasamal.jpg", src:"Viceskeeni2" }
+    "Nasimi": { img:"images/hoods/baku--nasimi.webp", page:"https://commons.wikimedia.org/wiki/File:N%C9%99simi_2017.10.29.jpg", src:"Araz Yaquboglu" }
   },
   "Bamako": {
     "ACI 2000": { img:"images/hoods/bamako--aci-2000.webp", page:"https://commons.wikimedia.org/wiki/File:Window_Portrait_(29899853288).jpg", src:"Mark Fischer" },
@@ -1217,7 +1197,6 @@ window.NRA_HOOD_PHOTO = {
     "Gärtnerstadt (Gardener's District)": { img:"images/hoods/bamberg--gartnerstadt-gardener-s-district.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg_G%C3%A4rtnerland_Orthophoto-20230625-RM-172045.jpg", src:"Reinhold Möller Ermell" }
   },
   "Bamyan": {
-    "Shahr-e Gholghola ('City of Sighs')": { img:"images/hoods/bamyan--shahr-e-gholghola-city-of-sighs.webp", page:"https://commons.wikimedia.org/wiki/File:Cemetary_in_Bamyan.jpg", src:"Tracy Hunter" },
     "Bamyan Bazaar": { img:"images/hoods/bamyan--bamyan-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Bamyan,_A_province_in_the_eye_of_a_storm_130228-A-GH622-013.jpg", src:"Sgt. Christopher Bonebrake" },
     "Buddha Niches / Cliff Complex": { img:"images/hoods/bamyan--buddha-niches-cliff-complex.webp", page:"https://commons.wikimedia.org/wiki/File:07-_Buddha_Bamyan.jpg", src:"EFarid" }
   },
@@ -1232,15 +1211,13 @@ window.NRA_HOOD_PHOTO = {
     "City Centre / Waterfront (Kianggeh)": { img:"images/hoods/bandar-seri-begawan--city-centre-waterfront-kianggeh.webp", page:"https://commons.wikimedia.org/wiki/File:City_Centre,_Bandar_Seri_Begawan,_Brunei_-_panoramio_(5).jpg", src:"Lucas Migliorelli" },
     "Kampong Ayer (Water Village)": { img:"images/hoods/bandar-seri-begawan--kampong-ayer-water-village.webp", page:"https://commons.wikimedia.org/wiki/File:Kampong_Ayer_(17969861133).jpg", src:"Jorge Láscar from Melbourne, Australia" },
     "Gadong": { img:"images/hoods/bandar-seri-begawan--gadong.webp", page:"https://commons.wikimedia.org/wiki/File:Bamboo_round_basket_in_Gadong,_Brunei.jpg", src:"Pangalau" },
-    "Kiulap": { img:"images/hoods/bandar-seri-begawan--kiulap.webp", page:"https://commons.wikimedia.org/wiki/File:Embassy_of_Japan_in_Bandar_Seri_Begawan_1.jpg", src:"Mx. Granger" },
-    "Jerudong / Muara Coast": { img:"images/hoods/bandar-seri-begawan--jerudong-muara-coast.webp", page:"https://commons.wikimedia.org/wiki/File:2023_Majlis_Ramah_Mesra_Temburong_85.jpg", src:"Chin Yu Chu" }
+    "Kiulap": { img:"images/hoods/bandar-seri-begawan--kiulap.webp", page:"https://commons.wikimedia.org/wiki/File:Embassy_of_Japan_in_Bandar_Seri_Begawan_1.jpg", src:"Mx. Granger" }
   },
   "Bandung": {
     "Braga": { img:"images/hoods/bandung--braga.webp", page:"https://commons.wikimedia.org/wiki/File:Bank_BJB_Headquarters_in_Braga_street,_Bandung_(1).jpg", src:"RasyaAbhirama13" },
     "Dago (Ir. H. Djuanda)": { img:"images/hoods/bandung--dago-ir-h-djuanda.webp", page:"https://commons.wikimedia.org/wiki/File:Covid_vaccine_clinical_trial,_Dago,_Bandung.jpg", src:"Rio Tuasikal (VOA)" },
     "Cihampelas": { img:"images/hoods/bandung--cihampelas.webp", page:"https://commons.wikimedia.org/wiki/File:Cihampelas_Walk_-_panoramio.jpg", src:"Vebra" },
-    "Asia Afrika (Alun-Alun)": { img:"images/hoods/bandung--asia-afrika-alun-alun.webp", page:"https://commons.wikimedia.org/wiki/File:Gedung_Bank_Mitsubish-UFJ_(26789620713).jpg", src:"BxHxTxCx (using album)" },
-    "Setiabudi / Lembang side": { img:"images/hoods/bandung--setiabudi-lembang-side.webp", page:"https://commons.wikimedia.org/wiki/File:DJI_0113_(1).jpg", src:"Afaffirizky" }
+    "Asia Afrika (Alun-Alun)": { img:"images/hoods/bandung--asia-afrika-alun-alun.webp", page:"https://commons.wikimedia.org/wiki/File:Gedung_Bank_Mitsubish-UFJ_(26789620713).jpg", src:"BxHxTxCx (using album)" }
   },
   "Banff": {
     "Banff Avenue / Downtown": { img:"images/hoods/banff--banff-avenue-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Banff_Gondola_from_top_-_Banff_Alberta.jpg", src:"Ian Poellet" },
