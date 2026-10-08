@@ -344,15 +344,12 @@ window.NRA_HOOD_PHOTO = {
     "Summerlin": { img:"images/hoods/las-vegas--summerlin.webp", page:"https://commons.wikimedia.org/wiki/File:SummerlinEntrance.jpg" },
     "The Strip": { img:"images/hoods/las-vegas--the-strip.webp", page:"https://commons.wikimedia.org/wiki/File:Las_Vegas_-_panoramio_(6).jpg", src:"Gfox228" },
     "Downtown / Fremont Street": { img:"images/hoods/las-vegas--downtown-fremont-street.webp", page:"https://commons.wikimedia.org/wiki/File:LasVegas-FremontStreet.jpg" },
-    "Henderson": { img:"images/hoods/las-vegas--henderson.webp", page:"https://commons.wikimedia.org/wiki/File:Water_Street_District_Sign_Looking_towards_Las_Vegas_August_3,_2026.jpg", src:"TheYearbookTeacher" },
     "Chinatown (Spring Mountain)": { img:"images/hoods/las-vegas--chinatown-spring-mountain.webp", page:"https://commons.wikimedia.org/wiki/File:LVChinatownPaifang.jpg", src:"Patebrims" }
   },
   "Lima": {
     "San Isidro": { img:"images/hoods/lima--san-isidro.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_financiero_en_el_Per%C3%BA_3.jpg" },
     "Miraflores": { img:"images/hoods/lima--miraflores.webp", page:"https://commons.wikimedia.org/wiki/File:Miraflores_2023.jpg" },
-    "Barranco": { img:"images/hoods/lima--barranco.webp", page:"https://commons.wikimedia.org/wiki/File:Puente_de_los_Suspiros%2C_Barranco.jpg" },
-    "Santiago de Surco": { img:"images/hoods/lima--santiago-de-surco.webp", page:"https://commons.wikimedia.org/wiki/File:Lima%2C_Peru_-_Santiago_de_Surco_Skyline.jpg" },
-    "San Borja": { img:"images/hoods/lima--san-borja.webp", page:"https://commons.wikimedia.org/wiki/File:Limatambo%2C_San_Borja%2C_Lima%2C_Peru.jpg" }
+    "Barranco": { img:"images/hoods/lima--barranco.webp", page:"https://commons.wikimedia.org/wiki/File:Puente_de_los_Suspiros%2C_Barranco.jpg" }
   },
   "Lisbon": {
     "Belém": { img:"images/hoods/lisbon--belem.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Maria_de_Bel%C3%A9m_sul_Tago_-_panoramio_(cropped).jpg" },
@@ -365,8 +362,7 @@ window.NRA_HOOD_PHOTO = {
     "Center (Old Town)": { img:"images/hoods/ljubljana--center-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Pre%C5%A1eren_Square_from_the_Ljubljana_Castle_Viewing_Tower%2C_Ljubljana%2C_2013.jpg" },
     "Tabor": { img:"images/hoods/ljubljana--tabor.webp", page:"https://commons.wikimedia.org/wiki/File:Metelkova_mesto1.jpg" },
     "Trnovo": { img:"images/hoods/ljubljana--trnovo.webp", page:"https://commons.wikimedia.org/wiki/File:Ple%C4%8Dnikov_most_Trnovo_17jul.2025.jpg", src:"Peter Legiša" },
-    "Bežigrad": { img:"images/hoods/ljubljana--bezigrad.webp", page:"https://commons.wikimedia.org/wiki/File:Be%C5%BEigrad.JPG" },
-    "Vič": { img:"images/hoods/ljubljana--vic.webp", page:"https://commons.wikimedia.org/wiki/File:Vic_Slovenia_-_old_village_core.JPG", src:"Doremo" }
+    "Bežigrad": { img:"images/hoods/ljubljana--bezigrad.webp", page:"https://commons.wikimedia.org/wiki/File:Be%C5%BEigrad.JPG" }
   },
   "London": {
     "Kensington": { img:"images/hoods/london--kensington.webp", page:"https://commons.wikimedia.org/wiki/File:Kensington_High_Street_2_Londres.jpg" },
@@ -2813,8 +2809,7 @@ window.NRA_HOOD_PHOTO = {
     "Davutlar": { img:"images/hoods/kusadasi--davutlar.webp", page:"https://commons.wikimedia.org/wiki/File:Davutlar_-_panoramio_(1).jpg", src:"rahimabaid" }
   },
   "Kusatsu": {
-    "Sai-no-Kawara": { img:"images/hoods/kusatsu--sai-no-kawara.webp", page:"https://commons.wikimedia.org/wiki/File:Small_statues_at_a_shrine_(52281770524).jpg", src:"Sergiy Galyonkin from Raleigh, USA" },
-    "Shirane Foothills": { img:"images/hoods/kusatsu--shirane-foothills.webp", page:"https://www.flickr.com/photos/13910409@N05/4086692003/", src:"TANAKA Juuyoh (田中十洋)" }
+    "Sai-no-Kawara": { img:"images/hoods/kusatsu--sai-no-kawara.webp", page:"https://commons.wikimedia.org/wiki/File:Small_statues_at_a_shrine_(52281770524).jpg", src:"Sergiy Galyonkin from Raleigh, USA" }
   },
   "Kuwait City": {
     "Sharq": { img:"images/hoods/kuwait-city--sharq.webp", page:"https://commons.wikimedia.org/wiki/File:Fishing_rod,_Souq_Sharq,_Kuwait.jpg", src:"Yaz1998" },
@@ -2827,7 +2822,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "La Paz": {
     "Sopocachi": { img:"images/hoods/la-paz--sopocachi.webp", page:"https://commons.wikimedia.org/wiki/File:04_LERA_Portada_de_la_legaci%C3%B3n_de_Espa%C3%B1a_en_la_avenida_Arce_1948.jpg", src:"Comité pro cuarto centenario de la fundación de La Paz, 1948 Se acabó de imprimi" },
-    "Zona Sur (Obrajes)": { img:"images/hoods/la-paz--zona-sur-obrajes.webp", page:"https://commons.wikimedia.org/wiki/File:IDB_and_ZPCAS_flags.jpg", src:"Moacir Ximenes" },
     "Calacoto / San Miguel": { img:"images/hoods/la-paz--calacoto-san-miguel.webp", page:"https://commons.wikimedia.org/wiki/File:Tit%C3%A1n_y_el_Mundo_-_Calacoto.jpg", src:"Yolipy" },
     "Miraflores": { img:"images/hoods/la-paz--miraflores.webp", page:"https://commons.wikimedia.org/wiki/File:Mural_Plaza_Camacho.jpg", src:"Caleidoscopic" }
   },
@@ -2869,9 +2863,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Lamu": {
     "Lamu Old Town": { img:"images/hoods/lamu--lamu-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Contemporary_exterior_finishing_in_Lamu.jpg", src:"Ahmedshayo14" },
-    "Shela": { img:"images/hoods/lamu--shela.webp", page:"https://commons.wikimedia.org/wiki/File:Monument_aux_morts_de_Chelle-Spou_(Hautes-Pyr%C3%A9n%C3%A9es)_1.jpg", src:"Sotos" },
-    "Kipungani": { img:"images/hoods/lamu--kipungani.webp", page:"https://commons.wikimedia.org/wiki/File:Kenya,_Lamu_Island,_Kipungani.jpg", src:"Vincent van Zeijst" },
-    "Manda Island": { img:"images/hoods/lamu--manda-island.webp", page:"https://commons.wikimedia.org/wiki/File:Lamu_airport_-_panoramio_(1).jpg", src:"guyvail" }
+    "Shela": { img:"images/hoods/lamu--shela.webp", page:"https://commons.wikimedia.org/wiki/File:Monument_aux_morts_de_Chelle-Spou_(Hautes-Pyr%C3%A9n%C3%A9es)_1.jpg", src:"Sotos" }
   },
   "Las Palmas de Gran Canaria": {
     "Vegueta (Old Town)": { img:"images/hoods/las-palmas-de-gran-canaria--vegueta-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:GC_Las_Palmas_Calle_de_Colon_R04.jpg", src:"Marc Ryckaert (MJJR)" },
@@ -2894,8 +2886,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Legaspi": {
     "Legazpi Port District": { img:"images/hoods/legaspi--legazpi-port-district.webp", page:"https://commons.wikimedia.org/wiki/File:Legazpi_Port_District.jpg", src:"Dexbaldon" },
-    "Old Albay District": { img:"images/hoods/legaspi--old-albay-district.webp", page:"https://commons.wikimedia.org/wiki/File:FvfIPCenter0160_37.JPG", src:"Judgefloro" },
-    "Taysan": { img:"images/hoods/legaspi--taysan.webp", page:"https://commons.wikimedia.org/wiki/File:BatangasProvincejf9619_14.JPG", src:"Ramon FVelasquez" }
+    "Old Albay District": { img:"images/hoods/legaspi--old-albay-district.webp", page:"https://commons.wikimedia.org/wiki/File:FvfIPCenter0160_37.JPG", src:"Judgefloro" }
   },
   "Leipzig": {
     "Zentrum": { img:"images/hoods/leipzig--zentrum.webp", page:"https://commons.wikimedia.org/wiki/File:160918bruehl66.jpg", src:"Uwe Pilz" },
@@ -2911,19 +2902,15 @@ window.NRA_HOOD_PHOTO = {
   },
   "Leshan": {
     "Dafo Scenic Area": { img:"images/hoods/leshan--dafo-scenic-area.webp", page:"https://commons.wikimedia.org/wiki/File:2006_%E4%B9%90%E5%B1%B1%E5%A4%A7%E4%BD%9B_-_panoramio.jpg", src:"张元柏" },
-    "Wuyou Temple District": { img:"images/hoods/leshan--wuyou-temple-district.webp", page:"https://commons.wikimedia.org/wiki/File:Inside_the_Wuyou_Temple_in_Leshan.jpg", src:"Jan Kranendonk (https://www.jankranendonk.nl)" },
-    "Emeishan": { img:"images/hoods/leshan--emeishan.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E4%BD%9B%E7%A6%85%E9%99%A2_-_panoramio.jpg", src:"江上清风1961" }
+    "Wuyou Temple District": { img:"images/hoods/leshan--wuyou-temple-district.webp", page:"https://commons.wikimedia.org/wiki/File:Inside_the_Wuyou_Temple_in_Leshan.jpg", src:"Jan Kranendonk (https://www.jankranendonk.nl)" }
   },
   "Leticia": {
-    "Town Center / Santander Park": { img:"images/hoods/leticia--town-center-santander-park.webp", page:"https://commons.wikimedia.org/wiki/File:Town_Center_at_Aurora.JPG", src:"Jeffrey Beall" },
-    "Km 11 (Reserva Natural Tanimboca area)": { img:"images/hoods/leticia--km-11-reserva-natural-tanimboca-area.webp", page:"https://commons.wikimedia.org/wiki/File:Amazon_River_ESA22197053.tiff", src:"European Space Agency" }
+    "Town Center / Santander Park": { img:"images/hoods/leticia--town-center-santander-park.webp", page:"https://commons.wikimedia.org/wiki/File:Town_Center_at_Aurora.JPG", src:"Jeffrey Beall" }
   },
   "Lhasa": {
     "Barkhor Old Town": { img:"images/hoods/lhasa--barkhor-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Buildings_and_Street_in_Lhasa_Old_Town_on_19_May_2014_-_14221764442.jpg", src:"Andrew and Annemarie" },
     "Potala District": { img:"images/hoods/lhasa--potala-district.webp", page:"https://commons.wikimedia.org/wiki/File:Chengguan,_Lhasa,_Tibet,_China_-_panoramio_(41).jpg", src:"Chen Zhi" },
-    "Norbulingka Area": { img:"images/hoods/lhasa--norbulingka-area.webp", page:"https://commons.wikimedia.org/wiki/File:Chengguan,_Lhasa,_Tibet,_China_-_panoramio_(66).jpg", src:"Chen Zhi" },
-    "Sera Monastery Area": { img:"images/hoods/lhasa--sera-monastery-area.webp", page:"https://commons.wikimedia.org/wiki/File:Sera_Monastery,_Lhasa,_Tibet_-5694.jpg", src:"Dennis G. Jarvis" },
-    "Chengguan New Town": { img:"images/hoods/lhasa--chengguan-new-town.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8D%A2%E6%B0%8F%E5%8E%BF%E6%B4%9B%E7%A5%9E%E5%85%AC%E5%9B%AD%E2%80%9C%E8%BF%9E%E7%BF%98%E8%8A%B1%E5%BC%80%E5%B9%B8%E7%A6%8F%E5%8D%A2%E6%B0%8F%E2%80%9D%E9%92%93%E9%B1%BC%E5%A4%A7%E8%B5%9B.jpg", src:"Assifbus" }
+    "Norbulingka Area": { img:"images/hoods/lhasa--norbulingka-area.webp", page:"https://commons.wikimedia.org/wiki/File:Chengguan,_Lhasa,_Tibet,_China_-_panoramio_(66).jpg", src:"Chen Zhi" }
   },
   "Liberia": {
     "Centro (Calle Real / Parque Central)": { img:"images/hoods/liberia--centro-calle-real-parque-central.webp", page:"https://commons.wikimedia.org/wiki/File:J28_728_Calle_real.jpg", src:"Falk2" }
@@ -2998,15 +2985,13 @@ window.NRA_HOOD_PHOTO = {
     "Longacres": { img:"images/hoods/lusaka--longacres.webp", page:"https://commons.wikimedia.org/wiki/File:Gazebo_viewed_from_above,_showing_rooftop,_interior_and_circulation_of_walkways._Camera_pointed_NW_from_North_Grandstand._(May_1993)_-_Longacres,_North_Grandstand,_1621_HABS_WASH,17-RENT,1F-5.tif" },
     "Kabulonga": { img:"images/hoods/lusaka--kabulonga.webp", page:"https://commons.wikimedia.org/wiki/File:US_delivers_humanitarian_aid_to_Zambia_(8296117).jpg", src:"U.S. Army photo by Sgt. Maj. Casey Nelsen" },
     "City Centre (Cairo Road)": { img:"images/hoods/lusaka--city-centre-cairo-road.webp", page:"https://commons.wikimedia.org/wiki/File:Cairo_Road.jpg", src:"LittleT889" },
-    "Great East Road": { img:"images/hoods/lusaka--great-east-road.webp", page:"https://commons.wikimedia.org/wiki/File:Motorcycle_on_the_Great_East_Road.tif", src:"JohannekeKroesbergen" },
-    "Lilayi": { img:"images/hoods/lusaka--lilayi.webp", page:"https://commons.wikimedia.org/wiki/File:African_Elephant_Grass_-_Giant_Tall_Grass.jpg", src:"Benjaminchapi" }
+    "Great East Road": { img:"images/hoods/lusaka--great-east-road.webp", page:"https://commons.wikimedia.org/wiki/File:Motorcycle_on_the_Great_East_Road.tif", src:"JohannekeKroesbergen" }
   },
   "Luxembourg": {
     "Ville Haute": { img:"images/hoods/luxembourg--ville-haute.webp", page:"https://commons.wikimedia.org/wiki/File:Dr%C3%A4i_Tierm_Ulveling_Weis_Thorn_Niedergr%C3%BCnewald.jpg", src:"Jwh" },
     "Grund": { img:"images/hoods/luxembourg--grund.webp", page:"https://commons.wikimedia.org/wiki/File:04719-Luxemburg-1903-L_Alzette_au_Grund-Br%C3%BCck_%26_Sohn_Kunstverlag.jpg", src:"Brück &amp; Sohn Kunstverlag Meißen" },
     "Gare": { img:"images/hoods/luxembourg--gare.webp", page:"https://commons.wikimedia.org/wiki/File:Bei_der_Gare.jpg", src:"BiiJii" },
-    "Kirchberg": { img:"images/hoods/luxembourg--kirchberg.webp", page:"https://commons.wikimedia.org/wiki/File:1939_Joerhonnertfeier_Kierchbierg.jpg", src:"Sultan Edijingo" },
-    "Belair": { img:"images/hoods/luxembourg--belair.webp", page:"https://commons.wikimedia.org/wiki/File:Luxembourg_road_sign_B,3.jpg", src:"GilPe" }
+    "Kirchberg": { img:"images/hoods/luxembourg--kirchberg.webp", page:"https://commons.wikimedia.org/wiki/File:1939_Joerhonnertfeier_Kierchbierg.jpg", src:"Sultan Edijingo" }
   },
   "Luxor": {
     "Corniche (East Bank)": { img:"images/hoods/luxor--corniche-east-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Arbre_Kornish_Al_Nile_Street_-_Louxor_(EG)_-_2025-12-10_-_1.jpg", src:"Chabe01" },
@@ -3054,8 +3039,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Majuro": {
     "Uliga": { img:"images/hoods/majuro--uliga.webp", page:"https://commons.wikimedia.org/wiki/File:12.03_%E3%80%8C%E7%B9%81%E6%A6%AE%E5%8D%97%E5%B3%B6_%E6%99%BA%E6%85%A7%E6%B0%B8%E7%BA%8C%E3%80%8D%E7%B8%BD%E7%B5%B1%E8%A6%96%E5%AF%9F%E6%88%91%E5%9C%8B%E9%A7%90%E9%A6%AC%E5%9C%8B%E6%8A%80%E8%A1%93%E5%9C%98%E3%80%8C%E9%A6%AC%E7%B4%B9%E7%88%BE%E7%BE%A4%E5%B3%B6%E5%8F%8A%E5%8F%B0%E7%81%A3%E9%A7%90%E9%A6%AC%E5%9C%8B%E6%8A%80%E8%A1%93%E5%9C%98%E5%B8%82%E9%9B%86%E3%80%8D_(54180811614).jpg", src:"總統府" },
-    "Delap": { img:"images/hoods/majuro--delap.webp", page:"https://commons.wikimedia.org/wiki/File:F20250713AH-3815_President_Donald_Trump_and_First_Lady_Melania_Trump_attend_the_FIFA_Club_World_Cup_Final_soccer_match.jpg", src:"The White House" },
-    "Outer Islets (Eneko & Bikendrik)": { img:"images/hoods/majuro--outer-islets-eneko-bikendrik.webp", page:"https://commons.wikimedia.org/wiki/File:Eneko_Islet_04.JPG", src:"Cliff Hansen" }
+    "Delap": { img:"images/hoods/majuro--delap.webp", page:"https://commons.wikimedia.org/wiki/File:F20250713AH-3815_President_Donald_Trump_and_First_Lady_Melania_Trump_attend_the_FIFA_Club_World_Cup_Final_soccer_match.jpg", src:"The White House" }
   },
   "Makassar": {
     "Pantai Losari": { img:"images/hoods/makassar--pantai-losari.webp", page:"https://commons.wikimedia.org/wiki/File:Makassar_2022_Bennylin_28.jpg", src:"Bennylin" },
