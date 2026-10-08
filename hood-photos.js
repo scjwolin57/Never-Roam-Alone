@@ -172,7 +172,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Denpasar": {
     "Sanur": { img:"images/hoods/denpasar--sanur.webp", page:"https://pixabay.com/photos/sanur-beach-bali-indonesia-sea-6826203/", src:"Pixabay" },
-    "Panjer": { img:"images/hoods/denpasar--panjer.webp", page:"https://commons.wikimedia.org/wiki/File:Gereja_Katedral_Roh_Kudus_Denpasar_Pagi_Hari.jpg" },
     "Renon": { img:"images/hoods/denpasar--renon.webp", page:"https://commons.wikimedia.org/wiki/File:Lapangan_Puputan_Renon-Monumen_Bajra_Sandhi_-_panoramio.jpg", src:"musnahterinjak" },
     "Kesiman": { img:"images/hoods/denpasar--kesiman.webp", page:"https://commons.wikimedia.org/wiki/File:Tempel_te_Kesiman_bij_Denpasar,_KITLV_163916.tiff", src:"AnonymousUnknown author" }
   },
@@ -180,8 +179,7 @@ window.NRA_HOOD_PHOTO = {
     "The Pearl-Qatar": { img:"images/hoods/doha--the-pearl-qatar.webp", page:"https://commons.wikimedia.org/wiki/File:Building_under_construction_at_Qanat_Quartier_in_The_Pearl-Qatar.jpg" },
     "West Bay": { img:"images/hoods/doha--west-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_-_West_Bay_Skyline_01.jpg", src:"P. Hughes" },
     "Msheireb": { img:"images/hoods/doha--msheireb.webp", page:"https://en.wikipedia.org/wiki/File:Msheireb_Doha.jpg" },
-    "Katara": { img:"images/hoods/doha--katara.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_Qatar_-_Masjid_Katara.jpg" },
-    "Al Sadd": { img:"images/hoods/doha--al-sadd.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Sadd_Plaza_and_Al_Fardan_Plaza_in_Doha.jpg", src:"tai_mab" }
+    "Katara": { img:"images/hoods/doha--katara.webp", page:"https://commons.wikimedia.org/wiki/File:Doha_Qatar_-_Masjid_Katara.jpg" }
   },
   "Dubai": {
     "Deira": { img:"images/hoods/dubai--deira.webp", page:"https://commons.wikimedia.org/wiki/File:Deira_Clocktower.jpg" },
@@ -221,7 +219,6 @@ window.NRA_HOOD_PHOTO = {
     "Westend": { img:"images/hoods/frankfurt-am-main--westend.webp", page:"https://commons.wikimedia.org/wiki/File:Eingang_Palmengarten_Frankfurt.JPG" },
     "Bockenheim": { img:"images/hoods/frankfurt-am-main--bockenheim.webp", page:"https://www.pexels.com/photo/bockenheimer-warte-subway-station-entrance-in-frankfurt-am-main-germany-19335777/", src:"Pexels" },
     "Sachsenhausen": { img:"images/hoods/frankfurt-am-main--sachsenhausen.webp", page:"https://pixabay.com/photos/bridge-iron-main-frankfurt-2535355/", src:"Pixabay" },
-    "Nordend": { img:"images/hoods/frankfurt-am-main--nordend.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Frankfurter_Nordend.jpg", src:"EvaK" },
     "Innenstadt (Altstadt)": { img:"images/hoods/frankfurt-am-main--innenstadt-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Frankfurt_Am_Main-Denkmaeler-Anton_Kirchner_20070725.jpg", src:"Mylius" }
   },
   "Fukuoka": {
@@ -1852,9 +1849,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Dali": {
     "Dali Old Town": { img:"images/hoods/dali--dali-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:20260223_Dali_Old_Town_08.jpg", src:"Ngguls" },
-    "Caicun / West Erhai Shore": { img:"images/hoods/dali--caicun-west-erhai-shore.webp", page:"https://commons.wikimedia.org/wiki/File:Yun_L66482_at_Sanyuejiekou_(20200122144931).jpg", src:"N509FZ" },
-    "Shuanglang": { img:"images/hoods/dali--shuanglang.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%96%84%E4%BA%BA%E6%A5%8A%E5%85%AC%E5%A2%93%E8%AA%8C%E9%8A%98-%E6%98%8E%E6%AD%A3%E7%B5%B1%E4%B8%83%E5%B9%B4_2024-08-20.jpg", src:"Kcx36" },
-    "Xizhou": { img:"images/hoods/dali--xizhou.webp", page:"https://commons.wikimedia.org/wiki/File:Xizhou_(184476741).jpeg", src:"Ian Edgar" }
+    "Caicun / West Erhai Shore": { img:"images/hoods/dali--caicun-west-erhai-shore.webp", page:"https://commons.wikimedia.org/wiki/File:Yun_L66482_at_Sanyuejiekou_(20200122144931).jpg", src:"N509FZ" }
   },
   "Dallas": {
     "Downtown": { img:"images/hoods/dallas--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:1407_Main_construction.jpg", src:"Drumguy8800 at English Wikipedia" },
@@ -1882,9 +1877,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Datong": {
     "Datong Ancient City": { img:"images/hoods/datong--datong-ancient-city.webp", page:"https://commons.wikimedia.org/wiki/File:Pingyaogucheng_Railway_Station.jpg", src:"Zhou Guanhuai" },
-    "Hongqi Square (Downtown)": { img:"images/hoods/datong--hongqi-square-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Platform_of_Jianshe_Square_Station_(20220824144539).jpg", src:"N509FZ" },
-    "Yudong New District": { img:"images/hoods/datong--yudong-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:CRT%E9%BE%99%E5%A4%B4%E5%AF%BA_4%E5%85%A5%E5%8F%A3.jpg", src:"重庆轨交18" },
-    "Kaiyuan / Development Zone": { img:"images/hoods/datong--kaiyuan-development-zone.webp", page:"https://commons.wikimedia.org/wiki/File:Exit_E_of_Southern_Business_District_Station_of_Ningbo_Rail_Transit_20260802.jpg", src:"4084470 0.smil" }
+    "Hongqi Square (Downtown)": { img:"images/hoods/datong--hongqi-square-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Platform_of_Jianshe_Square_Station_(20220824144539).jpg", src:"N509FZ" }
   },
   "Davao": {
     "Poblacion (Downtown)": { img:"images/hoods/davao--poblacion-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Davao_Chinatown_Friendship_Archway_Facade.jpg", src:"Iamharleyas" },
@@ -1919,8 +1912,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Dijon": {
     "Toison d'Or": { img:"images/hoods/dijon--toison-d-or.webp", page:"https://commons.wikimedia.org/wiki/File:Le_Toison_d%27Or_2.jpg", src:"Karmakolle" },
-    "Montchapet": { img:"images/hoods/dijon--montchapet.webp", page:"https://commons.wikimedia.org/wiki/File:Dijon_(21)_Chalet_11_Rue_de_Montchapet.jpg", src:"GO69" },
-    "Université / Montmuzard": { img:"images/hoods/dijon--universite-montmuzard.webp", page:"https://commons.wikimedia.org/wiki/File:Station_Universit%C3%A9_Tramway_Dijon_-_Dijon_(FR21)_-_2024-01-23_-_1.jpg", src:"Chabe01" }
+    "Montchapet": { img:"images/hoods/dijon--montchapet.webp", page:"https://commons.wikimedia.org/wiki/File:Dijon_(21)_Chalet_11_Rue_de_Montchapet.jpg", src:"GO69" }
   },
   "Dili": {
     "Colmera": { img:"images/hoods/dili--colmera.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_tower_roundabout,_Dili,_2018_(01).jpg", src:"Bahnfrend" },
@@ -1947,15 +1939,13 @@ window.NRA_HOOD_PHOTO = {
     "Altstadt": { img:"images/hoods/dresden--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:20190826.Dresden.Schlo%C3%9Fstra%C3%9Fe_7-9.-011.jpg", src:"Bybbisch94, Christian Gebhardt" },
     "Innere Neustadt": { img:"images/hoods/dresden--innere-neustadt.webp", page:"https://commons.wikimedia.org/wiki/File:20200811.Albertstra%C3%9Fe_Dresden,-011.jpg", src:"Bybbisch94, Christian Gebhardt" },
     "Äußere Neustadt": { img:"images/hoods/dresden--aussere-neustadt.webp", page:"https://commons.wikimedia.org/wiki/File:Dresden-Talstra%C3%9Fe-Luise.jpg", src:"User:Kolossos" },
-    "Striesen": { img:"images/hoods/dresden--striesen.webp", page:"https://commons.wikimedia.org/wiki/File:Atlas_zur_Geschichte_Dresdens_Tafel_12_a_(cropped).jpg", src:"Herausgeber: Otto Richter (1852–1922)" },
     "Blasewitz": { img:"images/hoods/dresden--blasewitz.webp", page:"https://commons.wikimedia.org/wiki/File:Linde_mit_Lindner.jpg", src:"DynaMoToR" }
   },
   "Dunedin": {
     "The Octagon (City Centre)": { img:"images/hoods/dunedin--the-octagon-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:El_Oct%C3%A1gono,_Dunedin,_Nueva_Zelanda_-_panoramio.jpg", src:"Nelson Pérez" },
     "North Dunedin (University)": { img:"images/hoods/dunedin--north-dunedin-university.webp", page:"https://commons.wikimedia.org/wiki/File:Bank_Street_in_Dunedin.jpg", src:"Krzysztof Golik" },
     "St Clair & St Kilda": { img:"images/hoods/dunedin--st-clair-st-kilda.webp", page:"https://commons.wikimedia.org/wiki/File:John_Wilson_Promenade_Open_Day_(4915187442).jpg", src:"Samuel Mann from Dunedin, New Zealand" },
-    "Warehouse Precinct": { img:"images/hoods/dunedin--warehouse-precinct.webp", page:"https://commons.wikimedia.org/wiki/File:National_Mortage_%26_Angency_Coy._of_N.Z._Ltd._Building,_57_Vogel_Street,_Dunedin,_New_Zealand.jpg", src:"Ulrich Lange, Bochum, Germany" },
-    "Port Chalmers": { img:"images/hoods/dunedin--port-chalmers.webp", page:"https://commons.wikimedia.org/wiki/File:Cold_morning_loading_at_Port_Chalmers_-_panoramio.jpg", src:"DB Thats-Me" }
+    "Warehouse Precinct": { img:"images/hoods/dunedin--warehouse-precinct.webp", page:"https://commons.wikimedia.org/wiki/File:National_Mortage_%26_Angency_Coy._of_N.Z._Ltd._Building,_57_Vogel_Street,_Dunedin,_New_Zealand.jpg", src:"Ulrich Lange, Bochum, Germany" }
   },
   "Durban": {
     "Florida Road (Morningside)": { img:"images/hoods/durban--florida-road-morningside.webp", page:"https://commons.wikimedia.org/wiki/File:Airport_S_FL17_-_W_FL64.jpg", src:"CubanoBoi" },
@@ -1965,9 +1955,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Durham": {
     "City Centre & The Bailey": { img:"images/hoods/durham--city-centre-the-bailey.webp", page:"https://commons.wikimedia.org/wiki/File:Two_New_Bailey_Salford_February_2025.jpg", src:"Valienne" },
-    "Elvet": { img:"images/hoods/durham--elvet.webp", page:"https://commons.wikimedia.org/wiki/File:At_Durham_2025_063.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
-    "Gilesgate": { img:"images/hoods/durham--gilesgate.webp", page:"https://commons.wikimedia.org/wiki/File:Durham_Gilesgate_railway_station_(site),_County_Durham_(geograph_5250796).jpg", src:"Nigel Thompson" },
-    "Neville's Cross": { img:"images/hoods/durham--neville-s-cross.webp", page:"https://commons.wikimedia.org/wiki/File:Ember_Pub_and_Dining_at_The_Duke_of_Wellington_-_geograph.org.uk_-_2357685.jpg", src:"peter robinson" }
+    "Elvet": { img:"images/hoods/durham--elvet.webp", page:"https://commons.wikimedia.org/wiki/File:At_Durham_2025_063.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." }
   },
   "Durrës": {
     "Qendra (Historic Center & Port)": { img:"images/hoods/durres--qendra-historic-center-port.webp", page:"https://commons.wikimedia.org/wiki/File:Emergency_UCCK.jpg", src:"Edukatori" },
@@ -2021,9 +2009,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Encarnación": {
     "Centro": { img:"images/hoods/encarnacion--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Shopping_Mall_Interior_(48844005991).jpg", src:"Michael Gaylard from Horsham, UK" },
-    "Quiteria": { img:"images/hoods/encarnacion--quiteria.webp", page:"https://commons.wikimedia.org/wiki/File:La_marquesa_viuda_de_Villafranca_por_Francisco_de_Goya.jpg", src:"Francisco Goya" },
-    "San José": { img:"images/hoods/encarnacion--san-jose.webp", page:"https://commons.wikimedia.org/wiki/File:J37_693_Encarnaci%C3%B3n,_Playa_San_Jos%C3%A9.jpg", src:"Falk2" },
-    "San Pedro": { img:"images/hoods/encarnacion--san-pedro.webp", page:"https://commons.wikimedia.org/wiki/File:Escalinata_Barrio_San_Pedro_201646.jpg", src:"Cmasi" }
+    "San José": { img:"images/hoods/encarnacion--san-jose.webp", page:"https://commons.wikimedia.org/wiki/File:J37_693_Encarnaci%C3%B3n,_Playa_San_Jos%C3%A9.jpg", src:"Falk2" }
   },
   "Ensenada": {
     "Zona Costero (Hotel Zone)": { img:"images/hoods/ensenada--zona-costero-hotel-zone.webp", page:"https://commons.wikimedia.org/wiki/File:MINISTRO_DE_DEFENSA_LLEV%C3%93_AYUDA_HUMANITARIA_A_PIURA_Y_COORDIN%C3%93_ACCIONES_PARA_ENFRENTAR_EFECTOS_DEL_FEN%C3%93MENO_DEL_NI%C3%91O_COSTERO.jpg", src:"Ministerio de Defensa del Perú" },
@@ -2042,15 +2028,12 @@ window.NRA_HOOD_PHOTO = {
   "Erfurt": {
     "Altstadt": { img:"images/hoods/erfurt--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Blick%C3%BCbererfurt_%C3%A4gidienkirche2_kr%C3%A4merbr%C3%BCcke.JPG", src:"Z thomas" },
     "Andreasviertel": { img:"images/hoods/erfurt--andreasviertel.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%B6rdliches_Andreasviertel_Erfurt.JPG", src:"Michael Sander" },
-    "Löbervorstadt": { img:"images/hoods/erfurt--lobervorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Sender_Erfurt_(Chamissostr.).jpg", src:"Cybertorte" },
     "Brühlervorstadt": { img:"images/hoods/erfurt--bruhlervorstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Bergstrom_Erfurt.JPG", src:"Michael Sander" },
     "Anger": { img:"images/hoods/erfurt--anger.webp", page:"https://commons.wikimedia.org/wiki/File:Anger_57_Erfurt_20250427_0002.jpg", src:"Tilman2007" }
   },
   "Essaouira": {
     "Medina": { img:"images/hoods/essaouira--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Cannon_on_Skala_de_la_Ville,_Essaouira,_Morocco.jpg", src:"CastlesCatalog" },
-    "Kasbah": { img:"images/hoods/essaouira--kasbah.webp", page:"https://commons.wikimedia.org/wiki/File:16th_Century_Portguese_Cannons_-_panoramio_(3).jpg", src:"Patrick Nouhailler's…" },
-    "Quartier des Dunes / Borj (Beach)": { img:"images/hoods/essaouira--quartier-des-dunes-borj-beach.webp", page:"https://commons.wikimedia.org/wiki/File:03_2018_%C3%89glise_luth%C3%A9rienne_Saint-Pierre.jpg", src:"Doalex" },
-    "Diabat": { img:"images/hoods/essaouira--diabat.webp", page:"https://commons.wikimedia.org/wiki/File:2014_Morocco_Luyten-De-Hauwere_02.jpg", src:"Denis Luyten" }
+    "Quartier des Dunes / Borj (Beach)": { img:"images/hoods/essaouira--quartier-des-dunes-borj-beach.webp", page:"https://commons.wikimedia.org/wiki/File:03_2018_%C3%89glise_luth%C3%A9rienne_Saint-Pierre.jpg", src:"Doalex" }
   },
   "Faro": {
     "Cidade Velha (Old Town)": { img:"images/hoods/faro--cidade-velha-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Loul%C3%A9_-_Portugal_(4490063763).jpg", src:"Vitor Oliveira from Torres Vedras, PORTUGAL" },
@@ -2065,8 +2048,7 @@ window.NRA_HOOD_PHOTO = {
   "Fès": {
     "Fes el-Bali (Old Medina)": { img:"images/hoods/fes--fes-el-bali-old-medina.webp", page:"https://commons.wikimedia.org/wiki/File:Ablutions_room,_Zaoura_Tijania_mosque_(588707958).jpg", src:"Maureen from Buffalo, USA" },
     "Fes el-Jdid": { img:"images/hoods/fes--fes-el-jdid.webp", page:"https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_F._van_der_Kraaij_Collection_-_11_-_082_-_Rue_avec_des_gens_dans_le_quartier_juif_de_F%C3%A8s_-_F%C3%A8s,_Maroc_-_1973.tif", src:"Fred van der Kraaij" },
-    "Ville Nouvelle": { img:"images/hoods/fes--ville-nouvelle.webp", page:"https://commons.wikimedia.org/wiki/File:,Orientalism_III_,_-_Flickr_-_August_Brill.jpg", src:"August Brill from Bologna, Italy" },
-    "Batha": { img:"images/hoods/fes--batha.webp", page:"https://commons.wikimedia.org/wiki/File:Batha_Museum_(4317468784).jpg", src:"Henry Zbyszynski from Capitola California, USA" }
+    "Ville Nouvelle": { img:"images/hoods/fes--ville-nouvelle.webp", page:"https://commons.wikimedia.org/wiki/File:,Orientalism_III_,_-_Flickr_-_August_Brill.jpg", src:"August Brill from Bologna, Italy" }
   },
   "Fethiye": {
     "Fethiye Marina / Old Town": { img:"images/hoods/fethiye--fethiye-marina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Fethiye_Martyrs_Monument_5723.jpg", src:"Dosseman" },
@@ -2106,13 +2088,11 @@ window.NRA_HOOD_PHOTO = {
   "Freetown": {
     "Aberdeen": { img:"images/hoods/freetown--aberdeen.webp", page:"https://commons.wikimedia.org/wiki/File:Aberdeen_-_Municipal_Buildings_(15350073551).jpg", src:"Tom Parnell from Scottish Borders, Scotland" },
     "Lumley Beach": { img:"images/hoods/freetown--lumley-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Lumley_Shore_-_panoramio.jpg", src:"Ghassan Mroue" },
-    "Hill Station": { img:"images/hoods/freetown--hill-station.webp", page:"https://commons.wikimedia.org/wiki/File:Forest_Hill_Station_(46104686942).jpg", src:"Marcin Wichary from San Francisco, Calif." },
     "Congo Cross / Wilberforce": { img:"images/hoods/freetown--congo-cross-wilberforce.webp", page:"https://commons.wikimedia.org/wiki/File:Croix_du_Congo_-_Questembert_(Morbihan).jpg", src:"Selbymay" },
     "Central Freetown (Downtown)": { img:"images/hoods/freetown--central-freetown-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Carte_itin%C3%A9raire_des_d%C3%A9couvertes_faites_en_1823_par_le_Dr_Oudney,_le_Major_Denham_et_le_Lieutenant_Clapperton_(33746955104).jpg", src:"Université de Caen Normandie from Caen, France" }
   },
   "Freiburg": {
     "Altstadt (Old Town)": { img:"images/hoods/freiburg--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Schwarzes_Kloster_Innenhof_(Freiburg)_0228_jiw.jpg", src:"joergens.mi" },
-    "Vauban": { img:"images/hoods/freiburg--vauban.webp", page:"https://commons.wikimedia.org/wiki/File:2013-09-20_Grundst%C3%BCck_Hexentalstra%C3%9Fe_2_nach_Abbruch_des_Offizierscasino_der_Vauban-Kaserne_in_Merzhausen.jpg", src:"Andreas Schwarzkopf" },
     "Wiehre": { img:"images/hoods/freiburg--wiehre.webp", page:"https://commons.wikimedia.org/wiki/File:Brisgovia_2888.jpg", src:"user:joergens.mi" },
     "Stühlinger": { img:"images/hoods/freiburg--stuhlinger.webp", page:"https://commons.wikimedia.org/wiki/File:Breisacher_Stra%C3%9Fe_in_Freiburg_mit_neuer_Stadtbahnline_zur_Messe_und_St._Josef_1.jpg", src:"Andreas Schwarzkopf" },
     "Herdern": { img:"images/hoods/freiburg--herdern.webp", page:"https://commons.wikimedia.org/wiki/File:Blindenheim_jm7590.jpg", src:"user:joergens.mi" }
