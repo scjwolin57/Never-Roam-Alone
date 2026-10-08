@@ -223,7 +223,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Fukuoka": {
     "Nakasu": { img:"images/hoods/fukuoka--nakasu.webp", page:"https://commons.wikimedia.org/wiki/File:NakasuKawabata_FukuokaSubway.jpg" },
-    "Ohori": { img:"images/hoods/fukuoka--ohori.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E6%BF%A0%E5%85%AC%E5%9C%92_(3360365578).jpg" },
     "Hakata": { img:"images/hoods/fukuoka--hakata.webp", page:"https://www.pexels.com/photo/fukuoka-urban-nightscape-at-hakata-station-35196016/", src:"Pexels" },
     "Tenjin": { img:"images/hoods/fukuoka--tenjin.webp", page:"https://commons.wikimedia.org/wiki/File:Tenjin-Chikagai_Shopping_Street_20161115.jpg", src:"そらみみ" },
     "Daimyo": { img:"images/hoods/fukuoka--daimyo.webp", page:"https://commons.wikimedia.org/wiki/File:Fukuoka_Daimy%C5%8D_Garden_City_the_NE_side_Daimyo_2-ch%C5%8Dme_Ch%C5%AB%C5%8D-ku_Fukuoka_20250113.jpg" }
@@ -232,15 +231,13 @@ window.NRA_HOOD_PHOTO = {
     "Liwan": { img:"images/hoods/guangzhou--liwan.webp", page:"https://commons.wikimedia.org/wiki/File:Shamian_Island_03144-Guangzhou_(32604466380).jpg", src:"xiquinhosilva" },
     "Haizhu": { img:"images/hoods/guangzhou--haizhu.webp", page:"https://www.pexels.com/photo/haizhu-lake-in-guangzhou-in-china-20710668/", src:"Pexels" },
     "Tianhe": { img:"images/hoods/guangzhou--tianhe.webp", page:"https://commons.wikimedia.org/wiki/File:Guangzhou_International_Finance_Center.jpg" },
-    "Yuexiu": { img:"images/hoods/guangzhou--yuexiu.webp", page:"https://commons.wikimedia.org/wiki/File:Sun_Yat-sen_Memorial_Hall_Guangzhou.jpg" },
-    "Panyu": { img:"images/hoods/guangzhou--panyu.webp", page:"https://commons.wikimedia.org/wiki/File:Guangzhou_Panyu_Changlong_Huanle_Shijie_2023-03-10_17.40.11.jpg", src:"古海岸遗址" }
+    "Yuexiu": { img:"images/hoods/guangzhou--yuexiu.webp", page:"https://commons.wikimedia.org/wiki/File:Sun_Yat-sen_Memorial_Hall_Guangzhou.jpg" }
   },
   "Hanoi": {
     "Ba Dinh": { img:"images/hoods/hanoi--ba-dinh.webp", page:"https://www.pexels.com/photo/scenic-view-of-ba-dinh-square-in-hanoi-34477004/", src:"Pexels" },
     "Dong Da": { img:"images/hoods/hanoi--dong-da.webp", page:"https://www.pexels.com/photo/statue-at-dong-da-hill-park-hanoi-vietnam-38003938/", src:"Pexels" },
     "Hoan Kiem (Old Quarter)": { img:"images/hoods/hanoi--hoan-kiem-old-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Hanoi_Vietnam_Houses-in-Ho%C3%A0n-Ki%E1%BA%BFm-District-01.jpg" },
-    "Tay Ho (West Lake)": { img:"images/hoods/hanoi--tay-ho-west-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Swan_boats_at_Tay_Ho_in_2015_01.jpg", src:"Vuong Tri Binh" },
-    "Cau Giay": { img:"images/hoods/hanoi--cau-giay.webp", page:"https://commons.wikimedia.org/wiki/File:C%E1%BA%A7u_Gi%E1%BA%A5y_Road,_Hanoi_2022-06-13_09.jpg", src:"Ltn12345" }
+    "Tay Ho (West Lake)": { img:"images/hoods/hanoi--tay-ho-west-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Swan_boats_at_Tay_Ho_in_2015_01.jpg", src:"Vuong Tri Binh" }
   },
   "Helsinki": {
     "Toolo": { img:"images/hoods/helsinki--toolo.webp", page:"https://commons.wikimedia.org/wiki/File:T%C3%B6%C3%B6l%C3%B6%2C_Helsinki_from_the_olympic_stadium_tower.jpg" },
@@ -2114,13 +2111,11 @@ window.NRA_HOOD_PHOTO = {
   "Galle": {
     "Galle Fort": { img:"images/hoods/galle--galle-fort.webp", page:"https://commons.wikimedia.org/wiki/File:Fort,_Galle_80000,_Sri_Lanka_-_panoramio_(100).jpg", src:"Daibo Taku" },
     "Unawatuna": { img:"images/hoods/galle--unawatuna.webp", page:"https://commons.wikimedia.org/wiki/File:Rawana-Rumassala_-_panoramio.jpg", src:"Chathura Madhuranga …" },
-    "New Town (Galle City)": { img:"images/hoods/galle--new-town-galle-city.webp", page:"https://commons.wikimedia.org/wiki/File:Lake_sakakawea.jpg", src:"NASA" },
     "Talpe": { img:"images/hoods/galle--talpe.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B0%D0%BA_%D0%B1%D1%8B_%D1%80%D0%B0%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0..._-_panoramio.jpg", src:"vivali" },
     "Dalawella": { img:"images/hoods/galle--dalawella.webp", page:"https://commons.wikimedia.org/wiki/File:Nads_sunset_3.jpg", src:"Frenchbread46" }
   },
   "Garmisch-Partenkirchen": {
-    "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Argentina_vs._France,_2024_Summer_Olympic_rugby_sevens,_men%27s_quarter-final,_2024-07-25_(165).jpg", src:"Like tears in rain" },
-    "Partnachklamm / Kreuzeck Area": { img:"images/hoods/garmisch-partenkirchen--partnachklamm-kreuzeck-area.webp", page:"https://commons.wikimedia.org/wiki/File:Icicles_Partnachklamm_rb.jpg", src:"Richard Bartz" }
+    "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Argentina_vs._France,_2024_Summer_Olympic_rugby_sevens,_men%27s_quarter-final,_2024-07-25_(165).jpg", src:"Like tears in rain" }
   },
   "Gaziantep": {
     "Bey Mahallesi (Old City)": { img:"images/hoods/gaziantep--bey-mahallesi-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Osman_Hamdi_Bey_-_The_Tortoise_Trainer_-_Google_Art_Project.jpg", src:"Osman Hamdi Bey" },
@@ -2132,8 +2127,7 @@ window.NRA_HOOD_PHOTO = {
     "Główne Miasto (Main Town)": { img:"images/hoods/gdansk--glowne-miasto-main-town.webp", page:"https://commons.wikimedia.org/wiki/File:Cathedral_(40435796791).jpg", src:"Twisted Realm from Gdansk, Poland" },
     "Wyspa Spichrzów (Granary Island)": { img:"images/hoods/gdansk--wyspa-spichrzow-granary-island.webp", page:"https://commons.wikimedia.org/wiki/File:Danzig_%E2%80%93_Rathausturmspitze_-_Ratusz_iglica_-_panoramio.jpg", src:"giggel" },
     "Wrzeszcz": { img:"images/hoods/gdansk--wrzeszcz.webp", page:"https://commons.wikimedia.org/wiki/File:2004_08_11_pas_startowy_na_Zaspie,_Gda%C5%84sk_(ubt).jpeg", src:"photo © 2004 by Tomasz Sienicki [user: tsca, mail: tomasz.sienicki at gmail.com]" },
-    "Oliwa": { img:"images/hoods/gdansk--oliwa.webp", page:"https://commons.wikimedia.org/wiki/File:Budowa_Centrum_Handlowego_Oliwa_w_Gda%C5%84sku.JPG", src:"Tomasz Przechlewski from Sopot, Poland" },
-    "Przymorze (Baltic beach)": { img:"images/hoods/gdansk--przymorze-baltic-beach.webp", page:"https://commons.wikimedia.org/wiki/File:2006_08_01_ul_Ko%C5%82obrzeska_w_Gda%C5%84sku,_ubt.jpeg" }
+    "Oliwa": { img:"images/hoods/gdansk--oliwa.webp", page:"https://commons.wikimedia.org/wiki/File:Budowa_Centrum_Handlowego_Oliwa_w_Gda%C5%84sku.JPG", src:"Tomasz Przechlewski from Sopot, Poland" }
   },
   "Geneva": {
     "Vieille Ville (Old Town)": { img:"images/hoods/geneva--vieille-ville-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Arcade_dans_la_vieille_ville_de_Gen%C3%A8ve.jpg", src:"Yann (talk)" },
@@ -2190,8 +2184,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Gisenyi": {
     "Kivu Beach": { img:"images/hoods/gisenyi--kivu-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Saturday_at_the_lake.jpg", src:"Francisco Anzola" },
-    "Kigufi": { img:"images/hoods/gisenyi--kigufi.webp", page:"https://commons.wikimedia.org/wiki/File:Lake_muhazi_king_fisher_resort.jpg", src:"Ig250" },
-    "Petite Barrière (border)": { img:"images/hoods/gisenyi--petite-barriere-border.webp", page:"https://commons.wikimedia.org/wiki/File:Woman-trader-at-Gisenyi-border-to-DRC_Peter-Walkenhorst.jpg", src:"Pwalkenhorst" }
+    "Kigufi": { img:"images/hoods/gisenyi--kigufi.webp", page:"https://commons.wikimedia.org/wiki/File:Lake_muhazi_king_fisher_resort.jpg", src:"Ig250" }
   },
   "Glasgow": {
     "City Centre": { img:"images/hoods/glasgow--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Dawn_over_Glasgow_(48659596342).jpg", src:"Ian Dick from Glasgow, UK" },
@@ -2214,12 +2207,10 @@ window.NRA_HOOD_PHOTO = {
   },
   "Gondar": {
     "Piazza (City Centre)": { img:"images/hoods/gondar--piazza-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Piazza_Duomo_(Prato)_con_neve.JPG", src:"FRancesco Gei" },
-    "Fasil Ghebbi (Royal Enclosure)": { img:"images/hoods/gondar--fasil-ghebbi-royal-enclosure.webp", page:"https://commons.wikimedia.org/wiki/File:ET_Gondar_asv2018-02_img12_Fasil_Ghebbi.jpg", src:"A.Savin" },
     "Maraki (University area)": { img:"images/hoods/gondar--maraki-university-area.webp", page:"https://commons.wikimedia.org/wiki/File:University_of_Gondar,_Ethiopia_Maraki_to_Tewodros_Campus.jpg", src:"Professor Mersha Chanie Kebede" }
   },
   "Göreme": {
     "Göreme Town Center": { img:"images/hoods/goreme--goreme-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Elmal%C4%B1_Kilise_Entry_into_Jerusalem_in_2004_6816.jpg", src:"Dosseman" },
-    "Aydınlı / Edebiyat Quarter": { img:"images/hoods/goreme--aydinli-edebiyat-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Aydinli-Orta_Mh.jpg", src:"Yumin Cha" },
     "Uçhisar": { img:"images/hoods/goreme--uchisar.webp", page:"https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Kalesi_Front.jpg", src:"Tolga Alan" },
     "Avanos (Kızılırmak riverside)": { img:"images/hoods/goreme--avanos-kizilirmak-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Avanos_Carsisinda_Kabartma_-_panoramio.jpg", src:"Talha Sariyürek" }
   },
@@ -2261,14 +2252,12 @@ window.NRA_HOOD_PHOTO = {
     "Zona 10 (Zona Viva)": { img:"images/hoods/guatemala-city--zona-10-zona-viva.webp", page:"https://commons.wikimedia.org/wiki/File:25_Aerial_view_-_Zona_10_-_Ciudad_de_Guatemala.jpg", src:"Rene Hernandez" },
     "Zona 1 (Centro Histórico)": { img:"images/hoods/guatemala-city--zona-1-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Palacion_Nacional_de_Guatemala_11.jpg", src:"Simon Burchell" },
     "Zona 9": { img:"images/hoods/guatemala-city--zona-9.webp", page:"https://commons.wikimedia.org/wiki/File:Edificio_del_Intecap_zona_4,_al_fondo_zona_9_y_10_de_ciudad_Guatemala_-_panoramio.jpg", src:"Sistematización y Co…" },
-    "Zona 13": { img:"images/hoods/guatemala-city--zona-13.webp", page:"https://www.flickr.com/photos/201377104@N06/53963536682/", src:"merari.hernandez1" },
     "Zona 4 (Cuatro Grados Norte)": { img:"images/hoods/guatemala-city--zona-4-cuatro-grados-norte.webp", page:"https://www.flickr.com/photos/137253937@N05/52027750773/", src:"René Hernández _ 0705" }
   },
   "Guayaquil": {
     "Malecón 2000 / Centro": { img:"images/hoods/guayaquil--malecon-2000-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Cinema_Malec%C3%B3n.jpg", src:"Freddy eduardo" },
     "Las Peñas": { img:"images/hoods/guayaquil--las-penas.webp", page:"https://commons.wikimedia.org/wiki/File:Guayaquil_Ecuador312.JPG", src:"Arabsalam" },
     "Urdesa": { img:"images/hoods/guayaquil--urdesa.webp", page:"https://commons.wikimedia.org/wiki/File:Asia_urdesa.jpg", src:"Alfredo Molina" },
-    "Samborondón": { img:"images/hoods/guayaquil--samborondon.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_comercial_Alhambra.jpg", src:"Freddy eduardo" },
     "Puerto Santa Ana": { img:"images/hoods/guayaquil--puerto-santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:Edificio_Sotavento.jpg", src:"Freddy eduardo" }
   },
   "Guilin": {
@@ -2291,8 +2280,7 @@ window.NRA_HOOD_PHOTO = {
   "Hạ Long": {
     "Bai Chay": { img:"images/hoods/ha-long--bai-chay.webp", page:"https://commons.wikimedia.org/wiki/File:Bai_Chay_Bridge_(49357435003).jpg", src:"Martin Lewison from Forest Hills, NY, U.S.A." },
     "Hon Gai": { img:"images/hoods/ha-long--hon-gai.webp", page:"https://commons.wikimedia.org/wiki/File:Bai_Chay_(49356299203).jpg", src:"Martin Lewison from Forest Hills, NY, U.S.A." },
-    "Tuan Chau": { img:"images/hoods/ha-long--tuan-chau.webp", page:"https://commons.wikimedia.org/wiki/File:Tu%E1%BA%A7n_Ch%C3%A2u,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BA%A1_Long,_Qu%E1%BA%A3ng_Ninh,_Vietnam_-_panoramio_(5).jpg", src:"Zack Knowles" },
-    "Cua Ong": { img:"images/hoods/ha-long--cua-ong.webp", page:"https://commons.wikimedia.org/wiki/File:C%E1%BB%ADa_%C3%94ng_Temple_2017.jpg", src:"Hoangkid" }
+    "Tuan Chau": { img:"images/hoods/ha-long--tuan-chau.webp", page:"https://commons.wikimedia.org/wiki/File:Tu%E1%BA%A7n_Ch%C3%A2u,_Th%C3%A0nh_ph%E1%BB%91_H%E1%BA%A1_Long,_Qu%E1%BA%A3ng_Ninh,_Vietnam_-_panoramio_(5).jpg", src:"Zack Knowles" }
   },
   "Haifa": {
     "German Colony": { img:"images/hoods/haifa--german-colony.webp", page:"https://commons.wikimedia.org/wiki/File:Ben_gurion_30.jpg", src:"Yakovleva" },
@@ -2318,8 +2306,7 @@ window.NRA_HOOD_PHOTO = {
     "Imam Khomeini Square (Central)": { img:"images/hoods/hamadan--imam-khomeini-square-central.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Square_(Hamadan)_2.jpg", src:"Arpourabedin" },
     "Bu-Ali (Avicenna) District": { img:"images/hoods/hamadan--bu-ali-avicenna-district.webp", page:"https://commons.wikimedia.org/wiki/File:Mazar_Bu_Ali.JPG", src:"Syedrais" },
     "Abbas Abad / Ganjnameh": { img:"images/hoods/hamadan--abbas-abad-ganjnameh.webp", page:"https://commons.wikimedia.org/wiki/File:Darbe_Baba_Taher_alley.jpg", src:"Meysam" },
-    "Baba Taher / Bazaar Quarter": { img:"images/hoods/hamadan--baba-taher-bazaar-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:2%D8%A2%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87_%D8%A8%D8%A7%D8%A8%D8%A7%D8%B7%D8%A7%D9%87%D8%B1.jpg", src:"Alitalinguist" },
-    "Ecbatana (Hegmataneh) Hill": { img:"images/hoods/hamadan--ecbatana-hegmataneh-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Teppe_Ecbatana5.jpg", src:"Shams948" }
+    "Baba Taher / Bazaar Quarter": { img:"images/hoods/hamadan--baba-taher-bazaar-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:2%D8%A2%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87_%D8%A8%D8%A7%D8%A8%D8%A7%D8%B7%D8%A7%D9%87%D8%B1.jpg", src:"Alitalinguist" }
   },
   "Hamburg": {
     "St. Pauli": { img:"images/hoods/hamburg--st-pauli.webp", page:"https://commons.wikimedia.org/wiki/File:12742_Bei_den_St._Pauli-Landungsbr%C3%BCcken_1_Detail.JPG", src:"Hinnerk11" },
@@ -2335,9 +2322,7 @@ window.NRA_HOOD_PHOTO = {
   "Hangzhou": {
     "West Lake / Xihu": { img:"images/hoods/hangzhou--west-lake-xihu.webp", page:"https://commons.wikimedia.org/wiki/File:2009_%E6%9D%AD%E5%B7%9E_%E8%A5%BF%E6%B9%96_-_panoramio_(1).jpg", src:"张元柏" },
     "Shangcheng / Wulin (Downtown)": { img:"images/hoods/hangzhou--shangcheng-wulin-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Hangzhou_Shangcheng_wushan_road_IMG_8734_Zhejiang_Hospital_of_Trad_Chinese_Medicine.jpg", src:"Bjoertvedt" },
-    "Binjiang (Riverside)": { img:"images/hoods/hangzhou--binjiang-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:201607_Binjiang_District.jpg", src:"MNXANL" },
-    "Xiacheng / Grand Canal": { img:"images/hoods/hangzhou--xiacheng-grand-canal.webp", page:"https://commons.wikimedia.org/wiki/File:201405%E8%89%AE%E5%B1%B1%E9%97%A8%E7%AB%99%E7%89%8C.jpg", src:"MNXANL" },
-    "Yuhang / Future Sci-Tech City": { img:"images/hoods/hangzhou--yuhang-future-sci-tech-city.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%BD%99%E6%9D%AD%E5%AE%89%E4%B9%90%E5%B1%B1%E6%AF%95%E7%A7%80%E5%A7%91%E4%BC%A0%E7%95%A5%E7%A2%91,_2022-11-05.jpg", src:"Siyuwj" }
+    "Xiacheng / Grand Canal": { img:"images/hoods/hangzhou--xiacheng-grand-canal.webp", page:"https://commons.wikimedia.org/wiki/File:201405%E8%89%AE%E5%B1%B1%E9%97%A8%E7%AB%99%E7%89%8C.jpg", src:"MNXANL" }
   },
   "Harar": {
     "Jugol (Walled Old City)": { img:"images/hoods/harar--jugol-walled-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Jugol_Kishore_flat_roofed_temple_at_Aranghata_in_Nadia_district,_West_Bengal._08.jpg", src:"Amitabha Gupta" }
@@ -2350,9 +2335,7 @@ window.NRA_HOOD_PHOTO = {
   "Harbin": {
     "Daoli / Central Street (Zhongyang Dajie)": { img:"images/hoods/harbin--daoli-central-street-zhongyang-dajie.webp", page:"https://commons.wikimedia.org/wiki/File:Daoli,_Harbin,_Heilongjiang,_China_-_panoramio_(3).jpg", src:"Fumihiko Ueno" },
     "Nangang": { img:"images/hoods/harbin--nangang.webp", page:"https://commons.wikimedia.org/wiki/File:HARBIN_RAILWAY_STATION_-_panoramio.jpg", src:"zhanyoun" },
-    "Songbei / Ice-Snow World": { img:"images/hoods/harbin--songbei-ice-snow-world.webp", page:"https://commons.wikimedia.org/wiki/File:26941-Harbin_(49027716202).jpg", src:"xiquinhosilva" },
-    "Daowai": { img:"images/hoods/harbin--daowai.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B9%9D%E4%B8%89%E7%9C%81%E9%81%93%E6%94%B6%E8%B4%B9%E7%AB%99_-_panoramio.jpg", src:"江上清风1961" },
-    "Xiangfang": { img:"images/hoods/harbin--xiangfang.webp", page:"https://commons.wikimedia.org/wiki/File:Xiangfang,_Harbin,_Heilongjiang,_China_-_panoramio_(1).jpg", src:"Fumihiko Ueno" }
+    "Daowai": { img:"images/hoods/harbin--daowai.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B9%9D%E4%B8%89%E7%9C%81%E9%81%93%E6%94%B6%E8%B4%B9%E7%AB%99_-_panoramio.jpg", src:"江上清风1961" }
   },
   "Havana": {
     "Old Havana": { img:"images/hoods/havana--old-havana.webp", page:"https://commons.wikimedia.org/wiki/File:Amphitheatre_of_Old_Havana.1.jpg", src:"Secretaria de Obras Publica, Havana, Cuba" },
@@ -2378,8 +2361,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Hirosaki": {
     "Hirosaki Park / Castle Area": { img:"images/hoods/hirosaki--hirosaki-park-castle-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%9F%B3%E6%AD%A6%E5%AD%A6%E6%B5%81%E5%BA%AD%E5%9C%92_-_panoramio.jpg", src:"岩浪陸" },
-    "Dobashi / Ekimae (Station Area)": { img:"images/hoods/hirosaki--dobashi-ekimae-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Iyo_Railway_Dobashi_Station3.jpg", src:"Transitmethod" },
-    "Mount Iwaki / Apple Orchard Countryside": { img:"images/hoods/hirosaki--mount-iwaki-apple-orchard-countryside.webp", page:"https://commons.wikimedia.org/wiki/File:Iwakisan_to_Oppudake.JPG", src:"らんで" }
+    "Dobashi / Ekimae (Station Area)": { img:"images/hoods/hirosaki--dobashi-ekimae-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Iyo_Railway_Dobashi_Station3.jpg", src:"Transitmethod" }
   },
   "Hiroshima": {
     "Kamiyacho-Hatchobori": { img:"images/hoods/hiroshima--kamiyacho-hatchobori.webp", page:"https://commons.wikimedia.org/wiki/File:Hiroshima_Branch_of_the_Chugoku_Bank.jpg", src:"そらみみ" },
