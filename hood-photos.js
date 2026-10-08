@@ -154,7 +154,6 @@ window.NRA_HOOD_PHOTO = {
     "Centru": { img:"images/hoods/chisinau--centru.webp", page:"https://commons.wikimedia.org/wiki/File:Cl%C4%83direa_prim%C4%83riei_municipiului_Chi%C8%99in%C4%83u.jpg" },
     "Riscani": { img:"images/hoods/chisinau--riscani.webp", page:"https://commons.wikimedia.org/wiki/File:MD.C.C_-_Edificiul_Circului_din_Chi%C8%99in%C4%83u_-_sep_2022.jpg" },
     "Buiucani": { img:"images/hoods/chisinau--buiucani.webp", page:"https://commons.wikimedia.org/wiki/File:Sectorul_Buiucani,_Chisinau,_Moldova_-_panoramio.jpg" },
-    "Telecentru": { img:"images/hoods/chisinau--telecentru.webp", page:"https://commons.wikimedia.org/wiki/File:MD.C.C_-_Moldova-Film_HQ_-_sep_2026.jpg" },
     "Botanica": { img:"images/hoods/chisinau--botanica.webp", page:"https://commons.wikimedia.org/wiki/File:Bloc_locativ,_Botanica,_Chi%C8%99in%C4%83u.JPG", src:"Aravinel" }
   },
   "Copenhagen": {
@@ -830,9 +829,9 @@ window.NRA_HOOD_PHOTO = {
   "Vancouver": {
     "Gastown": { img:"images/hoods/vancouver--gastown.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_2018-20180422-2108_(42138196834).jpg" },
     "West End": { img:"images/hoods/vancouver--west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_west_end.jpg" },
-    "Mount Pleasant": { img:"images/hoods/vancouver--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:2414_Main_Street_Vancouver.JPG", src:"Canadian2006" },
     "Kitsilano": { img:"images/hoods/vancouver--kitsilano.webp", page:"https://commons.wikimedia.org/wiki/File:Vine_Street_in_Kitsilano.JPG" },
-    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" }
+    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" },
+    "Mount Pleasant": { img:"images/hoods/vancouver--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:2414_Main_Street_Vancouver.JPG", src:"Canadian2006" }
   },
   "Venice": {
     "San Marco": { img:"images/hoods/venice--san-marco.webp", page:"https://commons.wikimedia.org/wiki/File:Venezia_Basilica_di_San_Marco_Fassade_2.jpg" },
@@ -1611,8 +1610,7 @@ window.NRA_HOOD_PHOTO = {
   "Cayenne": {
     "Montabo": { img:"images/hoods/cayenne--montabo.webp", page:"https://commons.wikimedia.org/wiki/File:Cayennecentreceperou.JPG", src:"Didwin973" },
     "Bourda": { img:"images/hoods/cayenne--bourda.webp", page:"https://commons.wikimedia.org/wiki/File:Bourda.jpg", src:"Muni22" },
-    "Rémire-Montjoly": { img:"images/hoods/cayenne--remire-montjoly.webp", page:"https://commons.wikimedia.org/wiki/File:Chaudrons_pour_le_sucre.jpg", src:"Andre Gaston Georges" },
-    "Matoury": { img:"images/hoods/cayenne--matoury.webp", page:"https://commons.wikimedia.org/wiki/File:Nlletourrochambeau.jpg", src:"Didwin973" }
+    "Rémire-Montjoly": { img:"images/hoods/cayenne--remire-montjoly.webp", page:"https://commons.wikimedia.org/wiki/File:Chaudrons_pour_le_sucre.jpg", src:"Andre Gaston Georges" }
   },
   "Cebu City": {
     "Lahug (IT Park)": { img:"images/hoods/cebu-city--lahug-it-park.webp", page:"https://commons.wikimedia.org/wiki/File:Lahug_market_fish_stand_January_2021.jpg", src:"Martin Michlmayr" },
@@ -1629,9 +1627,7 @@ window.NRA_HOOD_PHOTO = {
   "Chamonix-Mont-Blanc": {
     "Chamonix Centre": { img:"images/hoods/chamonix-mont-blanc--chamonix-centre.webp", page:"https://commons.wikimedia.org/wiki/File:L%27Arve_au_sud_du_centre_de_Chamonix_en_soir%C3%A9e_(juin_2022).JPG", src:"Florian Pépellin" },
     "Argentière": { img:"images/hoods/chamonix-mont-blanc--argentiere.webp", page:"https://commons.wikimedia.org/wiki/File:Aiguille_du_Chardonnet_-_panoramio.jpg", src:"Björn S." },
-    "Les Praz-de-Chamonix": { img:"images/hoods/chamonix-mont-blanc--les-praz-de-chamonix.webp", page:"https://commons.wikimedia.org/wiki/File:Chamonix_-_Passerelle_du_Montenvers_(janv_2025).jpg", src:"Sebleouf" },
-    "Les Bossons": { img:"images/hoods/chamonix-mont-blanc--les-bossons.webp", page:"https://commons.wikimedia.org/wiki/File:Arve_@_Les_Bossons.jpg", src:"Rémih" },
-    "Le Tour": { img:"images/hoods/chamonix-mont-blanc--le-tour.webp", page:"https://commons.wikimedia.org/wiki/File:Col_de_Balme_@_Plan_de_la_Grange.jpg", src:"Rémih" }
+    "Les Praz-de-Chamonix": { img:"images/hoods/chamonix-mont-blanc--les-praz-de-chamonix.webp", page:"https://commons.wikimedia.org/wiki/File:Chamonix_-_Passerelle_du_Montenvers_(janv_2025).jpg", src:"Sebleouf" }
   },
   "Chaozhou": {
     "Ancient City (Paifang Street / Old Town)": { img:"images/hoods/chaozhou--ancient-city-paifang-street-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:96_Zhongshan_East_Street_(Xin%27an_County_Government)_%E5%B9%BF%E5%B7%9E%E5%BA%9C%E6%96%B0%E5%AE%89%E5%8E%BF%E8%A1%99_%E4%B8%AD%E5%B1%B1%E4%B8%9C%E8%A1%9796_(2026)_-_img_02.jpg", src:"Chainwit." },
@@ -1641,24 +1637,18 @@ window.NRA_HOOD_PHOTO = {
   "Charleston": {
     "South of Broad": { img:"images/hoods/charleston--south-of-broad.webp", page:"https://commons.wikimedia.org/wiki/File:Charleston,_South_Carolina_(2025-08-13-03-48-54_UMBRA-08).tiff", src:"Umbra Lab, Inc." },
     "French Quarter": { img:"images/hoods/charleston--french-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:115_Church_St.JPG", src:"ProfReader" },
-    "King Street": { img:"images/hoods/charleston--king-street.webp", page:"https://commons.wikimedia.org/wiki/File:Riviera_Theater,_Charleston,_SC_(49330485046).jpg", src:"Warren LeMay from Covington, KY, United States" },
-    "Mount Pleasant": { img:"images/hoods/charleston--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:Arthur_Ravenel_Jr._Bridge_Charleston_SC_-_panoramio.jpg", src:"Chanilim714" },
-    "Folly Beach": { img:"images/hoods/charleston--folly-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Folly_Beach_(Explored)_-_Flickr_-_danielgrogan.jpg", src:"Daniel Grogan" }
+    "King Street": { img:"images/hoods/charleston--king-street.webp", page:"https://commons.wikimedia.org/wiki/File:Riviera_Theater,_Charleston,_SC_(49330485046).jpg", src:"Warren LeMay from Covington, KY, United States" }
   },
   "Charlotte Amalie": {
     "Frenchtown": { img:"images/hoods/charlotte-amalie--frenchtown.webp", page:"https://commons.wikimedia.org/wiki/File:Delaware_River_Scenic_Byway_-_Downtown_Frenchtown_Street_-_NARA_-_7718019.jpg", src:"Unknown authorUnknown author or not provided" },
-    "Frenchman's Bay / Morningstar": { img:"images/hoods/charlotte-amalie--frenchman-s-bay-morningstar.webp", page:"https://commons.wikimedia.org/wiki/File:Beachfront_Park_in_Pickering,_June_6_2026.jpg", src:"Dillan Payne" },
-    "Lindbergh Bay": { img:"images/hoods/charlotte-amalie--lindbergh-bay.webp", page:"https://www.flickr.com/photos/24470821@N04/53764015129/", src:"Andrew Milligan sumo" }
+    "Frenchman's Bay / Morningstar": { img:"images/hoods/charlotte-amalie--frenchman-s-bay-morningstar.webp", page:"https://commons.wikimedia.org/wiki/File:Beachfront_Park_in_Pickering,_June_6_2026.jpg", src:"Dillan Payne" }
   },
   "Charlottetown": {
     "Downtown / Peake's Wharf": { img:"images/hoods/charlottetown--downtown-peake-s-wharf.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_House_(3087741432).jpg", src:"Martin Cathrae from Charlottetown, PE, Canada" },
-    "Brighton": { img:"images/hoods/charlottetown--brighton.webp", page:"https://commons.wikimedia.org/wiki/File:Brighton_Beach_Back_Range_Lighthouse_(21668046293).jpg", src:"Dennis G. Jarvis" },
-    "Sherwood": { img:"images/hoods/charlottetown--sherwood.webp", page:"https://commons.wikimedia.org/wiki/File:Prince_Edward_Island_034_(7893585948).jpg", src:"Stefan Krasowski from New York, NY, USA" },
-    "West Royalty (Capital Drive)": { img:"images/hoods/charlottetown--west-royalty-capital-drive.webp", page:"https://commons.wikimedia.org/wiki/File:Virginia_Woolf_Building.jpg", src:"APK" }
+    "Brighton": { img:"images/hoods/charlottetown--brighton.webp", page:"https://commons.wikimedia.org/wiki/File:Brighton_Beach_Back_Range_Lighthouse_(21668046293).jpg", src:"Dennis G. Jarvis" }
   },
   "Chefchaouen": {
     "Medina (Blue Old Town)": { img:"images/hoods/chefchaouen--medina-blue-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Grande_Mosqu%C3%A9e_de_Chefchaouen_2.jpg", src:"ZAINEB HACHAMI" },
-    "Uta el-Hammam Square": { img:"images/hoods/chefchaouen--uta-el-hammam-square.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_Uta_Hamam_03.jpg", src:"Fraguando" },
     "Ras el-Ma": { img:"images/hoods/chefchaouen--ras-el-ma.webp", page:"https://commons.wikimedia.org/wiki/File:Ras_El_Maa.jpg", src:"Badrbina1" }
   },
   "Chengde": {
@@ -1669,8 +1659,7 @@ window.NRA_HOOD_PHOTO = {
     "Jinjiang / Chunxi Road": { img:"images/hoods/chengdu--jinjiang-chunxi-road.webp", page:"https://commons.wikimedia.org/wiki/File:Jinjiang,_Chengdu,_Sichuan,_China_-_panoramio_(2).jpg", src:"liuzusai刘祖赛" },
     "Qingyang / Kuanzhai Alley": { img:"images/hoods/chengdu--qingyang-kuanzhai-alley.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%88%98%E5%AD%98%E5%8E%9A%E5%85%AC%E9%A6%86_01.jpg", src:"Kcx36" },
     "Wuhou / Jinli": { img:"images/hoods/chengdu--wuhou-jinli.webp", page:"https://commons.wikimedia.org/wiki/File:Wuhou,_Chengdu,_Sichuan,_China_-_panoramio_(1).jpg", src:"liuzusai刘祖赛" },
-    "Gaoxin / Tianfu New Area": { img:"images/hoods/chengdu--gaoxin-tianfu-new-area.webp", page:"https://commons.wikimedia.org/wiki/File:Guide_Column_of_Exit_A_and_Train,_Gaoxin_Boulevard_Station,_Optics_Valley_Suspended_Monorail_20250814.jpg", src:"Jasonjiang.1998" },
-    "Jinniu / North Station": { img:"images/hoods/chengdu--jinniu-north-station.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%87%91%E7%89%9B%E5%85%AC%E5%9B%AD%E7%AB%99%E7%AB%99%E5%8E%85_2024-12-19_02.jpg", src:"Kcx36" }
+    "Gaoxin / Tianfu New Area": { img:"images/hoods/chengdu--gaoxin-tianfu-new-area.webp", page:"https://commons.wikimedia.org/wiki/File:Guide_Column_of_Exit_A_and_Train,_Gaoxin_Boulevard_Station,_Optics_Valley_Suspended_Monorail_20250814.jpg", src:"Jasonjiang.1998" }
   },
   "Chennai": {
     "Triplicane / Marina": { img:"images/hoods/chennai--triplicane-marina.webp", page:"https://commons.wikimedia.org/wiki/File:PARTHASARATHY_TEMPLE_-_panoramio_(1).jpg", src:"RAJUKHAN SR RAJESH" },
@@ -1711,7 +1700,6 @@ window.NRA_HOOD_PHOTO = {
     "Jiefangbei (Yuzhong)": { img:"images/hoods/chongqing--jiefangbei-yuzhong.webp", page:"https://commons.wikimedia.org/wiki/File:31338-Chongqing_(44877445515).jpg", src:"xiquinhosilva" },
     "Guanyinqiao (Jiangbei)": { img:"images/hoods/chongqing--guanyinqiao-jiangbei.webp", page:"https://commons.wikimedia.org/wiki/File:Beicang_Culture_Park.jpg", src:"HoweyYuan" },
     "Nanshan (Nan'an)": { img:"images/hoods/chongqing--nanshan-nan-an.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8D%97%E5%B1%B1%E6%A4%8D%E7%89%A9%E5%9B%AD-%E6%B8%A9%E5%AE%A4-%E6%A3%8D%E6%A3%92%E6%A4%B0%E5%AD%90_-_panoramio.jpg", src:"Nyx Ning" },
-    "Shapingba": { img:"images/hoods/chongqing--shapingba.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%9C%A8%E8%A5%BF%E5%8C%97%E8%BE%B9%E4%BE%A7%E5%90%91%E7%9C%8B%E6%B2%99%E5%9D%AA%E5%9D%9D%E7%AB%99.jpg", src:"Liuxingy" },
     "Ciqikou Ancient Town": { img:"images/hoods/chongqing--ciqikou-ancient-town.webp", page:"https://commons.wikimedia.org/wiki/File:028_Sichuan-160811_28_(29868006911).jpg", src:"Franco Pecchio from Milano, Italy" }
   },
   "Christchurch": {
@@ -1723,8 +1711,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Cienfuegos": {
     "Pueblo Nuevo": { img:"images/hoods/cienfuegos--pueblo-nuevo.webp", page:"https://commons.wikimedia.org/wiki/File:Reparto_Pueblo_Nuevo,_Cienfuegos,_Cuba_-_panoramio.jpg", src:"Keith Ruffles" },
-    "Punta Gorda": { img:"images/hoods/cienfuegos--punta-gorda.webp", page:"https://commons.wikimedia.org/wiki/File:Marca_de_la_Memoria_-_Casa_de_Punta_Gorda.jpg", src:"Adrian Manera" },
-    "Reina": { img:"images/hoods/cienfuegos--reina.webp", page:"https://commons.wikimedia.org/wiki/File:Cementiri_Reina_Cienfuegos_1.JPG", src:"Mmoyaq" }
+    "Punta Gorda": { img:"images/hoods/cienfuegos--punta-gorda.webp", page:"https://commons.wikimedia.org/wiki/File:Marca_de_la_Memoria_-_Casa_de_Punta_Gorda.jpg", src:"Adrian Manera" }
   },
   "Cinque Terre": {
     "Monterosso al Mare": { img:"images/hoods/cinque-terre--monterosso-al-mare.webp", page:"https://commons.wikimedia.org/wiki/File:Tour_Cimeti%C3%A8re_Monterosso_-_Monterosso_al_Mare_(IT42)_-_2022-08-29_-_1.jpg", src:"Chabe01" },
@@ -1736,9 +1723,7 @@ window.NRA_HOOD_PHOTO = {
   "Cluj-Napoca": {
     "Centru (Piata Unirii)": { img:"images/hoods/cluj-napoca--centru-piata-unirii.webp", page:"https://commons.wikimedia.org/wiki/File:A_yard_at_A._Pushkin_st._52,_looking_SW_-_panoramio.jpg", src:"Alexander Murvanidze" },
     "Grigorescu": { img:"images/hoods/cluj-napoca--grigorescu.webp", page:"https://commons.wikimedia.org/wiki/File:Cluj-Grigorescu-Donath-196x.jpg", src:"Union of Romanian Architects - Uniunea Arhitecților din România" },
-    "Marasti": { img:"images/hoods/cluj-napoca--marasti.webp", page:"https://commons.wikimedia.org/wiki/File:1998-03_str.Fabricii_-_panoramio.jpg", src:"tonimese" },
-    "Gheorgheni": { img:"images/hoods/cluj-napoca--gheorgheni.webp", page:"https://commons.wikimedia.org/wiki/File:Karancsi_alairas_black.png", src:"SankoGyatsa" },
-    "Manastur": { img:"images/hoods/cluj-napoca--manastur.webp", page:"https://commons.wikimedia.org/wiki/File:Manastirea_iezuita_Cluj.jpg", src:"Leontin l" }
+    "Marasti": { img:"images/hoods/cluj-napoca--marasti.webp", page:"https://commons.wikimedia.org/wiki/File:1998-03_str.Fabricii_-_panoramio.jpg", src:"tonimese" }
   },
   "Cochin": {
     "Fort Kochi": { img:"images/hoods/cochin--fort-kochi.webp", page:"https://commons.wikimedia.org/wiki/File:Fort_Emmanuel_Kochi.jpg", src:"Ingo Mehling" },
@@ -1748,7 +1733,6 @@ window.NRA_HOOD_PHOTO = {
     "Willingdon Island": { img:"images/hoods/cochin--willingdon-island.webp", page:"https://commons.wikimedia.org/wiki/File:Aspinwall-Willington-Island-Cochin.jpg", src:"Vaikoovery" }
   },
   "Cockburn Town": {
-    "North Ridge": { img:"images/hoods/cockburn-town--north-ridge.webp", page:"https://commons.wikimedia.org/wiki/File:North_Ridge,_Korle-Klottey_(P1090865).jpg", src:"Matti Blume" }
   },
   "Coimbra": {
     "Alta (University Hill)": { img:"images/hoods/coimbra--alta-university-hill.webp", page:"https://commons.wikimedia.org/wiki/File:S%C3%A9_Nova_de_Coimbra_ocupa_apenas_uma_parte_de_um_edif%C3%ADcio_maior,_denominado_Col%C3%A9gio_de_Jesus.jpg", src:"Threeohsix" },
@@ -1820,14 +1804,11 @@ window.NRA_HOOD_PHOTO = {
   "Cotonou": {
     "Haie Vive": { img:"images/hoods/cotonou--haie-vive.webp", page:"https://commons.wikimedia.org/wiki/File:Arbusto_junto_con_pasto_seco,_en_un_ambiente_urbano..jpg", src:"Gonzaplays45" },
     "Fidjrossè": { img:"images/hoods/cotonou--fidjrosse.webp", page:"https://commons.wikimedia.org/wiki/File:Place_du_Calvaire_de_Fidjross%C3%A8_%C3%A0_Cotonou.jpg", src:"Rachad sanoussi" },
-    "Cadjehoun": { img:"images/hoods/cotonou--cadjehoun.webp", page:"https://commons.wikimedia.org/wiki/File:Kwabo_(statue)_2.jpg", src:"Saliousoft" },
     "Akpakpa": { img:"images/hoods/cotonou--akpakpa.webp", page:"https://commons.wikimedia.org/wiki/File:Circulation_%C3%A0_Akpakpa.jpg", src:"Rachad sanoussi" }
   },
   "Cox's Bazar": {
     "Kolatoli": { img:"images/hoods/cox-s-bazar--kolatoli.webp", page:"https://commons.wikimedia.org/wiki/File:Cox%27s_bazar_sea_beach_sunset.jpg", src:"Sabu Hossain limon" },
-    "Sugandha Point": { img:"images/hoods/cox-s-bazar--sugandha-point.webp", page:"https://commons.wikimedia.org/wiki/File:Kanyakumari_Sun_rise_spot.jpg", src:"Sugandha Mahajan" },
-    "Inani": { img:"images/hoods/cox-s-bazar--inani.webp", page:"https://commons.wikimedia.org/wiki/File:Capped_Langur_in_Inani,_Cox%27s_Bazar.jpg", src:"Syedabbas321" },
-    "Himchari": { img:"images/hoods/cox-s-bazar--himchari.webp", page:"https://commons.wikimedia.org/wiki/File:Himchari,_Cox%27s_Bazar_(2Q7A1958).jpg", src:"Moheen Reeyad" }
+    "Sugandha Point": { img:"images/hoods/cox-s-bazar--sugandha-point.webp", page:"https://commons.wikimedia.org/wiki/File:Kanyakumari_Sun_rise_spot.jpg", src:"Sugandha Mahajan" }
   },
   "Cuenca": {
     "El Centro Histórico": { img:"images/hoods/cuenca--el-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:(Museo_Casa_del_Alabado)_interior,_pic_bb7.JPG", src:"David Adam Kess" },
@@ -1844,19 +1825,16 @@ window.NRA_HOOD_PHOTO = {
     "Centro Histórico": { img:"images/hoods/cusco--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Festividad_de_comadres_cusco,_Centro_Historico_de_Cusco_01.jpg", src:"Ordzonhyd Rudyard Tarco Palomino" },
     "San Blas": { img:"images/hoods/cusco--san-blas.webp", page:"https://commons.wikimedia.org/wiki/File:Cuesta_de_San_Blas.jpg", src:"Arabsalam" },
     "San Pedro": { img:"images/hoods/cusco--san-pedro.webp", page:"https://commons.wikimedia.org/wiki/File:Pre%C4%9Dejo_de_San_Pedro_(Kusko)_02.jpg", src:"RG72" },
-    "Santa Ana": { img:"images/hoods/cusco--santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:First_Baptist_Church_of_Santa_Ana,_at_1011_Seventeenth_Street.png", src:"Oona Wikiwalker" },
-    "Wanchaq": { img:"images/hoods/cusco--wanchaq.webp", page:"https://commons.wikimedia.org/wiki/File:Av_la_cultura_wanchaq.jpg", src:"Isaiasgj002" }
+    "Santa Ana": { img:"images/hoods/cusco--santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:First_Baptist_Church_of_Santa_Ana,_at_1011_Seventeenth_Street.png", src:"Oona Wikiwalker" }
   },
   "Da Lat": {
     "City Centre (Hoa Binh Square & Xuan Huong Lake)": { img:"images/hoods/da-lat--city-centre-hoa-binh-square-xuan-huong-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_Imperial_(85945).jpg", src:"KanaArima" },
     "Tran Phu (French Colonial Quarter)": { img:"images/hoods/da-lat--tran-phu-french-colonial-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Ph%C6%B0%E1%BB%9Dng_10,_Dalat,_L%C3%A2m_%C4%90%E1%BB%93ng,_Vietnam_-_panoramio.jpg", src:"VCTBR" },
-    "Tuyen Lam Lake": { img:"images/hoods/da-lat--tuyen-lam-lake.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B4_Tuy%C3%AAn_L%C3%A2m_chup_bu%C3%B4i_t%C3%B4i_-_panoramio.jpg", src:"Lam Tr Th" },
     "Phan Dinh Phung (Ward 2)": { img:"images/hoods/da-lat--phan-dinh-phung-ward-2.webp", page:"https://commons.wikimedia.org/wiki/File:T%C6%B0%E1%BB%A3ng_Phan_%C4%90%C3%ACnh_Ph%C3%B9ng.jpg", src:"Thuydaonguyen" }
   },
   "Da Nang": {
     "Hải Châu": { img:"images/hoods/da-nang--hai-chau.webp", page:"https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_Ph%C6%B0%E1%BB%9Bc_Ninh.jpg", src:"Christophe95" },
     "An Thượng (Mỹ An)": { img:"images/hoods/da-nang--an-thuong-my-an.webp", page:"https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_B%E1%BB%ADu_Th%E1%BA%AFng,_Th5n2022_(70).jpg", src:"Phương Huy" },
-    "Sơn Trà": { img:"images/hoods/da-nang--son-tra.webp", page:"https://commons.wikimedia.org/wiki/File:B%C3%A1n_%C4%91%E1%BA%A3o_S%C6%A1n_Tr%C3%A0_th10n2023_(c%C3%A2y_c%E1%BB%91i)_(2).jpg", src:"Phương Huy" },
     "Ngũ Hành Sơn": { img:"images/hoods/da-nang--ngu-hanh-son.webp", page:"https://commons.wikimedia.org/wiki/File:Th%C3%A1nh_th%E1%BA%A5t_Trung_S%C6%A1n.jpg", src:"Christophe95" },
     "Thanh Khê": { img:"images/hoods/da-nang--thanh-khe.webp", page:"https://commons.wikimedia.org/wiki/File:Burning_offerings_Tat_Nien_Tet_2011.jpg", src:"Dragfyre" }
   },
