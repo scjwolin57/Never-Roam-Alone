@@ -426,6 +426,11 @@
   .tcard-static .car-info{margin-bottom:12px}
   .tcard-static .dtcard-tours{margin-top:auto}
   .car-far{margin:6px 0 0;font-size:.72rem;line-height:1.35;color:var(--muted)}
+  .car-permit{display:flex;flex-direction:column;gap:6px}
+  .car-lic{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--muted);min-width:0}
+  .car-lic span{white-space:nowrap}
+  .car-lic-sel{flex:1 1 auto;min-width:0;max-width:100%;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:5px 7px;font-family:inherit;font-size:.8rem;color:var(--ink);background:#fff}
+  .car-permit-src{margin:0;font-size:.72rem;line-height:1.35;color:var(--muted)}
   .tcard-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
   .tcard-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700;margin-bottom:10px}
   .tcard-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -1437,6 +1442,8 @@ window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"
      "Travel eSIMs" modal behind the Connectivity banner's Buy an eSIM button. -->
 <script src="esim-providers.js"></script>
 <script src="rental-notes.js"></script>
+<script src="country-fold.js"></script>
+<script src="driving-permits.js"></script>
 <!-- Travel advisories by country from the three governments the site tracks
      (US, UK, Canada; decisions.md 2026-09-22). Country level; a city whose region
      is rated differently carries its own override in citydata. ~118 KB. -->
@@ -1812,8 +1819,8 @@ let CITY_TRANSIT = {};
 /* Icon for the drinks card (takeaway coffee cup) */
 const DRINK_ICON = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h11l-1 11a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L6 9z"/><path d="M5 9h13"/><path d="M8 9l1-4h6l1 4"/></svg>`;
 
-/* Transportation per city. car.idp = Int'l Driving Permit guidance for visitors;
-   car.rental = mid-size car, 1 day, USD. car.side = which side they drive on. */
+/* Transportation per city. car.rental = mid-size car, 1 day, USD. car.side = which side they drive on.
+   The Int'l permit row comes from driving-permits.js by the reader's licence (car.idp retired 2026-10-08). */
 let CITY_TRANSPORT = {};
 
 const TRANSPORT_ICONS = {
@@ -3247,6 +3254,63 @@ function buildAdvisoryBanner(c, cityAdv){
   }
   function bookLinksHTML(){ return carHireHTML() + driverHTML(); }
 
+  /* ---------- International driving permit, by the licence the reader holds (decisions.md 2026-10-08) ----------
+     driving-permits.js: researched values for US, UK, Canadian and Australian licences (each government's own advice),
+     plus each licence country's road-traffic convention membership. Any other licence gets a worked-out answer,
+     always labelled as such. The licence defaults to the reader's first saved passport; the dropdown overrides it. */
+  const PERMIT_SRC = { us: "US State Department", uk: "UK FCDO", ca: "Government of Canada", au: "Smartraveller (Australia)" };
+  const PERMIT_KEY = { "United States": "us", "United Kingdom": "uk", "Canada": "ca", "Australia": "au" };
+  const PERMIT_STRICT = ["Not accepted", "Local permit", "Required", "Recommended", "Not required"];
+  function permitDest(){ return c.country === "China (SAR)" ? c.city : c.country; }
+  function permitLicence(){
+    try { const v = localStorage.getItem("nra_licence_country"); if (v) return v; } catch(e){}
+    const P = (typeof NRA_PERMITS !== "undefined") ? NRA_PERMITS.lic : {};
+    const p = myPassports().find(x => P[x]);
+    return p || "";
+  }
+  function permitFor(lic){
+    const D = NRA_PERMITS.dest[permitDest()] || {};
+    const fold = n => (window.NRA_foldCountry ? NRA_foldCountry(n) : n);
+    const k = PERMIT_KEY[lic];
+    if (k && D[k] && D[k][0]) return { v: D[k][0], kind: "src", key: k };
+    if (fold(permitDest()) === lic || permitDest() === lic) return { v: "Not required", kind: "home" };
+    const L = NRA_PERMITS.lic[lic] || [false, false], here = NRA_PERMITS.lic[fold(permitDest())] || NRA_PERMITS.lic[permitDest()];
+    const inGroup = g => NRA_PERMITS[g].includes(lic) && NRA_PERMITS[g].includes(fold(permitDest()));
+    if (inGroup("eu") || inGroup("gcc")) return { v: "Not required", kind: "region", group: inGroup("eu") ? "EU/EEA" : "Gulf (GCC)" };
+    const vals = ["us", "uk", "ca", "au"].map(s => D[s] && D[s][0]).filter(Boolean);
+    let v = "Recommended", kind = "default";
+    if (vals.length){
+      const n = {}; vals.forEach(x => n[x] = (n[x] || 0) + 1);
+      v = Object.keys(n).sort((a, b) => n[b] - n[a] || PERMIT_STRICT.indexOf(a) - PERMIT_STRICT.indexOf(b))[0];
+      kind = "worked";
+    }
+    let conv = null;
+    if (v === "Required" || v === "Recommended"){
+      const shared = here ? [here[0] && L[0] ? "1949" : null, here[1] && L[1] ? "1968" : null].filter(Boolean) : [];
+      conv = shared.length ? shared : [];
+    }
+    return { v, kind, conv };
+  }
+  function permitBlockHTML(){
+    if (typeof NRA_PERMITS === "undefined") return "";
+    const lic = permitLicence();
+    const opts = Object.keys(NRA_PERMITS.lic).sort((a, b) => a.localeCompare(b));
+    const sel = `<label class="car-lic"><span>Licence from</span><select class="car-lic-sel" aria-label="Country your driving licence is from">
+        <option value=""${lic ? "" : " selected"}>Choose…</option>${opts.map(o => `<option${o === lic ? " selected" : ""}>${o}</option>`).join("")}</select></label>`;
+    if (!lic) return `<div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">Depends on your licence</span></div>${sel}`;
+    const r = permitFor(lic), D = NRA_PERMITS.dest[permitDest()] || {};
+    let src = "";
+    if (r.kind === "src"){ const s = D[r.key]; src = `<a class="inline" href="${s[1] && s[1].startsWith("http") ? s[1] : "#"}" target="_blank" rel="noopener">${PERMIT_SRC[r.key]}</a>${s[2] ? `, ${s[2]}` : ""}`; }
+    else if (r.kind === "home") src = `Your licence's own country.`;
+    else if (r.kind === "region") src = `${r.group} licences are valid across member countries.`;
+    else {
+      const base = r.kind === "worked" ? (PERMIT_KEY[lic] ? `The ${PERMIT_SRC[PERMIT_KEY[lic]]} does not say; worked out from other governments' advice.` : `Worked out from four governments' advice, not researched for ${lic} licences.`) : `No official advice found; carrying a permit is the safe choice.`;
+      const cv = r.conv == null ? "" : r.conv.length ? ` Your country's permit is recognised here under the ${r.conv.join(" and ")} road-traffic convention.` : ` ${lic} and ${permitDest()} share no road-traffic convention, so your permit may not be recognised; check with the embassy.`;
+      src = base + cv;
+    }
+    return `<div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${r.v}</span></div>${sel}<p class="car-permit-src">${src}</p>`;
+  }
+
   /* "Before you rent" note for this country (rental-notes.js; CITY_SCHEMA.md "rental notes"), or null */
   function rentNote(){
     const n = (typeof NRA_RENT_NOTES !== "undefined") && NRA_RENT_NOTES[c.country];
@@ -3293,8 +3357,8 @@ function buildAdvisoryBanner(c, cityAdv){
           <div class="tcard-k">Car rental</div>
           <div class="car-info">
             <div class="car-row"><span class="car-k">Drives on</span><span class="car-v">${side} side</span></div>
-            <div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${t.car.idp}</span></div>
             <div class="car-row"><span class="car-k">Mid-size &middot; day avg</span><span class="car-v">${fmtPrice(t.car.rental, code)}</span></div>
+            ${typeof NRA_PERMITS !== "undefined" ? `<div class="car-permit">${permitBlockHTML()}</div>` : ""}
           </div>
           ${note ? `<span class="tcard-more">More info &rarr;</span>` : bookLinksHTML()}
         </div>`;
@@ -5297,8 +5361,15 @@ function buildAdvisoryBanner(c, cityAdv){
       const info = card && card.dataset.info;
       if (info === "Major train stations" || info === "Major bus stations" || info === "Ferry / boat ports") loadRoutesData().catch(() => {});
     });
+    /* "Licence from" dropdown on the Car rental card: remembered in this browser, re-renders only its own block */
+    transportEl.addEventListener("change", e => {
+      if (!e.target.classList.contains("car-lic-sel")) return;
+      try { e.target.value ? localStorage.setItem("nra_licence_country", e.target.value) : localStorage.removeItem("nra_licence_country"); } catch(err){}
+      const box = e.target.closest(".car-permit");
+      if (box){ box.innerHTML = permitBlockHTML(); const s = box.querySelector(".car-lic-sel"); if (s) s.focus(); }
+    });
     transportEl.addEventListener("click", e => {
-      if (e.target.closest("a")) return;   // the car rental link opens DiscoverCars, not the card's popup
+      if (e.target.closest("a, select, label")) return;   // links and the licence dropdown never open the card's popup
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) openModal(card.dataset.info);
     });
