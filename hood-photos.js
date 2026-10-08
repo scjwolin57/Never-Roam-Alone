@@ -792,8 +792,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Vaduz": {
     "Vaduz Städtle (City Center)": { img:"images/hoods/vaduz--vaduz-stadtle-city-center.webp", page:"https://www.pexels.com/photo/vaduz-castle-in-liechtenstein-on-clear-day-37021731/", src:"Pexels" },
-    "Schaan": { img:"images/hoods/vaduz--schaan.webp", page:"https://commons.wikimedia.org/wiki/File:Schaan%2C_die_Pfarrkirche_Sankt_Laurentius_in_straatzicht_foto7_2014-07-21_10.12.jpg" },
-    "Triesen": { img:"images/hoods/vaduz--triesen.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Triesen.jpg" }
+    "Schaan": { img:"images/hoods/vaduz--schaan.webp", page:"https://commons.wikimedia.org/wiki/File:Schaan%2C_die_Pfarrkirche_Sankt_Laurentius_in_straatzicht_foto7_2014-07-21_10.12.jpg" }
   },
   "Valencia": {
     "Ciutat Vella": { img:"images/hoods/valencia--ciutat-vella.webp", page:"https://commons.wikimedia.org/wiki/File:L04_227_Valencia,_Plaza_de_la_Reina.jpg", src:"Falk2" },
@@ -812,8 +811,7 @@ window.NRA_HOOD_PHOTO = {
     "Gastown": { img:"images/hoods/vancouver--gastown.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_2018-20180422-2108_(42138196834).jpg" },
     "West End": { img:"images/hoods/vancouver--west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_west_end.jpg" },
     "Kitsilano": { img:"images/hoods/vancouver--kitsilano.webp", page:"https://commons.wikimedia.org/wiki/File:Vine_Street_in_Kitsilano.JPG" },
-    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" },
-    "Mount Pleasant": { img:"images/hoods/vancouver--mount-pleasant.webp", page:"https://commons.wikimedia.org/wiki/File:2414_Main_Street_Vancouver.JPG", src:"Canadian2006" }
+    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" }
   },
   "Venice": {
     "San Marco": { img:"images/hoods/venice--san-marco.webp", page:"https://commons.wikimedia.org/wiki/File:Venezia_Basilica_di_San_Marco_Fassade_2.jpg" },
@@ -839,7 +837,6 @@ window.NRA_HOOD_PHOTO = {
   "Vilnius": {
     "Naujamiestis": { img:"images/hoods/vilnius--naujamiestis.webp", page:"https://commons.wikimedia.org/wiki/File:Residential_buildings_in_Naujamiestis%2C_Vilnius.jpg" },
     "Uzupis": { img:"images/hoods/vilnius--uzupis.webp", page:"https://commons.wikimedia.org/wiki/File:Uzupis_2020_by_Augustas_Didzgalvis.jpg" },
-    "Antakalnis": { img:"images/hoods/vilnius--antakalnis.webp", page:"https://commons.wikimedia.org/wiki/File:Antakalnis_by_Augustas_Didzgalvis.jpg" },
     "Senamiestis (Old Town)": { img:"images/hoods/vilnius--senamiestis-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Vilnius_old_town_by_Augustas_Didzgalvis.jpg" },
     "Zverynas": { img:"images/hoods/vilnius--zverynas.webp", page:"https://commons.wikimedia.org/wiki/File:Zverynas_by_Augustas_Didzgalvis.jpg" }
   },
@@ -864,9 +861,7 @@ window.NRA_HOOD_PHOTO = {
   "Zhuhai": {
     "Hengqin": { img:"images/hoods/zhuhai--hengqin.webp", page:"https://commons.wikimedia.org/wiki/File:The_Financial_Island_(Shizimen_CBD)_of_Hengqin_New_Area.jpg" },
     "Gongbei": { img:"images/hoods/zhuhai--gongbei.webp", page:"https://commons.wikimedia.org/wiki/File:20241207_Aerial_view_of_Gongbei%2C_Zhuhai.jpg" },
-    "Xiangzhou": { img:"images/hoods/zhuhai--xiangzhou.webp", page:"https://commons.wikimedia.org/wiki/File:Zhuhai-Xiangzhou_freight_harbour.jpg" },
-    "Jida": { img:"images/hoods/zhuhai--jida.webp", page:"https://commons.wikimedia.org/wiki/File:Jida%2C_Zhuhai%2C_rainy_day.jpg" },
-    "Tangjiawan": { img:"images/hoods/zhuhai--tangjiawan.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%94%90%E5%AE%B6%E6%B9%BE%E9%95%87_-_%E5%B1%B1%E6%88%BF%E8%B7%AF_-_2026-05-10.jpg", src:"瑞丽江的河水" }
+    "Jida": { img:"images/hoods/zhuhai--jida.webp", page:"https://commons.wikimedia.org/wiki/File:Jida%2C_Zhuhai%2C_rainy_day.jpg" }
   },
   "Zurich": {
     "Niederdorf": { img:"images/hoods/zurich--niederdorf.webp", page:"https://pixabay.com/photos/zurich-historic-center-historical-4976000/", src:"Pixabay" },
@@ -4631,8 +4626,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Trincomalee": {
     "Uppuveli": { img:"images/hoods/trincomalee--uppuveli.webp", page:"https://commons.wikimedia.org/wiki/File:Puffer_fish_at_Nilaveli,_Sri_lanka.jpg", src:"Satheesha J." },
-    "Nilaveli": { img:"images/hoods/trincomalee--nilaveli.webp", page:"https://commons.wikimedia.org/wiki/File:Bade_Tag_-_panoramio.jpg", src:"aachim3" },
-    "Dutch Bay": { img:"images/hoods/trincomalee--dutch-bay.webp", page:"https://commons.wikimedia.org/wiki/File:De_pers_wordt_met_roeiboten_vanaf_H.M._kruiser_De_Ruyter_in_Saba_aan_land_gebrac,_Bestanddeelnr_252-3966.jpg", src:"Willem van de Poll" }
+    "Nilaveli": { img:"images/hoods/trincomalee--nilaveli.webp", page:"https://commons.wikimedia.org/wiki/File:Bade_Tag_-_panoramio.jpg", src:"aachim3" }
   },
   "Trinidad": {
     "Plaza Mayor": { img:"images/hoods/trinidad--plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Perspectiva_basada_en_la_verja_de_Plaza_Mayor_-_panoramio.jpg", src:"DnTrotaMundos ☮" },
@@ -4643,8 +4637,7 @@ window.NRA_HOOD_PHOTO = {
   "Tripoli": {
     "Medina (Old City)": { img:"images/hoods/tripoli--medina-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Karamanli_Mosque_-_Old_Market,_Tripoli,_Libya_-_panoramio.jpg", src:"Cüneyt Türksen" },
     "Martyrs' Square / Downtown Waterfront": { img:"images/hoods/tripoli--martyrs-square-downtown-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:The_Green_Square_at_Tripoli,_Libya_-_panoramio.jpg", src:"Cüneyt Türksen" },
-    "Hay Andalus": { img:"images/hoods/tripoli--hay-andalus.webp", page:"https://commons.wikimedia.org/wiki/File:C%C3%A1ntaro_de_Moveros.jpg", src:"Nemo" },
-    "Janzour": { img:"images/hoods/tripoli--janzour.webp", page:"https://commons.wikimedia.org/wiki/File:%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D8%AC%D9%86%D8%B2%D9%88%D8%B1.jpg", src:"الشيخ هيثم الدخين" }
+    "Hay Andalus": { img:"images/hoods/tripoli--hay-andalus.webp", page:"https://commons.wikimedia.org/wiki/File:C%C3%A1ntaro_de_Moveros.jpg", src:"Nemo" }
   },
   "Tromso": {
     "Tromsdalen": { img:"images/hoods/tromso--tromsdalen.webp", page:"https://commons.wikimedia.org/wiki/File:Tromsdalen_(7801606058).jpg", src:"Mark Ledingham" },
@@ -4675,13 +4668,10 @@ window.NRA_HOOD_PHOTO = {
     "Kupittaa": { img:"images/hoods/turku--kupittaa.webp", page:"https://commons.wikimedia.org/wiki/File:Kupittaa_bus_station_20231225_04.jpg", src:"AleWi" }
   },
   "Turpan": {
-    "Old City Centre (Gaochang District)": { img:"images/hoods/turpan--old-city-centre-gaochang-district.webp", page:"https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7%C9%99ri%C5%9F%C9%99h%C9%99r_Muzey_M%C9%99rk%C9%99zi.jpg", src:"Toghrul Rahimli" },
-    "Grape Valley (Putaogou)": { img:"images/hoods/turpan--grape-valley-putaogou.webp", page:"https://commons.wikimedia.org/wiki/File:Turpan_Grape_in_July_2026.jpg", src:"User:CatOnMars" }
+    "Old City Centre (Gaochang District)": { img:"images/hoods/turpan--old-city-centre-gaochang-district.webp", page:"https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7%C9%99ri%C5%9F%C9%99h%C9%99r_Muzey_M%C9%99rk%C9%99zi.jpg", src:"Toghrul Rahimli" }
   },
   "Udaipur": {
     "Lal Ghat": { img:"images/hoods/udaipur--lal-ghat.webp", page:"https://commons.wikimedia.org/wiki/File:Udaipur,_Lal_ghat_(9710319787).jpg", src:"Arian Zwegers from Brussels, Belgium" },
-    "Hanuman Ghat": { img:"images/hoods/udaipur--hanuman-ghat.webp", page:"https://commons.wikimedia.org/wiki/File:Madhav_Narayan_idol.jpg", src:"Gaurav Dhwaj Khadka" },
-    "Gangaur Ghat / Jagdish Chowk": { img:"images/hoods/udaipur--gangaur-ghat-jagdish-chowk.webp", page:"https://commons.wikimedia.org/wiki/File:Udaipur_Gangaur_Ghat_Birds_feeding.jpg", src:"Aditya010597" },
     "Fateh Sagar Lake": { img:"images/hoods/udaipur--fateh-sagar-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Fateh_Sagar_Lake,_Udaipur,_India_(54345526249).jpg", src:"Mustang Joe" },
     "Chetak Circle / Sukhadia": { img:"images/hoods/udaipur--chetak-circle-sukhadia.webp", page:"https://commons.wikimedia.org/wiki/File:Hanuman_(Ramleela),_folk_art,_Bharatiya_Lok_Kala_Museum,_Udaipur,_India.jpg", src:"Yann Forget" }
   },
@@ -4689,40 +4679,32 @@ window.NRA_HOOD_PHOTO = {
     "City Center (Sukhbaatar Square)": { img:"images/hoods/ulaanbaatar--city-center-sukhbaatar-square.webp", page:"https://commons.wikimedia.org/wiki/File:Lobby_entrance_in_City_center,_Ulaanbaatar.jpg", src:"Enkhgerele" },
     "Peace Avenue": { img:"images/hoods/ulaanbaatar--peace-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:Peace_Avenue_(2397992099).jpg", src:"Honza Soukup from Czech Republic" },
     "Gandan Quarter": { img:"images/hoods/ulaanbaatar--gandan-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Yurt_quarter_in_Ulaanbaatar.jpg", src:"Martin Vorel" },
-    "Khan-Uul District": { img:"images/hoods/ulaanbaatar--khan-uul-district.webp", page:"https://commons.wikimedia.org/wiki/File:Karabakh_Azerbaijan_Restaurant.jpg", src:"Chongkian" },
-    "Zaisan": { img:"images/hoods/ulaanbaatar--zaisan.webp", page:"https://commons.wikimedia.org/wiki/File:Sokat_v%C3%A1ltozott_a_vil%C3%A1g_60_%C3%A9v_alatt..._(The_world_changed_a_lot_in_the_last_60_years...)_-_panoramio.jpg", src:"Gyula Péter" }
+    "Khan-Uul District": { img:"images/hoods/ulaanbaatar--khan-uul-district.webp", page:"https://commons.wikimedia.org/wiki/File:Karabakh_Azerbaijan_Restaurant.jpg", src:"Chongkian" }
   },
   "Ulm": {
     "Altstadt": { img:"images/hoods/ulm--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Ulm_Hafenbad_Blick_Richtung_Kunsthalle_Weishaupt.jpg", src:"Schlaier" },
     "Fischerviertel": { img:"images/hoods/ulm--fischerviertel.webp", page:"https://commons.wikimedia.org/wiki/File:Fischergasse_-_Ulm_I.jpg", src:"Reutlingendorf" },
-    "Weststadt": { img:"images/hoods/ulm--weststadt.webp", page:"https://commons.wikimedia.org/wiki/File:BS_Weststadt_Buecherschrank.JPG", src:"TeWeBs" },
-    "Söflingen": { img:"images/hoods/ulm--soflingen.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B6hle_im_Gewann_Haldenberg.jpg", src:"ThoBel-0043" },
-    "Eselsberg": { img:"images/hoods/ulm--eselsberg.webp", page:"https://commons.wikimedia.org/wiki/File:Oberer_Eselsberg_-_Ulm.jpg", src:"Reutlingendorf" }
+    "Weststadt": { img:"images/hoods/ulm--weststadt.webp", page:"https://commons.wikimedia.org/wiki/File:BS_Weststadt_Buecherschrank.JPG", src:"TeWeBs" }
   },
   "Urganch": {
-    "Airport District": { img:"images/hoods/urganch--airport-district.webp", page:"https://commons.wikimedia.org/wiki/File:Tocumen_International_Airport_alt.jpg", src:"Wilfredor" },
-    "Shavat Canal Park": { img:"images/hoods/urganch--shavat-canal-park.webp", page:"https://commons.wikimedia.org/wiki/File:Bridge_through_Shavat_canal_in_%22Avesto%22_park.jpg", src:"Carpodacus" }
+    "Airport District": { img:"images/hoods/urganch--airport-district.webp", page:"https://commons.wikimedia.org/wiki/File:Tocumen_International_Airport_alt.jpg", src:"Wilfredor" }
   },
   "Ushuaia": {
-    "Port / Downtown (San Martin Ave)": { img:"images/hoods/ushuaia--port-downtown-san-martin-ave.webp", page:"https://commons.wikimedia.org/wiki/File:189_-_Ushuaia_-_A%C3%A9roport_-_Janvier_2010.jpg", src:"Martin St-Amant (S23678)" },
-    "Martial Glacier Area": { img:"images/hoods/ushuaia--martial-glacier-area.webp", page:"https://commons.wikimedia.org/wiki/File:Calm_sea,_Beagle_Channel,_Tierra_del_Fuego,_Argentina.jpg", src:"Dimitry B." }
+    "Port / Downtown (San Martin Ave)": { img:"images/hoods/ushuaia--port-downtown-san-martin-ave.webp", page:"https://commons.wikimedia.org/wiki/File:189_-_Ushuaia_-_A%C3%A9roport_-_Janvier_2010.jpg", src:"Martin St-Amant (S23678)" }
   },
   "Utrecht": {
     "Binnenstad (City Centre)": { img:"images/hoods/utrecht--binnenstad-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:A_historic_gate_A.D._1680_with_inscription,_Diaconie_(church_help_for_poor_people)_House_for_old_man_and_woman_-_panoramio.jpg", src:"Henk Monster" },
     "Lombok": { img:"images/hoods/utrecht--lombok.webp", page:"https://commons.wikimedia.org/wiki/File:Lombok-West,_Utrecht,_Netherlands_-_panoramio_(7).jpg", src:"Ben Bender" },
-    "Wilhelminapark": { img:"images/hoods/utrecht--wilhelminapark.webp", page:"https://commons.wikimedia.org/wiki/File:Utrecht_TeaHouse_Wilhelminapark_018_2431.jpg", src:"Ludvig14" },
-    "Leidsche Rijn": { img:"images/hoods/utrecht--leidsche-rijn.webp", page:"https://commons.wikimedia.org/wiki/File:Woontoren_Leidsche_Rijn.jpg", src:"Choinowski" }
+    "Wilhelminapark": { img:"images/hoods/utrecht--wilhelminapark.webp", page:"https://commons.wikimedia.org/wiki/File:Utrecht_TeaHouse_Wilhelminapark_018_2431.jpg", src:"Ludvig14" }
   },
   "Valparaíso": {
     "Cerro Alegre": { img:"images/hoods/valparaiso--cerro-alegre.webp", page:"https://commons.wikimedia.org/wiki/File:Caf%C3%A9_Cuentos.jpg", src:"M.Fernanda.Diaz" },
     "Cerro Concepción": { img:"images/hoods/valparaiso--cerro-concepcion.webp", page:"https://commons.wikimedia.org/wiki/File:Paseo_Atkinson_Cerro_Concepci%C3%B3n.jpg", src:"Sofía Leiva" },
-    "Cerro Bellavista": { img:"images/hoods/valparaiso--cerro-bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Arquitectura_porte%C3%B1a.jpg", src:"Rodrigo Gillibrand" },
-    "Cerro Playa Ancha": { img:"images/hoods/valparaiso--cerro-playa-ancha.webp", page:"https://commons.wikimedia.org/wiki/File:Borde_costero.jpg", src:"Nalda menay" }
+    "Cerro Bellavista": { img:"images/hoods/valparaiso--cerro-bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Arquitectura_porte%C3%B1a.jpg", src:"Rodrigo Gillibrand" }
   },
   "Varanasi": {
     "Assi Ghat": { img:"images/hoods/varanasi--assi-ghat.webp", page:"https://commons.wikimedia.org/wiki/File:ASSI_GHAT_TOP_VIEW_BANARAS.jpg", src:"RAGHAV SUDAN" },
     "Sigra": { img:"images/hoods/varanasi--sigra.webp", page:"https://commons.wikimedia.org/wiki/File:Varanasi_256a_-_IP_Mall_Sigra_(45872317822).jpg", src:"juggadery" },
-    "Sarnath": { img:"images/hoods/varanasi--sarnath.webp", page:"https://commons.wikimedia.org/wiki/File:Ashoka_Pillar_at_sarnath,_Thai_Buddha_Vihara_in_Sarnath,_Varanasi,_Uttar_Pradesh,_India.jpg", src:"K.Venkataramana" },
     "Cantonment (Cantt)": { img:"images/hoods/varanasi--cantonment-cantt.webp", page:"https://commons.wikimedia.org/wiki/File:Varanasi_20.jpg", src:"Adarsh SIngh" }
   },
   "Varna": {
@@ -4733,7 +4715,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Vatican City": {
     "St. Peter's Basilica": { img:"images/hoods/vatican-city--st-peter-s-basilica.webp", page:"https://commons.wikimedia.org/wiki/File:Charlemagne_Agostino_Cornacchini_Vatican_2.jpg", src:"Myrabella" },
-    "Vatican Museums": { img:"images/hoods/vatican-city--vatican-museums.webp", page:"https://commons.wikimedia.org/wiki/File:Ingresso_dei_Musei_Vaticani_-_panoramio.jpg", src:"Carlo Pelagalli" },
     "Borgo": { img:"images/hoods/vatican-city--borgo.webp", page:"https://commons.wikimedia.org/wiki/File:Houses_at_the_Passetto_di_Borgo_(Via_del_Mascherino_opposite_to_Piazza_Della_Citta_Leonina).jpg", src:"User:Mattes" }
   },
   "Velikiy Novgorod": {
@@ -4750,13 +4731,11 @@ window.NRA_HOOD_PHOTO = {
   },
   "Victoria Falls": {
     "Sprayview / Parkway": { img:"images/hoods/victoria-falls--sprayview-parkway.webp", page:"https://commons.wikimedia.org/wiki/File:Victoria_Falls_Airport_(1980)_-Sprayview_Aerodrome_-_FVSV_-_panoramio.jpg", src:"qwesy qwesy" },
-    "Zambezi National Park / Safari Lodge Estate": { img:"images/hoods/victoria-falls--zambezi-national-park-safari-lodge-estate.webp", page:"https://commons.wikimedia.org/wiki/File:Mosi_o_tunya,_Vic_falls.jpg", src:"Daphinelupiya" },
-    "Chinotimba / Aerodrome": { img:"images/hoods/victoria-falls--chinotimba-aerodrome.webp", page:"https://www.flickr.com/photos/74922557@N00/53105536501/", src:"sipes23" }
+    "Zambezi National Park / Safari Lodge Estate": { img:"images/hoods/victoria-falls--zambezi-national-park-safari-lodge-estate.webp", page:"https://commons.wikimedia.org/wiki/File:Mosi_o_tunya,_Vic_falls.jpg", src:"Daphinelupiya" }
   },
   "Victoria": {
     "Victoria Town Centre": { img:"images/hoods/victoria--victoria-town-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Sanity_Watergardens_Taylors_Lakes.jpg", src:"Mr Stan Zemanek" },
     "Beau Vallon": { img:"images/hoods/victoria--beau-vallon.webp", page:"https://commons.wikimedia.org/wiki/File:2006-06-23_13-33-09_Seychelles_Beau_Vallon_Beau_Vallon.jpg", src:"Hansueli Krapf This file was uploaded with Commonist." },
-    "Eden Island": { img:"images/hoods/victoria--eden-island.webp", page:"https://commons.wikimedia.org/wiki/File:Victoria_Eden_Island_asv2024-09_img1.jpg", src:"A.Savin" },
     "Bel Ombre / Glacis": { img:"images/hoods/victoria--bel-ombre-glacis.webp", page:"https://commons.wikimedia.org/wiki/File:Bel_Ombre_blue_pigeon_asv2024-10.jpg", src:"A.Savin" },
     "Anse Royale": { img:"images/hoods/victoria--anse-royale.webp", page:"https://commons.wikimedia.org/wiki/File:Anse_Royale_-_South_Coast_Road.jpg", src:"Njohn5188" }
   },
@@ -4780,7 +4759,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Visby": {
     "Norderstrand / Snäckgärdet": { img:"images/hoods/visby--norderstrand-snackgardet.webp", page:"https://commons.wikimedia.org/wiki/File:Utegym_Norderstrand_17_42_06_081000.jpeg", src:"VisbyStar" },
-    "Almedalen & Harbour": { img:"images/hoods/visby--almedalen-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Tre_Kronor_af_Stockholm.jpg", src:"Bene Riobó" },
     "Innerstaden (Old Town)": { img:"images/hoods/visby--innerstaden-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Skyview_%C3%B6ver_fina_innerstaden_i_Visby.jpg", src:"Nils Elias Henrik Petersson" }
   },
   "Vladivostok": {
@@ -4808,9 +4786,7 @@ window.NRA_HOOD_PHOTO = {
   "Whistler": {
     "Whistler Village": { img:"images/hoods/whistler--whistler-village.webp", page:"https://commons.wikimedia.org/wiki/File:Town_Plaza_(48762753641).jpg", src:"dvs from Vermont, USA" },
     "Upper Village (Blackcomb)": { img:"images/hoods/whistler--upper-village-blackcomb.webp", page:"https://commons.wikimedia.org/wiki/File:DSC08653_-_Horse-drawn_Boat_(37220943815).jpg", src:"Dennis G. Jarvis" },
-    "Creekside": { img:"images/hoods/whistler--creekside.webp", page:"https://commons.wikimedia.org/wiki/File:Barely_frozen_creek_under_Franz%27s_Chair_(31301945805).jpg", src:"Ruth Hartnup from Vancouver, Canada" },
-    "Function Junction": { img:"images/hoods/whistler--function-junction.webp", page:"https://commons.wikimedia.org/wiki/File:One_red_leaf_(37562795504).jpg", src:"Ruth Hartnup from Vancouver, Canada" },
-    "Alta Lake / Lakeside": { img:"images/hoods/whistler--alta-lake-lakeside.webp", page:"https://commons.wikimedia.org/wiki/File:Whistler_(45110682182).jpg", src:"dom fellowes from UK" }
+    "Creekside": { img:"images/hoods/whistler--creekside.webp", page:"https://commons.wikimedia.org/wiki/File:Barely_frozen_creek_under_Franz%27s_Chair_(31301945805).jpg", src:"Ruth Hartnup from Vancouver, Canada" }
   },
   "Willemstad": {
     "Punda": { img:"images/hoods/willemstad--punda.webp", page:"https://commons.wikimedia.org/wiki/File:Temple_Emanuel,_Willemstad,_Cura%C3%A7ao_-_February_2020.jpg", src:"Martin Falbisoner" },
@@ -4822,33 +4798,28 @@ window.NRA_HOOD_PHOTO = {
   "Windermere": {
     "Bowness-on-Windermere": { img:"images/hoods/windermere--bowness-on-windermere.webp", page:"https://commons.wikimedia.org/wiki/File:A_busy_beach_at_Bowness_-_geograph.org.uk_-_3496104.jpg", src:"Humphrey Bolton" },
     "Windermere town": { img:"images/hoods/windermere--windermere-town.webp", page:"https://commons.wikimedia.org/wiki/File:Carver_Memorial_Chapel,_Windermere.jpg", src:"Chris Heaton" },
-    "Troutbeck": { img:"images/hoods/windermere--troutbeck.webp", page:"https://commons.wikimedia.org/wiki/File:Troutbeck_Bridge_,_A591_-_geograph.org.uk_-_6355298.jpg", src:"Lewis Clarke" },
-    "Storrs / Storrs Park": { img:"images/hoods/windermere--storrs-storrs-park.webp", page:"https://commons.wikimedia.org/wiki/File:Lake_Windermere_MMB_96.jpg", src:"mattbuck (category)" }
+    "Troutbeck": { img:"images/hoods/windermere--troutbeck.webp", page:"https://commons.wikimedia.org/wiki/File:Troutbeck_Bridge_,_A591_-_geograph.org.uk_-_6355298.jpg", src:"Lewis Clarke" }
   },
   "Windhoek": {
     "Klein Windhoek": { img:"images/hoods/windhoek--klein-windhoek.webp", page:"https://commons.wikimedia.org/wiki/File:Klein_Windhoek,_Windhoek,_Namibia_-_panoramio_(1).jpg", src:"mroszewski" },
-    "Eros": { img:"images/hoods/windhoek--eros.webp", page:"https://commons.wikimedia.org/wiki/File:V5-GPX_in_FYWE_2018.jpg", src:"Hp.Baumeler" },
-    "Ludwigsdorf": { img:"images/hoods/windhoek--ludwigsdorf.webp", page:"https://commons.wikimedia.org/wiki/File:Denkmal_Deutscher_Krieg_Deutsch_Franz%C3%B6sischer_Krieg_Ludwigsdorf_G%C3%B6rlitz.JPG", src:"Südstädter" }
+    "Eros": { img:"images/hoods/windhoek--eros.webp", page:"https://commons.wikimedia.org/wiki/File:V5-GPX_in_FYWE_2018.jpg", src:"Hp.Baumeler" }
   },
   "Winnipeg": {
     "Downtown": { img:"images/hoods/winnipeg--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Area,_Winnipeg_(505204)_(25578353641).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
     "The Exchange District": { img:"images/hoods/winnipeg--the-exchange-district.webp", page:"https://commons.wikimedia.org/wiki/File:Union_Bank_Tower,_Winnipeg_Manitoba_01.JPG", src:"Ccyyrree" },
     "St. Boniface": { img:"images/hoods/winnipeg--st-boniface.webp", page:"https://commons.wikimedia.org/wiki/File:Condominiums_in_St_Boniface,_Winnipeg.JPG", src:"Ccyyrree" },
-    "Polo Park": { img:"images/hoods/winnipeg--polo-park.webp", page:"https://commons.wikimedia.org/wiki/File:Polo_Park_Shopping_Centre,_Portage_Ave,_Winnipeg_(502287)_(16387906198).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
     "The Forks": { img:"images/hoods/winnipeg--the-forks.webp", page:"https://commons.wikimedia.org/wiki/File:A_tree_from_above_(274293043).jpg", src:"Dano from Winnipeg, Canada" }
   },
   "Wrocław": {
     "Stare Miasto (Old Town / Rynek)": { img:"images/hoods/wroclaw--stare-miasto-old-town-rynek.webp", page:"https://commons.wikimedia.org/wiki/File:2019-12-26_18-11-04_Wroc%C5%82aw.jpg", src:"Bernard Ladenthin" },
     "Ostrów Tumski (Cathedral Island)": { img:"images/hoods/wroclaw--ostrow-tumski-cathedral-island.webp", page:"https://commons.wikimedia.org/wiki/File:Archikatedra_%C5%9Aw._Jana_Chrzciciela_we_Wroc%C5%82awiu_(2025-12-13).jpg", src:"Olgierd Rudak" },
     "Nadodrze": { img:"images/hoods/wroclaw--nadodrze.webp", page:"https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Dworzec_Nadodrze_(7529902678).jpg", src:"IngolfBLN" },
-    "Przedmieście Oławskie": { img:"images/hoods/wroclaw--przedmiescie-olawskie.webp", page:"https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Przedmie%C5%9Bcie_O%C5%82awskie_55.jpg", src:"Yarl" },
-    "Krzyki": { img:"images/hoods/wroclaw--krzyki.webp", page:"https://commons.wikimedia.org/wiki/File:Wzg%C3%B3rzeGajowe-SkyTower-Pion-JKosiaty.jpg", src:"Jan Kosiaty" }
+    "Przedmieście Oławskie": { img:"images/hoods/wroclaw--przedmiescie-olawskie.webp", page:"https://commons.wikimedia.org/wiki/File:Wroc%C5%82aw_-_Przedmie%C5%9Bcie_O%C5%82awskie_55.jpg", src:"Yarl" }
   },
   "Würzburg": {
     "Altstadt": { img:"images/hoods/wurzburg--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Bayern,_W%C3%BCrzburg,_Altstadt_W%C3%BCrzburg_NIK_5029.jpg", src:"--Nightflyer (talk) 22:03, 19 November 2017 (UTC)" },
     "Zellerau": { img:"images/hoods/wurzburg--zellerau.webp", page:"https://commons.wikimedia.org/wiki/File:W%C3%BCrzburg_-_Frankfurter_Stra%C3%9Fe_19_Ecce-Homo-Figur.jpg", src:"Parklife" },
     "Sanderau": { img:"images/hoods/wurzburg--sanderau.webp", page:"https://commons.wikimedia.org/wiki/File:St._Adalbero,_W%C3%BCrzburg,_Nave_20150103_1.jpg", src:"DXR" },
-    "Frauenland": { img:"images/hoods/wurzburg--frauenland.webp", page:"https://commons.wikimedia.org/wiki/File:Agrimonia_eupatoria_(28159514941).jpg", src:"Björn S..." },
     "Grombühl": { img:"images/hoods/wurzburg--grombuhl.webp", page:"https://commons.wikimedia.org/wiki/File:Bismarckw%C3%A4ldchen,_Weinberge_in_Gromb%C3%BChl,_W%C3%BCrzburg.JPG", src:"Quaipau" }
   },
   "Wuyishan": {
@@ -4865,8 +4836,7 @@ window.NRA_HOOD_PHOTO = {
   "Xiamen": {
     "Siming / Zhongshan Road (Old Town)": { img:"images/hoods/xiamen--siming-zhongshan-road-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Xiamen-Zhongshan_gongyuan_bonsai.jpg", src:"Popolon" },
     "Gulangyu Island": { img:"images/hoods/xiamen--gulangyu-island.webp", page:"https://commons.wikimedia.org/wiki/File:Street_view_on_Gulangyu_Island_1.jpg", src:"そらみみ" },
-    "Huli / SM City & Ferry": { img:"images/hoods/xiamen--huli-sm-city-ferry.webp", page:"https://commons.wikimedia.org/wiki/File:Exit_2,_Huli_Innovation_Park_Station,_Xiamen_Metro.jpg", src:"中少" },
-    "Jimei": { img:"images/hoods/xiamen--jimei.webp", page:"https://commons.wikimedia.org/wiki/File:Horticulture_Expo_Garden_Bus_Station.jpg", src:"HualinXMN" }
+    "Huli / SM City & Ferry": { img:"images/hoods/xiamen--huli-sm-city-ferry.webp", page:"https://commons.wikimedia.org/wiki/File:Exit_2,_Huli_Innovation_Park_Station,_Xiamen_Metro.jpg", src:"中少" }
   },
   "Yamoussoukro": {
     "Habitat": { img:"images/hoods/yamoussoukro--habitat.webp", page:"https://commons.wikimedia.org/wiki/File:Earth_from_Space-_C%C3%B4te_d%27Ivoire_ESA25482285.tiff", src:"European Space Agency" }
@@ -4902,22 +4872,18 @@ window.NRA_HOOD_PHOTO = {
     "City Centre (Kirovsky)": { img:"images/hoods/yaroslavl--city-centre-kirovsky.webp", page:"https://commons.wikimedia.org/wiki/File:20190807_Yaroslavl_view_16.jpg", src:"Sergey A. Demidov" },
     "Strelka & Volga Embankment": { img:"images/hoods/yaroslavl--strelka-volga-embankment.webp", page:"https://commons.wikimedia.org/wiki/File:Leninskiy_rayon,_Yaroslavl%27,_Yaroslavskaya_oblast%27,_Russia_-_panoramio_(301).jpg", src:"Андрей Субботин" },
     "Korovniki": { img:"images/hoods/yaroslavl--korovniki.webp", page:"https://commons.wikimedia.org/wiki/File:Frunzenskiy_rayon,_Yaroslavl%27,_Yaroslavskaya_oblast%27,_Russia_-_panoramio_(25).jpg", src:"Emilio13" },
-    "Zavolzhsky (Left Bank)": { img:"images/hoods/yaroslavl--zavolzhsky-left-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Zavolzhsky,_Tverskaya_oblast.jpg", src:"Анатолич1 (обс)" },
-    "Krasny Perekop (Tolchkovo)": { img:"images/hoods/yaroslavl--krasny-perekop-tolchkovo.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%96%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D1%8B%D0%B9_%D0%BC%D0%BE%D1%81%D1%82_%D1%83_%D0%BC%D0%B0%D0%BD%D1%83%D1%84%D0%B0%D0%BA%D1%82%D1%83%D1%80%D1%8B_-_panoramio.jpg", src:"Nee" }
+    "Zavolzhsky (Left Bank)": { img:"images/hoods/yaroslavl--zavolzhsky-left-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Zavolzhsky,_Tverskaya_oblast.jpg", src:"Анатолич1 (обс)" }
   },
   "Yazd": {
     "Fahadan (Old City)": { img:"images/hoods/yazd--fahadan-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Yazd_khane_lariha_(2).jpg", src:"Shirvanbeigi" },
     "Amir Chakhmaq": { img:"images/hoods/yazd--amir-chakhmaq.webp", page:"https://commons.wikimedia.org/wiki/File:Amir_Chakhmagh_mosque_-_panoramio.jpg", src:"Hadi Karimi" },
     "Bazaar / Jameh Mosque": { img:"images/hoods/yazd--bazaar-jameh-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Bazar_in_Yazd.jpg", src:"Gumtau" },
-    "Dowlatabad Garden": { img:"images/hoods/yazd--dowlatabad-garden.webp", page:"https://commons.wikimedia.org/wiki/File:2_%D8%A2%D8%A8%E2%80%8C%D8%A7%D9%86%D8%A8%D8%A7%D8%B1_%D8%AF%D9%88%D9%84%D8%AA%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF.jpg", src:"Yasaman.28" },
     "Safaiyeh": { img:"images/hoods/yazd--safaiyeh.webp", page:"https://commons.wikimedia.org/wiki/File:Safaiyeh_Hotel,_Yazd.jpg", src:"Bernard Gagnon" }
   },
   "Yerevan": {
     "Kentron (City Center)": { img:"images/hoods/yerevan--kentron-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_John_the_Baptist_Church,_Kond_01.jpg", src:"Avetisyan Ani" },
     "Kond": { img:"images/hoods/yerevan--kond.webp", page:"https://commons.wikimedia.org/wiki/File:Tepebashi_Mosque,_Kond_(2).jpg", src:"Preacher lad" },
-    "Cascade / Opera District": { img:"images/hoods/yerevan--cascade-opera-district.webp", page:"https://commons.wikimedia.org/wiki/File:Cascade_Memorial,_door_from_the_inside.jpg", src:"Hundnase" },
-    "Tsitsernakaberd": { img:"images/hoods/yerevan--tsitsernakaberd.webp", page:"https://commons.wikimedia.org/wiki/File:Ruins_of_the_huge_wall_of_castle_of_ancient_Armenian_settlement_Tsitsernakaberd_in_Yerevan_-_panoramio_(2).jpg", src:"sedrakGr" },
-    "Erebuni": { img:"images/hoods/yerevan--erebuni.webp", page:"https://commons.wikimedia.org/wiki/File:2014_Erywa%C5%84,_Erebuni,_Ruiny_twierdzy_(02).jpg", src:"Marcin Konsek" }
+    "Cascade / Opera District": { img:"images/hoods/yerevan--cascade-opera-district.webp", page:"https://commons.wikimedia.org/wiki/File:Cascade_Memorial,_door_from_the_inside.jpg", src:"Hundnase" }
   },
   "Yogyakarta": {
     "Malioboro": { img:"images/hoods/yogyakarta--malioboro.webp", page:"https://commons.wikimedia.org/wiki/File:A_statue_at_Jalan_Malioboro,_Yogyakarta_(December_2015).jpg", src:"Rachmat04" },
@@ -4942,14 +4908,12 @@ window.NRA_HOOD_PHOTO = {
   },
   "Zacatecas": {
     "Centro Historico": { img:"images/hoods/zacatecas--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Callej%C3%B3n_de_las_Campanas.jpg", src:"Bellito25" },
-    "Sierra de Alica": { img:"images/hoods/zacatecas--sierra-de-alica.webp", page:"https://commons.wikimedia.org/wiki/File:Santuario_Diocesano_de_Ntra._Se%C3%B1ora_de_Guadalupe_(Guadalupito),_Zacatecas,_Zac._01.jpg", src:"Luisalvaz" },
-    "Guadalupe": { img:"images/hoods/zacatecas--guadalupe.webp", page:"https://commons.wikimedia.org/wiki/File:ESCUDOCIUDADGUADALUPE2013.jpg", src:"Ayuntamiento de Guadalupe, Zacatecas." }
+    "Sierra de Alica": { img:"images/hoods/zacatecas--sierra-de-alica.webp", page:"https://commons.wikimedia.org/wiki/File:Santuario_Diocesano_de_Ntra._Se%C3%B1ora_de_Guadalupe_(Guadalupito),_Zacatecas,_Zac._01.jpg", src:"Luisalvaz" }
   },
   "Zadar": {
     "Old Town (Poluotok)": { img:"images/hoods/zadar--old-town-poluotok.webp", page:"https://commons.wikimedia.org/wiki/File:Z-1736_-Templarska_gradina_-_Pako%C5%A1tane_07.jpg", src:"Miroslav.vajdic" },
     "Kolovare": { img:"images/hoods/zadar--kolovare.webp", page:"https://commons.wikimedia.org/wiki/File:Diving_tower_in_Zadar,_Croatia_(48670242446).jpg", src:"dronepicr" },
     "Borik": { img:"images/hoods/zadar--borik.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Zadar,_Croatia_(48607322198).jpg", src:"dronepicr" },
-    "Diklo": { img:"images/hoods/zadar--diklo.webp", page:"https://commons.wikimedia.org/wiki/File:Diklo_Kroatien_4.JPG", src:"Böhringer Friedrich" },
     "Puntamika": { img:"images/hoods/zadar--puntamika.webp", page:"https://commons.wikimedia.org/wiki/File:Nad_brzegiem_-_panoramio.jpg", src:"Mietek Ł" }
   },
   "Zagreb": {
@@ -4976,8 +4940,7 @@ window.NRA_HOOD_PHOTO = {
     "West Railway Station / New District": { img:"images/hoods/zhangye--west-railway-station-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:West_Calder_Railway_Station.jpg", src:"Rosser1954" }
   },
   "Zhaoqing": {
-    "Star Lake / Seven Star Crags Area": { img:"images/hoods/zhaoqing--star-lake-seven-star-crags-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E8%82%87%E5%BA%86%E7%89%8C%E5%9D%8A%E5%B9%BF%E5%9C%BA%E8%88%9E%E5%8F%B0%EF%BC%8C%E6%91%84%E4%BA%8E%E7%89%8C%E5%9D%8A%E5%B9%BF%E5%9C%BA%EF%BC%8C2025-08.jpg", src:"Zhujianfei" },
-    "Dinghu District": { img:"images/hoods/zhaoqing--dinghu-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B9%BF%E4%B8%9C%E8%82%87%E5%BA%86%E8%A5%BF%E6%B1%9F_Xi_River_,_Zhaoqing,_Guangdong_-_panoramio.jpg", src:"wanghongliu" }
+    "Star Lake / Seven Star Crags Area": { img:"images/hoods/zhaoqing--star-lake-seven-star-crags-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E8%82%87%E5%BA%86%E7%89%8C%E5%9D%8A%E5%B9%BF%E5%9C%BA%E8%88%9E%E5%8F%B0%EF%BC%8C%E6%91%84%E4%BA%8E%E7%89%8C%E5%9D%8A%E5%B9%BF%E5%9C%BA%EF%BC%8C2025-08.jpg", src:"Zhujianfei" }
   },
   "Zhoushan": {
     "Mt. Putuo (Putuoshan)": { img:"images/hoods/zhoushan--mt-putuo-putuoshan.webp", page:"https://commons.wikimedia.org/wiki/File:The_Thousand_Buddha_Temple_02.jpg", src:"Zarate123" },
