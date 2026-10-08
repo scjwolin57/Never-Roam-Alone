@@ -3397,21 +3397,18 @@ window.NRA_HOOD_PHOTO = {
   "Nagano": {
     "Nagano Station Area": { img:"images/hoods/nagano--nagano-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Alpico_Kamikochi_line_Hata_station_ticket_vending_machine.jpg", src:"快速踊り子" },
     "Zenkoji Temple / Nakamise-dori": { img:"images/hoods/nagano--zenkoji-temple-nakamise-dori.webp", page:"https://commons.wikimedia.org/wiki/File:Main_Hall_of_Zenkoji_in_Aug_2009.jpg", src:"T1822" },
-    "Gondo / Chuo-dori Downtown": { img:"images/hoods/nagano--gondo-chuo-dori-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Gondo_station_exit.jpg", src:"Niiryoku2910" },
-    "Matsushiro (Historic Samurai Town)": { img:"images/hoods/nagano--matsushiro-historic-samurai-town.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%9D%BE%E4%BB%A3%E5%9F%8E%E3%82%88%E3%82%8A_Sight_from_Matsushiro_castle_2011.1.1_-_panoramio.jpg", src:"Nankou Oronain (as36…" }
+    "Gondo / Chuo-dori Downtown": { img:"images/hoods/nagano--gondo-chuo-dori-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Gondo_station_exit.jpg", src:"Niiryoku2910" }
   },
   "Nagasaki": {
     "Nagasaki Station (Ekimae)": { img:"images/hoods/nagasaki--nagasaki-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Daikokumachi,_Nagasaki,_Nagasaki_Prefecture_850-0057,_Japan_-_panoramio.jpg", src:"Fumihiko Ueno" },
     "Shianbashi": { img:"images/hoods/nagasaki--shianbashi.webp", page:"https://commons.wikimedia.org/wiki/File:Hamanomachi_-_panoramio_(5).jpg", src:"Masoud Akbari" },
     "Minamiyamate (Glover Garden)": { img:"images/hoods/nagasaki--minamiyamate-glover-garden.webp", page:"https://commons.wikimedia.org/wiki/File:Nagasaki_Music_Box_Museum_20140117.jpg", src:"そらみみ" },
-    "Shinchi Chinatown": { img:"images/hoods/nagasaki--shinchi-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Platforms_of_Tsukimachi_Station.jpg", src:"そらみみ" },
-    "Inasa (Mount Inasa)": { img:"images/hoods/nagasaki--inasa-mount-inasa.webp", page:"https://commons.wikimedia.org/wiki/File:Inasayam_view_from_Nagasaki_station_-_panoramio.jpg", src:"Masoud Akbari" }
+    "Shinchi Chinatown": { img:"images/hoods/nagasaki--shinchi-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Platforms_of_Tsukimachi_Station.jpg", src:"そらみみ" }
   },
   "Nagoya": {
     "Sakae": { img:"images/hoods/nagoya--sakae.webp", page:"https://commons.wikimedia.org/wiki/File:Nagoya_20210207-28.jpg", src:"円周率３パーセント" },
     "Nagoya Station (Meieki)": { img:"images/hoods/nagoya--nagoya-station-meieki.webp", page:"https://commons.wikimedia.org/wiki/File:Nagoya_Sta_20210904-16.jpg", src:"円周率３パーセント" },
     "Osu": { img:"images/hoods/nagoya--osu.webp", page:"https://commons.wikimedia.org/wiki/File:Osu,_Nagoya,_Aichi.jpg", src:"Kzaral" },
-    "Marunouchi (Nagoya Castle)": { img:"images/hoods/nagoya--marunouchi-nagoya-castle.webp", page:"https://commons.wikimedia.org/wiki/File:Nagoya_Subway_Marunouchi_Station_Connecting_Passageway.JPG", src:"ARICA13" },
     "Kanayama": { img:"images/hoods/nagoya--kanayama.webp", page:"https://commons.wikimedia.org/wiki/File:Naka_20211127-06.jpg", src:"円周率３パーセント" }
   },
   "Naha": {
@@ -3424,7 +3421,6 @@ window.NRA_HOOD_PHOTO = {
     "Westlands": { img:"images/hoods/nairobi--westlands.webp", page:"https://commons.wikimedia.org/wiki/File:Novotel_Nairobi_front_sign.jpg", src:"Sam Wilson (taken with Samsung Galaxy S21 FE 5G)" },
     "Karen": { img:"images/hoods/nairobi--karen.webp", page:"https://commons.wikimedia.org/wiki/File:IMAG2990_03.jpg", src:"Cweinandt" },
     "CBD": { img:"images/hoods/nairobi--cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Biashara_Plaza_(Nairobi)_%2B_Ufundi_Co-operative_Plaza,_2025_(01).jpg", src:"Bahnfrend" },
-    "Upper Hill": { img:"images/hoods/nairobi--upper-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Upperhill_area.jpg", src:"Will Ochieng'" },
     "Kilimani": { img:"images/hoods/nairobi--kilimani.webp", page:"https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_2935_Quelimane_to_Ilha_Epidendron,_Published_1962.jpg", src:"United Kingdom Hydrographic Office" }
   },
   "Najaf": {
@@ -3438,16 +3434,12 @@ window.NRA_HOOD_PHOTO = {
   },
   "Nakuru": {
     "Milimani": { img:"images/hoods/nakuru--milimani.webp", page:"https://commons.wikimedia.org/wiki/File:Andropadus_milanjensis.JPG", src:"Tom Callens" },
-    "Lake Nakuru National Park Area": { img:"images/hoods/nakuru--lake-nakuru-national-park-area.webp", page:"https://commons.wikimedia.org/wiki/File:Laika_ac_Lake_Nakuru_National_Park_(6693368727).jpg", src:"Laika ac from USA" },
-    "Bondeni": { img:"images/hoods/nakuru--bondeni.webp", page:"https://commons.wikimedia.org/wiki/File:Msiki_wa_bondeni_wa_aswari.jpg", src:"Edward ambele" },
     "Free Area": { img:"images/hoods/nakuru--free-area.webp", page:"https://commons.wikimedia.org/wiki/File:Space_Shuttle_Columbia_launching.jpg", src:"NASA" }
   },
   "Nanjing": {
     "Xinjiekou / Gulou": { img:"images/hoods/nanjing--xinjiekou-gulou.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E5%B1%B1%E4%B8%9C%E8%B7%AF%E6%96%B0%E8%A1%97%E5%8F%A3%E6%AD%A5%E8%A1%8C%E8%A1%97%E8%B7%AF%E5%8F%A320210404.jpg", src:"西安兵马俑" },
     "Fuzimiao / Qinhuai": { img:"images/hoods/nanjing--fuzimiao-qinhuai.webp", page:"https://commons.wikimedia.org/wiki/File:Fuzimiao_Station.jpg", src:"Zhanghan603" },
-    "Xuanwu / Xuanwu Lake": { img:"images/hoods/nanjing--xuanwu-xuanwu-lake.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8D%97%E4%BA%AC%E8%BD%A6%E7%AE%A1%E6%89%80_-_panoramio.jpg", src:"史氏" },
-    "Zhongshan / Purple Mountain": { img:"images/hoods/nanjing--zhongshan-purple-mountain.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8D%97%E4%BA%AC%E4%B8%AD%E5%B1%B1%E8%B7%AF_-_panoramio.jpg", src:"东京村子" },
-    "Hexi / Jianye": { img:"images/hoods/nanjing--hexi-jianye.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B8%8A%E4%B8%AD%E5%A4%AE%E5%85%AC%E5%9B%AD%E5%81%87%E5%B1%B1%E7%9A%84%E5%8F%B0%E9%98%B6._-_panoramio.jpg", src:"史氏" }
+    "Xuanwu / Xuanwu Lake": { img:"images/hoods/nanjing--xuanwu-xuanwu-lake.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8D%97%E4%BA%AC%E8%BD%A6%E7%AE%A1%E6%89%80_-_panoramio.jpg", src:"史氏" }
   },
   "Nantes": {
     "Bouffay": { img:"images/hoods/nantes--bouffay.webp", page:"https://commons.wikimedia.org/wiki/File:Place_du_Bouffay_plaque_Tour_du_Bouffay.JPG", src:"Adam Bishop" },
@@ -3478,8 +3470,7 @@ window.NRA_HOOD_PHOTO = {
   "Nassau": {
     "Cable Beach": { img:"images/hoods/nassau--cable-beach.webp", page:"https://commons.wikimedia.org/wiki/File:La_Caya_Nassau_(8420435234).jpg", src:"Serge Melki from Indianapolis, USA" },
     "Paradise Island": { img:"images/hoods/nassau--paradise-island.webp", page:"https://commons.wikimedia.org/wiki/File:Bahamas_1988_(279)_Paradise_Island_Versailler_Garten_und_Kloster_(24046109351).jpg", src:"Rüdiger Stehn from Kiel, Deutschland" },
-    "Downtown Nassau (Bay Street)": { img:"images/hoods/nassau--downtown-nassau-bay-street.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_photo_of_WTC_groundzero.jpg", src:"NOAA" },
-    "Sandyport / Western Esplanade": { img:"images/hoods/nassau--sandyport-western-esplanade.webp", page:"https://www.flickr.com/photos/86485297@N00/3284852339/", src:"tylerkaraszewski" }
+    "Downtown Nassau (Bay Street)": { img:"images/hoods/nassau--downtown-nassau-bay-street.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_photo_of_WTC_groundzero.jpg", src:"NOAA" }
   },
   "Natal": {
     "Ponta Negra": { img:"images/hoods/natal--ponta-negra.webp", page:"https://commons.wikimedia.org/wiki/File:Cidade_Natal_-_RN_-_panoramio_(13).jpg", src:"FernandoSantos" },
@@ -3514,9 +3505,7 @@ window.NRA_HOOD_PHOTO = {
   "Niagara Falls": {
     "Clifton Hill": { img:"images/hoods/niagara-falls--clifton-hill.webp", page:"https://commons.wikimedia.org/wiki/File:DSC09342_-_Niagara_SkyWheel_(37051363742).jpg", src:"Dennis G. Jarvis" },
     "Fallsview": { img:"images/hoods/niagara-falls--fallsview.webp", page:"https://commons.wikimedia.org/wiki/File:Embassy_Suites_-_panoramio_(1).jpg", src:"Idawriter" },
-    "Queen Street (Downtown)": { img:"images/hoods/niagara-falls--queen-street-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Meal_and_view_Queen_Victoria_Place_Niagara_Falls_Canada_2025-09-06_19-49-55_1.jpg", src:"G. Edward Johnson" },
-    "Chippawa": { img:"images/hoods/niagara-falls--chippawa.webp", page:"https://commons.wikimedia.org/wiki/File:Chippawa_Town_Hall.jpg", src:"Jameswk13" },
-    "Niagara Parkway / Dufferin Islands": { img:"images/hoods/niagara-falls--niagara-parkway-dufferin-islands.webp", page:"https://commons.wikimedia.org/wiki/File:A_Little_Patch_of_Green_-_panoramio.jpg", src:"goodpics" }
+    "Queen Street (Downtown)": { img:"images/hoods/niagara-falls--queen-street-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Meal_and_view_Queen_Victoria_Place_Niagara_Falls_Canada_2025-09-06_19-49-55_1.jpg", src:"G. Edward Johnson" }
   },
   "Niamey": {
     "Plateau": { img:"images/hoods/niamey--plateau.webp", page:"https://commons.wikimedia.org/wiki/File:Niamey,_Niger_(5468068625).jpg", src:"YoTuT from United States" },
@@ -3526,16 +3515,13 @@ window.NRA_HOOD_PHOTO = {
   },
   "Nicosia": {
     "Laiki Geitonia (Old Town)": { img:"images/hoods/nicosia--laiki-geitonia-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Laiki_Geitonia_-_panoramio.jpg", src:"Georgy Papantoniou" },
-    "Eleftheria Square / City Centre": { img:"images/hoods/nicosia--eleftheria-square-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Christmas_Fair_in_Nicosia.jpg", src:"Lomaine" },
-    "Engomi": { img:"images/hoods/nicosia--engomi.webp", page:"https://commons.wikimedia.org/wiki/File:Engomi_Town_Hall_2015.jpg", src:"Tom1955" },
-    "Strovolos": { img:"images/hoods/nicosia--strovolos.webp", page:"https://commons.wikimedia.org/wiki/File:CYPRUS_CENTRAL_BANK_PANORAMIC_PHOTO_BY_GEORGY_-_panoramio.jpg", src:"Georgy Papantoniou" }
+    "Eleftheria Square / City Centre": { img:"images/hoods/nicosia--eleftheria-square-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Christmas_Fair_in_Nicosia.jpg", src:"Lomaine" }
   },
   "Nîmes": {
     "Écusson (Old Town)": { img:"images/hoods/nimes--ecusson-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Looking_up_Rue_de_la_Madeleine_towards_%C3%89glise_Saint-Paul,_N%C3%AEmes,_2012.jpg", src:"DimiTalen" },
     "Gambetta": { img:"images/hoods/nimes--gambetta.webp", page:"https://commons.wikimedia.org/wiki/File:Passage_Gu%C3%A9rin_-_Entr%C3%A9e_boulevard_Gambetta.jpg", src:"Romainbehar" },
     "Jardins de la Fontaine": { img:"images/hoods/nimes--jardins-de-la-fontaine.webp", page:"https://commons.wikimedia.org/wiki/File:Boules_players_-_Jardins_de_la_Fontaine_-_N%C3%AEmes_2014.JPG", src:"José Luiz" },
-    "Gare-Feuchères": { img:"images/hoods/nimes--gare-feucheres.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%AEmes-Gare_Feuch%C3%A8res-Paulin_Talabot-20140526.jpg", src:"Daniel Villafruela." },
-    "Richelieu": { img:"images/hoods/nimes--richelieu.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%AEmes_-_Graffiti_rue_Richelieu.jpg", src:"Romainbehar" }
+    "Gare-Feuchères": { img:"images/hoods/nimes--gare-feucheres.webp", page:"https://commons.wikimedia.org/wiki/File:N%C3%AEmes-Gare_Feuch%C3%A8res-Paulin_Talabot-20140526.jpg", src:"Daniel Villafruela." }
   },
   "Nouakchott": {
     "Ksar": { img:"images/hoods/nouakchott--ksar.webp", page:"https://commons.wikimedia.org/wiki/File:Heddada_8372.jpg", src:"Nassima Chahboun" }
@@ -3564,9 +3550,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Nuuk": {
     "Nuuk Centrum": { img:"images/hoods/nuuk--nuuk-centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Central_administration_of_Greenland.jpg", src:"Nanopixi" },
-    "Old Nuuk (Kolonihavnen)": { img:"images/hoods/nuuk--old-nuuk-kolonihavnen.webp", page:"https://commons.wikimedia.org/wiki/File:Annaassisitta-Oqaluffia-nuuk-cathedral.jpg", src:"Algkalv (talk)" },
-    "Nuussuaq": { img:"images/hoods/nuuk--nuussuaq.webp", page:"https://commons.wikimedia.org/wiki/File:Nuussuaq_harbor,_Nuuk,_Greenland.jpg", src:"Enno82" },
-    "Qinngorput": { img:"images/hoods/nuuk--qinngorput.webp", page:"https://commons.wikimedia.org/wiki/File:Nuuk_(02)_(Kenny_McFly).jpg", src:"Kenny McFly" }
+    "Old Nuuk (Kolonihavnen)": { img:"images/hoods/nuuk--old-nuuk-kolonihavnen.webp", page:"https://commons.wikimedia.org/wiki/File:Annaassisitta-Oqaluffia-nuuk-cathedral.jpg", src:"Algkalv (talk)" }
   },
   "Oaxaca": {
     "Centro Histórico": { img:"images/hoods/oaxaca--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Calenda_por_Santa_Cecilia_-_Oaxaca_-_22.jpg", src:"ProtoplasmaKid" },
@@ -3576,8 +3560,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Odense": {
     "Odense C (City Centre)": { img:"images/hoods/odense--odense-c-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Odense_Stadion_maj_2015.JPG", src:"Kristianbang" },
-    "H.C. Andersen Quarter": { img:"images/hoods/odense--h-c-andersen-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Carl_Nielsen_c._1908.jpg", src:"Georg Lindstrøm 1866-1923" },
-    "Odense M": { img:"images/hoods/odense--odense-m.webp", page:"https://commons.wikimedia.org/wiki/File:Denmark-Odense_railroad_station-platforms_east.JPG", src:"Kåre Thor Olsen" }
+    "H.C. Andersen Quarter": { img:"images/hoods/odense--h-c-andersen-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Carl_Nielsen_c._1908.jpg", src:"Georg Lindstrøm 1866-1923" }
   },
   "Odessa": {
     "Prymorskyi (Historic Center)": { img:"images/hoods/odessa--prymorskyi-historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9B%D1%8C%D0%B2%D0%B0_%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B3%D0%BE_%D0%B2%D1%83%D0%BB.,_1_DSC_0424.jpg", src:"Сарапулов" },
@@ -3621,15 +3604,13 @@ window.NRA_HOOD_PHOTO = {
     "Sakaimachi Street": { img:"images/hoods/otaru--sakaimachi-street.webp", page:"https://commons.wikimedia.org/wiki/File:Sakaimachi_street_Otaru_Hokkaido08n.jpg", src:"663highland" },
     "Otaru Station Area": { img:"images/hoods/otaru--otaru-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Toyohirakoensta-form.jpg", src:"ゆりのき橋" },
     "Temiya": { img:"images/hoods/otaru--temiya.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%89%8B%E5%AE%AE%E7%B7%9A%E8%B7%A1_Former_Temiya_Line,_Otaru_2015-02-27_(16720959551).jpg", src:"bryan..." },
-    "Shukutsu": { img:"images/hoods/otaru--shukutsu.webp", page:"https://commons.wikimedia.org/wiki/File:Pleurogrammus_azonus_otaru.jpg", src:"YockeyT" },
     "Otaru Canal Area": { img:"images/hoods/otaru--otaru-canal-area.webp", page:"https://www.flickr.com/photos/42438962@N05/16484684766/", src:"reggiepen" }
   },
   "Ottawa": {
     "ByWard Market": { img:"images/hoods/ottawa--byward-market.webp", page:"https://commons.wikimedia.org/wiki/File:Bell_Media,_ByWard_Market_(14763394481).jpg", src:"Tony Webster from Portland, Oregon, United States" },
     "Downtown / Centretown": { img:"images/hoods/ottawa--downtown-centretown.webp", page:"https://commons.wikimedia.org/wiki/File:Bell_Canada_-_Ottawa_(14579877690).jpg", src:"Tony Webster from Portland, Oregon, United States" },
     "The Glebe": { img:"images/hoods/ottawa--the-glebe.webp", page:"https://commons.wikimedia.org/wiki/File:Loblaws,_Ottawa,_Ontario_(29440346423).jpg", src:"Ken Lund from Reno, Nevada, USA" },
-    "Sandy Hill": { img:"images/hoods/ottawa--sandy-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Complexe_residentiel_90_Universite.jpg", src:"Jeangagnon" },
-    "Westboro": { img:"images/hoods/ottawa--westboro.webp", page:"https://commons.wikimedia.org/wiki/File:Bushtukah_(36369148274).jpg", src:"Ross Dunn" }
+    "Sandy Hill": { img:"images/hoods/ottawa--sandy-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Complexe_residentiel_90_Universite.jpg", src:"Jeangagnon" }
   },
   "Ouagadougou": {
     "Ouaga 2000": { img:"images/hoods/ouagadougou--ouaga-2000.webp", page:"https://commons.wikimedia.org/wiki/File:Vue_sur_le_ciel_de_Ouaga_2000_-_%C3%89changeur_de_Ouaga_2000.jpg", src:"Dramane BF" },
@@ -3644,7 +3625,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Oxford": {
     "Jericho": { img:"images/hoods/oxford--jericho.webp", page:"https://commons.wikimedia.org/wiki/File:Combe_Road,_Jericho,_Oxford-geograph-3606658-by-David-Hallam-Jones.jpg", src:"David Hallam-Jones" },
-    "Cowley": { img:"images/hoods/oxford--cowley.webp", page:"https://commons.wikimedia.org/wiki/File:Atomic_Burger_on_Cowley_Road_-_geograph.org.uk_-_5169085.jpg", src:"Steve Daniels" },
     "Summertown": { img:"images/hoods/oxford--summertown.webp", page:"https://commons.wikimedia.org/wiki/File:Belbroughton_Road_Summertown_-_geograph.org.uk_-_2482940.jpg", src:"David Howard" },
     "Headington": { img:"images/hoods/oxford--headington.webp", page:"https://commons.wikimedia.org/wiki/File:10_Old_High_Street,_Headington,_Oxford_(42667465175).jpg", src:"Owen Massey McKnight from Oxford, England" },
     "City Centre": { img:"images/hoods/oxford--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Oxford_from_the_Westgate_Centre_-_geograph.org.uk_-_6394921.jpg", src:"Des Blenkinsopp" }
