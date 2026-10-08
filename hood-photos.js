@@ -3680,8 +3680,7 @@ window.NRA_HOOD_PHOTO = {
     "Geroskipou": { img:"images/hoods/paphos--geroskipou.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Athena_Beach_Hotel_Paphos_-_panoramio.jpg", src:"Arnold Schott" }
   },
   "Paramaribo": {
-    "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" },
-    "Zorg en Hoop": { img:"images/hoods/paramaribo--zorg-en-hoop.webp", page:"https://commons.wikimedia.org/wiki/File:Zendapparatuur_waarschijnlijk_bij_de_airstrip_Zorg_en_Hoop_(Paramaribo),_Bestanddeelnr_252-2331.jpg", src:"Willem van de Poll" }
+    "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" }
   },
   "Parma": {
     "Centro Storico": { img:"images/hoods/parma--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Palazzo_Comunale_Parma_vista_da_Via_Cavour.JPG", src:"Palladino Neil" },
@@ -3690,9 +3689,7 @@ window.NRA_HOOD_PHOTO = {
   "Pécs": {
     "Belváros": { img:"images/hoods/pecs--belvaros.webp", page:"https://commons.wikimedia.org/wiki/File:P%C3%A9cs,_Hungary_-_panoramio_(14).jpg", src:"Mister No" },
     "Zsolnay Negyed": { img:"images/hoods/pecs--zsolnay-negyed.webp", page:"https://commons.wikimedia.org/wiki/File:Ceramic_statue_and_tourist_information_in_Zsolnay_quarter.JPG", src:"Mrszantogabor" },
-    "Tettye": { img:"images/hoods/pecs--tettye.webp", page:"https://commons.wikimedia.org/wiki/File:P%C3%A9cs,_Tettye_-_panoramio.jpg", src:"Kovika" },
-    "Uránváros": { img:"images/hoods/pecs--uranvaros.webp", page:"https://commons.wikimedia.org/wiki/File:P%C3%A9cs_Ur%C3%A1nv%C3%A1ros_eml%C3%A9kt%C3%A1bla.jpg", src:"Heringcápa" },
-    "Kertváros": { img:"images/hoods/pecs--kertvaros.webp", page:"https://commons.wikimedia.org/wiki/File:A_k%C3%ADv%C3%A1ncsi_kecske,_K%C3%BClter%C3%BClet,_2017_Esztergom-Kertv%C3%A1ros.jpg", src:"Globetrotter19" }
+    "Tettye": { img:"images/hoods/pecs--tettye.webp", page:"https://commons.wikimedia.org/wiki/File:P%C3%A9cs,_Tettye_-_panoramio.jpg", src:"Kovika" }
   },
   "Pemba": {
     "Wimbe Beach (Praia do Wimbe)": { img:"images/hoods/pemba--wimbe-beach-praia-do-wimbe.webp", page:"https://commons.wikimedia.org/wiki/File:South_of_Pemba_(2914724558).jpg", src:"Stig Nygaard" },
@@ -3701,9 +3698,7 @@ window.NRA_HOOD_PHOTO = {
   "Perpignan": {
     "Centre Historique (Le Castillet & La Loge)": { img:"images/hoods/perpignan--centre-historique-le-castillet-la-loge.webp", page:"https://commons.wikimedia.org/wiki/File:Palau_de_la_diputaci%C3%B3.jpg", src:"Alzinous" },
     "Quartier de la Gare": { img:"images/hoods/perpignan--quartier-de-la-gare.webp", page:"https://commons.wikimedia.org/wiki/File:Perpignan_-_5_rue_des_Jardins.jpg", src:"Drong~commonswiki" },
-    "Saint-Mathieu": { img:"images/hoods/perpignan--saint-mathieu.webp", page:"https://commons.wikimedia.org/wiki/File:Perpignan_rue_St_Mathieu_%C3%A9glise.jpg", src:"Drong~commonswiki" },
-    "Moulin à Vent": { img:"images/hoods/perpignan--moulin-a-vent.webp", page:"https://commons.wikimedia.org/wiki/File:Entre-moulin-vent.jpg", src:"Swedgemag" },
-    "Porte d'Espagne": { img:"images/hoods/perpignan--porte-d-espagne.webp", page:"https://commons.wikimedia.org/wiki/File:C%C3%A9ret-09.JPG", src:"Wayne77" }
+    "Saint-Mathieu": { img:"images/hoods/perpignan--saint-mathieu.webp", page:"https://commons.wikimedia.org/wiki/File:Perpignan_rue_St_Mathieu_%C3%A9glise.jpg", src:"Drong~commonswiki" }
   },
   "Perth": {
     "Perth CBD": { img:"images/hoods/perth--perth-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Christmas_decorations_in_Perth_CBD,_December_2025_01.jpg", src:"Calistemon" },
@@ -3741,8 +3736,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Phitsanulok": {
     "Wat Chan": { img:"images/hoods/phitsanulok--wat-chan.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Chan_Tawan-ok_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81_-_img_05.jpg", src:"Chainwit." },
-    "Aranyik": { img:"images/hoods/phitsanulok--aranyik.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Aranyik_Phitsanulok_(March_2022)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B4%E0%B8%81_%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81_-_IMG_08.jpg", src:"Chainwit." },
-    "Tha Pho (Naresuan University)": { img:"images/hoods/phitsanulok--tha-pho-naresuan-university.webp", page:"https://commons.wikimedia.org/wiki/File:Luang_Pho_Phet_(Wat_Tha_Thanon)_02.jpg", src:"ผู้สร้างสรรค์ผลงาน/ส่งข้อมูลเก็บในคลังข้อมูลเสรีวิกิมีเดียคอมมอนส์ - เทวประภาส ม" }
+    "Aranyik": { img:"images/hoods/phitsanulok--aranyik.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Aranyik_Phitsanulok_(March_2022)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B4%E0%B8%81_%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81_-_IMG_08.jpg", src:"Chainwit." }
   },
   "Phnom Penh": {
     "Daun Penh (Riverside)": { img:"images/hoods/phnom-penh--daun-penh-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Phnom_and_Cathedral_of_Phnom_Penh.jpg", src:"Willuconquer" },
@@ -3786,8 +3780,7 @@ window.NRA_HOOD_PHOTO = {
   "Playa del Carmen": {
     "Playacar": { img:"images/hoods/playa-del-carmen--playacar.webp", page:"https://commons.wikimedia.org/wiki/File:Playacar_en_Playa_del_Carmen.jpg", src:"Ana Beatriz Vega González" },
     "Gonzalo Guerrero": { img:"images/hoods/playa-del-carmen--gonzalo-guerrero.webp", page:"https://commons.wikimedia.org/wiki/File:Gonzalo_Guerrero,_77720_Playa_del_Carmen,_Q.R.,_Mexico_-_panoramio_(1).jpg", src:"DizzyDJC" },
-    "Zazil-Ha (Coco Beach)": { img:"images/hoods/playa-del-carmen--zazil-ha-coco-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Fosa_en_Colonia_Dignidad.JPG", src:"Zazil-Ha Troncoso 2" },
-    "Colosio": { img:"images/hoods/playa-del-carmen--colosio.webp", page:"https://commons.wikimedia.org/wiki/File:20260716_monumento_vista_general_luis_donaldo_colosio_murrieta_avenida30_con_avenidaColosio.jpg", src:"MacHunter" }
+    "Zazil-Ha (Coco Beach)": { img:"images/hoods/playa-del-carmen--zazil-ha-coco-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Fosa_en_Colonia_Dignidad.JPG", src:"Zazil-Ha Troncoso 2" }
   },
   "Plettenberg Bay": {
     "Central Plett / Main Beach": { img:"images/hoods/plettenberg-bay--central-plett-main-beach.webp", page:"https://commons.wikimedia.org/wiki/File:TIMBER_SHED_PLETT_1.JPG", src:"Keith Lurie" },
@@ -3797,15 +3790,13 @@ window.NRA_HOOD_PHOTO = {
   "Plovdiv": {
     "Old Town": { img:"images/hoods/plovdiv--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bulgaria_Bulgaria-0729_-_Near_Eastern_Gate_(7432374622).jpg", src:"Dennis G. Jarvis" },
     "Kapana": { img:"images/hoods/plovdiv--kapana.webp", page:"https://commons.wikimedia.org/wiki/File:Cardos_en_Tiahuanacu_.jpg", src:"Caleidoscopic" },
-    "Trakia": { img:"images/hoods/plovdiv--trakia.webp", page:"https://commons.wikimedia.org/wiki/File:Trakiya_district,_Plovdiv_1.JPG", src:"alcoron" },
     "Center (Main Street)": { img:"images/hoods/plovdiv--center-main-street.webp", page:"https://commons.wikimedia.org/wiki/File:Plovdiv_Center,_Plovdiv,_Bulgaria_-_panoramio.jpg", src:"Colin W" }
   },
   "Podgorica": {
     "Nova Varos (Center)": { img:"images/hoods/podgorica--nova-varos-center.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_Podgorica_81000,_Montenegro_-_panoramio_(2).jpg", src:"ines lukic" },
     "Stara Varos": { img:"images/hoods/podgorica--stara-varos.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_Tower_in_2020.03.jpg", src:"CAPTAIN RAJU" },
     "Preko Morace": { img:"images/hoods/podgorica--preko-morace.webp", page:"https://commons.wikimedia.org/wiki/File:Zgrade_Pet_udovica_Podgorica.jpg", src:"Vux33" },
-    "Stari Aerodrom": { img:"images/hoods/podgorica--stari-aerodrom.webp", page:"https://commons.wikimedia.org/wiki/File:Stari_Aerodrom,_Podgorica,_Montenegro_-_panoramio.jpg", src:"ines lukic" },
-    "Zabjelo": { img:"images/hoods/podgorica--zabjelo.webp", page:"https://commons.wikimedia.org/wiki/File:Zabjelo,_Podgorica,_Montenegro_-_panoramio_(1).jpg", src:"ines lukic" }
+    "Stari Aerodrom": { img:"images/hoods/podgorica--stari-aerodrom.webp", page:"https://commons.wikimedia.org/wiki/File:Stari_Aerodrom,_Podgorica,_Montenegro_-_panoramio.jpg", src:"ines lukic" }
   },
   "Pokhara": {
     "Lakeside (Baidam)": { img:"images/hoods/pokhara--lakeside-baidam.webp", page:"https://commons.wikimedia.org/wiki/File:Lakeside_Pokhara_at_Night.jpg", src:"Saddam19" },
@@ -3816,12 +3807,10 @@ window.NRA_HOOD_PHOTO = {
   "Poprad": {
     "City Centre (Stred)": { img:"images/hoods/poprad--city-centre-stred.webp", page:"https://commons.wikimedia.org/wiki/File:Kostol_sv%C3%A4t%C3%A9ho_Eg%C3%ADdia_%26_Zvonica_v_Poprade,_Poprad,_2026.jpg", src:"Antimuonium" },
     "Spišská Sobota": { img:"images/hoods/poprad--spisska-sobota.webp", page:"https://commons.wikimedia.org/wiki/File:Spi%C5%A1ska_Sobota_church_tower_-_panoramio.jpg", src:"Laima Gūtmane (simka…" },
-    "Veľká": { img:"images/hoods/poprad--velka.webp", page:"https://commons.wikimedia.org/wiki/File:Nagypaka-Kispaka_vil%C3%A1gh%C3%A1bor%C3%BAs_eml%C3%A9km%C5%B1_1.jpg", src:"Taz" },
-    "AquaCity / Kvetnica": { img:"images/hoods/poprad--aquacity-kvetnica.webp", page:"https://www.flickr.com/photos/35124296@N00/844752920/", src:"canyonero" }
+    "Veľká": { img:"images/hoods/poprad--velka.webp", page:"https://commons.wikimedia.org/wiki/File:Nagypaka-Kispaka_vil%C3%A1gh%C3%A1bor%C3%BAs_eml%C3%A9km%C5%B1_1.jpg", src:"Taz" }
   },
   "Port-au-Prince": {
-    "Pétion-Ville": { img:"images/hoods/port-au-prince--petion-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Petion-Ville,_Haiti_-_panoramio.jpg", src:"Yoni Rubin" },
-    "Delmas": { img:"images/hoods/port-au-prince--delmas.webp", page:"https://commons.wikimedia.org/wiki/File:Delmas_75.jpg", src:"Laperkins" }
+    "Pétion-Ville": { img:"images/hoods/port-au-prince--petion-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Petion-Ville,_Haiti_-_panoramio.jpg", src:"Yoni Rubin" }
   },
   "Port Elizabeth": {
     "Summerstrand": { img:"images/hoods/port-elizabeth--summerstrand.webp", page:"https://commons.wikimedia.org/wiki/File:Garden_entrance_bnb_Margate_Place_Summerstrand.jpg", src:"Ballie Street24" },
@@ -3849,7 +3838,6 @@ window.NRA_HOOD_PHOTO = {
   "Port Vila": {
     "Port Vila Town Centre (Downtown)": { img:"images/hoods/port-vila--port-vila-town-centre-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Admiralty_Chart_No_2494_Ayr_to_Ardrossan,_Published_1941.jpg", src:"United Kingdom Hydrographic Office" },
     "Erakor Lagoon": { img:"images/hoods/port-vila--erakor-lagoon.webp", page:"https://commons.wikimedia.org/wiki/File:Erakor_Bridge_At_Sunset_(96007123).jpeg", src:"Graham Crumb" },
-    "Iririki Island & Harbour Waterfront": { img:"images/hoods/port-vila--iririki-island-harbour-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:Waterfront,_Port_Vila,_2007_(1).JPG", src:"Bahnfrend" },
     "Pango Point / Devil's Point": { img:"images/hoods/port-vila--pango-point-devil-s-point.webp", page:"https://commons.wikimedia.org/wiki/File:Nautilus_vanuatuensis.jpg", src:"Frédéric Ducarme" },
     "Mele Bay (Hideaway Island)": { img:"images/hoods/port-vila--mele-bay-hideaway-island.webp", page:"https://www.flickr.com/photos/42033648@N00/2420288094/", src:"In Memoriam: PhillipC" }
   },
@@ -3871,12 +3859,10 @@ window.NRA_HOOD_PHOTO = {
   },
   "Positano": {
     "Fornillo": { img:"images/hoods/positano--fornillo.webp", page:"https://commons.wikimedia.org/wiki/File:Fornillos_de_Fermoselle_02.jpg", src:"LBM1948" },
-    "Nocelle": { img:"images/hoods/positano--nocelle.webp", page:"https://commons.wikimedia.org/wiki/File:Sentiero_degli_Dei_27_Campania.jpg", src:"This Photo was taken by Wolfgang Moroder. Feel free to use my photos, but please" },
     "Via Cristoforo Colombo (Upper Town)": { img:"images/hoods/positano--via-cristoforo-colombo-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Positiano_10.JPG", src:"Daniel Ventura" }
   },
   "Potosí": {
     "Centro Histórico": { img:"images/hoods/potosi--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:01._Carretera_Toluca_-_San_Luis_07.jpg", src:"Álvaro de la Paz Franco" },
-    "San Francisco": { img:"images/hoods/potosi--san-francisco.webp", page:"https://commons.wikimedia.org/wiki/File:20170807_Bolivia_1358_Potos%C3%AD_sRGB_(37270479084).jpg", src:"Dan Lundberg" },
     "Cerro Rico / Pailaviri": { img:"images/hoods/potosi--cerro-rico-pailaviri.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_del_Cerro_Rico_de_Potos%C3%AD,_en_Potos%C3%AD_-_Bolivia_(2018).jpg", src:"Julitatwa" },
     "San Pedro": { img:"images/hoods/potosi--san-pedro.webp", page:"https://commons.wikimedia.org/wiki/File:Erkl%C3%A4rung-Urkunde.jpg", src:"Poldy 1973" },
     "La Cancha / Mercado Central": { img:"images/hoods/potosi--la-cancha-mercado-central.webp", page:"https://commons.wikimedia.org/wiki/File:Cancha_serrana_tostada.JPG", src:"Ferbr1" }
@@ -3909,9 +3895,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Pucón": {
     "Centro (Downtown Pucón)": { img:"images/hoods/pucon--centro-downtown-pucon.webp", page:"https://commons.wikimedia.org/wiki/File:Volcan_Villarica_-_panoramio_(1).jpg", src:"ogwen" },
-    "La Poza": { img:"images/hoods/pucon--la-poza.webp", page:"https://commons.wikimedia.org/wiki/File:2014-04-13_Norte_de_Burgos_026_-_Poza_de_la_Sal_(15878124675).jpg", src:"Luiyo from Madrid, Spain" },
-    "Quelhue": { img:"images/hoods/pucon--quelhue.webp", page:"https://commons.wikimedia.org/wiki/File:Playa_quelhue_01.jpg", src:"Charlie danvers" },
-    "Camino a Villarrica": { img:"images/hoods/pucon--camino-a-villarrica.webp", page:"https://commons.wikimedia.org/wiki/File:Camino_a_Termas_de_Palguin,_Parque_Nacional_Villarrica.jpg", src:"Guillermo Nova" }
+    "La Poza": { img:"images/hoods/pucon--la-poza.webp", page:"https://commons.wikimedia.org/wiki/File:2014-04-13_Norte_de_Burgos_026_-_Poza_de_la_Sal_(15878124675).jpg", src:"Luiyo from Madrid, Spain" }
   },
   "Puducherry": {
     "White Town (French Quarter)": { img:"images/hoods/puducherry--white-town-french-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Puducherry-White_Town-WUS02344.jpg", src:"Rainer Halama" },
@@ -3929,8 +3913,7 @@ window.NRA_HOOD_PHOTO = {
     "Downtown": { img:"images/hoods/puerto-madryn--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Beaufort_SC_1972.png", src:"Roger Vreeland" }
   },
   "Puerto Natales": {
-    "Puerto Bories": { img:"images/hoods/puerto-natales--puerto-bories.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_locomotora_de_vapor_Avonside,_a%C3%B1o_1920,_en_Puerto_Natales,_Magallanes,_sur_de_Chile.jpg", src:"CARLOS TEIXIDOR CADENAS" },
-    "Sector Norte (Ruta 9)": { img:"images/hoods/puerto-natales--sector-norte-ruta-9.webp", page:"https://commons.wikimedia.org/wiki/File:Sendero-laguna-los-tres.jpg", src:"UrsulaBraschi" }
+    "Puerto Bories": { img:"images/hoods/puerto-natales--puerto-bories.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_locomotora_de_vapor_Avonside,_a%C3%B1o_1920,_en_Puerto_Natales,_Magallanes,_sur_de_Chile.jpg", src:"CARLOS TEIXIDOR CADENAS" }
   },
   "Puerto Plata": {
     "Playa Dorada": { img:"images/hoods/puerto-plata--playa-dorada.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_en_Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg", src:"Juan Espaillat" },
@@ -3941,7 +3924,6 @@ window.NRA_HOOD_PHOTO = {
     "City Proper (Rizal Avenue)": { img:"images/hoods/puerto-princesa--city-proper-rizal-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:483Barangay_Northside,_Makati_City_06.jpg", src:"Judgefloro" },
     "Bancao-Bancao": { img:"images/hoods/puerto-princesa--bancao-bancao.webp", page:"https://commons.wikimedia.org/wiki/File:Banc%C3%A3o_(11968466184).jpg", src:"Douglas Iuri Medeiros Cabral" },
     "Sabang": { img:"images/hoods/puerto-princesa--sabang.webp", page:"https://commons.wikimedia.org/wiki/File:Group_of_Tourists_at_Puerto_Princesa_Underground_River.jpg", src:"Outoftownblog.com" },
-    "Sta. Lourdes (Honda Bay)": { img:"images/hoods/puerto-princesa--sta-lourdes-honda-bay.webp", page:"https://commons.wikimedia.org/wiki/File:0027jfLourdes_Shrine_Procession_San_Jose_Monte_Bulacanfvf_02.JPG", src:"Judgefloro" },
     "San Manuel": { img:"images/hoods/puerto-princesa--san-manuel.webp", page:"https://commons.wikimedia.org/wiki/File:SanManuelPangasinanjf631.JPG", src:"Ramon FVelasquez" }
   },
   "Puerto Vallarta": {
@@ -3954,21 +3936,16 @@ window.NRA_HOOD_PHOTO = {
     "Old Town (Arena & Kaštel)": { img:"images/hoods/pula--old-town-arena-kastel.webp", page:"https://commons.wikimedia.org/wiki/File:Pula_(Croatia)_(54292764509).jpg", src:"Jose A." },
     "Verudela": { img:"images/hoods/pula--verudela.webp", page:"https://commons.wikimedia.org/wiki/File:Verudela_Canyon.jpg", src:"Viktar Palstsiuk" },
     "Stoja": { img:"images/hoods/pula--stoja.webp", page:"https://commons.wikimedia.org/wiki/File:Stoja_Galebove_stijene_Beach_Pula_1990_04.jpg", src:"Iswoar" },
-    "Veruda": { img:"images/hoods/pula--veruda.webp", page:"https://commons.wikimedia.org/wiki/File:Marina_w_Verudeli_-_panoramio.jpg", src:"lemenya" },
     "Vidikovac": { img:"images/hoods/pula--vidikovac.webp", page:"https://commons.wikimedia.org/wiki/File:Vidikovac_Sremski_Karlovci_8295_01.jpg", src:"Ванилица" }
   },
   "Puno": {
     "Plaza de Armas": { img:"images/hoods/puno--plaza-de-armas.webp", page:"https://commons.wikimedia.org/wiki/File:Bas%C3%ADlica_Catedral_de_Puno_03.jpg", src:"Omar Vega Ramos" },
     "Malecon/Puerto": { img:"images/hoods/puno--malecon-puerto.webp", page:"https://commons.wikimedia.org/wiki/File:Malec%C3%B3n_de_Puno_04.jpg", src:"Codas" },
-    "Huajsapata": { img:"images/hoods/puno--huajsapata.webp", page:"https://commons.wikimedia.org/wiki/File:Cerrito_Huajsapata,_Puno_04.jpg", src:"Ordzonhyd Rudyard Tarco Palomino" },
-    "Jr. Lima": { img:"images/hoods/puno--jr-lima.webp", page:"https://commons.wikimedia.org/wiki/File:Jir%C3%B3n_Puno_en_Lima_01.jpg", src:"Ovruni" },
-    "Salcedo": { img:"images/hoods/puno--salcedo.webp", page:"https://commons.wikimedia.org/wiki/File:Mapa_chuta_chota.png", src:"2025newyork" }
+    "Huajsapata": { img:"images/hoods/puno--huajsapata.webp", page:"https://commons.wikimedia.org/wiki/File:Cerrito_Huajsapata,_Puno_04.jpg", src:"Ordzonhyd Rudyard Tarco Palomino" }
   },
   "Punta Arenas": {
     "Cerro de la Cruz": { img:"images/hoods/punta-arenas--cerro-de-la-cruz.webp", page:"https://commons.wikimedia.org/wiki/File:CerroCruzMapa.png", src:"OpenStreetMap contributors" },
-    "Costanera del Estrecho": { img:"images/hoods/punta-arenas--costanera-del-estrecho.webp", page:"https://commons.wikimedia.org/wiki/File:Chile_2015-11-12_(23682815530).jpg", src:"Guillaume Baviere from Uppsala, Sweden" },
-    "Barrio Croata": { img:"images/hoods/punta-arenas--barrio-croata.webp", page:"https://commons.wikimedia.org/wiki/File:Baum_Veli_Losinj.JPG", src:"-jkb-" },
-    "Zona Norte": { img:"images/hoods/punta-arenas--zona-norte.webp", page:"https://commons.wikimedia.org/wiki/File:Monumento_a_Magallanes_vista_norte.jpg", src:"Sculpture: 1920; photo: Jgaldames" }
+    "Barrio Croata": { img:"images/hoods/punta-arenas--barrio-croata.webp", page:"https://commons.wikimedia.org/wiki/File:Baum_Veli_Losinj.JPG", src:"-jkb-" }
   },
   "Pyatigorsk": {
     "Prospekt Kirova (Centre)": { img:"images/hoods/pyatigorsk--prospekt-kirova-centre.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_18%D0%B0_IMG_0275.jpg", src:"Figure19" },
