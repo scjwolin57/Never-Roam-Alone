@@ -651,7 +651,8 @@ window.NRA_HOOD_PHOTO = {
     "Jardins": { img:"images/hoods/sao-paulo--jardins.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_dos_jardins_em_s%C3%A3o_paulo.jpg" },
     "Vila Madalena": { img:"images/hoods/sao-paulo--vila-madalena.webp", page:"https://commons.wikimedia.org/wiki/File:Street_art_on_a_house_at_Vila_Madalena,_Sao_Paulo.jpg", src:"Slyronit" },
     "Liberdade": { img:"images/hoods/sao-paulo--liberdade.webp", page:"https://commons.wikimedia.org/wiki/File:Liberdade%2C_S%C3%A3o_Paulo%2C_Brasil_-_panoramio.jpg" },
-    "Pinheiros": { img:"images/hoods/sao-paulo--pinheiros.webp", page:"https://commons.wikimedia.org/wiki/File:Largo_da_Batata.jpg" }
+    "Pinheiros": { img:"images/hoods/sao-paulo--pinheiros.webp", page:"https://commons.wikimedia.org/wiki/File:Largo_da_Batata.jpg" },
+    "Avenida Paulista / Bela Vista": { img:"images/hoods/sao-paulo--avenida-paulista-bela-vista.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_a%C3%A9rea_de_la_Avenida_Paulista_de_S%C3%A3o_Paulo_09.jpg", src:"ProtoplasmaKid" }
   },
   "Sapporo": {
     "Susukino": { img:"images/hoods/sapporo--susukino.webp", page:"https://commons.wikimedia.org/wiki/File:Spectaculars_of_Susukino-Sapporo.jpg" },
@@ -682,7 +683,8 @@ window.NRA_HOOD_PHOTO = {
     "Jing'an": { img:"images/hoods/shanghai--jing-an.webp", page:"https://commons.wikimedia.org/wiki/File:201907_Jing_An_Kerry_Centre.jpg" },
     "The Bund": { img:"images/hoods/shanghai--the-bund.webp", page:"https://commons.wikimedia.org/wiki/File:The_Bund_2.jpg" },
     "Lujiazui": { img:"images/hoods/shanghai--lujiazui.webp", page:"https://commons.wikimedia.org/wiki/File:Huangpu_Park_20124-Shanghai_(32208802494).jpg" },
-    "Former French Concession": { img:"images/hoods/shanghai--former-french-concession.webp", page:"https://commons.wikimedia.org/wiki/File:Wukang_Mansion_20251128.jpg" }
+    "Former French Concession": { img:"images/hoods/shanghai--former-french-concession.webp", page:"https://commons.wikimedia.org/wiki/File:Wukang_Mansion_20251128.jpg" },
+    "People's Square / Nanjing Road": { img:"images/hoods/shanghai--people-s-square-nanjing-road.webp", page:"https://commons.wikimedia.org/wiki/File:People%27s_Square,_Huangpu,_Shanghai,_China,_200000_-_panoramio.jpg", src:"Fumihiko Ueno" }
   },
   "Sharjah": {
     "Al Khan": { img:"images/hoods/sharjah--al-khan.webp", page:"https://commons.wikimedia.org/wiki/File:Sharjah_Al_Khan_-_Sharafeldin_1.jpg", src:"Sharaf01" },
@@ -794,7 +796,8 @@ window.NRA_HOOD_PHOTO = {
     "The Annex": { img:"images/hoods/toronto--the-annex.webp", page:"https://commons.wikimedia.org/wiki/File:The_Annex_2022.jpg" },
     "Yorkville": { img:"images/hoods/toronto--yorkville.webp", page:"https://commons.wikimedia.org/wiki/File:Village_of_Yorkville_Park_(37649654622).jpg" },
     "Kensington Market": { img:"images/hoods/toronto--kensington-market.webp", page:"https://commons.wikimedia.org/wiki/File:Kensington_Market_Toronto_August_2017_01.jpg" },
-    "Queen West": { img:"images/hoods/toronto--queen-west.webp", page:"https://commons.wikimedia.org/wiki/File:Graffiti_Alley_Toronto%2C_June_24_2026_(02).jpg" }
+    "Queen West": { img:"images/hoods/toronto--queen-west.webp", page:"https://commons.wikimedia.org/wiki/File:Graffiti_Alley_Toronto%2C_June_24_2026_(02).jpg" },
+    "Entertainment District": { img:"images/hoods/toronto--entertainment-district.webp", page:"https://commons.wikimedia.org/wiki/File:Entertainment_District,_Toronto,_Ontario_(29920153101).jpg", src:"Ken Lund from Reno, Nevada, USA" }
   },
   "Vaduz": {
     "Vaduz Städtle (City Center)": { img:"images/hoods/vaduz--vaduz-stadtle-city-center.webp", page:"https://www.pexels.com/photo/vaduz-castle-in-liechtenstein-on-clear-day-37021731/", src:"Pexels" },
@@ -817,7 +820,8 @@ window.NRA_HOOD_PHOTO = {
     "Gastown": { img:"images/hoods/vancouver--gastown.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_2018-20180422-2108_(42138196834).jpg" },
     "West End": { img:"images/hoods/vancouver--west-end.webp", page:"https://commons.wikimedia.org/wiki/File:Vancouver_west_end.jpg" },
     "Kitsilano": { img:"images/hoods/vancouver--kitsilano.webp", page:"https://commons.wikimedia.org/wiki/File:Vine_Street_in_Kitsilano.JPG" },
-    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" }
+    "Yaletown": { img:"images/hoods/vancouver--yaletown.webp", page:"https://commons.wikimedia.org/wiki/File:Yaletown_Roundhouse_Station_ext.jpg" },
+    "Coal Harbour": { img:"images/hoods/vancouver--coal-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Coal_Harbour_(4654606720).jpg", src:"Vince Alongi from Delta, B.C., Canada" }
   },
   "Venice": {
     "San Marco": { img:"images/hoods/venice--san-marco.webp", page:"https://commons.wikimedia.org/wiki/File:Venezia_Basilica_di_San_Marco_Fassade_2.jpg" },
@@ -854,13 +858,15 @@ window.NRA_HOOD_PHOTO = {
     "Srodmiescie": { img:"images/hoods/warsaw--srodmiescie.webp", page:"https://commons.wikimedia.org/wiki/File:Aleja_Niepdleglosci_Warsaw_2022_aerial_(cropped).jpg" },
     "Wilanow": { img:"images/hoods/warsaw--wilanow.webp", page:"https://commons.wikimedia.org/wiki/File:Garden_facade_of_the_Wilan%C3%B3w_Palace%2C_2019%2C_02.jpg" },
     "Stare Miasto (Old Town)": { img:"images/hoods/warsaw--stare-miasto-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Horsecarriage_on_Stare_Miasto_(Warsaw)_market_square.jpg" },
-    "Praga": { img:"images/hoods/warsaw--praga.webp", page:"https://commons.wikimedia.org/wiki/File:Centrum_Koneser_Warsaw-Praga_(1).jpg" }
+    "Praga": { img:"images/hoods/warsaw--praga.webp", page:"https://commons.wikimedia.org/wiki/File:Centrum_Koneser_Warsaw-Praga_(1).jpg" },
+    "Powiśle": { img:"images/hoods/warsaw--powisle.webp", page:"https://commons.wikimedia.org/wiki/File:Wis%C5%82a_bulwary_Powi%C5%9Ble_Warszawa_001.jpg", src:"Dariusz Kowalczyk" }
   },
   "Washington, D.C.": {
     "Georgetown": { img:"images/hoods/washington-d-c--georgetown.webp", page:"https://commons.wikimedia.org/wiki/File:Riggs_Bank%2C_Georgetown.jpg" },
     "Dupont Circle": { img:"images/hoods/washington-d-c--dupont-circle.webp", page:"https://commons.wikimedia.org/wiki/File:Dupont_Circle_fountain_-_facing_southwest.JPG" },
     "Capitol Hill": { img:"images/hoods/washington-d-c--capitol-hill.webp", page:"https://commons.wikimedia.org/wiki/File:8th_Street_SE_sidewalk_scene.jpg" },
-    "Adams Morgan": { img:"images/hoods/washington-d-c--adams-morgan.webp", page:"https://commons.wikimedia.org/wiki/File:1800_block_of_California_Street%2C_NW.JPG" }
+    "Adams Morgan": { img:"images/hoods/washington-d-c--adams-morgan.webp", page:"https://commons.wikimedia.org/wiki/File:1800_block_of_California_Street%2C_NW.JPG" },
+    "Penn Quarter / Downtown": { img:"images/hoods/washington-d-c--penn-quarter-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:National_Portrait_Gallery.jpg", src:"Difference engine" }
   },
   "Zhuhai": {
     "Hengqin": { img:"images/hoods/zhuhai--hengqin.webp", page:"https://commons.wikimedia.org/wiki/File:The_Financial_Island_(Shizimen_CBD)_of_Hengqin_New_Area.jpg" },
@@ -4223,7 +4229,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Saskatoon": {
     "City Park": { img:"images/hoods/saskatoon--city-park.webp", page:"https://commons.wikimedia.org/wiki/File:Spadina_Crescent_Bridge.jpg", src:"Drm310" },
-    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" }
+    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
+    "Broadway District (Nutana)": { img:"images/hoods/saskatoon--broadway-district-nutana.webp", page:"https://commons.wikimedia.org/wiki/File:Broadway_Theatre_SK1.jpg", src:"Drm310 at English Wikipedia" }
   },
   "Savonlinna": {
     "Keskusta": { img:"images/hoods/savonlinna--keskusta.webp", page:"https://commons.wikimedia.org/wiki/File:Jussilantie,_Kerava_C_DSC00098.JPG", src:"Anneli Salo" },
@@ -4393,7 +4400,8 @@ window.NRA_HOOD_PHOTO = {
   "Surakarta": {
     "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:GrandMosqueYogya.JPG", src:"Dekoelie" },
     "Kampung Batik Laweyan": { img:"images/hoods/surakarta--kampung-batik-laweyan.webp", page:"https://commons.wikimedia.org/wiki/File:Becak_Kampung_Batik_Laweyan.jpg", src:"Herusutimbul" },
-    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" }
+    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" },
+    "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" }
   },
   "Surat Thani": {
     "Phunphin": { img:"images/hoods/surat-thani--phunphin.webp", page:"https://commons.wikimedia.org/wiki/File:Phunphin_clock_tower.jpg", src:"User:Ahoerstemeier" }
@@ -4662,7 +4670,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Vatican City": {
     "St. Peter's Basilica": { img:"images/hoods/vatican-city--st-peter-s-basilica.webp", page:"https://commons.wikimedia.org/wiki/File:Charlemagne_Agostino_Cornacchini_Vatican_2.jpg", src:"Myrabella" },
-    "Borgo": { img:"images/hoods/vatican-city--borgo.webp", page:"https://commons.wikimedia.org/wiki/File:Houses_at_the_Passetto_di_Borgo_(Via_del_Mascherino_opposite_to_Piazza_Della_Citta_Leonina).jpg", src:"User:Mattes" }
+    "Borgo": { img:"images/hoods/vatican-city--borgo.webp", page:"https://commons.wikimedia.org/wiki/File:Houses_at_the_Passetto_di_Borgo_(Via_del_Mascherino_opposite_to_Piazza_Della_Citta_Leonina).jpg", src:"User:Mattes" },
+    "Prati": { img:"images/hoods/vatican-city--prati.webp", page:"https://commons.wikimedia.org/wiki/File:Roma_Fontana_in_piazza_dei_Quiriti2.jpg", src:"Marek Śliwecki" }
   },
   "Velikiy Novgorod": {
     "Kremlin (Detinets)": { img:"images/hoods/velikiy-novgorod--kremlin-detinets.webp", page:"https://commons.wikimedia.org/wiki/File:NV_Kreml_10.jpg", src:"Wikingenge" },
