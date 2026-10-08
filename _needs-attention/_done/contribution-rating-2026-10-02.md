@@ -52,3 +52,7 @@
 Still open: Jeff runs `contribution-rating-setup.sql` once in Supabase; day trip / landmark suggestions and corrections have no approve step yet, so those points cannot be earned until one exists.
 
 Update, same day: the Trusted Traveler application form was replaced by a city picker that opens each guide's Traveler's Take form, plus a Local's Perspective link from the profile's home city (decisions.md).
+
+## Closed 2026-10-08
+
+Jeff: the setup SQL has been run ("#7 already ran"). Still true: corrections have no approve step, so they earn no points until one is built (backlog, not a blocker).
