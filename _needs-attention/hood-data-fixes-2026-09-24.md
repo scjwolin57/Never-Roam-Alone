@@ -19,5 +19,5 @@ Found while placing the 156 unplaced neighborhoods. Nothing here was changed. Ea
 - Antsiranana "Ville Basse": landmark Bazary Be not found; markets are mapped in Tanambao and Bazarikely.
 - Pilsen "Lochotín": Bolevec ponds are in Bolevec, about 1 km away.
 
-**Neighborhoods to rename or remove** (see hood-geo-unresolved.md): Agadez "Bougdouma" and "Nord", Coron
+**Neighborhoods to rename or remove**: settled 2026-10-08 by Jeff (see hood-geo-unresolved.md). Were: Agadez "Bougdouma" and "Nord", Coron
 "Private Island Resorts", Kalamata "Analipsi (East Beach)", Tamanrasset "Airport Road District", Timbuktu "Abaradiou".

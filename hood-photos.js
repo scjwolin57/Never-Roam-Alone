@@ -1853,7 +1853,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Coron": {
     "Tagumpay": { img:"images/hoods/coron--tagumpay.webp", page:"https://commons.wikimedia.org/wiki/File:Tarangkahan_ng_Mababang_Paaralan_ng_Tagumpay,_Coron,_Palawan_-_Tagumpay_Elementary_School.jpg", src:"Paul Christian B. Yang-ed" },
-    "Private Island Resorts": { img:"images/hoods/coron--private-island-resorts.webp", page:"https://commons.wikimedia.org/wiki/File:A_Friend_For_Lunch_(2054518267).jpg", src:"Joe Shlabotnik" },
     "Coron Town Proper (Poblacion)": { img:"images/hoods/coron--coron-town-proper-poblacion.webp", page:"https://commons.wikimedia.org/wiki/File:Banuang_Daan,_Coron_Town_Proper,_Coron,_Palawan,_Philippines_-_panoramio.jpg", src:"우한길(HK Woo)" }
   },
   "Cortina d'Ampezzo": {
@@ -2697,7 +2696,7 @@ window.NRA_HOOD_PHOTO = {
   "Kalamata": {
     "Historic Centre (Old Town)": { img:"images/hoods/kalamata--historic-centre-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Pont_Saint-B%C3%A9n%C3%A9zet_(61400).jpg", src:"შალვა მინდაძე 11" },
     "Marina": { img:"images/hoods/kalamata--marina.webp", page:"https://commons.wikimedia.org/wiki/File:Faro_Marina_and_Pedestrian_area.jpg", src:"Dmitry Tonkonog" },
-    "Analipsi (East Beach)": { img:"images/hoods/kalamata--analipsi-east-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Boat2rent_(167101945).jpeg", src:"Rawflesh Edo Pokorny" }
+    "Paralia": { img:"images/hoods/kalamata--paralia.webp", page:"https://commons.wikimedia.org/wiki/File:Kalamata_beach_-_panoramio.jpg", src:"macrolepi" }
   },
   "Kaliningrad": {
     "Rybnaya Derevnya (Fishing Village)": { img:"images/hoods/kaliningrad--rybnaya-derevnya-fishing-village.webp", page:"https://commons.wikimedia.org/wiki/File:Rybnaya_derevnya.jpg", src:"Irina Yakubovskaya (my mother)" },
@@ -2984,7 +2983,6 @@ window.NRA_HOOD_PHOTO = {
     "La Pampa": { img:"images/hoods/la-serena--la-pampa.webp", page:"https://commons.wikimedia.org/wiki/File:La_pampa.png", src:"Alejocarlonii" }
   },
   "Laayoune": {
-    "Colomina (Colonial Quarter)": { img:"images/hoods/laayoune--colomina-colonial-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Palau_de_Colomina,_Val%C3%A8ncia_01.jpg", src:"Dorieo" },
     "Foum el Oued": { img:"images/hoods/laayoune--foum-el-oued.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%B4%D8%A7%D8%B7%D8%A6_%D9%81%D9%85_%D8%A7%D9%84%D9%88%D8%A7%D8%AF%D8%8C_%D8%A7%D9%84%D8%B9%D9%8A%D9%88%D9%86.jpg", src:"Nassima Chahboun" }
   },
   "Labuan Bajo": {
