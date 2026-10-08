@@ -425,7 +425,8 @@ window.NRA_HOOD_PHOTO = {
     "St Kilda": { img:"images/hoods/melbourne--st-kilda.webp", page:"https://commons.wikimedia.org/wiki/File:Melbourne_(AU)%2C_St_Kilda_Beach_--_2019_--_1590.jpg" },
     "Fitzroy": { img:"images/hoods/melbourne--fitzroy.webp", page:"https://commons.wikimedia.org/wiki/File:Perseverance_hotel_August_2016.jpg", src:"Nick-D" },
     "Southbank": { img:"images/hoods/melbourne--southbank.webp", page:"https://commons.wikimedia.org/wiki/File:Southbank-Melbourne_skyscrapers_in_January_2021.jpg" },
-    "Carlton": { img:"images/hoods/melbourne--carlton.webp", page:"https://commons.wikimedia.org/wiki/File:AUS_Melbourne,_Melbourne,_Carlton_Gardens_025.jpg", src:"-wuppertaler" }
+    "Carlton": { img:"images/hoods/melbourne--carlton.webp", page:"https://commons.wikimedia.org/wiki/File:AUS_Melbourne,_Melbourne,_Carlton_Gardens_025.jpg", src:"-wuppertaler" },
+    "Melbourne CBD": { img:"images/hoods/melbourne--melbourne-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:St Paul's Cathedral and Melbourne CBD from Federation Square.jpg", src:"Bhullargraphic" }
   },
   "Mexico City": {
     "Roma": { img:"images/hoods/mexico-city--roma.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_R%C3%ADo_de_Janeiro_Colonia_Roma.JPG" },
@@ -458,13 +459,15 @@ window.NRA_HOOD_PHOTO = {
     "Fontvieille": { img:"images/hoods/monaco--fontvieille.webp", page:"https://commons.wikimedia.org/wiki/File:Harbour_of_Fontvielle%2C_Monaco_(view_from_above)_2009-05-09.jpg" },
     "La Condamine": { img:"images/hoods/monaco--la-condamine.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_-_Port_en_d%C3%A9cembre.jpg" },
     "Monte-Carlo": { img:"images/hoods/monaco--monte-carlo.webp", page:"https://commons.wikimedia.org/wiki/File:Casino_de_Monte-Carlo_plaza_Monaco_2026.JPG", src:"Mike is Michi" },
-    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" }
+    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" },
+    "Monaco-Ville (The Rock)": { img:"images/hoods/monaco--monaco-ville-the-rock.webp", page:"https://commons.wikimedia.org/wiki/File:Le Palais Princier de Monaco (53969996808).jpg", src:"Charles from Port Chester, New York" }
   },
   "Montreal": {
     "Mile End": { img:"images/hoods/montreal--mile-end.webp", page:"https://commons.wikimedia.org/wiki/File:Churches_of_montreal.jpg" },
     "Griffintown": { img:"images/hoods/montreal--griffintown.webp", page:"https://commons.wikimedia.org/wiki/File:Griffintown_delamontagne.jpg" },
     "Plateau-Mont-Royal": { img:"images/hoods/montreal--plateau-mont-royal.webp", page:"https://commons.wikimedia.org/wiki/File:Plateau_Mont-Royal.jpg" },
-    "Vieux-Montréal (Old Montreal)": { img:"images/hoods/montreal--vieux-montreal-old-montreal.webp", page:"https://commons.wikimedia.org/wiki/File:Vieux-Port%2C_Montr%C3%A9al.JPG" }
+    "Vieux-Montréal (Old Montreal)": { img:"images/hoods/montreal--vieux-montreal-old-montreal.webp", page:"https://commons.wikimedia.org/wiki/File:Vieux-Port%2C_Montr%C3%A9al.JPG" },
+    "Downtown Montréal (Centre-Ville)": { img:"images/hoods/montreal--downtown-montreal-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Place Ville-Marie, de l'esplanade 01.jpg", src:"Pierre5018" }
   },
   "Moscow": {
     "Arbat": { img:"images/hoods/moscow--arbat.webp", page:"https://commons.wikimedia.org/wiki/File:Arbat_Street_in_MSK.jpg" },
@@ -498,7 +501,8 @@ window.NRA_HOOD_PHOTO = {
     "Downtown Orlando": { img:"images/hoods/orlando--downtown-orlando.webp", page:"https://commons.wikimedia.org/wiki/File:Lake-eola-park-orlando-florida.jpg" },
     "International Drive": { img:"images/hoods/orlando--international-drive.webp", page:"https://commons.wikimedia.org/wiki/File:IDrive_Street_View.JPG" },
     "Winter Park": { img:"images/hoods/orlando--winter-park.webp", page:"https://www.pexels.com/photo/people-waiting-in-a-gazebo-at-winter-park-14071206/", src:"Pexels" },
-    "Lake Nona": { img:"images/hoods/orlando--lake-nona.webp", page:"https://commons.wikimedia.org/wiki/File:College_of_Medicine_-_panoramio.jpg", src:"East Park" }
+    "Lake Nona": { img:"images/hoods/orlando--lake-nona.webp", page:"https://commons.wikimedia.org/wiki/File:College_of_Medicine_-_panoramio.jpg", src:"East Park" },
+    "Lake Buena Vista / Disney Springs": { img:"images/hoods/orlando--lake-buena-vista-disney-springs.webp", page:"https://commons.wikimedia.org/wiki/File:Characters_in_Flight,_Disney_Springs.jpg", src:"Michael Rivera" }
   },
   "Osaka": {
     "Shinsekai": { img:"images/hoods/osaka--shinsekai.webp", page:"https://commons.wikimedia.org/wiki/File:Shinsekai_and_Tsutenkaku_at_night_2019-04-12.jpg" },
@@ -581,7 +585,8 @@ window.NRA_HOOD_PHOTO = {
     "Ialysos": { img:"images/hoods/rhodes--ialysos.webp", page:"https://commons.wikimedia.org/wiki/File:Rho_gen_view.jpg" },
     "Rhodes Old Town (Medieval City)": { img:"images/hoods/rhodes--rhodes-old-town-medieval-city.webp", page:"https://commons.wikimedia.org/wiki/File:Rhodes_Old_Town_Sea_Gate.JPG" },
     "Ixia": { img:"images/hoods/rhodes--ixia.webp", page:"https://commons.wikimedia.org/wiki/File:Ixia%2C_Rhodes%2C_Greece.jpg" },
-    "Neochori (New Town)": { img:"images/hoods/rhodes--neochori-new-town.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_Casino_Rhodos.jpg", src:"Burkhard Mücke" }
+    "Neochori (New Town)": { img:"images/hoods/rhodes--neochori-new-town.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_Casino_Rhodos.jpg", src:"Burkhard Mücke" },
+    "Faliraki": { img:"images/hoods/rhodes--faliraki.webp", page:"https://commons.wikimedia.org/wiki/File:Rhodos,_Faliraki,_beach_-_panoramio.jpg", src:"vitsoft" }
   },
   "Riga": {
     "Āgenskalns": { img:"images/hoods/riga--agenskalns.webp", page:"https://commons.wikimedia.org/wiki/File:%C4%80genskalna_tirgus.jpg" },
@@ -618,7 +623,8 @@ window.NRA_HOOD_PHOTO = {
     "Haight-Ashbury": { img:"images/hoods/san-francisco--haight-ashbury.webp", page:"https://commons.wikimedia.org/wiki/File:1550_Page_St.,_San_Francisco,_CA_3-4-2012_4-13-37_PM.JPG", src:"Sanfranman59" },
     "Mission District": { img:"images/hoods/san-francisco--mission-district.webp", page:"https://commons.wikimedia.org/wiki/File:Mission_High_School_(cropped).jpg" },
     "Nob Hill": { img:"images/hoods/san-francisco--nob-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Fairmont_Hotel%2C_San_Francisco.jpg" },
-    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/", src:"Pexels" }
+    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/", src:"Pexels" },
+    "Fisherman's Wharf": { img:"images/hoods/san-francisco--fisherman-s-wharf.webp", page:"https://commons.wikimedia.org/wiki/File:San_Francisco_Pier_39.-_Fisherman%27s_Wharf_(15).jpg", src:"Pierre André" }
   },
   "San Marino": {
     "Dogana": { img:"images/hoods/san-marino--dogana.webp", page:"https://commons.wikimedia.org/wiki/File:San-Marino-Dogana-1268.jpg" },
@@ -630,7 +636,8 @@ window.NRA_HOOD_PHOTO = {
     "Vitacura": { img:"images/hoods/santiago--vitacura.webp", page:"https://commons.wikimedia.org/wiki/File:Chile-02647_-_Santiago_(49032503503).jpg" },
     "Las Condes": { img:"images/hoods/santiago--las-condes.webp", page:"https://commons.wikimedia.org/wiki/File:Las_Condes_(39032459385).jpg" },
     "Providencia": { img:"images/hoods/santiago--providencia.webp", page:"https://commons.wikimedia.org/wiki/File:Santiago_de_Chile_from_Gran_torre_Santiago%2C_Mapocho_river.JPG" },
-    "Bellavista": { img:"images/hoods/santiago--bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Recoleta,_Santiago_Metropolitan_Region,_Chile_-_panoramio.jpg", src:"jofwooster" }
+    "Bellavista": { img:"images/hoods/santiago--bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Recoleta,_Santiago_Metropolitan_Region,_Chile_-_panoramio.jpg", src:"jofwooster" },
+    "Barrio Lastarria": { img:"images/hoods/santiago--barrio-lastarria.webp", page:"https://commons.wikimedia.org/wiki/File:Barrio_Lastarria_2025_2.jpg", src:"Tommy Boy" }
   },
   "Santorini": {
     "Firostefani": { img:"images/hoods/santorini--firostefani.webp", page:"https://commons.wikimedia.org/wiki/File:Santorini,_Route_9,_22M8922,_Firostefani_and_Fira.jpg", src:"Zde" },
@@ -3581,7 +3588,8 @@ window.NRA_HOOD_PHOTO = {
   "Oxford": {
     "Jericho": { img:"images/hoods/oxford--jericho.webp", page:"https://commons.wikimedia.org/wiki/File:Combe_Road,_Jericho,_Oxford-geograph-3606658-by-David-Hallam-Jones.jpg", src:"David Hallam-Jones" },
     "Summertown": { img:"images/hoods/oxford--summertown.webp", page:"https://commons.wikimedia.org/wiki/File:Belbroughton_Road_Summertown_-_geograph.org.uk_-_2482940.jpg", src:"David Howard" },
-    "City Centre": { img:"images/hoods/oxford--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Oxford_from_the_Westgate_Centre_-_geograph.org.uk_-_6394921.jpg", src:"Des Blenkinsopp" }
+    "City Centre": { img:"images/hoods/oxford--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Oxford_from_the_Westgate_Centre_-_geograph.org.uk_-_6394921.jpg", src:"Des Blenkinsopp" },
+    "Cowley Road (East Oxford)": { img:"images/hoods/oxford--cowley-road-east-oxford.webp", page:"https://commons.wikimedia.org/wiki/File:Painted_shops_on_Cowley_Road_-_geograph.org.uk_-_2146706.jpg", src:"Steve Daniels" }
   },
   "Padang": {
     "Padang Barat (City Center)": { img:"images/hoods/padang--padang-barat-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Piai_Tangah_-_Pauh_-_Padang_01.jpg", src:"Anak Sago" },
@@ -3831,7 +3839,8 @@ window.NRA_HOOD_PHOTO = {
     "Arcadia": { img:"images/hoods/pretoria--arcadia.webp", page:"https://commons.wikimedia.org/wiki/File:Prinshof_349-Jr,_Arcadia,_Sunnyside,_Muckleneuk.jpg", src:"JMK" },
     "Hatfield": { img:"images/hoods/pretoria--hatfield.webp", page:"https://commons.wikimedia.org/wiki/File:St_Wilfrid%27s_Anglican_Church,_Hatfield,_Pretoria.jpg", src:"Ossewa" },
     "Brooklyn": { img:"images/hoods/pretoria--brooklyn.webp", page:"https://commons.wikimedia.org/wiki/File:SAMSA_Head_Office-_Pretoria_-_panoramio.jpg", src:"Azwi" },
-    "Menlyn": { img:"images/hoods/pretoria--menlyn.webp", page:"https://commons.wikimedia.org/wiki/File:Wall_of_Wine_at_MooMoo_Restaurant.jpg", src:"Kgotlelelo Mokoana" }
+    "Menlyn": { img:"images/hoods/pretoria--menlyn.webp", page:"https://commons.wikimedia.org/wiki/File:Wall_of_Wine_at_MooMoo_Restaurant.jpg", src:"Kgotlelelo Mokoana" },
+    "Pretoria Central (Church Square)": { img:"images/hoods/pretoria--pretoria-central-church-square.webp", page:"https://commons.wikimedia.org/wiki/File:Church_Square_Pretoria.jpg", src:"Donald Sepeng" }
   },
   "Pristina": {
     "Mother Teresa Square": { img:"images/hoods/pristina--mother-teresa-square.webp", page:"https://commons.wikimedia.org/wiki/File:Skulptura_e_N%C3%ABn%C3%AB_Terez%C3%ABs_n%C3%AB_Prishtin%C3%AB.jpg", src:"JonaSali29" },
