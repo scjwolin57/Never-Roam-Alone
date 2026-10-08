@@ -1,0 +1,1218 @@
+slug,action,hood_index,name,verdict,confidence,reason
+dubai,hood,4,Business Bay,REMOVE,medium,mostly office/residential towers; ranks below Bur Dubai for visitors
+dubai,add,,Bur Dubai,ADD,high,"Old Dubai: Al Fahidi, Dubai Creek, souks, many hotels; ranks above Business Bay"
+antalya,hood,3,Muratpaşa,REMOVE,medium,central administrative district that contains Kaleiçi; not a distinct visitor area
+antalya,hood,4,Belek,UNSURE,low,"golf resort area ~35 km east, outside the city; stay area but arguably a day trip/separate resort"
+mecca,hood,4,Al Rusaifah,UNSURE,low,"near the Haram, counts 4 hotels but Saudi heavily undercounted"
+macau,hood,3,Coloane,UNSURE,medium,"village with restaurants/sights and Hac Sa resorts, but very few hotels in count"
+new-york,hood,4,Upper East Side,REMOVE,medium,"9 hotels, mostly museums/residential; ranks 6th+ (below Chelsea)"
+new-york,add,,Chelsea,ADD,medium,"High Line, Chelsea Market, Hudson Yards, many hotels; ranks above Upper East Side"
+kuala-lumpur,hood,3,Bangsar,UNSURE,low,"trendy dining area, few hotels; ranks near 6th (Brickfields/Chow Kit)"
+kyoto,hood,4,Fushimi,REMOVE,medium,centred on Fushimi Inari shrine plus sake district; few hotels; ranks below Kyoto Station area
+kyoto,add,,Kyoto Station Area,ADD,medium,"main transit and lodging hub (235 food, 33 hotels in cell); ranks above Fushimi"
+medina,hood,0,Quba,UNSURE,low,"Quba Mosque area, near single site; Saudi undercounted"
+shenzhen,hood,3,Bao'an,REMOVE,medium,airport and residential/industrial district
+marne-la-vallee,hood,2,Bailly-Romainvilliers,REMOVE,high,"residential new town, no visitor draw"
+marne-la-vallee,hood,3,Magny-le-Hongre,UNSURE,low,hosts some Disney-area hotels but residential
+jeddah,hood,3,Al Rawdah,UNSURE,low,upscale hotel/shopping district; Saudi undercounted
+jeddah,hood,4,Al Andalus,UNSURE,low,"shopping street area; 0 hotels in count, Saudi undercounted"
+vatican-city,hood,1,Vatican Museums,REMOVE,medium,"single site 480 m from St. Peter's, same visitor area"
+shanghai,hood,4,Xintiandi,REMOVE,medium,lies inside the Former French Concession hood; ranks below Nanjing Road/People's Square
+shanghai,add,,People's Square / Nanjing Road,ADD,medium,"central shopping street and museums, many hotels; replaces Xintiandi which sits in French Concession"
+miami,hood,2,Little Havana,REMOVE,medium,"1 hotel in a well-mapped country; sightseeing stop, not a place visitors stay"
+miami,add,,Downtown Miami,ADD,medium,"hotels, Bayside, museums, cruise port; replaces Little Havana"
+taipei,hood,3,Zhongshan,UNSURE,low,known hotel and dining district; 0 hotels in count looks like undercount
+taipei,hood,4,Shilin,UNSURE,low,"night-market district, few hotels"
+manama,hood,4,Amwaj Islands,REMOVE,medium,residential resort islands near Muharraq; ranks below the Manama souq area
+manama,add,,Manama Souq / Bab Al Bahrain,ADD,medium,"old centre with souq, hotels and dining; replaces Amwaj Islands"
+denpasar,hood,1,Renon,UNSURE,low,"government district with Bajra Sandhi monument, some hotels"
+denpasar,hood,2,Sesetan,REMOVE,high,residential suburb
+denpasar,hood,3,Kesiman,REMOVE,high,"residential suburb, 9 hotels"
+denpasar,hood,4,Panjer,REMOVE,medium,residential area overlapping Sanur/Renon
+hanoi,hood,3,Dong Da,REMOVE,medium,"residential/commercial district, little visitor lodging"
+hanoi,hood,4,Cau Giay,REMOVE,medium,new business and residential district
+hanoi,add,,French Quarter,ADD,medium,Opera House area south of Hoan Kiem Lake with hotels and dining; recognized visitor area
+cancun,hood,2,Puerto Cancún,REMOVE,medium,"residential marina community, 2 hotels"
+cancun,hood,3,Puerto Juárez,UNSURE,low,ferry-terminal area for Isla Mujeres with some hotels
+ho-chi-minh-city,hood,4,Phu My Hung (District 7),REMOVE,medium,"residential new urban area, not a visitor area"
+budapest,hood,4,Ujlipotvaros (District XIII),UNSURE,low,"residential, but near Danube with hotels and cafes; ranks about 6th (below Terezvaros)"
+orlando,hood,1,Winter Park,UNSURE,medium,Park Avenue dining and museums but 3 hotels
+orlando,hood,2,Lake Nona,REMOVE,high,"residential and medical city, 0 hotels"
+guangzhou,hood,3,Haizhu,UNSURE,low,Canton Tower and trade-fair hotels; count 0 is a China undercount
+guangzhou,hood,4,Panyu,REMOVE,medium,suburban district known for theme parks (single sites)
+doha,hood,4,Katara,REMOVE,medium,cultural village is a single site; 1 hotel
+doha,add,,Souq Waqif,ADD,low,"cluster is the Souq Waqif/Corniche edge, the top visitor area; replaces Katara"
+cairo,hood,1,Maadi,REMOVE,medium,"residential expat suburb, 9 hotels"
+cairo,hood,2,Heliopolis,REMOVE,medium,residential area near the airport
+cairo,add,,Giza (Pyramids),ADD,medium,Giza Plateau/Nazlet El-Samman: major visitor lodging near the Pyramids
+punta-cana,hood,3,Uvero Alto,UNSURE,low,"remote all-inclusive resort strip, little dining outside resorts"
+berlin,hood,4,Neukölln,REMOVE,low,8 hotels; ranks below Charlottenburg/City West for visitor stays
+berlin,add,,Charlottenburg (City West),ADD,medium,"Kurfürstendamm, Zoo, many hotels; replaces Neukölln"
+riyadh,hood,1,Al Malaz,UNSURE,low,"residential/commercial, 10 hotels, Saudi undercounted"
+riyadh,hood,2,Diplomatic Quarter,REMOVE,medium,embassy enclave with restricted access
+riyadh,hood,3,Al Nakheel,UNSURE,low,"residential, one hotel in count"
+riyadh,hood,4,King Abdullah Financial District,UNSURE,low,office district with a few hotels
+dublin,hood,1,Ballsbridge,REMOVE,low,"embassy and business area, few visitor draws; ranks below O'Connell Street"
+dublin,hood,2,Rathmines,REMOVE,medium,"residential suburb, 6 hotels"
+dublin,add,,O'Connell Street,ADD,low,"central north-side hotels, GPO, replaces Ballsbridge"
+dublin,add,,St Stephen's Green / Grafton Street,ADD,medium,central shopping and hotel area; replaces Rathmines
+da-nang,hood,2,Sơn Trà,REMOVE,medium,point sits on the nature-reserve peninsula with no lodging; My Khe beach added instead
+da-nang,hood,4,Thanh Khê,REMOVE,medium,"local residential district, little visitor draw"
+da-nang,add,,My Khe Beach,ADD,high,main beach hotel strip (218 hotels in cell)
+nha-trang,hood,1,Biet Thu Nightlife Quarter,REMOVE,high,"point 100 m from Tran Phu hood, duplicate area"
+nha-trang,hood,4,Vinh Nguyen (Cau Da Port),REMOVE,medium,"fishing-port village, little visitor lodging"
+karbala,hood,1,Al-Abbasiyah (New Karbala),UNSURE,low,"newer district beside the shrines, few hotels in count"
+karbala,hood,3,Al-Hurr,REMOVE,low,"single shrine area away from the centre, 0 counts"
+las-vegas,hood,2,Summerlin,REMOVE,high,residential suburb
+las-vegas,hood,3,Henderson,REMOVE,high,separate suburban city
+las-vegas,hood,4,Chinatown (Spring Mountain),REMOVE,medium,"dining strip with 2 hotels, not a place visitors stay"
+fukuoka,hood,4,Ohori,REMOVE,medium,"single site (Ohori Park), 5 hotels"
+beijing,hood,3,Haidian,REMOVE,medium,university/tech district with 4 hotels; Summer Palace is a single site
+hurghada,hood,2,El Mamsha,UNSURE,low,"promenade area, Egypt undercounted"
+hurghada,hood,3,El Ahyaa,REMOVE,medium,residential district
+hurghada,hood,4,Sahl Hasheesh,UNSURE,low,"resort town ~18 km south, outside city"
+copenhagen,hood,2,Osterbro,REMOVE,low,"residential, few hotels; Kastellet/Little Mermaid are single sites"
+xiamen,hood,3,Huli / SM City & Ferry,UNSURE,low,"commercial area with ferry and mall, few hotels"
+xiamen,hood,4,Jimei,REMOVE,medium,suburban district
+amman,hood,3,Abdoun,UNSURE,low,"upscale residential with Boulevard dining, few hotels"
+nara-shi,hood,4,Takabatake (Quiet Residential),REMOVE,low,quiet residential area overlapping Nara Park
+palma-de-mallorca,hood,3,Portixol,UNSURE,low,"small seaside district, thin lodging"
+abu-dhabi,hood,3,Khalifa City,REMOVE,high,residential suburb near the airport
+vancouver,hood,2,Kitsilano,UNSURE,medium,"beach neighbourhood, 4 hotels in a well-mapped country"
+vancouver,hood,4,Mount Pleasant,REMOVE,low,"4 hotels, local brewery/dining district"
+brussels,hood,3,European Quarter,REMOVE,medium,office and institutions district
+santiago,hood,1,Las Condes,REMOVE,medium,"business and residential, 0 hotels in count"
+santiago,hood,3,Vitacura,REMOVE,high,"upscale residential, 2 hotels"
+santiago,hood,4,Nunoa,REMOVE,medium,"residential, 3 hotels"
+santiago,add,,Santiago Centro (Lastarria),ADD,high,"historic centre, Plaza de Armas, Lastarria, hotels"
+santiago,add,,Barrio Brasil / Yungay,ADD,low,bohemian historic barrios with hostels and bars
+najaf,hood,2,Al Kufa,REMOVE,medium,separate town ~10 km away; day trip
+krakow,hood,3,Nowa Huta,REMOVE,medium,"communist-era residential district, 3 hotels"
+playa-del-carmen,hood,4,Colosio,UNSURE,low,north residential/hotel area
+valletta,hood,3,Mdina & Rabat,REMOVE,medium,"historic town ~12 km inland, a day trip"
+marrakech,hood,4,Palmeraie,UNSURE,low,luxury resort area ~10 km outside; count 0 is a Morocco undercount
+tashkent,hood,1,Yunusabad,UNSURE,low,residential district with some hotels; Uzbekistan undercounted
+tashkent,hood,3,Mirzo Ulugbek,REMOVE,low,residential/university district
+buenos-aires,hood,3,La Boca,REMOVE,medium,8 hotels; Caminito is a sightseeing stop; ranks below Microcentro
+buenos-aires,add,,Microcentro,ADD,medium,"Plaza de Mayo/Monserrat core, 96 hotels in cell; replaces La Boca"
+mumbai,hood,4,Lower Parel / Worli,UNSURE,low,"business/nightlife district, ranks 6th+"
+lima,hood,3,Santiago de Surco,REMOVE,high,residential
+lima,hood,4,San Borja,REMOVE,medium,residential
+lima,add,,Centro Historico de Lima,ADD,high,"UNESCO historic centre, Plaza Mayor, hotels"
+busan,hood,4,Gwangbok,REMOVE,high,"point 180 m from Nampo-dong, duplicate area"
+seville,hood,3,La Macarena,REMOVE,medium,"5 hotels, local residential area with a basilica"
+toronto,hood,1,The Annex,REMOVE,medium,"residential, 14 hotels"
+toronto,hood,3,Distillery District,REMOVE,low,"single heritage shopping/dining enclave, 0 hotels"
+toronto,add,,Entertainment District,ADD,medium,"CN Tower, Rogers Centre, many hotels; replaces The Annex"
+jakarta,hood,3,SCBD / Sudirman,UNSURE,low,business district with malls and hotels
+san-francisco,hood,1,Haight-Ashbury,REMOVE,medium,3 hotels; ranks 6th+
+san-francisco,add,,Fisherman's Wharf,ADD,medium,top visitor area with hotels; replaces Haight-Ashbury
+porto,hood,4,Foz do Douro,UNSURE,medium,"seaside residential district, 6 hotels"
+edinburgh,hood,4,Morningside,REMOVE,high,residential suburb
+edinburgh,add,,West End,ADD,medium,Haymarket/Charlotte Square hotel area; replaces Morningside
+tunis,hood,2,Les Berges du Lac,REMOVE,medium,"business and residential, 7 hotels"
+tunis,hood,4,Gammarth,UNSURE,low,beach resort suburb ~20 km away
+johor-bahru,hood,1,Iskandar Puteri,UNSURE,low,"Legoland and Puteri Harbour new town, 8 hotels"
+johor-bahru,hood,2,Danga Bay,REMOVE,medium,"waterfront development, 4 hotels"
+johor-bahru,hood,3,Tebrau,REMOVE,medium,suburban shopping area
+johor-bahru,hood,4,Skudai,REMOVE,high,university suburb
+melbourne,hood,4,Richmond,REMOVE,medium,"6 hotels, local dining; ranks below CBD"
+melbourne,add,,Melbourne CBD,ADD,high,"city centre: laneways, Federation Square, hotels; replaces Richmond"
+minsk,hood,3,Railway Station Area,UNSURE,low,station-area hotels
+minsk,hood,4,Zalataja Horka (Golden Hill),REMOVE,medium,residential
+ha-long,hood,3,Cua Ong,REMOVE,high,"coal port town, 0 counts"
+ha-long,hood,4,Cai Dam,REMOVE,medium,local residential/market area
+alanya,hood,4,Kestel,REMOVE,medium,"residential villages, 3 hotels"
+tbilisi,hood,3,Saburtalo,REMOVE,medium,"residential, 9 hotels"
+heraklion,hood,1,Poros,UNSURE,low,"Port area east of the old town; 9 hotels, mostly transit lodging"
+heraklion,hood,2,Nea Alikarnassos,REMOVE,medium,"West-coast residential suburb, little visitor lodging"
+heraklion,hood,3,Mastampas,REMOVE,medium,Residential suburb west of centre
+nice,hood,1,Cimiez,REMOVE,medium,"Residential hill; 8 hotels, one museum cluster (Matisse, Roman ruins)"
+george-town,hood,2,Chulia Street,UNSURE,low,"Chulia Street is ~400 m from Armenian Street, same heritage core, near-duplicate"
+warsaw,hood,3,Mokotow,REMOVE,high,"Residential district, 1 hotel in 800 m (well-mapped)"
+warsaw,hood,4,Wilanow,REMOVE,high,Palace and park complex outside centre; no lodging or dining nearby
+warsaw,add,,Powiśle,ADD,low,"Riverside cafes, science centre, library; verify hotels"
+montreal,hood,4,Outremont,REMOVE,high,"Residential, 1 hotel in 800 m"
+montreal,add,,Downtown Montréal (Centre-Ville),ADD,medium,Hotel and sights hub that is missing; 24 hotels in cell
+rhodes,add,,Faliraki,ADD,medium,"Major resort town south of Rhodes Town, 37 hotels in cell"
+baku,hood,4,Yasamal,REMOVE,medium,"Residential hills district, 6 hotels, few visitors"
+frankfurt-am-main,hood,1,Nordend,REMOVE,medium,"Residential, 5 hotels, little visitor draw"
+zhuhai,hood,1,Xiangzhou,UNSURE,low,"Whole urban district; overlaps Gongbei, vague as a visitor area"
+zhuhai,hood,3,Tangjiawan,REMOVE,medium,"Outer town, no counts, not a visitor base"
+phnom-penh,hood,3,Chroy Changvar,UNSURE,low,"Peninsula across the Tonle Sap; some hotels, less touristic"
+reykjavik,hood,3,Laugardalur,REMOVE,medium,"Sports and park area, 3 hotels, single-attraction zone"
+zurich,hood,3,Zurich-West,REMOVE,medium,3 hotels in 800 m in a well-mapped country; industrial-turned-trendy
+kota-kinabalu,hood,2,Likas,REMOVE,medium,"Residential bay district, 4 hotels"
+kota-kinabalu,hood,3,Sutera Harbour (Sembulan),REMOVE,medium,Single resort compound (Sutera Harbour)
+kota-kinabalu,hood,4,Pulau Gaya,REMOVE,high,"Island off the coast, day trip"
+sapporo,hood,2,Maruyama,REMOVE,medium,"Park and shrine residential area, 1 hotel in 800 m (well-mapped)"
+chongqing,hood,2,Nanshan (Nan'an),UNSURE,low,Scenic Nan'an area; lodging unclear
+chongqing,hood,3,Shapingba,UNSURE,low,University district
+hoi-an,hood,2,Cam Thanh (Coconut Village),UNSURE,low,"Tourist village, more excursion than base"
+mashhad,hood,2,Nawab Safavi & Tabarsi,UNSURE,low,"Boulevard district, count too low to judge"
+mashhad,hood,4,Koohsangi & Vakilabad,UNSURE,low,Parks and hotel boulevard
+male,hood,4,Villimalé (Villingili),REMOVE,high,"Residential island, no hotels or venues"
+andorra-la-vella,hood,3,Santa Coloma,REMOVE,high,Village with 1 hotel
+delhi,hood,4,Saket,REMOVE,medium,"Mall, hospital and residential area; Paharganj clearly more popular"
+delhi,add,,Paharganj,ADD,high,Backpacker and budget hotel hub by New Delhi station; 576 hotels in cell
+kaohsiung,hood,4,Gushan (Sizihwan),REMOVE,medium,2 hotels in 800 m (well-mapped); harbour hamlet
+kaohsiung,add,,Kaohsiung Main Station area,ADD,low,"Hotels and Liuhe night market around the station; name from coordinate, verify"
+nagoya,hood,3,Marunouchi (Nagoya Castle),REMOVE,medium,"Government and castle zone, 5 hotels; single site"
+sao-paulo,hood,3,Itaim Bibi,REMOVE,medium,Business and finance district; ranks 6th for tourists behind Paulista
+sao-paulo,add,,Avenida Paulista / Bela Vista,ADD,high,"Top visitor and hotel area, MASP, 49 hotels in cell"
+washington-d-c,hood,4,Shaw,REMOVE,medium,Ranks 6th for tourists behind Penn Quarter/Downtown
+washington-d-c,add,,Penn Quarter / Downtown,ADD,medium,"National Mall adjacent, museums, hotels and dining"
+yerevan,hood,3,Tsitsernakaberd,REMOVE,high,"Memorial single site, 3 hotels"
+yerevan,hood,4,Erebuni,REMOVE,high,"Fortress and suburb, 2 hotels"
+houston,hood,3,The Heights,REMOVE,medium,"Residential, 5 hotels, few visitor draws"
+houston,add,,Galleria / Uptown,ADD,high,"Major hotel and shopping hub, 17 hotels in cell"
+muscat,hood,1,Shatti Al Qurum,UNSURE,low,"Adjacent to Qurum, possible duplicate"
+muscat,hood,2,Qurum,UNSURE,low,"Adjacent to Shatti Al Qurum, possible duplicate"
+muscat,hood,4,Al Bustan / Bandar Jissah,UNSURE,low,"Resort compounds (Al Bustan, Shangri-La); single-site risk"
+san-salvador,hood,4,Santa Elena / Antiguo Cuscatlán,REMOVE,medium,Corporate and mall suburb
+thessaloniki,hood,2,Kalamaria,UNSURE,low,Seafront suburb with cafes; few hotels
+thessaloniki,hood,3,Panorama,REMOVE,high,"Hill suburb, 4 hotels"
+thessaloniki,hood,4,Toumba,REMOVE,medium,"Residential, football stadium, 2 hotels"
+cape-town,hood,4,Woodstock,REMOVE,medium,Ranks 6th for tourists behind Green Point/De Waterkant
+cape-town,add,,Green Point / De Waterkant,ADD,medium,"Hotel-dense area next to the stadium and Waterfront, 49 hotels"
+panama-city,hood,4,Punta Pacifica,REMOVE,medium,"Residential towers, little lodging"
+taichung,hood,4,Beitun District,REMOVE,medium,Residential district
+vientiane,hood,3,That Luang,UNSURE,low,Monument site with some hotels
+chicago,hood,4,Hyde Park,REMOVE,medium,"University neighbourhood, 7 hotels; ranks below Gold Coast / Mag Mile"
+chicago,add,,Gold Coast / Magnificent Mile,ADD,medium,Prime visitor area with 63 sights in cell
+guilin,hood,2,Diecai District,UNSURE,low,Hill district; Overture undercounts China
+guilin,hood,3,Qixing District,UNSURE,low,Seven Star Park area; Overture undercounts China
+denizli,hood,1,İncilipınar,REMOVE,medium,Residential
+denizli,hood,4,Çamlık,REMOVE,medium,Residential commercial area
+hamburg,hood,4,Altona,REMOVE,medium,Ranks 6th for tourists behind St. Georg
+hamburg,add,,St. Georg,ADD,medium,"Hotels near the main station, Lange Reihe dining, 43 hotels"
+san-jose,hood,2,Escazú,REMOVE,medium,"Suburb in a separate canton, 6 hotels"
+mont-saint-michel,hood,2,Pontorson,REMOVE,medium,"Town 9 km inland, belongs in day trips"
+jeju-city,hood,2,Nohyeong-dong,UNSURE,low,1 hotel in 800 m looks off for a large district; verify point
+suzhou,hood,3,Wuzhong (Mudu / Lake Tai),REMOVE,medium,"Lake Tai suburb, not a visitor base"
+suzhou,hood,4,Huqiu / Tiger Hill,REMOVE,high,Single site (Tiger Hill)
+nairobi,hood,1,Karen,UNSURE,low,Leafy suburb with boutique stays; Africa undercount
+nairobi,hood,3,Upper Hill,REMOVE,medium,"Business district, 16 hotels but office-focused"
+honolulu,hood,3,Kahala,REMOVE,medium,1 hotel in 800 m; residential resort enclave
+honolulu,add,,Kakaako,ADD,medium,"Murals, breweries and dining; 91 food venues"
+batumi,hood,3,Gonio,REMOVE,medium,"Village 12 km south, belongs in day trips"
+batumi,hood,4,Makhinjauri,UNSURE,low,Coastal suburb with hotels but little dining
+malacca,hood,4,Ujong Pasir,REMOVE,medium,"Beach suburb, 5 hotels"
+kamakura,hood,2,Kita-Kamakura,REMOVE,medium,"0 hotels; temple village, sights only"
+luxor,hood,2,Karnak,REMOVE,medium,Temple site with 4 hotels
+luxor,hood,4,Theban Necropolis (West Bank),REMOVE,high,"Tomb sites, not a lodging neighbourhood"
+chamonix-mont-blanc,hood,2,Les Praz-de-Chamonix,UNSURE,low,"Hamlet next to centre, 13 hotels"
+chamonix-mont-blanc,hood,3,Les Bossons,REMOVE,medium,"Hamlet, 5 hotels 1 restaurant"
+chamonix-mont-blanc,hood,4,Le Tour,REMOVE,medium,"Hamlet, 3 hotels no restaurants"
+corfu,hood,2,Kanoni,REMOVE,medium,"Airport peninsula, single sites"
+corfu,hood,3,Mandouki (Port),REMOVE,medium,Port area
+corfu,hood,4,Kontokali,UNSURE,low,Resort village 6 km north
+corfu,add,,Benitses,ADD,low,"Established south-coast resort town (identified from the coordinate, verify)"
+izmir,hood,2,Karşıyaka,UNSURE,low,Residential across the bay; waterfront dining
+izmir,hood,3,Bornova,REMOVE,medium,"University suburb, 7 hotels"
+izmir,hood,4,Balçova / Güzelbahçe,REMOVE,medium,Thermal suburb
+izmir,add,,Basmane / Kemeraltı,ADD,medium,"Hotel cluster by Basmane station and bazaar, 91 hotels"
+niagara-falls,hood,3,Chippawa,REMOVE,medium,"Village, 4 hotels"
+niagara-falls,hood,4,Niagara Parkway / Dufferin Islands,REMOVE,high,"Parkway and park, single sites"
+bishkek,hood,1,Osh Bazaar,UNSURE,low,Market site
+bishkek,hood,3,Dordoi Plaza,REMOVE,medium,Wholesale market complex
+bishkek,hood,4,Yug-2,UNSURE,low,Residential microdistrict
+strasbourg,hood,4,Quartier Europeen,REMOVE,high,"EU institutions district, 3 hotels"
+chengdu,hood,3,Gaoxin / Tianfu New Area,REMOVE,high,Business and new-town district
+chengdu,hood,4,Jinniu / North Station,UNSURE,low,"Station area, hostels possible; undercount"
+seattle,hood,3,Ballard,REMOVE,medium,1 hotel in 800 m; ranks below Seattle Center
+seattle,add,,Seattle Center / Lower Queen Anne,ADD,medium,"Space Needle, museums, 31 sights in cell"
+oranjestad,hood,3,Noord,REMOVE,medium,"Whole district containing Palm Beach, redundant"
+oranjestad,hood,4,Malmok / Arashi,UNSURE,low,"Beach strip, 5 hotels, no restaurants"
+harbin,hood,1,Nangang,UNSURE,low,District with railway station; undercount
+harbin,hood,2,Songbei / Ice-Snow World,REMOVE,medium,Seasonal single site (Ice and Snow World)
+harbin,hood,3,Daowai,UNSURE,low,Chinese Baroque heritage street; hotels unclear
+harbin,hood,4,Xiangfang,REMOVE,medium,Residential
+hangzhou,hood,2,Binjiang (Riverside),REMOVE,medium,Business riverside
+hangzhou,hood,3,Xiacheng / Grand Canal,UNSURE,low,Canal and heritage; unclear lodging
+hangzhou,hood,4,Yuhang / Future Sci-Tech City,REMOVE,high,Tech campus district
+nassau,hood,3,Sandyport / Western Esplanade,REMOVE,medium,"Residential waterfront, 1 hotel"
+nassau,hood,4,Eastern Road / Fort Montagu,REMOVE,medium,Residential east coast
+cusco,hood,4,Wanchaq,UNSURE,low,"Residential, station area"
+dallas,hood,3,Bishop Arts District,UNSURE,low,Dining district with 2 hotels
+dallas,hood,4,Knox/Henderson,REMOVE,medium,"Residential shopping strip, 2 hotels"
+abidjan,hood,3,Riviera,UNSURE,low,Residential; Africa undercount
+abidjan,hood,4,Port-Bouët (Airport area),REMOVE,high,Airport zone
+oslo,hood,2,Majorstuen,UNSURE,low,"Residential and shopping, 9 hotels"
+siem-reap,hood,4,Svay Dangkum,UNSURE,low,Commune containing most other listed hoods
+colombo,hood,4,Slave Island / Beira Lake,UNSURE,low,"Lake district, mixed lodging"
+bucharest,hood,2,Herăstrău / Băneasa,REMOVE,medium,Park and residential villas
+mykonos,hood,4,Ano Mera,UNSURE,low,Inland village
+kuwait-city,hood,3,Hawally,REMOVE,medium,"Residential, 3 hotels"
+kuwait-city,hood,4,Farwaniya,REMOVE,medium,Residential suburb near the airport
+hue,hood,2,Vỹ Dạ,UNSURE,low,"Garden-house district, residential"
+hue,hood,3,Kim Long,UNSURE,low,"Riverside near Thien Mu, homestays"
+ko-samui,hood,3,Nathon,REMOVE,medium,"ferry-port town; visitors base on the beaches, ranks below Bang Rak/Choeng Mon area"
+ko-samui,add,,Bang Rak (Big Buddha),ADD,medium,"Big Buddha/Bophut-Plai Laem road beach area, 34 hotels 47 restaurants in cell; replaces Nathon"
+tallinn,hood,3,Pirita,UNSURE,low,"beach/yacht-club suburb 5 km out, 3 hotels in well-mapped Estonia; some visitors go for beach, spa"
+montego-bay,hood,2,Ironshore,REMOVE,medium,"residential/golf-villa suburb, 1 hotel 1 restaurant in 800 m"
+banff,hood,3,Tunnel Mountain,REMOVE,medium,"campground/residential bench above town, 4 hotels 1 restaurant"
+algiers,hood,1,Hydra,UNSURE,low,embassy/residential hill district with some hotels and restaurants; Algeria undercounted
+algiers,hood,2,El Biar,UNSURE,low,"residential hill district, similar to Hydra"
+algiers,hood,3,Mohammadia (Pins Maritimes),UNSURE,low,Pins Maritimes seafront with fair grounds and a few hotels
+algiers,hood,4,Bab Ezzouar,REMOVE,medium,business district beside the airport (Bab Ezzouar)
+phoenix,hood,2,Arcadia,REMOVE,high,"residential, 0 hotels 1 restaurant in well-mapped US"
+phoenix,hood,4,Midtown,UNSURE,low,"central Midtown, modest hotels and dining"
+guatemala-city,hood,2,Zona 13,REMOVE,medium,airport zone (La Aurora); few restaurants for 25 hotels
+san-antonio,hood,3,Alamo Heights,REMOVE,high,"separate residential suburb, 0 hotels 8 restaurants in well-mapped US"
+hiroshima,hood,4,Yokogawa,REMOVE,medium,"residential station district, 4 hotels in well-mapped Japan"
+dusseldorf,hood,3,Flingern,UNSURE,medium,"trendy local district, 0 hotels in 800 m (7 in 1 km cell); bars/cafes but little lodging"
+dusseldorf,hood,4,Oberkassel,UNSURE,low,"upscale residential across the Rhine; 6 hotels, dining on Luegplatz"
+ljubljana,hood,3,Bežigrad,UNSURE,low,"stadium/residential district north of centre, 7 hotels"
+ljubljana,hood,4,Vič,REMOVE,high,"residential suburb, 1 hotel 3 restaurants"
+xi-an,hood,3,Qujiang New District,UNSURE,low,"new-district Tang theme area (Tang Paradise, Datang Everbright); China undercounted"
+xi-an,hood,4,Weiyang / High-tech Zone,REMOVE,medium,high-tech/business zone
+funchal,hood,3,Monte,REMOVE,medium,"hill village known for church/garden/toboggan; 3 hotels 5 restaurants, a sight not a base"
+marmaris,add,,Turunc,ADD,low,"resort village with 36 hotels in cell, ~9 km from Marmaris; guide has only 3 hoods"
+fethiye,hood,3,Kayaköy,UNSURE,low,ghost-village area with guesthouses; ~9 km out
+samarkand,hood,3,Silk Road Samarkand,REMOVE,medium,"single tourist complex (Silk Road Samarkand), 5 hotels 4 restaurants"
+samarkand,hood,4,Bogishamol,UNSURE,low,"0 hotels 0 restaurants counted; Central Asia undercounted, could not verify"
+durres,hood,2,Currila,UNSURE,low,"north beach suburb, 4 hotels"
+tangier,hood,3,Malabata,UNSURE,low,"Malabata corniche beach hotels; low counts, Morocco undercounted"
+medellin,hood,3,Envigado,REMOVE,medium,"separate municipality, plain residential, 2 hotels"
+medellin,hood,4,Sabaneta,REMOVE,medium,"separate municipality, residential, 6 hotels"
+havana,hood,4,Regla / Casablanca,REMOVE,medium,"across the bay, small town with 0 counted places, visited as a ferry trip"
+zagreb,hood,4,Jarun,REMOVE,high,"recreational lake area, 2 hotels"
+bologna,hood,4,San Donato,UNSURE,low,"residential east side, 14 hotels 35 restaurants"
+atlanta,hood,4,Virginia-Highland,REMOVE,medium,"residential village strip, 0 hotels in 800 m"
+agadir,hood,4,Anza,REMOVE,medium,"fishing village north of city, 1 hotel 1 restaurant"
+paphos,hood,4,Geroskipou,REMOVE,medium,"coastal suburb, 2 hotels 12 restaurants"
+kunming,hood,1,Panlong District,REMOVE,high,"a whole district, not a visitor neighbourhood; 2 hotels 4 restaurants"
+kunming,hood,2,Xishan & Dianchi Lake,REMOVE,high,"scenic lake/mountain area outside the city, no lodging counted"
+kunming,hood,3,Guandu Old Town,REMOVE,medium,"single old-town site, nothing counted"
+kunming,hood,4,Chenggong New City,REMOVE,high,new-city administrative district
+kunming,add,,Jinbi Road (Jinma-Biji Square),ADD,medium,"historic centre of Kunming, 13 hotels in cell; replaces the four removed hoods"
+kobe,hood,4,Nada,REMOVE,medium,"residential sake-brewery ward, 2 hotels"
+alicante,hood,3,Playa de San Juan,REMOVE,medium,"residential beach suburb 6 km out, 1 hotel"
+alicante,hood,4,Benalúa,UNSURE,low,"residential by the station, 9 hotels"
+kusadasi,hood,3,Pamucak,REMOVE,medium,"beach 7 km out, 1 hotel 5 restaurants"
+kusadasi,hood,4,Davutlar,UNSURE,low,"coastal town ~15 km south, 7 hotels"
+gdansk,hood,3,Oliwa,UNSURE,low,Oliwa cathedral/park is a draw but 2 hotels 1 restaurant counted
+gdansk,hood,4,Przymorze (Baltic beach),REMOVE,medium,residential tower-block beach district
+phu-quoc,hood,3,Bai Sao (Sao Beach),UNSURE,low,"single beach with resorts, 3 hotels counted"
+luxembourg,hood,3,Kirchberg,REMOVE,high,"EU institutions/business plateau, 0 hotels"
+luxembourg,hood,4,Belair,REMOVE,medium,"residential, 4 hotels"
+tainan,hood,4,South District (Nan Qu),REMOVE,medium,"0 hotels 16 restaurants, residential"
+avignon,hood,1,Île de la Barthelasse,REMOVE,medium,"island of farms and campsites, 1 hotel 2 restaurants"
+avignon,hood,2,Villeneuve-lès-Avignon,UNSURE,low,separate commune across the river (Gard); kept so the guide has 2 hoods
+ankara,hood,2,Çankaya,UNSURE,low,"residential hill district, 7 hotels"
+kigali,hood,3,Nyarutarama,UNSURE,low,"upscale residential, 1 hotel; Rwanda undercounted"
+durban,hood,3,Berea,UNSURE,low,residential hill suburb with hospitals
+durban,hood,4,Glenwood,UNSURE,low,residential suburb next to Florida Road
+bursa,hood,2,Nilüfer,UNSURE,low,"modern district, 4 hotels 126 restaurants"
+montevideo,hood,4,Carrasco,UNSURE,low,"upscale residential near airport, 4 hotels"
+calgary,hood,2,Inglewood,UNSURE,low,popular dining street area but 2 hotels 2 restaurants counted (point may be off)
+varna,hood,2,Chaika,UNSURE,low,residential hotel belt north of Sea Garden
+varna,hood,3,Asparuhovo,REMOVE,medium,"residential suburb across the bridge, 1 hotel"
+quanzhou,hood,3,Fengze (Wanda / Fengze Square),REMOVE,high,"modern commercial district, 1 hotel"
+quanzhou,hood,4,Xunpu Village,REMOVE,medium,"fishing village, nothing counted"
+foz-do-iguacu,hood,3,Vila A,REMOVE,medium,"residential neighbourhood, 0 hotels"
+pretoria,hood,3,Waterkloof,REMOVE,medium,"upscale residential, 12 restaurants, guest-houses only"
+pretoria,add,,Pretoria Central (Church Square),ADD,low,CBD with 20 hotels and 43 sights in cell; replaces Waterkloof
+baghdad,hood,1,Karkh (Green Zone),REMOVE,medium,restricted government zone
+baghdad,hood,3,Jadriya,UNSURE,low,university/residential district
+baghdad,add,,Kadhimiya,ADD,low,pilgrim district around the Kadhimiya shrine with hotels (14 in cell); Iraq undercounted
+wroclaw,hood,4,Krzyki,REMOVE,high,"residential district, 7 hotels"
+arusha,hood,1,Njiro,UNSURE,low,residential suburb with lodges; Tanzania undercounted
+arusha,hood,3,Sakina,UNSURE,low,local suburb around bus terminal
+arusha,hood,4,Usa River,REMOVE,medium,village 20 km out with a few lodges (day trip)
+bratislava,hood,1,Petržalka (Sad Janka Kráľa area),UNSURE,low,panelak district across the river with park and some hotels
+bratislava,hood,2,Ružinov,REMOVE,high,residential and office district
+bratislava,hood,3,Nové Mesto (near Main Station),REMOVE,medium,"residential, 4 hotels"
+bratislava,hood,4,Devín / Karlova Ves,REMOVE,high,"Devin Castle is a single site, 1 hotel"
+accra,hood,1,Airport Residential Area,REMOVE,medium,airport zone
+accra,hood,2,East Legon,UNSURE,low,"upscale residential suburb, 9 hotels"
+accra,hood,3,Labadi/La,UNSURE,low,beach area with Labadi Beach Hotel; Ghana undercounted
+trabzon,hood,2,Kemerkaya,UNSURE,low,adjacent to Meydan with near-identical counts
+puerto-plata,hood,2,Costambar,REMOVE,medium,"gated residential resort community, 5 hotels 5 restaurants"
+puerto-plata,hood,3,Sosúa,UNSURE,low,"20+ km east, a separate town; could count as day trip"
+anaheim,hood,2,Platinum Triangle,REMOVE,medium,"stadium and arena district, 4 hotels"
+naha,hood,1,Shuri,REMOVE,medium,"castle area, 1 hotel; a sight, not a base"
+brugge,hood,4,Sint-Michiels,REMOVE,medium,"residential suburb, 4 hotels"
+bilbao,hood,4,Deusto,REMOVE,medium,"university/residential, 4 hotels"
+innsbruck,hood,2,Hötting,REMOVE,high,"hillside residential, 2 hotels"
+innsbruck,hood,3,Saggen,REMOVE,medium,"residential villa district, 6 hotels"
+innsbruck,hood,4,Pradl,UNSURE,low,"residential, 8 hotels 42 restaurants"
+vilnius,hood,3,Zverynas,REMOVE,medium,"residential across the river, 4 hotels"
+vilnius,hood,4,Antakalnis,REMOVE,high,"residential, 0 hotels"
+goreme,hood,1,Aydınlı / Edebiyat Quarter,REMOVE,medium,"part of Goreme village, hotel counts duplicate Goreme Town Center"
+goreme,add,,Ortahisar,ADD,medium,"town with rock castle, 63 hotels in cell, near Goreme; replaces Aydinli"
+goreme,add,,Urgup,ADD,high,"main Cappadocia base town, 59 hotels in cell"
+nadi,hood,1,Wailoaloa Beach,UNSURE,low,beach strip with a few lodges; Fiji undercounted
+nadi,hood,4,Namaka,UNSURE,low,airport side
+dakar,hood,1,Point E / Fann,UNSURE,low,"residential, guesthouses; Senegal undercounted"
+dakar,hood,4,Yoff,UNSURE,low,airport-side fishing village with surf
+whistler,hood,3,Function Junction,REMOVE,high,light-industrial/commercial zone
+whistler,hood,4,Alta Lake / Lakeside,REMOVE,medium,lake residential and park
+erbil,hood,2,Gulan Street,UNSURE,low,commercial street
+erbil,hood,3,Italian Village,UNSURE,low,residential with restaurants and hotels
+selcuk,hood,1,Şirince,UNSURE,low,"village ~8 km out; many overnight guests, could count as day trip"
+selcuk,hood,2,Pamucak,REMOVE,medium,"beach 7 km out, 1 hotel"
+aqaba,hood,2,Coral Coast (Dive Strip),UNSURE,low,"south coast dive strip, 1 hotel counted; Jordan undercounted"
+aqaba,hood,3,Tala Bay,REMOVE,medium,resort enclave ~15 km out
+aqaba,hood,4,Ayla Oasis,UNSURE,low,new waterfront development with hotels
+annecy,hood,2,Talloires,REMOVE,medium,lake village 13 km out (day trip)
+rotterdam,hood,3,Delfshaven,UNSURE,low,"historic harbour, 0 hotels in 800 m"
+fes,hood,3,Batha,REMOVE,high,same point and counts as Fes el-Bali (duplicate)
+basel,hood,3,St. Johann,REMOVE,medium,"residential/pharma campus, 2 hotels"
+basel,hood,4,St. Alban,UNSURE,low,"museum quarter, 6 hotels"
+asuncion,hood,4,Costanera (Bahía de Asunción),UNSURE,low,"riverfront strip, 3 hotels"
+kampala,hood,4,Muyenga,UNSURE,low,hilltop suburb with hotels
+sarajevo,hood,4,Ilidža,UNSURE,low,spa suburb ~10 km west (Ilidza); may belong to day trips; has 16 hotels
+monastir,hood,4,Khniss,REMOVE,medium,"0-2 places in 800 m, village/beach suburb with no visitor infrastructure found"
+detroit,hood,4,New Center,REMOVE,medium,"office/hospital district centred on Fisher Building; 2 hotels, little visitor life"
+monterrey,hood,3,Valle Oriente,UNSURE,medium,"business/mall district, 4 hotels"
+monterrey,hood,4,Obispado,UNSURE,medium,mostly residential; Obispado viewpoint; 5 hotels
+hua-hin,add,,Nong Kae,ADD,medium,"South Hua Hin beach area, 58 hotels in cell; city has only 3 hoods"
+kuching,hood,4,Simpang Tiga,UNSURE,medium,"mixed residential, 6 hotels, 44 food"
+dar-es-salaam,hood,4,Kigamboni (South Beach),UNSURE,low,beach resorts across the ferry; Overture undercounts; may be day-trip-like
+christchurch,hood,2,Merivale,REMOVE,medium,"affluent residential suburb, 2 hotels, 4 food in well-mapped NZ"
+christchurch,hood,4,Sumner,REMOVE,medium,"beach suburb ~12 km out, 0 hotels, 0 food in 800 m (day-trip type)"
+maseru,hood,2,Hillsview,UNSURE,low,"5 lodgings, 1 food, 1 sights within 800 m"
+maseru,hood,3,Sea Point,UNSURE,low,"7 lodgings, 9 food, 1 sights within 800 m"
+maseru,hood,4,Maqalika,REMOVE,medium,"residential township, 0 places"
+yangshuo,hood,3,Moon Hill / Gaotian,UNSURE,low,countryside around a single sight; few lodgings
+aix-en-provence,hood,3,Les Facultés,REMOVE,medium,"university campus district, 8 hotels, 18 food"
+ulaanbaatar,hood,3,Khan-Uul District,UNSURE,low,"administrative district, 6 hotels"
+ulaanbaatar,hood,4,Zaisan,REMOVE,medium,"single site (hill monument), 1 hotel"
+bergen,hood,3,Sandviken,REMOVE,medium,"residential wooden-house quarter, 3 hotels, 3 food in well-mapped Norway"
+damascus,hood,1,Abu Rumaneh & Malki,UNSURE,low,upscale residential/embassy area; Syria undercounted
+damascus,hood,4,Mazzeh,UNSURE,low,residential/diplomatic; Syria undercounted
+qom,hood,1,Jamkaran,REMOVE,medium,"shrine and mosque site ~6 km outside the city, no lodging"
+qom,hood,2,Pardisan,REMOVE,high,"residential satellite township, 0 places"
+qom,hood,3,Bazaar / Old Town,UNSURE,medium,near-duplicate of Haram (identical 13/3/3 counts); kept so the guide has 2 hoods
+dali,hood,1,Caicun / West Erhai Shore,UNSURE,low,lakeside villages with B&Bs; Overture undercounts China; outside old town
+dali,hood,2,Shuanglang,UNSURE,low,"lakeside village ~20 km out, popular B&B base; day-trip-like"
+dali,hood,3,Xizhou,UNSURE,low,ancient town ~20 km north; popular but a day-trip type
+nanjing,hood,2,Xuanwu / Xuanwu Lake,UNSURE,medium,lake park with hotels at its edge; point sits in the park
+nanjing,hood,3,Zhongshan / Purple Mountain,REMOVE,medium,"scenic mountain park, single site, 0 places"
+nanjing,hood,4,Hexi / Jianye,REMOVE,medium,"modern business district (Hexi/Olympic Center), 1 hotel"
+lijiang,hood,2,Baisha Village,REMOVE,medium,"small village ~8 km north, 2 hotels (day-trip type)"
+lijiang,hood,3,Lijiang New Town,UNSURE,medium,"modern city, little visitor appeal"
+lijiang,hood,4,Jade Dragon Snow Mountain area,REMOVE,high,"mountain scenic area outside city, 0 hotels"
+negombo,hood,2,Kochchikade,UNSURE,medium,"fishing quarter, fort and church; 5 hotels"
+negombo,hood,4,Kudapaduwa / Duwa,UNSURE,low,"Duwa resort strip; hood point may be offset (cell at 7.255,79.845 has 17 hotels)"
+stuttgart,hood,2,Stuttgart-Sud,REMOVE,medium,"residential, 0 hotels in 800 m in well-mapped Germany"
+chennai,hood,0,Triplicane / Marina,UNSURE,medium,"Marina Beach is the main sight, only 2 hotels"
+chennai,hood,4,Adyar / ECR,UNSURE,medium,"residential, ECR beach resorts further south"
+philadelphia,hood,4,South Philadelphia (East Passyunk),UNSURE,medium,"food destination, 0 hotels in 800 m"
+jinghong,hood,1,Manting Park District,UNSURE,low,"park, single site"
+jinghong,hood,2,Gaozhuang Night Market,UNSURE,low,night market street
+otaru,hood,3,Temiya,REMOVE,medium,"port/museum area, 0 hotels"
+otaru,hood,4,Shukutsu,REMOVE,medium,"fishing district with herring mansion, 1 hotel"
+poznan,hood,3,Wilda,REMOVE,medium,"residential, 2 hotels in well-mapped Poland"
+poznan,hood,4,Malta / Nowe Miasto,UNSURE,medium,lake recreation area with thermal baths; 4 hotels
+cork,hood,3,Douglas,REMOVE,high,"residential suburb, 2 hotels, 2 food"
+santiago-de-compostela,hood,2,San Lázaro,UNSURE,medium,"residential, bus station area"
+santiago-de-compostela,hood,4,Fontiñas,REMOVE,medium,residential
+himeji,hood,2,Shikama & the Port,REMOVE,medium,"industrial port suburb, 0 hotels"
+quito,hood,4,Cumbayá,REMOVE,medium,affluent suburb in a valley ~15 km out; 4 hotels
+lusaka,hood,0,Longacres,UNSURE,medium,Longacres business-hospitality area; Africa undercounted
+lusaka,hood,1,Kabulonga,UNSURE,medium,affluent residential suburb
+lusaka,hood,4,Lilayi,REMOVE,medium,single lodge compound on city outskirts
+port-louis,hood,3,Balaclava & Baie du Tombeau,UNSURE,low,coastal strip with a few resorts
+port-louis,hood,4,Ebène & Moka (Bagatelle),REMOVE,medium,Cyber City business district and inland Moka
+ottawa,hood,2,The Glebe,UNSURE,medium,2 hotels in well-mapped Canada; shopping/dining street
+ottawa,hood,4,Westboro,REMOVE,medium,"suburban, 3 hotels"
+la-paz,hood,2,Zona Sur (Obrajes),REMOVE,medium,"residential/university district, 1 hotel"
+hualien-city,hood,4,Qixingtan Beach,REMOVE,medium,"scenic beach ~10 km out, 3 hotels, 1 food"
+nelspruit,hood,1,West Acres,UNSURE,medium,mall and business area
+nelspruit,hood,2,Sonheuwel,UNSURE,low,residential guesthouse suburb
+nelspruit,hood,3,Steiltes,REMOVE,medium,"residential suburb, 4 hotels, 3 food"
+nelspruit,hood,4,Riverside,UNSURE,medium,mall/business park area
+cordoba,hood,4,Zona Estación (Vial Norte),UNSURE,medium,station-side commercial area
+kandy,hood,1,Peradeniya,REMOVE,medium,"botanic garden and university suburb, 3 food"
+kandy,hood,3,Getambe,UNSURE,low,residential hill suburb
+kandy,hood,4,Ampitiya,REMOVE,medium,"residential, 2 hotels"
+tampa,hood,4,Westshore,UNSURE,medium,business/airport hotel district
+luang-prabang,hood,3,Phou Vao / Southern Luang Prabang,UNSURE,medium,southern edge anchored by one luxury hotel
+windhoek,hood,1,Eros,UNSURE,low,guesthouse suburb near the domestic airport
+windhoek,hood,3,Ludwigsdorf,REMOVE,medium,"residential suburb, 0 food"
+windhoek,hood,4,Luxury Hill,UNSURE,medium,upscale residential suburb with lodges
+alexandria,hood,2,Montazah,UNSURE,medium,palace gardens; hotels beside the park
+luanda,hood,0,Ilha de Luanda,UNSURE,low,"beach strip, popular hangout; Overture undercounts Angola"
+luanda,hood,1,Talatona,UNSURE,low,new business/residential district
+luanda,hood,2,Miramar,UNSURE,low,"4 lodgings, 12 food, 1 sights within 800 m"
+luanda,hood,3,Alvalade,UNSURE,low,"13 lodgings, 26 food, 5 sights within 800 m"
+managua,hood,2,Carretera a Masaya,UNSURE,medium,commercial strip
+maputo,hood,3,Costa do Sol,UNSURE,medium,"seafood beach strip, few hotels"
+maputo,hood,4,Malhangalene,UNSURE,low,residential
+oxford,hood,2,Cowley,REMOVE,medium,point is in the Cowley industrial/retail area; the visitor area is Cowley Road (see adds)
+oxford,hood,3,Summertown,UNSURE,medium,"upscale north Oxford, 12 hotels"
+oxford,hood,4,Headington,UNSURE,medium,"hospital suburb, 4 hotels"
+oxford,add,,Cowley Road (East Oxford),ADD,medium,Cowley Rd is the dining/nightlife street (54 food in cell); replaces the misplaced Cowley hood
+marsa-alam,hood,2,Abu Dabbab Bay,UNSURE,medium,bay with isolated hotels
+marsa-alam,hood,3,Marsa Shagra,REMOVE,medium,single dive camp
+addis-ababa,hood,4,Old Airport,UNSURE,medium,residential area near the old airport
+almaty,hood,3,Al-Farabi Avenue (Esentai),UNSURE,medium,mall/business area
+almaty,hood,4,Kok-Tobe / Bostandyk,REMOVE,medium,"hill with TV tower, single site"
+cairns,hood,2,Edge Hill,REMOVE,medium,residential suburb
+liberia,hood,1,Barrio La Victoria,UNSURE,low,residential barrio
+liberia,hood,2,Barrio Los Ángeles,UNSURE,low,residential barrio
+yangon,hood,4,Inya Lake/Mayangone,UNSURE,medium,residential lake district
+vina-del-mar,hood,3,Las Salinas,REMOVE,medium,"residential beachfront, 0 hotels"
+tours,hood,2,Gare & Grammont,REMOVE,medium,"station-side residential area, 4 hotels, 13 food"
+florianopolis,hood,4,Campeche,UNSURE,medium,"surf beach residential, 5 food"
+dijon,hood,1,Toison d'Or,REMOVE,medium,retail park and mall zone
+dijon,hood,2,Montchapet,UNSURE,medium,"residential, 8 hotels, 19 food"
+dijon,hood,3,Université / Montmuzard,REMOVE,high,university campus
+dushanbe,hood,1,Ismoili Somoni District,REMOVE,medium,"residential/monument zone, 1 hotel"
+dushanbe,hood,2,Airport Area (Ayni Street),REMOVE,high,airport zone
+dushanbe,hood,3,Shah Mansur (Green Bazaar),UNSURE,medium,bazaar district with 11 hotels
+dushanbe,hood,4,Zarafshon,REMOVE,medium,residential
+heidelberg,hood,4,Bahnstadt,UNSURE,medium,new rail district
+zadar,hood,3,Diklo,REMOVE,medium,"residential suburb, 3 food"
+zadar,hood,4,Puntamika,UNSURE,medium,peninsula with hotels
+reims,hood,2,Saint-Rémi,REMOVE,medium,"basilica quarter, 0 hotels in well-mapped France"
+nagasaki,hood,4,Inasa (Mount Inasa),REMOVE,medium,"mountain cable-car site, 5 food"
+beppu,hood,3,Kamegawa,UNSURE,medium,"small onsen area, 5 hotels"
+da-lat,hood,3,Tuyen Lam Lake,REMOVE,medium,"lake on the outskirts, resort/single site"
+isfahan,hood,3,Zayandeh Rud Riverfront,UNSURE,medium,promenade rather than a district
+charlotte-amalie,hood,3,Lindbergh Bay,UNSURE,low,beach by the airport
+charlotte-amalie,hood,4,East End / Red Hook,UNSURE,low,ferry/marina hub for St John
+merida,hood,3,García Ginerés,UNSURE,medium,"12 lodgings, 35 food, 2 sights within 800 m"
+gent,hood,4,Muide-Meulestede,REMOVE,high,docklands/industrial area
+lviv,hood,1,Halytskyi,REMOVE,medium,administrative district containing Old Town; near-identical counts (120/404/108)
+lviv,hood,2,Lychakiv,REMOVE,medium,residential/cemetery district
+lviv,hood,3,Pidzamche,UNSURE,medium,"6 lodgings, 27 food, 11 sights within 800 m"
+austin,hood,4,Zilker / Barton Hills,REMOVE,medium,"park and residential, 0 places"
+rabat,hood,4,Souissi,REMOVE,high,"diplomatic residential suburb, 0 places"
+cambridge,hood,3,Chesterton,UNSURE,medium,"residential north bank, 15 hotels"
+cambridge,hood,4,Newnham,REMOVE,medium,residential village-suburb
+zhaoqing,hood,2,Duanzhou Downtown (Tianning Road),UNSURE,low,"0 lodgings, 0 food, 2 sights within 800 m"
+zhaoqing,hood,3,Dinghu District,REMOVE,medium,mountain reserve ~15 km out (day trip)
+chaozhou,hood,2,Kaiyuan & West Lake (Xihu),UNSURE,low,"3 lodgings, 4 food, 4 sights within 800 m"
+chaozhou,hood,3,Chaozhou People's Square (New City),UNSURE,low,new civic centre
+chaozhou,hood,4,Fengxi (Ceramics District),REMOVE,medium,ceramics industrial district
+manzhouli,hood,1,Railway Station District,UNSURE,medium,"3 lodgings, 2 food, 0 sights within 800 m"
+lome,hood,0,Kodjoviakopé,UNSURE,low,beachfront area; Africa undercounted
+lome,hood,2,Tokoin,UNSURE,low,"2 lodgings, 4 food, 1 sights within 800 m"
+lome,hood,3,Bè,UNSURE,low,"0 lodgings, 2 food, 0 sights within 800 m"
+lome,hood,4,Adidogomé,REMOVE,medium,outer northwest suburb
+faro,hood,2,Praia de Faro,UNSURE,medium,sand-bar beach 9 km out
+faro,hood,3,Montenegro,REMOVE,medium,suburb next to the airport
+faro,hood,4,Bom João,UNSURE,medium,"residential, 18 hotels"
+bengaluru,hood,3,Whitefield,REMOVE,medium,IT/office district (ITPL); few visitor stays vs Indiranagar/Koramangala
+kumamoto,hood,4,Suizenji,UNSURE,low,Mostly the garden (Suizenji Jojuen) in a residential area; few hotels
+bari,hood,3,Poggiofranco,REMOVE,high,"Residential suburb (Poggiofranco), 9 hotels, little to see"
+catania,hood,2,San Berillo,REMOVE,high,Hood point is 130 m from Centro Storico (Piazza Stesicoro): duplicate of Centro Storico
+catania,hood,3,Playa / Lungomare,REMOVE,high,"La Playa beach strip: 9 hotels, 4 restaurants in Italy, not a visitor base"
+mendoza,hood,4,Godoy Cruz,REMOVE,high,"Godoy Cruz: residential suburb, 1 hotel, 6 restaurants"
+santa-cruz-de-la-sierra,hood,3,Urubo (Colinas del Urubo),REMOVE,high,"Urubo: gated residential/golf suburb, 1 hotel"
+santa-cruz-de-la-sierra,hood,4,Zona Norte,REMOVE,medium,"Zona Norte: residential/commercial, 0 hotels counted, no clear visitor draw"
+puerto-iguazu,hood,1,Selva Iryapu / Guarani Community,REMOVE,medium,"Selva Iryapu is a hotel/lodge area plus a Guarani community visit: single-site, not a neighborhood"
+malmo,hood,4,Slottsstaden,REMOVE,medium,"Slottsstaden: residential, 3 hotels"
+galle,hood,2,New Town (Galle City),UNSURE,low,"New Town: commercial/transport centre, most visitors stay in Fort or Unawatuna; Sri Lanka is undercounted"
+ahmedabad,hood,3,SG Highway,UNSURE,low,SG Highway: modern business/mall corridor with business hotels; not a visitor stay area
+ahmedabad,hood,4,Maninagar,REMOVE,medium,Maninagar: residential suburb (Swaminarayan temple only)
+fort-de-france,hood,1,Didier,REMOVE,high,"Didier: residential, 1 hotel"
+fort-de-france,hood,2,Cluny,REMOVE,high,"Cluny: residential, 1 hotel"
+fort-de-france,hood,3,Terres-Sainville,UNSURE,low,"Terres-Sainville: local quarter, 2 hotels but 35 restaurants; kept to hold two hoods"
+fort-de-france,hood,4,Bellevue / Redoute,REMOVE,high,"Bellevue/Redoute: residential, 1 hotel"
+fort-de-france,add,,Pointe du Bout / Anse Mitan (Trois-Ilets),ADD,low,Main hotel and restaurant zone for Fort-de-France visitors (ferry); the guide would otherwise keep only 2 weak hoods; note it is in the Trois-Ilets commune
+qingdao,hood,3,Laoshan (Shilaoren),REMOVE,medium,"Laoshan scenic mountain area, ~30 km out: a day trip"
+qingdao,hood,4,Licang / Shibei (Taidong),UNSURE,low,"Taidong pedestrian street in Shibei: shopping/food draw, few visitor stays"
+rovaniemi,hood,2,Ounasvaara,UNSURE,low,"Ounasvaara: ski hill with a hotel and chalets, little dining"
+rovaniemi,hood,3,Rautatienkatu (Railway district),REMOVE,medium,"Railway district, 1.4 km from the centre point: covered by City Centre, 2 hotels"
+rovaniemi,hood,4,Saarenkylä,REMOVE,high,"Saarenkyla: residential, 3 hotels, 2 restaurants"
+zaragoza,hood,2,Delicias,UNSURE,low,"Delicias: station district, large residential barrio with 139 restaurants but 4 hotels"
+zaragoza,hood,3,Actur-Rey Fernando,REMOVE,high,"Actur-Rey Fernando: residential, 1 hotel"
+nantes,hood,3,Hauts-Pavés – Saint-Félix,REMOVE,high,"Residential, 7 hotels, 16 restaurants"
+nantes,hood,4,Chantenay,REMOVE,high,"Chantenay: residential, 2 hotels"
+shiraz,hood,2,Eram Garden Area,REMOVE,medium,Eram Garden: single site on the north edge
+shiraz,hood,3,Hafezieh (Hafez Tomb),REMOVE,medium,Hafezieh: single site (tomb and garden)
+shiraz,hood,4,Chamran Boulevard (Northwest),UNSURE,low,"Chamran Boulevard: modern northwest corridor, a few upscale hotels"
+oran,hood,1,Es Seddikia,UNSURE,low,"Es Seddikia: central business/residential district, 3 hotels (Algeria undercounted)"
+road-town,hood,2,Nanny Cay / Sea Cows Bay,UNSURE,low,"Nanny Cay/Sea Cows Bay: marina resort ~5 km from town, 1 hotel; kept to hold three hoods"
+mombasa,hood,4,Diani Beach,REMOVE,high,"Diani Beach is ~30 km south across the ferry in Kwale county: outside the city, belongs in day trips/its own guide"
+islamabad,hood,4,G-6 (Aabpara),REMOVE,low,"G-6 (Aabpara): market/residential sector, 8 hotels, little draw"
+edirne,hood,1,Karaagac,UNSURE,low,Karaagac: station village and Lausanne Monument 3.5 km away; kept to hold two hoods
+tabriz,hood,2,Valiasr,UNSURE,low,"Valiasr: shopping street, 23 restaurants, 0 hotels counted"
+tabriz,hood,3,Abrasan,REMOVE,medium,"Abrasan: residential area, no visitor draw"
+tromso,hood,1,Tromsdalen,UNSURE,low,"Tromsdalen: Arctic Cathedral and cable car across the bridge, 1 hotel; kept only to hold two hoods"
+tromso,hood,2,Bjerkaker,REMOVE,high,"Bjerkaker: residential, 2 hotels"
+tromso,hood,3,Breivika,REMOVE,high,"Breivika: northern harbour/industrial, 2 hotels"
+konya,hood,2,Meram,UNSURE,low,"Meram: garden/vineyard suburb with local restaurants, 1 hotel"
+ensenada,hood,2,Estero Beach,UNSURE,low,"Estero Beach: resort area ~10 km south, 6 hotels; kept to hold three hoods"
+lahore,hood,2,DHA (Defence Housing Authority),REMOVE,high,"DHA: gated residential suburb, 0 hotels"
+lahore,hood,3,Model Town,REMOVE,high,"Model Town: residential, 1 hotel"
+harare,hood,3,Highlands,UNSURE,low,Highlands: residential suburb with guesthouses; Africa undercounted
+harare,hood,4,Milton Park,UNSURE,low,Milton Park: inner-city guesthouse area; Africa undercounted
+jasper,hood,1,Pyramid Lake / Patricia Lake,UNSURE,low,Pyramid and Patricia Lakes: lodges 5 km outside the townsite
+jasper,hood,2,Athabasca River Cabins,UNSURE,low,Athabasca River cabins/lodge area outside the townsite
+ta-if,hood,1,Al Hada,UNSURE,low,Al Hada: mountain resort strip with hotels and cable car ~20 km out; Saudi undercounted
+ta-if,hood,2,Al Shafa,UNSURE,low,Al Shafa: mountain resort area with hotels; Saudi undercounted
+ta-if,hood,3,Al Rudaf,REMOVE,medium,"Al Rudaf: residential/park area, 0 hotels"
+philipsburg,hood,1,Little Bay,UNSURE,low,"Little Bay: Divi resort and Fort Amsterdam, 2 hotels"
+pula,hood,3,Veruda,REMOVE,high,"Veruda: marina, 0 hotels, 0 restaurants"
+pula,hood,4,Vidikovac,UNSURE,low,Vidikovac: residential hill with 12 hotels
+udaipur,hood,1,Hanuman Ghat,REMOVE,medium,"Hanuman Ghat: 300 m from Lal Ghat, same cluster (duplicate under another name)"
+udaipur,hood,2,Gangaur Ghat / Jagdish Chowk,REMOVE,medium,"Gangaur Ghat/Jagdish Chowk: 100 m from Lal Ghat, same cluster (duplicate)"
+udaipur,hood,3,Fateh Sagar Lake,UNSURE,low,"Fateh Sagar Lake: lake edge, sunset spot, 2 hotels counted"
+monaco,hood,4,Beausoleil,REMOVE,medium,Beausoleil is a French commune outside Monaco
+monaco,add,,Monaco-Ville (The Rock),ADD,medium,"Not a candidate cluster. Old town with palace and cathedral, the main sight area; recommended to replace removed Beausoleil. Coordinates approximate, from memory."
+victoria-falls,hood,2,Zambezi Riverfront,UNSURE,low,"Zambezi riverfront lodges, few counted (Africa undercounted)"
+victoria-falls,hood,3,Zambezi National Park / Safari Lodge Estate,UNSURE,low,Safari lodge estate in the park; resort compound
+victoria-falls,hood,4,Chinotimba / Aerodrome,REMOVE,high,"Chinotimba: high-density township/aerodrome, no visitor stays"
+arequipa,hood,4,Cayma,UNSURE,low,Cayma: residential district with 21 hotels
+dhaka,hood,4,Karwan Bazar/Sonargaon area,UNSURE,low,Karwan Bazar: wholesale market and business hotels
+mostar,hood,1,Brankovac,REMOVE,high,"Brankovac: 200 m from the Old Town hood point, same cluster (duplicate)"
+coimbra,hood,3,Celas,REMOVE,medium,"Celas: residential, 11 hotels, little to see"
+douala,hood,3,Deido,UNSURE,low,Deido: residential/commercial neighbourhood (Africa undercounted)
+douala,hood,4,Bonamoussadi,UNSURE,low,Bonamoussadi: residential/commercial neighbourhood with guesthouses (Africa undercounted)
+salalah,hood,0,Al Haffa,UNSURE,low,"Al Haffa: souq and beach quarter, few hotels counted (Oman undercounted)"
+salalah,hood,1,Al Dahariz,UNSURE,low,Al Dahariz: eastern district with some sights near Al Baleed
+salalah,hood,2,Al Wadi,UNSURE,low,"Al Wadi: suburban, 3 hotels"
+sigiriya,hood,1,Pidurangala Rock,UNSURE,low,"Pidurangala: homestays near the rock, 4 hotels"
+takamatsu,hood,2,Ritsurin Garden area,UNSURE,low,Ritsurin Garden: a main sight with few hotels (11)
+takamatsu,hood,3,Yashima,REMOVE,medium,"Yashima: single site plateau (temple and open-air museum), 1 hotel"
+kingston,hood,1,Liguanea,REMOVE,medium,"Liguanea: residential/commercial, 0 hotels counted"
+kingston,hood,3,Downtown Kingston,UNSURE,low,"Downtown Kingston: sights and culture, 1 hotel"
+kingston,hood,4,Barbican & Cherry Gardens,REMOVE,high,"Barbican/Cherry Gardens: residential, 0 hotels"
+nicosia,hood,2,Engomi,REMOVE,high,"Engomi: embassy and residential, 2 hotels"
+nicosia,hood,3,Agioi Omologites,REMOVE,medium,"Agioi Omologites: residential/commercial, 2 hotels"
+nicosia,hood,4,Strovolos,REMOVE,high,"Strovolos: suburb, 1 hotel"
+maastricht,hood,4,Sint Pieter / Villapark,REMOVE,high,"Sint Pieter/Villapark: residential hill, 0 hotels"
+kagoshima,hood,3,Shiroyama,UNSURE,low,Shiroyama: hill with viewpoint and one large hotel
+plovdiv,hood,3,Trakia,REMOVE,medium,Trakia: residential high-rise district
+encarnacion,hood,2,Quiteria,REMOVE,medium,"Quiteria: residential barrio, 4 hotels"
+encarnacion,hood,3,San Pedro,REMOVE,medium,"San Pedro: residential barrio, 3 hotels"
+kotor,hood,3,Prčanj,UNSURE,low,Prcanj: bay village with few small hotels
+kotor,hood,4,Muo,REMOVE,medium,"Muo: bay village, 2 hotels, 0 restaurants"
+urganch,hood,0,City Center (Al-Khorezmi Ave),UNSURE,low,"Urgench city centre, 3 hotels (gateway city for Khiva; Overture undercounts)"
+urganch,hood,1,Al-Beruniy Avenue,UNSURE,low,"Al-Beruniy Avenue, a main street with 1 hotel"
+urganch,hood,2,Railway Station District,REMOVE,medium,"Railway station district, no visitor draw"
+urganch,hood,3,Airport District,REMOVE,high,Airport district
+urganch,hood,4,Shavat Canal Park,REMOVE,high,Canal park: single site
+montpellier,hood,2,Beaux-Arts,REMOVE,medium,"Beaux-Arts: residential, 3 hotels"
+montpellier,hood,3,Port Marianne,UNSURE,low,"Port Marianne: modern district, 5 hotels, town hall and Odysseum nearby"
+nagano,hood,3,Matsushiro (Historic Samurai Town),REMOVE,medium,"Matsushiro: samurai town ~12 km south-east, a day trip"
+medan,hood,2,Polonia,REMOVE,medium,"Polonia: former airport district, 1 hotel"
+medan,add,,Medan Maimun (Istana Maimun & Masjid Raya),ADD,medium,"Medan top sights (Maimun Palace, Great Mosque) 30 hotels/68 restaurants within 1 km; replaces removed Polonia"
+nashville,hood,2,East Nashville,UNSURE,low,"East Nashville: popular dining/arts district, only 1 hotel counted"
+utrecht,hood,2,Wilhelminapark,UNSURE,low,"Wilhelminapark: residential villa district, 6 hotels"
+utrecht,hood,3,Leidsche Rijn,REMOVE,high,Leidsche Rijn: new suburb
+edmonton,hood,2,West Edmonton,UNSURE,low,"West Edmonton Mall complex: a mall site with hotels, 2 counted"
+guayaquil,hood,2,Urdesa,UNSURE,low,"Urdesa: restaurant district, 1 hotel counted"
+guayaquil,hood,3,Samborondón,REMOVE,medium,"Samborondon: affluent suburb across the river, 0 hotels"
+pokhara,hood,4,Mahendrapul (New Road),UNSURE,low,"Mahendrapul: commercial centre, 9 hotels"
+minneapolis,hood,0,North Loop,UNSURE,low,"North Loop: dining district, only 2 hotels counted"
+minneapolis,hood,3,Northeast Minneapolis,REMOVE,medium,"Northeast Minneapolis: arts/residential, 0 hotels"
+minneapolis,hood,4,Dinkytown,UNSURE,low,"Dinkytown: university district, 1 hotel"
+skopje,hood,3,Aerodrom,REMOVE,medium,Aerodrom: residential district
+skopje,hood,4,Vodno,UNSURE,low,Vodno: Millennium Cross mountain with 19 hotels
+saint-john-s,hood,1,Fort James & Runaway Bay,UNSURE,low,"Fort James/Runaway Bay: beach hotels, few counted"
+saint-john-s,hood,3,Hodges Bay & Cedar Grove,UNSURE,low,"Hodges Bay: resort area, 1 hotel counted"
+huangshan,hood,1,Liyang In Lane,UNSURE,low,"Liyang old street area, within Tunxi; kept to hold two hoods (Overture undercounts China)"
+cardiff,hood,4,Roath,REMOVE,medium,"Roath: residential, 0 hotels"
+inverness,hood,2,Merkinch,UNSURE,low,"Merkinch: harbour/nature reserve residential, 15 hotels"
+inverness,hood,4,Culduthel,REMOVE,high,"Culduthel: residential hill, 0 hotels"
+rouen,hood,2,Jouvenet,UNSURE,low,"Jouvenet: eastern residential quarter, 7 hotels"
+rouen,hood,3,Saint-Sever,UNSURE,low,"Saint-Sever: south bank shopping district, 7 hotels"
+kayseri,hood,1,Melikgazi,UNSURE,low,"Melikgazi is a district name containing the old city, 5 hotels counted"
+kayseri,hood,2,Kocasinan,UNSURE,low,Kocasinan: district with modern centre hotels
+kayseri,hood,4,Hisarcık (Erciyes),REMOVE,medium,"Hisarcik/Erciyes: ski resort ~25 km out, a day trip"
+saint-denis,hood,2,Sainte-Clotilde,REMOVE,high,"Sainte-Clotilde: eastern suburb, 0 hotels"
+saint-denis,hood,3,Bellepierre,REMOVE,high,"Bellepierre: residential, 2 hotels"
+saint-denis,hood,4,La Montagne,REMOVE,high,"La Montagne: residential, 0 hotels"
+scottsdale,hood,1,North Scottsdale,REMOVE,medium,"North Scottsdale: sprawling residential/golf area, 1 hotel at the point"
+scottsdale,hood,3,Gainey Ranch,UNSURE,low,Gainey Ranch: one resort compound
+scottsdale,hood,4,South Scottsdale,UNSURE,low,"South Scottsdale: 5 hotels, little draw"
+shangri-la,hood,1,Jiantang New Town,UNSURE,low,Jiantang town: county seat that contains Dukezong; kept to hold two hoods
+shangri-la,hood,2,Songzanlin Monastery area,REMOVE,medium,Songzanlin Monastery: single site ~5 km out
+gaborone,hood,2,Airport Junction,REMOVE,medium,Airport Junction: mall by the airport
+gaborone,hood,3,Gaborone West (Grand Palm),REMOVE,low,"Gaborone West: residential, resort casino hotel only"
+gaborone,hood,4,Kgale,REMOVE,high,"Kgale: hill/residential, 0 anything"
+puno,hood,1,Malecon/Puerto,UNSURE,low,"Malecon/Puerto: lake port for Uros boat trips, 10 hotels"
+puno,hood,3,Jr. Lima,REMOVE,high,Jr. Lima is 120 m from the Plaza de Armas hood point: duplicate
+puno,hood,4,Salcedo,REMOVE,high,"Salcedo: residential district 4.7 km away, 0 hotels"
+georgetown,hood,3,Bel Air Park,UNSURE,low,"Bel Air Park: residential, guesthouses"
+georgetown,hood,4,Le Ressouvenir,REMOVE,high,"Le Ressouvenir: East Coast village, 2 hotels"
+salt-lake-city,hood,1,The Avenues,REMOVE,high,"The Avenues: residential hillside, 0 hotels"
+salt-lake-city,hood,2,Sugar House,REMOVE,medium,"Sugar House: 7 km south, 0 hotels"
+la-romana,hood,0,La Romana Centro,UNSURE,low,"La Romana centre: commercial town, 7 hotels"
+la-romana,hood,1,Casa de Campo,UNSURE,low,Casa de Campo: resort compound with marina and Altos de Chavon
+la-romana,hood,4,La Caleta,REMOVE,medium,"La Caleta: coastal village near the airport, 4 hotels"
+bandar-seri-begawan,hood,4,Jerudong / Muara Coast,REMOVE,medium,"Jerudong/Muara: outside the city, beaches and a resort"
+mariehamn,hood,3,Ytternäs,REMOVE,high,"residential suburb, 0 hotels/food in mapped Finland"
+gaziantep,hood,4,Kaleiçi (Castle Quarter),REMOVE,medium,"castle quarter lies inside Bey Mahallesi old city (0.7 km), duplicate area"
+victoria,hood,2,Eden Island,REMOVE,medium,"gated marina residential island, few hotels and shops, single development"
+kermanshah,hood,1,Taq-e Bostan,UNSURE,low,"major heritage site with park and eateries; lodging unclear, Iran undercounted"
+brno,hood,3,Královo Pole,REMOVE,medium,"northern residential district, 4 hotels"
+brno,hood,4,Žabovřesky,REMOVE,medium,"residential, 5 hotels, 3 sights in well-mapped Czechia"
+surat-thani,hood,2,Phunphin,REMOVE,medium,"airport/rail district town outside the centre, little visitor dining or sights"
+surat-thani,hood,3,Bang Bai Mai,REMOVE,high,"1 hotel, 1 restaurant, suburban"
+essaouira,hood,1,Kasbah,REMOVE,medium,"Kasbah (Skala quarter) is part of the medina, 0.3 km away; duplicate area"
+essaouira,hood,3,Diabat,REMOVE,medium,"village 5 km south, 1 hotel in 800 m, belongs in day trips"
+serekunda,hood,4,Serekunda Market (Town Centre),UNSURE,low,"town-centre market, few hotels; visitors shop but rarely stay"
+karachi,hood,1,Defence (DHA),UNSURE,low,"upscale residential district with restaurants; hotels sparse in Overture, Pakistan undercounted"
+karachi,hood,3,Gulshan-e-Iqbal,REMOVE,medium,"large residential district, 2 hotels"
+dahab,hood,2,Medina,UNSURE,low,"inland Bedouin old town, visitor businesses mostly on the coast strip"
+varanasi,hood,2,Cantonment (Cantt),UNSURE,low,cantonment has upscale hotels but little dining; India undercounted
+varanasi,hood,4,Sarnath,REMOVE,medium,"Buddhist site ~10 km out, belongs in day trips"
+perpignan,hood,3,Moulin à Vent,REMOVE,medium,"residential, 4 hotels"
+perpignan,hood,4,Porte d'Espagne,REMOVE,medium,"gate/peripheral area, 3 hotels and 5 restaurants"
+jeonju,hood,2,Deokjin (Deokjin Park),REMOVE,medium,"university/park district, 6 hotels in well-mapped Korea"
+lagos,hood,3,Ikeja,UNSURE,low,state capital next to the airport; hotels along Allen Ave but airport/business character
+dresden,hood,3,Striesen,REMOVE,high,"residential, 2 hotels"
+astana,hood,2,Almaty District,UNSURE,low,district with rail station and hotels; low sights
+astana,hood,3,Baykonyr District,REMOVE,medium,"residential/industrial district, 0 hotels"
+leipzig,hood,4,Gohlis,REMOVE,medium,"0 hotels in well-mapped Germany, residential"
+surabaya,hood,4,West Surabaya (Pakuwon),UNSURE,low,mall/residential district with restaurants; few hotels
+ica,hood,2,Cachiche,REMOVE,high,"village outside Ica, no visitor lodging"
+ica,hood,3,Subtanjalla,REMOVE,high,"winery suburb, 0 hotels, day trip"
+ica,hood,4,San Juan Bautista,REMOVE,high,"suburb, 0 hotels"
+winnipeg,hood,3,Polo Park,REMOVE,medium,"mall/airport hotel zone, single site"
+port-of-spain,hood,2,St. Ann's,REMOVE,medium,"residential/government area, 4 hotels, 2 restaurants"
+antananarivo,hood,3,Ivandry,UNSURE,low,"embassy/residential suburb near airport road, few hotels"
+antananarivo,hood,4,Ankorondrano / Andraharo,UNSURE,low,"business and mall district, limited tourist character"
+port-elizabeth,hood,4,Walmer,REMOVE,low,"residential suburb, 12 hotels, 4 sights"
+karakol,hood,1,Dungan Mosque Quarter,UNSURE,low,mosque and guesthouses on the edge of town; small
+karakol,hood,2,Przhevalsky District,REMOVE,medium,"lakeside memorial site 10 km away, no lodging counted"
+karakol,hood,3,Karakol Bazaar,UNSURE,low,"town bazaar, few hotels"
+karakol,hood,4,Ski Base Road,REMOVE,medium,"ski resort road ~11 km outside town, belongs in day trips"
+stavanger,hood,3,Eiganes & Valand,UNSURE,low,"residential villa district with lake and museum, few hotels"
+cadiz,hood,4,La Caleta,REMOVE,medium,"La Caleta beach is part of La Viña (0.25 km), duplicate area"
+cadiz,add,,Playa de la Victoria,ADD,medium,"Cadiz new-town beach strip, 11 hotels and 72 restaurants in cell; replaces duplicate La Caleta"
+kazan,hood,3,Bulak & Kaban Lakes,REMOVE,medium,"lakes overlap Old Tatar Sloboda (0.3 km), duplicate area"
+kazan,hood,4,Sovetsky District,REMOVE,high,"residential district, 1 hotel"
+anchorage,hood,3,South Anchorage,REMOVE,medium,"suburban strip malls, residential"
+santa-cruz-de-tenerife,hood,3,San Andres & Las Teresitas,REMOVE,medium,beach village 8 km out with 0 hotels; day trip
+ohrid,hood,2,Sveti Stefan / Lagadin,UNSURE,low,"lakeshore south of town with hotels, thin dining"
+knysna,hood,4,Brenton-on-Sea,REMOVE,medium,"beach village ~25 km west, outside the town"
+lilongwe,hood,2,Area 10 / Presidential Way,UNSURE,low,"government/embassy area, few hotels"
+lilongwe,hood,3,Area 47 / Area 43,UNSURE,low,"residential area with some lodges, Malawi undercounted"
+lilongwe,hood,4,Kumbali (Area 44),UNSURE,low,"residential area with a lodge, no counted facilities"
+halifax,hood,1,North End,UNSURE,low,trendy dining area but only 1 hotel in well-mapped Canada
+halifax,hood,4,Dartmouth,UNSURE,low,"across harbour, 3 hotels"
+salvador,hood,4,Itapuã,UNSURE,low,"beach and lagoon district, 3 hotels"
+arhus,hood,4,Trøjborg,REMOVE,medium,"student residential district, 1 hotel"
+karlovy-vary,hood,1,Drahovice,UNSURE,low,"residential north-west, 18 hotels but little dining"
+karlovy-vary,hood,2,Rybáře,UNSURE,low,"residential, 3 hotels"
+karlovy-vary,hood,4,Stará Role,REMOVE,medium,"suburb, 1 hotel"
+mataram,hood,3,Sekarbela,REMOVE,medium,"residential, 7 hotels, weak versus Senggigi"
+mataram,hood,4,Selaparang,UNSURE,low,government/sports district with some hotels
+mataram,add,,Senggigi,ADD,medium,"Lombok main tourist beach coast (Batulayar), 22 hotels in cell, replaces weak Sekarbela"
+cotonou,hood,2,Cadjehoun,REMOVE,medium,airport zone
+cotonou,hood,4,Akpakpa,REMOVE,medium,"large residential district, 0 hotels"
+kinshasa,hood,1,Ngaliema,UNSURE,low,"residential/embassy commune, Africa undercounted"
+kinshasa,hood,2,Limete,REMOVE,medium,industrial commune
+kinshasa,hood,3,Lemba,REMOVE,low,university residential district
+kinshasa,hood,4,Kintambo,UNSURE,low,"market/residential, Africa undercounted"
+kurashiki,hood,2,Honmachi & Higashimachi,REMOVE,high,"Honmachi/Higashimachi form the Bikan quarter (0.2 km), duplicate area"
+kurashiki,hood,3,Kojima (Jeans Street),UNSURE,low,"jeans street 14 km from centre, 4 hotels"
+kurashiki,hood,4,Tamashima,REMOVE,medium,"port town, 1 hotel"
+papeete,hood,1,Fare Ute,REMOVE,medium,port and industrial zone
+papeete,hood,2,Pirae,REMOVE,medium,"residential suburb, 1 hotel"
+livingstone,hood,3,Maramba,UNSURE,low,residential/cultural village area
+livingstone,hood,4,Dambwa North,REMOVE,medium,residential suburb at park gate
+yaounde,hood,2,Nlongkak,UNSURE,low,residential/hotel district next to Bastos
+yaounde,hood,3,Mvog-Betsi,REMOVE,medium,"zoo and residential, 0 hotels"
+yaounde,hood,4,Mokolo,UNSURE,low,market district
+salta,hood,3,San Lorenzo,REMOVE,medium,"outer suburb ~9 km away, 1 restaurant"
+salta,hood,4,Parque San Martín / Cerro San Bernardo,REMOVE,medium,"park and hill, single site"
+paramaribo,hood,2,Zorg en Hoop,REMOVE,medium,domestic airport zone (Zorg en Hoop)
+saipan,hood,3,San Roque,REMOVE,medium,"northern village, 2 hotels, 2 restaurants"
+freiburg,hood,1,Vauban,REMOVE,medium,"eco residential district, 3 hotels, 2 sights"
+freiburg,hood,2,Wiehre,REMOVE,medium,"villa residential district, 2 hotels"
+freiburg,hood,4,Herdern,REMOVE,high,"residential, 1 hotel, 0 restaurants"
+dunedin,hood,4,Port Chalmers,REMOVE,medium,separate port town ~13 km away
+san-andres,hood,2,La Loma,UNSURE,low,"hilltop residential, 10 hotels, 0 restaurants"
+taupo,hood,2,Acacia Bay,UNSURE,low,residential lakeside suburb with lodges
+taupo,hood,3,Nukuhau,REMOVE,medium,"suburb, 2 hotels"
+taupo,hood,4,Kinloch,REMOVE,high,"village ~20 km out, 1 hotel"
+reno,hood,2,Northwest Reno,REMOVE,high,"0 hotels, 0 restaurants, residential"
+reno,hood,3,South Reno,UNSURE,low,south Reno has casino resorts but hood point shows 2 hotels
+vladivostok,hood,1,Sportivnaya Harbour (Embankment),UNSURE,low,"embankment promenade, 0 hotels"
+vladivostok,hood,2,Egersheld,UNSURE,low,"port peninsula, little visitor lodging"
+tarragona,hood,2,El Serrallo,UNSURE,low,"fishing port restaurants, 0 hotels"
+libreville,hood,3,Batterie IV,UNSURE,low,coastal residential area with restaurants
+libreville,hood,4,Akébé,REMOVE,medium,"residential, 0 facilities"
+cluj-napoca,hood,3,Gheorgheni,REMOVE,medium,"lakeside residential, 4 hotels"
+cluj-napoca,hood,4,Manastur,REMOVE,high,"residential blocks, 1 hotel"
+hamilton,hood,4,Hamilton Parish & Flatts,UNSURE,low,"Flatts Village aquarium, resort in Hamilton Parish; Bermuda undercounted"
+memphis,hood,3,Whitehaven / Graceland,REMOVE,medium,"single site (Graceland), 0 hotels counted"
+memphis,hood,4,East Memphis,REMOVE,high,"suburban, 0 facilities"
+bremen,hood,3,Schwachhausen,REMOVE,medium,"villa residential, 1 hotel"
+bremen,hood,4,Überseestadt,REMOVE,medium,"docklands redevelopment, office/dining, 2 hotels"
+chisinau,hood,1,Botanica,UNSURE,low,"botanical garden and residential, 2 hotels"
+chisinau,hood,2,Buiucani,REMOVE,medium,"residential, 2 hotels"
+chisinau,hood,3,Riscani,REMOVE,medium,"residential, 1 hotel"
+chisinau,hood,4,Telecentru,REMOVE,medium,"residential, 2 hotels"
+toulon,hood,3,Haute Ville,UNSURE,low,"upper city next to rail station, overlaps old town and port (0.5-0.6 km)"
+brasilia,hood,0,Asa Sul,UNSURE,low,"residential wing with local restaurants, 2 hotels; visitors stay in hotel sectors"
+brasilia,hood,1,Asa Norte,UNSURE,low,"residential wing, 0 hotels"
+brasilia,hood,3,Águas Claras,REMOVE,medium,"satellite city ~16 km away, residential towers"
+brasilia,hood,4,Setor Hoteleiro Turístico Norte,REMOVE,medium,"adjacent hotel sector to Setor Hoteleiro (0.2 km), duplicate area"
+tegucigalpa,hood,4,Colonia San Carlos / Los Próceres,REMOVE,low,"overlaps Boulevard Morazan (0.3 km), 6 hotels"
+santiago-de-queretaro,hood,3,Jurica,REMOVE,high,"suburban residential/golf, 0 hotels"
+santiago-de-queretaro,hood,4,Juriquilla,REMOVE,medium,"gated suburb, 1 hotel"
+chefchaouen,hood,1,Uta el-Hammam Square,REMOVE,medium,"main square inside the medina (0.4 km), duplicate area"
+chefchaouen,hood,2,Spanish Mosque Hill,UNSURE,low,"viewpoint hill outside the medina, mostly a single sight"
+san-pedro-sula,hood,2,Colonia Moderna,UNSURE,low,neighbourhood beside Zona Viva (0.5 km)
+san-pedro-sula,hood,3,Jardines del Valle,REMOVE,medium,"residential, 6 hotels"
+novi-sad,hood,2,Liman,REMOVE,low,"residential, 3 hotels"
+novi-sad,hood,4,Telep,REMOVE,low,"residential, 5 hotels"
+belize-city,hood,4,Buttonwood Bay,REMOVE,low,"residential, 4 hotels, 7 restaurants"
+bandung,hood,4,Setiabudi / Lembang side,REMOVE,medium,"northern road toward Lembang, suburban, 8 food"
+bandung,add,,Jalan Riau (Bandung Wetan),ADD,medium,"dense hotel and cafe/factory-outlet cell (65 hotels, 233 food); replaces weak Setiabudi"
+san-cristobal-de-las-casas,hood,2,Barrio de Guadalupe,REMOVE,medium,"Barrio de Guadalupe is the Real de Guadalupe street area (0.3 km), duplicate"
+sopot,hood,2,Kamienny Potok,UNSURE,low,beachfront residential with hotels
+sopot,hood,3,Karlikowo,REMOVE,medium,"residential, 6 restaurants"
+bamako,hood,3,Missira / Route de Koulikoro,UNSURE,low,residential with road hotels
+ushuaia,hood,1,Martial Glacier Area,REMOVE,medium,"glacier road site ~7 km out, 0 facilities"
+ushuaia,hood,2,Bahia Cauquen,UNSURE,low,"bay west of town, 3 hotels"
+bentota,hood,1,Bentota River & Dedduwa Lake,UNSURE,low,Mostly lake-and-river sights; few restaurants counted
+puerto-princesa,hood,3,Sta. Lourdes (Honda Bay),REMOVE,high,"Honda Bay boat jetty, 1 hotel and no restaurants"
+puerto-princesa,hood,4,San Manuel,UNSURE,low,Mainly residential; 14 hotels but unclear visitor draw
+yazd,hood,3,Dowlatabad Garden,REMOVE,high,Single site (Dowlatabad Garden)
+yazd,hood,4,Safaiyeh,REMOVE,medium,"Residential district, 2 hotels"
+flores,hood,2,San Benito,REMOVE,medium,"San Benito is a local market/residential town, 2 hotels"
+punta-arenas,hood,1,Cerro de la Cruz,UNSURE,low,Overlaps Centro; a viewpoint hill with hotels
+punta-arenas,hood,2,Costanera del Estrecho,REMOVE,medium,"Waterfront road, 3 hotels and 4 restaurants"
+punta-arenas,hood,3,Barrio Croata,UNSURE,low,Overlaps Centro (counts near identical); distinct historic Croatian quarter
+punta-arenas,hood,4,Zona Norte,REMOVE,medium,"Free-zone/industrial north side, 2 hotels"
+perugia,hood,2,Elce,UNSURE,low,Residential university/hospital area
+perugia,hood,3,Monteluce,UNSURE,low,Residential medical-university area
+perugia,hood,4,Fontivegge,REMOVE,medium,"Station business district, 4 hotels in well-mapped Italy"
+bonn,hood,4,Beuel,REMOVE,medium,"Residential across the Rhine, 1 hotel"
+pamplona,hood,2,San Juan,UNSURE,low,Residential barrio with many bars but only 5 hotels
+pamplona,hood,3,Rochapea,REMOVE,medium,"Residential, 4 hotels"
+pamplona,hood,4,Iturrama,REMOVE,medium,"Residential, 5 hotels"
+thiruvananthapuram,hood,3,Technopark (Kazhakkoottam),REMOVE,high,Technopark is an IT office campus
+regensburg,hood,2,Ostenviertel,REMOVE,medium,"Station-side residential, 5 hotels and 0 sights"
+regensburg,hood,3,Kumpfmühl,REMOVE,high,"Residential suburb, 1 hotel"
+regensburg,hood,4,Universitätsviertel,REMOVE,high,"University campus district, 0 hotels"
+le-gosier,hood,3,Montauban,REMOVE,medium,"Residential hillside quarter, 1 hotel"
+le-gosier,hood,4,Petit-Havre,UNSURE,low,"Beach pocket, 3 hotels and no restaurants"
+battambang,hood,2,Wat Kor Village,REMOVE,medium,"Single heritage village, 2 hotels"
+mandalay,hood,1,Aungmyethazan (Palace & Mandalay Hill),UNSURE,low,"Palace/Mandalay Hill sights, counts 0 likely undercount"
+mandalay,hood,2,Mahaaungmyay (Mahamuni),REMOVE,medium,"Single site (Mahamuni Pagoda), 1 hotel"
+chetumal,hood,1,Boulevard Bahía,UNSURE,low,"Bay boulevard, 2 hotels but waterfront restaurants"
+maun,hood,1,Matlapana,UNSURE,low,Riverside lodges likely undercounted
+maun,hood,2,Shorobe Road (Riverside),UNSURE,low,"Riverside lodge strip, Africa undercount"
+maun,hood,3,Sedie,UNSURE,low,"Residential, 0 hotels counted"
+maun,hood,4,Boseja,REMOVE,medium,"Residential suburb, 3 hotels, 2 restaurants"
+poprad,hood,2,AquaCity / Kvetnica,REMOVE,medium,"Single aquapark/resort complex, 0 hotels counted"
+poprad,hood,3,Veľká,UNSURE,low,"Suburban village, 9 hotels"
+salerno,hood,3,Torrione,UNSURE,low,Residential eastern district
+salerno,hood,4,Pastena,UNSURE,low,Residential eastern district
+leon,hood,1,Sutiaba,UNSURE,low,"Indigenous barrio with church, 1 hotel counted"
+leon,hood,3,Barrio Guadalupe,UNSURE,low,"Small barrio, 2 hotels"
+leon,hood,4,Zona Universitaria,REMOVE,medium,Counts nearly identical to Centro (57 hotels): duplicate of Centro
+sanliurfa,hood,2,Karaköprü,REMOVE,medium,"Newer suburb/university area, 2 hotels"
+morelia,hood,3,Santa María de Guido,UNSURE,low,"Upscale residential, 11 hotels"
+la-serena,hood,2,La Pampa,REMOVE,medium,"Residential, 3 hotels"
+belo-horizonte,hood,4,Pampulha,UNSURE,low,"Pampulha lake sights, only 3 hotels"
+gisenyi,hood,0,Gisenyi Centre / Downtown,UNSURE,low,"Town centre, Africa undercount"
+gisenyi,hood,1,Kivu Beach,UNSURE,low,"Lakeside beach with lodges, Africa undercount"
+gisenyi,hood,2,Kigufi,UNSURE,low,"Residential, 1 hotel"
+gisenyi,hood,3,Petite Barrière (border),REMOVE,high,"Border crossing, 1 hotel"
+jingdezhen,hood,0,Zhushan (Old Town),UNSURE,low,"Old-town area, China undercount"
+jingdezhen,hood,1,Taoxichuan Art District,UNSURE,low,"Ceramic art district, China undercount"
+jingdezhen,hood,2,Sanbao Village,UNSURE,low,"Artist village, China undercount"
+jingdezhen,hood,3,Changjiang (New City),REMOVE,medium,"Administrative new city district, 0 of everything"
+ponce,hood,1,Playa de Ponce,UNSURE,low,Waterfront boardwalk area with restaurants but 0 hotels
+ponce,hood,2,Canas,REMOVE,high,"Rural barrio, 1 restaurant"
+constanta,hood,4,Tomis Nord,UNSURE,low,"Residential, weakest of five"
+constantine,hood,0,Vieille Ville (Souika),UNSURE,low,"Old medina, Algeria undercount"
+constantine,hood,2,Sidi Mabrouk,REMOVE,medium,"Residential, 0 hotels, 4 restaurants"
+constantine,hood,3,El Kantara,UNSURE,low,Bridge area at medina edge
+shaoxing,hood,1,Keqiao,UNSURE,low,"Textile industrial district, China undercount"
+shaoxing,hood,2,Shangyu,REMOVE,high,"County-level district 40 km away, not a visitor area"
+jerez-de-la-frontera,hood,3,La Albarizuela,UNSURE,low,Counts overlap Centro; unclear separate visitor area
+positano,hood,2,Montepertuso,UNSURE,low,Mountain village above town
+positano,hood,3,Nocelle,REMOVE,medium,"Hamlet, 4 hotels"
+podgorica,hood,3,Stari Aerodrom,UNSURE,low,Residential with cafes
+podgorica,hood,4,Zabjelo,REMOVE,medium,"Residential, 4 hotels"
+leshan,hood,1,Wuyou Temple District,REMOVE,medium,"Single temple site, 0 of everything"
+leshan,hood,2,Leshan Old Town,UNSURE,low,"Old town, China undercount"
+leshan,hood,3,Binjiang Road,UNSURE,low,"Riverside road, China undercount"
+leshan,hood,4,Emeishan,REMOVE,medium,Separate city (Mount Emei) 30 km away; own area
+abha,hood,2,Al Shifa,UNSURE,low,"Residential district, 1 hotel"
+abha,hood,3,Al Soudah,UNSURE,low,"Mountain peak resort 30 km out, Saudi undercount"
+aachen,hood,2,Frankenberg,REMOVE,medium,"Residential, 2 hotels"
+haifa,hood,4,Bat Galim,UNSURE,low,"Beach promenade, 4 hotels"
+windermere,hood,2,Troutbeck,UNSURE,low,"Hamlet, 8 hotels, 3 restaurants"
+windermere,hood,3,Storrs / Storrs Park,REMOVE,medium,"Residential edge, 2 hotels, 0 restaurants"
+windermere,add,,Ambleside,ADD,medium,"Main Lake District village, 42 hotels and 31 restaurants in the cell, far more popular than Storrs/Troutbeck"
+aomori,hood,3,Honmachi,UNSURE,low,Overlaps downtown centre
+alesund,hood,2,Volsdalen,REMOVE,high,"Residential, 0 hotels"
+nakuru,hood,0,Milimani,UNSURE,low,"Upscale residential, Africa undercount"
+nakuru,hood,2,Lake Nakuru National Park Area,REMOVE,medium,"National park, not a neighborhood"
+nakuru,hood,3,Bondeni,REMOVE,medium,"Low-income residential, no visitor stay"
+nakuru,hood,4,Free Area,REMOVE,medium,Residential
+nakhon-ratchasima,hood,2,Chira Junction,UNSURE,low,Road junction commercial area
+charleston,hood,3,Mount Pleasant,REMOVE,medium,"Suburb across the harbor, 2 hotels"
+sukhothai,hood,2,Wat Si Chum,REMOVE,high,"Single temple site, 3 hotels"
+sukhothai,hood,3,Ramkhamhaeng National Museum,REMOVE,medium,Duplicate of the Historical Park area (24 vs 22 hotels); park-entrance museum
+trinidad,hood,1,Barrio La Popa,UNSURE,low,Counts identical to Plaza Mayor: overlapping historic centre
+trinidad,hood,2,Barrio Jigüe,UNSURE,low,Counts identical to Plaza Mayor: overlapping
+trinidad,hood,3,Calle Colón / San Procopio,UNSURE,low,Counts identical to Plaza Mayor: overlapping
+plettenberg-bay,hood,2,Keurbooms,UNSURE,low,"Lodges/river, Africa undercount"
+plettenberg-bay,hood,3,Lookout Area,UNSURE,low,"Beach pocket near centre, 4 hotels"
+the-valley,hood,0,The Valley (Town Centre),UNSURE,low,"Capital town, 0 hotels counted; tourists stay on beaches"
+lhasa,hood,1,Potala District,UNSURE,low,"Potala surrounds, China undercount"
+lhasa,hood,2,Norbulingka Area,REMOVE,high,Single site (summer palace)
+lhasa,hood,3,Sera Monastery Area,REMOVE,high,"Single monastery, 0 hotels"
+lhasa,hood,4,Chengguan New Town,UNSURE,low,Generic new-town district
+turku,hood,2,Kupittaa,REMOVE,medium,"Science park/sports district, 4 hotels"
+apia,hood,1,Sogi & Mulinuu Peninsula,UNSURE,low,"Government peninsula, 5 hotels"
+apia,hood,3,Taumeasina & East Apia,UNSURE,low,Resort at east edge
+apia,hood,4,Vailima & South Apia,UNSURE,low,Mainly Stevenson museum site
+abuja,hood,2,Asokoro,UNSURE,low,"Diplomatic residential, 8 hotels"
+thimphu,hood,4,Changzamtog,REMOVE,medium,"Residential, 3 restaurants"
+mytilene,hood,2,Varia (Vareia),REMOVE,medium,"Suburban village, 5 hotels, 1 restaurant"
+mytilene,hood,3,Sourada / Akrotiri,REMOVE,medium,"Outlying suburb, 2 hotels"
+kashan,hood,2,Fin Garden District,REMOVE,high,Single site (Fin Garden)
+sibiu,hood,3,Sub Arini,UNSURE,low,Park-side villa residential
+sibiu,hood,4,Terezian,REMOVE,medium,"Residential, 3 sights"
+magelang,hood,2,Muntilan,REMOVE,medium,"Regency town 10 km out, 2 sights"
+magelang,hood,3,Magelang Selatan,REMOVE,medium,"Residential, 2 hotels"
+magelang,hood,4,Mendut,UNSURE,low,Temple village near Borobudur
+tozeur,hood,3,Bled El Hadhar,REMOVE,medium,"Palm-grove area, 1 hotel"
+ouagadougou,hood,0,Ouaga 2000,UNSURE,low,"New government district; Laico hotel there, Africa undercount"
+ouagadougou,hood,2,Zone du Bois,UNSURE,low,"Embassy/residential, restaurants present"
+ouagadougou,hood,4,Gounghin,REMOVE,medium,"Residential, 2 hotels"
+blantyre,hood,2,Sunnyside,UNSURE,low,"Residential suburb, Africa undercount"
+blantyre,hood,3,Namiwawa,UNSURE,low,"Lodge area, 10 hotels"
+blantyre,hood,4,Nyambadwe,REMOVE,medium,"Residential, 1 hotel"
+kelowna,hood,2,Lower Mission,REMOVE,high,"Residential, 1 hotel"
+kelowna,hood,3,Glenmore / North End,REMOVE,high,"Residential, 0 hotels"
+kelowna,hood,4,Rutland,REMOVE,high,"Suburban strip, 1 hotel"
+baden-baden,hood,3,Rebland,REMOVE,high,"Vineyard village, 0 of everything"
+baden-baden,hood,4,Ebersteinburg,REMOVE,high,"Village, 0 of everything"
+puerto-natales,hood,1,Costanera (Última Esperanza waterfront),UNSURE,low,Largely overlaps Centro (93 vs 99 hotels)
+puerto-natales,hood,2,Puerto Bories,REMOVE,medium,"Former meat plant 6 km out, single site"
+puerto-natales,hood,3,Sector Norte (Ruta 9),REMOVE,medium,"Highway strip, 2 restaurants"
+santiago-de-cuba,hood,3,Sueno,UNSURE,low,"Barrio with casas, 2 restaurants counted"
+koblenz,hood,2,Südliche Vorstadt,UNSURE,low,Residential
+koblenz,hood,3,Lützel,REMOVE,medium,"Residential, 3 hotels"
+ouarzazate,hood,2,Tabounte,UNSURE,low,"Quarter with guesthouses, Morocco undercount"
+ouarzazate,hood,3,Sidi Daoud,UNSURE,low,Quarter with guesthouses
+san-marino,hood,2,Dogana,REMOVE,medium,"Commercial border town, 2 hotels"
+san-marino,hood,3,Domagnano,REMOVE,medium,"Residential village, 1 hotel"
+sokcho,hood,3,Daepo-dong (Harbor),REMOVE,medium,"Fishing harbor, 3 hotels and no restaurants"
+mbabane,hood,0,Mbabane City Centre,UNSURE,low,"Capital centre, counts thin"
+mbabane,hood,2,Pine Valley,UNSURE,low,Residential
+labuan-bajo,hood,3,Batu Cermin,REMOVE,medium,Single cave site
+labuan-bajo,hood,4,Bukit Binongko (Hilltop),UNSURE,low,Hilltop hotels
+basseterre,hood,2,Southeast Peninsula (Christophe Harbour),REMOVE,medium,"Private resort development, 1 hotel"
+basseterre,hood,3,North Coast & Ottley's,REMOVE,medium,"Rural north coast, 0 of everything"
+trier,hood,3,Kürenz,REMOVE,high,"Residential, 1 hotel"
+trier,hood,4,Pallien,UNSURE,low,Residential riverside
+djibouti-city,hood,0,Héron (Îlot du Héron),UNSURE,low,"Peninsula hotel(s), thin counts"
+djibouti-city,hood,1,Plateau du Serpent,UNSURE,low,Business/embassy plateau
+djibouti-city,hood,3,Ambouli,REMOVE,high,Airport district
+moshi,hood,2,Kaloleni,REMOVE,high,"Residential, 0 of everything"
+moshi,hood,3,Uru,REMOVE,medium,"Village outside town, 0 of everything"
+santa-marta,hood,3,Bello Horizonte,UNSURE,low,Residential beach suburb
+santa-marta,hood,4,Pozos Colorados,UNSURE,low,Gated resort beach
+pilsen,hood,2,Lochotín,REMOVE,medium,"Hospital/residential, 3 hotels"
+pilsen,hood,3,Bory,UNSURE,low,Residential
+pilsen,hood,4,Slovany,REMOVE,medium,"Residential, 3 hotels"
+davao,hood,3,Matina,REMOVE,medium,"Residential, 2 hotels"
+pucon,hood,2,Quelhue,REMOVE,high,"Rural, 0 hotels"
+pucon,hood,3,Camino a Villarrica,REMOVE,medium,"Highway road, 2 hotels"
+sochi,hood,3,Khosta,UNSURE,low,Suburb with some hotels
+sochi,hood,4,Matsesta,UNSURE,low,"Spa district, 2 hotels"
+garmisch-partenkirchen,hood,2,Olympic Quarter,REMOVE,medium,"Ski-stadium district, 2 restaurants"
+garmisch-partenkirchen,hood,3,Partnachklamm / Kreuzeck Area,REMOVE,medium,"Gorge/lift site, single attraction"
+wurzburg,hood,1,Zellerau,REMOVE,high,"Residential, 2 hotels"
+wurzburg,hood,2,Sanderau,UNSURE,low,Residential near Altstadt
+wurzburg,hood,3,Frauenland,REMOVE,high,"Residential, 1 hotel"
+wurzburg,hood,4,Grombühl,UNSURE,low,"Hospital/station area, 12 hotels"
+bulawayo,hood,1,Suburbs,REMOVE,medium,"Generic residential suburb, 2 hotels"
+bulawayo,hood,2,Hillside,UNSURE,low,Residential with lodges
+bulawayo,hood,3,Kumalo,UNSURE,low,Residential with guesthouses
+pai,hood,1,Tha Pai Hot Springs,REMOVE,high,"Single hot-spring site, 1 hotel"
+pai,hood,2,Wat Phra That Mae Yen,UNSURE,low,Hilltop temple with resorts
+cortina-d-ampezzo,hood,1,Pocol,UNSURE,low,"Hamlet with ski lifts, 4 hotels"
+cortina-d-ampezzo,hood,2,Zuel / Peziè,UNSURE,low,"Hamlet, 4 hotels"
+monrovia,hood,3,Congo Town,UNSURE,low,Residential
+monrovia,hood,4,Airport Road / Kendeja,REMOVE,high,Airport zone
+trincomalee,hood,3,Dutch Bay,UNSURE,low,Overlaps town and fort
+nelson,hood,4,Stoke,REMOVE,medium,"Suburb, 4 hotels"
+mar-del-plata,hood,3,Constitucion Avenue,REMOVE,medium,"Constitucion Avenue: commercial avenue, 2 hotels, weaker than La Perla/Guemes beachfront areas"
+mar-del-plata,add,,La Perla,ADD,medium,"81 hotels in cell, beachfront district north of Centro; replaces Constitucion Avenue"
+bujumbura,hood,1,Kiriri,UNSURE,low,"Kiriri: lakeside area with some hotels, little dining mapped"
+bujumbura,hood,4,Mutanga Nord,REMOVE,medium,"Mutanga Nord: university residential district, 0 hotels/food, no visitor lodging"
+ostrava,hood,2,Poruba,UNSURE,low,"Poruba: socialist-realist housing estate, notable architecture but 2 hotels"
+ostrava,hood,3,Slezská Ostrava,REMOVE,medium,"Slezska Ostrava: residential/castle district, 2 hotels, little for visitors"
+odense,hood,2,Odense M,REMOVE,medium,"Odense M: southern residential/university district, 2 hotels"
+odense,hood,3,Skibhuskvarteret,REMOVE,low,"Skibhuskvarteret: small sub-area of the centre, 2 hotels, overlaps Odense C"
+madurai,hood,2,K.K. Nagar,UNSURE,low,"K.K. Nagar: residential suburb, though hotel count 27 in a poorly mapped country"
+baguio,hood,4,Baguio Public Market,REMOVE,medium,"Baguio Public Market: counts nearly identical to Session Road (same dense centre), duplicate of City Center"
+saskatoon,hood,1,City Park,UNSURE,low,"City Park: quiet residential area next to downtown, few hotels; kept to stay at 2 hoods"
+saskatoon,add,,Broadway District (Nutana),ADD,medium,"Saskatoon's best-known visitor street (cafes, restaurants, Broadway Theatre); city has 2 hoods only"
+cap-haitien,hood,2,Petite Anse,UNSURE,low,"Petite Anse: beachside area west of the city with hotels, Overture empty (Haiti undercount)"
+cap-haitien,hood,3,Vertières / Haut-du-Cap,REMOVE,medium,"Vertieres/Haut-du-Cap: monument site on residential outskirts, no lodging evidence"
+cap-haitien,hood,4,Cormier Beach,REMOVE,medium,Cormier Beach: single resort compound well outside the city
+kashgar,hood,3,Grand Bazaar District,UNSURE,low,Grand (Sunday) Bazaar: a market site rather than a neighborhood; China undercount
+kashgar,hood,4,East Lake (Donghu) Area,UNSURE,low,"East Lake area: park-centred, unclear lodging; China undercount"
+sylhet,hood,3,Shahjalal Upashahar (Uposhohor),UNSURE,low,Upashahar: upscale planned residential area with some hotels; Bangladesh undercount
+sylhet,hood,4,Airport Road (Baghbari),REMOVE,medium,"Airport Road (Baghbari): road strip near airport, 1 restaurant"
+klaipeda,hood,2,Melnragė,UNSURE,low,"Melnrage: beach suburb with villas and guesthouses, little dining"
+klaipeda,hood,3,Smiltynė,REMOVE,medium,"Smiltyne: ferry-side Curonian Spit site (museum/dolphinarium), 2 hotels, 0 food"
+hirosaki,hood,2,Mount Iwaki / Apple Orchard Countryside,REMOVE,high,"Mount Iwaki countryside: outside the city, zero hotels/food (day trip)"
+cayenne,hood,1,Montabo,REMOVE,medium,"Montabo: residential beach hill, 0 hotels, 7 food"
+cayenne,hood,2,Bourda,REMOVE,high,"Bourda: residential, 0 hotels, 1 food"
+cayenne,hood,4,Matoury,REMOVE,high,"Matoury: airport commune, 2 hotels"
+coron,hood,1,Tagumpay,UNSURE,low,Tagumpay: no evidence of visitor lodging; kept only to hold 2 hoods
+konstanz,hood,2,Paradies,UNSURE,low,"Paradies: quiet residential quarter near the Swiss border, some hotels/dining"
+konstanz,hood,3,Mainau / Litzelstetten,REMOVE,medium,"Mainau/Litzelstetten: Mainau is a single-site island garden, outside centre (day trip)"
+brazzaville,hood,2,Bacongo,UNSURE,low,Bacongo: residential/market district south of centre
+brazzaville,hood,3,Patte d'Oie / Moungali,UNSURE,low,Patte d Oie/Moungali: residential with some hotels
+brazzaville,hood,4,Maya-Maya (Airport District),REMOVE,high,Maya-Maya airport district: airport zone
+freetown,hood,2,Hill Station,UNSURE,low,"Hill Station: leafy upscale residential area, 1 hotel"
+port-vila,hood,2,Iririki Island & Harbour Waterfront,UNSURE,low,Iririki/harbour waterfront: one resort island plus waterfront; mostly single compound
+port-vila,hood,3,Pango Point / Devil's Point,REMOVE,medium,"Pango Point: residential peninsula, 1 hotel, 0 food"
+port-vila,hood,4,Mele Bay (Hideaway Island),REMOVE,medium,"Mele Bay: mostly the Hideaway Island day trip and beach, 0 hotels"
+lubeck,hood,2,St. Gertrud,REMOVE,medium,"St. Gertrud: residential, 5 hotels"
+lubeck,hood,3,St. Jürgen,REMOVE,high,"St. Jurgen: residential, 1 hotel"
+olomouc,hood,2,Nová Ulice,REMOVE,high,"Nova Ulice: residential/commercial, 0 hotels"
+olomouc,hood,3,Hodolany,UNSURE,low,"Hodolany: residential by the station, 7 hotels"
+olomouc,hood,4,Lazce,UNSURE,low,Lazce: residential with a few hotels
+stanley,hood,2,West Stanley,REMOVE,medium,"West Stanley: residential, 1 hotel"
+zacatecas,hood,2,Guadalupe,REMOVE,medium,Guadalupe: separate municipality with convent museum; belongs in day trips
+luoyang,hood,1,Xigong District,UNSURE,low,"Xigong: urban district with business hotels, no clear tourist quarter; China undercount"
+luoyang,hood,2,Jianxi District,UNSURE,low,Jianxi: urban/industrial district with business hotels
+malindi,hood,3,Mambrui,REMOVE,medium,"Mambrui: village 15 km north, 0 hotels/food"
+kumasi,hood,1,Nhyiaeso,UNSURE,low,Nhyiaeso: upscale residential with some hotels
+kumasi,hood,2,Asokwa,REMOVE,medium,"Asokwa: commercial/residential suburb, no clear visitor core"
+iquitos,hood,2,Punchana,UNSURE,low,Punchana: northern district with Nanay port; some lodging
+iquitos,hood,3,San Juan Bautista,REMOVE,medium,San Juan Bautista: airport-side residential district
+hamadan,hood,2,Abbas Abad / Ganjnameh,UNSURE,low,Abbas Abad hill/Ganjnameh: hillside park district and a site 5 km out
+hamadan,hood,3,Ecbatana (Hegmataneh) Hill,REMOVE,medium,Ecbatana hill: single archaeological site
+hamadan,hood,4,Baba Taher / Bazaar Quarter,UNSURE,low,Baba Taher/Bazaar: mausoleum site plus bazaar; Iran undercount
+port-au-prince,hood,2,Delmas,REMOVE,medium,"Delmas: large residential/commercial corridor, no visitor core"
+port-au-prince,hood,3,Tabarre,REMOVE,high,Tabarre: airport area suburb
+port-au-prince,hood,4,Vivy Mitchell,REMOVE,medium,"Vivy Mitchell: hillside residential, 1 hotel"
+port-au-prince,add,,Turgeau (Bois-Verna),ADD,medium,Turgeau/Bois-Verna with Hotel Oloffson and embassies; guide drops to 2 hoods
+rostock,hood,3,Steintor-Vorstadt,REMOVE,high,"Steintor-Vorstadt: residential, 0 hotels"
+rostock,hood,4,Hohe Düne,REMOVE,medium,Hohe Duene: single resort/marina complex
+yangzhou,hood,3,Hanjiang New District,REMOVE,medium,Hanjiang New District: new residential/government district
+phitsanulok,hood,1,Wat Chan,UNSURE,low,"Wat Chan: residential with many eateries, 5 hotels"
+phitsanulok,hood,3,Tha Pho (Naresuan University),UNSURE,low,Tha Pho/Naresuan University: student area with cafes
+petropolis,hood,3,Corrêas,REMOVE,medium,"Correas: residential, 2 hotels"
+conakry,hood,2,Taouyah,UNSURE,low,Taouyah: residential near airport road
+conakry,hood,4,Dixinn,REMOVE,medium,"Dixinn: university residential district, 0 hotels"
+charlottetown,hood,1,Brighton,UNSURE,low,Brighton: heritage B&B quarter next to Victoria Park
+charlottetown,hood,2,Sherwood,REMOVE,high,"Sherwood: residential, 0 hotels"
+charlottetown,hood,3,West Royalty (Capital Drive),REMOVE,medium,West Royalty/Capital Drive: highway commercial strip near airport
+asmara,hood,1,Tiravolo,UNSURE,low,Tiravolo: residential; Eritrea undercount
+asmara,hood,3,Sembel,UNSURE,low,Sembel: industrial/residential area with Fiat Tagliero nearby
+cienfuegos,hood,2,Reina,REMOVE,medium,"Reina: residential barrio, 0 hotels/food/sights"
+potosi,hood,1,San Francisco,UNSURE,low,"San Francisco: adjacent to Centro, overlapping lodging"
+potosi,hood,2,Cerro Rico / Pailaviri,REMOVE,high,"Cerro Rico: mine mountain, tour site not a neighborhood"
+tofino,hood,4,Clayoquot Sound / Around Tofino,REMOVE,high,"Clayoquot Sound: whole region, 0 hotels"
+kusatsu,hood,2,Shirane Foothills,REMOVE,high,"Shirane foothills: ski/volcano area outside town, 0 hotels"
+angra-dos-reis,hood,2,Boa Vista / Portogalo,UNSURE,low,"Boa Vista/Portogalo: beach community with pousadas, few mapped"
+alice-springs,hood,1,Eastside,REMOVE,high,Eastside: residential suburb
+alice-springs,hood,2,The Gap,UNSURE,low,The Gap: Heavitree Gap area with resort lodging; kept to hold 2 hoods
+alice-springs,hood,3,Larapinta,REMOVE,high,Larapinta: residential suburb
+alice-springs,hood,4,Desert Springs,REMOVE,high,Desert Springs: residential/golf estate
+port-moresby,hood,4,Korobosea/Airport area,REMOVE,high,Korobosea/Airport area: airport zone
+zhangye,hood,1,Danxia Kou (Rainbow Mountains gateway),UNSURE,low,"Danxia Kou gateway: Danxia Geopark base about 40 km out, lodges there"
+zhangye,hood,2,West Railway Station / New District,REMOVE,medium,West Railway Station/New District: station zone
+turpan,hood,1,Grape Valley (Putaogou),UNSURE,low,Grape Valley: scenic park site; kept to hold 2 hoods
+el-chalten,hood,1,Laguna de los Tres Trailhead,UNSURE,low,"Laguna de los Tres trailhead: north village end, a trailhead rather than a quarter"
+el-chalten,hood,2,Laguna Torre Trailhead,UNSURE,low,Laguna Torre trailhead: trailhead end of the same village
+ulm,hood,2,Weststadt,REMOVE,high,"Weststadt: residential, 2 hotels"
+ulm,hood,3,Söflingen,REMOVE,high,"Soeflingen: outlying suburb, 2 hotels"
+ulm,hood,4,Eselsberg,REMOVE,high,Eselsberg: university campus district
+koror,hood,2,Meyuns (Arakabesang Peninsula),UNSURE,low,"Meyuns/Arakabesang: island resort peninsula, few mapped"
+koror,hood,3,Airai (near airport),REMOVE,high,"Airai: airport state, outside Koror"
+kerman,hood,3,Shahid Motahari Street,UNSURE,low,Motahari St: avenue without clear visitor use; Iran undercount
+hebron,hood,2,Wadi al-Tuffah,UNSURE,low,"Wadi al-Tuffah: residential, 1 hotel"
+hebron,hood,3,Ras al-Jura,UNSURE,low,"Ras al-Jura: residential, 1 hotel"
+vaduz,hood,1,Schaan,UNSURE,low,Schaan: adjoining municipality with station and a few hotels
+vaduz,hood,2,Triesen,REMOVE,medium,"Triesen: separate village, 0 hotels"
+dili,hood,4,Comoro,REMOVE,medium,Comoro: airport-side residential area
+chittagong,hood,3,Patenga,UNSURE,low,"Patenga: sea beach beside port and airport, few hotels"
+pecs,hood,3,Uránváros,REMOVE,high,Uranvaros: panel-housing residential
+pecs,hood,4,Kertváros,REMOVE,high,Kertvaros: residential garden suburb
+n-djamena,hood,2,Chagoua,UNSURE,low,"Chagoua: market district, 1 listed hotel"
+saint-louis,hood,1,Sor,UNSURE,low,"Sor: mainland commercial district, few hotels"
+saint-louis,hood,2,Bango,REMOVE,medium,Bango: village south of the city
+mogadishu,hood,2,Wadajir,UNSURE,low,Wadajir: large district with two listed hotels; sparse mapped
+mogadishu,hood,3,Airport / Halane Zone,REMOVE,medium,Halane/airport zone: secured airport compound
+mogadishu,add,,Howlwadaag,ADD,medium,Makka Al-Mukarama Road commercial district with hotels and restaurants
+erfurt,hood,2,Löbervorstadt,REMOVE,high,"Loebervorstadt: residential, 0 hotels"
+erfurt,hood,3,Brühlervorstadt,REMOVE,high,"Bruehlervorstadt: residential, 2 hotels"
+tai-an,hood,1,Taishan District Center,UNSURE,low,"Taishan District centre: urban district, few mapped hotels"
+tai-an,hood,2,Daiyue District,REMOVE,medium,"Daiyue District: administrative district that contains Dai Temple, duplicate"
+tai-an,hood,4,Mount Tai Summit (Tianjie),REMOVE,medium,Tianjie summit: single site at the mountain top
+durham,hood,1,Elvet,UNSURE,low,"Elvet: Old Elvet colleges and riverside hotels, 1 mapped"
+durham,hood,3,Gilesgate,REMOVE,medium,"Gilesgate: residential, 4 hotels"
+durham,hood,4,Neville's Cross,REMOVE,high,Neville's Cross: residential suburb
+wuyishan,hood,1,Wuyishan City Center,UNSURE,low,"Wuyishan city centre: Chong'an district, China undercount"
+mamoudzou,hood,1,Kawéni,REMOVE,medium,Kaweni: industrial/commercial zone
+mamoudzou,hood,3,Passamainty,REMOVE,medium,Passamainty: residential suburb
+cyangugu,hood,0,Cyangugu (lakeshore),UNSURE,low,"Lakeshore: has lakeside guesthouses, sparse mapped"
+cyangugu,hood,1,Kamembe,UNSURE,low,Kamembe: airport and main town
+cyangugu,hood,2,Gihundwe,REMOVE,medium,Gihundwe: residential suburb
+maceio,hood,4,Guaxuma,REMOVE,medium,"Guaxuma: 3 hotels, 7 food, sits behind Jaragua as a visitor area"
+maceio,add,,Jaragua,ADD,medium,"historic port district with nightlife and restaurants, more visited than Guaxuma (cell at Centro/Jaragua edge)"
+manado,hood,4,Bunaken,UNSURE,low,"Bunaken: marine park island, dive resorts; outside city, arguably a day trip"
+zhoushan,hood,3,Shenjiamen (Putuo District),UNSURE,low,Shenjiamen: fishing port with seafood streets
+cape-coast,hood,1,Kotokuraba,UNSURE,low,Kotokuraba: market district
+cape-coast,hood,2,Pedu,UNSURE,low,Pedu: guesthouses near Kakum road
+cape-coast,hood,3,Amamoma (UCC),REMOVE,medium,Amamoma: university residential
+aurangabad,hood,3,Cantonment,REMOVE,medium,"Cantonment: military zone, point shows 0 hotels"
+aurangabad,add,,Station Road (Osmanpura),ADD,medium,"railway-station hotel cluster, 34 hotels; replaces Cantonment"
+nuuk,hood,2,Nuussuaq,REMOVE,medium,"Nuussuaq: shopping and residential district, 0 hotels"
+nuuk,hood,3,Qinngorput,REMOVE,high,Qinngorput: residential suburb
+irkutsk,hood,3,Akademgorodok,REMOVE,high,Akademgorodok: science campus suburb
+makassar,hood,3,Tanjung Bunga,UNSURE,low,Tanjung Bunga: newer waterfront district with hotels (Overture shows 0)
+anshun,hood,1,Hongshan Lake,REMOVE,medium,Hongshan Lake: park only
+anshun,hood,2,Anshun West Railway Station,UNSURE,low,West Railway Station: station hotels; kept to hold 2 hoods
+tripoli,hood,2,Hay Andalus,UNSURE,low,"Hay Andalus: upscale residential, restaurants, 0 hotels"
+tripoli,hood,3,Janzour,REMOVE,high,"Janzour: western suburb, 0 hotels"
+tripoli,add,,Dahra,ADD,medium,central district with hotels and restaurants; city has 3 hoods after removal
+banyuwangi,hood,1,Ketapang,UNSURE,low,Ketapang: ferry port to Bali
+banyuwangi,hood,2,Kalipuro & Watudodol,REMOVE,medium,Kalipuro/Watudodol: port outskirts
+jaffna,hood,3,Kokuvil,REMOVE,medium,Kokuvil: university residential
+yamoussoukro,hood,1,Kokrenou,REMOVE,high,Kokrenou: 0 hotels/food
+yamoussoukro,hood,3,Dioulakro,UNSURE,low,"Dioulakro: residential, 1 hotel"
+murree,hood,2,Pindi Point,REMOVE,medium,"Pindi Point: single viewpoint with chairlift, 0 food"
+murree,hood,3,Jhika Gali,UNSURE,low,Jhika Gali: resort village outside the town
+kaifeng,hood,3,Jinming District,UNSURE,low,Jinming: western district with Sheraton by Bianxi lake
+kaifeng,hood,4,Yuwangtai District,UNSURE,low,Yuwangtai: railway-station hotel cluster
+porto-seguro,hood,3,Orla Norte (Coroa Vermelha),UNSURE,low,Orla Norte/Coroa Vermelha: scattered beach pousadas
+quetzaltenango,hood,1,Llanos del Pinal,REMOVE,high,"Llanos del Pinal: residential, 0 hotels"
+visby,hood,2,Norderstrand / Snäckgärdet,REMOVE,medium,"residential beach strip with one resort compound, almost no dining"
+qinhuangdao,hood,3,Nandaihe,UNSURE,low,seaside resort strip south of centre; Overture undercounts China
+juba,hood,2,Munuki,REMOVE,medium,"residential suburb, few visitor services"
+kingstown,hood,3,Arnos Vale,REMOVE,medium,"former airport, stadium and residential; little visitor lodging"
+al-ahmadi,hood,2,Mangaf,REMOVE,medium,"residential suburb, 2 hotels"
+al-ahmadi,hood,3,Fintas,REMOVE,medium,"residential beach suburb, 1 hotel"
+cox-s-bazar,hood,3,Inani,UNSURE,low,resort beach about 30 km south on Marine Drive; day-trip-like
+cox-s-bazar,hood,4,Himchari,REMOVE,medium,waterfall and national park area far south of town; day trip
+roseau,hood,2,Trafalgar / Roseau Valley,REMOVE,medium,"waterfall and valley residential area, no lodging cluster"
+roseau,hood,3,Wotten Waven,UNSURE,low,"hot-spring village with eco lodges, 8 km out"
+roseau,hood,4,Goodwill / Bath Estate,REMOVE,medium,"residential estate next to the botanic gardens, little lodging"
+longyearbyen,hood,3,Gruvedalen,UNSURE,low,valley lodging and restaurants at edge of town
+datong,hood,2,Yudong New District,REMOVE,medium,"new administrative district, little visitor draw"
+datong,hood,3,Kaiyuan / Development Zone,REMOVE,high,"development zone, industrial/commercial"
+la-ceiba,hood,2,Colonia El Sauce / Zona Mall,REMOVE,medium,"mall strip and residential, 3 hotels"
+nuku-alofa,hood,2,Kolofo'ou (Vuna Road East),REMOVE,high,"district holding the same centre (counts identical), duplicate of City Centre"
+nuku-alofa,hood,3,Ma'ufanga,REMOVE,medium,residential suburb west of centre
+nuku-alofa,hood,4,Popua,REMOVE,medium,"residential lagoon-side suburb, 1 hotel"
+bangui,hood,1,Lakouanga,UNSURE,low,"residential quarter near river, 1 hotel; kept to hold two hoods"
+gondar,hood,1,Fasil Ghebbi (Royal Enclosure),REMOVE,medium,"royal castle compound, single site"
+gondar,hood,2,Maraki (University area),UNSURE,low,"university area, a few hotels"
+cuiaba,hood,1,CPA / Jardim das Américas,UNSURE,low,"government and residential district with parks, 7 hotels"
+tirupati,hood,2,Renigunta Road,REMOVE,medium,"airport-road corridor, little dining"
+tirupati,hood,3,Alipiri,REMOVE,medium,"foot-of-hill pilgrim gate, single trailhead"
+porto-novo,hood,3,Ouando (Port & Market District),UNSURE,low,"port and market district, 1 hotel"
+antsiranana,hood,3,SCAMA,REMOVE,medium,"industrial/port residential quarter, 1 hotel"
+padang,hood,3,Air Tawar (Padang Utara),REMOVE,medium,residential and university area
+bahir-dar,hood,2,Blue Nile Riverside,REMOVE,medium,"riverside villages/falls area, outside the city; falls are a day trip"
+bahir-dar,hood,3,Shimbit,UNSURE,low,"small district near lake, 1 hotel"
+bahir-dar,hood,4,Bahir Dar University Area,REMOVE,medium,university campus area
+ziguinchor,hood,2,Boudody,REMOVE,medium,"residential quarter, 1 hotel"
+chengde,hood,1,Chengde Railway Station area,UNSURE,low,station district
+chengde,hood,2,Eight Outer Temples (Waibamiao),REMOVE,medium,"temples scattered over hills, not a lodging zone"
+niamey,hood,2,Grand Marché,UNSURE,low,"grand market, single draw"
+niamey,hood,3,Yantala,REMOVE,medium,residential embassy suburb
+ashgabat,hood,2,Ashgabat Stadium / Sports District,REMOVE,high,"Olympic stadium complex, single site"
+sergiyev-posad,hood,1,Klementyevo,UNSURE,low,"shop-lined district, unclear visitor draw"
+siwa-oasis,hood,1,Temple of the Oracle (Aghurmi),UNSURE,low,temple ruins and village lodges
+legaspi,hood,3,Taysan,REMOVE,medium,"residential, 0 hotels"
+pemba,hood,3,Cariacó,UNSURE,low,"market quarter, 3 hotels"
+nablus,hood,1,Rafidia,UNSURE,low,"modern district, restaurants, 0 hotels counted"
+nablus,hood,2,Ras al-Ein,REMOVE,medium,"adjoins downtown, near-identical counts"
+bissau,hood,2,Cuntum / Avenida dos Combatentes,REMOVE,medium,"outer residential avenue, nothing counted"
+ghardaia,hood,3,Bou Noura,UNSURE,low,"ksar about 5 km out, 1 hotel"
+ghardaia,hood,4,El Atteuf,UNSURE,low,oldest ksar about 10 km out
+sao-tome,hood,1,Praia Lagarto (Airport Beach),REMOVE,medium,"airport beach, no dining"
+sao-tome,hood,2,Riboque,UNSURE,low,"residential district, 4 hotels"
+morondava,hood,2,Andakabe,UNSURE,low,"beachside village area, 5 hotels"
+surakarta,hood,3,Jebres,REMOVE,medium,"university residential area, 4 hotels"
+surakarta,add,,Pasar Gede & Sudiroprajan (Chinatown),ADD,medium,"Pasar Gede market, Tien Kok Sie temple and Chinatown lanes; 5 hotels, 54 eateries within 1 km, popular heritage-food stop"
+kano,hood,0,Fagge,UNSURE,low,"old commercial market area, 1 hotel"
+kano,hood,1,Nassarawa GRA,UNSURE,low,GRA residential with a few hotels
+kano,hood,3,Bompai,REMOVE,medium,industrial and commercial zone
+leticia,hood,2,Km 11 (Reserva Natural Tanimboca area),REMOVE,high,nature reserve 11 km out; day trip
+moroni,hood,4,Coulée,REMOVE,medium,"residential, no lodging counted"
+banda-aceh,hood,4,Ulee Kareng,UNSURE,low,coffee district
+sana-a,hood,1,Tahrir,UNSURE,low,"Tahrir square area, 0 hotels counted; Overture undercounts Yemen"
+sana-a,hood,3,Ma'ain,REMOVE,medium,"Ma'ain residential, no venues counted"
+sana-a,hood,4,Al-Sabeen,REMOVE,medium,"Al-Sabeen government/residential area, no lodging counted"
+skardu,hood,1,Satpara Road Area,UNSURE,low,"road toward Satpara Lake, one hotel counted, no dining"
+vladimir,hood,2,Studyonaya Gora,REMOVE,medium,"hillside residential district, 5 hotels, little dining"
+harar,hood,2,Harar National Museum Area,REMOVE,medium,"single museum site inside Jugol, not a separate area"
+velikiy-novgorod,hood,2,Antonovo,UNSURE,low,"Antonovo, 9 hotels and 29 eateries but few sights"
+kangding,hood,1,New Town (Xin Cheng),UNSURE,low,"new town, 1 hotel counted; Overture thin for China"
+gilgit,hood,2,Konodas,UNSURE,low,"Konodas, 9 hotels near the Kargah/river bridges"
+kabul,hood,2,Karte Parwan,REMOVE,medium,"residential, 1 hotel and 1 eatery"
+enshi,hood,2,Enshi Railway Station (Jinziba),UNSURE,low,"station district, no venues counted"
+osogbo,hood,1,Gbodofon,UNSURE,low,"market and commercial area, 2 hotels counted"
+calabar,hood,2,Ekorinim,REMOVE,medium,"residential, 4 hotels, no dining"
+calabar,hood,4,Tinapa,REMOVE,medium,"Tinapa free-zone and mall complex, single site"
+djanet,hood,1,Ifri,UNSURE,low,"village outside town, nothing counted"
+lamu,hood,2,Kipungani,REMOVE,medium,"remote beach lodge area, nothing counted, not a neighbourhood"
+lamu,hood,3,Manda Island,REMOVE,medium,separate island with airport and a few lodges; boat trip not a hood
+jianshui,hood,1,New Town,UNSURE,low,"modern town, 1 hotel counted"
+yaroslavl,hood,2,Korovniki,REMOVE,medium,"single church ensemble, 4 hotels"
+yaroslavl,hood,3,Zavolzhsky (Left Bank),REMOVE,medium,"left-bank residential, no hotels"
+yaroslavl,hood,4,Krasny Perekop (Tolchkovo),REMOVE,medium,"Tolchkovo church area, residential"
+laayoune,hood,0,Al Aouda (Al Wahda),UNSURE,low,"residential quarter, 2 hotels"
+laayoune,hood,1,Foum el Oued,REMOVE,medium,beach village 25 km from the city; day trip
+laayoune,add,,Centre-ville (Place Mechouar),ADD,medium,city centre with 8 hotels and 12 eateries; both listed hoods are weak and one is a distant beach village
+beihai,hood,3,Waisha Seafood Island,UNSURE,low,Waisha island seafood district
+beihai,hood,4,Qiaogang,REMOVE,medium,"fishing-port town, not a visitor district"
+ibadan,hood,2,Agodi GRA,UNSURE,low,"government residential area, 3 hotels"
+ibadan,hood,4,Sango / UI Area,UNSURE,low,"university and Sango area, 4 hotels"
+cockburn-town,hood,3,North Ridge,REMOVE,medium,"residential, nothing counted"
+savonlinna,hood,1,Kyrönniemi,REMOVE,medium,"peninsula, 1 hotel and 1 eatery"
+savonlinna,hood,3,Pihlajaniemi,REMOVE,high,"residential peninsula, nothing counted"
+baracoa,hood,2,El Paraíso,UNSURE,low,"east side district, counts identical to the others"
+baracoa,hood,3,Zona del Mercado / Terminal,REMOVE,medium,"market and bus terminal, transport node"
+malabo,hood,1,Carretera del Aeropuerto,REMOVE,high,"airport road, transport corridor"
+malabo,hood,2,Sipopo,UNSURE,low,conference resort enclave about 10 km out
+malabo,hood,3,Caracolas,UNSURE,low,"beach quarter, 3 hotels counted"
+malabo,hood,4,Malabo II,UNSURE,low,"residential, 2 hotels counted"
+honiara,hood,4,Panatina,REMOVE,medium,"residential ridge, nothing much counted"
+goma,hood,2,Katindo,REMOVE,medium,"residential, nothing counted"
+bamyan,hood,0,Buddha Niches / Cliff Complex,UNSURE,low,"cliff and niches, a single site though guesthouses cluster near"
+bamyan,hood,1,Shahr-e Gholghola ('City of Sighs'),REMOVE,medium,"ruined citadel, single site"
+funafuti,hood,2,Alapi,UNSURE,low,"residential village, 4 hotels counted"
+funafuti,hood,3,Senala,UNSURE,low,"residential village, 6 hotels counted"
+funafuti,hood,4,Teone,REMOVE,medium,nothing counted
+jamestown,hood,1,Half Tree Hollow,UNSURE,low,hilltop residential suburb with some guesthouses
+jamestown,hood,2,Longwood,REMOVE,medium,single house museum (Napoleon's)
+jamestown,hood,3,St Paul's,REMOVE,medium,"cathedral and residence area, nothing counted"
+jamestown,hood,4,Alarm Forest,REMOVE,medium,"forest area, no lodging"
+yaren,hood,0,Yaren,UNSURE,low,capital with airport; nothing counted
+yaren,hood,3,Ewa,UNSURE,low,"Ewa, lodge"
+pyongyang,hood,2,Mangyongdae District (Sports Village),REMOVE,medium,single sports and memorial sites
+agadez,hood,1,Sabon Gari,UNSURE,low,new quarter and market
+agadez,hood,2,Founey,UNSURE,low,"residential district, 1 hotel"
+pyatigorsk,hood,2,Mount Mashuk & Proval,REMOVE,medium,"mountain park, single site"
+pyatigorsk,hood,3,Goryachevodsky,REMOVE,medium,"sanatorium suburb, little lodging"
+pyatigorsk,hood,4,Novopyatigorsk,REMOVE,medium,separate residential suburb
+axum,hood,1,Church of Our Lady Mary of Zion,UNSURE,low,"church site close to stelae, same area"
+axum,hood,2,Queen of Sheba's Bath,REMOVE,medium,"single archaeological site, 1 hotel"
+srimangal,hood,1,Tea Garden Belt,UNSURE,low,tea-estate resorts belt
+srimangal,hood,2,Lawachara National Park,REMOVE,medium,"national park, single site, no lodging inside"
+mek-ele,hood,1,Hawelti,UNSURE,low,monument and hotel area
+mek-ele,hood,2,Ayder,REMOVE,medium,"hospital district, nothing counted"
+mek-ele,hood,3,Adi-Haki,REMOVE,medium,"residential, nothing counted"
+brades,hood,0,Brades,UNSURE,low,"administrative centre, nothing much counted"
+weno,hood,1,Nantaku,UNSURE,low,"Nantaku village, nothing counted"
+weno,hood,2,Mechitiw,UNSURE,low,"Mechitiw village, nothing counted"
+weno,hood,3,Neiwe,UNSURE,low,"Neiwe village, 2 hotels counted"
+majuro,hood,2,Djarrit-Rita,UNSURE,low,Rita residential strip
+majuro,hood,3,Laura & Western Majuro,UNSURE,low,Laura beach area
+majuro,hood,4,Outer Islets (Eneko & Bikendrik),REMOVE,medium,"remote islets, day trip"
+timbuktu,hood,2,Badjindé,UNSURE,low,residential quarter
+tarawa,hood,2,Ambo,UNSURE,low,"Ambo, 1 hotel"
+tarawa,hood,3,North Tarawa,REMOVE,medium,remote north villages
+timimoun,hood,1,Palm Oasis,UNSURE,low,"palm oasis, guesthouses"
