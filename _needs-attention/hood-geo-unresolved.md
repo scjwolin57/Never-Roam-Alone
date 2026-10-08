@@ -1,12 +1,8 @@
 # Neighborhoods with no map point
 
-*Updated 2026-10-08 with Jeff's calls on the 11 rows left by the 2026-09-24 OpenStreetMap placement pass. Ten are settled (below); one waits on Jeff.*
+*Updated 2026-10-08 with Jeff's calls on the 11 rows left by the 2026-09-24 OpenStreetMap placement pass. All settled.*
 
-**1 of the site's neighborhoods still has no point.**
-
-| City | Country | Neighborhood | What would settle it |
-|---|---|---|---|
-| Basseterre | St. Kitts and Nevis | Fortlands | Jeff's link (maps.app.goo.gl/yqYZx6amBYWP7U356) opens "Basseterre, St Kitts & Nevis", the whole town, at its centre point (17.3026, -62.7177), not Fortlands. Not applied. A pin on Fortlands itself, or "remove" |
+**All 11 settled 2026-10-08. No neighborhood is left without a point.**
 
 ## Settled 2026-10-08 (Jeff)
 
@@ -22,6 +18,8 @@
 | Sergiyev Posad | Vifanka | remove | removed (hoods 3 -> 2) |
 | Tamanrasset | Airport Road District | remove; research tourist alternatives | removed (hoods 2 -> 1); alternatives below |
 | Timbuktu | Abaradiou | remove | removed (hoods 4 -> 3) |
+| Basseterre | Fortlands | remove (Jeff, after his link turned out to be the whole town) | removed (hoods 5 -> 4), photo and images deleted |
+| Tamanrasset | (new) Soro | add Soro | added as hood 2 at OSM node 22.785644, 5.54644: description, map search hint, no tag. **No hotels listed**: Hotel Caravanserail is located in Soro (OSM + Trip.com) but no current price could be read (Trip.com no rates, Expedia refused, Booking.com lists no Tamanrasset property) and its newest reviews are Jan 2025; Mizab Tam, Le Lodge and the 4x4 camp are OSM only. **No photo**: Commons has nothing verifiably in Soro (a 1984 "road to Soro" photo has no location data). Both shown honestly empty |
 
 ## Tamanrasset: replacement options (researched 2026-10-08, OSM, Trip.com, own sites, dated press)
 
@@ -29,4 +27,4 @@
 2. **Tahgart (Tahaggart)**: OSM neighbourhood node 22.79961, 5.51012, 2.3 km north-west. One confirmed visitor place, Complexe Touristique Bois Pétrifié (hotel and desert tours, own site active 2026).
 3. Sersouf: not recommended (1.3 km north, overlaps the centre; only budget dorms, OSM only).
 
-Adding one means a full neighborhood (description, tag, landmark, three verified hotel tiers, photo). Say which, or keep Town Center alone.
+Jeff chose Soro (2026-10-08).

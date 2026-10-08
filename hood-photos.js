@@ -1288,8 +1288,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Basseterre": {
     "Frigate Bay": { img:"images/hoods/basseterre--frigate-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Karibik,_St._Kitts_-_View_from_Timothy_Hill_-_Marriott_Resort_%5E_The_Royal_Beach_Casino_-_St._Kitts_-_panoramio.jpg", src:"giggel" },
-    "Southeast Peninsula (Christophe Harbour)": { img:"images/hoods/basseterre--southeast-peninsula-christophe-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Map_of_Malay_Peninsula_1530-1730.jpg", src:"Bandar perda" },
-    "Fortlands": { img:"images/hoods/basseterre--fortlands.webp", page:"https://commons.wikimedia.org/wiki/File:Roslee_Castle_(1)_-_geograph.org.uk_-_5519001.jpg", src:"Michael Dibb" }
+    "Southeast Peninsula (Christophe Harbour)": { img:"images/hoods/basseterre--southeast-peninsula-christophe-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Map_of_Malay_Peninsula_1530-1730.jpg", src:"Bandar perda" }
   },
   "Battambang": {
     "Psar Nat": { img:"images/hoods/battambang--psar-nat.webp", page:"https://commons.wikimedia.org/wiki/File:Phsar_Nat_2.jpg", src:"Christophe95" },
