@@ -341,7 +341,8 @@ window.NRA_HOOD_PHOTO = {
     "Gion": { img:"images/hoods/kyoto--gion.webp", page:"https://commons.wikimedia.org/wiki/File:150124_Gion_Kyoto_Japan01s3.jpg" },
     "Higashiyama": { img:"images/hoods/kyoto--higashiyama.webp", page:"https://commons.wikimedia.org/wiki/File:Shirakara_Canal%2C_Gion%2C_Kyoto.jpg" },
     "Arashiyama": { img:"images/hoods/kyoto--arashiyama.webp", page:"https://commons.wikimedia.org/wiki/File:Arashiyama_013.jpg" },
-    "Pontocho": { img:"images/hoods/kyoto--pontocho.webp", page:"https://commons.wikimedia.org/wiki/File:Pontocho_by_Wolfiewolf_in_Nabeyacho%2C_Kyoto.jpg" }
+    "Pontocho": { img:"images/hoods/kyoto--pontocho.webp", page:"https://commons.wikimedia.org/wiki/File:Pontocho_by_Wolfiewolf_in_Nabeyacho%2C_Kyoto.jpg" },
+    "Kyoto Station Area": { img:"images/hoods/kyoto--kyoto-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Kyoto_Station,_Kyoto,_Japan_(Unsplash).jpg", src:"Suttawee Tantiwongchai kahonoii" }
   },
   "Las Vegas": {
     "Summerlin": { img:"images/hoods/las-vegas--summerlin.webp", page:"https://commons.wikimedia.org/wiki/File:SummerlinEntrance.jpg" },
@@ -352,7 +353,8 @@ window.NRA_HOOD_PHOTO = {
   "Lima": {
     "San Isidro": { img:"images/hoods/lima--san-isidro.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_financiero_en_el_Per%C3%BA_3.jpg" },
     "Miraflores": { img:"images/hoods/lima--miraflores.webp", page:"https://commons.wikimedia.org/wiki/File:Miraflores_2023.jpg" },
-    "Barranco": { img:"images/hoods/lima--barranco.webp", page:"https://commons.wikimedia.org/wiki/File:Puente_de_los_Suspiros%2C_Barranco.jpg" }
+    "Barranco": { img:"images/hoods/lima--barranco.webp", page:"https://commons.wikimedia.org/wiki/File:Puente_de_los_Suspiros%2C_Barranco.jpg" },
+    "Centro Historico de Lima": { img:"images/hoods/lima--centro-historico-de-lima.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_mayor_de_Lima.jpg", src:"Pitxiquin" }
   },
   "Lisbon": {
     "Belém": { img:"images/hoods/lisbon--belem.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Maria_de_Bel%C3%A9m_sul_Tago_-_panoramio_(cropped).jpg" },
@@ -2446,7 +2448,8 @@ window.NRA_HOOD_PHOTO = {
     "Alsancak": { img:"images/hoods/izmir--alsancak.webp", page:"https://commons.wikimedia.org/wiki/File:Alsancak_buildings.jpg", src:"Btian P. Dorsam" },
     "Konak": { img:"images/hoods/izmir--konak.webp", page:"https://commons.wikimedia.org/wiki/File:April_1996,_vanuit_Ekim_hotel_-_panoramio.jpg", src:"Dirk Jan van Zoest" },
     "Karşıyaka": { img:"images/hoods/izmir--karsiyaka.webp", page:"https://commons.wikimedia.org/wiki/File:20051010_-_Kar%C5%9F%C4%B1yaka_District_-_%C4%B0zmir_1.jpg", src:"Davut Akalan" },
-    "Balçova / Güzelbahçe": { img:"images/hoods/izmir--balcova-guzelbahce.webp", page:"https://commons.wikimedia.org/wiki/File:G%C3%B6k%C3%A7e_G%C3%B6k%C3%A7en_in_%C4%B0zmir_University_of_Economics_04.jpg", src:"BSRF" }
+    "Balçova / Güzelbahçe": { img:"images/hoods/izmir--balcova-guzelbahce.webp", page:"https://commons.wikimedia.org/wiki/File:G%C3%B6k%C3%A7e_G%C3%B6k%C3%A7en_in_%C4%B0zmir_University_of_Economics_04.jpg", src:"BSRF" },
+    "Basmane": { img:"images/hoods/izmir--basmane.webp", page:"https://commons.wikimedia.org/wiki/File:Izmir_Basmane_railroad_station_2535.jpg", src:"Dosseman" }
   },
   "Jaffna": {
     "Nallur": { img:"images/hoods/jaffna--nallur.webp", page:"https://commons.wikimedia.org/wiki/File:Kandaswamy_koil-2-nallur-jaffna-Sri_Lanka.jpg", src:"Yercaud-elango" },
@@ -2696,7 +2699,8 @@ window.NRA_HOOD_PHOTO = {
     "Chaweng": { img:"images/hoods/ko-samui--chaweng.webp", page:"https://commons.wikimedia.org/wiki/File:Thailand,_Koh-Samui,_Chaweng_beach_-_Monkey_bay,_2011_-_panoramio.jpg", src:"ivanich" },
     "Lamai": { img:"images/hoods/ko-samui--lamai.webp", page:"https://commons.wikimedia.org/wiki/File:Lamai_viewpoint_cable_car.jpg", src:"Christophe95" },
     "Bophut (Fisherman's Village)": { img:"images/hoods/ko-samui--bophut-fisherman-s-village.webp", page:"https://commons.wikimedia.org/wiki/File:Bo_Put,_Ko_Samui_District,_Surat_Thani,_Thailand_-_panoramio_(6).jpg", src:"ivanich" },
-    "Mae Nam": { img:"images/hoods/ko-samui--mae-nam.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Nam,_Ko_Samui_District,_Surat_Thani,_Thailand_-_panoramio.jpg", src:"Mark Stepanov" }
+    "Mae Nam": { img:"images/hoods/ko-samui--mae-nam.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Nam,_Ko_Samui_District,_Surat_Thani,_Thailand_-_panoramio.jpg", src:"Mark Stepanov" },
+    "Bang Rak (Big Buddha)": { img:"images/hoods/ko-samui--bang-rak-big-buddha.webp", page:"https://commons.wikimedia.org/wiki/File:Samui_2015_febr._-_panoramio_(13).jpg", src:"Roma Neus" }
   },
   "Kobe": {
     "Sannomiya": { img:"images/hoods/kobe--sannomiya.webp", page:"https://commons.wikimedia.org/wiki/File:151003_Sannomiya_Kobe_Japan02s3.jpg", src:"663highland" },
@@ -2761,7 +2765,8 @@ window.NRA_HOOD_PHOTO = {
     "Asokwa": { img:"images/hoods/kumasi--asokwa.webp", page:"https://commons.wikimedia.org/wiki/File:Sunday_dawn_in_Asokwa,_Kumasi.jpg", src:"ArnPrah" }
   },
   "Kunming": {
-    "Green Lake (Cuihu) & Wuhua": { img:"images/hoods/kunming--green-lake-cuihu-wuhua.webp", page:"https://commons.wikimedia.org/wiki/File:55506-Kunming-Green-Lake-Park.jpg", src:"xiquinhosilva" }
+    "Green Lake (Cuihu) & Wuhua": { img:"images/hoods/kunming--green-lake-cuihu-wuhua.webp", page:"https://commons.wikimedia.org/wiki/File:55506-Kunming-Green-Lake-Park.jpg", src:"xiquinhosilva" },
+    "Jinbi Road (Jinma-Biji Square) / Nanping Street": { img:"images/hoods/kunming--jinbi-road-jinma-biji-square-nanping-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%87%91%E9%A9%AC%E5%9D%8A_-_2025-05-16_02.jpg", src:"瑞丽江的河水" }
   },
   "Kurashiki": {
     "Bikan Historical Quarter": { img:"images/hoods/kurashiki--bikan-historical-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%80%89%E6%95%B7%E7%BE%8E%E8%A6%B3%E5%9C%B0%E5%8C%BA_by_takeokahp_-_panoramio_(1).jpg", src:"takeokahp" },
@@ -2799,7 +2804,8 @@ window.NRA_HOOD_PHOTO = {
     "La Pampa": { img:"images/hoods/la-serena--la-pampa.webp", page:"https://commons.wikimedia.org/wiki/File:La_pampa.png", src:"Alejocarlonii" }
   },
   "Laayoune": {
-    "Foum el Oued": { img:"images/hoods/laayoune--foum-el-oued.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%B4%D8%A7%D8%B7%D8%A6_%D9%81%D9%85_%D8%A7%D9%84%D9%88%D8%A7%D8%AF%D8%8C_%D8%A7%D9%84%D8%B9%D9%8A%D9%88%D9%86.jpg", src:"Nassima Chahboun" }
+    "Foum el Oued": { img:"images/hoods/laayoune--foum-el-oued.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%B4%D8%A7%D8%B7%D8%A6_%D9%81%D9%85_%D8%A7%D9%84%D9%88%D8%A7%D8%AF%D8%8C_%D8%A7%D9%84%D8%B9%D9%8A%D9%88%D9%86.jpg", src:"Nassima Chahboun" },
+    "Centre-ville (Place Mechouar)": { img:"images/hoods/laayoune--centre-ville-place-mechouar.webp", page:"https://commons.wikimedia.org/wiki/File:Place_El_Michouar.jpg", src:"ZAINEB HACHAMI" }
   },
   "Labuan Bajo": {
     "Town Centre & Waterfront": { img:"images/hoods/labuan-bajo--town-centre-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:A_view_of_Chatham_Waterfront_-_Medway.jpg", src:"Sunolafjagtenben-hur" },
@@ -2978,7 +2984,8 @@ window.NRA_HOOD_PHOTO = {
     "Pajuçara": { img:"images/hoods/maceio--pajucara.webp", page:"https://commons.wikimedia.org/wiki/File:Paju%C3%A7ara,_Macei%C3%B3,_Brazil.jpg", src:"Flaviohmg" },
     "Ponta Verde": { img:"images/hoods/maceio--ponta-verde.webp", page:"https://commons.wikimedia.org/wiki/File:Ponta_Verde_-_Macei%C3%B3.jpg", src:"Ahmed Zohair Anka" },
     "Jatiúca": { img:"images/hoods/maceio--jatiuca.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_da_Jati%C3%BAca_-_panoramio.jpg", src:"Duds Nilds" },
-    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" }
+    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" },
+    "Jaraguá": { img:"images/hoods/maceio--jaragua.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_Jaragu%C3%A1_e_seus_encantos_1.jpg", src:"Blogilberto" }
   },
   "Madurai": {
     "Tallakulam": { img:"images/hoods/madurai--tallakulam.webp", page:"https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%81%E0%AE%B3%E0%AE%AE%E0%AF%8D_%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B3%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D.jpg", src:"சித்திரவீதிக்காரன்" },
@@ -3062,7 +3069,8 @@ window.NRA_HOOD_PHOTO = {
   "Manama": {
     "Seef": { img:"images/hoods/manama--seef.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Seef_Terminal.jpg", src:"Gaurav Dhwaj Khadka" },
     "Adliya": { img:"images/hoods/manama--adliya.webp", page:"https://commons.wikimedia.org/wiki/File:Adliya_vazirligi_binosi.jpg", src:"Kayumova Samira" },
-    "Juffair": { img:"images/hoods/manama--juffair.webp", page:"https://commons.wikimedia.org/wiki/File:AlFatehMosque.jpg", src:"XIDME" }
+    "Juffair": { img:"images/hoods/manama--juffair.webp", page:"https://commons.wikimedia.org/wiki/File:AlFatehMosque.jpg", src:"XIDME" },
+    "Manama Souq / Bab Al Bahrain": { img:"images/hoods/manama--manama-souq-bab-al-bahrain.webp", page:"https://commons.wikimedia.org/wiki/File:Bab al Bahrain alley.jpg", src:"Jan Michael Pfeiffer" }
   },
   "Manaus": {
     "Centro": { img:"images/hoods/manaus--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Igreja_de_Manaus_-_AM_-_panoramio.jpg", src:"Paulo JC Nogueira" },
@@ -3106,7 +3114,8 @@ window.NRA_HOOD_PHOTO = {
   "Mar del Plata": {
     "Playa Bristol / Centro": { img:"images/hoods/mar-del-plata--playa-bristol-centro.webp", page:"https://commons.wikimedia.org/wiki/File:MAR_DEL_PLATA_-_ARGENTINA_-_panoramio.jpg", src:"Gustavo de la Sota" },
     "Playa Grande": { img:"images/hoods/mar-del-plata--playa-grande.webp", page:"https://commons.wikimedia.org/wiki/File:MonumentoEcuestreaSanMartin-MDP-ago2016.jpg", src:"Ezarate" },
-    "Punta Mogotes": { img:"images/hoods/mar-del-plata--punta-mogotes.webp", page:"https://commons.wikimedia.org/wiki/File:Avenida_de_los_Trabajadores_hacia_el_sur.jpg", src:"Dario Alpern" }
+    "Punta Mogotes": { img:"images/hoods/mar-del-plata--punta-mogotes.webp", page:"https://commons.wikimedia.org/wiki/File:Avenida_de_los_Trabajadores_hacia_el_sur.jpg", src:"Dario Alpern" },
+    "La Perla": { img:"images/hoods/mar-del-plata--la-perla.webp", page:"https://commons.wikimedia.org/wiki/File:BalnearioAlfonsina-LaPerlaMDP-feb2017.jpg", src:"Ezarate" }
   },
   "Marbella": {
     "Casco Antiguo": { img:"images/hoods/marbella--casco-antiguo.webp", page:"https://commons.wikimedia.org/wiki/File:Callej%C3%B3n_en_Marbella_-_panoramio.jpg", src:"Martin Barona" },
@@ -3155,7 +3164,8 @@ window.NRA_HOOD_PHOTO = {
   "Mataram": {
     "Mataram (City Center)": { img:"images/hoods/mataram--mataram-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Esquisse_d_%27un_partie_du_terrain_de_Mataram,_indiquant_les_mouvements_rapides_qui_fit_Diepo_Negoro,_KITLV_47B11.tiff", src:"Bayly et Huart" },
     "Cakranegara": { img:"images/hoods/mataram--cakranegara.webp", page:"https://commons.wikimedia.org/wiki/File:Tasman_Mayura_(32148367986).jpg", src:"Dan O'Cker from Adelaide, Australia" },
-    "Selaparang": { img:"images/hoods/mataram--selaparang.webp", page:"https://commons.wikimedia.org/wiki/File:The_old_Selaparang_Airport.jpg", src:"HannoSEA" }
+    "Selaparang": { img:"images/hoods/mataram--selaparang.webp", page:"https://commons.wikimedia.org/wiki/File:The_old_Selaparang_Airport.jpg", src:"HannoSEA" },
+    "Senggigi": { img:"images/hoods/mataram--senggigi.webp", page:"https://commons.wikimedia.org/wiki/File:Senggigi Setting Sun, Lombok.jpg", src:"Ken Eckert" }
   },
   "Matera": {
     "Sasso Caveoso": { img:"images/hoods/matera--sasso-caveoso.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_dei_Santi_Pietro_e_Paolo_-_Matera_01.jpg", src:"Diego Baglieri" },
@@ -3190,7 +3200,8 @@ window.NRA_HOOD_PHOTO = {
     "Kesawan (Old Town)": { img:"images/hoods/medan--kesawan-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Car_Free_Day.jpg", src:"Abumas.ali" },
     "Merdeka / Sudirman": { img:"images/hoods/medan--merdeka-sudirman.webp", page:"https://commons.wikimedia.org/wiki/File:23.10.2025_-_Celebra%C3%A7%C3%A3o_do_anivers%C3%A1rio_do_Presidente_da_Rep%C3%BAblica,_Luiz_In%C3%A1cio_Lula_da_Silva_e_do_Presidente_da_Rep%C3%BAblica_da_Indon%C3%A9sia,_Prabowo_Subianto_(54874775946).jpg", src:"Lula Oficial" },
     "Petisah": { img:"images/hoods/medan--petisah.webp", page:"https://commons.wikimedia.org/wiki/File:HKBP_Pasar_Melintang,_Res._Pasar_Melintang_(02).jpg", src:"Christian Advs Sltg" },
-    "Kampung Madras (Little India)": { img:"images/hoods/medan--kampung-madras-little-india.webp", page:"https://commons.wikimedia.org/wiki/File:Little_India_Medan_01.jpg", src:"Rafliyan18" }
+    "Kampung Madras (Little India)": { img:"images/hoods/medan--kampung-madras-little-india.webp", page:"https://commons.wikimedia.org/wiki/File:Little_India_Medan_01.jpg", src:"Rafliyan18" },
+    "Medan Maimun (Istana Maimun & Masjid Raya)": { img:"images/hoods/medan--medan-maimun-istana-maimun-masjid-raya.webp", page:"https://commons.wikimedia.org/wiki/File:Istana Maimun Medan.jpg", src:"Ramada Febrian" }
   },
   "Medellín": {
     "El Poblado": { img:"images/hoods/medellin--el-poblado.webp", page:"https://commons.wikimedia.org/wiki/File:Cables_en_Medell%C3%ADn.jpg", src:"Xemenendura" },
