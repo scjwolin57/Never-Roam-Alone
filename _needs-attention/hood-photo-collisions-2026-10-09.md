@@ -40,9 +40,9 @@ All come from the 2026-09-15 sourcing pass (commit 1c906cbf). Most are name matc
 
 | City | Hood | Why |
 |---|---|---|
-| Ashgabat | City Center (Turkmenbashy Avenue) | file 56Y1337, description is only a name (Денис Проценко); no place data |
-| Göreme | Göreme Town Center | right area, but it is a fresco inside Elmalı Church (Open Air Museum), not the town centre |
-| Jamestown | Half Tree Hollow | right island (Lemon Valley, St Helena) but a different valley, not Half Tree Hollow |
+| ~~Ashgabat~~ | ~~City Center (Turkmenbashy Avenue)~~ (settled 2026-10-09: renamed Kopetdag per Jeff's pin; photo removed, no verified replacement within 2 km) | file 56Y1337, description is only a name (Денис Проценко); no place data |
+| ~~Göreme~~ | ~~Göreme Town Center~~ (settled 2026-10-09: Jeff's pin confirms the town; fresco replaced with Göreme Area (7), GPS 40 m) | right area, but it is a fresco inside Elmalı Church (Open Air Museum), not the town centre |
+| ~~Jamestown~~ | ~~Half Tree Hollow~~ (settled 2026-10-09: Jeff's pin confirms the hood; replaced with the High Knoll Fort view of the settlement) | right island (Lemon Valley, St Helena) but a different valley, not Half Tree Hollow |
 | Kanchanaburi | Death Railway / Thailand-Burma Railway Centre | holiday snapshot, GPS 34 km from the railway centre (likely further up the line); no description |
 | Managua | Los Robles | description just "Urb. Los Robles"; no country, no GPS |
 | Moshi | Kaloleni | only category is "Arusha Region" (Moshi is in Kilimanjaro Region); no description |

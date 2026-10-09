@@ -1081,8 +1081,7 @@ window.NRA_HOOD_PHOTO = {
     "Kijenge / Themi": { img:"images/hoods/arusha--kijenge-themi.webp", page:"https://commons.wikimedia.org/wiki/File:Streets_of_Arusha_(15).jpg", src:"Zenith4237" }
   },
   "Ashgabat": {
-    "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" },
-    "Kopetdag": { img:"images/hoods/ashgabat--city-center-turkmenbashy-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:56Y1337.jpg", src:"DRPROTS" }
+    "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" }
   },
   "Asmara": {
     "Harnet Avenue (City Center)": { img:"images/hoods/asmara--harnet-avenue-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Asmara,_cattedrale_cattolica,_campanile_01.JPG", src:"sailko" }
@@ -2092,10 +2091,10 @@ window.NRA_HOOD_PHOTO = {
     "Piazza (City Centre)": { img:"images/hoods/gondar--piazza-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Loves2020Africa_(8).jpg", src:"BluesyPete" }
   },
   "Göreme": {
-    "Göreme Town Center": { img:"images/hoods/goreme--goreme-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Elmal%C4%B1_Kilise_Entry_into_Jerusalem_in_2004_6816.jpg", src:"Dosseman" },
     "Uçhisar": { img:"images/hoods/goreme--uchisar.webp", page:"https://commons.wikimedia.org/wiki/File:U%C3%A7hisar_Kalesi_Front.jpg", src:"Tolga Alan" },
     "Avanos (Kızılırmak riverside)": { img:"images/hoods/goreme--avanos-kizilirmak-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Avanos_Carsisinda_Kabartma_-_panoramio.jpg", src:"Talha Sariyürek" },
-    "Ürgüp": { img:"images/hoods/goreme--urgup.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_Temenni_Tepesi_02.jpg", src:"Codas" }
+    "Ürgüp": { img:"images/hoods/goreme--urgup.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_Temenni_Tepesi_02.jpg", src:"Codas" },
+    "Göreme Town Center": { img:"images/hoods/goreme--goreme-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:G%C3%B6reme_Area_(7)_(30856382837).jpg", src:"Carl Campbell from Querétaro, Mexico" }
   },
   "Gothenburg": {
     "Inom Vallgraven": { img:"images/hoods/gothenburg--inom-vallgraven.webp", page:"https://commons.wikimedia.org/wiki/File:Porten_till_Lilla_Kyrkogatan_2.JPG", src:"Eskil Malmberg" },
@@ -2374,9 +2373,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Jamestown": {
     "Jamestown (Main Street)": { img:"images/hoods/jamestown--jamestown-main-street.webp", page:"https://commons.wikimedia.org/wiki/File:Chalewote.jpg", src:"Kojo xo" },
-    "Half Tree Hollow": { img:"images/hoods/jamestown--half-tree-hollow.webp", page:"https://commons.wikimedia.org/wiki/File:Lemon_Valley_Bay.jpg", src:"Kevstan" },
     "Longwood": { img:"images/hoods/jamestown--longwood.webp", page:"https://commons.wikimedia.org/wiki/File:Castello_di_Aymavilles_2018_abc58.jpg", src:"Patafisik e user:Elena Tartaglione" },
-    "St Paul's": { img:"images/hoods/jamestown--st-paul-s.webp", page:"https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_(41012986392).jpg", src:"Luke McKernan" }
+    "St Paul's": { img:"images/hoods/jamestown--st-paul-s.webp", page:"https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_(41012986392).jpg", src:"Luke McKernan" },
+    "Half Tree Hollow": { img:"images/hoods/jamestown--half-tree-hollow.webp", page:"https://commons.wikimedia.org/wiki/File:View_from_High_Knoll_Fort,_1985,_showing_the_Half_Tree_Hollow_settlement._Peter_Neaum._-_panoramio.jpg", src:"Peter Neaum" }
   },
   "Jeju City": {
     "Sinjeju (Yeon-dong)": { img:"images/hoods/jeju-city--sinjeju-yeon-dong.webp", page:"https://commons.wikimedia.org/wiki/File:KT_Sinjeju_and_MBC_Jeju_buildings.JPG", src:"Abasaa" }
