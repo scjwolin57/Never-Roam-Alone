@@ -7,12 +7,12 @@ never deleted; new items for you are added under the right heading. Details live
 
 ## 1. Decisions waiting on you
 
-- **D1. Tamanrasset, Soro: does a live booking page count as "open"?** Hotel Caravansérail is in Soro and takes bookings on darbooking.com (about $30), but its newest review is January 2025. Yes = Soro keeps one hotel; no = Soro is removed (no hotels to choose from). *`decisions.md` 2026-10-09*
-- **D2. Chad, Lebanon, Armenia "before you rent" notes.** Your call was "IDP recommended"; the licence-aware permit row (government advice) says Required for most licences. Recommended: no note for these three. *`before-you-rent-2026-10-06.md`*
-- **D3. Najaf, "Amir al-Mu'minin Library (Haydariyya Library)".** The entry joins two different libraries' names and shares one map point with the Old City Souq. Say "fix it" to research it. *`city-landmark-coords.js`*
-- **D4. Neighborhood review: "Things to look at".** About 13 keep/remove calls on thin evidence (Cholula, Sosúa, Kyoto Fushimi, the Dublin swaps, ...) and 7 weak adds. *`hood-review-2026-10-08.md`*
+- ~~**D1. Tamanrasset, Soro: does a live booking page count as "open"?** Hotel Caravansérail is in Soro and takes bookings on darbooking.com (about $30), but its newest review is January 2025. Yes = Soro keeps one hotel; no = Soro is removed (no hotels to choose from).~~ *`decisions.md` ~~2026-10-09*~~
+- ~~**D2. Chad, Lebanon, Armenia "before you rent" notes.** Your call was "IDP recommended"; the licence-aware permit row (government advice) says Required for most licences. Recommended: no note for these three. *`before-you-rent-2026-10-06.md`~~* done 2026-10-09: Jeff chose "note it as required"; notes added for Armenia, Chad and Lebanon in `rental-notes.js`.
+- ~~**D3. Najaf, "Amir al-Mu'minin Library (Haydariyya Library)".** The entry joins two different libraries' names and shares one map point with the Old City Souq. Say "fix it" to research it. *`city-landmark-coords.js`*~~ done 2026-10-09: renamed "Imam Amir al-Mu'minin Public Library", pin moved to the Huwaysh site (31.99366, 44.31435), blurb rewritten; site and sheet.
+- ~~**D4. Neighborhood review: "Things to look at".** About 13 keep/remove calls on thin evidence (Cholula, Sosúa, Kyoto Fushimi, the Dublin swaps, ...) and 7 weak adds.~~ *`hood-review-2026-10-08.md`*
 - **D5. Batch 1 hood-picks Google results still on disk.** The hood-picks rule says delete a batch's saved results after it is done; they are also the free source for re-picks. Delete or keep? *`RESUME_hood-picks.md`*
-- **D6. London, CRU Champagne Bar** is filed as a pub; a checker says it is not one. Keep, move to cocktail, or remove? *`_done/hood-picks-batch1-chain-report.md`*
+- ~~**D6. Bangkok (Siam), CRU Champagne Bar** is filed as a pub; a checker says it is not one.~~ done 2026-10-09: Jeff said remove; CRU Champagne Bar deleted from the Hood Picks tab and Bangkok citydata (Siam now has The Loft only).
 - **D7. Denizli rooster statue:** an older photo shows a taller rooster, so the statue may have been replaced. Confirm before its photo request goes out. *`flickr-permission-shortlist.csv`*
 - **D8. Driving permits: governments that disagree** (Ethiopia, Cambodia, Solomon Islands, Turkey, Armenia). Each government is right for its own licence so nothing was changed; read the list and say if any should carry a note. *`intl-permit-definition-2026-10-08.md`*
 - **D9. Turkey, Azerbaijan, Bangladesh: still no "before you rent" note** for lack of a national source (Chad, Lebanon and Armenia are D2). Say "go" to retry when search quota allows. *`before-you-rent-2026-10-06.md`*
@@ -23,12 +23,11 @@ never deleted; new items for you are added under the right heading. Details live
 - **A2. Send the Flickr permission requests:** 11 photos marked "ready to ask". Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
 - **A3. Plausible analytics signup** (backlog 29): the script is already on every page.
 - ~~**A4. Google Cloud check for the landmark pin pass.**~~ done 2026-10-09: October geocoding was near zero; the Google geocoding pass and the Places pass both ran (`RESUME_landmark-pin-pass.md`).
-- **A5. Partnerize:** open the new account and apply to the Expedia (US) and Hostelworld campaigns (decided 2026-10-05), if not done yet. *`hotel-resourcing-plan-2026-10-01.md`*
-- **A6. Bing Webmaster Tools** (backlog 28), about 10 minutes.
+- **A5. Partnerize:** open the new account and apply to the Expedia (US) and Hostelworld campaigns (decided 2026-10-05), if not done yet. *`hotel-resourcing-plan-2026-10-01.md`* *Update 2026-10-09: Partnerize account open and Expedia (US) approved; Hostelworld application still pending (see W2).*
+- ~~**A6. Bing Webmaster Tools** (backlog 28), about 10 minutes.~~ done 2026-10-09: Jeff set up and verified Bing Webmaster Tools.
 - **A7. Launch day:** delete the noindex line in `netlify.toml`, push, set up Google Search Console and submit the sitemap; then the monthly Search Console check (backlog 33).
 - **A8. Kiwitaxi: new account link.** You are moving to a new Kiwitaxi account; paste the new partner link (or change `KIWITAXI_TAG` in city.html) and confirm in the dashboard that clicks earn commission (the current link is recorded as a "Kiwitaxi Business" program). Used on 39 guides. *`car-rental-second-program-2026-10-06.md`*
 - **A9. NRA-MASTER.xlsx: delete the empty "Intl Driving Permit" column** in Live Cities (emptied 2026-10-08 when the permit row moved to the Driving Permits tab; the sheet tool can clear cells but not delete a column). *`intl-permit-definition-2026-10-08.md`*
-
 - **Landmark pin pass leftovers (2026-10-09), say "go" on any:** (1) Komodo Island, Manta Point and Pink Beach (Labuan Bajo) are boat-only, 45+ km out: day trips? (2) Bentota Paradise Island Sandbar sits 150 m from the Bentota Beach landmark: merge? (3) Other landmarks pinned wrongly inside a city but really far away (Places hits 30+ km off, in `landmark-pins-places-results-2026-10-09.csv`, e.g. Nyika in Lilongwe, Tsingy in Morondava, Isla Martillo in Ushuaia): review and move. (4) Cyangugu Nyungwe Canopy Walkway (33 km) and Calabar Kwa Falls (25 km): day trips? (5) China pins: Places hits were not converted from GCJ-02, so none were applied; run a China pass? (6) Cancún's Cobá, Xcaret and Xel-Há trips have no photo yet. *`RESUME_landmark-pin-pass.md`*
 
 ## 3. Say "go" and it gets done
@@ -42,7 +41,7 @@ never deleted; new items for you are added under the right heading. Details live
 ## 4. Waiting on someone else
 
 - ~~**W1. DiscoverCars account approval:** then deep links for the 31 places with no landing page.~~ approved 2026-10-06 (partner tag NRA2026 live). Still open: whether the DiscoverCars dashboard can make a search link for the 31 places with no landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...); check it when you are next signed in and tell me. *`discovercars-coverage-2026-10-05.md`*
-- **W2. Expedia / Partnerize approval:** then the hotel re-sourcing plan can be built.
+- **W2. Hostelworld / Partnerize approval:** Expedia (US) approved 2026-10-09 (Jeff). Waiting on Hostelworld; then the hotel re-sourcing plan can be built (Expedia main + Hostelworld shared-room tier).
 - **W3. Flickr photographers' answers** (after A2).
 - **W4. Hood photo name-collision audit** (running in its own session): it will list wrong hood photos (Kalamata's "Historic Centre" is in Avignon, "Marina" is in Faro) and ask you before replacing.
 
@@ -65,7 +64,7 @@ never deleted; new items for you are added under the right heading. Details live
 - **22 / 30.** Accessibility & SEO pass: alt-text audit (a session is working on it now)
 - **23.** Remaining neighborhood photos; re-run the Pexels/Pixabay search every few months; story-card and blog placeholders
 - **27.** Page-speed pass: defer city.html's heavy scripts (about 1.45 MB)
-- **28.** Bing Webmaster Tools (see A6)
+- ~~**28.** Bing Webmaster Tools (see A6)~~ done 2026-10-09 (see A6)
 - **29.** Analytics: Plausible signup (see A3)
 - **32.** Backlinks (ongoing)
 - **33.** Monthly Search Console check-in (after launch, see A7)
@@ -95,3 +94,4 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~Car rental: Türkiye and Azerbaijan "before you rent" notes~~ done 2026-10-09 from your sources.
 - ~~Lochotín: add Hotel Panorama or not~~ done 2026-10-09: no hotels to choose from, so Lochotín was removed.
 - ~~Folder cleanup commit~~ done 2026-10-09.
+

@@ -28,6 +28,13 @@
       { t: "Turkey Rent Car (rental terms)", u: "https://turkey-rentcar.ru/en/info/driving-license-in-turkey/", d: "undated" }], chk: "2026-10-09" };
   window.NRA_RENT_NOTES = {
     // Azerbaijan (Jeff, 2026-10-09): a rental-company rule, stated by two Baku companies. Grand Rent's 30-day limit has one source only, so it is left out.
+    // Armenia, Chad, Lebanon (Jeff, 2026-10-09): "IDP required", replacing his earlier "recommended". Each note names only the governments whose advice says so.
+    "Armenia": { n: "UK, Canadian and Australian government advice says to carry an International Driving Permit with your home licence when driving in Armenia.",
+      k: ["licence"], src: [FCDO("armenia", "2026-03-01"), CA("armenia", "2025-11-19"), { t: "Australian Smartraveller", u: "https://www.smartraveller.gov.au/destinations/europe/armenia", d: "2026-06-17" }], chk: "2026-10-09" },
+    "Chad": { n: "US and Canadian government advice says an International Driving Permit is required with your home licence in Chad. The UK government adds that a UK licence has to be converted to a Chadian one.",
+      k: ["licence"], src: [DOS("Chad", "2026-04-30"), CA("chad", "2025-11-21"), FCDO("chad", "2026-08-06")], chk: "2026-10-09" },
+    "Lebanon": { n: "US and Canadian government advice says an International Driving Permit is required with your home licence in Lebanon.",
+      k: ["licence"], src: [DOS("Lebanon", "2026-05-14"), CA("lebanon", "2025-12-01")], chk: "2026-10-09" },
     "Azerbaijan": { n: "Rental companies accept a driving licence written in the Latin alphabet. If yours is in another script (Cyrillic, Arabic, Chinese and so on), they ask for an International Driving Permit as well.",
       k: ["licence"], src: [{ t: "Grand Rent A Car, Baku (rental terms)", u: "https://grandrent.az/en/blog/which-driving-licenses-are-valid-for-driving-a-car-in-azerbaijan", d: "2025-11-23" },
         { t: "Prestige Car Rental, Baku (rental terms)", u: "https://carrentalbaku.az/en/blog/driving-in-azerbaijan-foreigners", d: "2026-06-30" }], chk: "2026-10-09" },
