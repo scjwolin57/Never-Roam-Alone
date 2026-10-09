@@ -1,29 +1,29 @@
 batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
-1,Acapulco de Juarez,Mexico,Diamante,16.773348,-99.795861,"File:Parroquia de San Cipriano y San Javier (Diamante, Entre Ríos).jpg",open,,
-1,Addis Ababa,Ethiopia,Bole,8.983114,38.810085,"File:Bole, Capt. B.P. and Patsy 1917 c - DPLA - 0b3ccc73c2234a551e74e5a92957831a.jpg",open,,
-1,Adelaide,Australia,Glenelg,-34.980383,138.513119,"File:Admiralty Chart No 1594 Kyle Rhea and the North Part of the Sound of Sleat, Published 1912.jpg",open,,
-1,Agra,India,Sadar Bazaar,27.158737,78.010012,File:Multan Cantt Sadar Bazaar.jpg,open,,
-1,Ahmedabad,India,CG Road / Ellisbridge,23.025454,72.556463,File:Blue Cloudy Sky.jpg,open,,
-1,Al Ahmadi,Kuwait,Fintas,29.170469,48.1193,File:Salgotarjan pecsko aruhaz finta bejarat.jpg,open,,
-1,Alexandria,Egypt,Gleem / Saba Pasha,31.239627,29.960276,File:Croatia-01556 - Stradun Street (10008323156).jpg,open,,
-1,Alicante,Spain,Casco Antiguo (Santa Cruz),38.346541,-0.4815,File:Immeuble 1 Calle San Jorge - Séville (ES61) - 2023-04-24 - 2.jpg,open,,
-1,Amman,Jordan,Al-Balad (Downtown),31.951623,35.939289,"File:Al-Balad, Yeda, Arabia Saudita, 2025-05-24, DD 22.jpg",open,,
-1,Amritsar,India,Lawrence Road,31.645041,74.877256,File:Post box on Lawrence Road.jpg,open,,
-1,Angra dos Reis,Brazil,Boa Vista / Portogalo,-23.034372,-44.197247,File:Boa Vista-PB - praça da cidade.jpg,open,,
-1,Angra dos Reis,Brazil,Praia do Bonfim,-23.020555,-44.332562,File:Santa Missa na Basílica Nossa Senhora da Conceição da Praia antes da Caminhada Penitencial 2024.jpg,open,,
-1,Anshun,China,Hongshan Lake,26.26397,105.939501,File:South Lake Campus IMG 20141012 161051.jpg,open,,
-1,Antsiranana,Madagascar,Rue Colbert (Ville Haute),-12.273819,49.292636,File:Plaque Rue Colbert - Colombes (FR92) - 2024-04-01 - 2.jpg,open,,
-1,Antwerp,Belgium,Stationsbuurt,51.21602,4.42105,"File:HUA-168032-Afbeelding van het plaatsen van een goederenwagen type Hbis van de N.S. op een oplegger van een vrachtauto (""rolwagenvervoer"" of ""strassenroller"") van de firma Stoof te Breda.jpg",open,,
-1,Aomori,Japan,Furukawa,40.822865,140.736441,File:Jin Hyek Oh and Takaharu Furukawa (7745228612).jpg,open,,
-1,Aomori,Japan,Honmachi,40.824409,140.748371,File:Fudodori shopping street honmachi shibuya-2.JPG,open,,
-1,Arusha,Tanzania,Kijenge / Themi,-3.378548,36.707854,File:Kvarnen Furusund.jpg,open,,
-1,Astana,Kazakhstan,Almaty District,51.139675,71.476959,"File:Алматы, мусорный бак на площади Астана.jpg",open,,
-1,Asunción,Paraguay,Centro (Historic Downtown),-25.282059,-57.637806,"File:Puerta del Sol, Iglesia de Nuestra Señora de la Asunción (Aroche).jpg",open,,
-1,Aurangabad,India,CIDCO,19.873947,75.366856,File:CIDCO Low Income Housing.jpg,open,,
-1,Avignon,France,Intra-Muros (Walled Old Town),43.950852,4.807697,File:Urbino 20000 07.jpg,open,,
-1,Baden-Baden,Germany,Kurgebiet (Spa Quarter),48.760204,8.236728,"File:Bad Sooden-Allendorf - Kurgebiet mir Brunnen, Fachwerkhäuser.JPG",open,,
-1,Bamako,Mali,Hippodrome,12.665771,-7.972909,File:FranceNormandieArgentanHippodromeGabrieleGelorminiEpicurien.jpg,open,,
-1,Bamberg,Germany,Cathedral Hill (Domberg),49.890775,10.882516,File:Cathedral Hill - 411-413 Queen - 02.jpg,open,,
+1,Acapulco de Juarez,Mexico,Diamante,16.773348,-99.795861,"File:Parroquia de San Cipriano y San Javier (Diamante, Entre Ríos).jpg",done,File:Mellow Sunset (146847901).jpeg,Commons file GPS 486 m from the hood point; eye-checked; licence CC BY-SA 3.0
+1,Addis Ababa,Ethiopia,Bole,8.983114,38.810085,"File:Bole, Capt. B.P. and Patsy 1917 c - DPLA - 0b3ccc73c2234a551e74e5a92957831a.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only airport and aircraft photos within 2 km"
+1,Adelaide,Australia,Glenelg,-34.980383,138.513119,"File:Admiralty Chart No 1594 Kyle Rhea and the North Part of the Sound of Sleat, Published 1912.jpg",done,"File:Glenelg, South Australia 20260820-102458.jpg",Commons file GPS 85 m from the hood point; eye-checked; licence CC BY 4.0
+1,Agra,India,Sadar Bazaar,27.158737,78.010012,File:Multan Cantt Sadar Bazaar.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no photo of the bazaar area; nearest are a statue and a church of unclear district"
+1,Ahmedabad,India,CG Road / Ellisbridge,23.025454,72.556463,File:Blue Cloudy Sky.jpg,done,File:Mithakhali by Emmanuel Dyan.jpg,Commons file GPS 494 m from the hood point; eye-checked; licence CC BY 2.0
+1,Al Ahmadi,Kuwait,Fintas,29.170469,48.1193,File:Salgotarjan pecsko aruhaz finta bejarat.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only meeting-room photos and a windscreen shot nearby"
+1,Alexandria,Egypt,Gleem / Saba Pasha,31.239627,29.960276,File:Croatia-01556 - Stradun Street (10008323156).jpg,done,"File:Alexandria Corniche , photo by Hatem Moushir 16.jpg",Commons file GPS 338 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Alicante,Spain,Casco Antiguo (Santa Cruz),38.346541,-0.4815,File:Immeuble 1 Calle San Jorge - Séville (ES61) - 2023-04-24 - 2.jpg,done,File:Església parroquial de Santa Maria (Alacant) 02.jpg,Commons file GPS 143 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Amman,Jordan,Al-Balad (Downtown),31.951623,35.939289,"File:Al-Balad, Yeda, Arabia Saudita, 2025-05-24, DD 22.jpg",done,"File:The Roman Theater In Amman, Downtown 3..jpg",Commons file GPS 13 m from the hood point; eye-checked; licence CC BY-SA 3.0
+1,Amritsar,India,Lawrence Road,31.645041,74.877256,File:Post box on Lawrence Road.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a flooded-road shot, hotel fronts and people nearby"
+1,Angra dos Reis,Brazil,Boa Vista / Portogalo,-23.034372,-44.197247,File:Boa Vista-PB - praça da cidade.jpg,done,File:Condomínio em PORTOGALO II - panoramio.jpg,Commons file GPS 1164 m from the hood point; eye-checked; licence CC BY 3.0
+1,Angra dos Reis,Brazil,Praia do Bonfim,-23.020555,-44.332562,File:Santa Missa na Basílica Nossa Senhora da Conceição da Praia antes da Caminhada Penitencial 2024.jpg,done,File:Angra - panoramio (6).jpg,Commons file GPS 41 m from the hood point; eye-checked; licence CC BY-SA 3.0
+1,Anshun,China,Hongshan Lake,26.26397,105.939501,File:South Lake Campus IMG 20141012 161051.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are temples 1.5 km+ away, none of the lake"
+1,Antsiranana,Madagascar,Rue Colbert (Ville Haute),-12.273819,49.292636,File:Plaque Rue Colbert - Colombes (FR92) - 2024-04-01 - 2.jpg,done,File:La poste Antsiranana Madagascar.jpg,Commons file GPS 443 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Antwerp,Belgium,Stationsbuurt,51.21602,4.42105,"File:HUA-168032-Afbeelding van het plaatsen van een goederenwagen type Hbis van de N.S. op een oplegger van een vrachtauto (""rolwagenvervoer"" of ""strassenroller"") van de firma Stoof te Breda.jpg",done,File:Antwerp Central Station 2024-10-28 - 06.jpg,Commons file GPS 2 m from the hood point; eye-checked; licence CC BY-SA 2.0
+1,Aomori,Japan,Furukawa,40.822865,140.736441,File:Jin Hyek Oh and Takaharu Furukawa (7745228612).jpg,done,"File:ASPAM seen from Hakko Street, Aomori - Jan 25, 2010.jpg",Commons file GPS 79 m from the hood point; eye-checked; licence CC BY 2.0
+1,Aomori,Japan,Honmachi,40.824409,140.748371,File:Fudodori shopping street honmachi shibuya-2.JPG,done,File:Shogaku-ji (Aomori).jpg,Commons file GPS 80 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Arusha,Tanzania,Kijenge / Themi,-3.378548,36.707854,File:Kvarnen Furusund.jpg,done,File:Streets of Arusha (15).jpg,Commons file GPS 521 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Astana,Kazakhstan,Almaty District,51.139675,71.476959,"File:Алматы, мусорный бак на площади Астана.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only referendum kiosks and polling-station doors"
+1,Asunción,Paraguay,Centro (Historic Downtown),-25.282059,-57.637806,"File:Puerta del Sol, Iglesia de Nuestra Señora de la Asunción (Aroche).jpg",done,File:Panteón nacional de los Héroes - Paraguay.jpg,Commons file GPS 281 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Aurangabad,India,CIDCO,19.873947,75.366856,File:CIDCO Low Income Housing.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only hotel interiors nearby"
+1,Avignon,France,Intra-Muros (Walled Old Town),43.950852,4.807697,File:Urbino 20000 07.jpg,done,File:Palais des papes (Avignon) (2).jpg,Commons file GPS 12 m from the hood point; eye-checked; licence CC BY-SA 4.0
+1,Baden-Baden,Germany,Kurgebiet (Spa Quarter),48.760204,8.236728,"File:Bad Sooden-Allendorf - Kurgebiet mir Brunnen, Fachwerkhäuser.JPG",done,File:Baden-Baden 10-2015 img41 Pump house.jpg,Commons file GPS 92 m from the hood point; eye-checked; licence CC BY-SA 3.0
+1,Bamako,Mali,Hippodrome,12.665771,-7.972909,File:FranceNormandieArgentanHippodromeGabrieleGelorminiEpicurien.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only people portraits and a rubbish-strewn street 1 km away"
+1,Bamberg,Germany,Cathedral Hill (Domberg),49.890775,10.882516,File:Cathedral Hill - 411-413 Queen - 02.jpg,done,"File:Bamberg, Dom, Westansicht, 20150927, 001.jpg",Commons file GPS 9 m from the hood point; eye-checked; licence CC BY-SA 4.0
 2,Bamberg,Germany,Sandgebiet (Sand District),49.891703,10.884948,"File:View of the Connecticut River Valley from the summit of Skinner State Park, by Carol M. Highsmith, 2019, from the Library of Congress - master-pnp-highsm-57700-57707a.tiff",open,,
 2,Banff,Canada,Lake Louise Village,51.178679,-115.571398,File:Golden-Mantled Ground Squirrel Moraine Lake.jpg,open,,
 2,Banyuwangi,Indonesia,Alun-alun / Taman Blambangan (Town Center),-8.212318,114.376479,File:Alun-alun kidul dan Sasana Hinggil Dwi Abad.jpg,open,,
