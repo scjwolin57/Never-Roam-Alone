@@ -374,8 +374,8 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 15,Weno,Federated States of Micronesia,Iras,7.452778,151.841111,File:A lucky observation of an enigmatic cloud (potw1008a).tiff,done,"File:Chuuk International Airport, Weno.jpg",Commons file GPS 644 m from the hood point; eye-checked; licence CC BY-SA 2.0
 15,Whistler,Canada,Upper Village (Blackcomb),50.116303,-122.947958,File:DSC08653 - Horse-drawn Boat (37220943815).jpg,done,File:Blackcomb gondola (48762927487).jpg,Commons file GPS 101 m from the hood point; eye-checked; licence CC BY 2.0
 15,Xi'an,China,Muslim Quarter (Huimin Jie),34.263371,108.938929,File:Ablaq IMG 1544.jpg,done,File:View from Xi'an Drum Tower Muslim Market (9912583664).jpg,Commons file GPS 175 m from the hood point; eye-checked; licence CC0
-16,Yangshuo,China,Yulong River Area (Baisha & Jiuxian),24.751346,110.451368,File:021 soteska tigrovega skoka (16).JPG,open,,
-16,Yaroslavl,Russia,Zavolzhsky (Left Bank),57.649408,39.961034,"File:Zavolzhsky, Tverskaya oblast.jpg",open,,
-16,Zadar,Croatia,Old Town (Poluotok),44.117238,15.226089,File:Z-1736 -Templarska gradina - Pakoštane 07.jpg,open,,
-16,Zhoushan,China,Mt. Putuo (Putuoshan),29.987646,122.384133,File:The Thousand Buddha Temple 02.jpg,open,,
-16,Ålesund,Norway,Sentrum,62.471107,6.150875,File:Soldiering On (7808126).jpeg,open,,
+16,Yangshuo,China,Yulong River Area (Baisha & Jiuxian),24.751346,110.451368,File:021 soteska tigrovega skoka (16).JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are about 1 km+ upriver; none can be placed in Baisha / Jiuxian"
+16,Yaroslavl,Russia,Zavolzhsky (Left Bank),57.649408,39.961034,"File:Zavolzhsky, Tverskaya oblast.jpg",done,"File:Zavolzhskiy rayon, Yaroslavl', Yaroslavskaya oblast', Russia - panoramio (67).jpg",Commons file GPS 347 m from the hood point; eye-checked; licence CC BY-SA 3.0
+16,Zadar,Croatia,Old Town (Poluotok),44.117238,15.226089,File:Z-1736 -Templarska gradina - Pakoštane 07.jpg,done,"File:Old Town, Zadar (P1080983).jpg",Commons file GPS 174 m from the hood point; eye-checked; licence CC BY-SA 4.0
+16,Zhoushan,China,Mt. Putuo (Putuoshan),29.987646,122.384133,File:The Thousand Buddha Temple 02.jpg,done,"File:Front of Puji Temple, Putuoshan, China.jpg",Commons file GPS 172 m from the hood point; eye-checked; licence CC BY-SA 4.0
+16,Ålesund,Norway,Sentrum,62.471107,6.150875,File:Soldiering On (7808126).jpeg,done,"File:Ålesund, Norway, 2017 11.jpg",Commons file GPS 42 m from the hood point; eye-checked; licence CC BY-SA 2.0

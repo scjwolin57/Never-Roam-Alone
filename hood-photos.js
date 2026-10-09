@@ -962,7 +962,8 @@ window.NRA_HOOD_PHOTO = {
     "New Aleppo (Halab al-Jadida)": { img:"images/hoods/aleppo--new-aleppo-halab-al-jadida.webp", page:"https://commons.wikimedia.org/wiki/File:Aleppo_Modern_mosque_9484.jpg", src:"Dosseman" }
   },
   "Ålesund": {
-    "Aspøya": { img:"images/hoods/alesund--aspoya.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Aspoya.jpg", src:"GangerRolf" }
+    "Aspøya": { img:"images/hoods/alesund--aspoya.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Aspoya.jpg", src:"GangerRolf" },
+    "Sentrum": { img:"images/hoods/alesund--sentrum.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%85lesund,_Norway,_2017_11.jpg", src:"dconvertini" }
   },
   "Alexandria": {
     "Corniche / Stanley": { img:"images/hoods/alexandria--corniche-stanley.webp", page:"https://commons.wikimedia.org/wiki/File:Alexandria_Corniche_(2346973947).jpg", src:"Francisco Anzola" },
@@ -4543,7 +4544,8 @@ window.NRA_HOOD_PHOTO = {
   "Yaroslavl": {
     "City Centre (Kirovsky)": { img:"images/hoods/yaroslavl--city-centre-kirovsky.webp", page:"https://commons.wikimedia.org/wiki/File:20190807_Yaroslavl_view_16.jpg", src:"Sergey A. Demidov" },
     "Strelka & Volga Embankment": { img:"images/hoods/yaroslavl--strelka-volga-embankment.webp", page:"https://commons.wikimedia.org/wiki/File:Leninskiy_rayon,_Yaroslavl%27,_Yaroslavskaya_oblast%27,_Russia_-_panoramio_(301).jpg", src:"Андрей Субботин" },
-    "Korovniki": { img:"images/hoods/yaroslavl--korovniki.webp", page:"https://commons.wikimedia.org/wiki/File:Frunzenskiy_rayon,_Yaroslavl%27,_Yaroslavskaya_oblast%27,_Russia_-_panoramio_(25).jpg", src:"Emilio13" }
+    "Korovniki": { img:"images/hoods/yaroslavl--korovniki.webp", page:"https://commons.wikimedia.org/wiki/File:Frunzenskiy_rayon,_Yaroslavl%27,_Yaroslavskaya_oblast%27,_Russia_-_panoramio_(25).jpg", src:"Emilio13" },
+    "Zavolzhsky (Left Bank)": { img:"images/hoods/yaroslavl--zavolzhsky-left-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Zavolzhskiy_rayon,_Yaroslavl',_Yaroslavskaya_oblast',_Russia_-_panoramio_(67).jpg", src:"Emilio13" }
   },
   "Yazd": {
     "Fahadan (Old City)": { img:"images/hoods/yazd--fahadan-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Yazd_khane_lariha_(2).jpg", src:"Shirvanbeigi" },
@@ -4584,7 +4586,8 @@ window.NRA_HOOD_PHOTO = {
   "Zadar": {
     "Kolovare": { img:"images/hoods/zadar--kolovare.webp", page:"https://commons.wikimedia.org/wiki/File:Diving_tower_in_Zadar,_Croatia_(48670242446).jpg", src:"dronepicr" },
     "Borik": { img:"images/hoods/zadar--borik.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Zadar,_Croatia_(48607322198).jpg", src:"dronepicr" },
-    "Puntamika": { img:"images/hoods/zadar--puntamika.webp", page:"https://commons.wikimedia.org/wiki/File:Nad_brzegiem_-_panoramio.jpg", src:"Mietek Ł" }
+    "Puntamika": { img:"images/hoods/zadar--puntamika.webp", page:"https://commons.wikimedia.org/wiki/File:Nad_brzegiem_-_panoramio.jpg", src:"Mietek Ł" },
+    "Old Town (Poluotok)": { img:"images/hoods/zadar--old-town-poluotok.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Town,_Zadar_(P1080983).jpg", src:"Matti Blume" }
   },
   "Zagreb": {
     "Gornji Grad (Upper Town)": { img:"images/hoods/zagreb--gornji-grad-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Zagreb_-_Gradec_Gornji_grad.jpg", src:"Fred Romero from Paris, France" },
@@ -4610,7 +4613,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Zhoushan": {
     "Zhujiajian Island": { img:"images/hoods/zhoushan--zhujiajian-island.webp", page:"https://commons.wikimedia.org/wiki/File:%E4%B9%8C%E7%9F%B3%E7%A0%BE%E5%A1%98_20191004.jpg", src:"Tyg728" },
-    "Shenjiamen (Putuo District)": { img:"images/hoods/zhoushan--shenjiamen-putuo-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B2%88%E5%AE%B6%E9%97%A8%E6%B8%AF_-_panoramio.jpg", src:"kingwill" }
+    "Shenjiamen (Putuo District)": { img:"images/hoods/zhoushan--shenjiamen-putuo-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B2%88%E5%AE%B6%E9%97%A8%E6%B8%AF_-_panoramio.jpg", src:"kingwill" },
+    "Mt. Putuo (Putuoshan)": { img:"images/hoods/zhoushan--mt-putuo-putuoshan.webp", page:"https://commons.wikimedia.org/wiki/File:Front_of_Puji_Temple,_Putuoshan,_China.jpg", src:"Sixian Yu" }
   },
   "Ziguinchor": {
     "Escale (Centre-Ville)": { img:"images/hoods/ziguinchor--escale-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Ziguinchor6.JPG", src:"Ji-Elle" }

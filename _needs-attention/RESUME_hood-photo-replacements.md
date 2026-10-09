@@ -1,4 +1,8 @@
-# Resume: hood photo replacements (started 2026-10-09)
+# Hood photo replacements: COMPLETE 2026-10-09
+
+All 380 queue rows settled: 246 replaced with a location-verified photo, 134 keep the "No photo yet" stand-in (no verified photo, or the only one was poor or watermarked; reasons in the queue CSV). Kept as a record; the hood-point notes at the end are for the hood-data task.
+
+## Original resume note
 
 Jeff, 2026-10-09: "yes, remove them all now then replace in batches of 25". The 387 wrong-place photos are removed
 (decisions.md 2026-10-09). 380 are on hoods still in a guide and need a replacement; the 7 on dropped hoods need none.
