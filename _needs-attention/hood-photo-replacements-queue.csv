@@ -249,31 +249,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 10,Nassau,Bahamas,Downtown Nassau (Bay Street),25.077933,-77.340441,File:Aerial photo of WTC groundzero.jpg,done,File:Downtown Nassau - panoramio (4).jpg,Commons file GPS 69 m from the hood point; eye-checked; licence CC BY 3.0
 10,Nelspruit,South Africa,West Acres,-25.479542,30.95027,File:All Saints Church Notice Board - geograph.org.uk - 5547083.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only one stadium crowd shot 1.7 km away"
 10,Nha Trang,Vietnam,Cho Dam (Old Market),12.254951,109.191816,File:Artificial Lotus - Vietnam - Hoa sen gia - chat lieu bang cao su.jpg,done,File:Dam Market Nha Trang 1.jpg,Commons file GPS 50 m from the hood point; eye-checked; licence CC BY-SA 4.0
-11,Nouakchott,Mauritania,Ksar,18.105437,-15.9553,File:Heddada 8372.jpg,open,,
-11,Nouméa,New Caledonia,Quartier Latin,-22.276568,166.445463,File:Clocher de l’Église Saint-Jacques (Montréal).jpg,open,,
-11,Nuremberg,Germany,Südstadt,49.43645,11.091563,File:1918-1939 circa Open GeoData Plan der Hauptstadt Hannover 1 zu 1000 (Historisch) Kachel So 402a.jpg,open,,
-11,Oaxaca,Mexico,Reforma,17.075849,-96.714616,"File:Paseo de la Reforma Torre Reforma, Chapultepec Uno and Torre Mayor.jpg",open,,
-11,Oaxaca,Mexico,Xochimilco,17.072621,-96.724275,File:Dia de Muertos en Xochimilco.jpg,open,,
-11,Odense,Denmark,H.C. Andersen Quarter,55.398748,10.390736,File:Carl Nielsen c. 1908.jpg,open,,
-11,Ohrid,North Macedonia,Centar,41.111404,20.806118,File:Биста на Мустафа Кемал Ататурк во Центар Жупа.jpg,open,,
-11,Ohrid,North Macedonia,Sveti Stefan / Lagadin,41.047784,20.802766,File:Budva - Sveti Stefan 2.jpg,open,,
-11,Oran,Algeria,Es Seddikia,35.711515,-0.603108,File:TessalaIMO9761243MarmaraEreğlisi (3).jpg,open,,
-11,Oran,Algeria,Miramar,35.704626,-0.632692,File:Miramar - Mediterranean Revival building.jpg,open,,
-11,Osogbo,Nigeria,Oja Oba,7.765764,4.554226,"File:Oja Oba Oluwatedo, Oru Ijebu.jpg",open,,
-11,Otaru,Japan,Otaru Station Area,43.197698,140.993691,File:Toyohirakoensta-form.jpg,open,,
-11,Ouarzazate,Morocco,Sidi Daoud,30.922313,-6.893414,File:Tunisie station sidi daoud 1.jpg,open,,
-11,Ouarzazate,Morocco,Taourirt,30.919546,-6.898444,File:Ayoub Dr Lamdint Ouarzazate.jpg,open,,
-11,Padang,Indonesia,Kota Tua Padang (Old Town),-0.963531,100.361819,File:Masjid Assalam di Tuapejat 20230807.jpg,open,,
-11,Pemba,Mozambique,Cariacó,-12.962844,40.517224,"File:Admiralty Chart No 230 Isla de Margarita and Golfo de Cariaco, Published 1952.jpg",open,,
-11,Perugia,Italy,Borgo Sant'Angelo,43.114492,12.389603,File:14 498 Passetto di Borgo.jpg,open,,
-11,Petrópolis,Brazil,Corrêas,-22.455586,-43.111713,File:Correa reflexa x alba 01.jpg,open,,
-11,Petrópolis,Brazil,Nogueira/Cascatinha,-22.422239,-43.130884,"File:Vice Pres. Marshall & group, 1-31-20 LCCN2016827411.jpg",open,,
-11,Phnom Penh,Cambodia,Toul Tom Poung (Russian Market),11.540775,104.914743,File:Crabs (6735121945).jpg,open,,
-11,Phu Quoc,Vietnam,An Thoi (South),10.030457,104.013979,File:Johora (10.3897-zookeys.994.56810) Figure 9.jpg,open,,
-11,Pisa,Italy,San Francesco (Piazza dei Cavalieri),43.719432,10.400028,File:Alberschwende-Franz from Assisi memorial-02ASD.jpg,open,,
-11,Playa del Carmen,Mexico,Zazil-Ha (Coco Beach),20.636686,-87.061189,File:Fosa en Colonia Dignidad.JPG,open,,
-11,Plovdiv,Bulgaria,Kapana,42.149488,24.749169,File:Cardos en Tiahuanacu .jpg,open,,
-11,Pokhara,Nepal,Damside (Pardi),28.197177,83.970127,File:Machhapuchre.jpg,open,,
+11,Nouakchott,Mauritania,Ksar,18.105437,-15.9553,File:Heddada 8372.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no usable files near the hood point"
+11,Nouméa,New Caledonia,Quartier Latin,-22.276568,166.445463,File:Clocher de l’Église Saint-Jacques (Montréal).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a church interior, flowers, portraits and the Asian quarter 650 m away"
+11,Nuremberg,Germany,Südstadt,49.43645,11.091563,File:1918-1939 circa Open GeoData Plan der Hauptstadt Hannover 1 zu 1000 (Historisch) Kachel So 402a.jpg,done,File:Hummelsteiner Schloss im Hummelsteiner Park 11.JPG,Commons file GPS 370 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Oaxaca,Mexico,Reforma,17.075849,-96.714616,"File:Paseo de la Reforma Torre Reforma, Chapultepec Uno and Torre Mayor.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only food, a butterfly and Llano park statues about 1 km away"
+11,Oaxaca,Mexico,Xochimilco,17.072621,-96.724275,File:Dia de Muertos en Xochimilco.jpg,done,File:Templo Santo Tomas Xochimilco Oaxaca.JPG,Commons file GPS 705 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Odense,Denmark,H.C. Andersen Quarter,55.398748,10.390736,File:Carl Nielsen c. 1908.jpg,done,"File:Ramsherred, Odense 2024 N 2.jpg",Commons file GPS 10 m from the hood point; eye-checked; licence CC BY 4.0
+11,Ohrid,North Macedonia,Centar,41.111404,20.806118,File:Биста на Мустафа Кемал Ататурк во Центар Жупа.jpg,done,"File:Ohrid, ulice Partizanska.jpg",Commons file GPS 93 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Ohrid,North Macedonia,Sveti Stefan / Lagadin,41.047784,20.802766,File:Budva - Sveti Stefan 2.jpg,done,"File:Lagadin, pobřeží.jpg",Commons file GPS 282 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Oran,Algeria,Es Seddikia,35.711515,-0.603108,File:TessalaIMO9761243MarmaraEreğlisi (3).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only city views from 400 m away and a single tower block"
+11,Oran,Algeria,Miramar,35.704626,-0.632692,File:Miramar - Mediterranean Revival building.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only exhibition and workshop photos indoors"
+11,Osogbo,Nigeria,Oja Oba,7.765764,4.554226,"File:Oja Oba Oluwatedo, Oru Ijebu.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only festival crowds and portraits"
+11,Otaru,Japan,Otaru Station Area,43.197698,140.993691,File:Toyohirakoensta-form.jpg,done,"File:Otaru Station, Otaru, Hokkaido on July 19th, 2018.jpg",Commons file GPS 44 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Ouarzazate,Morocco,Sidi Daoud,30.922313,-6.893414,File:Tunisie station sidi daoud 1.jpg,done,File:..سوق المصنوعات التقليدية بورزازات souk artisanal.jpg,Commons file GPS 269 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Ouarzazate,Morocco,Taourirt,30.919546,-6.898444,File:Ayoub Dr Lamdint Ouarzazate.jpg,done,File:Kasba of Taourirt.jpg,Commons file GPS 72 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Padang,Indonesia,Kota Tua Padang (Old Town),-0.963531,100.361819,File:Masjid Assalam di Tuapejat 20230807.jpg,done,File:Gedung Himpunan Tjinta Teman 2024 - Denas.jpg,Commons file GPS 114 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Pemba,Mozambique,Cariacó,-12.962844,40.517224,"File:Admiralty Chart No 230 Isla de Margarita and Golfo de Cariaco, Published 1952.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only fruit, people and a monument over 1 km away"
+11,Perugia,Italy,Borgo Sant'Angelo,43.114492,12.389603,File:14 498 Passetto di Borgo.jpg,done,File:Ex chiesa di Sant'Angelo (Tempietto).jpg,Commons file GPS 102 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Petrópolis,Brazil,Corrêas,-22.455586,-43.111713,File:Correa reflexa x alba 01.jpg,done,File:Pedra do Cone e Igrejinha do Bomfim - panoramio.jpg,Commons file GPS 1470 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Petrópolis,Brazil,Nogueira/Cascatinha,-22.422239,-43.130884,"File:Vice Pres. Marshall & group, 1-31-20 LCCN2016827411.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only birds, insects and sky"
+11,Phnom Penh,Cambodia,Toul Tom Poung (Russian Market),11.540775,104.914743,File:Crabs (6735121945).jpg,done,File:PhsarTuolTompong PhnomPenh 2005 2.JPG,Commons file GPS 32 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Phu Quoc,Vietnam,An Thoi (South),10.030457,104.013979,File:Johora (10.3897-zookeys.994.56810) Figure 9.jpg,done,File:DJI 20260214173618 0031 D SUNSHINE.jpg,Commons file GPS 696 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Pisa,Italy,San Francesco (Piazza dei Cavalieri),43.719432,10.400028,File:Alberschwende-Franz from Assisi memorial-02ASD.jpg,done,File:Pisa - 2016 July - panoramio (24).jpg,Commons file GPS 28 m from the hood point; eye-checked; licence CC BY 3.0
+11,Playa del Carmen,Mexico,Zazil-Ha (Coco Beach),20.636686,-87.061189,File:Fosa en Colonia Dignidad.JPG,done,File:Zicht vanaf coco bay - panoramio.jpg,Commons file GPS 196 m from the hood point; eye-checked; licence CC BY-SA 3.0
+11,Plovdiv,Bulgaria,Kapana,42.149488,24.749169,File:Cardos en Tiahuanacu .jpg,done,File:Kapana.jpg,Commons file GPS 5 m from the hood point; eye-checked; licence CC BY-SA 4.0
+11,Pokhara,Nepal,Damside (Pardi),28.197177,83.970127,File:Machhapuchre.jpg,done,"File:Damside, Pokhara.jpg",Commons file GPS 122 m from the hood point; eye-checked; licence CC BY-SA 4.0
 12,Poprad,Slovakia,Veľká,49.067142,20.28013,File:Nagypaka-Kispaka világháborús emlékmű 1.jpg,open,,
 12,Port Elizabeth,South Africa,Richmond Hill,-33.959251,25.61105,"File:Duchess of Teck Memorial Fountain, Richmond Gate.jpg",open,,
 12,Port Elizabeth,South Africa,Walmer,-33.977954,25.586368,"File:11, The Beach - geograph.org.uk - 6790320.jpg",open,,

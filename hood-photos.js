@@ -3323,7 +3323,8 @@ window.NRA_HOOD_PHOTO = {
     "Lorenzer Altstadt": { img:"images/hoods/nuremberg--lorenzer-altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Altstadt_-_St._Lorenz,_N%C3%BCrnberg,_Germany_-_panoramio_-_Sergei_Gussev_(11).jpg", src:"Sergei Gussev" },
     "Sebalder Altstadt (Castle Quarter)": { img:"images/hoods/nuremberg--sebalder-altstadt-castle-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Egidienkirche_N%C3%BCrnberger_Altstadt_01.JPG", src:"Aarp65" },
     "Gostenhof": { img:"images/hoods/nuremberg--gostenhof.webp", page:"https://commons.wikimedia.org/wiki/File:Dorfschulze_Bar_Gostenhof_N%C3%BCrnberg.jpg", src:"HerrMay" },
-    "St. Johannis": { img:"images/hoods/nuremberg--st-johannis.webp", page:"https://commons.wikimedia.org/wiki/File:2021_%E2%80%94_Zweite_Julireise_Mateus2019_Batch_(140).jpg", src:"Mateus2019" }
+    "St. Johannis": { img:"images/hoods/nuremberg--st-johannis.webp", page:"https://commons.wikimedia.org/wiki/File:2021_%E2%80%94_Zweite_Julireise_Mateus2019_Batch_(140).jpg", src:"Mateus2019" },
+    "Südstadt": { img:"images/hoods/nuremberg--sudstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Hummelsteiner_Schloss_im_Hummelsteiner_Park_11.JPG", src:"Aarp65" }
   },
   "Nuuk": {
     "Nuuk Centrum": { img:"images/hoods/nuuk--nuuk-centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Central_administration_of_Greenland.jpg", src:"Nanopixi" },
@@ -3331,10 +3332,12 @@ window.NRA_HOOD_PHOTO = {
   },
   "Oaxaca": {
     "Centro Histórico": { img:"images/hoods/oaxaca--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Calenda_por_Santa_Cecilia_-_Oaxaca_-_22.jpg", src:"ProtoplasmaKid" },
-    "Jalatlaco": { img:"images/hoods/oaxaca--jalatlaco.webp", page:"https://commons.wikimedia.org/wiki/File:Jalatlaco,_Oaxaca.jpg", src:"Öskr Rck" }
+    "Jalatlaco": { img:"images/hoods/oaxaca--jalatlaco.webp", page:"https://commons.wikimedia.org/wiki/File:Jalatlaco,_Oaxaca.jpg", src:"Öskr Rck" },
+    "Xochimilco": { img:"images/hoods/oaxaca--xochimilco.webp", page:"https://commons.wikimedia.org/wiki/File:Templo_Santo_Tomas_Xochimilco_Oaxaca.JPG", src:"Eddann123" }
   },
   "Odense": {
-    "Odense C (City Centre)": { img:"images/hoods/odense--odense-c-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Odense_Stadion_maj_2015.JPG", src:"Kristianbang" }
+    "Odense C (City Centre)": { img:"images/hoods/odense--odense-c-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Odense_Stadion_maj_2015.JPG", src:"Kristianbang" },
+    "H.C. Andersen Quarter": { img:"images/hoods/odense--h-c-andersen-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Ramsherred,_Odense_2024_N_2.jpg", src:"JakobHosp" }
   },
   "Odessa": {
     "Prymorskyi (Historic Center)": { img:"images/hoods/odessa--prymorskyi-historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9B%D1%8C%D0%B2%D0%B0_%D0%A2%D0%BE%D0%BB%D1%81%D1%82%D0%BE%D0%B3%D0%BE_%D0%B2%D1%83%D0%BB.,_1_DSC_0424.jpg", src:"Сарапулов" },
@@ -3342,7 +3345,9 @@ window.NRA_HOOD_PHOTO = {
     "Frantsuzkyi Boulevard": { img:"images/hoods/odessa--frantsuzkyi-boulevard.webp", page:"https://commons.wikimedia.org/wiki/File:Odesa_Frantsusky_blvr_21_SAM_5981_51-101-1374.jpg", src:"Сергій Криниця (Haidamac)" }
   },
   "Ohrid": {
-    "Old Town (Star Grad)": { img:"images/hoods/ohrid--old-town-star-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Ohrid_Church_Constantine_and_Elena.jpg", src:"Ymblanter" }
+    "Old Town (Star Grad)": { img:"images/hoods/ohrid--old-town-star-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Ohrid_Church_Constantine_and_Elena.jpg", src:"Ymblanter" },
+    "Centar": { img:"images/hoods/ohrid--centar.webp", page:"https://commons.wikimedia.org/wiki/File:Ohrid,_ulice_Partizanska.jpg", src:"I would appreciate being notified if you use my work outside Wikimedia. More of " },
+    "Sveti Stefan / Lagadin": { img:"images/hoods/ohrid--sveti-stefan-lagadin.webp", page:"https://commons.wikimedia.org/wiki/File:Lagadin,_pob%C5%99e%C5%BE%C3%AD.jpg", src:"I would appreciate being notified if you use my work outside Wikimedia. More of " }
   },
   "Olomouc": {
     "Horní Náměstí (Upper Square)": { img:"images/hoods/olomouc--horni-namesti-upper-square.webp", page:"https://commons.wikimedia.org/wiki/File:Ditrich%C5%A1tejsk%C3%BD_pal%C3%A1c,_%C4%8Dp._364,_Opletalova,_Olomouc.jpg", src:"Jiří Komárek" },
@@ -3369,7 +3374,8 @@ window.NRA_HOOD_PHOTO = {
   "Otaru": {
     "Sakaimachi Street": { img:"images/hoods/otaru--sakaimachi-street.webp", page:"https://commons.wikimedia.org/wiki/File:Sakaimachi_street_Otaru_Hokkaido08n.jpg", src:"663highland" },
     "Temiya": { img:"images/hoods/otaru--temiya.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%89%8B%E5%AE%AE%E7%B7%9A%E8%B7%A1_Former_Temiya_Line,_Otaru_2015-02-27_(16720959551).jpg", src:"bryan..." },
-    "Otaru Canal Area": { img:"images/hoods/otaru--otaru-canal-area.webp", page:"https://www.flickr.com/photos/42438962@N05/16484684766/", src:"reggiepen" }
+    "Otaru Canal Area": { img:"images/hoods/otaru--otaru-canal-area.webp", page:"https://www.flickr.com/photos/42438962@N05/16484684766/", src:"reggiepen" },
+    "Otaru Station Area": { img:"images/hoods/otaru--otaru-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Otaru_Station,_Otaru,_Hokkaido_on_July_19th,_2018.jpg", src:"Choi2451" }
   },
   "Ottawa": {
     "ByWard Market": { img:"images/hoods/ottawa--byward-market.webp", page:"https://commons.wikimedia.org/wiki/File:Bell_Media,_ByWard_Market_(14763394481).jpg", src:"Tony Webster from Portland, Oregon, United States" },
@@ -3384,7 +3390,9 @@ window.NRA_HOOD_PHOTO = {
     "Gounghin": { img:"images/hoods/ouagadougou--gounghin.webp", page:"https://commons.wikimedia.org/wiki/File:Ouaga_watertower.png", src:"kyselak" }
   },
   "Ouarzazate": {
-    "Tabounte": { img:"images/hoods/ouarzazate--tabounte.webp", page:"https://commons.wikimedia.org/wiki/File:Lava_Flow_on_Precambrian_Ignimbrite_near_Tabounte_in_Morocco.jpg", src:"Ronny (https://www.geodiversite.net/auteur137)" }
+    "Tabounte": { img:"images/hoods/ouarzazate--tabounte.webp", page:"https://commons.wikimedia.org/wiki/File:Lava_Flow_on_Precambrian_Ignimbrite_near_Tabounte_in_Morocco.jpg", src:"Ronny (https://www.geodiversite.net/auteur137)" },
+    "Sidi Daoud": { img:"images/hoods/ouarzazate--sidi-daoud.webp", page:"https://commons.wikimedia.org/wiki/File:..%D8%B3%D9%88%D9%82_%D8%A7%D9%84%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A7%D8%AA_%D8%A7%D9%84%D8%AA%D9%82%D9%84%D9%8A%D8%AF%D9%8A%D8%A9_%D8%A8%D9%88%D8%B1%D8%B2%D8%A7%D8%B2%D8%A7%D8%AA_souk_artisanal.jpg", src:"Dortiti عبد الله فكري" },
+    "Taourirt": { img:"images/hoods/ouarzazate--taourirt.webp", page:"https://commons.wikimedia.org/wiki/File:Kasba_of_Taourirt.jpg", src:"Abdeaitali" }
   },
   "Oxford": {
     "Jericho": { img:"images/hoods/oxford--jericho.webp", page:"https://commons.wikimedia.org/wiki/File:Combe_Road,_Jericho,_Oxford-geograph-3606658-by-David-Hallam-Jones.jpg", src:"David Hallam-Jones" },
@@ -3396,7 +3404,8 @@ window.NRA_HOOD_PHOTO = {
     "Padang Barat (City Center)": { img:"images/hoods/padang--padang-barat-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Piai_Tangah_-_Pauh_-_Padang_01.jpg", src:"Anak Sago" },
     "Pantai Purus (Taplau Beachfront)": { img:"images/hoods/padang--pantai-purus-taplau-beachfront.webp", page:"https://commons.wikimedia.org/wiki/File:Pantai_purus_padang.jpg", src:"Adhmi" },
     "Air Tawar (Padang Utara)": { img:"images/hoods/padang--air-tawar-padang-utara.webp", page:"https://commons.wikimedia.org/wiki/File:Campus_IV_Limau_Manis,_Padang_State_University.jpg", src:"Ahsanuz Zikri" },
-    "Khatib Sulaiman": { img:"images/hoods/padang--khatib-sulaiman.webp", page:"https://commons.wikimedia.org/wiki/File:Transmart_Padang.jpg", src:"Ahsanuz Zikri" }
+    "Khatib Sulaiman": { img:"images/hoods/padang--khatib-sulaiman.webp", page:"https://commons.wikimedia.org/wiki/File:Transmart_Padang.jpg", src:"Ahsanuz Zikri" },
+    "Kota Tua Padang (Old Town)": { img:"images/hoods/padang--kota-tua-padang-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Gedung_Himpunan_Tjinta_Teman_2024_-_Denas.jpg", src:"Rahmatdenas" }
   },
   "Pai": {
     "Pai Walking Street": { img:"images/hoods/pai--pai-walking-street.webp", page:"https://commons.wikimedia.org/wiki/File:Pai_Walking_Street_5.jpg", src:"Christophe95" },
@@ -3467,12 +3476,14 @@ window.NRA_HOOD_PHOTO = {
   },
   "Perugia": {
     "Centro Storico": { img:"images/hoods/perugia--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Fontana_Maggiore,_centro_storico_Perugia.JPG", src:"Scuola Montessori Pg" },
-    "Monteluce": { img:"images/hoods/perugia--monteluce.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_Santa_Maria_della_Piet%C3%A0_da_Via_Cialdini.jpg", src:"Fabio Tiberi" }
+    "Monteluce": { img:"images/hoods/perugia--monteluce.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_Santa_Maria_della_Piet%C3%A0_da_Via_Cialdini.jpg", src:"Fabio Tiberi" },
+    "Borgo Sant'Angelo": { img:"images/hoods/perugia--borgo-sant-angelo.webp", page:"https://commons.wikimedia.org/wiki/File:Ex_chiesa_di_Sant'Angelo_(Tempietto).jpg", src:"Fabio Tiberi" }
   },
   "Petrópolis": {
     "Centro Histórico": { img:"images/hoods/petropolis--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Petr%C3%B3polis_RJ_Brasil_-_Palacio_Amarelo,_sede_da_C%C3%A2mara_Municipal_-_panoramio.jpg", src:"Josue Marinho" },
     "Quitandinha": { img:"images/hoods/petropolis--quitandinha.webp", page:"https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_Quitandinha_-_Petr%C3%B3polis_(3673187095).jpg", src:"Rodrigo Soldon from Rio de Janeiro, Brazil" },
-    "Itaipava": { img:"images/hoods/petropolis--itaipava.webp", page:"https://commons.wikimedia.org/wiki/File:Camarao_amarelo_-_panoramio.jpg", src:"Marcio Sette" }
+    "Itaipava": { img:"images/hoods/petropolis--itaipava.webp", page:"https://commons.wikimedia.org/wiki/File:Camarao_amarelo_-_panoramio.jpg", src:"Marcio Sette" },
+    "Corrêas": { img:"images/hoods/petropolis--correas.webp", page:"https://commons.wikimedia.org/wiki/File:Pedra_do_Cone_e_Igrejinha_do_Bomfim_-_panoramio.jpg", src:"TMbux" }
   },
   "Philadelphia": {
     "Center City (Rittenhouse Square)": { img:"images/hoods/philadelphia--center-city-rittenhouse-square.webp", page:"https://commons.wikimedia.org/wiki/File:1033_Chestnut_Street.jpg", src:"Beyond My Ken" },
@@ -3493,7 +3504,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Phnom Penh": {
     "Daun Penh (Riverside)": { img:"images/hoods/phnom-penh--daun-penh-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Phnom_and_Cathedral_of_Phnom_Penh.jpg", src:"Willuconquer" },
-    "Tonle Bassac": { img:"images/hoods/phnom-penh--tonle-bassac.webp", page:"https://commons.wikimedia.org/wiki/File:2016_Phnom_Penh,_Promenada_przy_rzece_w_centrum_miasta.jpg", src:"Marcin Konsek" }
+    "Tonle Bassac": { img:"images/hoods/phnom-penh--tonle-bassac.webp", page:"https://commons.wikimedia.org/wiki/File:2016_Phnom_Penh,_Promenada_przy_rzece_w_centrum_miasta.jpg", src:"Marcin Konsek" },
+    "Toul Tom Poung (Russian Market)": { img:"images/hoods/phnom-penh--toul-tom-poung-russian-market.webp", page:"https://commons.wikimedia.org/wiki/File:PhsarTuolTompong_PhnomPenh_2005_2.JPG", src:"Sundgauvien38" }
   },
   "Phoenix": {
     "Downtown Phoenix": { img:"images/hoods/phoenix--downtown-phoenix.webp", page:"https://commons.wikimedia.org/wiki/File:Heritage_Square_Clock.jpg", src:"Visitor7" },
@@ -3506,7 +3518,8 @@ window.NRA_HOOD_PHOTO = {
     "Duong Dong (Town Center)": { img:"images/hoods/phu-quoc--duong-dong-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Ng%E1%BB%8Dn_H%E1%BA%A3i_%C4%90%C4%83ng,_D%C6%B0%C6%A1ng_%C4%91%C3%B4ng_Ph%C3%BA_Qu%E1%BB%91c_,_ki%C3%AAn_Giang,_Vietnam_-_panoramio.jpg", src:"trungydang" },
     "Long Beach (Bai Truong)": { img:"images/hoods/phu-quoc--long-beach-bai-truong.webp", page:"https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg", src:"Dan Searle from London, England" },
     "Bai Sao (Sao Beach)": { img:"images/hoods/phu-quoc--bai-sao-sao-beach.webp", page:"https://commons.wikimedia.org/wiki/File:B%C3%A3i_Sao_Beach.jpg", src:"Prince Roy" },
-    "Ganh Dau (North)": { img:"images/hoods/phu-quoc--ganh-dau-north.webp", page:"https://www.flickr.com/photos/9626531@N07/26781351221/", src:"Trương Quang Vũ" }
+    "Ganh Dau (North)": { img:"images/hoods/phu-quoc--ganh-dau-north.webp", page:"https://www.flickr.com/photos/9626531@N07/26781351221/", src:"Trương Quang Vũ" },
+    "An Thoi (South)": { img:"images/hoods/phu-quoc--an-thoi-south.webp", page:"https://commons.wikimedia.org/wiki/File:DJI_20260214173618_0031_D_SUNSHINE.jpg", src:"Vivu Vietnam" }
   },
   "Pilsen": {
     "Lochotín": { img:"images/hoods/pilsen--lochotin.webp", page:"https://commons.wikimedia.org/wiki/File:Eli%C5%A1ky_Kr%C3%A1snohorsk%C3%A9_ulice.jpg", src:"Itsd-foto" },
@@ -3517,7 +3530,8 @@ window.NRA_HOOD_PHOTO = {
   "Pisa": {
     "Santa Maria (Piazza dei Miracoli)": { img:"images/hoods/pisa--santa-maria-piazza-dei-miracoli.webp", page:"https://commons.wikimedia.org/wiki/File:Pisa,_mura,_torre_di_santa_maria,_01.jpg", src:"Francesco Bini" },
     "San Martino (Lungarno)": { img:"images/hoods/pisa--san-martino-lungarno.webp", page:"https://commons.wikimedia.org/wiki/File:Pisa,_s._martino_02_retreo.JPG", src:"sailko" },
-    "Pisa Centrale / Corso Italia": { img:"images/hoods/pisa--pisa-centrale-corso-italia.webp", page:"https://commons.wikimedia.org/wiki/File:Pisa_Centrale_symbol_Ticket_markers.JPG", src:"Alexmar983" }
+    "Pisa Centrale / Corso Italia": { img:"images/hoods/pisa--pisa-centrale-corso-italia.webp", page:"https://commons.wikimedia.org/wiki/File:Pisa_Centrale_symbol_Ticket_markers.JPG", src:"Alexmar983" },
+    "San Francesco (Piazza dei Cavalieri)": { img:"images/hoods/pisa--san-francesco-piazza-dei-cavalieri.webp", page:"https://commons.wikimedia.org/wiki/File:Pisa_-_2016_July_-_panoramio_(24).jpg", src:"Nikolai Karaneschev" }
   },
   "Pittsburgh": {
     "Downtown (Golden Triangle)": { img:"images/hoods/pittsburgh--downtown-golden-triangle.webp", page:"https://commons.wikimedia.org/wiki/File:109-115_Wood_Street.jpg", src:"Nyttend" },
@@ -3528,7 +3542,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Playa del Carmen": {
     "Playacar": { img:"images/hoods/playa-del-carmen--playacar.webp", page:"https://commons.wikimedia.org/wiki/File:Playacar_en_Playa_del_Carmen.jpg", src:"Ana Beatriz Vega González" },
-    "Gonzalo Guerrero": { img:"images/hoods/playa-del-carmen--gonzalo-guerrero.webp", page:"https://commons.wikimedia.org/wiki/File:Gonzalo_Guerrero,_77720_Playa_del_Carmen,_Q.R.,_Mexico_-_panoramio_(1).jpg", src:"DizzyDJC" }
+    "Gonzalo Guerrero": { img:"images/hoods/playa-del-carmen--gonzalo-guerrero.webp", page:"https://commons.wikimedia.org/wiki/File:Gonzalo_Guerrero,_77720_Playa_del_Carmen,_Q.R.,_Mexico_-_panoramio_(1).jpg", src:"DizzyDJC" },
+    "Zazil-Ha (Coco Beach)": { img:"images/hoods/playa-del-carmen--zazil-ha-coco-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Zicht_vanaf_coco_bay_-_panoramio.jpg", src:"Sven-eric" }
   },
   "Plettenberg Bay": {
     "Central Plett / Main Beach": { img:"images/hoods/plettenberg-bay--central-plett-main-beach.webp", page:"https://commons.wikimedia.org/wiki/File:TIMBER_SHED_PLETT_1.JPG", src:"Keith Lurie" },
@@ -3537,7 +3552,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Plovdiv": {
     "Old Town": { img:"images/hoods/plovdiv--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bulgaria_Bulgaria-0729_-_Near_Eastern_Gate_(7432374622).jpg", src:"Dennis G. Jarvis" },
-    "Center (Main Street)": { img:"images/hoods/plovdiv--center-main-street.webp", page:"https://commons.wikimedia.org/wiki/File:Plovdiv_Center,_Plovdiv,_Bulgaria_-_panoramio.jpg", src:"Colin W" }
+    "Center (Main Street)": { img:"images/hoods/plovdiv--center-main-street.webp", page:"https://commons.wikimedia.org/wiki/File:Plovdiv_Center,_Plovdiv,_Bulgaria_-_panoramio.jpg", src:"Colin W" },
+    "Kapana": { img:"images/hoods/plovdiv--kapana.webp", page:"https://commons.wikimedia.org/wiki/File:Kapana.jpg", src:"Община Пловдив" }
   },
   "Podgorica": {
     "Nova Varos (Center)": { img:"images/hoods/podgorica--nova-varos-center.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_Podgorica_81000,_Montenegro_-_panoramio_(2).jpg", src:"ines lukic" },
@@ -3548,7 +3564,8 @@ window.NRA_HOOD_PHOTO = {
   "Pokhara": {
     "Lakeside (Baidam)": { img:"images/hoods/pokhara--lakeside-baidam.webp", page:"https://commons.wikimedia.org/wiki/File:Lakeside_Pokhara_at_Night.jpg", src:"Saddam19" },
     "Sarangkot": { img:"images/hoods/pokhara--sarangkot.webp", page:"https://commons.wikimedia.org/wiki/File:My_room_@_Sarangkot_-_panoramio.jpg", src:"::::=UT=::::" },
-    "Old Bazaar (Bindhyabasini)": { img:"images/hoods/pokhara--old-bazaar-bindhyabasini.webp", page:"https://commons.wikimedia.org/wiki/File:Jagdamba_Devi_Temple_Serunga_Ramcha_Bazaar_waling_Synga_Nepal_Rajesh_Dhungana_(2).jpg", src:"Rajesh Dhungana" }
+    "Old Bazaar (Bindhyabasini)": { img:"images/hoods/pokhara--old-bazaar-bindhyabasini.webp", page:"https://commons.wikimedia.org/wiki/File:Jagdamba_Devi_Temple_Serunga_Ramcha_Bazaar_waling_Synga_Nepal_Rajesh_Dhungana_(2).jpg", src:"Rajesh Dhungana" },
+    "Damside (Pardi)": { img:"images/hoods/pokhara--damside-pardi.webp", page:"https://commons.wikimedia.org/wiki/File:Damside,_Pokhara.jpg", src:"Nirjal stha" }
   },
   "Poprad": {
     "City Centre (Stred)": { img:"images/hoods/poprad--city-centre-stred.webp", page:"https://commons.wikimedia.org/wiki/File:Kostol_sv%C3%A4t%C3%A9ho_Eg%C3%ADdia_%26_Zvonica_v_Poprade,_Poprad,_2026.jpg", src:"Antimuonium" },
