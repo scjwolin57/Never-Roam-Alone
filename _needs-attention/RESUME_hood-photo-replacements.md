@@ -22,3 +22,4 @@ Still open: the 8 "could not settle" photos in `hood-photo-collisions-2026-10-09
 
 - Banff / Lake Louise Village: the hood point is in Banff town (Cascade Mall is 19 m away); Lake Louise village is about 57 km north-west. Photo left on the stand-in until the point is fixed.
 - Carcassonne / La Cité (Walled Citadel): the hood point (43.2163, 2.3539) is by the station in the lower town; La Cité is about 1.4 km south-east (43.2066, 2.3637). The photo was verified by its subject (the château inside La Cité) instead.
+- Klaipėda / Fishing Village: the hood point (55.7097, 21.1332) is on the Danė in the city centre; confirm which fishing village is meant (Smiltynė's open-air fishermen's farmstead is across the lagoon) before sourcing a photo.

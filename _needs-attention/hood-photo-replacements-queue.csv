@@ -174,31 +174,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 7,Kerman,Iran,Azadi Square,30.287514,57.051886,File:AZADI SQ (1).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cinemas, a group photo and tile close-ups over 900 m away"
 7,Kerman,Iran,Jomhouri Boulevard,30.284282,57.039106,File:Fish statue - barrier of Jomhouri blv - Nishapur 14.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only two cinema interiors over 1.2 km away"
 7,Kingstown,Saint Vincent and the Grenadines,Villa/Indian Bay,13.137391,-61.207062,File:Lindenfels Villa Luthmer - Christina.jpeg,done,File:St Vincent-Indian Bay 2090.jpg,Commons file GPS 284 m from the hood point; eye-checked; licence CC BY-SA 4.0
-8,Kinshasa,Democratic Republic of the Congo,Gombe,-4.304798,15.305355,File:2 Pru gombe.jpg,open,,
-8,Klaipėda,Lithuania,Fishing Village,55.709664,21.133182,File:海岸瞭望台.jpg,open,,
-8,Klaipėda,Lithuania,New Town,55.714541,21.135281,File:St Johns Anglican New Town.jpg,open,,
-8,Knysna,South Africa,Leisure Isle,-34.0675,23.059722,File:Solent and Wightline Cruises Jenny M 2.jpg,open,,
-8,Krabi,Thailand,Ao Nang,8.031092,98.821883,"File:144 หมู่ 7 Tambon Ao Nang, Amphoe Mueang Krabi, Chang Wat Krabi 81000, Thailand - panoramio (16).jpg",open,,
-8,Kralendijk,Bonaire,Hato,12.175666,-68.287721,File:R-G Financial Headquarters.JPG,open,,
-8,Kuching,Malaysia,Satok,1.553229,110.33413,File:06460jfCarmay East West Flowers Rizal Rosales Pangasinan Bridge Roadfvf 03.JPG,open,,
-8,Kuching,Malaysia,Simpang Tiga,1.536224,110.356363,File:Gombak Selangor Malaysia Sungai-Gombak-02.jpg,open,,
-8,Kusatsu,Japan,Sai-no-Kawara,36.62406,138.590365,File:Small statues at a shrine (52281770524).jpg,open,,
-8,La Serena,Chile,La Pampa,-29.930949,-71.266351,File:La pampa.png,open,,
-8,Labuan Bajo,Indonesia,Town Centre & Waterfront,-8.49246,119.87731,File:A view of Chatham Waterfront - Medway.jpg,open,,
-8,Lalibela,Ethiopia,Northern Group of Churches,12.033651,39.043803,File:MarsHillChurch2012-04-29.jpg,open,,
-8,Lamu,Kenya,Shela,-2.293101,40.913867,File:Monument aux morts de Chelle-Spou (Hautes-Pyrénées) 1.jpg,open,,
-8,Le Gosier,Guadeloupe,Bas-du-Fort,16.215769,-61.520903,File:Château du Bas Braine(1).JPG,open,,
-8,Le Gosier,Guadeloupe,Montauban,16.215694,-61.503133,File:(Montauban) La 'rue de l'Hôtel de ville' vue du 'Musée Ingres-Bourdelle'.jpg,open,,
-8,Legaspi,Philippines,Old Albay District,13.138424,123.733611,File:FvfIPCenter0160 37.JPG,open,,
-8,Leticia,Colombia,Town Center / Santander Park,-4.212635,-69.942997,File:Town Center at Aurora.JPG,open,,
-8,León,Nicaragua,Barrio San Felipe,12.444535,-86.880991,File:Callejeando por Alcalá de Henares (26454745136).jpg,open,,
-8,Liberia,Costa Rica,Centro (Calle Real / Parque Central),10.629674,-85.438252,File:J28 728 Calle real.jpg,open,,
-8,Libreville,Gabon,Akébé,0.395277,9.470046,File:Musée des civilisations de l'Europe et de la Méditerranée - Pharaoh Superstars exhibition 01.jpg,open,,
-8,Libreville,Gabon,Quartier Louis,0.41391,9.436712,File:Jardin des Senteurs ou Récollets.jpg,open,,
-8,Lilongwe,Malawi,Area 10 / Presidential Way,-13.960285,33.806061,File:Sheung Shui Heung Sitting-out Area No. 10 2025.jpg,open,,
-8,Livingstone,Zambia,Maramba,-17.847704,25.868442,File:Daniel Maramba 1870-1941 NHCP Historical Marker.jpg,open,,
-8,Livingstone,Zambia,Town Centre,-17.848293,25.855108,"File:Street scene and buildings in Chatham, Kent.jpg",open,,
-8,Lomé,Togo,Bè,6.157632,1.267046,File:ניו פארם 1.jpg,open,,
+8,Kinshasa,Democratic Republic of the Congo,Gombe,-4.304798,15.305355,File:2 Pru gombe.jpg,done,File:Immeuble BCDC.jpg,Commons file GPS 528 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Klaipėda,Lithuania,Fishing Village,55.709664,21.133182,File:海岸瞭望台.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): the hood point is on the Danė in the city centre, so nearby files are Old Town bridges; where the Fishing Village is needs checking (logged)"
+8,Klaipėda,Lithuania,New Town,55.714541,21.135281,File:St Johns Anglican New Town.jpg,done,File:German style building in Klaipėda (54175695895).jpg,Commons file GPS 171 m from the hood point; eye-checked; licence CC BY-SA 2.0
+8,Knysna,South Africa,Leisure Isle,-34.0675,23.059722,File:Solent and Wightline Cruises Jenny M 2.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a car park on the island; the nearer views are of the Heads across the water"
+8,Krabi,Thailand,Ao Nang,8.031092,98.821883,"File:144 หมู่ 7 Tambon Ao Nang, Amphoe Mueang Krabi, Chang Wat Krabi 81000, Thailand - panoramio (16).jpg",done,"File:Ao Nang, Mueang Krabi District, Krabi, Thailand - panoramio (76).jpg",Commons file GPS 104 m from the hood point; eye-checked; licence CC BY-SA 3.0
+8,Kralendijk,Bonaire,Hato,12.175666,-68.287721,File:R-G Financial Headquarters.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only Klein Bonaire from the sea, wildlife and a warning sign"
+8,Kuching,Malaysia,Satok,1.553229,110.33413,File:06460jfCarmay East West Flowers Rizal Rosales Pangasinan Bridge Roadfvf 03.JPG,done,File:Masjid Bandaraya Kuching.jpg,Commons file GPS 934 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Kuching,Malaysia,Simpang Tiga,1.536224,110.356363,File:Gombak Selangor Malaysia Sungai-Gombak-02.jpg,done,File:Building A of Swinburne University of Technology Sarawak Campus.jpg,Commons file GPS 477 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Kusatsu,Japan,Sai-no-Kawara,36.62406,138.590365,File:Small statues at a shrine (52281770524).jpg,done,File:251129 Sainokawara Park 17.jpg,Commons file GPS 14 m from the hood point; eye-checked; licence CC0
+8,La Serena,Chile,La Pampa,-29.930949,-71.266351,File:La pampa.png,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are over 1.1 km away on the beachfront, not La Pampa"
+8,Labuan Bajo,Indonesia,Town Centre & Waterfront,-8.49246,119.87731,File:A view of Chatham Waterfront - Medway.jpg,done,File:Labuan Bajo (17119048971).jpg,Commons file GPS 157 m from the hood point; eye-checked; licence CC BY 2.0
+8,Lalibela,Ethiopia,Northern Group of Churches,12.033651,39.043803,File:MarsHillChurch2012-04-29.jpg,done,File:Bete Maryam 05.jpg,Commons file GPS 43 m from the hood point; eye-checked; licence CC BY-SA 3.0
+8,Lamu,Kenya,Shela,-2.293101,40.913867,File:Monument aux morts de Chelle-Spou (Hautes-Pyrénées) 1.jpg,done,File:Shela buildings.jpg,Commons file GPS 193 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Le Gosier,Guadeloupe,Bas-du-Fort,16.215769,-61.520903,File:Château du Bas Braine(1).JPG,done,File:Grande Baie vue de Fort Fleur d'épée.jpg,Commons file GPS 880 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Le Gosier,Guadeloupe,Montauban,16.215694,-61.503133,File:(Montauban) La 'rue de l'Hôtel de ville' vue du 'Musée Ingres-Bourdelle'.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a stadium at night, a casino and lizards; the fort views are Bas-du-Fort"
+8,Legaspi,Philippines,Old Albay District,13.138424,123.733611,File:FvfIPCenter0160 37.JPG,done,"File:Albay Cathedral, Legazpi, Albay, Dec 2025 (1).jpg",Commons file GPS 16 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Leticia,Colombia,Town Center / Santander Park,-4.212635,-69.942997,File:Town Center at Aurora.JPG,done,"File:Leticia, Colombia (7578553220).jpg",Commons file GPS 452 m from the hood point; eye-checked; licence CC BY-SA 2.0
+8,León,Nicaragua,Barrio San Felipe,12.444535,-86.880991,File:Callejeando por Alcalá de Henares (26454745136).jpg,done,"File:Iglesia de San Felipe, León Nicaragua.jpg",Commons file GPS 281 m from the hood point; eye-checked; licence CC0
+8,Liberia,Costa Rica,Centro (Calle Real / Parque Central),10.629674,-85.438252,File:J28 728 Calle real.jpg,done,"File:Iglesia Inmaculada Concepcion de Maria, Liberia, Costa Rica.JPG",Commons file GPS 45 m from the hood point; eye-checked; licence CC BY-SA 3.0
+8,Libreville,Gabon,Akébé,0.395277,9.470046,File:Musée des civilisations de l'Europe et de la Méditerranée - Pharaoh Superstars exhibition 01.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only market produce and a portrait"
+8,Libreville,Gabon,Quartier Louis,0.41391,9.436712,File:Jardin des Senteurs ou Récollets.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only rubbish, a school and a hotel over 1 km away"
+8,Lilongwe,Malawi,Area 10 / Presidential Way,-13.960285,33.806061,File:Sheung Shui Heung Sitting-out Area No. 10 2025.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nothing within 1.2 km"
+8,Livingstone,Zambia,Maramba,-17.847704,25.868442,File:Daniel Maramba 1870-1941 NHCP Historical Marker.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are town-centre streets 1 km away, not Maramba"
+8,Livingstone,Zambia,Town Centre,-17.848293,25.855108,"File:Street scene and buildings in Chatham, Kent.jpg",done,"File:Mosi-oa-Tunya Road, Livingstone (20260520-P1086458).jpg",Commons file GPS 146 m from the hood point; eye-checked; licence CC BY-SA 4.0
+8,Lomé,Togo,Bè,6.157632,1.267046,File:ניו פארם 1.jpg,done,File:Marché d'Akodésséwa à Lomé (Togo) 06.jpg,Commons file GPS 525 m from the hood point; eye-checked; licence CC BY-SA 4.0
 9,Longyearbyen,Norway (Svalbard),Sentrum (Town Centre),78.21801,15.63905,File:Stolperstein in Oslo-Sentrum (Oslo-Sentrum).jpg,open,,
 9,Luanda,Angola,Alvalade,-8.829772,13.23605,File:Alvalade railway stop.jpg,open,,
 9,Luanda,Angola,Miramar,-8.809749,13.249755,File:Winn Dixie Miramar Florida with scale by front door.jpg,open,,
