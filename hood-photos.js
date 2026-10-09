@@ -2089,7 +2089,8 @@ window.NRA_HOOD_PHOTO = {
     "Katindo": { img:"images/hoods/goma--katindo.webp", page:"https://commons.wikimedia.org/wiki/File:Bureau_du_mutuelle_de_sant%C3%A9_des_enseignants_de_l%27EPSP.jpg", src:"Sunway godianne" }
   },
   "Gondar": {
-    "Maraki (University area)": { img:"images/hoods/gondar--maraki-university-area.webp", page:"https://commons.wikimedia.org/wiki/File:University_of_Gondar,_Ethiopia_Maraki_to_Tewodros_Campus.jpg", src:"Professor Mersha Chanie Kebede" }
+    "Maraki (University area)": { img:"images/hoods/gondar--maraki-university-area.webp", page:"https://commons.wikimedia.org/wiki/File:University_of_Gondar,_Ethiopia_Maraki_to_Tewodros_Campus.jpg", src:"Professor Mersha Chanie Kebede" },
+    "Piazza (City Centre)": { img:"images/hoods/gondar--piazza-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Loves2020Africa_(8).jpg", src:"BluesyPete" }
   },
   "Göreme": {
     "Göreme Town Center": { img:"images/hoods/goreme--goreme-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Elmal%C4%B1_Kilise_Entry_into_Jerusalem_in_2004_6816.jpg", src:"Dosseman" },
@@ -2101,7 +2102,8 @@ window.NRA_HOOD_PHOTO = {
     "Inom Vallgraven": { img:"images/hoods/gothenburg--inom-vallgraven.webp", page:"https://commons.wikimedia.org/wiki/File:Porten_till_Lilla_Kyrkogatan_2.JPG", src:"Eskil Malmberg" },
     "Haga": { img:"images/hoods/gothenburg--haga.webp", page:"https://commons.wikimedia.org/wiki/File:Butikkskilt,_Karin_Beate_Nosterud.jpg", src:"Karin Beate Nøsterud" },
     "Linnestaden": { img:"images/hoods/gothenburg--linnestaden.webp", page:"https://commons.wikimedia.org/wiki/File:Annedalsskolan,_Gothenburg_Municipality.jpg", src:"BoneheadElsewhere" },
-    "Majorna": { img:"images/hoods/gothenburg--majorna.webp", page:"https://commons.wikimedia.org/wiki/File:Korsningen_mellan_Nordenski%C3%B6ldsgatan_och_Linn%C3%A9gatan.JPG", src:"RadixPhoto" }
+    "Majorna": { img:"images/hoods/gothenburg--majorna.webp", page:"https://commons.wikimedia.org/wiki/File:Korsningen_mellan_Nordenski%C3%B6ldsgatan_och_Linn%C3%A9gatan.JPG", src:"RadixPhoto" },
+    "Vasastan": { img:"images/hoods/gothenburg--vasastan.webp", page:"https://commons.wikimedia.org/wiki/File:F%C3%B6reningsgatan-Karl_Gustavsgatan_i_G%C3%B6teborg.JPG", src:"Historiker" }
   },
   "Granada": {
     "Albaicín": { img:"images/hoods/granada--albaicin.webp", page:"https://commons.wikimedia.org/wiki/File:Patio_fleuri_dans_l%27Albaicin_(8277375538).jpg", src:"Nicolas Vollmer from Munich [Allemagne]" },
@@ -2114,7 +2116,8 @@ window.NRA_HOOD_PHOTO = {
     "Hyper-Centre": { img:"images/hoods/grenoble--hyper-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Quartier_Hyper-Centre,_Grenoble,_France_-_panoramio_(1).jpg", src:"žába" },
     "Notre-Dame": { img:"images/hoods/grenoble--notre-dame.webp", page:"https://commons.wikimedia.org/wiki/File:At_Grenoble_2025_193.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
     "Chorier-Berriat": { img:"images/hoods/grenoble--chorier-berriat.webp", page:"https://commons.wikimedia.org/wiki/File:Apple_maps_car_-_Grenoble_-_Cours_Berriat_-_2020-06-22.jpg", src:"Jvillafruela" },
-    "Parc Paul Mistral (Exposition-Bajatiere)": { img:"images/hoods/grenoble--parc-paul-mistral-exposition-bajatiere.webp", page:"https://commons.wikimedia.org/wiki/File:At_Grenoble_2025_008.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." }
+    "Parc Paul Mistral (Exposition-Bajatiere)": { img:"images/hoods/grenoble--parc-paul-mistral-exposition-bajatiere.webp", page:"https://commons.wikimedia.org/wiki/File:At_Grenoble_2025_008.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
+    "Championnet": { img:"images/hoods/grenoble--championnet.webp", page:"https://commons.wikimedia.org/wiki/File:Rue_Doudart-de-Lagr%C3%A9e.jpg", src:"Exilexi" }
   },
   "Guadalajara": {
     "Centro Historico": { img:"images/hoods/guadalajara--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_hist%C3%B3rico_de_Guadalajara,_2025.jpg", src:"Raúl-Kalika" },
@@ -2124,7 +2127,9 @@ window.NRA_HOOD_PHOTO = {
   "Guarujá": {
     "Pitangueiras": { img:"images/hoods/guaruja--pitangueiras.webp", page:"https://commons.wikimedia.org/wiki/File:Pitangueiras1094.jpg", src:"JMGM" },
     "Enseada": { img:"images/hoods/guaruja--enseada.webp", page:"https://commons.wikimedia.org/wiki/File:Enseada_Beach,_Guaruj%C3%A1,_S%C3%A3o_Paulo_-_panoramio_(1).jpg", src:"Boris Karpuk" },
-    "Tombo": { img:"images/hoods/guaruja--tombo.webp", page:"https://commons.wikimedia.org/wiki/File:Surfista_remando.JPG", src:"Marcelo graciani" }
+    "Tombo": { img:"images/hoods/guaruja--tombo.webp", page:"https://commons.wikimedia.org/wiki/File:Surfista_remando.JPG", src:"Marcelo graciani" },
+    "Astúrias": { img:"images/hoods/guaruja--asturias.webp", page:"https://commons.wikimedia.org/wiki/File:Ast%C3%BArias_Guaruj%C3%A12.jpg", src:"JMGM" },
+    "Pernambuco": { img:"images/hoods/guaruja--pernambuco.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Pernambuco.jpg", src:"Fabricio macedo" }
   },
   "Guatemala City": {
     "Zona 10 (Zona Viva)": { img:"images/hoods/guatemala-city--zona-10-zona-viva.webp", page:"https://commons.wikimedia.org/wiki/File:25_Aerial_view_-_Zona_10_-_Ciudad_de_Guatemala.jpg", src:"Rene Hernandez" },
@@ -2146,7 +2151,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Gustavia": {
     "Gustavia (Harbour)": { img:"images/hoods/gustavia--gustavia-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Eglise-Anglicane-Gustavia-Saint-Barth%C3%A9lemy-Caraibes-Antilles-Fran%C3%A7aises.jpg", src:"MARELBU" },
-    "Lorient": { img:"images/hoods/gustavia--lorient.webp", page:"https://commons.wikimedia.org/wiki/File:St_Barths_Lorient_Eglise_Clocher.JPG", src:"William Ellison" }
+    "Lorient": { img:"images/hoods/gustavia--lorient.webp", page:"https://commons.wikimedia.org/wiki/File:St_Barths_Lorient_Eglise_Clocher.JPG", src:"William Ellison" },
+    "Grand Cul-de-Sac": { img:"images/hoods/gustavia--grand-cul-de-sac.webp", page:"https://commons.wikimedia.org/wiki/File:La_Tortue_island_offshore_from_Anse_de_Grand_Cul-de-Sac_on_St._Barthelemy,_French_West_Indies_-_panoramio.jpg", src:"David Broad" },
+    "Saint-Jean": { img:"images/hoods/gustavia--saint-jean.webp", page:"https://commons.wikimedia.org/wiki/File:St_Jean_Beach,_St_Barths,_Oct_2014_(15716806155).jpg", src:"alljengi from Edinburgh" }
   },
   "Gyeongju": {
     "Hwangnidan-gil": { img:"images/hoods/gyeongju--hwangnidan-gil.webp", page:"https://commons.wikimedia.org/wiki/File:Hwangnidan-gil_03.jpg", src:"Seefooddiet" },
@@ -2174,11 +2181,14 @@ window.NRA_HOOD_PHOTO = {
     "Downtown / Waterfront": { img:"images/hoods/halifax--downtown-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:GranvilleStBuildringByGeorgeLangHalifaxNS.JPG" },
     "North End": { img:"images/hoods/halifax--north-end.webp", page:"https://commons.wikimedia.org/wiki/File:North_End_20171003_175444_(38056208091).jpg", src:"Coastal Elite from Halifax, Canada" },
     "Spring Garden": { img:"images/hoods/halifax--spring-garden.webp", page:"https://commons.wikimedia.org/wiki/File:Hurricane_Dorian_Damage_in_Halifax,_NS,_Canada_Crane_Collapse.jpg", src:"Coastal Elite from Halifax, Canada" },
-    "Dartmouth": { img:"images/hoods/halifax--dartmouth.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Dartmouth,_Dartmouth,_NS,_Canada_-_panoramio.jpg", src:"HRM Fail" }
+    "Dartmouth": { img:"images/hoods/halifax--dartmouth.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Dartmouth,_Dartmouth,_NS,_Canada_-_panoramio.jpg", src:"HRM Fail" },
+    "South End": { img:"images/hoods/halifax--south-end.webp", page:"https://commons.wikimedia.org/wiki/File:George_Wright_House_from_front.jpg", src:"Delphinium1" }
   },
   "Hamadan": {
     "Imam Khomeini Square (Central)": { img:"images/hoods/hamadan--imam-khomeini-square-central.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Square_(Hamadan)_2.jpg", src:"Arpourabedin" },
-    "Baba Taher / Bazaar Quarter": { img:"images/hoods/hamadan--baba-taher-bazaar-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:2%D8%A2%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87_%D8%A8%D8%A7%D8%A8%D8%A7%D8%B7%D8%A7%D9%87%D8%B1.jpg", src:"Alitalinguist" }
+    "Baba Taher / Bazaar Quarter": { img:"images/hoods/hamadan--baba-taher-bazaar-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:2%D8%A2%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87_%D8%A8%D8%A7%D8%A8%D8%A7%D8%B7%D8%A7%D9%87%D8%B1.jpg", src:"Alitalinguist" },
+    "Abbas Abad / Ganjnameh": { img:"images/hoods/hamadan--abbas-abad-ganjnameh.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%A7%D9%84%D9%88%D9%86%D8%AF_%D8%AF%D8%B1_%D8%AA%D8%A7%D8%A8%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B2_%D8%B3%D9%85%D8%AA_%D8%AF%D8%B1%D9%87_%DA%AF%D9%88%D8%B3%D8%A7%D9%84%D9%87.jpg", src:"Mohammadbagher Lak" },
+    "Bu-Ali (Avicenna) District": { img:"images/hoods/hamadan--bu-ali-avicenna-district.webp", page:"https://commons.wikimedia.org/wiki/File:Abu_Ali_Sina.jpg", src:"Mohsen Mostafaei" }
   },
   "Hamburg": {
     "St. Pauli": { img:"images/hoods/hamburg--st-pauli.webp", page:"https://commons.wikimedia.org/wiki/File:12742_Bei_den_St._Pauli-Landungsbr%C3%BCcken_1_Detail.JPG", src:"Hinnerk11" },
@@ -2187,7 +2197,9 @@ window.NRA_HOOD_PHOTO = {
     "Altona": { img:"images/hoods/hamburg--altona.webp", page:"https://commons.wikimedia.org/wiki/File:Altona.Restaurant_Elbblick.wmt.jpg", src:"Wmeinhart" }
   },
   "Hamilton": {
-    "Paget & Elbow Beach": { img:"images/hoods/hamilton--paget-elbow-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Elbow_Beach_Surf_Club,_Paget,_Bermuda.jpg", src:"Unknown authorUnknown author" }
+    "Paget & Elbow Beach": { img:"images/hoods/hamilton--paget-elbow-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Elbow_Beach_Surf_Club,_Paget,_Bermuda.jpg", src:"Unknown authorUnknown author" },
+    "City of Hamilton (Pembroke)": { img:"images/hoods/hamilton--city-of-hamilton-pembroke.webp", page:"https://commons.wikimedia.org/wiki/File:Hamilton,_Bermuda_-_Front_Street_-_panoramio.jpg", src:"yourmanstan" },
+    "Southampton & South Shore": { img:"images/hoods/hamilton--southampton-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:Horseshoe_Bay_beach,_Bermuda_IMG_0343.jpg", src:"Captain-tucker" }
   },
   "Hangzhou": {
     "West Lake / Xihu": { img:"images/hoods/hangzhou--west-lake-xihu.webp", page:"https://commons.wikimedia.org/wiki/File:2009_%E6%9D%AD%E5%B7%9E_%E8%A5%BF%E6%B9%96_-_panoramio_(1).jpg", src:"张元柏" },
@@ -2214,18 +2226,21 @@ window.NRA_HOOD_PHOTO = {
     "Neuenheim": { img:"images/hoods/heidelberg--neuenheim.webp", page:"https://commons.wikimedia.org/wiki/File:Heidelberg_Neuenheim_ehemalige_Dorfkirche_20110403.jpg", src:"Rudolf Stricker" },
     "Bergheim": { img:"images/hoods/heidelberg--bergheim.webp", page:"https://commons.wikimedia.org/wiki/File:19-bahn-zubringer.jpg", src:"Albrecht62" },
     "Weststadt": { img:"images/hoods/heidelberg--weststadt.webp", page:"https://commons.wikimedia.org/wiki/File:Heidelberg_-_Kleinschmidtstra%C3%9Fe_-_View_SSE_along_Sankt_Bonifacius_Kirche_towards_Wilhelmsplatz.jpg", src:"Txllxt TxllxT" },
-    "Bahnstadt": { img:"images/hoods/heidelberg--bahnstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Bahnstadt_Heidelberg_von_Suedwesten.jpg", src:"Luftschiffhafen" }
+    "Bahnstadt": { img:"images/hoods/heidelberg--bahnstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Bahnstadt_Heidelberg_von_Suedwesten.jpg", src:"Luftschiffhafen" },
+    "Altstadt": { img:"images/hoods/heidelberg--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_Altstadt_und_Neuenheimer_Ufer_HD.JPG", src:"4028mdk09" }
   },
   "Himeji": {
     "Himeji Station Area (Ekimae)": { img:"images/hoods/himeji--himeji-station-area-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Himeji_-_panoramio_(11).jpg", src:"DVMG" }
   },
   "Hirosaki": {
-    "Hirosaki Park / Castle Area": { img:"images/hoods/hirosaki--hirosaki-park-castle-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%9F%B3%E6%AD%A6%E5%AD%A6%E6%B5%81%E5%BA%AD%E5%9C%92_-_panoramio.jpg", src:"岩浪陸" }
+    "Hirosaki Park / Castle Area": { img:"images/hoods/hirosaki--hirosaki-park-castle-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E7%9F%B3%E6%AD%A6%E5%AD%A6%E6%B5%81%E5%BA%AD%E5%9C%92_-_panoramio.jpg", src:"岩浪陸" },
+    "Dobashi / Ekimae (Station Area)": { img:"images/hoods/hirosaki--dobashi-ekimae-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Cityscape_in_front_of_Hirosaki_Station_202609.jpg", src:"掬茶" }
   },
   "Hiroshima": {
     "Kamiyacho-Hatchobori": { img:"images/hoods/hiroshima--kamiyacho-hatchobori.webp", page:"https://commons.wikimedia.org/wiki/File:Hiroshima_Branch_of_the_Chugoku_Bank.jpg", src:"そらみみ" },
     "Peace Memorial Park (Naka)": { img:"images/hoods/hiroshima--peace-memorial-park-naka.webp", page:"https://commons.wikimedia.org/wiki/File:Autumn_Leaves_in_Hiroshima_Peace_Memorial_Park.jpg", src:"そらみみ" },
-    "Hiroshima Station (Ekimae)": { img:"images/hoods/hiroshima--hiroshima-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Ekimae_Ohashi_Line_and_new_Hiroshima_Station_building_under_construction.jpg", src:"Anago1234" }
+    "Hiroshima Station (Ekimae)": { img:"images/hoods/hiroshima--hiroshima-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Ekimae_Ohashi_Line_and_new_Hiroshima_Station_building_under_construction.jpg", src:"Anago1234" },
+    "Nagarekawa": { img:"images/hoods/hiroshima--nagarekawa.webp", page:"https://commons.wikimedia.org/wiki/File:Nagarekawach%C5%8D_street_at_night,_Hiroshima_2015-07-04.jpg", src:"Kristoffer Trolle" }
   },
   "Hobart": {
     "Hobart CBD (Sullivans Cove)": { img:"images/hoods/hobart--hobart-cbd-sullivans-cove.webp", page:"https://commons.wikimedia.org/wiki/File:Southern_Hobart_CBD_and_Battery_Point_in_the_afternoon_July_2017.jpg", src:"Nick-D" },
@@ -2237,7 +2252,8 @@ window.NRA_HOOD_PHOTO = {
   "Hoi An": {
     "Ancient Town (Old Quarter)": { img:"images/hoods/hoi-an--ancient-town-old-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Quan_Cong_Temple_4.jpg", src:"Christophe95" },
     "An Bang Beach": { img:"images/hoods/hoi-an--an-bang-beach.webp", page:"https://commons.wikimedia.org/wiki/File:An_B%C3%A0ng_Beach_(39647680125).jpg", src:"Mig Gilbert from Brighton" },
-    "Cam Thanh (Coconut Village)": { img:"images/hoods/hoi-an--cam-thanh-coconut-village.webp", page:"https://commons.wikimedia.org/wiki/File:Basket_Boat_and_the_Bamboo_forest_(Unsplash).jpg", src:"Chester Ho chesterho" }
+    "Cam Thanh (Coconut Village)": { img:"images/hoods/hoi-an--cam-thanh-coconut-village.webp", page:"https://commons.wikimedia.org/wiki/File:Basket_Boat_and_the_Bamboo_forest_(Unsplash).jpg", src:"Chester Ho chesterho" },
+    "New Town (Tan An)": { img:"images/hoods/hoi-an--new-town-tan-an.webp", page:"https://commons.wikimedia.org/wiki/File:Phuoc_Lam_Pagoda_1.jpg", src:"Christophe95" }
   },
   "Honiara": {
     "Point Cruz": { img:"images/hoods/honiara--point-cruz.webp", page:"https://www.flickr.com/photos/65638600@N05/8073765585/", src:"rapidtravelchai" }
@@ -2257,7 +2273,8 @@ window.NRA_HOOD_PHOTO = {
   "Hualien City": {
     "City Center / Dongdamen Night Market": { img:"images/hoods/hualien-city--city-center-dongdamen-night-market.webp", page:"https://commons.wikimedia.org/wiki/File:Former_Hualien_Brewery,_chimney_(Taiwan).jpg", src:"Mk2010" },
     "Meilun District": { img:"images/hoods/hualien-city--meilun-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E8%87%BA%E7%81%A3%E8%8A%B1%E8%93%AE%E5%9C%B0%E6%96%B9%E6%B3%95%E9%99%A2_2012-02-21.jpg", src:"lienyuan lee" },
-    "Nanbin (South Shore)": { img:"images/hoods/hualien-city--nanbin-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%BF%B1%E5%85%AC%E5%9C%92_-_panoramio.jpg", src:"Foxy Who \\(^∀^)/" }
+    "Nanbin (South Shore)": { img:"images/hoods/hualien-city--nanbin-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%BF%B1%E5%85%AC%E5%9C%92_-_panoramio.jpg", src:"Foxy Who \\(^∀^)/" },
+    "Station District": { img:"images/hoods/hualien-city--station-district.webp", page:"https://commons.wikimedia.org/wiki/File:108%E5%B9%B410%E6%9C%88%E8%8A%B1%E8%93%AE%E8%BB%8A%E7%AB%99%E6%9D%B1%E7%AB%99.jpg", src:"Mfpan9389115" }
   },
   "Huangshan": {
     "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" }
@@ -4538,5 +4555,11 @@ window.NRA_HOOD_PHOTO = {
   },
   "Garmisch-Partenkirchen": {
     "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:20230608_Olympiaschanze_Garmisch-Partenkirchen.jpg", src:"Flocci Nivis" }
+  },
+  "Harar": {
+    "Jugol (Walled Old City)": { img:"images/hoods/harar--jugol-walled-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Harar_Gate_(211539305).jpeg", src:"Francisco Anzola" }
+  },
+  "Harare": {
+    "CBD (Central Business District)": { img:"images/hoods/harare--cbd-central-business-district.webp", page:"https://commons.wikimedia.org/wiki/File:Denkmal_zum_Ersten_Weltkrieg_in_Harare_(28340432139).jpg", src:"ilf_" }
   },
 };

@@ -124,31 +124,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 5,Georgetown,Guyana,Queenstown,6.811443,-58.150855,"File:Dairn and Phillip, Queenstown 1991 (5445556).jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only fisheye dashcam frames"
 5,Gisenyi,Rwanda,Kigufi,-1.750873,29.27929,File:Lake muhazi king fisher resort.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only Lake Kivu shots over 1.2 km away, not Kigufi"
 5,Glasgow,United Kingdom,West End,55.878212,-4.295714,File:10 WEA 2016 July jeh.jpg,done,File:DSCN4472 Kelvinside Hillhead Parish Church.jpg,Commons file GPS 176 m from the hood point; eye-checked; licence CC BY-SA 4.0
-6,Gondar,Ethiopia,Piazza (City Centre),12.610888,37.468179,File:Piazza Duomo (Prato) con neve.JPG,open,,
-6,Gothenburg,Sweden,Vasastan,57.695143,11.968264,"File:Kvarteret Isotopen, Solnavägen 1 och Brf Helix (västra tornet) i bakgrunden, oktober 2022b.jpg",open,,
-6,Grenoble,France,Championnet,45.185364,5.722192,File:Statue de Jean-Étienne Championnet - Valence -2014-09-28- P1940385.JPG,open,,
-6,Guadalajara,Mexico,Colonia Americana / Chapultepec,20.672333,-103.368725,File:Colônia Salto Grande em Americana.JPG,open,,
-6,Guarujá,Brazil,Astúrias,-24.012087,-46.265094,File:Asturias (21766078554).jpg,open,,
-6,Guarujá,Brazil,Pernambuco,-23.973823,-46.190759,File:A capitania de Paranambuca - Clemendt de Jonghe excudit - btv1b84919622.jpg,open,,
-6,Gustavia,Saint-Barthélemy,Flamands,17.917201,-62.858387,File:Plaque Rue Flamands - Argenteuil (FR95) - 2024-04-13 - 2.jpg,open,,
-6,Gustavia,Saint-Barthélemy,Grand Cul-de-Sac,17.910237,-62.803725,File:Ilet Carret - Grand Cul de Sac Marin.jpg,open,,
-6,Gustavia,Saint-Barthélemy,Saint-Jean,17.899122,-62.837087,File:La Claie.jpg,open,,
-6,Halifax,Canada,South End,44.634881,-63.578807,"File:""Bowfront houses"" in South End, Boston, Massachusetts LCCN2011632380.tif",open,,
-6,Hamadan,Iran,Abbas Abad / Ganjnameh,34.784208,48.470639,File:Darbe Baba Taher alley.jpg,open,,
-6,Hamadan,Iran,Bu-Ali (Avicenna) District,34.791531,48.513132,File:Mazar Bu Ali.JPG,open,,
-6,Hamilton,Bermuda,City of Hamilton (Pembroke),32.292472,-64.783682,File:SgroJuly42018Coleman (cropped).jpg,open,,
-6,Hamilton,Bermuda,Southampton & South Shore,32.251596,-64.821128,File:CMA CGM LEO approaches the Container Port at Southampton Docks - 1 - geograph.org.uk - 3466417.jpg,open,,
-6,Harar,Ethiopia,Jugol (Walled Old City),9.311208,42.131933,"File:Jugol Kishore flat roofed temple at Aranghata in Nadia district, West Bengal. 08.jpg",open,,
-6,Harare,Zimbabwe,Avondale,-17.795945,31.033223,File:AvondaleMissouri.jpg,open,,
-6,Harare,Zimbabwe,Borrowdale,-17.749125,31.094164,File:A Bucket of Raddle - geograph.org.uk - 3410999.jpg,open,,
-6,Harare,Zimbabwe,CBD (Central Business District),-17.824902,31.04896,File:CBD Ciledug TransJakarta station.jpg,open,,
-6,Heidelberg,Germany,Altstadt,49.408902,8.704699,File:Bridge - Köln - panoramio.jpg,open,,
-6,Hirosaki,Japan,Dobashi / Ekimae (Station Area),40.60097,140.481531,File:Iyo Railway Dobashi Station3.jpg,open,,
-6,Hiroshima,Japan,Nagarekawa,34.38985,132.463558,File:Nakagin-sideview-oct4-2015.jpg,open,,
-6,Hoi An,Vietnam,Cam Nam Island,15.873076,108.332865,File:Bình Ba Island.jpg,open,,
-6,Hoi An,Vietnam,New Town (Tan An),15.890789,108.31948,File:HK SKD 西貢 Sai Kung Town 海傍廣場 Hoi Pon Square shop Circle K Store April 2024 R12S 06.jpg,open,,
-6,Hualien City,Taiwan,Station District,23.993313,121.601246,File:DC Main Sewerage Pumping Station - North side.jpg,open,,
-6,Huế,Vietnam,Vỹ Dạ,16.476701,107.612654,File:70583-Vy-lès-Filain-Hydro.jpeg,open,,
+6,Gondar,Ethiopia,Piazza (City Centre),12.610888,37.468179,File:Piazza Duomo (Prato) con neve.JPG,done,File:Loves2020Africa (8).jpg,Commons file GPS 230 m from the hood point; eye-checked; licence CC BY-SA 3.0
+6,Gothenburg,Sweden,Vasastan,57.695143,11.968264,"File:Kvarteret Isotopen, Solnavägen 1 och Brf Helix (västra tornet) i bakgrunden, oktober 2022b.jpg",done,File:Föreningsgatan-Karl Gustavsgatan i Göteborg.JPG,Commons file GPS 29 m from the hood point; eye-checked; licence CC BY-SA 3.0
+6,Grenoble,France,Championnet,45.185364,5.722192,File:Statue de Jean-Étienne Championnet - Valence -2014-09-28- P1940385.JPG,done,File:Rue Doudart-de-Lagrée.jpg,Commons file GPS 30 m from the hood point; eye-checked; licence CC BY 4.0
+6,Guadalajara,Mexico,Colonia Americana / Chapultepec,20.672333,-103.368725,File:Colônia Salto Grande em Americana.JPG,none,,candidate found but poor as a main photo (a reflection in a glass wall); no better verified photo
+6,Guarujá,Brazil,Astúrias,-24.012087,-46.265094,File:Asturias (21766078554).jpg,done,File:Astúrias Guarujá2.jpg,Commons file GPS 1170 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Guarujá,Brazil,Pernambuco,-23.973823,-46.190759,File:A capitania de Paranambuca - Clemendt de Jonghe excudit - btv1b84919622.jpg,done,File:Praia de Pernambuco.jpg,Commons file GPS 1071 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Gustavia,Saint-Barthélemy,Flamands,17.917201,-62.858387,File:Plaque Rue Flamands - Argenteuil (FR95) - 2024-04-13 - 2.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nothing of Flamands itself; nearest files are Colombier bay and harbour shots over 550 m away"
+6,Gustavia,Saint-Barthélemy,Grand Cul-de-Sac,17.910237,-62.803725,File:Ilet Carret - Grand Cul de Sac Marin.jpg,done,"File:La Tortue island offshore from Anse de Grand Cul-de-Sac on St. Barthelemy, French West Indies - panoramio.jpg",Commons file GPS 795 m from the hood point; eye-checked; licence CC BY 3.0
+6,Gustavia,Saint-Barthélemy,Saint-Jean,17.899122,-62.837087,File:La Claie.jpg,done,"File:St Jean Beach, St Barths, Oct 2014 (15716806155).jpg",Commons file GPS 412 m from the hood point; eye-checked; licence CC BY-SA 2.0
+6,Halifax,Canada,South End,44.634881,-63.578807,"File:""Bowfront houses"" in South End, Boston, Massachusetts LCCN2011632380.tif",done,File:George Wright House from front.jpg,Commons file GPS 270 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Hamadan,Iran,Abbas Abad / Ganjnameh,34.784208,48.470639,File:Darbe Baba Taher alley.jpg,done,File:الوند در تابستان از سمت دره گوساله.jpg,Commons file GPS 132 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Hamadan,Iran,Bu-Ali (Avicenna) District,34.791531,48.513132,File:Mazar Bu Ali.JPG,done,File:Abu Ali Sina.jpg,Commons file GPS 3 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Hamilton,Bermuda,City of Hamilton (Pembroke),32.292472,-64.783682,File:SgroJuly42018Coleman (cropped).jpg,done,"File:Hamilton, Bermuda - Front Street - panoramio.jpg",Commons file GPS 211 m from the hood point; eye-checked; licence CC BY-SA 3.0
+6,Hamilton,Bermuda,Southampton & South Shore,32.251596,-64.821128,File:CMA CGM LEO approaches the Container Port at Southampton Docks - 1 - geograph.org.uk - 3466417.jpg,done,"File:Horseshoe Bay beach, Bermuda IMG 0343.jpg",Commons file GPS 122 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Harar,Ethiopia,Jugol (Walled Old City),9.311208,42.131933,"File:Jugol Kishore flat roofed temple at Aranghata in Nadia district, West Bengal. 08.jpg",done,File:Harar Gate (211539305).jpeg,Commons file GPS 1026 m from the hood point; eye-checked; licence CC BY 3.0
+6,Harare,Zimbabwe,Avondale,-17.795945,31.033223,File:AvondaleMissouri.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only one market photo with no location data"
+6,Harare,Zimbabwe,Borrowdale,-17.749125,31.094164,File:A Bucket of Raddle - geograph.org.uk - 3410999.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only dashcam frames over 1 km away"
+6,Harare,Zimbabwe,CBD (Central Business District),-17.824902,31.04896,File:CBD Ciledug TransJakarta station.jpg,done,File:Denkmal zum Ersten Weltkrieg in Harare (28340432139).jpg,Commons file GPS 197 m from the hood point; eye-checked; licence CC BY-SA 2.0
+6,Heidelberg,Germany,Altstadt,49.408902,8.704699,File:Bridge - Köln - panoramio.jpg,done,File:Blick auf Altstadt und Neuenheimer Ufer HD.JPG,Commons file GPS 181 m from the hood point; eye-checked; licence CC BY-SA 3.0
+6,Hirosaki,Japan,Dobashi / Ekimae (Station Area),40.60097,140.481531,File:Iyo Railway Dobashi Station3.jpg,done,File:Cityscape in front of Hirosaki Station 202609.jpg,Commons file GPS 355 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Hiroshima,Japan,Nagarekawa,34.38985,132.463558,File:Nakagin-sideview-oct4-2015.jpg,done,"File:Nagarekawachō street at night, Hiroshima 2015-07-04.jpg",Commons file GPS 242 m from the hood point; eye-checked; licence CC BY 2.0
+6,Hoi An,Vietnam,Cam Nam Island,15.873076,108.332865,File:Bình Ba Island.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearby files are the old town across the river; a bridge shot cannot be placed"
+6,Hoi An,Vietnam,New Town (Tan An),15.890789,108.31948,File:HK SKD 西貢 Sai Kung Town 海傍廣場 Hoi Pon Square shop Circle K Store April 2024 R12S 06.jpg,done,File:Phuoc Lam Pagoda 1.jpg,Commons file GPS 470 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Hualien City,Taiwan,Station District,23.993313,121.601246,File:DC Main Sewerage Pumping Station - North side.jpg,done,File:108年10月花蓮車站東站.jpg,Commons file GPS 95 m from the hood point; eye-checked; licence CC BY-SA 4.0
+6,Huế,Vietnam,Vỹ Dạ,16.476701,107.612654,File:70583-Vy-lès-Filain-Hydro.jpeg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only training-day group photos and hotel-room shots over 1.3 km away"
 7,Ibadan,Nigeria,Ring Road,7.361191,3.867886,"File:L.A. Ring, Road in the Village of Baldersbrønde (Winter Day), 1912, NG6658, National Gallery.png",open,,
 7,Iquitos,Peru,Punchana,-3.726052,-73.24836,File:Dasyprocta fuliginosa 114445190.jpg,open,,
 7,Islamabad,Pakistan,F-6,33.729689,73.074599,File:Ulica Starołęcka w Poznaniu - kwiecień 2018.jpg,open,,
