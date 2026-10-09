@@ -2465,7 +2465,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kanchanaburi": {
     "River Kwai / Bridge Area": { img:"images/hoods/kanchanaburi--river-kwai-bridge-area.webp", page:"https://commons.wikimedia.org/wiki/File:2010%EB%85%84_8%EC%9B%94_%ED%83%9C%EA%B5%AD_220_Kwangmo%27s_iPhone.jpg", src:"최광모 (Choe Kwangmo)" },
-    "Death Railway / Thailand-Burma Railway Centre": { img:"images/hoods/kanchanaburi--death-railway-thailand-burma-railway-centre.webp", page:"https://commons.wikimedia.org/wiki/File:2010%EB%85%84_8%EC%9B%94_%ED%83%9C%EA%B5%AD_%EC%A0%9C16%EA%B8%B0_%EC%86%8C%EB%B0%A9%EA%B0%84%EB%B6%80%ED%9B%84%EB%B3%B4%EC%83%9D_%EC%9C%A4%EC%84%9D%EB%AF%BC,_%EA%B9%80%EC%98%81%EC%A7%84,_%EC%B5%9C%EA%B4%91%EB%AA%A8_%ED%95%98%EA%B3%84%ED%9C%B4%EA%B0%80_%EC%82%AC%EC%A7%84_224_Kwangmo%27s_iPhone.jpg", src:"최광모 (Choe Kwangmo)" },
     "River Kwai Raft Houses": { img:"images/hoods/kanchanaburi--river-kwai-raft-houses.webp", page:"https://commons.wikimedia.org/wiki/File:River_Qwai_and_Sugar_Cane_Raft_Houses_-_panoramio_(1).jpg", src:"ekeidar" }
   },
   "Kandy": {
