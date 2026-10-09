@@ -1481,7 +1481,8 @@ window.NRA_HOOD_PHOTO = {
     "Trinity Beach": { img:"images/hoods/cairns--trinity-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Looking_NE_along_Trinity_Beach_Road_from_the_roundabout_at_Anderson_Street,_Trinity_Beach,_2018.jpg", src:"Kerry Raymond" }
   },
   "Calabar": {
-    "Marian": { img:"images/hoods/calabar--marian.webp", page:"https://commons.wikimedia.org/wiki/File:Marian_Market_Calabar2_Longthroat_Memoirs.jpg", src:"Yemisi Ogbe" }
+    "Marian": { img:"images/hoods/calabar--marian.webp", page:"https://commons.wikimedia.org/wiki/File:Marian_Market_Calabar2_Longthroat_Memoirs.jpg", src:"Yemisi Ogbe" },
+    "Calabar South (Old Calabar)": { img:"images/hoods/calabar--calabar-south-old-calabar.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Residency_Museum_aka_Nigeria's_first_'Aso-rock',_Calabar,_Cross_River_state.jpg", src:"Hadassah Photostorie group" }
   },
   "Calgary": {
     "Downtown / Beltline": { img:"images/hoods/calgary--downtown-beltline.webp", page:"https://commons.wikimedia.org/wiki/File:Calgary_Olympic_Square_(349022585).jpg", src:"Tony Hisgett from Birmingham, UK" },
@@ -1524,7 +1525,9 @@ window.NRA_HOOD_PHOTO = {
     "Sabana Grande": { img:"images/hoods/caracas--sabana-grande.webp", page:"https://commons.wikimedia.org/wiki/File:Arquitectura_de_Sabana_Grande_Caracas_Venezuela_Residencias_Alto_Centro_y_Centro_Residencial_Solano_17.jpg", src:"QuinteroP" }
   },
   "Carcassonne": {
-    "Canal du Midi (Bassin)": { img:"images/hoods/carcassonne--canal-du-midi-bassin.webp", page:"https://commons.wikimedia.org/wiki/File:Resclosa_de_Carcassona_-_20230824_111758.jpg", src:"Pere López Brosa" }
+    "Canal du Midi (Bassin)": { img:"images/hoods/carcassonne--canal-du-midi-bassin.webp", page:"https://commons.wikimedia.org/wiki/File:Resclosa_de_Carcassona_-_20230824_111758.jpg", src:"Pere López Brosa" },
+    "La Cité (Walled Citadel)": { img:"images/hoods/carcassonne--la-cite-walled-citadel.webp", page:"https://commons.wikimedia.org/wiki/File:Carcassonne_la_m%C3%A9di%C3%A9vale.jpg", src:"Gerardromeo" },
+    "Trivalle": { img:"images/hoods/carcassonne--trivalle.webp", page:"https://commons.wikimedia.org/wiki/File:Rue_Trivalle,_Carcassonne_(3990443741).jpg", src:"Andy Mitchell from Glasgow, UK" }
   },
   "Cardiff": {
     "City Centre": { img:"images/hoods/cardiff--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:21_St_Mary_Street,_Cardiff.jpg", src:"Armonjones" },
@@ -1536,7 +1539,8 @@ window.NRA_HOOD_PHOTO = {
     "Centro Histórico (Walled City)": { img:"images/hoods/cartagena--centro-historico-walled-city.webp", page:"https://commons.wikimedia.org/wiki/File:Black_And_White_Shot_-_panoramio.jpg", src:"---=XEON=---" },
     "Getsemaní": { img:"images/hoods/cartagena--getsemani.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_de_Carretero,_Getseman%C3%AD,_Cartagena.jpg", src:"Bernard Gagnon" },
     "Bocagrande": { img:"images/hoods/cartagena--bocagrande.webp", page:"https://commons.wikimedia.org/wiki/File:Atardecer_playas_bocagrande_26_de_octubre_1.jpg", src:"Alvaro Andres Lorduy Zarco" },
-    "Manga": { img:"images/hoods/cartagena--manga.webp", page:"https://www.flickr.com/photos/61266278@N00/34108711285/", src:"Reg Natarajan" }
+    "Manga": { img:"images/hoods/cartagena--manga.webp", page:"https://www.flickr.com/photos/61266278@N00/34108711285/", src:"Reg Natarajan" },
+    "San Diego": { img:"images/hoods/cartagena--san-diego.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_colorida_de_Cartagena.jpg", src:"Franciscokarriere" }
   },
   "Casablanca": {
     "Maârif": { img:"images/hoods/casablanca--maarif.webp", page:"https://commons.wikimedia.org/wiki/File:Libye_-_Alg%C3%A9rie7.jpg", src:"mustapha_ennaimi" },
@@ -1591,7 +1595,8 @@ window.NRA_HOOD_PHOTO = {
     "Ras el-Ma": { img:"images/hoods/chefchaouen--ras-el-ma.webp", page:"https://commons.wikimedia.org/wiki/File:Ras_El_Maa.jpg", src:"Badrbina1" }
   },
   "Chengde": {
-    "Eight Outer Temples (Waibamiao)": { img:"images/hoods/chengde--eight-outer-temples-waibamiao.webp", page:"https://commons.wikimedia.org/wiki/File:Chengde_Mountain_Resort_15.jpg", src:"takwing.kwong" }
+    "Eight Outer Temples (Waibamiao)": { img:"images/hoods/chengde--eight-outer-temples-waibamiao.webp", page:"https://commons.wikimedia.org/wiki/File:Chengde_Mountain_Resort_15.jpg", src:"takwing.kwong" },
+    "Xinhua Road Commercial District": { img:"images/hoods/chengde--xinhua-road-commercial-district.webp", page:"https://commons.wikimedia.org/wiki/File:22104-Chengde_(49048668593).jpg", src:"xiquinhosilva" }
   },
   "Chengdu": {
     "Jinjiang / Chunxi Road": { img:"images/hoods/chengdu--jinjiang-chunxi-road.webp", page:"https://commons.wikimedia.org/wiki/File:Jinjiang,_Chengdu,_Sichuan,_China_-_panoramio_(2).jpg", src:"liuzusai刘祖赛" },
@@ -1625,7 +1630,8 @@ window.NRA_HOOD_PHOTO = {
   "Chios": {
     "Kampos": { img:"images/hoods/chios--kampos.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%92%CE%BF%CF%84%CF%83%CE%B1%CE%BB%CF%89%CF%84%CF%8C_%CF%83%CE%B5_%CF%83%CF%87%CE%AE%CE%BC%CE%B1_%CE%B1%CF%83%CF%84%CE%B5%CF%81%CE%B9%CE%BF%CF%8D_-_%CE%9A%CE%AC%CE%BC%CF%80%CE%BF%CF%82_%CE%A7%CE%AF%CE%BF%CF%85.jpg", src:"Meltedrainbow" },
     "Karfas": { img:"images/hoods/chios--karfas.webp", page:"https://commons.wikimedia.org/wiki/File:Chios_Aug_2023_12_40_10_342000.jpeg", src:"Robot8A" },
-    "Mastic Villages (Mesta & Pyrgi)": { img:"images/hoods/chios--mastic-villages-mesta-pyrgi.webp", page:"https://commons.wikimedia.org/wiki/File:MESTA_CHIOS_GREECE_131%CE%91.jpg", src:"KONSTANTINOS ZANNARAS" }
+    "Mastic Villages (Mesta & Pyrgi)": { img:"images/hoods/chios--mastic-villages-mesta-pyrgi.webp", page:"https://commons.wikimedia.org/wiki/File:MESTA_CHIOS_GREECE_131%CE%91.jpg", src:"KONSTANTINOS ZANNARAS" },
+    "Chora (Chios Town)": { img:"images/hoods/chios--chora-chios-town.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%97_%CE%A0%CE%9B%CE%91%CE%A4%CE%95%CE%99%CE%91_%CE%A3%CE%A4%CE%9F_%CE%9A%CE%91%CE%A3%CE%A4%CE%A1%CE%9F.jpg", src:"FLIOUKAS" }
   },
   "Chittagong": {
     "Agrabad": { img:"images/hoods/chittagong--agrabad.webp", page:"https://commons.wikimedia.org/wiki/File:Agrabad_Deba_(05).jpg", src:"Motiur Rahman Oni" },
@@ -1647,7 +1653,8 @@ window.NRA_HOOD_PHOTO = {
     "Sumner": { img:"images/hoods/christchurch--sumner.webp", page:"https://commons.wikimedia.org/wiki/File:Sunset_in_Sumner_Beach,_Sumner,_Christchurch,_New_Zealand.jpg", src:"Michal Klajban" }
   },
   "Cienfuegos": {
-    "Pueblo Nuevo": { img:"images/hoods/cienfuegos--pueblo-nuevo.webp", page:"https://commons.wikimedia.org/wiki/File:Reparto_Pueblo_Nuevo,_Cienfuegos,_Cuba_-_panoramio.jpg", src:"Keith Ruffles" }
+    "Pueblo Nuevo": { img:"images/hoods/cienfuegos--pueblo-nuevo.webp", page:"https://commons.wikimedia.org/wiki/File:Reparto_Pueblo_Nuevo,_Cienfuegos,_Cuba_-_panoramio.jpg", src:"Keith Ruffles" },
+    "Punta Gorda": { img:"images/hoods/cienfuegos--punta-gorda.webp", page:"https://commons.wikimedia.org/wiki/File:Palacio_del_Valle_-_Cienfuegos_-_01.jpg", src:"Maesi64" }
   },
   "Cinque Terre": {
     "Monterosso al Mare": { img:"images/hoods/cinque-terre--monterosso-al-mare.webp", page:"https://commons.wikimedia.org/wiki/File:Tour_Cimeti%C3%A8re_Monterosso_-_Monterosso_al_Mare_(IT42)_-_2022-08-29_-_1.jpg", src:"Chabe01" },
@@ -1658,13 +1665,15 @@ window.NRA_HOOD_PHOTO = {
   },
   "Cluj-Napoca": {
     "Grigorescu": { img:"images/hoods/cluj-napoca--grigorescu.webp", page:"https://commons.wikimedia.org/wiki/File:Cluj-Grigorescu-Donath-196x.jpg", src:"Union of Romanian Architects - Uniunea Arhitecților din România" },
-    "Marasti": { img:"images/hoods/cluj-napoca--marasti.webp", page:"https://commons.wikimedia.org/wiki/File:1998-03_str.Fabricii_-_panoramio.jpg", src:"tonimese" }
+    "Marasti": { img:"images/hoods/cluj-napoca--marasti.webp", page:"https://commons.wikimedia.org/wiki/File:1998-03_str.Fabricii_-_panoramio.jpg", src:"tonimese" },
+    "Centru (Piata Unirii)": { img:"images/hoods/cluj-napoca--centru-piata-unirii.webp", page:"https://commons.wikimedia.org/wiki/File:Pia%C8%9Ba_Unirii_din_Cluj-Napoca_(52055213738).jpg", src:"Nuță Lucian from Cluj-Napoca, Romania" }
   },
   "Cochin": {
     "Fort Kochi": { img:"images/hoods/cochin--fort-kochi.webp", page:"https://commons.wikimedia.org/wiki/File:Fort_Emmanuel_Kochi.jpg", src:"Ingo Mehling" },
     "Mattancherry & Jew Town": { img:"images/hoods/cochin--mattancherry-jew-town.webp", page:"https://commons.wikimedia.org/wiki/File:2025_-_Paradesi_Synagogue_-_01.jpg", src:"This picture has been taken by Oleg Yunakov. Contact e-mail: yunakovgmail.com. I" },
     "Ernakulam (MG Road)": { img:"images/hoods/cochin--ernakulam-mg-road.webp", page:"https://commons.wikimedia.org/wiki/File:Ernakulam_city_views_(103).jpg", src:"Vinayaraj" },
-    "Willingdon Island": { img:"images/hoods/cochin--willingdon-island.webp", page:"https://commons.wikimedia.org/wiki/File:Aspinwall-Willington-Island-Cochin.jpg", src:"Vaikoovery" }
+    "Willingdon Island": { img:"images/hoods/cochin--willingdon-island.webp", page:"https://commons.wikimedia.org/wiki/File:Aspinwall-Willington-Island-Cochin.jpg", src:"Vaikoovery" },
+    "Marine Drive": { img:"images/hoods/cochin--marine-drive.webp", page:"https://commons.wikimedia.org/wiki/File:Ernakulam_Marine_drive_skyline_IMG_20260505_184852977.jpg", src:"Ranjithsiji" }
   },
   "Coimbra": {
     "Alta (University Hill)": { img:"images/hoods/coimbra--alta-university-hill.webp", page:"https://commons.wikimedia.org/wiki/File:S%C3%A9_Nova_de_Coimbra_ocupa_apenas_uma_parte_de_um_edif%C3%ADcio_maior,_denominado_Col%C3%A9gio_de_Jesus.jpg", src:"Threeohsix" },
@@ -1721,21 +1730,24 @@ window.NRA_HOOD_PHOTO = {
   },
   "Cork": {
     "City Centre (Island)": { img:"images/hoods/cork--city-centre-island.webp", page:"https://commons.wikimedia.org/wiki/File:Ballintemple,_Cork,_Ireland_-_panoramio_(5).jpg", src:"K.ristof" },
-    "Shandon": { img:"images/hoods/cork--shandon.webp", page:"https://commons.wikimedia.org/wiki/File:3Shandon_area3_(8188948956).jpg", src:"psyberartist" }
+    "Shandon": { img:"images/hoods/cork--shandon.webp", page:"https://commons.wikimedia.org/wiki/File:3Shandon_area3_(8188948956).jpg", src:"psyberartist" },
+    "Western Road (UCC)": { img:"images/hoods/cork--western-road-ucc.webp", page:"https://commons.wikimedia.org/wiki/File:Western_Road_-_panoramio.jpg", src:"Sebastian “sebrem” B…" }
   },
   "Coron": {
     "Tagumpay": { img:"images/hoods/coron--tagumpay.webp", page:"https://commons.wikimedia.org/wiki/File:Tarangkahan_ng_Mababang_Paaralan_ng_Tagumpay,_Coron,_Palawan_-_Tagumpay_Elementary_School.jpg", src:"Paul Christian B. Yang-ed" },
     "Coron Town Proper (Poblacion)": { img:"images/hoods/coron--coron-town-proper-poblacion.webp", page:"https://commons.wikimedia.org/wiki/File:Banuang_Daan,_Coron_Town_Proper,_Coron,_Palawan,_Philippines_-_panoramio.jpg", src:"우한길(HK Woo)" }
   },
   "Cortina d'Ampezzo": {
-    "Pocol": { img:"images/hoods/cortina-d-ampezzo--pocol.webp", page:"https://commons.wikimedia.org/wiki/File:Military_ossuary-Pocol_Cortina_d%C2%B4Ampezzo_Italy_(1).JPG", src:"Anais Goepner Melendez" }
+    "Pocol": { img:"images/hoods/cortina-d-ampezzo--pocol.webp", page:"https://commons.wikimedia.org/wiki/File:Military_ossuary-Pocol_Cortina_d%C2%B4Ampezzo_Italy_(1).JPG", src:"Anais Goepner Melendez" },
+    "Corso Italia (Town Center)": { img:"images/hoods/cortina-d-ampezzo--corso-italia-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Cortina_d'Ampezzo_-_Corso_Italia.jpg", src:"Tiia Monto" }
   },
   "Cotonou": {
     "Fidjrossè": { img:"images/hoods/cotonou--fidjrosse.webp", page:"https://commons.wikimedia.org/wiki/File:Place_du_Calvaire_de_Fidjross%C3%A8_%C3%A0_Cotonou.jpg", src:"Rachad sanoussi" },
     "Akpakpa": { img:"images/hoods/cotonou--akpakpa.webp", page:"https://commons.wikimedia.org/wiki/File:Circulation_%C3%A0_Akpakpa.jpg", src:"Rachad sanoussi" }
   },
   "Cox's Bazar": {
-    "Kolatoli": { img:"images/hoods/cox-s-bazar--kolatoli.webp", page:"https://commons.wikimedia.org/wiki/File:Cox%27s_bazar_sea_beach_sunset.jpg", src:"Sabu Hossain limon" }
+    "Kolatoli": { img:"images/hoods/cox-s-bazar--kolatoli.webp", page:"https://commons.wikimedia.org/wiki/File:Cox%27s_bazar_sea_beach_sunset.jpg", src:"Sabu Hossain limon" },
+    "Sugandha Point": { img:"images/hoods/cox-s-bazar--sugandha-point.webp", page:"https://commons.wikimedia.org/wiki/File:Cox's_bazar_town_view_at_sugondha_point.jpg", src:"Ferdous" }
   },
   "Cuiabá": {
     "Centro Histórico": { img:"images/hoods/cuiaba--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Busto_Francisco_de_Aquino_Correia_Pra%C3%A7a_Alencastro_Cuiab%C3%A1_Mato_Grosso_2024-3369.jpg", src:"Prburley" },
@@ -4467,5 +4479,16 @@ window.NRA_HOOD_PHOTO = {
   },
   "Baracoa": {
     "El Paraíso": { img:"images/hoods/baracoa--el-paraiso.webp", page:"https://commons.wikimedia.org/wiki/File:Baracoa_-_panoramio.jpg", src:"Martin Cígler" }
+  },
+  "Chaozhou": {
+    "Ancient City (Paifang Street / Old Town)": { img:"images/hoods/chaozhou--ancient-city-paifang-street-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Chaozhou_Laocheng_Guminju_Jianzhuqun_2013.10.27_11-28-35.jpg", src:"Zhangzhugang" }
+  },
+  "Charlotte Amalie": {
+    "Frenchman's Bay / Morningstar": { img:"images/hoods/charlotte-amalie--frenchman-s-bay-morningstar.webp", page:"https://commons.wikimedia.org/wiki/File:St_Thomas_Marriott_1.jpg", src:"Fred Hsu (Wikipedia:User:Fred Hsu on en.wikipedia)" },
+    "Frenchtown": { img:"images/hoods/charlotte-amalie--frenchtown.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_Anne's_Chapel_-_Frenchtown.JPG", src:"Farragutful" }
+  },
+  "Cuenca": {
+    "El Centro Histórico": { img:"images/hoods/cuenca--el-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_panor%C3%A1mica_del_Centro_Hist%C3%B3rico_de_Cuenca.jpg", src:"Martín Vasco" },
+    "El Ejido": { img:"images/hoods/cuenca--el-ejido.webp", page:"https://commons.wikimedia.org/wiki/File:R%C3%ADo_Tomebamba_desde_el_Paseo_3_de_Noviembre,_Cuenca.jpg", src:"Martín Vasco" }
   },
 };

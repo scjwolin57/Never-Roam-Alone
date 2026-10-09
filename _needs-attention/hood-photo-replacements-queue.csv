@@ -49,31 +49,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 2,Bulawayo,Zimbabwe,Suburbs,-20.157791,28.600754,File:Bedara Kannappa temple road.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only meetings, crafts and a memorial of unclear district"
 2,Cabo Frio,Brazil,Braga,-22.896259,-42.027254,File:Brannon Braga (16434622764) (cropped).jpg,done,File:Gaivota olhando o mar.jpg,Commons file GPS 67 m from the hood point; eye-checked; licence CC BY-SA 4.0
 2,Cadiz,Spain,El Mentidero,36.532091,-6.298193,https://www.flickr.com/photos/131253119@N03/16811184137/,done,File:Vistas desde la Torre Tavira (20459765368).jpg,Commons file GPS 24 m from the hood point; eye-checked; licence CC BY-SA 2.0
-3,Calabar,Nigeria,Calabar South (Old Calabar),4.961856,8.318426,"File:Admiralty Chart No 622 Bonny and New Calabar Rivers, Published 1914, New Edition 1930.jpg",open,,
-3,Calabar,Nigeria,State Housing Estate,4.986724,8.335574,"File:Der Hügel der Opfer des Zweiten Weltkriegs und Gefallenendenkmal von Lajos Visnyovszky, 2025 Lónyaytelep.jpg",open,,
-3,Cali,Colombia,Ciudad Jardín,3.364795,-76.537252,File:Clínica odontológica.jpg,open,,
-3,Cali,Colombia,El Peñón,3.449643,-76.541959,File:MunsSantander-elpenon.png,open,,
-3,Campeche,Mexico,Barrio de Santa Ana,19.838758,-90.528145,File:Sevilla-Barrio de Triana-Iglesia de Santa Ana-20110915.jpg,open,,
-3,Caracas,Venezuela,El Rosal,10.489045,-66.864769,File:Tardes Desde El Barrio Loma La Virgen.jpg,open,,
-3,Caracas,Venezuela,La Castellana,10.504348,-66.856229,File:1930 ARQUITECTURA 50.jpg,open,,
-3,Carcassonne,France,La Cité (Walled Citadel),43.216334,2.353878,File:20181115 202819150 iOS.jpg,open,,
-3,Carcassonne,France,Trivalle,43.20934,2.365095,File:Ancienne gare de Mons-la-Trivalle.jpg,open,,
-3,Cartagena,Colombia,San Diego,10.428269,-75.547321,File:Church of San Diego Cartagena.jpg,open,,
-3,Cayenne,French Guiana,Bourda,4.935842,-52.286606,File:Bourda.jpg,open,,
-3,Chaozhou,China,Ancient City (Paifang Street / Old Town),23.655996,116.647625,File:96 Zhongshan East Street (Xin'an County Government) 广州府新安县衙 中山东街96 (2026) - img 02.jpg,open,,
-3,Charlotte Amalie,U.S. Virgin Islands,Frenchman's Bay / Morningstar,18.319968,-64.919402,"File:Beachfront Park in Pickering, June 6 2026.jpg",open,,
-3,Charlotte Amalie,U.S. Virgin Islands,Frenchtown,18.338292,-64.941012,File:Delaware River Scenic Byway - Downtown Frenchtown Street - NARA - 7718019.jpg,open,,
-3,Chengde,China,Xinhua Road Commercial District,40.96923,117.93944,File:GD 廣東 Guangdong 中山市 Zhongshan 東區 Dong District 起灣道 QiWan Avenue 中山五路 Zhongshan 5th Road 紫馬廣場 Holiday Park mall 廣東新華書局 Guangdong XinHua Books August 2024 R12S 18.jpg,open,,
-3,Chios,Greece,Chora (Chios Town),38.371727,26.13663,File:Milky way Samos.jpg,open,,
-3,Cienfuegos,Cuba,Punta Gorda,22.117728,-80.453378,File:Marca de la Memoria - Casa de Punta Gorda.jpg,open,,
-3,Cluj-Napoca,Romania,Centru (Piata Unirii),46.769441,23.589185,"File:A yard at A. Pushkin st. 52, looking SW - panoramio.jpg",open,,
-3,Cochin,India,Marine Drive,9.977168,76.277323,File:Marine Drive Mumbai 2.jpg,open,,
-3,Cork,Ireland,Western Road (UCC),51.894662,-8.494622,File:Approaching Royal Oak tube station - geograph.org.uk - 7754378.jpg,open,,
-3,Cortina d'Ampezzo,Italy,Corso Italia (Town Center),46.536928,12.137184,File:Corso Italia 2021 05.jpg,open,,
-3,Cotonou,Benin,Haie Vive,6.351652,2.398643,"File:Arbusto junto con pasto seco, en un ambiente urbano..jpg",open,,
-3,Cox's Bazar,Bangladesh,Sugandha Point,21.425319,91.97928,File:Kanyakumari Sun rise spot.jpg,open,,
-3,Cuenca,Ecuador,El Centro Histórico,-2.896008,-79.005168,"File:(Museo Casa del Alabado) interior, pic bb7.JPG",open,,
-3,Cuenca,Ecuador,El Ejido,-2.902388,-79.008402,"File:(El Ejido, Quito) pic a1a Fountains in Quito Photography by David Adam Kess.jpg",open,,
+3,Calabar,Nigeria,Calabar South (Old Calabar),4.961856,8.318426,"File:Admiralty Chart No 622 Bonny and New Calabar Rivers, Published 1914, New Edition 1930.jpg",done,"File:Old Residency Museum aka Nigeria's first 'Aso-rock', Calabar, Cross River state.jpg",Commons file GPS 662 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Calabar,Nigeria,State Housing Estate,4.986724,8.335574,"File:Der Hügel der Opfer des Zweiten Weltkriegs und Gefallenendenkmal von Lajos Visnyovszky, 2025 Lónyaytelep.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only people, food and a roundabout elsewhere in the city"
+3,Cali,Colombia,Ciudad Jardín,3.364795,-76.537252,File:Clínica odontológica.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only birds, a seminar and university sports courts"
+3,Cali,Colombia,El Peñón,3.449643,-76.541959,File:MunsSantander-elpenon.png,none,,"candidate found but poor as a main photo (mostly trees, the house hidden); no better verified photo"
+3,Campeche,Mexico,Barrio de Santa Ana,19.838758,-90.528145,File:Sevilla-Barrio de Triana-Iglesia de Santa Ana-20110915.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): all nearby files share one city-centre point (cathedral, bastions), none of Santa Ana"
+3,Caracas,Venezuela,El Rosal,10.489045,-66.864769,File:Tardes Desde El Barrio Loma La Virgen.jpg,none,,candidate found but poor as a main photo (top-down view of a bar roof); no better verified photo
+3,Caracas,Venezuela,La Castellana,10.504348,-66.856229,File:1930 ARQUITECTURA 50.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only office meetings, a portrait and PDVSA's gate"
+3,Carcassonne,France,La Cité (Walled Citadel),43.216334,2.353878,File:20181115 202819150 iOS.jpg,done,File:Carcassonne la médiévale.jpg,"subject is La Cité itself (Commons category: Rear views of the Château de Carcassonne, the castle inside La Cité), camera about 1 km north-west; the hood point is wrong (by the station), logged; eye-checked; licence CC BY-SA 4.0"
+3,Carcassonne,France,Trivalle,43.20934,2.365095,File:Ancienne gare de Mons-la-Trivalle.jpg,done,"File:Rue Trivalle, Carcassonne (3990443741).jpg",Commons file GPS 261 m from the hood point; eye-checked; licence CC BY-SA 2.0
+3,Cartagena,Colombia,San Diego,10.428269,-75.547321,File:Church of San Diego Cartagena.jpg,done,File:Calle colorida de Cartagena.jpg,Commons file GPS 125 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Cayenne,French Guiana,Bourda,4.935842,-52.286606,File:Bourda.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest are Montabo beach (another district) and a title-only Bourda file with no location data"
+3,Chaozhou,China,Ancient City (Paifang Street / Old Town),23.655996,116.647625,File:96 Zhongshan East Street (Xin'an County Government) 广州府新安县衙 中山东街96 (2026) - img 02.jpg,done,File:Chaozhou Laocheng Guminju Jianzhuqun 2013.10.27 11-28-35.jpg,Commons file GPS 823 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Charlotte Amalie,U.S. Virgin Islands,Frenchman's Bay / Morningstar,18.319968,-64.919402,"File:Beachfront Park in Pickering, June 6 2026.jpg",done,File:St Thomas Marriott 1.jpg,Commons file GPS 219 m from the hood point; eye-checked; licence CC BY-SA 3.0
+3,Charlotte Amalie,U.S. Virgin Islands,Frenchtown,18.338292,-64.941012,File:Delaware River Scenic Byway - Downtown Frenchtown Street - NARA - 7718019.jpg,done,File:Saint Anne's Chapel - Frenchtown.JPG,Commons file GPS 190 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Chengde,China,Xinhua Road Commercial District,40.96923,117.93944,File:GD 廣東 Guangdong 中山市 Zhongshan 東區 Dong District 起灣道 QiWan Avenue 中山五路 Zhongshan 5th Road 紫馬廣場 Holiday Park mall 廣東新華書局 Guangdong XinHua Books August 2024 R12S 18.jpg,done,File:22104-Chengde (49048668593).jpg,Commons file GPS 539 m from the hood point; eye-checked; licence CC BY 2.0
+3,Chios,Greece,Chora (Chios Town),38.371727,26.13663,File:Milky way Samos.jpg,done,File:Η ΠΛΑΤΕΙΑ ΣΤΟ ΚΑΣΤΡΟ.jpg,Commons file GPS 221 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Cienfuegos,Cuba,Punta Gorda,22.117728,-80.453378,File:Marca de la Memoria - Casa de Punta Gorda.jpg,done,File:Palacio del Valle - Cienfuegos - 01.jpg,Commons file GPS 481 m from the hood point; eye-checked; licence CC0
+3,Cluj-Napoca,Romania,Centru (Piata Unirii),46.769441,23.589185,"File:A yard at A. Pushkin st. 52, looking SW - panoramio.jpg",done,File:Piața Unirii din Cluj-Napoca (52055213738).jpg,Commons file GPS 74 m from the hood point; eye-checked; licence CC BY-SA 2.0
+3,Cochin,India,Marine Drive,9.977168,76.277323,File:Marine Drive Mumbai 2.jpg,done,File:Ernakulam Marine drive skyline IMG 20260505 184852977.jpg,Commons file GPS 218 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Cork,Ireland,Western Road (UCC),51.894662,-8.494622,File:Approaching Royal Oak tube station - geograph.org.uk - 7754378.jpg,done,File:Western Road - panoramio.jpg,Commons file GPS 85 m from the hood point; eye-checked; licence CC BY-SA 3.0
+3,Cortina d'Ampezzo,Italy,Corso Italia (Town Center),46.536928,12.137184,File:Corso Italia 2021 05.jpg,done,File:Cortina d'Ampezzo - Corso Italia.jpg,Commons file GPS 211 m from the hood point; eye-checked; licence CC BY-SA 3.0
+3,Cotonou,Benin,Haie Vive,6.351652,2.398643,"File:Arbusto junto con pasto seco, en un ambiente urbano..jpg",none,,candidate found but poor as a main photo (dark night street); no better verified photo
+3,Cox's Bazar,Bangladesh,Sugandha Point,21.425319,91.97928,File:Kanyakumari Sun rise spot.jpg,done,File:Cox's bazar town view at sugondha point.jpg,Commons file GPS 453 m from the hood point; eye-checked; licence CC BY-SA 3.0
+3,Cuenca,Ecuador,El Centro Histórico,-2.896008,-79.005168,"File:(Museo Casa del Alabado) interior, pic bb7.JPG",done,File:Vista panorámica del Centro Histórico de Cuenca.jpg,Commons file GPS 167 m from the hood point; eye-checked; licence CC BY-SA 4.0
+3,Cuenca,Ecuador,El Ejido,-2.902388,-79.008402,"File:(El Ejido, Quito) pic a1a Fountains in Quito Photography by David Adam Kess.jpg",done,"File:Río Tomebamba desde el Paseo 3 de Noviembre, Cuenca.jpg",Commons file GPS 229 m from the hood point; eye-checked; licence CC BY-SA 4.0
 4,Cuenca,Ecuador,San Sebastián,-2.895596,-79.011158,"File:Giacomo Francia, San Sebastian, Google Arts and Culture.jpg",open,,
 4,Cuiabá,Brazil,Araés,-15.588239,-56.090516,File:Schweisdorf Kirche Altar-20190616-RM-145031.jpg,open,,
 4,Cusco,Peru,Santa Ana,-13.515519,-71.985701,"File:First Baptist Church of Santa Ana, at 1011 Seventeenth Street.png",open,,
