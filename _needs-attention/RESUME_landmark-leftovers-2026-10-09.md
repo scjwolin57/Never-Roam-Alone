@@ -1,6 +1,6 @@
 # Landmark pin leftovers: ready to apply, waiting on the sheet and catalog files (2026-10-09)
 
-Jeff's answers (2026-10-09): 1 yes (Komodo Island, Manta Point, Pink Beach to day trips), 2 yes (merge Bentota sandbar), 3 review and research, 4 keep Nyika... no: keep Cyangugu Canopy Walkway and Calabar Kwa Falls as landmarks, 5 yes (China pass), 6 find photos for Cancun's Cobá, Xcaret, Xel-Há trips, else leave "Contribute a photo".
+Jeff's answers (2026-10-09): 1 yes (Komodo Island, Manta Point, Pink Beach to day trips), 2 yes (merge Bentota sandbar), 3 review and research, 4 keep Cyangugu Canopy Walkway and Calabar Kwa Falls as landmarks (nothing to do), 5 yes (China pass), 6 find photos for Cancun's Cobá, Xcaret, Xel-Há trips, else leave "Contribute a photo".
 
 Everything is researched and dry-run clean. Nothing is applied yet because another task holds the sheet (hood review follow-ups) and another holds city-landmarks.js, city-landmark-coords.js and decisions.md (Najaf D3). Stage by path when they release.
 
