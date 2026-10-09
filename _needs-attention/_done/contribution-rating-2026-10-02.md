@@ -56,3 +56,5 @@ Update, same day: the Trusted Traveler application form was replaced by a city p
 ## Closed 2026-10-08
 
 Jeff: the setup SQL has been run ("#7 already ran"). Still true: corrections have no approve step, so they earn no points until one is built (backlog, not a blocker).
+
+Update 2026-10-09: corrections now have an approve step (corrections-setup.sql, approve-correction.js, Admin → Suggestions → Corrections); see decisions.md 2026-10-09.

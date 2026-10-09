@@ -243,6 +243,11 @@
       <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip") and landmarks suggested under any city's Landmarks ("Suggest a landmark"; daytrip-suggestions-setup.sql, then landmark-suggestions-setup.sql). A suggestion never goes on the guide by itself. A day trip must pass the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city); a landmark must be inside the city, confirmed at its Google Maps link, with a pin and a licensed photo. Add it to <code>day-trips.js</code> or the landmark catalogs, citydata and the sheet, and push. Then <b>Mark added</b>: you type the name it has on the guide, the server checks it is on the live guide, marks it added, gives a signed-in member their 10 points (votes on that card then count toward their rating) and thanks them if they asked.</p>
       <p class="admin-msg" id="dts-msg"></p>
       <div id="dts-list"></div>
+
+      <div class="topbar" style="margin-top:28px"><h2>Corrections</h2></div>
+      <p class="sect-note">Messages sent from the feedback page as "Something in a city guide is wrong or out of date" (corrections-setup.sql). Nothing changes on the guide by itself: check the claim, fix citydata and the sheet through the normal checks, and push. Then <b>Mark fixed</b>: you say what you changed in a few words, it records that, gives a signed-in member their 5 correction points once, and thanks the sender (inbox for a member, otherwise by email). The screenshot, if any, is only in the email. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="admin-msg" id="cor-msg"></p>
+      <div id="cor-list"></div>
     </section>
 
     <!-- ========== EVENTS ========== -->
@@ -430,12 +435,13 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     if (wantTab === "insights") insReview = params.get("review") || "";
-    if (wantTab === "suggestions") { sugReview = params.get("review") || ""; dtsReview = params.get("tripreview") || ""; }
+    if (wantTab === "suggestions") { sugReview = params.get("review") || ""; dtsReview = params.get("tripreview") || ""; corReview = params.get("correction") || ""; }
     await loadEvents();
     await loadPhotos();
     await loadInsights();
     await loadSuggestions();
     await loadDaytripSuggestions();
+    await loadCorrections();
     await loadConn();
     loadEmailsTab();
   }
@@ -1020,6 +1026,125 @@
     } catch(err){
       btn.disabled = false;
       setMsg($("dts-msg"), (err && err.message) || "Something went wrong.", true);
+    }
+  });
+
+  /* ======================================================================
+     CORRECTIONS — feedback-page messages marked "Something in a city guide is
+     wrong or out of date" (corrections, corrections-setup.sql; Jeff 2026-10-09).
+     Mark fixed goes through approve-correction: it records what was changed,
+     gives a member their 5 points once and thanks the sender. The "Also show
+     suggestions I've already dealt with" box above covers this list too.
+     ====================================================================== */
+  let corRows = [];
+  let corReview = "";   // ?tab=suggestions&correction=<id> from the feedback email
+
+  async function loadCorrections(){
+    const { data, error } = await sb.from("corrections").select("*").order("created_at", { ascending: false });
+    if (error){
+      setMsg($("cor-msg"), "Couldn't load corrections: " + (error.message || "unknown error") +
+        " — has corrections-setup.sql been run in Supabase?", true);
+      $("cor-list").innerHTML = ""; return;
+    }
+    corRows = (data || []).sort((a, b) => (a.status === "pending" ? 0 : 1) - (b.status === "pending" ? 0 : 1));
+    const waiting = corRows.filter(r => r.status === "pending").length;
+    setMsg($("cor-msg"), waiting ? `${waiting} correction${waiting === 1 ? "" : "s"} awaiting review.` : "");
+    renderCorrections();
+  }
+
+  function renderCorrections(){
+    const wrap = $("cor-list");
+    const showDone = $("sug-show-done") && $("sug-show-done").checked;
+    const list = corRows.filter(r => showDone || r.status === "pending" || r.id === corReview);
+    if (!list.length){
+      wrap.innerHTML = `<div class="empty">${corRows.length ? "Nothing waiting on you." : "No corrections yet."}</div>`;
+      return;
+    }
+    wrap.innerHTML = list.map(r => {
+      const chip = r.status === "pending" ? `<span class="chip pending">Pending review</span>`
+                 : r.status === "fixed" ? `<span class="chip live">Fixed</span>`
+                 : `<span class="chip hidden">Declined</span>`;
+      const from = (r.user_id ? `Signed-in member (<a href="roamer.html?id=${encodeURIComponent(r.user_id)}" target="_blank" rel="noopener">profile</a>)` : "Visitor")
+                 + ` · <a href="mailto:${esc(r.email)}">${esc(r.name ? r.name + " <" + r.email + ">" : r.email)}</a>`;
+      const pageLink = r.page && /^https?:\/\//.test(r.page) ? `<a href="${esc(r.page)}" target="_blank" rel="noopener">${esc(r.page)}</a>` : esc(r.page || "no page given");
+      return `
+      <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
+        <div class="ihead">
+          <div class="info">
+            <div class="title"><span class="chip">Correction</span> ${pageLink} ${chip}</div>
+            <div class="sub">${esc(String(r.created_at || "").slice(0, 10))} · ${from}${r.has_screenshot ? " · screenshot in the email" : ""}</div>
+            ${r.fix_note ? `<div class="sub">Fixed: <b>${esc(r.fix_note)}</b></div>` : ""}
+            <div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${esc(r.message || "")}</div>
+          </div>
+          <div class="acts">
+            ${r.status !== "fixed" ? `<button class="btn small coral" data-cact="fixed" type="button">Mark fixed</button>` : ""}
+            ${r.status === "pending" ? `<button class="btn small" data-cact="decline" type="button">Decline</button>` : ""}
+            ${r.status !== "pending" ? `<button class="btn small" data-cact="reopen" type="button">Back to pending</button>` : ""}
+            <button class="btn small danger" data-cact="delete" type="button">Delete</button>
+          </div>
+        </div>
+      </div>`;
+    }).join("");
+    if (corReview){
+      const row = wrap.querySelector(`.irow[data-id="${CSS.escape(corReview)}"]`);
+      if (row){
+        row.scrollIntoView({ behavior: "smooth", block: "start" });
+        row.classList.add("flash");
+        setTimeout(() => row.classList.remove("flash"), 2600);
+      }
+      corReview = "";
+    }
+  }
+
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === "sug-show-done") renderCorrections();
+  });
+
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest("#cor-list button[data-cact]");
+    if (!btn) return;
+    const r = corRows.find(x => x.id === btn.closest(".irow").dataset.id);
+    if (!r) return;
+    const act = btn.dataset.cact;
+    let note = "";
+    if (act === "fixed") {
+      note = prompt("Is the fix on the live guide now? Say what you changed, in a few words (the sender sees this):", r.fix_note || "");
+      if (!note || !note.trim()) return;
+    }
+    if (act === "delete" && !confirm("Delete this correction? This can't be undone.")) return;
+    btn.disabled = true;
+    try {
+      let error, done = "";
+      if (act === "fixed") {
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/approve-correction", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id, note: note.trim() })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        if (d.messageId) {
+          fetch("/.netlify/functions/message-alert", {
+            method: "POST",
+            headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+            body: JSON.stringify({ messageId: d.messageId })
+          }).catch(() => {});
+        }
+        done = (d.points ? " Points given." : d.member ? " Points not given; check the logs." : "") +
+               (d.notified ? (d.via === "message" ? " Thanked in their inbox." : " Thanked by email.") : d.alreadyFixed ? "" : " Couldn't thank them; check the logs.");
+      }
+      if (act === "decline") ({ error } = await sb.from("corrections").update({ status: "declined" }).eq("id", r.id));
+      if (act === "reopen")  ({ error } = await sb.from("corrections").update({ status: "pending" }).eq("id", r.id));
+      if (act === "delete")  ({ error } = await sb.from("corrections").delete().eq("id", r.id));
+      if (error) throw error;
+      await loadCorrections();
+      setMsg($("cor-msg"), act === "fixed" ? `Marked fixed.${done}` : act === "decline" ? "Declined. Nobody was told." : act === "reopen" ? "Back in the pending list." : "Deleted.");
+    } catch(err){
+      btn.disabled = false;
+      setMsg($("cor-msg"), (err && err.message) || "Something went wrong.", true);
     }
   });
 
