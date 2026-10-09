@@ -903,10 +903,10 @@ window.NRA_HOOD_PHOTO = {
   },
   "Accra": {
     "Osu": { img:"images/hoods/accra--osu.webp", page:"https://commons.wikimedia.org/wiki/File:Alleyway,_Korle-Klottey_(P1100244).jpg", src:"Matti Blume" },
-    "Airport Residential Area": { img:"images/hoods/accra--airport-residential-area.webp", page:"https://commons.wikimedia.org/wiki/File:Green_flower_standing.jpg", src:"Niiarmahktagoe" },
     "East Legon": { img:"images/hoods/accra--east-legon.webp", page:"https://commons.wikimedia.org/wiki/File:Food_Garage,_Ayawaso_West_(P1100526).jpg", src:"Matti Blume" },
     "Labadi/La": { img:"images/hoods/accra--labadi-la.webp", page:"https://commons.wikimedia.org/wiki/File:Labadi_Beach_-_Accra_-_panoramio.jpg", src:"Ghassan Mroue" },
-    "Cantonments/Ridge": { img:"images/hoods/accra--cantonments-ridge.webp", page:"https://commons.wikimedia.org/wiki/File:Stephen_Adei.jpg", src:"Enock4seth" }
+    "Cantonments/Ridge": { img:"images/hoods/accra--cantonments-ridge.webp", page:"https://commons.wikimedia.org/wiki/File:Stephen_Adei.jpg", src:"Enock4seth" },
+    "Airport Residential Area": { img:"images/hoods/accra--airport-residential-area.webp", page:"https://commons.wikimedia.org/wiki/File:Airport_City,_Greater_Accra_Street.jpg", src:"jbdodane" }
   },
   "Addis Ababa": {
     "Kazanchis": { img:"images/hoods/addis-ababa--kazanchis.webp", page:"https://commons.wikimedia.org/wiki/File:Gasoliner%C3%ADa_en_Kazanchis,_Ad%C3%ADs_Abeba.jpg", src:"ProtoplasmaKid" },
