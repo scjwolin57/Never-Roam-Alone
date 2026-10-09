@@ -76,3 +76,14 @@ Not scanned: images with no rotation tag on Commons (4,255 listed photos), the f
 | 68 | landmarks/zhangjiajie-yuanjiajie-hallelujah-mountain.webp | 6 | sideways / upside down |
 | 69 | landmarks/zhangjiajie-bailong-elevator.webp | 6 | sideways / upside down |
 | 70 | landmarks/cesme-alacati-windmills.webp | 6 | sideways / upside down |
+
+## Second scan, 2026-10-09 (all folders, sky-position heuristic, flagged photos viewed on contact sheets)
+
+22,333 photos scanned (landmarks, cities, day trips, hoods, events, bucketlist, food; the small `-sm` copies skipped). 481 flagged and viewed. Two are wrong, not fixed yet:
+
+| file | looks | fix |
+|---|---|---|
+| images/landmarks/dali-cangshan-mountain.webp | upside down | turn 180 |
+| images/landmarks/mekele-abuna-yemata-guh.webp | sideways (person lying on their side) | turn 90 clockwise |
+
+Events, bucketlist, food, cities, day trips, hoods: none wrong. Limit: the scan finds sideways photos by where the sky is, so a sideways interior, close-up or food photo with no sky would not be flagged.
