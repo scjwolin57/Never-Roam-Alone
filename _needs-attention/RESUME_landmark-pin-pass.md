@@ -146,6 +146,12 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
   in to the Cloud console in the app's browser pane, or check APIs & Services >
   Geocoding API > Metrics yourself and say "October geocoding is near zero".
 
+### Phase 2 run attempt, 2026-10-09: stopped at the gates, 0 Google calls
+
+- **Gate A not verified (again).** The Cloud console needs Jeff's Google sign-in; an unattended run cannot read October's Geocoding usage, and test calls do not report it. No paid calls, no trial credit.
+- **Gate B: improved but not clear.** The DiscoverCars work is merged (citydata tree clean, main level with origin). But the hood review and hotel recheck sessions were still live and committed to `citydata/` today (4d6b4372, 9f2af0e9), so a pin write could collide with them.
+- To run: Jeff checks APIs & Services > Geocoding API > Metrics and says "October geocoding is near zero", and the hood review sessions are closed or paused. Then say "go" and the pass runs at once (1,949 rows, batches of 25 cities).
+
 ## Open for Jeff
 
 - `landmarks-that-are-day-trips.md` - 317 landmark pins now sit more than 30 km
