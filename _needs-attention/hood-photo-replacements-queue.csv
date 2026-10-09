@@ -74,31 +74,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 3,Cox's Bazar,Bangladesh,Sugandha Point,21.425319,91.97928,File:Kanyakumari Sun rise spot.jpg,done,File:Cox's bazar town view at sugondha point.jpg,Commons file GPS 453 m from the hood point; eye-checked; licence CC BY-SA 3.0
 3,Cuenca,Ecuador,El Centro Histórico,-2.896008,-79.005168,"File:(Museo Casa del Alabado) interior, pic bb7.JPG",done,File:Vista panorámica del Centro Histórico de Cuenca.jpg,Commons file GPS 167 m from the hood point; eye-checked; licence CC BY-SA 4.0
 3,Cuenca,Ecuador,El Ejido,-2.902388,-79.008402,"File:(El Ejido, Quito) pic a1a Fountains in Quito Photography by David Adam Kess.jpg",done,"File:Río Tomebamba desde el Paseo 3 de Noviembre, Cuenca.jpg",Commons file GPS 229 m from the hood point; eye-checked; licence CC BY-SA 4.0
-4,Cuenca,Ecuador,San Sebastián,-2.895596,-79.011158,"File:Giacomo Francia, San Sebastian, Google Arts and Culture.jpg",open,,
-4,Cuiabá,Brazil,Araés,-15.588239,-56.090516,File:Schweisdorf Kirche Altar-20190616-RM-145031.jpg,open,,
-4,Cusco,Peru,Santa Ana,-13.515519,-71.985701,"File:First Baptist Church of Santa Ana, at 1011 Seventeenth Street.png",open,,
-4,Da Lat,Vietnam,City Centre (Hoa Binh Square & Xuan Huong Lake),11.94352,108.43721,File:Calle Imperial (85945).jpg,open,,
-4,Dallas,United States,Bishop Arts District,32.747256,-96.83041,File:Bishop Residence.JPG,open,,
-4,Dar es Salaam,Tanzania,City Centre / Kivukoni,-6.814197,39.290137,File:Coconut palms (25819100123).jpg,open,,
-4,Datong,China,Datong Ancient City,40.090296,113.295246,File:Pingyaogucheng Railway Station.jpg,open,,
-4,Datong,China,Hongqi Square (Downtown),40.094853,113.283565,File:Platform of Jianshe Square Station (20220824144539).jpg,open,,
-4,Davao,Philippines,Bajada,7.088282,125.605354,File:1718704127742 20240617 BAJADA Thomas MT 007.jpg,open,,
-4,Denizli,Türkiye,Bayramyeri / City Center,37.769792,29.09265,"File:The Salepci Oglu Mosque, Bayramyeri, Izmir, Turkey.jpg",open,,
-4,Denizli,Türkiye,Çamlık,37.748683,29.086362,"File:Çamlık, Selçuk.jpg",open,,
-4,Dhaka,Bangladesh,Banani,23.793671,90.406608,"File:ASC Leiden - W.E.A. van Beek Collection - Dogon lifestock 01 - A herd of goats near the mountain of Yugo, Banani, Mali 1980.jpg",open,,
-4,Dili,Timor-Leste,Farol,-8.548265,125.568377,File:Farol da barra.jpg,open,,
-4,Djanet,Algeria,Ifri,24.481223,9.506624,File:Soda Ifri - 20110516 (1).jpg,open,,
-4,Durban,South Africa,Florida Road (Morningside),-29.827503,31.010291,File:Airport S FL17 - W FL64.jpg,open,,
-4,Durham,United Kingdom,City Centre & The Bailey,54.771046,-1.578435,File:Two New Bailey Salford February 2025.jpg,open,,
-4,Durrës,Albania,Qendra (Historic Center & Port),41.312123,19.445002,File:Emergency UCCK.jpg,open,,
-4,Dushanbe,Tajikistan,Shah Mansur (Green Bazaar),38.566841,68.801197,File:India2012 Maharashtra Bid Mansur Shah Dargah.jpg,open,,
-4,Dushanbe,Tajikistan,Zarafshon,38.584404,68.718478,File:Qishloq koʻchalaridan biri.jpg,open,,
-4,Edirne,Türkiye,Kiyik,41.678208,26.568853,File:Gazella subgutturosa subgutturosa Zoo Karlsruhe 2025-09-01T16-27-31.jpg,open,,
-4,Eilat,Israel,Coral Beach,29.507946,34.921068,"File:Blue Coral Beach, Kissonerga, Kypr 01.jpg",open,,
-4,Eilat,Israel,New Tourist Center,29.54972,34.958825,"File:Florida Marine Welcome Center, Fernandina Beach, Florida LCCN2017712533.tif",open,,
-4,Eilat,Israel,North Beach,29.551181,34.965207,File:Locomotive and tractor on display LCCN2016824036.tif,open,,
-4,Eilat,Israel,The Lagoon / Marina,29.554255,34.960126,File:Trifid and Lagoon nebulae.jpg,open,,
-4,El Calafate,Argentina,Av. del Libertador (Main Street),-50.339309,-72.281759,File:A PASO DE HOMBRE.jpg,open,,
+4,Cuenca,Ecuador,San Sebastián,-2.895596,-79.011158,"File:Giacomo Francia, San Sebastian, Google Arts and Culture.jpg",done,File:Cuenca Iglesia San Sebastián seen from the south.jpg,Commons file GPS 15 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Cuiabá,Brazil,Araés,-15.588239,-56.090516,File:Schweisdorf Kirche Altar-20190616-RM-145031.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest is the Rosário church in the historic centre, not Araés; nothing else usable"
+4,Cusco,Peru,Santa Ana,-13.515519,-71.985701,"File:First Baptist Church of Santa Ana, at 1011 Seventeenth Street.png",done,File:Fiestas patrias Cusco 2023 016.jpg,Commons file GPS 128 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Da Lat,Vietnam,City Centre (Hoa Binh Square & Xuan Huong Lake),11.94352,108.43721,File:Calle Imperial (85945).jpg,done,File:Xuân Hương Lake (16373034750).jpg,Commons file GPS 389 m from the hood point; eye-checked; licence CC BY 2.0
+4,Dallas,United States,Bishop Arts District,32.747256,-96.83041,File:Bishop Residence.JPG,done,"File:Bishop Arts District September 2016 3 (Indigo, Zen, and SalonOLines).jpg",Commons file GPS 308 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Dar es Salaam,Tanzania,City Centre / Kivukoni,-6.814197,39.290137,File:Coconut palms (25819100123).jpg,done,"File:Shaaban Robert Street, Kivukoni ward, Ilala District.jpg",Commons file GPS 482 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Datong,China,Datong Ancient City,40.090296,113.295246,File:Pingyaogucheng Railway Station.jpg,done,File:Datong Gulou 2013.08.29 10-29-57.jpg,Commons file GPS 23 m from the hood point; eye-checked; licence CC BY-SA 3.0
+4,Datong,China,Hongqi Square (Downtown),40.094853,113.283565,File:Platform of Jianshe Square Station (20220824144539).jpg,done,"File:Datong, Shanxi, China - panoramio.jpg",Commons file GPS 435 m from the hood point; eye-checked; licence CC BY 3.0
+4,Davao,Philippines,Bajada,7.088282,125.605354,File:1718704127742 20240617 BAJADA Thomas MT 007.jpg,done,File:Abreeza Tower - Seda Hotel - panoramio.jpg,Commons file GPS 618 m from the hood point; eye-checked; licence CC BY 3.0
+4,Denizli,Türkiye,Bayramyeri / City Center,37.769792,29.09265,"File:The Salepci Oglu Mosque, Bayramyeri, Izmir, Turkey.jpg",done,File:Mosquée Delikliçınar-Denizli.jpg,Commons file GPS 594 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Denizli,Türkiye,Çamlık,37.748683,29.086362,"File:Çamlık, Selçuk.jpg",none,,candidate found but poor as a main photo (a single bush in a park); no better verified photo
+4,Dhaka,Bangladesh,Banani,23.793671,90.406608,"File:ASC Leiden - W.E.A. van Beek Collection - Dogon lifestock 01 - A herd of goats near the mountain of Yugo, Banani, Mali 1980.jpg",done,File:Ahmed Tower Banani.jpg,Commons file GPS 174 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Dili,Timor-Leste,Farol,-8.548265,125.568377,File:Farol da barra.jpg,done,"File:Dili Harbor Lighthouse, 2023 (03).jpg",Commons file GPS 19 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Djanet,Algeria,Ifri,24.481223,9.506624,File:Soda Ifri - 20110516 (1).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a road sign at the district edge"
+4,Durban,South Africa,Florida Road (Morningside),-29.827503,31.010291,File:Airport S FL17 - W FL64.jpg,done,File:Along Florida Road (54331633898).jpg,Commons file GPS 771 m from the hood point; eye-checked; licence CC BY 2.0
+4,Durham,United Kingdom,City Centre & The Bailey,54.771046,-1.578435,File:Two New Bailey Salford February 2025.jpg,done,File:Restoration of Prebends Bridge over the River Wear in Durham City - geograph.org.uk - 2354200.jpg,Commons file GPS 59 m from the hood point; eye-checked; licence CC BY-SA 2.0
+4,Durrës,Albania,Qendra (Historic Center & Port),41.312123,19.445002,File:Emergency UCCK.jpg,done,File:Amphitheatre of Durrës Albania 2018 2.jpg,Commons file GPS 41 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Dushanbe,Tajikistan,Shah Mansur (Green Bazaar),38.566841,68.801197,File:India2012 Maharashtra Bid Mansur Shah Dargah.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a demolition site and grey street shots"
+4,Dushanbe,Tajikistan,Zarafshon,38.584404,68.718478,File:Qishloq koʻchalaridan biri.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only school groups and festival decorations of unclear district"
+4,Edirne,Türkiye,Kiyik,41.678208,26.568853,File:Gazella subgutturosa subgutturosa Zoo Karlsruhe 2025-09-01T16-27-31.jpg,done,File:Amcazade Hüseyin Paşa Çeşmesi.jpg,Commons file GPS 342 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Eilat,Israel,Coral Beach,29.507946,34.921068,"File:Blue Coral Beach, Kissonerga, Kypr 01.jpg",done,File:Eilat Coral Reserve.jpg,Commons file GPS 168 m from the hood point; eye-checked; licence CC BY 4.0
+4,Eilat,Israel,New Tourist Center,29.54972,34.958825,"File:Florida Marine Welcome Center, Fernandina Beach, Florida LCCN2017712533.tif",done,File:Eilat Hilton QueenHotel E17.jpg,Commons file GPS 112 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Eilat,Israel,North Beach,29.551181,34.965207,File:Locomotive and tractor on display LCCN2016824036.tif,done,File:Drone Flight over Eilat Facing West.JPG,Commons file GPS 72 m from the hood point; eye-checked; licence CC BY-SA 4.0
+4,Eilat,Israel,The Lagoon / Marina,29.554255,34.960126,File:Trifid and Lagoon nebulae.jpg,done,File:Eilat Lagoon.jpg,Commons file GPS 478 m from the hood point; eye-checked; licence CC BY-SA 3.0
+4,El Calafate,Argentina,Av. del Libertador (Main Street),-50.339309,-72.281759,File:A PASO DE HOMBRE.jpg,done,File:El Calafate - centrum - panoramio (1).jpg,Commons file GPS 1178 m from the hood point; eye-checked; licence CC BY 3.0
 5,El Chaltén,Argentina,Village Center,-49.331956,-72.886044,File:Fallschase Village Center sign.jpg,open,,
 5,El Nido,Philippines,Corong-Corong,11.169305,119.394681,File:032 Corong.jpg,open,,
 5,El Nido,Philippines,Las Cabanas / Marimegmeg Beach,11.146773,119.396754,File:Castle of Las Cabañas de Castilla 004.JPG,open,,
