@@ -19,6 +19,13 @@
   const CA = (slug, d) => ({ t: "Government of Canada", u: "https://travel.gc.ca/destinations/" + slug, d });
   const congo = { n: "Self-drive cars are hard to find here: most car hire companies in Kinshasa only rent a car with a driver.",
     k: ["no_self_drive"], src: [FCDO("democratic-republic-of-the-congo/safety-and-security", "2026-09-16"), { t: "US State Department (data feed)", u: "https://cadataapi.state.gov/api/CountryTravelInformation", d: "2026-09-17" }], chk: "2026-10-07" };
+  // Türkiye (Jeff, 2026-10-09): the law (Highway Traffic Regulation art. 88) lets a foreigner drive on a home licence
+  // for 6 months from entry; the non-Latin-script rule is the rental companies' own (Sixt Turkey, Turkey Rent Car).
+  const turkey = { n: "A foreign driving licence is valid in Türkiye for up to six months from the day you arrive. If yours is not in the Latin alphabet (Arabic, Cyrillic, Japanese and so on), rental companies also ask for an International Driving Permit or a translation.",
+    k: ["licence"], src: [{ t: "Embassy of Türkiye in Prague (Highway Traffic Regulation art. 88)", u: "https://prague-emb.mfa.gov.tr/Content/assets/consulate/images/localCache/1/7fa987f7-95ec-468e-ae3c-c7b0ccd35f1c.pdf", d: "2026-07-28" },
+      { t: "US State Department (data feed)", u: "https://cadataapi.state.gov/api/CountryTravelInformation", d: "2026-06-11" },
+      { t: "Sixt Turkey (rental terms)", u: "https://www.sixt.com.tr/en/help-center/important-documents", d: "undated" },
+      { t: "Turkey Rent Car (rental terms)", u: "https://turkey-rentcar.ru/en/info/driving-license-in-turkey/", d: "undated" }], chk: "2026-10-09" };
   window.NRA_RENT_NOTES = {
     "Belarus": { n: "Because of sanctions, almost no banks in Belarus accept foreign cards, and your own bank may block your card there. Check how the rental company will take payment and the deposit before you book.",
       k: ["booking"], src: [FCDO("belarus/safety-and-security", "2026-09-10"), { t: "German Federal Foreign Office", u: "https://www.auswaertiges-amt.de/de/reiseundsicherheit/belarussicherheit-201904", d: "2026-06-19" }], chk: "2026-10-06" },
@@ -64,6 +71,8 @@
       k: ["licence"], src: [FCDO("sri-lanka", "2026-09-21"), CA("sri-lanka", "2026-07-07")], chk: "2026-10-07" },
     "St. Kitts and Nevis": { n: "You must buy a local visitor's driving licence; your own licence or an International Driving Permit is not enough on its own. Rental companies usually help arrange it.",
       k: ["licence"], src: [DOS("SaintKittsandNevis", "2024-12-31"), FCDO("st-kitts-and-nevis", "2026-01-05")], chk: "2026-10-06" },
+    "Turkey": turkey,
+    "Türkiye": turkey,
     "Vietnam": { n: "Vietnam accepts only the 1968 version of the International Driving Permit. A US licence, even with a US-issued permit, is not valid for driving there.",
       k: ["convention"], src: [{ t: "US Embassy Vietnam", u: "https://vn.usembassy.gov/driving-in-vietnam/", d: "undated" }, FCDO("vietnam", "2026-09-21")], chk: "2026-10-06" }
   };
