@@ -22,12 +22,14 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~**A1. Push to the live site.** Many commits since 7 Oct are local only. Say "push it" (or push from Terminal) once you have looked at them.~~ done 2026-10-09: 15 commits pushed (656d4a4a..1805f697) after every check passed on the committed state.
 - **A2. Send the Flickr permission requests:** 11 photos marked "ready to ask". Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
 - **A3. Plausible analytics signup** (backlog 29): the script is already on every page.
-- **A4. Google Cloud check for the landmark pin pass:** APIs & Services > Geocoding API > Metrics, then say "October geocoding is near zero". The pass waits on it. *`RESUME_landmark-pin-pass.md`*
+- ~~**A4. Google Cloud check for the landmark pin pass.**~~ done 2026-10-09: October geocoding was near zero; the Google geocoding pass and the Places pass both ran (`RESUME_landmark-pin-pass.md`).
 - **A5. Partnerize:** open the new account and apply to the Expedia (US) and Hostelworld campaigns (decided 2026-10-05), if not done yet. *`hotel-resourcing-plan-2026-10-01.md`*
 - **A6. Bing Webmaster Tools** (backlog 28), about 10 minutes.
 - **A7. Launch day:** delete the noindex line in `netlify.toml`, push, set up Google Search Console and submit the sitemap; then the monthly Search Console check (backlog 33).
 - **A8. Kiwitaxi: new account link.** You are moving to a new Kiwitaxi account; paste the new partner link (or change `KIWITAXI_TAG` in city.html) and confirm in the dashboard that clicks earn commission (the current link is recorded as a "Kiwitaxi Business" program). Used on 39 guides. *`car-rental-second-program-2026-10-06.md`*
 - **A9. NRA-MASTER.xlsx: delete the empty "Intl Driving Permit" column** in Live Cities (emptied 2026-10-08 when the permit row moved to the Driving Permits tab; the sheet tool can clear cells but not delete a column). *`intl-permit-definition-2026-10-08.md`*
+
+- **Landmark pin pass leftovers (2026-10-09), say "go" on any:** (1) Komodo Island, Manta Point and Pink Beach (Labuan Bajo) are boat-only, 45+ km out: day trips? (2) Bentota Paradise Island Sandbar sits 150 m from the Bentota Beach landmark: merge? (3) Other landmarks pinned wrongly inside a city but really far away (Places hits 30+ km off, in `landmark-pins-places-results-2026-10-09.csv`, e.g. Nyika in Lilongwe, Tsingy in Morondava, Isla Martillo in Ushuaia): review and move. (4) Cyangugu Nyungwe Canopy Walkway (33 km) and Calabar Kwa Falls (25 km): day trips? (5) China pins: Places hits were not converted from GCJ-02, so none were applied; run a China pass? (6) Cancún's Cobá, Xcaret and Xel-Há trips have no photo yet. *`RESUME_landmark-pin-pass.md`*
 
 ## 3. Say "go" and it gets done
 
