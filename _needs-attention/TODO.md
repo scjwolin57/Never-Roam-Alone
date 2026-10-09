@@ -17,7 +17,7 @@ never deleted; new items for you are added under the right heading. Details live
 
 ## 2. Things only you can do
 
-- **A1. Push to the live site.** Many commits since 7 Oct are local only. Say "push it" (or push from Terminal) once you have looked at them.
+- ~~**A1. Push to the live site.** Many commits since 7 Oct are local only. Say "push it" (or push from Terminal) once you have looked at them.~~ done 2026-10-09: 15 commits pushed (656d4a4a..1805f697) after every check passed on the committed state.
 - **A2. Send the Flickr permission requests:** 11 photos marked "ready to ask". Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
 - **A3. Plausible analytics signup** (backlog 29): the script is already on every page.
 - **A4. Google Cloud check for the landmark pin pass:** APIs & Services > Geocoding API > Metrics, then say "October geocoding is near zero". The pass waits on it. *`RESUME_landmark-pin-pass.md`*
