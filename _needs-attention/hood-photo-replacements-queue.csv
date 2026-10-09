@@ -224,31 +224,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 9,Mazatlán,Mexico,Cerritos,23.304895,-106.485556,File:HUNTINGTON SOLANO-REEVE Rancho Los Cerritos circa 1870 official survey plat by Henry Hancock.jpg,none,,candidate found but poor as a main photo (grey rocks under a grey sky); no better verified photo
 9,Medan,Indonesia,Merdeka / Sudirman,3.57311,98.657308,"File:23.10.2025 - Celebração do aniversário do Presidente da República, Luiz Inácio Lula da Silva e do Presidente da República da Indonésia, Prabowo Subianto (54874775946).jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the university campus, not Merdeka / Sudirman"
 9,Mendoza,Argentina,Quinta Sección,-32.885408,-68.857586,"File:Basílica de Nuestra Señora de la Candelaria, Candelaria, Tenerife, España, 2012-12-12, DD 06.jpg",done,"File:Mendoza, Capital Department, Mendoza Province, Argentina - panoramio (21).jpg",Commons file GPS 364 m from the hood point; eye-checked; licence CC BY 3.0
-10,Monastir,Tunisia,City Centre & Corniche,35.777825,10.828382,File:Muttrah-Muscat مطرح، مسقط 29 (مرغ دریایی).jpg,open,,
-10,Monrovia,Liberia,Congo Town,6.268733,-10.732166,File:Dried fish - Oyo - Congo.JPG,open,,
-10,Mont-Saint-Michel,France,Mainland Visitor Village,48.61317,-1.509685,"File:Oak Island, Brunswick County, North Carolina, United States (2024-05-18-02-25-59 UMBRA-05).tiff",open,,
-10,Montego Bay,Jamaica,Ironshore,18.507403,-77.896636,File:West Bay sand from Conocarpus on Ironshore 1979 (27093331579).jpg,open,,
-10,Monterrey,Mexico,Valle Oriente,25.658768,-100.347684,File:Virgen del Valle from Margarita island.jpg,open,,
-10,Morelia,Mexico,Chapultepec Norte,19.695894,-101.174477,"File:Escultura de ""la Diana Cazadora"".jpg",open,,
-10,Morelia,Mexico,Las Américas (Camelinas),19.690781,-101.156159,File:Unidades Busscar en Las Américas L2.jpg,open,,
-10,Morondava,Madagascar,Nosy Kely,-20.299387,44.268036,"File:L'Île Coco in Saint Brandon, one of the Thirteen Islands of Raphael Fishing Company.jpg",open,,
-10,Moshi,Tanzania,Shanty Town,-3.328994,37.320807,File:Callejón de un solo caño.jpg,open,,
-10,Mostar,Bosnia and Herzegovina,Cernica,43.343318,17.809107,File:Notocochlis sagittata hancockae MA71330-a.jpg,open,,
-10,Murree,Pakistan,Mall Road,33.905205,73.392116,File:Bharat Sanchar Nigam Limited - Office Building - Kali Bari Road and Mall Road - Shimla 2014-05-07 1330-1331.TIF,open,,
-10,Mytilene,Greece,Sourada / Akrotiri,39.090731,26.561221,File:Fedora 19 default wallpaper.jpg,open,,
-10,Mytilene,Greece,Town Centre & Harbour,39.103936,26.554517,"File:Eats Street, Harbour Town Shopping Centre, 2025.jpg",open,,
-10,Mytilene,Greece,Varia (Vareia),39.080983,26.578229,File:Cages d'élevage de juvéniles de pétoncles noirs (Ifremer 00735-84701 - 40414).jpg,open,,
-10,Mérida,Mexico,Santiago,20.970359,-89.630006,"File:Casa del Ángel del Sol - Jardín de Colibríes, un santuario ecológico ubicado en el sector Monterrey, El Valle, estado Mérida, Venezuela..jpg",open,,
-10,Nablus,Palestine,Al-Manara/Downtown,32.221146,35.260772,"File:Al-Manara Square, Ramallah 03.jpg",open,,
-10,Nablus,Palestine,Ras al-Ein,32.216648,35.259261,File:The Al-Rahma Mosque in Ras El-Bar.jpg,open,,
-10,Nagano,Japan,Nagano Station Area,36.643124,138.188644,File:Alpico Kamikochi line Hata station ticket vending machine.jpg,open,,
-10,Nairobi,Kenya,Kilimani,-1.289279,36.786931,"File:Admiralty Chart No 2935 Quelimane to Ilha Epidendron, Published 1962.jpg",open,,
-10,Nakhon Ratchasima,Thailand,Mittraphap Road,14.982495,102.089955,"File:Friendship Highway, Tibet- DSC03222.jpg",open,,
-10,Nakuru,Kenya,Free Area,-0.29612,36.123306,File:Space Shuttle Columbia launching.jpg,open,,
-10,Nakuru,Kenya,Milimani,-0.2935,36.0645,File:Andropadus milanjensis.JPG,open,,
-10,Nassau,Bahamas,Downtown Nassau (Bay Street),25.077933,-77.340441,File:Aerial photo of WTC groundzero.jpg,open,,
-10,Nelspruit,South Africa,West Acres,-25.479542,30.95027,File:All Saints Church Notice Board - geograph.org.uk - 5547083.jpg,open,,
-10,Nha Trang,Vietnam,Cho Dam (Old Market),12.254951,109.191816,File:Artificial Lotus - Vietnam - Hoa sen gia - chat lieu bang cao su.jpg,open,,
+10,Monastir,Tunisia,City Centre & Corniche,35.777825,10.828382,File:Muttrah-Muscat مطرح، مسقط 29 (مرغ دریایی).jpg,done,File:Bourguiba Mausoleum - april 2012 - 2.JPG,Commons file GPS 71 m from the hood point; eye-checked; licence CC0
+10,Monrovia,Liberia,Congo Town,6.268733,-10.732166,File:Dried fish - Oyo - Congo.JPG,done,"File:Monrovia, Liberia - panoramio (42).jpg",Commons file GPS 317 m from the hood point; eye-checked; licence CC BY 3.0
+10,Mont-Saint-Michel,France,Mainland Visitor Village,48.61317,-1.509685,"File:Oak Island, Brunswick County, North Carolina, United States (2024-05-18-02-25-59 UMBRA-05).tiff",none,,candidate found but poor as a main photo (an empty road in the 3:4 crop); no better verified photo
+10,Montego Bay,Jamaica,Ironshore,18.507403,-77.896636,File:West Bay sand from Conocarpus on Ironshore 1979 (27093331579).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only aerial survey imagery after Hurricane Melissa"
+10,Monterrey,Mexico,Valle Oriente,25.658768,-100.347684,File:Virgen del Valle from Margarita island.jpg,done,"File:Valle Oriente, San Pedro Garza García - panoramio.jpg",Commons file GPS 694 m from the hood point; eye-checked; licence CC BY-SA 3.0
+10,Morelia,Mexico,Chapultepec Norte,19.695894,-101.174477,"File:Escultura de ""la Diana Cazadora"".jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a theatre performance indoors"
+10,Morelia,Mexico,Las Américas (Camelinas),19.690781,-101.156159,File:Unidades Busscar en Las Américas L2.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cars, plants and insects"
+10,Morondava,Madagascar,Nosy Kely,-20.299387,44.268036,"File:L'Île Coco in Saint Brandon, one of the Thirteen Islands of Raphael Fishing Company.jpg",done,File:Vue de Morondava janvier 2023 2.jpg,Commons file GPS 542 m from the hood point; eye-checked; licence CC BY-SA 4.0
+10,Moshi,Tanzania,Shanty Town,-3.328994,37.320807,File:Callejón de un solo caño.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a road, a clinic and a library over 1.7 km away"
+10,Mostar,Bosnia and Herzegovina,Cernica,43.343318,17.809107,File:Notocochlis sagittata hancockae MA71330-a.jpg,done,File:Mostar (49032844696).jpg,Commons file GPS 52 m from the hood point; eye-checked; licence CC BY 2.0
+10,Murree,Pakistan,Mall Road,33.905205,73.392116,File:Bharat Sanchar Nigam Limited - Office Building - Kali Bari Road and Mall Road - Shimla 2014-05-07 1330-1331.TIF,none,,candidate found but poor as a main photo (a roadside bank of bushes in the 3:4 crop); no better verified photo
+10,Mytilene,Greece,Sourada / Akrotiri,39.090731,26.561221,File:Fedora 19 default wallpaper.jpg,done,File:Fotiadis Tower - Mavroudis Kostas - 2181437040.jpg,Commons file GPS 167 m from the hood point; eye-checked; licence CC BY-SA 2.0
+10,Mytilene,Greece,Town Centre & Harbour,39.103936,26.554517,"File:Eats Street, Harbour Town Shopping Centre, 2025.jpg",done,File:Ναός Αγίου Θεράποντα Μυτιλήνης (1).jpg,Commons file GPS 134 m from the hood point; eye-checked; licence CC BY-SA 4.0
+10,Mytilene,Greece,Varia (Vareia),39.080983,26.578229,File:Cages d'élevage de juvéniles de pétoncles noirs (Ifremer 00735-84701 - 40414).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only plant, animal and doorknocker close-ups"
+10,Mérida,Mexico,Santiago,20.970359,-89.630006,"File:Casa del Ángel del Sol - Jardín de Colibríes, un santuario ecológico ubicado en el sector Monterrey, El Valle, estado Mérida, Venezuela..jpg",done,"File:Iglesia de Santiago Apóstol, Mérida, Yucatán (02).jpg",Commons file GPS 66 m from the hood point; eye-checked; licence CC0
+10,Nablus,Palestine,Al-Manara/Downtown,32.221146,35.260772,"File:Al-Manara Square, Ramallah 03.jpg",done,File:Manara Clock Tower in Nablus 020 - Aug 2011.jpg,Commons file GPS 253 m from the hood point; eye-checked; licence CC BY 3.0
+10,Nablus,Palestine,Ras al-Ein,32.216648,35.259261,File:The Al-Rahma Mosque in Ras El-Bar.jpg,done,File:جمال وعراقة حارات مدينة نابلس.jpg,Commons file GPS 230 m from the hood point; eye-checked; licence CC BY-SA 4.0
+10,Nagano,Japan,Nagano Station Area,36.643124,138.188644,File:Alpico Kamikochi line Hata station ticket vending machine.jpg,done,File:Shinano Railway-JR East Nagano Station (32606945317).jpg,Commons file GPS 35 m from the hood point; eye-checked; licence CC BY-SA 2.0
+10,Nairobi,Kenya,Kilimani,-1.289279,36.786931,"File:Admiralty Chart No 2935 Quelimane to Ilha Epidendron, Published 1962.jpg",done,File:Kilimani.jpg,Commons file GPS 405 m from the hood point; eye-checked; licence CC BY 4.0
+10,Nakhon Ratchasima,Thailand,Mittraphap Road,14.982495,102.089955,"File:Friendship Highway, Tibet- DSC03222.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only shopping-mall interiors and a show stage"
+10,Nakuru,Kenya,Free Area,-0.29612,36.123306,File:Space Shuttle Columbia launching.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nothing placeable; nearest is the national park gate 1.9 km away"
+10,Nakuru,Kenya,Milimani,-0.2935,36.0645,File:Andropadus milanjensis.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a generator and national-park wildlife"
+10,Nassau,Bahamas,Downtown Nassau (Bay Street),25.077933,-77.340441,File:Aerial photo of WTC groundzero.jpg,done,File:Downtown Nassau - panoramio (4).jpg,Commons file GPS 69 m from the hood point; eye-checked; licence CC BY 3.0
+10,Nelspruit,South Africa,West Acres,-25.479542,30.95027,File:All Saints Church Notice Board - geograph.org.uk - 5547083.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only one stadium crowd shot 1.7 km away"
+10,Nha Trang,Vietnam,Cho Dam (Old Market),12.254951,109.191816,File:Artificial Lotus - Vietnam - Hoa sen gia - chat lieu bang cao su.jpg,done,File:Dam Market Nha Trang 1.jpg,Commons file GPS 50 m from the hood point; eye-checked; licence CC BY-SA 4.0
 11,Nouakchott,Mauritania,Ksar,18.105437,-15.9553,File:Heddada 8372.jpg,open,,
 11,Nouméa,New Caledonia,Quartier Latin,-22.276568,166.445463,File:Clocher de l’Église Saint-Jacques (Montréal).jpg,open,,
 11,Nuremberg,Germany,Südstadt,49.43645,11.091563,File:1918-1939 circa Open GeoData Plan der Hauptstadt Hannover 1 zu 1000 (Historisch) Kachel So 402a.jpg,open,,

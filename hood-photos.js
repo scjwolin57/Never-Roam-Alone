@@ -3066,7 +3066,8 @@ window.NRA_HOOD_PHOTO = {
   "Mérida": {
     "Centro Histórico": { img:"images/hoods/merida--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Vestigios_de_piedras_mayas_reutilizadas_en_edificio_del_Centro_Hist%C3%B3rico_de_M%C3%A9rida,_Yucat%C3%A1n.jpg", src:"Titi arqui" },
     "Paseo de Montejo": { img:"images/hoods/merida--paseo-de-montejo.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_del_Paseo_Montejo,_M%C3%A9rida,_Yucat%C3%A1n.jpg", src:"Bianca102023" },
-    "Santa Ana": { img:"images/hoods/merida--santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:Estatua_de_Andr%C3%A9s_Quintana_Roo,_M%C3%A9rida,_Yucat%C3%A1n_(02).JPG", src:"Inri" }
+    "Santa Ana": { img:"images/hoods/merida--santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:Estatua_de_Andr%C3%A9s_Quintana_Roo,_M%C3%A9rida,_Yucat%C3%A1n_(02).JPG", src:"Inri" },
+    "Santiago": { img:"images/hoods/merida--santiago.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_de_Santiago_Ap%C3%B3stol,_M%C3%A9rida,_Yucat%C3%A1n_(02).jpg", src:"Inri" }
   },
   "Mingora": {
     "Saidu Sharif": { img:"images/hoods/mingora--saidu-sharif.webp", page:"https://commons.wikimedia.org/wiki/File:Faizabad,_Saidu_Shariff_Swat,_KPK,_Pakistan.JPG", src:"Jawad1912" },
@@ -3087,12 +3088,14 @@ window.NRA_HOOD_PHOTO = {
     "Bamburi Beach": { img:"images/hoods/mombasa--bamburi-beach.webp", page:"https://commons.wikimedia.org/wiki/File:BAMBURI_BEACH.MOMBASA_-_panoramio.jpg", src:"Kayhan ERTUGRUL" }
   },
   "Monastir": {
-    "Skanès (Zone Touristique)": { img:"images/hoods/monastir--skanes-zone-touristique.webp", page:"https://commons.wikimedia.org/wiki/File:Le_palais.JPG", src:"Cyrine kalboussi" }
+    "Skanès (Zone Touristique)": { img:"images/hoods/monastir--skanes-zone-touristique.webp", page:"https://commons.wikimedia.org/wiki/File:Le_palais.JPG", src:"Cyrine kalboussi" },
+    "City Centre & Corniche": { img:"images/hoods/monastir--city-centre-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Bourguiba_Mausoleum_-_april_2012_-_2.JPG", src:"Benoît Prieur" }
   },
   "Monrovia": {
     "Mamba Point": { img:"images/hoods/monrovia--mamba-point.webp", page:"https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_F._van_der_Kraaij_Collection_-_14_-_69_-_Tall_slender_palm_trees_behind_an_asphalt_road_near_the_Atlantic_Ocean_-_Mamba_Point,_Monrovia,_Montserrado_County,_Liberia_-_1977-1978.tif", src:"Fred van der Kraaij" },
     "Downtown / Broad Street": { img:"images/hoods/monrovia--downtown-broad-street.webp", page:"https://commons.wikimedia.org/wiki/File:Atlantic_Compound_Pool_side_-_panoramio.jpg", src:"McNeal" },
-    "Sinkor": { img:"images/hoods/monrovia--sinkor.webp", page:"https://commons.wikimedia.org/wiki/File:Liberia,_Africa_-_panoramio_(180).jpg", src:"blk24ga" }
+    "Sinkor": { img:"images/hoods/monrovia--sinkor.webp", page:"https://commons.wikimedia.org/wiki/File:Liberia,_Africa_-_panoramio_(180).jpg", src:"blk24ga" },
+    "Congo Town": { img:"images/hoods/monrovia--congo-town.webp", page:"https://commons.wikimedia.org/wiki/File:Monrovia,_Liberia_-_panoramio_(42).jpg", src:"blk24ga" }
   },
   "Mont-Saint-Michel": {
     "Grande Rue": { img:"images/hoods/mont-saint-michel--grande-rue.webp", page:"https://commons.wikimedia.org/wiki/File:Fa%C3%A7ade_est_du_Vieux_logis_(Le_Mont-Saint-Michel,_Manche,_France).jpg", src:"Edouard Hue (EdouardHue)" }
@@ -3106,7 +3109,8 @@ window.NRA_HOOD_PHOTO = {
     "Centro (Macroplaza)": { img:"images/hoods/monterrey--centro-macroplaza.webp", page:"https://commons.wikimedia.org/wiki/File:Museo_MARCO_-_panoramio.jpg", src:"JavierDo" },
     "Barrio Antiguo": { img:"images/hoods/monterrey--barrio-antiguo.webp", page:"https://commons.wikimedia.org/wiki/File:Catedral_-_panoramio_(31).jpg", src:"JavierDo" },
     "San Pedro Garza Garcia": { img:"images/hoods/monterrey--san-pedro-garza-garcia.webp", page:"https://commons.wikimedia.org/wiki/File:El_cantante_mexicano_Deny_Kotasek_en_Fashion_Drive_en_San_Pedro_Garza_Garc%C3%ADa,_Nuevo_Le%C3%B3n,_M%C3%A9xico.jpg", src:"Lahazañavive" },
-    "Obispado": { img:"images/hoods/monterrey--obispado.webp", page:"https://commons.wikimedia.org/wiki/File:Antiguo_Obispado_o_Museo_Regional_de_Nuevo_Le%C3%B3n.JPG", src:"Brendablue77" }
+    "Obispado": { img:"images/hoods/monterrey--obispado.webp", page:"https://commons.wikimedia.org/wiki/File:Antiguo_Obispado_o_Museo_Regional_de_Nuevo_Le%C3%B3n.JPG", src:"Brendablue77" },
+    "Valle Oriente": { img:"images/hoods/monterrey--valle-oriente.webp", page:"https://commons.wikimedia.org/wiki/File:Valle_Oriente,_San_Pedro_Garza_Garc%C3%ADa_-_panoramio.jpg", src:"JavierDo" }
   },
   "Montevideo": {
     "Ciudad Vieja": { img:"images/hoods/montevideo--ciudad-vieja.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_cerca_del_puerto_(6387646281).jpg", src:"Fabrício Marcon from Bagé, Brazil" },
@@ -3125,7 +3129,8 @@ window.NRA_HOOD_PHOTO = {
     "Centro Histórico": { img:"images/hoods/morelia--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_Historico_Morelia.jpg", src:"Jackson las" }
   },
   "Morondava": {
-    "Andakabe": { img:"images/hoods/morondava--andakabe.webp", page:"https://commons.wikimedia.org/wiki/File:Tanjona_Menabe_Hotel_in_Andakabe_locality_of_Morondava.jpg", src:"Rudolphfurtado" }
+    "Andakabe": { img:"images/hoods/morondava--andakabe.webp", page:"https://commons.wikimedia.org/wiki/File:Tanjona_Menabe_Hotel_in_Andakabe_locality_of_Morondava.jpg", src:"Rudolphfurtado" },
+    "Nosy Kely": { img:"images/hoods/morondava--nosy-kely.webp", page:"https://commons.wikimedia.org/wiki/File:Vue_de_Morondava_janvier_2023_2.jpg", src:"Artvill" }
   },
   "Moroni": {
     "Medina (Old Town)": { img:"images/hoods/moroni--medina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Flickr_-_Woodlouse_-_Old_Friday_Mosque_and_harbour,_Moroni.jpg", src:"Woodlouse from Brighton, UK" },
@@ -3135,7 +3140,8 @@ window.NRA_HOOD_PHOTO = {
     "Kaloleni": { img:"images/hoods/moshi--kaloleni.webp", page:"https://commons.wikimedia.org/wiki/File:WikiAru931.jpg", src:"Bajcetic" }
   },
   "Mostar": {
-    "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" }
+    "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" },
+    "Cernica": { img:"images/hoods/mostar--cernica.webp", page:"https://commons.wikimedia.org/wiki/File:Mostar_(49032844696).jpg", src:"Fred Romero from Paris, France" }
   },
   "Mumbai": {
     "Colaba": { img:"images/hoods/mumbai--colaba.webp", page:"https://commons.wikimedia.org/wiki/File:NE_Boman_Behram_Marg_Colaba_Jul25_A7CR_05948.jpg", src:"Timothy A. Gonsalves" },
@@ -3168,10 +3174,14 @@ window.NRA_HOOD_PHOTO = {
     "Nazarbad": { img:"images/hoods/mysore--nazarbad.webp", page:"https://commons.wikimedia.org/wiki/File:A_house_on_Theobald_Road,_Mysore_(01).jpg", src:"Christopher J, Fynn" }
   },
   "Mytilene": {
-    "Epano Skala": { img:"images/hoods/mytilene--epano-skala.webp", page:"https://commons.wikimedia.org/wiki/File:20150716_Valide_Mosque_Epano_Skala_Mytilene_Lesvos_Greece.jpg", src:"Ggia" }
+    "Epano Skala": { img:"images/hoods/mytilene--epano-skala.webp", page:"https://commons.wikimedia.org/wiki/File:20150716_Valide_Mosque_Epano_Skala_Mytilene_Lesvos_Greece.jpg", src:"Ggia" },
+    "Sourada / Akrotiri": { img:"images/hoods/mytilene--sourada-akrotiri.webp", page:"https://commons.wikimedia.org/wiki/File:Fotiadis_Tower_-_Mavroudis_Kostas_-_2181437040.jpg", src:"Konstantinos Mavroudis" },
+    "Town Centre & Harbour": { img:"images/hoods/mytilene--town-centre-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%9D%CE%B1%CF%8C%CF%82_%CE%91%CE%B3%CE%AF%CE%BF%CF%85_%CE%98%CE%B5%CF%81%CE%AC%CF%80%CE%BF%CE%BD%CF%84%CE%B1_%CE%9C%CF%85%CF%84%CE%B9%CE%BB%CE%AE%CE%BD%CE%B7%CF%82_(1).jpg", src:"Chris Kar" }
   },
   "Nablus": {
-    "Rafidia": { img:"images/hoods/nablus--rafidia.webp", page:"https://commons.wikimedia.org/wiki/File:Rafidia_Hospital_001.jpg", src:"Ameen Rammal" }
+    "Rafidia": { img:"images/hoods/nablus--rafidia.webp", page:"https://commons.wikimedia.org/wiki/File:Rafidia_Hospital_001.jpg", src:"Ameen Rammal" },
+    "Al-Manara/Downtown": { img:"images/hoods/nablus--al-manara-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Manara_Clock_Tower_in_Nablus_020_-_Aug_2011.jpg", src:"Guillaume Paumier" },
+    "Ras al-Ein": { img:"images/hoods/nablus--ras-al-ein.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%AC%D9%85%D8%A7%D9%84_%D9%88%D8%B9%D8%B1%D8%A7%D9%82%D8%A9_%D8%AD%D8%A7%D8%B1%D8%A7%D8%AA_%D9%85%D8%AF%D9%8A%D9%86%D8%A9_%D9%86%D8%A7%D8%A8%D9%84%D8%B3.jpg", src:"محمد ابو نوح" }
   },
   "Nadi": {
     "Denarau Island": { img:"images/hoods/nadi--denarau-island.webp", page:"https://commons.wikimedia.org/wiki/File:Sheraton_Denarau_beach_side_view.jpg", src:"Jpatokal" },
@@ -3180,7 +3190,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Nagano": {
     "Zenkoji Temple / Nakamise-dori": { img:"images/hoods/nagano--zenkoji-temple-nakamise-dori.webp", page:"https://commons.wikimedia.org/wiki/File:Main_Hall_of_Zenkoji_in_Aug_2009.jpg", src:"T1822" },
-    "Gondo / Chuo-dori Downtown": { img:"images/hoods/nagano--gondo-chuo-dori-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Gondo_station_exit.jpg", src:"Niiryoku2910" }
+    "Gondo / Chuo-dori Downtown": { img:"images/hoods/nagano--gondo-chuo-dori-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Gondo_station_exit.jpg", src:"Niiryoku2910" },
+    "Nagano Station Area": { img:"images/hoods/nagano--nagano-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:Shinano_Railway-JR_East_Nagano_Station_(32606945317).jpg", src:"Cheng-en Cheng from Taichung City, Taiwan" }
   },
   "Nagasaki": {
     "Nagasaki Station (Ekimae)": { img:"images/hoods/nagasaki--nagasaki-station-ekimae.webp", page:"https://commons.wikimedia.org/wiki/File:Daikokumachi,_Nagasaki,_Nagasaki_Prefecture_850-0057,_Japan_-_panoramio.jpg", src:"Fumihiko Ueno" },
@@ -3203,7 +3214,8 @@ window.NRA_HOOD_PHOTO = {
   "Nairobi": {
     "Westlands": { img:"images/hoods/nairobi--westlands.webp", page:"https://commons.wikimedia.org/wiki/File:Novotel_Nairobi_front_sign.jpg", src:"Sam Wilson (taken with Samsung Galaxy S21 FE 5G)" },
     "Karen": { img:"images/hoods/nairobi--karen.webp", page:"https://commons.wikimedia.org/wiki/File:IMAG2990_03.jpg", src:"Cweinandt" },
-    "CBD": { img:"images/hoods/nairobi--cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Biashara_Plaza_(Nairobi)_%2B_Ufundi_Co-operative_Plaza,_2025_(01).jpg", src:"Bahnfrend" }
+    "CBD": { img:"images/hoods/nairobi--cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Biashara_Plaza_(Nairobi)_%2B_Ufundi_Co-operative_Plaza,_2025_(01).jpg", src:"Bahnfrend" },
+    "Kilimani": { img:"images/hoods/nairobi--kilimani.webp", page:"https://commons.wikimedia.org/wiki/File:Kilimani.jpg", src:"LittleT889" }
   },
   "Najaf": {
     "Al Kufa": { img:"images/hoods/najaf--al-kufa.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Hamra_Mosque_Morning.jpg", src:"Yusuf Asar Yathar" },
@@ -3245,7 +3257,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Nassau": {
     "Cable Beach": { img:"images/hoods/nassau--cable-beach.webp", page:"https://commons.wikimedia.org/wiki/File:La_Caya_Nassau_(8420435234).jpg", src:"Serge Melki from Indianapolis, USA" },
-    "Paradise Island": { img:"images/hoods/nassau--paradise-island.webp", page:"https://commons.wikimedia.org/wiki/File:Bahamas_1988_(279)_Paradise_Island_Versailler_Garten_und_Kloster_(24046109351).jpg", src:"Rüdiger Stehn from Kiel, Deutschland" }
+    "Paradise Island": { img:"images/hoods/nassau--paradise-island.webp", page:"https://commons.wikimedia.org/wiki/File:Bahamas_1988_(279)_Paradise_Island_Versailler_Garten_und_Kloster_(24046109351).jpg", src:"Rüdiger Stehn from Kiel, Deutschland" },
+    "Downtown Nassau (Bay Street)": { img:"images/hoods/nassau--downtown-nassau-bay-street.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Nassau_-_panoramio_(4).jpg", src:"qwesy qwesy" }
   },
   "Natal": {
     "Ponta Negra": { img:"images/hoods/natal--ponta-negra.webp", page:"https://commons.wikimedia.org/wiki/File:Cidade_Natal_-_RN_-_panoramio_(13).jpg", src:"FernandoSantos" },
@@ -4611,5 +4624,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Liberia": {
     "Centro (Calle Real / Parque Central)": { img:"images/hoods/liberia--centro-calle-real-parque-central.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepcion_de_Maria,_Liberia,_Costa_Rica.JPG", src:"Emw" }
+  },
+  "Nha Trang": {
+    "Cho Dam (Old Market)": { img:"images/hoods/nha-trang--cho-dam-old-market.webp", page:"https://commons.wikimedia.org/wiki/File:Dam_Market_Nha_Trang_1.jpg", src:"Christophe95" }
   },
 };
