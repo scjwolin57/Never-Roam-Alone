@@ -64,6 +64,9 @@
   }
   .field input:focus, .field textarea:focus{outline:none;border-color:var(--teal);background:#fff}
   .field textarea{resize:vertical;min-height:130px}
+  .kind-opts{display:flex;flex-direction:column;gap:8px}
+  .kind-opt{display:flex;align-items:flex-start;gap:8px;font-weight:500 !important;font-size:.95rem !important;margin:0 !important;cursor:pointer;text-transform:none !important;letter-spacing:normal !important;color:var(--ink) !important}
+  .kind-opt input{margin-top:3px;flex:none;accent-color:#5c6933}
   .file-drop{
     display:flex;align-items:center;gap:12px;flex-wrap:wrap;
     border:1.5px dashed rgba(63,81,56,.3);border-radius:0;padding:14px;background:var(--sand);
@@ -134,6 +137,14 @@
 
 <main class="form-card">
   <form id="feedback-form" novalidate>
+    <div class="field">
+      <label id="f-kind-label">What is this about?</label>
+      <div class="kind-opts" role="radiogroup" aria-labelledby="f-kind-label">
+        <label class="kind-opt"><input type="radio" name="kind" value="correction"> Something in a city guide is wrong or out of date</label>
+        <label class="kind-opt"><input type="radio" name="kind" value="other" checked> Something else (a bug, a broken page, an idea)</label>
+      </div>
+      <p class="hint" id="f-kind-hint" hidden>Corrections are checked and fixed. Signed-in Roamers get contribution points once it's fixed.</p>
+    </div>
     <div class="field">
       <label for="f-name">Name <span class="opt">(optional)</span></label>
       <input type="text" id="f-name" name="name" maxlength="80" autocomplete="name">
@@ -255,6 +266,10 @@
     reader.readAsDataURL(file);
   });
 
+  form.addEventListener("change", function(e){
+    if (e.target && e.target.name === "kind") document.getElementById("f-kind-hint").hidden = e.target.value !== "correction";
+  });
+
   form.addEventListener("submit", async function(e){
     e.preventDefault();
     showStatus("", "");
@@ -278,7 +293,18 @@
     submitBtn.textContent = "Sending…";
 
     try{
-      var body = { name: name, email: email, message: message, page: page };
+      var kindEl = form.querySelector('input[name="kind"]:checked');
+      var kind = kindEl ? kindEl.value : "other";
+      var body = { name: name, email: email, message: message, page: page, kind: kind };
+      if (kind === "correction") {
+        // A signed-in Roamer's session lets the server credit their correction points once it's fixed.
+        try {
+          var a = window.NRA_AUTH, sb = a && a.client ? a.client() : null;
+          var sess = sb ? await sb.auth.getSession() : null;
+          var tok = sess && sess.data && sess.data.session && sess.data.session.access_token;
+          if (tok) body.accessToken = tok;
+        } catch (e) { /* send as a guest */ }
+      }
       if (screenshotDataUrl) body.screenshot = { dataUrl: screenshotDataUrl, filename: screenshotName };
 
       var res = await fetch("/.netlify/functions/feedback", {
@@ -290,7 +316,8 @@
       if (!res.ok || !resBody.sent) throw new Error(resBody.error || "send failed");
       form.reset();
       clearScreenshot();
-      showStatus("Thanks for the feedback — it's on its way to us!", "ok");
+      document.getElementById("f-kind-hint").hidden = true;
+      showStatus(kind === "correction" ? "Thanks — we'll check it and fix it. We'll let you know when it's done." : "Thanks for the feedback — it's on its way to us!", "ok");
     }catch(err){
       showStatus("Sorry, something went wrong sending your feedback. Please try again in a moment.", "err");
     }finally{
