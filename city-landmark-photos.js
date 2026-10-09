@@ -2646,7 +2646,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/denizli-archaeology-museum.webp", page:"https://commons.wikimedia.org/wiki/File:Hierapolis_Archaeological_Museum_09.jpg", credit:"Biologg / CC BY-SA 4.0"},
     null,
     {img:"images/landmarks/denizli-tripolis.webp", page:"https://commons.wikimedia.org/wiki/File:Tripolis_on_the_Meander,_Lydia,_Turkey_(19499394805).jpg", credit:"Carole Raddato from FRANKFURT, Germany / CC BY-SA 2.0"},
-    null,
+    {"img":"images/landmarks/denizli-deliklicnar-square-and-the-denizli-rooster-statue.webp","page":"https://commons.wikimedia.org/wiki/File:TR_Denizli_asv2020-02_img13_The_Rooster.jpg","credit":"A.Savin / FAL"},
     null,
     {"img":"images/landmarks/denizli-denizli-ataturk-and-ethnography-museum.webp","page":"https://commons.wikimedia.org/wiki/File:TR_Denizli_asv2020-02_img03_Ethnography_Museum.jpg","credit":"A.Savin / FAL"},
   ],

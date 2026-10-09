@@ -13,7 +13,7 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~**D4. Neighborhood review: "Things to look at".** About 13 keep/remove calls on thin evidence (Cholula, Sosúa, Kyoto Fushimi, the Dublin swaps, ...) and 7 weak adds.~~ *`hood-review-2026-10-08.md`*
 - **D5. Batch 1 hood-picks Google results still on disk.** The hood-picks rule says delete a batch's saved results after it is done; they are also the free source for re-picks. Delete or keep? *`RESUME_hood-picks.md`*
 - ~~**D6. Bangkok (Siam), CRU Champagne Bar** is filed as a pub; a checker says it is not one.~~ done 2026-10-09: Jeff said remove; CRU Champagne Bar deleted from the Hood Picks tab and Bangkok citydata (Siam now has The Loft only).
-- **D7. Denizli rooster statue:** an older photo shows a taller rooster, so the statue may have been replaced. Confirm before its photo request goes out. *`flickr-permission-shortlist.csv`*
+- ~~**D7. Denizli rooster statue:** an older photo shows a taller rooster, so the statue may have been replaced. Confirm before its photo request goes out. *`flickr-permission-shortlist.csv`*~~ done 2026-10-09: Jeff chose A.Savin's 2020 Commons photo (Free Art License) for the Delikliçınar Square slot; no Flickr request needed.
 - **D8. Driving permits: governments that disagree** (Ethiopia, Cambodia, Solomon Islands, Turkey, Armenia). Each government is right for its own licence so nothing was changed; read the list and say if any should carry a note. *`intl-permit-definition-2026-10-08.md`*
 - **D9. Turkey, Azerbaijan, Bangladesh: still no "before you rent" note** for lack of a national source (Chad, Lebanon and Armenia are D2). Say "go" to retry when search quota allows. *`before-you-rent-2026-10-06.md`*
 
