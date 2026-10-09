@@ -269,8 +269,7 @@ window.NRA_HOOD_PHOTO = {
   "Honolulu": {
     "Waikiki": { img:"images/hoods/honolulu--waikiki.webp", page:"https://commons.wikimedia.org/wiki/File:Canoe_(6480766515).jpg", src:"Phil Whitehouse from London, United Kingdom" },
     "Ala Moana": { img:"images/hoods/honolulu--ala-moana.webp", page:"https://commons.wikimedia.org/wiki/File:Alamoanaaerial.jpg" },
-    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" },
-    "Kakaako": { img:"images/hoods/honolulu--kakaako.webp", page:"https://commons.wikimedia.org/wiki/File:Diamond_Head_from_Kakaako_-_panoramio.jpg", src:"Eric Tessmer" }
+    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" }
   },
   "Hua Hin": {
     "North Hua Hin (Soi 5-25)": { img:"images/hoods/hua-hin--north-hua-hin-soi-5-25.webp", page:"https://commons.wikimedia.org/wiki/File:Hua_Hin_hotels_-_panoramio.jpg", src:"Andreas Hörstemeier" },
@@ -459,8 +458,7 @@ window.NRA_HOOD_PHOTO = {
     "Fontvieille": { img:"images/hoods/monaco--fontvieille.webp", page:"https://commons.wikimedia.org/wiki/File:Harbour_of_Fontvielle%2C_Monaco_(view_from_above)_2009-05-09.jpg" },
     "La Condamine": { img:"images/hoods/monaco--la-condamine.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_-_Port_en_d%C3%A9cembre.jpg" },
     "Monte-Carlo": { img:"images/hoods/monaco--monte-carlo.webp", page:"https://commons.wikimedia.org/wiki/File:Casino_de_Monte-Carlo_plaza_Monaco_2026.JPG", src:"Mike is Michi" },
-    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" },
-    "Monaco-Ville (The Rock)": { img:"images/hoods/monaco--monaco-ville-the-rock.webp", page:"https://commons.wikimedia.org/wiki/File:Le Palais Princier de Monaco (53969996808).jpg", src:"Charles from Port Chester, New York" }
+    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" }
   },
   "Montreal": {
     "Mile End": { img:"images/hoods/montreal--mile-end.webp", page:"https://commons.wikimedia.org/wiki/File:Churches_of_montreal.jpg" },
@@ -2997,8 +2995,7 @@ window.NRA_HOOD_PHOTO = {
     "Pajuçara": { img:"images/hoods/maceio--pajucara.webp", page:"https://commons.wikimedia.org/wiki/File:Paju%C3%A7ara,_Macei%C3%B3,_Brazil.jpg", src:"Flaviohmg" },
     "Ponta Verde": { img:"images/hoods/maceio--ponta-verde.webp", page:"https://commons.wikimedia.org/wiki/File:Ponta_Verde_-_Macei%C3%B3.jpg", src:"Ahmed Zohair Anka" },
     "Jatiúca": { img:"images/hoods/maceio--jatiuca.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_da_Jati%C3%BAca_-_panoramio.jpg", src:"Duds Nilds" },
-    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" },
-    "Jaraguá": { img:"images/hoods/maceio--jaragua.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_Jaragu%C3%A1_e_seus_encantos_1.jpg", src:"Blogilberto" }
+    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" }
   },
   "Madurai": {
     "Tallakulam": { img:"images/hoods/madurai--tallakulam.webp", page:"https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%81%E0%AE%B3%E0%AE%AE%E0%AF%8D_%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B3%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D.jpg", src:"சித்திரவீதிக்காரன்" },
@@ -4229,8 +4226,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Saskatoon": {
     "City Park": { img:"images/hoods/saskatoon--city-park.webp", page:"https://commons.wikimedia.org/wiki/File:Spadina_Crescent_Bridge.jpg", src:"Drm310" },
-    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
-    "Broadway District (Nutana)": { img:"images/hoods/saskatoon--broadway-district-nutana.webp", page:"https://commons.wikimedia.org/wiki/File:Broadway_Theatre_SK1.jpg", src:"Drm310 at English Wikipedia" }
+    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" }
   },
   "Savonlinna": {
     "Keskusta": { img:"images/hoods/savonlinna--keskusta.webp", page:"https://commons.wikimedia.org/wiki/File:Jussilantie,_Kerava_C_DSC00098.JPG", src:"Anneli Salo" },
@@ -4400,8 +4396,7 @@ window.NRA_HOOD_PHOTO = {
   "Surakarta": {
     "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:GrandMosqueYogya.JPG", src:"Dekoelie" },
     "Kampung Batik Laweyan": { img:"images/hoods/surakarta--kampung-batik-laweyan.webp", page:"https://commons.wikimedia.org/wiki/File:Becak_Kampung_Batik_Laweyan.jpg", src:"Herusutimbul" },
-    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" },
-    "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" }
+    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" }
   },
   "Surat Thani": {
     "Phunphin": { img:"images/hoods/surat-thani--phunphin.webp", page:"https://commons.wikimedia.org/wiki/File:Phunphin_clock_tower.jpg", src:"User:Ahoerstemeier" }
