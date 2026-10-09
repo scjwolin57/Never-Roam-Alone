@@ -1081,7 +1081,8 @@ window.NRA_HOOD_PHOTO = {
     "Kijenge / Themi": { img:"images/hoods/arusha--kijenge-themi.webp", page:"https://commons.wikimedia.org/wiki/File:Streets_of_Arusha_(15).jpg", src:"Zenith4237" }
   },
   "Ashgabat": {
-    "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" }
+    "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" },
+    "City Center": { img:"images/hoods/ashgabat--city-center.webp", page:"https://commons.wikimedia.org/wiki/File:View_of_Ashgabat_(42376779291).jpg", src:"John Pavelka from Austin, TX, USA" }
   },
   "Asmara": {
     "Harnet Avenue (City Center)": { img:"images/hoods/asmara--harnet-avenue-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Asmara,_cattedrale_cattolica,_campanile_01.JPG", src:"sailko" }
