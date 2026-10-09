@@ -2909,7 +2909,6 @@ window.NRA_HOOD_PHOTO = {
     "Malalayang": { img:"images/hoods/manado--malalayang.webp", page:"https://commons.wikimedia.org/wiki/File:Universitas_Sam_Ratulangi_Manado.jpg", src:"Malesung" }
   },
   "Managua": {
-    "Los Robles": { img:"images/hoods/managua--los-robles.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_los_robles.jpg", src:"Richard Chris 29" },
     "Carretera a Masaya": { img:"images/hoods/managua--carretera-a-masaya.webp", page:"https://commons.wikimedia.org/wiki/File:Masaya_Highway.jpg", src:"Byralaal" },
     "Metrocentro": { img:"images/hoods/managua--metrocentro.webp", page:"https://commons.wikimedia.org/wiki/File:Metrocentro_Managua.jpg", src:"Vrysxy" }
   },

@@ -44,7 +44,7 @@ All come from the 2026-09-15 sourcing pass (commit 1c906cbf). Most are name matc
 | ~~Göreme~~ | ~~Göreme Town Center~~ (settled 2026-10-09: Jeff's pin confirms the town; fresco replaced with Göreme Area (7), GPS 40 m) | right area, but it is a fresco inside Elmalı Church (Open Air Museum), not the town centre |
 | ~~Jamestown~~ | ~~Half Tree Hollow~~ (settled 2026-10-09: Jeff's pin confirms the hood; replaced with the High Knoll Fort view of the settlement) | right island (Lemon Valley, St Helena) but a different valley, not Half Tree Hollow |
 | Kanchanaburi | Death Railway / Thailand-Burma Railway Centre | holiday snapshot, GPS 34 km from the railway centre (likely further up the line); no description |
-| Managua | Los Robles | description just "Urb. Los Robles"; no country, no GPS |
+| ~~Managua~~ | ~~Los Robles~~ (settled 2026-10-09: Jeff's pin confirms the hood point; the photo could not be placed, removed; no verified replacement) | description just "Urb. Los Robles"; no country, no GPS |
 | Moshi | Kaloleni | only category is "Arusha Region" (Moshi is in Kilimanjaro Region); no description |
 | Ouagadougou | Zone du Bois | wooden statues, Commons says "Statues in unidentified locations" |
 | Roseau | Castle Comfort | right place (Castle Comfort, Dominica) but a scanned sale notice, not a photo |
