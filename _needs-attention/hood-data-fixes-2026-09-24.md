@@ -55,3 +55,12 @@ Nominatim reverse geocoding, Wikipedia, sobory.ru, madacamp; raw notes in the se
 6. **Quanzhou, Xunpu Village point** is about 8 km south-east of the old town; not checked.
 7. **index.html's visitor figures disagree with destinations.js** for Mérida (0.4 vs 0.5) and Quanzhou (0.3 vs 0.95). The rule is
    one visitors figure everywhere (CLAUDE.md §4.2); likely more cities. Not fixed here.
+
+## Jeff's answers 2026-10-09
+1. Karakol Przhevalsky District: already removed by the 2026-10-08 hood tourist-friendliness review (batch 12: "lakeside memorial site 10 km away, no lodging counted"). Closed.
+2. Gihundwe: keep it described as part of Kamembe. Closed.
+3. Kivu Beach is in Gisenyi (Rubavu), Rwanda: asked back, waiting.
+4. Hotels in Klementyevo, Lochotín, Sochi Tsentralny: rechecked (see below when done).
+5. Barrio de Santa Lucía is in San Cristóbal de las Casas, Mexico: asked back, waiting.
+6. Quanzhou Xunpu Village: already removed by the same review (batch 6: "fishing village"). Closed.
+7. Visitors: done 2026-10-09. `sync_visitors.py` read only the `{city:"X"}` entries in index.html and compare.html (102 of 893); it now reads the `{"city":"X"}` entries too. Fixed 660 homepage-globe figures and 154 compare figures, and the "~" (estimated) flag now follows the sheet's basis there too (48 -> 739, as in destinations.js). All 893 now equal the sheet's Annual Visitors (M) in citydata, destinations.js, index.html and compare.html; city-intl-visitors.js was already in step.
