@@ -27,6 +27,10 @@
       { t: "Sixt Turkey (rental terms)", u: "https://www.sixt.com.tr/en/help-center/important-documents", d: "undated" },
       { t: "Turkey Rent Car (rental terms)", u: "https://turkey-rentcar.ru/en/info/driving-license-in-turkey/", d: "undated" }], chk: "2026-10-09" };
   window.NRA_RENT_NOTES = {
+    // Azerbaijan (Jeff, 2026-10-09): a rental-company rule, stated by two Baku companies. Grand Rent's 30-day limit has one source only, so it is left out.
+    "Azerbaijan": { n: "Rental companies accept a driving licence written in the Latin alphabet. If yours is in another script (Cyrillic, Arabic, Chinese and so on), they ask for an International Driving Permit as well.",
+      k: ["licence"], src: [{ t: "Grand Rent A Car, Baku (rental terms)", u: "https://grandrent.az/en/blog/which-driving-licenses-are-valid-for-driving-a-car-in-azerbaijan", d: "2025-11-23" },
+        { t: "Prestige Car Rental, Baku (rental terms)", u: "https://carrentalbaku.az/en/blog/driving-in-azerbaijan-foreigners", d: "2026-06-30" }], chk: "2026-10-09" },
     "Belarus": { n: "Because of sanctions, almost no banks in Belarus accept foreign cards, and your own bank may block your card there. Check how the rental company will take payment and the deposit before you book.",
       k: ["booking"], src: [FCDO("belarus/safety-and-security", "2026-09-10"), { t: "German Federal Foreign Office", u: "https://www.auswaertiges-amt.de/de/reiseundsicherheit/belarussicherheit-201904", d: "2026-06-19" }], chk: "2026-10-06" },
     "Bhutan": { n: "Visitors cannot hire a self-drive car in Bhutan: rental cars come with a driver. If you drive your own vehicle, a licensed guide must travel with you.",

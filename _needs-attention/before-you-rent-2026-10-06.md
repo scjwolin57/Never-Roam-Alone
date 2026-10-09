@@ -178,3 +178,10 @@ Jeff sent two pages (turkey-rentcar.ru, turkeytravelplanner.com) on the licence 
 - The FCDO vs State Department disagreement about which permit a UK driver needs is now shown per licence by the licence-aware Int'l permit row (2026-10-08), so the note does not repeat it.
 
 Still held: Lebanon, Chad, Armenia, Azerbaijan, Bangladesh (recommendation to Jeff 2026-10-09: close as "no note", since the licence-aware permit row covers them).
+
+## Jeff's calls on the last five, 2026-10-09
+
+Jeff: "Bangladesh (IDP Required) Chad (IDP recommended) Lebanon (IDP recommended) Armenia (IDP recommended)", plus two Baku rental-company pages for Azerbaijan.
+- **Azerbaijan: note live.** Both Baku companies (Grand Rent A Car 2025-11-23, Prestige Car Rental 2026-06-30) say a non-Latin licence needs an IDP alongside it; Grand Rent's 30-day limit has one source only and is left out. Note: "Rental companies accept a driving licence written in the Latin alphabet. If yours is in another script (Cyrillic, Arabic, Chinese and so on), they ask for an International Driving Permit as well." (Baku.)
+- **Bangladesh "Required"** matches the licence-aware permit row (UK, Canada, Australia: Required). No note needed: the card says it.
+- **Chad, Lebanon, Armenia "Recommended": flagged to Jeff, not applied.** The permit row, from each government's own advice, says otherwise: Chad US Required / UK Local permit / Canada Required; Lebanon US Required / UK Not required / Canada Required; Armenia UK, Canada, Australia Required. A country-wide "Recommended" note would contradict it.
