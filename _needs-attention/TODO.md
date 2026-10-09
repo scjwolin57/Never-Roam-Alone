@@ -14,6 +14,8 @@ never deleted; new items for you are added under the right heading. Details live
 - **D5. Batch 1 hood-picks Google results still on disk.** The hood-picks rule says delete a batch's saved results after it is done; they are also the free source for re-picks. Delete or keep? *`RESUME_hood-picks.md`*
 - **D6. London, CRU Champagne Bar** is filed as a pub; a checker says it is not one. Keep, move to cocktail, or remove? *`_done/hood-picks-batch1-chain-report.md`*
 - **D7. Denizli rooster statue:** an older photo shows a taller rooster, so the statue may have been replaced. Confirm before its photo request goes out. *`flickr-permission-shortlist.csv`*
+- **D8. Driving permits: governments that disagree** (Ethiopia, Cambodia, Solomon Islands, Turkey, Armenia). Each government is right for its own licence so nothing was changed; read the list and say if any should carry a note. *`intl-permit-definition-2026-10-08.md`*
+- **D9. Turkey, Azerbaijan, Bangladesh: still no "before you rent" note** for lack of a national source (Chad, Lebanon and Armenia are D2). Say "go" to retry when search quota allows. *`before-you-rent-2026-10-06.md`*
 
 ## 2. Things only you can do
 
@@ -24,6 +26,8 @@ never deleted; new items for you are added under the right heading. Details live
 - **A5. Partnerize:** open the new account and apply to the Expedia (US) and Hostelworld campaigns (decided 2026-10-05), if not done yet. *`hotel-resourcing-plan-2026-10-01.md`*
 - **A6. Bing Webmaster Tools** (backlog 28), about 10 minutes.
 - **A7. Launch day:** delete the noindex line in `netlify.toml`, push, set up Google Search Console and submit the sitemap; then the monthly Search Console check (backlog 33).
+- **A8. Kiwitaxi: new account link.** You are moving to a new Kiwitaxi account; paste the new partner link (or change `KIWITAXI_TAG` in city.html) and confirm in the dashboard that clicks earn commission (the current link is recorded as a "Kiwitaxi Business" program). Used on 39 guides. *`car-rental-second-program-2026-10-06.md`*
+- **A9. NRA-MASTER.xlsx: delete the empty "Intl Driving Permit" column** in Live Cities (emptied 2026-10-08 when the permit row moved to the Driving Permits tab; the sheet tool can clear cells but not delete a column). *`intl-permit-definition-2026-10-08.md`*
 
 ## 3. Say "go" and it gets done
 
@@ -31,11 +35,11 @@ never deleted; new items for you are added under the right heading. Details live
 - **G2. Hood picks batch 5** (cities 101 to 125 of 393). *`RESUME_hood-picks.md`*
 - **G3. Flickr shortlist: prepare the next 25 landmarks.**
 - **G4. Batch 1 chain check, part 2:** page-check the 181 "weak evidence" picks (usually duplicate map records).
-- **G5. Re-run the DiscoverCars coverage check** right before the car links go live. *`discovercars-coverage-2026-10-05.md`*
+- ~~**G5. Re-run the DiscoverCars coverage check** right before the car links go live.~~ changed 2026-10-09: the links went live 2026-10-06 on the 2026-10-05 check, which was not re-run. Now an occasional re-check: say "go" and the scripts in `_guidebuild/discovercars/` re-run (about an hour) and drop any link whose page has gone. *`discovercars-coverage-2026-10-05.md`*
 
 ## 4. Waiting on someone else
 
-- **W1. DiscoverCars account approval:** then deep links for the 31 places with no landing page.
+- ~~**W1. DiscoverCars account approval:** then deep links for the 31 places with no landing page.~~ approved 2026-10-06 (partner tag NRA2026 live). Still open: whether the DiscoverCars dashboard can make a search link for the 31 places with no landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...); check it when you are next signed in and tell me. *`discovercars-coverage-2026-10-05.md`*
 - **W2. Expedia / Partnerize approval:** then the hotel re-sourcing plan can be built.
 - **W3. Flickr photographers' answers** (after A2).
 - **W4. Hood photo name-collision audit** (running in its own session): it will list wrong hood photos (Kalamata's "Historic Centre" is in Avignon, "Marina" is in Faro) and ask you before replacing.
