@@ -20,7 +20,7 @@ never deleted; new items for you are added under the right heading. Details live
 ## 2. Things only you can do
 
 - ~~**A1. Push to the live site.** Many commits since 7 Oct are local only. Say "push it" (or push from Terminal) once you have looked at them.~~ done 2026-10-09: 15 commits pushed (656d4a4a..1805f697) after every check passed on the committed state.
-- **A2. Send the Flickr permission requests:** 11 photos marked "ready to ask". Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
+- **A2. Send the Flickr permission requests:** 10 photos marked "ready to ask" (was 11; the Denizli rooster was dropped 2026-10-09). Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
 - **A3. Plausible analytics signup** (backlog 29): the script is already on every page.
 - ~~**A4. Google Cloud check for the landmark pin pass.**~~ done 2026-10-09: October geocoding was near zero; the Google geocoding pass and the Places pass both ran (`RESUME_landmark-pin-pass.md`).
 - **A5. Partnerize:** open the new account and apply to the Expedia (US) and Hostelworld campaigns (decided 2026-10-05), if not done yet. *`hotel-resourcing-plan-2026-10-01.md`* *Update 2026-10-09: Partnerize account open and Expedia (US) approved; Hostelworld application still pending (see W2).*
