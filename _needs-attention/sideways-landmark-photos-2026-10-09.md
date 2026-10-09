@@ -83,7 +83,7 @@ Not scanned: images with no rotation tag on Commons (4,255 listed photos), the f
 
 | file | looks | fix |
 |---|---|---|
-| images/landmarks/dali-cangshan-mountain.webp | upside down | turn 180 |
-| images/landmarks/mekele-abuna-yemata-guh.webp | sideways (person lying on their side) | turn 90 clockwise |
+| images/landmarks/dali-cangshan-mountain.webp | upside down | turned 180 (done 2026-10-09) |
+| images/landmarks/mekele-abuna-yemata-guh.webp | sideways (person lying on their side) | turned 90 clockwise (done 2026-10-09) |
 
 Events, bucketlist, food, cities, day trips, hoods: none wrong. Limit: the scan finds sideways photos by where the sky is, so a sideways interior, close-up or food photo with no sky would not be flagged.
