@@ -149,31 +149,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 6,Hoi An,Vietnam,New Town (Tan An),15.890789,108.31948,File:HK SKD 西貢 Sai Kung Town 海傍廣場 Hoi Pon Square shop Circle K Store April 2024 R12S 06.jpg,done,File:Phuoc Lam Pagoda 1.jpg,Commons file GPS 470 m from the hood point; eye-checked; licence CC BY-SA 4.0
 6,Hualien City,Taiwan,Station District,23.993313,121.601246,File:DC Main Sewerage Pumping Station - North side.jpg,done,File:108年10月花蓮車站東站.jpg,Commons file GPS 95 m from the hood point; eye-checked; licence CC BY-SA 4.0
 6,Huế,Vietnam,Vỹ Dạ,16.476701,107.612654,File:70583-Vy-lès-Filain-Hydro.jpeg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only training-day group photos and hotel-room shots over 1.3 km away"
-7,Ibadan,Nigeria,Ring Road,7.361191,3.867886,"File:L.A. Ring, Road in the Village of Baldersbrønde (Winter Day), 1912, NG6658, National Gallery.png",open,,
-7,Iquitos,Peru,Punchana,-3.726052,-73.24836,File:Dasyprocta fuliginosa 114445190.jpg,open,,
-7,Islamabad,Pakistan,F-6,33.729689,73.074599,File:Ulica Starołęcka w Poznaniu - kwiecień 2018.jpg,open,,
-7,Jaipur,India,Bani Park,26.930559,75.793611,File:Hurdle time sir baniyas.jpg,open,,
-7,Jaipur,India,MI Road (Mirza Ismail Road),26.916284,75.815415,File:Tong Mi Road northbound.jpg,open,,
-7,Jamestown,Saint Helena,Alarm Forest,-15.944791,-5.704823,"File:Noisy miner, Pfingst Rd Chermside DSCF5061.jpg",open,,
-7,Jerez de la Frontera,Spain,Barrio de Santiago,36.687895,-6.143758,File:Charco Frio 1.jpg,open,,
-7,Jianshui,China,Lin'an Ancient Town,23.61175,102.82417,File:徽杭古道2.JPG,open,,
-7,Jingdezhen,China,Sanbao Village,29.25602,117.26277,"File:Concourse of Sanbao Station (6), 202509.jpg",open,,
-7,Juba,South Sudan,Juba Town,4.853857,31.582525,File:Lower Juba region camels caravan.jpg,open,,
-7,Juba,South Sudan,Munuki,4.859405,31.57134,File:Denis Dumo Scopas.jpg,open,,
-7,Kalamata,Greece,Historic Centre (Old Town),37.046006,22.116936,File:Pont Saint-Bénézet (61400).jpg,open,,
-7,Kalamata,Greece,Marina,37.02384,22.10523,File:Faro Marina and Pedestrian area.jpg,open,,
-7,Kampala,Uganda,Muyenga,0.296898,32.615028,File:Emile Ntamack - 2012-09-24.jpg,open,,
-7,Karakol,Kyrgyzstan,Central Karakol,42.489121,78.39489,File:Каравайка в полёте.jpg,open,,
-7,Karakol,Kyrgyzstan,Dungan Mosque Quarter,42.497371,78.390688,"File:Minaret in the Muslim Quarter of Hami and Ruin of the Mosque Destroyed by Rebels in 1872. Hami, Xinjiang, China, 1875 WDL1929.png",open,,
-7,Karbala,Iraq,Al-Abbasiyah (New Karbala),32.602715,44.019699,File:Le Caire. Sebil de la rue Abbassiyeh - btv1b53120182p (2 of 2).jpg,open,,
-7,Karbala,Iraq,Bab Baghdad,32.620672,44.038435,"File:Talisman Gate, Sarre, Friedrich Paul Theodor, 1911.jpg",open,,
-7,Karimabad,Pakistan,Aliabad,36.308226,74.619547,File:(جونم برف(ماهيان - panoramio.jpg,open,,
-7,Karimabad,Pakistan,Karimabad Bazaar,36.325712,74.669209,File:Red Fort Meena Bazaar Buddha Artifact.jpg,open,,
-7,Kashgar,China,East Lake (Donghu) Area,39.463282,76.001439,File:Wuhan - East Lake - Luoyan Scenic Area - P1530118.JPG,open,,
-7,Kayseri,Türkiye,Cumhuriyet Meydanı (Old City),38.72153,35.487162,"File:Samsunspor 2023 üst lige yükselme kutlamaları, Meydan.jpg",open,,
-7,Kerman,Iran,Azadi Square,30.287514,57.051886,File:AZADI SQ (1).jpg,open,,
-7,Kerman,Iran,Jomhouri Boulevard,30.284282,57.039106,File:Fish statue - barrier of Jomhouri blv - Nishapur 14.JPG,open,,
-7,Kingstown,Saint Vincent and the Grenadines,Villa/Indian Bay,13.137391,-61.207062,File:Lindenfels Villa Luthmer - Christina.jpeg,open,,
+7,Ibadan,Nigeria,Ring Road,7.361191,3.867886,"File:L.A. Ring, Road in the Village of Baldersbrønde (Winter Day), 1912, NG6658, National Gallery.png",none,,candidate found but poor as a main photo (an empty road under grey sky); no better verified photo
+7,Iquitos,Peru,Punchana,-3.726052,-73.24836,File:Dasyprocta fuliginosa 114445190.jpg,none,,candidate found but poor as a main photo (a port terminal sign); no better verified photo
+7,Islamabad,Pakistan,F-6,33.729689,73.074599,File:Ulica Starołęcka w Poznaniu - kwiecień 2018.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only mist, sunsets, a rally and official meetings"
+7,Jaipur,India,Bani Park,26.930559,75.793611,File:Hurdle time sir baniyas.jpg,done,"File:Front Facade View of Shahpura House, Shekhawati, Rajputana.jpg",Commons file GPS 623 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Jaipur,India,MI Road (Mirza Ismail Road),26.916284,75.815415,File:Tong Mi Road northbound.jpg,done,File:Jaipur Feb 2020 114.jpg,Commons file GPS 148 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Jamestown,Saint Helena,Alarm Forest,-15.944791,-5.704823,"File:Noisy miner, Pfingst Rd Chermside DSCF5061.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest place shots (St Matthew's, Hutt's Gate) are 2 km away; the rest are maps, medals and prints"
+7,Jerez de la Frontera,Spain,Barrio de Santiago,36.687895,-6.143758,File:Charco Frio 1.jpg,done,"File:Cabecera de la Iglesia de Santiago, Jerez de la Frontera.jpg",Commons file GPS 41 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Jianshui,China,Lin'an Ancient Town,23.61175,102.82417,File:徽杭古道2.JPG,done,"File:2025-02-07 ""Liang Yi Suo Yao"" Paifang in Jianshui, Yunnan 雲南建水兩迤鎖鑰 02.jpg",Commons file GPS 369 m from the hood point; eye-checked; licence CC BY 4.0
+7,Jingdezhen,China,Sanbao Village,29.25602,117.26277,"File:Concourse of Sanbao Station (6), 202509.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only one portrait 750 m away"
+7,Juba,South Sudan,Juba Town,4.853857,31.582525,File:Lower Juba region camels caravan.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only AMISOM photos from Dhobley, Somalia (text match on the name)"
+7,Juba,South Sudan,Munuki,4.859405,31.57134,File:Denis Dumo Scopas.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a diagram and two portraits"
+7,Kalamata,Greece,Historic Centre (Old Town),37.046006,22.116936,File:Pont Saint-Bénézet (61400).jpg,done,File:Υπαπαντή 2.jpg,Commons file GPS 240 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Kalamata,Greece,Marina,37.02384,22.10523,File:Faro Marina and Pedestrian area.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the railway park 620 m inland, not the marina"
+7,Kampala,Uganda,Muyenga,0.296898,32.615028,File:Emile Ntamack - 2012-09-24.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only distant city views from an unplaced viewpoint"
+7,Karakol,Kyrgyzstan,Central Karakol,42.489121,78.39489,File:Каравайка в полёте.jpg,done,"File:2015-09-07-160825 - Karakol, Russisch-orthodoxe Dreifaltigkeitskirche.jpg",Commons file GPS 24 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Karakol,Kyrgyzstan,Dungan Mosque Quarter,42.497371,78.390688,"File:Minaret in the Muslim Quarter of Hami and Ruin of the Mosque Destroyed by Rebels in 1872. Hami, Xinjiang, China, 1875 WDL1929.png",done,File:2015-09-07-144724 - Karakol - Dunganen-Moschee.jpg,Commons file GPS 23 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Karbala,Iraq,Al-Abbasiyah (New Karbala),32.602715,44.019699,File:Le Caire. Sebil de la rue Abbassiyeh - btv1b53120182p (2 of 2).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the shrine area 1.7 km away"
+7,Karbala,Iraq,Bab Baghdad,32.620672,44.038435,"File:Talisman Gate, Sarre, Friedrich Paul Theodor, 1911.jpg",done,"File:Karbala 56001, Iraq - panoramio (16).jpg",Commons file GPS 415 m from the hood point; eye-checked; licence CC BY 3.0
+7,Karimabad,Pakistan,Aliabad,36.308226,74.619547,File:(جونم برف(ماهيان - panoramio.jpg,done,File:Beautiful view of Hunza valley.jpg,Commons file GPS 128 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Karimabad,Pakistan,Karimabad Bazaar,36.325712,74.669209,File:Red Fort Meena Bazaar Buddha Artifact.jpg,done,"File:Karimabad Valley, Hunza.jpg",Commons file GPS 49 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Kashgar,China,East Lake (Donghu) Area,39.463282,76.001439,File:Wuhan - East Lake - Luoyan Scenic Area - P1530118.JPG,done,File:2015-09-10-111321 - Blick zur Altstadt vom Kashgar.jpg,Commons file GPS 490 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Kayseri,Türkiye,Cumhuriyet Meydanı (Old City),38.72153,35.487162,"File:Samsunspor 2023 üst lige yükselme kutlamaları, Meydan.jpg",done,File:Kayseri along city walls 2443.jpg,Commons file GPS 61 m from the hood point; eye-checked; licence CC BY-SA 4.0
+7,Kerman,Iran,Azadi Square,30.287514,57.051886,File:AZADI SQ (1).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cinemas, a group photo and tile close-ups over 900 m away"
+7,Kerman,Iran,Jomhouri Boulevard,30.284282,57.039106,File:Fish statue - barrier of Jomhouri blv - Nishapur 14.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only two cinema interiors over 1.2 km away"
+7,Kingstown,Saint Vincent and the Grenadines,Villa/Indian Bay,13.137391,-61.207062,File:Lindenfels Villa Luthmer - Christina.jpeg,done,File:St Vincent-Indian Bay 2090.jpg,Commons file GPS 284 m from the hood point; eye-checked; licence CC BY-SA 4.0
 8,Kinshasa,Democratic Republic of the Congo,Gombe,-4.304798,15.305355,File:2 Pru gombe.jpg,open,,
 8,Klaipėda,Lithuania,Fishing Village,55.709664,21.133182,File:海岸瞭望台.jpg,open,,
 8,Klaipėda,Lithuania,New Town,55.714541,21.135281,File:St Johns Anglican New Town.jpg,open,,

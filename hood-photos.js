@@ -2362,7 +2362,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Jaipur": {
     "Old City (Pink City)": { img:"images/hoods/jaipur--old-city-pink-city.webp", page:"https://commons.wikimedia.org/wiki/File:Sanganeri_Gate_2024.jpg", src:"Immanuelle" },
-    "C-Scheme": { img:"images/hoods/jaipur--c-scheme.webp", page:"https://commons.wikimedia.org/wiki/File:AMRAPALI_MUSEUM,_JAIPUR.jpg", src:"Neek-Theri" }
+    "C-Scheme": { img:"images/hoods/jaipur--c-scheme.webp", page:"https://commons.wikimedia.org/wiki/File:AMRAPALI_MUSEUM,_JAIPUR.jpg", src:"Neek-Theri" },
+    "Bani Park": { img:"images/hoods/jaipur--bani-park.webp", page:"https://commons.wikimedia.org/wiki/File:Front_Facade_View_of_Shahpura_House,_Shekhawati,_Rajputana.jpg", src:"Digrajsingh" },
+    "MI Road (Mirza Ismail Road)": { img:"images/hoods/jaipur--mi-road-mirza-ismail-road.webp", page:"https://commons.wikimedia.org/wiki/File:Jaipur_Feb_2020_114.jpg", src:"Yamen" }
   },
   "Jakarta": {
     "Menteng": { img:"images/hoods/jakarta--menteng.webp", page:"https://commons.wikimedia.org/wiki/File:Kick_(59596182).jpeg", src:"Seika N" },
@@ -2389,7 +2391,8 @@ window.NRA_HOOD_PHOTO = {
     "Centro Histórico": { img:"images/hoods/jerez-de-la-frontera--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_Jerez-IMG_20231013_175856.jpg", src:"El Pantera" },
     "San Miguel": { img:"images/hoods/jerez-de-la-frontera--san-miguel.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_natal_de_Parrilla_de_Jerez_-_IMG_20210515_121634_275.jpg", src:"El Pantera" },
     "La Albarizuela": { img:"images/hoods/jerez-de-la-frontera--la-albarizuela.webp", page:"https://commons.wikimedia.org/wiki/File:PasoSanPedro.jpg", src:"El Pantera" },
-    "San Mateo": { img:"images/hoods/jerez-de-la-frontera--san-mateo.webp", page:"https://commons.wikimedia.org/wiki/File:SanMateosCallejon.jpg", src:"El Pantera" }
+    "San Mateo": { img:"images/hoods/jerez-de-la-frontera--san-mateo.webp", page:"https://commons.wikimedia.org/wiki/File:SanMateosCallejon.jpg", src:"El Pantera" },
+    "Barrio de Santiago": { img:"images/hoods/jerez-de-la-frontera--barrio-de-santiago.webp", page:"https://commons.wikimedia.org/wiki/File:Cabecera_de_la_Iglesia_de_Santiago,_Jerez_de_la_Frontera.jpg", src:"Jl FilpoC" }
   },
   "Jingdezhen": {
     "Zhushan (Old Town)": { img:"images/hoods/jingdezhen--zhushan-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:201901_HXN5-0294_at_Jingdezhen_Station.jpg", src:"MNXANL" }
@@ -2436,7 +2439,8 @@ window.NRA_HOOD_PHOTO = {
     "Medina": { img:"images/hoods/kairouan--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Cimitiere_avec_minaret_grande_mosque%27e.JPG", src:"Gigi sorrentino" }
   },
   "Kalamata": {
-    "Paralia": { img:"images/hoods/kalamata--paralia.webp", page:"https://commons.wikimedia.org/wiki/File:Kalamata_beach_-_panoramio.jpg", src:"macrolepi" }
+    "Paralia": { img:"images/hoods/kalamata--paralia.webp", page:"https://commons.wikimedia.org/wiki/File:Kalamata_beach_-_panoramio.jpg", src:"macrolepi" },
+    "Historic Centre (Old Town)": { img:"images/hoods/kalamata--historic-centre-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%A5%CF%80%CE%B1%CF%80%CE%B1%CE%BD%CF%84%CE%AE_2.jpg", src:"Ppapadeas" }
   },
   "Kaliningrad": {
     "Rybnaya Derevnya (Fishing Village)": { img:"images/hoods/kaliningrad--rybnaya-derevnya-fishing-village.webp", page:"https://commons.wikimedia.org/wiki/File:Rybnaya_derevnya.jpg", src:"Irina Yakubovskaya (my mother)" },
@@ -2485,12 +2489,16 @@ window.NRA_HOOD_PHOTO = {
     "PECHS/Shahrah-e-Faisal": { img:"images/hoods/karachi--pechs-shahrah-e-faisal.webp", page:"https://commons.wikimedia.org/wiki/File:PK_Karachi_asv2020-02_img90_Highway_at_PECHS.jpg", src:"A.Savin" }
   },
   "Karakol": {
-    "Karakol Bazaar": { img:"images/hoods/karakol--karakol-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Karakol_-_205_(49355687272).jpg", src:"Bruno Rijsman" }
+    "Karakol Bazaar": { img:"images/hoods/karakol--karakol-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Karakol_-_205_(49355687272).jpg", src:"Bruno Rijsman" },
+    "Central Karakol": { img:"images/hoods/karakol--central-karakol.webp", page:"https://commons.wikimedia.org/wiki/File:2015-09-07-160825_-_Karakol,_Russisch-orthodoxe_Dreifaltigkeitskirche.jpg", src:"Zossolino" },
+    "Dungan Mosque Quarter": { img:"images/hoods/karakol--dungan-mosque-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:2015-09-07-144724_-_Karakol_-_Dunganen-Moschee.jpg", src:"Zossolino" }
   },
   "Karimabad": {
     "Altit Village": { img:"images/hoods/karimabad--altit-village.webp", page:"https://commons.wikimedia.org/wiki/File:Altit_Settlement_(27410771923).jpg", src:"Imran Shah from Islamabad, Pakistan" },
     "Duikar": { img:"images/hoods/karimabad--duikar.webp", page:"https://commons.wikimedia.org/wiki/File:Eagle_nest_hunza.jpg", src:"Ahmedomair" },
-    "Ganish Village": { img:"images/hoods/karimabad--ganish-village.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_View_of_Ganish_Valley,_Hunza.jpg", src:"Samirakhan1985" }
+    "Ganish Village": { img:"images/hoods/karimabad--ganish-village.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_View_of_Ganish_Valley,_Hunza.jpg", src:"Samirakhan1985" },
+    "Aliabad": { img:"images/hoods/karimabad--aliabad.webp", page:"https://commons.wikimedia.org/wiki/File:Beautiful_view_of_Hunza_valley.jpg", src:"ShahzaibAkhan" },
+    "Karimabad Bazaar": { img:"images/hoods/karimabad--karimabad-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Karimabad_Valley,_Hunza.jpg", src:"Samirakhan1985" }
   },
   "Karlovy Vary": {
     "Lázeňské centrum": { img:"images/hoods/karlovy-vary--lazenske-centrum.webp", page:"https://commons.wikimedia.org/wiki/File:J%C3%A1chymov_1.jpg", src:"Jitka Radimska" },
@@ -2506,7 +2514,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kashgar": {
     "Kashgar Old Town": { img:"images/hoods/kashgar--kashgar-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:8-07_at_Minmao_(20230922193436).jpg", src:"N509FZ" },
-    "Id Kah Square": { img:"images/hoods/kashgar--id-kah-square.webp", page:"https://www.flickr.com/photos/68240136@N02/23756566030/", src:"Hotel Kaesong" }
+    "Id Kah Square": { img:"images/hoods/kashgar--id-kah-square.webp", page:"https://www.flickr.com/photos/68240136@N02/23756566030/", src:"Hotel Kaesong" },
+    "East Lake (Donghu) Area": { img:"images/hoods/kashgar--east-lake-donghu-area.webp", page:"https://commons.wikimedia.org/wiki/File:2015-09-10-111321_-_Blick_zur_Altstadt_vom_Kashgar.jpg", src:"Zossolino" }
   },
   "Kathmandu": {
     "Thamel": { img:"images/hoods/kathmandu--thamel.webp", page:"https://commons.wikimedia.org/wiki/File:An_old_stupa_in_Thamel.jpg", src:"Christopher J. Fynn" },
@@ -2518,7 +2527,8 @@ window.NRA_HOOD_PHOTO = {
   "Kayseri": {
     "Melikgazi": { img:"images/hoods/kayseri--melikgazi.webp", page:"https://commons.wikimedia.org/wiki/File:C5_Yunus_Emre_ap._(RMZN)_-_panoramio.jpg", src:"İmam-ı Gazzali" },
     "Kocasinan": { img:"images/hoods/kayseri--kocasinan.webp", page:"https://commons.wikimedia.org/wiki/File:ERCIYES_DAGI.KAYSERI_-_panoramio.jpg", src:"Kayhan ERTUGRUL" },
-    "Talas": { img:"images/hoods/kayseri--talas.webp", page:"https://commons.wikimedia.org/wiki/File:TALAS_-_panoramio_-_cankurtaran_(2).jpg", src:"cankurtaran" }
+    "Talas": { img:"images/hoods/kayseri--talas.webp", page:"https://commons.wikimedia.org/wiki/File:TALAS_-_panoramio_-_cankurtaran_(2).jpg", src:"cankurtaran" },
+    "Cumhuriyet Meydanı (Old City)": { img:"images/hoods/kayseri--cumhuriyet-meydani-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Kayseri_along_city_walls_2443.jpg", src:"Dosseman" }
   },
   "Kazan": {
     "Kazan Kremlin & Embankment": { img:"images/hoods/kazan--kazan-kremlin-embankment.webp", page:"https://commons.wikimedia.org/wiki/File:Kremlin_quay,_Kazan_(2023-06-06)_09.jpg", src:"Vyacheslav Kirillin" },
@@ -2548,7 +2558,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kingstown": {
     "Kingstown City Centre": { img:"images/hoods/kingstown--kingstown-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Kingstown_Harbour_plans,_1830_Dun_Loaghaire.jpg", src:"Internet Archive Book Images" },
-    "Calliaqua/Blue Lagoon": { img:"images/hoods/kingstown--calliaqua-blue-lagoon.webp", page:"https://commons.wikimedia.org/wiki/File:Ogcocephalus_parvus_(Saint_Vincent_and_the_Grenadines).jpg", src:"Barry Peters" }
+    "Calliaqua/Blue Lagoon": { img:"images/hoods/kingstown--calliaqua-blue-lagoon.webp", page:"https://commons.wikimedia.org/wiki/File:Ogcocephalus_parvus_(Saint_Vincent_and_the_Grenadines).jpg", src:"Barry Peters" },
+    "Villa/Indian Bay": { img:"images/hoods/kingstown--villa-indian-bay.webp", page:"https://commons.wikimedia.org/wiki/File:St_Vincent-Indian_Bay_2090.jpg", src:"Ein Dahmer" }
   },
   "Kinshasa": {
     "Ngaliema": { img:"images/hoods/kinshasa--ngaliema.webp", page:"https://commons.wikimedia.org/wiki/File:Pont_de_Kinsuka,_pollution.jpg", src:"Steeve P" },
@@ -4561,5 +4572,11 @@ window.NRA_HOOD_PHOTO = {
   },
   "Harare": {
     "CBD (Central Business District)": { img:"images/hoods/harare--cbd-central-business-district.webp", page:"https://commons.wikimedia.org/wiki/File:Denkmal_zum_Ersten_Weltkrieg_in_Harare_(28340432139).jpg", src:"ilf_" }
+  },
+  "Jianshui": {
+    "Lin'an Ancient Town": { img:"images/hoods/jianshui--lin-an-ancient-town.webp", page:"https://commons.wikimedia.org/wiki/File:2025-02-07_%22Liang_Yi_Suo_Yao%22_Paifang_in_Jianshui,_Yunnan_%E9%9B%B2%E5%8D%97%E5%BB%BA%E6%B0%B4%E5%85%A9%E8%BF%A4%E9%8E%96%E9%91%B0_02.jpg", src:"源義信" }
+  },
+  "Karbala": {
+    "Bab Baghdad": { img:"images/hoods/karbala--bab-baghdad.webp", page:"https://commons.wikimedia.org/wiki/File:Karbala_56001,_Iraq_-_panoramio_(16).jpg", src:"‫سید محمود جوادی‬‎" }
   },
 };
