@@ -1864,7 +1864,6 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/cancun-playa-delfines.webp", page:"https://commons.wikimedia.org/wiki/File:Playa_Delfines,_Canc%C3%BAn_-_Panorama.jpg", credit:"Capmo / CC BY-SA 4.0"},
     {img:"images/landmarks/cancun-coba-nohoch-mul-pyramid.webp", page:"https://commons.wikimedia.org/w/index.php?search=Cob%C3%A1%20%28Nohoch%20Mul%20Pyramid%29%20Canc%C3%BAn&title=Special:MediaSearch"},
     {img:"images/landmarks/cancun-xcaret-park.webp", page:"https://commons.wikimedia.org/w/index.php?search=Xcaret%20Park%20Canc%C3%BAn&title=Special:MediaSearch"},
-    {img:"images/landmarks/cancun-cenote-ik-kil.webp", page:"https://commons.wikimedia.org/wiki/File:Ik_Kil_Cenote_2021_1.jpg", credit:"GreenMeansGo / CC BY-SA 4.0"},
     {img:"images/landmarks/cancun-hotel-zone-zona-hotelera.webp", page:"https://commons.wikimedia.org/wiki/File:Boulevard_Kukulcan,_Zona_Hotelera,_Canc%C3%BAn,_Mexico_-_panoramio_(47).jpg", credit:"MARELBU / CC BY 3.0"},
     {img:"images/landmarks/cancun-el-rey-archaeological-site.webp", page:"https://commons.wikimedia.org/wiki/File:El_Rey_archaeological_site.jpg", credit:"In Vitrio / CC BY-SA 4.0"},
     {img:"images/landmarks/cancun-xel-ha-park.webp", page:"https://commons.wikimedia.org/w/index.php?search=Xel-H%C3%A1%20Park%20Canc%C3%BAn&title=Special:MediaSearch"},
