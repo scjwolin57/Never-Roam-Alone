@@ -99,31 +99,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 4,Eilat,Israel,North Beach,29.551181,34.965207,File:Locomotive and tractor on display LCCN2016824036.tif,done,File:Drone Flight over Eilat Facing West.JPG,Commons file GPS 72 m from the hood point; eye-checked; licence CC BY-SA 4.0
 4,Eilat,Israel,The Lagoon / Marina,29.554255,34.960126,File:Trifid and Lagoon nebulae.jpg,done,File:Eilat Lagoon.jpg,Commons file GPS 478 m from the hood point; eye-checked; licence CC BY-SA 3.0
 4,El Calafate,Argentina,Av. del Libertador (Main Street),-50.339309,-72.281759,File:A PASO DE HOMBRE.jpg,done,File:El Calafate - centrum - panoramio (1).jpg,Commons file GPS 1178 m from the hood point; eye-checked; licence CC BY 3.0
-5,El Chaltén,Argentina,Village Center,-49.331956,-72.886044,File:Fallschase Village Center sign.jpg,open,,
-5,El Nido,Philippines,Corong-Corong,11.169305,119.394681,File:032 Corong.jpg,open,,
-5,El Nido,Philippines,Las Cabanas / Marimegmeg Beach,11.146773,119.396754,File:Castle of Las Cabañas de Castilla 004.JPG,open,,
-5,Encarnación,Paraguay,Centro,-27.339031,-55.866862,File:Shopping Mall Interior (48844005991).jpg,open,,
-5,Ensenada,Mexico,Estero Beach,31.77839,-116.616273,File:Spiaggia cuba.jpg,open,,
-5,Ensenada,Mexico,Zona Costero (Hotel Zone),31.832704,-116.609309,File:MINISTRO DE DEFENSA LLEVÓ AYUDA HUMANITARIA A PIURA Y COORDINÓ ACCIONES PARA ENFRENTAR EFECTOS DEL FENÓMENO DEL NIÑO COSTERO.jpg,open,,
-5,Erbil,Iraq,Gulan Street,36.202183,43.981716,"File:Guláns, Ponteareas, cruceiro.jpg",open,,
-5,Erbil,Iraq,Italian Village,36.187962,43.967441,"File:Columbus, Ohio fire station 06.jpg",open,,
-5,Essaouira,Morocco,Quartier des Dunes / Borj (Beach),31.49963,-9.759853,File:03 2018 Église luthérienne Saint-Pierre.jpg,open,,
-5,Faro,Portugal,Baixa / Marina (Downtown),37.016104,-7.933248,File:Buddhist Colony hike (26313632253).jpg,open,,
-5,Fenghuang,China,East Gate (Dongmen),27.951465,109.600925,File:Викиштанд 10.10.2022 (05).jpg,open,,
-5,Fethiye,Türkiye,Çalış Beach,36.669061,29.104086,File:Beach handball at the 2018 Summer Youth Olympics – Girls Gold Medal Match 0249.jpg,open,,
-5,Flores,Guatemala,Flores Island (Isla de Flores),16.929192,-89.892022,File:Cow Bay Beach .jpg,open,,
-5,Flores,Guatemala,Santa Elena,16.913076,-89.895729,File:Ballenita 4.jpg,open,,
-5,Fort-de-France,Martinique,Bellevue / Redoute,14.624649,-61.071293,File:Rosa Bellevue 2019-06-05 7362.jpg,open,,
-5,Foz do Iguaçu,Brazil,Vila Portes / Jardim das Nações,-25.516359,-54.588369,File:Attention Seeking Scarecrows (23173895794).jpg,open,,
-5,Freetown,Sierra Leone,Aberdeen,8.491902,-13.287994,File:Aberdeen - Municipal Buildings (15350073551).jpg,open,,
-5,Freetown,Sierra Leone,Central Freetown (Downtown),8.487227,-13.235601,"File:Carte itinéraire des découvertes faites en 1823 par le Dr Oudney, le Major Denham et le Lieutenant Clapperton (33746955104).jpg",open,,
-5,Freetown,Sierra Leone,Congo Cross / Wilberforce,8.483156,-13.259425,File:Croix du Congo - Questembert (Morbihan).jpg,open,,
-5,Garmisch-Partenkirchen,Germany,Olympic Quarter,47.480093,11.119318,"File:Argentina vs. France, 2024 Summer Olympic rugby sevens, men's quarter-final, 2024-07-25 (165).jpg",open,,
-5,Gaziantep,Türkiye,Bey Mahallesi (Old City),37.062971,37.376714,File:Osman Hamdi Bey - The Tortoise Trainer - Google Art Project.jpg,open,,
-5,Georgetown,Guyana,Bel Air Park,6.809125,-58.143027,File:Parc Bel-Air de Tarbes (Hautes-Pyrénées) 6.jpg,open,,
-5,Georgetown,Guyana,Queenstown,6.811443,-58.150855,"File:Dairn and Phillip, Queenstown 1991 (5445556).jpg",open,,
-5,Gisenyi,Rwanda,Kigufi,-1.750873,29.27929,File:Lake muhazi king fisher resort.jpg,open,,
-5,Glasgow,United Kingdom,West End,55.878212,-4.295714,File:10 WEA 2016 July jeh.jpg,open,,
+5,El Chaltén,Argentina,Village Center,-49.331956,-72.886044,File:Fallschase Village Center sign.jpg,done,File:Argentina 2015-11-21 (24873659906).jpg,Commons file GPS 120 m from the hood point; eye-checked; licence CC BY-SA 2.0
+5,El Nido,Philippines,Corong-Corong,11.169305,119.394681,File:032 Corong.jpg,done,"File:El Nido, Palawan, Philippines - panoramio (9).jpg",Commons file GPS 154 m from the hood point; eye-checked; licence CC BY 3.0
+5,El Nido,Philippines,Las Cabanas / Marimegmeg Beach,11.146773,119.396754,File:Castle of Las Cabañas de Castilla 004.JPG,done,File:Las Cabanas Beach - panoramio (1).jpg,Commons file GPS 28 m from the hood point; eye-checked; licence CC BY 3.0
+5,Encarnación,Paraguay,Centro,-27.339031,-55.866862,File:Shopping Mall Interior (48844005991).jpg,done,File:J30 993 Catedral de Nuestra Señora de la Encarnación (cropped).jpg,Commons file GPS 7 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Ensenada,Mexico,Estero Beach,31.77839,-116.616273,File:Spiaggia cuba.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a bird photo within 2 km"
+5,Ensenada,Mexico,Zona Costero (Hotel Zone),31.832704,-116.609309,File:MINISTRO DE DEFENSA LLEVÓ AYUDA HUMANITARIA A PIURA Y COORDINÓ ACCIONES PARA ENFRENTAR EFECTOS DEL FENÓMENO DEL NIÑO COSTERO.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only food, a fishmonger and navy ships 2 km away"
+5,Erbil,Iraq,Gulan Street,36.202183,43.981716,"File:Guláns, Ponteareas, cruceiro.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a consulate at night, roses and space photos"
+5,Erbil,Iraq,Italian Village,36.187962,43.967441,"File:Columbus, Ohio fire station 06.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a hotel, a library and portraits about 1 km away"
+5,Essaouira,Morocco,Quartier des Dunes / Borj (Beach),31.49963,-9.759853,File:03 2018 Église luthérienne Saint-Pierre.jpg,done,"File:Essaouira Beach, Morocco - panoramio (6).jpg",Commons file GPS 561 m from the hood point; eye-checked; licence CC BY-SA 3.0
+5,Faro,Portugal,Baixa / Marina (Downtown),37.016104,-7.933248,File:Buddhist Colony hike (26313632253).jpg,done,"File:12-09-2017 Rua Dom Francisco Gomes, Faro.JPG",Commons file GPS 76 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Fenghuang,China,East Gate (Dongmen),27.951465,109.600925,File:Викиштанд 10.10.2022 (05).jpg,done,File:凤凰古城升恒门.jpg,Commons file GPS 15 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Fethiye,Türkiye,Çalış Beach,36.669061,29.104086,File:Beach handball at the 2018 Summer Youth Olympics – Girls Gold Medal Match 0249.jpg,done,File:Çalış Beach.jpg,Commons file GPS 856 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Flores,Guatemala,Flores Island (Isla de Flores),16.929192,-89.892022,File:Cow Bay Beach .jpg,done,File:Colourful streets in Isla de Flores.jpg,Commons file GPS 122 m from the hood point; eye-checked; licence CC BY 4.0
+5,Flores,Guatemala,Santa Elena,16.913076,-89.895729,File:Ballenita 4.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearby files show Flores island across the lake, not Santa Elena itself"
+5,Fort-de-France,Martinique,Bellevue / Redoute,14.624649,-61.071293,File:Rosa Bellevue 2019-06-05 7362.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only waterfall drone shots and an old villa of unclear district"
+5,Foz do Iguaçu,Brazil,Vila Portes / Jardim das Nações,-25.516359,-54.588369,File:Attention Seeking Scarecrows (23173895794).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only Unsplash portraits and a flooded street"
+5,Freetown,Sierra Leone,Aberdeen,8.491902,-13.287994,File:Aberdeen - Municipal Buildings (15350073551).jpg,done,"File:Aberdeen, Freetown, Sierra Leone - panoramio - Ghassan Mroue.jpg",Commons file GPS 1075 m from the hood point; eye-checked; licence CC BY-SA 3.0
+5,Freetown,Sierra Leone,Central Freetown (Downtown),8.487227,-13.235601,"File:Carte itinéraire des découvertes faites en 1823 par le Dr Oudney, le Major Denham et le Lieutenant Clapperton (33746955104).jpg",done,"File:Cotton tree in Freetown, SL - Mapillary (yIBZ74r6IsUFOaWtAPwhWw).jpg",Commons file GPS 9 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Freetown,Sierra Leone,Congo Cross / Wilberforce,8.483156,-13.259425,File:Croix du Congo - Questembert (Morbihan).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a sunset and distant bay views over 900 m away"
+5,Garmisch-Partenkirchen,Germany,Olympic Quarter,47.480093,11.119318,"File:Argentina vs. France, 2024 Summer Olympic rugby sevens, men's quarter-final, 2024-07-25 (165).jpg",done,File:20230608 Olympiaschanze Garmisch-Partenkirchen.jpg,Commons file GPS 166 m from the hood point; eye-checked; licence CC BY 4.0
+5,Gaziantep,Türkiye,Bey Mahallesi (Old City),37.062971,37.376714,File:Osman Hamdi Bey - The Tortoise Trainer - Google Art Project.jpg,done,File:Gaziantep Bedesten Sokak in 2024 8056.jpg,Commons file GPS 220 m from the hood point; eye-checked; licence CC BY-SA 4.0
+5,Georgetown,Guyana,Bel Air Park,6.809125,-58.143027,File:Parc Bel-Air de Tarbes (Hautes-Pyrénées) 6.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cathedral interiors (with wrong GPS) and birds"
+5,Georgetown,Guyana,Queenstown,6.811443,-58.150855,"File:Dairn and Phillip, Queenstown 1991 (5445556).jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only fisheye dashcam frames"
+5,Gisenyi,Rwanda,Kigufi,-1.750873,29.27929,File:Lake muhazi king fisher resort.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only Lake Kivu shots over 1.2 km away, not Kigufi"
+5,Glasgow,United Kingdom,West End,55.878212,-4.295714,File:10 WEA 2016 July jeh.jpg,done,File:DSCN4472 Kelvinside Hillhead Parish Church.jpg,Commons file GPS 176 m from the hood point; eye-checked; licence CC BY-SA 4.0
 6,Gondar,Ethiopia,Piazza (City Centre),12.610888,37.468179,File:Piazza Duomo (Prato) con neve.JPG,open,,
 6,Gothenburg,Sweden,Vasastan,57.695143,11.968264,"File:Kvarteret Isotopen, Solnavägen 1 och Brf Helix (västra tornet) i bakgrunden, oktober 2022b.jpg",open,,
 6,Grenoble,France,Championnet,45.185364,5.722192,File:Statue de Jean-Étienne Championnet - Valence -2014-09-28- P1940385.JPG,open,,

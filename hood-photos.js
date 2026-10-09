@@ -1908,10 +1908,13 @@ window.NRA_HOOD_PHOTO = {
   "El Nido": {
     "El Nido Town / Poblacion": { img:"images/hoods/el-nido--el-nido-town-poblacion.webp", page:"https://commons.wikimedia.org/wiki/File:El_Nido_Town_Beach.jpg", src:"Micluna" },
     "Lio Beach": { img:"images/hoods/el-nido--lio-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Beach_with_pier_view.jpg", src:"LuzViMindaLife" },
-    "Nacpan Beach": { img:"images/hoods/el-nido--nacpan-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Nacpan_Beach_Coastal_Landscape.jpg", src:"Micluna" }
+    "Nacpan Beach": { img:"images/hoods/el-nido--nacpan-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Nacpan_Beach_Coastal_Landscape.jpg", src:"Micluna" },
+    "Corong-Corong": { img:"images/hoods/el-nido--corong-corong.webp", page:"https://commons.wikimedia.org/wiki/File:El_Nido,_Palawan,_Philippines_-_panoramio_(9).jpg", src:"Андрей Бобровский" },
+    "Las Cabanas / Marimegmeg Beach": { img:"images/hoods/el-nido--las-cabanas-marimegmeg-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Las_Cabanas_Beach_-_panoramio_(1).jpg", src:"Tuderna" }
   },
   "Encarnación": {
-    "San José": { img:"images/hoods/encarnacion--san-jose.webp", page:"https://commons.wikimedia.org/wiki/File:J37_693_Encarnaci%C3%B3n,_Playa_San_Jos%C3%A9.jpg", src:"Falk2" }
+    "San José": { img:"images/hoods/encarnacion--san-jose.webp", page:"https://commons.wikimedia.org/wiki/File:J37_693_Encarnaci%C3%B3n,_Playa_San_Jos%C3%A9.jpg", src:"Falk2" },
+    "Centro": { img:"images/hoods/encarnacion--centro.webp", page:"https://commons.wikimedia.org/wiki/File:J30_993_Catedral_de_Nuestra_Se%C3%B1ora_de_la_Encarnaci%C3%B3n_(cropped).jpg", src:"Falk2" }
   },
   "Enshi": {
     "Enshi Railway Station (Jinziba)": { img:"images/hoods/enshi--enshi-railway-station-jinziba.webp", page:"https://commons.wikimedia.org/wiki/File:201908_Platform_4,5_of_Enshi_Station.jpg", src:"MNXANL" },
@@ -1928,12 +1931,14 @@ window.NRA_HOOD_PHOTO = {
     "Anger": { img:"images/hoods/erfurt--anger.webp", page:"https://commons.wikimedia.org/wiki/File:Anger_57_Erfurt_20250427_0002.jpg", src:"Tilman2007" }
   },
   "Essaouira": {
-    "Medina": { img:"images/hoods/essaouira--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Cannon_on_Skala_de_la_Ville,_Essaouira,_Morocco.jpg", src:"CastlesCatalog" }
+    "Medina": { img:"images/hoods/essaouira--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Cannon_on_Skala_de_la_Ville,_Essaouira,_Morocco.jpg", src:"CastlesCatalog" },
+    "Quartier des Dunes / Borj (Beach)": { img:"images/hoods/essaouira--quartier-des-dunes-borj-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Essaouira_Beach,_Morocco_-_panoramio_(6).jpg", src:"Patrick Nouhailler's…" }
   },
   "Faro": {
     "Cidade Velha (Old Town)": { img:"images/hoods/faro--cidade-velha-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Loul%C3%A9_-_Portugal_(4490063763).jpg", src:"Vitor Oliveira from Torres Vedras, PORTUGAL" },
     "Praia de Faro": { img:"images/hoods/faro--praia-de-faro.webp", page:"https://commons.wikimedia.org/wiki/File:Faro_(44625583410).jpg", src:"Sergei Gussev" },
-    "Bom João": { img:"images/hoods/faro--bom-joao.webp", page:"https://commons.wikimedia.org/wiki/File:Apeadeiro_Bom_Joao.JPG", src:"Ajpvalente" }
+    "Bom João": { img:"images/hoods/faro--bom-joao.webp", page:"https://commons.wikimedia.org/wiki/File:Apeadeiro_Bom_Joao.JPG", src:"Ajpvalente" },
+    "Baixa / Marina (Downtown)": { img:"images/hoods/faro--baixa-marina-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:12-09-2017_Rua_Dom_Francisco_Gomes,_Faro.JPG", src:"Kolforn (Kolforn) I'd appreciate if you could mail me (Kolforn@gmail.com) if you" }
   },
   "Fès": {
     "Fes el-Bali (Old Medina)": { img:"images/hoods/fes--fes-el-bali-old-medina.webp", page:"https://commons.wikimedia.org/wiki/File:Ablutions_room,_Zaoura_Tijania_mosque_(588707958).jpg", src:"Maureen from Buffalo, USA" },
@@ -1944,7 +1949,8 @@ window.NRA_HOOD_PHOTO = {
     "Fethiye Marina / Old Town": { img:"images/hoods/fethiye--fethiye-marina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Fethiye_Martyrs_Monument_5723.jpg", src:"Dosseman" },
     "Ölüdeniz": { img:"images/hoods/fethiye--oludeniz.webp", page:"https://commons.wikimedia.org/wiki/File:48340_%C3%96l%C3%BCdeniz-Fethiye-Mu%C4%9Fla,_Turkey_-_panoramio_(3).jpg", src:"Selçuk AKBAŞ" },
     "Kayaköy": { img:"images/hoods/fethiye--kayakoy.webp", page:"https://commons.wikimedia.org/wiki/File:Ghost_town_Kayakoy_IMGP8618.jpg", src:"Nikodem Nijaki" },
-    "Hisarönü": { img:"images/hoods/fethiye--hisaronu.webp", page:"https://commons.wikimedia.org/wiki/File:Mosque_(1091506641).jpg", src:"allen watkin from London, UK" }
+    "Hisarönü": { img:"images/hoods/fethiye--hisaronu.webp", page:"https://commons.wikimedia.org/wiki/File:Mosque_(1091506641).jpg", src:"allen watkin from London, UK" },
+    "Çalış Beach": { img:"images/hoods/fethiye--calis-beach.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%87al%C4%B1%C5%9F_Beach.jpg", src:"Vano111ru" }
   },
   "Florianópolis": {
     "Centro": { img:"images/hoods/florianopolis--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Floripa_(4396345444).jpg", src:"Francisco Anzola" },
@@ -1969,7 +1975,9 @@ window.NRA_HOOD_PHOTO = {
     "Rodovia das Cataratas": { img:"images/hoods/foz-do-iguacu--rodovia-das-cataratas.webp", page:"https://commons.wikimedia.org/wiki/File:Cataratas_do_Igua%C3%A7u,_Foz_do_Igua%C3%A7u,_PR,_Brasil_06.JPG", src:"Reynaldostein" }
   },
   "Freetown": {
-    "Lumley Beach": { img:"images/hoods/freetown--lumley-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Lumley_Shore_-_panoramio.jpg", src:"Ghassan Mroue" }
+    "Lumley Beach": { img:"images/hoods/freetown--lumley-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Lumley_Shore_-_panoramio.jpg", src:"Ghassan Mroue" },
+    "Aberdeen": { img:"images/hoods/freetown--aberdeen.webp", page:"https://commons.wikimedia.org/wiki/File:Aberdeen,_Freetown,_Sierra_Leone_-_panoramio_-_Ghassan_Mroue.jpg", src:"Ghassan Mroue" },
+    "Central Freetown (Downtown)": { img:"images/hoods/freetown--central-freetown-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Cotton_tree_in_Freetown,_SL_-_Mapillary_(yIBZ74r6IsUFOaWtAPwhWw).jpg", src:"danbjoseph @ Mapillary.com" }
   },
   "Freiburg": {
     "Altstadt (Old Town)": { img:"images/hoods/freiburg--altstadt-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Schwarzes_Kloster_Innenhof_(Freiburg)_0228_jiw.jpg", src:"joergens.mi" },
@@ -1999,7 +2007,8 @@ window.NRA_HOOD_PHOTO = {
   "Gaziantep": {
     "Şahinbey City Center": { img:"images/hoods/gaziantep--sahinbey-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Gaziantep_Bedesten_Sokak_in_2024_8052.jpg", src:"Dosseman" },
     "Şehitkamil": { img:"images/hoods/gaziantep--sehitkamil.webp", page:"https://commons.wikimedia.org/wiki/File:Primemall_%C5%9Eehitkamil_gate.IMG_1989.jpg", src:"YG01" },
-    "Bakırcılar Çarşısı": { img:"images/hoods/gaziantep--bakircilar-carsisi.webp", page:"https://commons.wikimedia.org/wiki/File:A_jam-packed_bazaar_in_Gaziantep_T%C3%BCrkiye.jpg", src:"Qrdaaa" }
+    "Bakırcılar Çarşısı": { img:"images/hoods/gaziantep--bakircilar-carsisi.webp", page:"https://commons.wikimedia.org/wiki/File:A_jam-packed_bazaar_in_Gaziantep_T%C3%BCrkiye.jpg", src:"Qrdaaa" },
+    "Bey Mahallesi (Old City)": { img:"images/hoods/gaziantep--bey-mahallesi-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Gaziantep_Bedesten_Sokak_in_2024_8056.jpg", src:"Dosseman" }
   },
   "Gdańsk": {
     "Główne Miasto (Main Town)": { img:"images/hoods/gdansk--glowne-miasto-main-town.webp", page:"https://commons.wikimedia.org/wiki/File:Cathedral_(40435796791).jpg", src:"Twisted Realm from Gdansk, Poland" },
@@ -2064,7 +2073,8 @@ window.NRA_HOOD_PHOTO = {
     "City Centre": { img:"images/hoods/glasgow--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Dawn_over_Glasgow_(48659596342).jpg", src:"Ian Dick from Glasgow, UK" },
     "Merchant City": { img:"images/hoods/glasgow--merchant-city.webp", page:"https://commons.wikimedia.org/wiki/File:DSCN3195_The_Christian_Centre_from_roof_of_Glasgow_College_of_Building_and_Printing.jpg", src:"AlasdairW" },
     "Finnieston": { img:"images/hoods/glasgow--finnieston.webp", page:"https://commons.wikimedia.org/wiki/File:Exterieur_van_Stobcross_House_te_Glasgow,_RP-F-2001-7-426-92.jpg", src:"Rijksmuseum" },
-    "Southside": { img:"images/hoods/glasgow--southside.webp", page:"https://commons.wikimedia.org/wiki/File:124_Springkell_Avenue.jpg", src:"Twospoonfuls" }
+    "Southside": { img:"images/hoods/glasgow--southside.webp", page:"https://commons.wikimedia.org/wiki/File:124_Springkell_Avenue.jpg", src:"Twospoonfuls" },
+    "West End": { img:"images/hoods/glasgow--west-end.webp", page:"https://commons.wikimedia.org/wiki/File:DSCN4472_Kelvinside_Hillhead_Parish_Church.jpg", src:"AlasdairW" }
   },
   "Gold Coast": {
     "Surfers Paradise": { img:"images/hoods/gold-coast--surfers-paradise.webp", page:"https://commons.wikimedia.org/wiki/File:186_days_to_2018_Commonwealth_Games,_September_2017.jpg", src:"Kgbo" },
@@ -4516,5 +4526,17 @@ window.NRA_HOOD_PHOTO = {
     "New Tourist Center": { img:"images/hoods/eilat--new-tourist-center.webp", page:"https://commons.wikimedia.org/wiki/File:Eilat_Hilton_QueenHotel_E17.jpg", src:"Ludvig14" },
     "North Beach": { img:"images/hoods/eilat--north-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Drone_Flight_over_Eilat_Facing_West.JPG", src:"Jonathan Caras" },
     "The Lagoon / Marina": { img:"images/hoods/eilat--the-lagoon-marina.webp", page:"https://commons.wikimedia.org/wiki/File:Eilat_Lagoon.jpg", src:"Tiia Monto" }
+  },
+  "El Chaltén": {
+    "Village Center": { img:"images/hoods/el-chalten--village-center.webp", page:"https://commons.wikimedia.org/wiki/File:Argentina_2015-11-21_(24873659906).jpg", src:"Guillaume Baviere from Uppsala, Sweden" }
+  },
+  "Fenghuang": {
+    "East Gate (Dongmen)": { img:"images/hoods/fenghuang--east-gate-dongmen.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%87%A4%E5%87%B0%E5%8F%A4%E5%9F%8E%E5%8D%87%E6%81%92%E9%97%A8.jpg", src:"HCCB3947" }
+  },
+  "Flores": {
+    "Flores Island (Isla de Flores)": { img:"images/hoods/flores--flores-island-isla-de-flores.webp", page:"https://commons.wikimedia.org/wiki/File:Colourful_streets_in_Isla_de_Flores.jpg", src:"Bex Walton" }
+  },
+  "Garmisch-Partenkirchen": {
+    "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:20230608_Olympiaschanze_Garmisch-Partenkirchen.jpg", src:"Flocci Nivis" }
   },
 };
