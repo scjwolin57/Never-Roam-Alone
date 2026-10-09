@@ -6,6 +6,7 @@ here the same day. See CLAUDE.md §4.5 (this file's companion rulebook).*
 
 | Date | Decision | Why / source |
 |---|---|---|
+| 2026-10-09 | **Kuşadası: Kordon Promenade pinned per Jeff's pin** (Google Maps place "I love kusadasi" on the waterfront, 37.8636266, 27.2612368); was empty. | Jeff, in chat (Maps link). |
 | 2026-10-09 | **Day-trip threshold stays at 30 minutes' drive** (2026-09-23 row stands). Jeff had said 45 in chat the same day; he settled it: "keep at 30". Nothing moves back. | Jeff: "keep at 30". |
 | 2026-10-09 | **Klaipėda: Old Town Fachwerk Warehouses pinned per Jeff's pin** from his address Bažnyčių g. 4 / Daržų g. 10 (OpenStreetMap: 55.7074558, 21.1355396, Senamiestis); was empty. | Jeff, in chat. |
 | 2026-10-09 | **Cancún: Cobá (112 min), Xcaret Park (68 min, half-day) and Xel-Há Park (93 min) move from landmarks to day trips** (OSRM drive from the city centre; 5 landmarks left). They had slipped through the 2026-09-23 pass because their stored pins sat inside Cancún, so the 30-minute test saw distance 0. **Jeff stated the move threshold as 45 minutes, not the 30 minutes in the 2026-09-23 row; flagged, not yet applied** (a 45-minute rule would return landmarks that sit 30-45 minutes out; awaiting his call). Same hole elsewhere: Places hits 30+ km from a stored in-city pin are listed in `landmark-pins-places-results-2026-10-09.csv` (PLACES_DIFFERS_NO_SECOND_SOURCE). | Jeff: "If they are more than 45 minutes drive from the city center they should be moved... move cobá, xcaret and xel-ha to day trips too". |
