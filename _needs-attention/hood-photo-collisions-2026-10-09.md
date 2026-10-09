@@ -1,6 +1,8 @@
 # Hood photos in the wrong place (name collisions), 2026-10-09
 
-**Question for Jeff:** 387 neighborhood photos are of a different place. May I (1) take them all off now, so those hoods show the placeholder instead of a wrong photo, and then (2) source verified replacements in batches of 25? Or do you want to see replacements first, city by city?
+**Removed 2026-10-09 (Jeff: "yes, remove them all now then replace in batches of 25"):** all 387 entries, their 774 image files and their sheet cells. Those hoods show the "No photo yet" stand-in. Replacements: see `RESUME_hood-photo-replacements.md`.
+
+~~**Question for Jeff:** 387 neighborhood photos are of a different place. May I (1) take them all off now, so those hoods show the placeholder instead of a wrong photo, and then (2) source verified replacements in batches of 25? Or do you want to see replacements first, city by city?~~
 
 Also: the 8 photos under "Could not settle" need your eye or a decision (keep, or treat as wrong).
 
