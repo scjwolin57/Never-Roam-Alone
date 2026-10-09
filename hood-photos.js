@@ -1082,7 +1082,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Ashgabat": {
     "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" },
-    "City Center (Turkmenbashy Avenue)": { img:"images/hoods/ashgabat--city-center-turkmenbashy-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:56Y1337.jpg", src:"DRPROTS" }
+    "Kopetdag": { img:"images/hoods/ashgabat--city-center-turkmenbashy-avenue.webp", page:"https://commons.wikimedia.org/wiki/File:56Y1337.jpg", src:"DRPROTS" }
   },
   "Asmara": {
     "Harnet Avenue (City Center)": { img:"images/hoods/asmara--harnet-avenue-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Asmara,_cattedrale_cattolica,_campanile_01.JPG", src:"sailko" }
