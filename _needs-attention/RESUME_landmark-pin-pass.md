@@ -152,6 +152,14 @@ Nulls went 59 -> 56. Every batch was committed on its own; the table above lists
 - **Gate B: improved but not clear.** The DiscoverCars work is merged (citydata tree clean, main level with origin). But the hood review and hotel recheck sessions were still live and committed to `citydata/` today (4d6b4372, 9f2af0e9), so a pin write could collide with them.
 - To run: Jeff checks APIs & Services > Geocoding API > Metrics and says "October geocoding is near zero", and the hood review sessions are closed or paused. Then say "go" and the pass runs at once (1,949 rows, batches of 25 cities).
 
+### Phase 2b, Google Places Text Search for the 1,321 no-match rows, 2026-10-09 (Jeff: "yes, run places search for the 1321")
+
+- 1,316 Places Text Search (New) calls (fields: id, displayName, location, types, formattedAddress; Pro SKU, 5,000 free a month; 5 rows skipped, no city file or no pin to bias on). Bias: 30 km circle round the stored pin. Cache and scripts were in the session scratchpad; per-row outcomes in `landmark-pins-places-results-2026-10-09.csv`.
+- A pin changes only when the Places hit has the whole landmark name, is a specific place type (not a town, street, hotel, tour agency or shop) and is 0.4 km or more from the stored pin, AND OpenStreetMap or Wikidata names the same place within 400 m of the hit. Non-China only (no GCJ-02 conversion done; China hits were not applied).
+- Result: 15 fixed (13 moved, 2 null pins filled: Weimar Goethe House, Tozeur Zoo du Sahara). 425 Places agrees with the stored pin, 701 no named hit. 190 differ or sit 0.25-0.4 km off; 124 of those passed the type and distance filter and went to the second-source check, 15 were fixed, the rest are left alone (long beaches and streets, area names, no second source, or the two sources disagree).
+- Cyangugu Nyungwe Canopy Walkway (33 km) and Calabar Kwa Falls (about 25 km out) now sit far from their city: day-trip candidates for Jeff (rule 5).
+- Not run: Cancún Cenote Ik Kil, La Isla Shopping Village; Klaipėda Old Town Fachwerk Warehouses; Kuşadası Kordon Promenade; Şanlıurfa Ten-Eyed Bridge (null pins, no city file match by slug).
+
 ## Open for Jeff
 
 - `landmarks-that-are-day-trips.md` - 317 landmark pins now sit more than 30 km
