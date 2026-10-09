@@ -1161,7 +1161,8 @@ window.NRA_HOOD_PHOTO = {
   "Bamberg": {
     "Altstadt / Island Town": { img:"images/hoods/bamberg--altstadt-island-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg-Hofwaschbrunnen-046599.jpg", src:"Ermell" },
     "Gärtnerstadt (Gardener's District)": { img:"images/hoods/bamberg--gartnerstadt-gardener-s-district.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg_G%C3%A4rtnerland_Orthophoto-20230625-RM-172045.jpg", src:"Reinhold Möller Ermell" },
-    "Cathedral Hill (Domberg)": { img:"images/hoods/bamberg--cathedral-hill-domberg.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg,_Dom,_Westansicht,_20150927,_001.jpg", src:"Tilman2007" }
+    "Cathedral Hill (Domberg)": { img:"images/hoods/bamberg--cathedral-hill-domberg.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg,_Dom,_Westansicht,_20150927,_001.jpg", src:"Tilman2007" },
+    "Sandgebiet (Sand District)": { img:"images/hoods/bamberg--sandgebiet-sand-district.webp", page:"https://commons.wikimedia.org/wiki/File:Bamberg_Am_Kranen_12_BW_2.jpg", src:"Berthold Werner" }
   },
   "Bamyan": {
     "Bamyan Bazaar": { img:"images/hoods/bamyan--bamyan-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Bamyan,_A_province_in_the_eye_of_a_storm_130228-A-GH622-013.jpg", src:"Sgt. Christopher Bonebrake" },
@@ -1211,7 +1212,9 @@ window.NRA_HOOD_PHOTO = {
     "Cerro Catedral": { img:"images/hoods/bariloche--cerro-catedral.webp", page:"https://commons.wikimedia.org/wiki/File:Argentina_-_Bariloche_trekking_084_-_upper_alpine_lake_(6834299158).jpg", src:"McKay Savage from London, UK" }
   },
   "Barranquilla": {
-    "El Prado": { img:"images/hoods/barranquilla--el-prado.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_residencia_familia_Blanco_Barranquilla_2026-01-17.jpg", src:"Jdvillalobos" }
+    "El Prado": { img:"images/hoods/barranquilla--el-prado.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_residencia_familia_Blanco_Barranquilla_2026-01-17.jpg", src:"Jdvillalobos" },
+    "Buenavista": { img:"images/hoods/barranquilla--buenavista.webp", page:"https://commons.wikimedia.org/wiki/File:Centro_Comercial_Buenavista_-_panoramio.jpg", src:"Carlos A. Revelo Ris…" },
+    "Villa Country": { img:"images/hoods/barranquilla--villa-country.webp", page:"https://commons.wikimedia.org/wiki/File:Barranquilla_skyscrapers.JPG", src:"Jdvillalobos" }
   },
   "Basel": {
     "Grossbasel (Old Town)": { img:"images/hoods/basel--grossbasel-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Basel_2012-09-16_Batch_(90).JPG", src:"User:Mattes" },
@@ -1221,7 +1224,8 @@ window.NRA_HOOD_PHOTO = {
     "St. Alban": { img:"images/hoods/basel--st-alban.webp", page:"https://commons.wikimedia.org/wiki/File:Basel_2012-10-02_Mattes_(47).JPG", src:"User:Mattes" }
   },
   "Basseterre": {
-    "Frigate Bay": { img:"images/hoods/basseterre--frigate-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Karibik,_St._Kitts_-_View_from_Timothy_Hill_-_Marriott_Resort_%5E_The_Royal_Beach_Casino_-_St._Kitts_-_panoramio.jpg", src:"giggel" }
+    "Frigate Bay": { img:"images/hoods/basseterre--frigate-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Karibik,_St._Kitts_-_View_from_Timothy_Hill_-_Marriott_Resort_%5E_The_Royal_Beach_Casino_-_St._Kitts_-_panoramio.jpg", src:"giggel" },
+    "Southeast Peninsula (Christophe Harbour)": { img:"images/hoods/basseterre--southeast-peninsula-christophe-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Wind_in_the_Great_Salt_Marsh_-_panoramio.jpg", src:"SV Zanshin" }
   },
   "Battambang": {
     "Psar Nat": { img:"images/hoods/battambang--psar-nat.webp", page:"https://commons.wikimedia.org/wiki/File:Phsar_Nat_2.jpg", src:"Christophe95" },
@@ -1229,7 +1233,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Batumi": {
     "Seaside Boulevard": { img:"images/hoods/batumi--seaside-boulevard.webp", page:"https://commons.wikimedia.org/wiki/File:Batumi,_Georgia_-_panoramio_(7).jpg", src:"žába" },
-    "Makhinjauri": { img:"images/hoods/batumi--makhinjauri.webp", page:"https://commons.wikimedia.org/wiki/File:Makhinjauri_tren_istasyonu_batum_1_2011.jpg", src:"Özgür Esen (Surdurulebiliryasam)" }
+    "Makhinjauri": { img:"images/hoods/batumi--makhinjauri.webp", page:"https://commons.wikimedia.org/wiki/File:Makhinjauri_tren_istasyonu_batum_1_2011.jpg", src:"Özgür Esen (Surdurulebiliryasam)" },
+    "New Boulevard": { img:"images/hoods/batumi--new-boulevard.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%91%D0%B0%D1%82%D1%83%D0%BC%D0%B8_-_panoramio.jpg", src:"Юлия Кондратьева" }
   },
   "Beihai": {
     "Yinhai / Silver Beach": { img:"images/hoods/beihai--yinhai-silver-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Beihai_Railway_Station_(1).jpg", src:"Oh nogo" },
@@ -1247,7 +1252,8 @@ window.NRA_HOOD_PHOTO = {
     "Campina (Centro Histórico)": { img:"images/hoods/belem--campina-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:CREAS.jpg", src:"Túllio F" },
     "Umarizal": { img:"images/hoods/belem--umarizal.webp", page:"https://commons.wikimedia.org/wiki/File:Complexo_Ver-o-Rio_Bel%C3%A9m_Par%C3%A1_2023-2-2.jpg", src:"Prburley" },
     "Batista Campos": { img:"images/hoods/belem--batista-campos.webp", page:"https://commons.wikimedia.org/wiki/File:Coreto_Octogonal_Pra%C3%A7a_Batista_Campos_Bel%C3%A9m_Par%C3%A1_2023-8724.jpg", src:"Prburley" },
-    "Nazaré": { img:"images/hoods/belem--nazare.webp", page:"https://commons.wikimedia.org/wiki/File:Nazar%C3%A9_-_panoramio_(12).jpg", src:"Roberto de vasconcel…" }
+    "Nazaré": { img:"images/hoods/belem--nazare.webp", page:"https://commons.wikimedia.org/wiki/File:Nazar%C3%A9_-_panoramio_(12).jpg", src:"Roberto de vasconcel…" },
+    "Cidade Velha": { img:"images/hoods/belem--cidade-velha.webp", page:"https://commons.wikimedia.org/wiki/File:Rua_Dr_Assis_575_Cidade_Velha_Bel%C3%A9m_Par%C3%A1_2023-7814.jpg", src:"Prburley" }
   },
   "Belfast": {
     "Cathedral Quarter": { img:"images/hoods/belfast--cathedral-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Belfast_Cathedral_-_panoramio.jpg", src:"diego_cue" },
@@ -1300,7 +1306,8 @@ window.NRA_HOOD_PHOTO = {
   "Biarritz": {
     "Grande Plage": { img:"images/hoods/biarritz--grande-plage.webp", page:"https://commons.wikimedia.org/wiki/File:Beach_Biarritz._-_panoramio.jpg", src:"Maarten Sepp" },
     "Cote des Basques": { img:"images/hoods/biarritz--cote-des-basques.webp", page:"https://commons.wikimedia.org/wiki/File:Biarritz_la_nuit_-_La_c%C3%B4te_des_Basques.jpg", src:"Tangopaso" },
-    "Port Vieux": { img:"images/hoods/biarritz--port-vieux.webp", page:"https://commons.wikimedia.org/wiki/File:Biarritz-Mar%C3%A9e_du_si%C3%A8cle-Port_Vieux-1967_03_21.jpg", src:"Daniel VILLAFRUELA." }
+    "Port Vieux": { img:"images/hoods/biarritz--port-vieux.webp", page:"https://commons.wikimedia.org/wiki/File:Biarritz-Mar%C3%A9e_du_si%C3%A8cle-Port_Vieux-1967_03_21.jpg", src:"Daniel VILLAFRUELA." },
+    "Les Halles / Town Center": { img:"images/hoods/biarritz--les-halles-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:March%C3%A9_de_Biarritz.jpg", src:"Tangopaso" }
   },
   "Bilbao": {
     "Casco Viejo": { img:"images/hoods/bilbao--casco-viejo.webp", page:"https://commons.wikimedia.org/wiki/File:Bilbao_-_Metro_-_Casco_Viejo_(24825094981).jpg", src:"Ingolf from Berlin , Deutschland" },
@@ -1344,7 +1351,10 @@ window.NRA_HOOD_PHOTO = {
   },
   "Boracay": {
     "Bulabog Beach": { img:"images/hoods/boracay--bulabog-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Bulabog_Beach,_Borocay_Island,_Philippines_-_panoramio.jpg", src:"Alexey Komarov" },
-    "Diniwid Beach": { img:"images/hoods/boracay--diniwid-beach.webp", page:"https://www.flickr.com/photos/41964616@N04/22907056061/", src:"Göran Ingman" }
+    "Diniwid Beach": { img:"images/hoods/boracay--diniwid-beach.webp", page:"https://www.flickr.com/photos/41964616@N04/22907056061/", src:"Göran Ingman" },
+    "Station 1": { img:"images/hoods/boracay--station-1.webp", page:"https://commons.wikimedia.org/wiki/File:Boracay_Willys_Rock.jpg", src:"Robert Anton Pimentel Aparente" },
+    "Station 2": { img:"images/hoods/boracay--station-2.webp", page:"https://commons.wikimedia.org/wiki/File:Boracay_(8722579789).jpg", src:"Deortiz from Zürich, Schweiz" },
+    "Station 3": { img:"images/hoods/boracay--station-3.webp", page:"https://commons.wikimedia.org/wiki/File:White_sand_beach,_Boracay_Island_-_panoramio_(2).jpg", src:"Alexey Komarov" }
   },
   "Bordeaux": {
     "Saint-Pierre": { img:"images/hoods/bordeaux--saint-pierre.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%89glise_Saint-Pierre_(Bordeaux)_(2).jpg", src:"Gzen92" },
@@ -1388,7 +1398,9 @@ window.NRA_HOOD_PHOTO = {
   "Bridgetown": {
     "St. Lawrence Gap": { img:"images/hoods/bridgetown--st-lawrence-gap.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_Lawrence_Gap_03.jpg", src:"Postdlf" },
     "Holetown": { img:"images/hoods/bridgetown--holetown.webp", page:"https://commons.wikimedia.org/wiki/File:Bellairs_Research_Institute.JPG", src:"Velatrix" },
-    "Bridgetown/Garrison": { img:"images/hoods/bridgetown--bridgetown-garrison.webp", page:"https://commons.wikimedia.org/wiki/File:Ruby_Princess_moored_in_Bridgetown_2.JPG", src:"Jean-Philippe Boulet" }
+    "Bridgetown/Garrison": { img:"images/hoods/bridgetown--bridgetown-garrison.webp", page:"https://commons.wikimedia.org/wiki/File:Ruby_Princess_moored_in_Bridgetown_2.JPG", src:"Jean-Philippe Boulet" },
+    "Hastings/Rockley": { img:"images/hoods/bridgetown--hastings-rockley.webp", page:"https://commons.wikimedia.org/wiki/File:Accra_Beach,_Barbados_(53612524362).jpg", src:"bongo vongo" },
+    "Worthing": { img:"images/hoods/bridgetown--worthing.webp", page:"https://commons.wikimedia.org/wiki/File:A_beach_in_Barbados_(53617302471).jpg", src:"bongo vongo" }
   },
   "Brighton": {
     "The Lanes": { img:"images/hoods/brighton--the-lanes.webp", page:"https://commons.wikimedia.org/wiki/File:The_Lanes,_Brighton,_England_01.jpg", src:"Fry72" },
@@ -1418,7 +1430,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Brugge": {
     "Historic Centre (Markt & Burg)": { img:"images/hoods/brugge--historic-centre-markt-burg.webp", page:"https://commons.wikimedia.org/wiki/File:Brugge_-_20220626_095320.jpg", src:"Pere prlpz" },
-    "Sint-Anna": { img:"images/hoods/brugge--sint-anna.webp", page:"https://commons.wikimedia.org/wiki/File:Gravestone_of_Maria_de_Rijke_at_Sint_Anna_Termuiden.jpg", src:"Charles01" }
+    "Sint-Anna": { img:"images/hoods/brugge--sint-anna.webp", page:"https://commons.wikimedia.org/wiki/File:Gravestone_of_Maria_de_Rijke_at_Sint_Anna_Termuiden.jpg", src:"Charles01" },
+    "Sint-Gillis": { img:"images/hoods/brugge--sint-gillis.webp", page:"https://commons.wikimedia.org/wiki/File:Brugge_Sint-Gilliskerkhof_R02.jpg", src:"Marc Ryckaert" },
+    "Station Quarter (Stationsbuurt)": { img:"images/hoods/brugge--station-quarter-stationsbuurt.webp", page:"https://commons.wikimedia.org/wiki/File:Station_Brugge_-_335193_-_onroerenderfgoed.jpg", src:"De Schepper, Jo" }
   },
   "Bujumbura": {
     "Rohero": { img:"images/hoods/bujumbura--rohero.webp", page:"https://commons.wikimedia.org/wiki/File:BUJUMBURA_MARIE_30.jpg", src:"Edouard mhg" },
@@ -1427,7 +1441,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Bukhara": {
     "Lyab-i Hauz (Old Town)": { img:"images/hoods/bukhara--lyab-i-hauz-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:45_Lab-i_Hauz_complex_1818_mND.jpg", src:"BeshevI" },
-    "Poi Kalyan Complex": { img:"images/hoods/bukhara--poi-kalyan-complex.webp", page:"https://commons.wikimedia.org/wiki/File:Po-i-Kalyan_in_Bukhara_03.jpg", src:"Maksimsokolov" }
+    "Poi Kalyan Complex": { img:"images/hoods/bukhara--poi-kalyan-complex.webp", page:"https://commons.wikimedia.org/wiki/File:Po-i-Kalyan_in_Bukhara_03.jpg", src:"Maksimsokolov" },
+    "Jewish Quarter": { img:"images/hoods/bukhara--jewish-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%91%D1%83%D1%85%D0%B0%D1%80%D0%B0,_%D0%B5%D0%B2%D1%80%D0%B5%D0%B9%D1%81%D0%BA%D0%B8%D0%B9_%D0%B4%D0%BE%D0%BC_%D0%BD%D0%B0_%D0%A1%D0%B0%D1%80%D1%80%D0%B0%D1%84%D0%BE%D0%BD%D0%B5.jpg", src:"Nikolai Bulykin" }
   },
   "Bulawayo": {
     "Kumalo": { img:"images/hoods/bulawayo--kumalo.webp", page:"https://commons.wikimedia.org/wiki/File:Lobengula_Bulawayo_Museum.jpg", src:"Fritz Joubert" },
@@ -1443,12 +1458,14 @@ window.NRA_HOOD_PHOTO = {
     "Centro": { img:"images/hoods/cabo-frio--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Avenida_Mac%C3%A1rio_Pinto_Lopes.jpg", src:"Eduardo P" },
     "Praia do Forte": { img:"images/hoods/cabo-frio--praia-do-forte.webp", page:"https://commons.wikimedia.org/wiki/File:Forte_de_S%C3%A3o_Mateus_do_Cabo_Frio_01.jpg", src:"Halley Pacheco de Oliveira" },
     "Passagem": { img:"images/hoods/cabo-frio--passagem.webp", page:"https://commons.wikimedia.org/wiki/File:CaboFrio_Igreja_de_S%C3%A3o_Benedito.JPG", src:"Frenz 69" },
-    "Peró": { img:"images/hoods/cabo-frio--pero.webp", page:"https://commons.wikimedia.org/wiki/File:Colinas_Do_Per%C3%B3,_Cabo_Frio_-_RJ,_Brazil_-_panoramio_(7).jpg", src:"Newton paz peres" }
+    "Peró": { img:"images/hoods/cabo-frio--pero.webp", page:"https://commons.wikimedia.org/wiki/File:Colinas_Do_Per%C3%B3,_Cabo_Frio_-_RJ,_Brazil_-_panoramio_(7).jpg", src:"Newton paz peres" },
+    "Braga": { img:"images/hoods/cabo-frio--braga.webp", page:"https://commons.wikimedia.org/wiki/File:Gaivota_olhando_o_mar.jpg", src:"Adriana Cezar" }
   },
   "Cadiz": {
     "Populo": { img:"images/hoods/cadiz--populo.webp", page:"https://commons.wikimedia.org/wiki/File:C%C3%A1diz_Arco_del_P%C3%B3pulo_from_the_north.jpg", src:"Ymblanter" },
     "Santa Maria": { img:"images/hoods/cadiz--santa-maria.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_en_El_Puerto_de_Santa_Mar%C3%ADa,_Espa%C3%B1a,_2015-12-08,_DD_02.JPG", src:"Diego Delso" },
-    "Playa de la Victoria": { img:"images/hoods/cadiz--playa-de-la-victoria.webp", page:"https://commons.wikimedia.org/wiki/File:Playa_de_la_Victoria_-_Cometas.JPG", src:"Pablo Jones (Peejayem)" }
+    "Playa de la Victoria": { img:"images/hoods/cadiz--playa-de-la-victoria.webp", page:"https://commons.wikimedia.org/wiki/File:Playa_de_la_Victoria_-_Cometas.JPG", src:"Pablo Jones (Peejayem)" },
+    "El Mentidero": { img:"images/hoods/cadiz--el-mentidero.webp", page:"https://commons.wikimedia.org/wiki/File:Vistas_desde_la_Torre_Tavira_(20459765368).jpg", src:"Emilio J. Rodríguez Posada" }
   },
   "Cagliari": {
     "Castello": { img:"images/hoods/cagliari--castello.webp", page:"https://commons.wikimedia.org/wiki/File:Castello_di_San_Michele,_blocco_degli_ascensori.jpg", src:"Elisa.Mnn" },
@@ -4447,5 +4464,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "San Pedro de Atacama": {
     "Ayllu de Solcor": { img:"images/hoods/san-pedro-de-atacama--ayllu-de-solcor.webp", page:"https://commons.wikimedia.org/wiki/File:San_Pedro_de_Atacama-CTJ-IMG_6717.jpg", src:"Christer T Johansson" }
+  },
+  "Baracoa": {
+    "El Paraíso": { img:"images/hoods/baracoa--el-paraiso.webp", page:"https://commons.wikimedia.org/wiki/File:Baracoa_-_panoramio.jpg", src:"Martin Cígler" }
   },
 };

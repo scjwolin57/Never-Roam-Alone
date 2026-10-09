@@ -17,3 +17,7 @@ Rules for every replacement (CLAUDE.md §3.7, §4.3):
    `check_sheet_parity.py` reads 0; commit the batch (staged by path), then the next.
 
 Still open: the 8 "could not settle" photos in `hood-photo-collisions-2026-10-09.md` (Jeff to decide).
+
+## Hood points found wrong during the replacements (not fixed here; for the hood-data task)
+
+- Banff / Lake Louise Village: the hood point is in Banff town (Cascade Mall is 19 m away); Lake Louise village is about 57 km north-west. Photo left on the stand-in until the point is fixed.

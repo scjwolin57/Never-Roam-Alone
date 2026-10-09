@@ -24,31 +24,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 1,Baden-Baden,Germany,Kurgebiet (Spa Quarter),48.760204,8.236728,"File:Bad Sooden-Allendorf - Kurgebiet mir Brunnen, Fachwerkhäuser.JPG",done,File:Baden-Baden 10-2015 img41 Pump house.jpg,Commons file GPS 92 m from the hood point; eye-checked; licence CC BY-SA 3.0
 1,Bamako,Mali,Hippodrome,12.665771,-7.972909,File:FranceNormandieArgentanHippodromeGabrieleGelorminiEpicurien.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only people portraits and a rubbish-strewn street 1 km away"
 1,Bamberg,Germany,Cathedral Hill (Domberg),49.890775,10.882516,File:Cathedral Hill - 411-413 Queen - 02.jpg,done,"File:Bamberg, Dom, Westansicht, 20150927, 001.jpg",Commons file GPS 9 m from the hood point; eye-checked; licence CC BY-SA 4.0
-2,Bamberg,Germany,Sandgebiet (Sand District),49.891703,10.884948,"File:View of the Connecticut River Valley from the summit of Skinner State Park, by Carol M. Highsmith, 2019, from the Library of Congress - master-pnp-highsm-57700-57707a.tiff",open,,
-2,Banff,Canada,Lake Louise Village,51.178679,-115.571398,File:Golden-Mantled Ground Squirrel Moraine Lake.jpg,open,,
-2,Banyuwangi,Indonesia,Alun-alun / Taman Blambangan (Town Center),-8.212318,114.376479,File:Alun-alun kidul dan Sasana Hinggil Dwi Abad.jpg,open,,
-2,Baracoa,Cuba,El Paraíso,20.347437,-74.498758,File:Danlí.jpg,open,,
-2,Bariloche,Argentina,Playa Bonita,-41.122914,-71.400698,"File:DOM Las Terrenas, Playa Bonita 0015.jpg",open,,
-2,Barranquilla,Colombia,Alto Prado,11.004668,-74.811233,File:Iglesia de San Pelayo (Robledo de la Guzpeña).jpg,open,,
-2,Barranquilla,Colombia,Buenavista,11.01331,-74.827488,File:ConcepcionB20.JPG,open,,
-2,Barranquilla,Colombia,Villa Country,11.006393,-74.804652,File:Birmingham Crematorium - Andy Mabbett - 21 December 2013 - 06.jpg,open,,
-2,Basseterre,St. Kitts and Nevis,Southeast Peninsula (Christophe Harbour),17.233844,-62.642305,File:Map of Malay Peninsula 1530-1730.jpg,open,,
-2,Batumi,Georgia,New Boulevard,41.629621,41.599597,File:Sutphin Bl IND td (2018-12-04) 12 - Mezzanine.jpg,open,,
-2,Belize City,Belize,Kings Park,17.508322,-88.19376,"File:Houses in Kings Park, Virginia.jpg",open,,
-2,Belém,Brazil,Cidade Velha,-1.46195,-48.506221,File:Cidade Velha - Ort von Westen mit Steilküste.JPG,open,,
-2,Biarritz,France,Les Halles / Town Center,43.481147,-1.563033,File:Panneau Les Halles.jpg,open,,
-2,Boracay,Philippines,Station 1,11.96896,121.918599,File:Mortuary receiving railway station 1 a.jpg,open,,
-2,Boracay,Philippines,Station 2,11.960996,121.924644,File:Anonas station (Line 2) (Central; 07-06-2023) E911a 01.jpg,open,,
-2,Boracay,Philippines,Station 3,11.953515,121.929045,"File:09502jfJ. P. Rizal Avenue MRT Guadalupe Bridge Viejo Poblacion Guadalupe Nuevo, Makati Cityfvf 29.jpg",open,,
-2,Brades,Montserrat,Woodlands,16.763277,-62.220599,File:-i---i- (32690965937).jpg,open,,
-2,Bridgetown,Barbados,Hastings/Rockley,13.074714,-59.588724,"File:""The Landing"" on Pelham Beach, Hastings - geograph.org.uk - 7821315.jpg",open,,
-2,Bridgetown,Barbados,Worthing,13.074703,-59.583682,File:Airborne Kitesurfer - geograph.org.uk - 3901902.jpg,open,,
-2,Brugge,Belgium,Sint-Gillis,51.214841,3.226857,File:De Smokkelaar - panoramio.jpg,open,,
-2,Brugge,Belgium,Station Quarter (Stationsbuurt),51.197408,3.217523,File:Back of the window inside Jewellery Quarter station.jpg,open,,
-2,Bukhara,Uzbekistan,Jewish Quarter,39.771965,64.420222,"File:Costumes, characters and ceremonies, etc. Feast of Tabernacles (Sukkot). Jews of Bokhara (i.e. Bukhara) LOC matpc.07559.jpg",open,,
-2,Bulawayo,Zimbabwe,Suburbs,-20.157791,28.600754,File:Bedara Kannappa temple road.jpg,open,,
-2,Cabo Frio,Brazil,Braga,-22.896259,-42.027254,File:Brannon Braga (16434622764) (cropped).jpg,open,,
-2,Cadiz,Spain,El Mentidero,36.532091,-6.298193,https://www.flickr.com/photos/131253119@N03/16811184137/,open,,
+2,Bamberg,Germany,Sandgebiet (Sand District),49.891703,10.884948,"File:View of the Connecticut River Valley from the summit of Skinner State Park, by Carol M. Highsmith, 2019, from the Library of Congress - master-pnp-highsm-57700-57707a.tiff",done,File:Bamberg Am Kranen 12 BW 2.jpg,Commons file GPS 99 m from the hood point; eye-checked; licence CC BY-SA 3.0
+2,Banff,Canada,Lake Louise Village,51.178679,-115.571398,File:Golden-Mantled Ground Squirrel Moraine Lake.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): the hood point sits in Banff town, 57 km from Lake Louise village, so nothing near it is the village; hood point flagged"
+2,Banyuwangi,Indonesia,Alun-alun / Taman Blambangan (Town Center),-8.212318,114.376479,File:Alun-alun kidul dan Sasana Hinggil Dwi Abad.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only batik close-ups, people and a station street nearby"
+2,Baracoa,Cuba,El Paraíso,20.347437,-74.498758,File:Danlí.jpg,done,File:Baracoa - panoramio.jpg,Commons file GPS 49 m from the hood point; eye-checked; licence CC BY-SA 3.0
+2,Bariloche,Argentina,Playa Bonita,-41.122914,-71.400698,"File:DOM Las Terrenas, Playa Bonita 0015.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only dashcam frames and a bird"
+2,Barranquilla,Colombia,Alto Prado,11.004668,-74.811233,File:Iglesia de San Pelayo (Robledo de la Guzpeña).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a clinic, food, portraits and a single house"
+2,Barranquilla,Colombia,Buenavista,11.01331,-74.827488,File:ConcepcionB20.JPG,done,File:Centro Comercial Buenavista - panoramio.jpg,Commons file GPS 48 m from the hood point; eye-checked; licence CC BY-SA 3.0
+2,Barranquilla,Colombia,Villa Country,11.006393,-74.804652,File:Birmingham Crematorium - Andy Mabbett - 21 December 2013 - 06.jpg,done,File:Barranquilla skyscrapers.JPG,Commons file GPS 294 m from the hood point; eye-checked; licence CC BY-SA 4.0
+2,Basseterre,St. Kitts and Nevis,Southeast Peninsula (Christophe Harbour),17.233844,-62.642305,File:Map of Malay Peninsula 1530-1730.jpg,done,File:Wind in the Great Salt Marsh - panoramio.jpg,Commons file GPS 1876 m from the hood point; eye-checked; licence CC BY-SA 3.0
+2,Batumi,Georgia,New Boulevard,41.629621,41.599597,File:Sutphin Bl IND td (2018-12-04) 12 - Mezzanine.jpg,done,File:Набережная Батуми - panoramio.jpg,Commons file GPS 141 m from the hood point; eye-checked; licence CC BY 3.0
+2,Belize City,Belize,Kings Park,17.508322,-88.19376,"File:Houses in Kings Park, Virginia.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only dashcam frames"
+2,Belém,Brazil,Cidade Velha,-1.46195,-48.506221,File:Cidade Velha - Ort von Westen mit Steilküste.JPG,done,File:Rua Dr Assis 575 Cidade Velha Belém Pará 2023-7814.jpg,Commons file GPS 217 m from the hood point; eye-checked; licence CC BY 4.0
+2,Biarritz,France,Les Halles / Town Center,43.481147,-1.563033,File:Panneau Les Halles.jpg,done,File:Marché de Biarritz.jpg,Commons file GPS 12 m from the hood point; eye-checked; licence Public domain
+2,Boracay,Philippines,Station 1,11.96896,121.918599,File:Mortuary receiving railway station 1 a.jpg,done,File:Boracay Willys Rock.jpg,Commons file GPS 99 m from the hood point; eye-checked; licence CC BY-SA 4.0
+2,Boracay,Philippines,Station 2,11.960996,121.924644,File:Anonas station (Line 2) (Central; 07-06-2023) E911a 01.jpg,done,File:Boracay (8722579789).jpg,Commons file GPS 142 m from the hood point; eye-checked; licence CC BY 2.0
+2,Boracay,Philippines,Station 3,11.953515,121.929045,"File:09502jfJ. P. Rizal Avenue MRT Guadalupe Bridge Viejo Poblacion Guadalupe Nuevo, Makati Cityfvf 29.jpg",done,"File:White sand beach, Boracay Island - panoramio (2).jpg",Commons file GPS 38 m from the hood point; eye-checked; licence CC BY 3.0
+2,Brades,Montserrat,Woodlands,16.763277,-62.220599,File:-i---i- (32690965937).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only plant close-ups"
+2,Bridgetown,Barbados,Hastings/Rockley,13.074714,-59.588724,"File:""The Landing"" on Pelham Beach, Hastings - geograph.org.uk - 7821315.jpg",done,"File:Accra Beach, Barbados (53612524362).jpg",Commons file GPS 113 m from the hood point; eye-checked; licence CC BY-SA 2.0
+2,Bridgetown,Barbados,Worthing,13.074703,-59.583682,File:Airborne Kitesurfer - geograph.org.uk - 3901902.jpg,done,File:A beach in Barbados (53617302471).jpg,Commons file GPS 530 m from the hood point; eye-checked; licence CC BY-SA 2.0
+2,Brugge,Belgium,Sint-Gillis,51.214841,3.226857,File:De Smokkelaar - panoramio.jpg,done,File:Brugge Sint-Gilliskerkhof R02.jpg,Commons file GPS 33 m from the hood point; eye-checked; licence CC BY-SA 4.0
+2,Brugge,Belgium,Station Quarter (Stationsbuurt),51.197408,3.217523,File:Back of the window inside Jewellery Quarter station.jpg,done,File:Station Brugge - 335193 - onroerenderfgoed.jpg,Commons file GPS 30 m from the hood point; eye-checked; licence CC BY 4.0
+2,Bukhara,Uzbekistan,Jewish Quarter,39.771965,64.420222,"File:Costumes, characters and ceremonies, etc. Feast of Tabernacles (Sukkot). Jews of Bokhara (i.e. Bukhara) LOC matpc.07559.jpg",done,"File:Бухара, еврейский дом на Саррафоне.jpg",Commons file GPS 14 m from the hood point; eye-checked; licence CC BY-SA 4.0
+2,Bulawayo,Zimbabwe,Suburbs,-20.157791,28.600754,File:Bedara Kannappa temple road.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only meetings, crafts and a memorial of unclear district"
+2,Cabo Frio,Brazil,Braga,-22.896259,-42.027254,File:Brannon Braga (16434622764) (cropped).jpg,done,File:Gaivota olhando o mar.jpg,Commons file GPS 67 m from the hood point; eye-checked; licence CC BY-SA 4.0
+2,Cadiz,Spain,El Mentidero,36.532091,-6.298193,https://www.flickr.com/photos/131253119@N03/16811184137/,done,File:Vistas desde la Torre Tavira (20459765368).jpg,Commons file GPS 24 m from the hood point; eye-checked; licence CC BY-SA 2.0
 3,Calabar,Nigeria,Calabar South (Old Calabar),4.961856,8.318426,"File:Admiralty Chart No 622 Bonny and New Calabar Rivers, Published 1914, New Edition 1930.jpg",open,,
 3,Calabar,Nigeria,State Housing Estate,4.986724,8.335574,"File:Der Hügel der Opfer des Zweiten Weltkriegs und Gefallenendenkmal von Lajos Visnyovszky, 2025 Lónyaytelep.jpg",open,,
 3,Cali,Colombia,Ciudad Jardín,3.364795,-76.537252,File:Clínica odontológica.jpg,open,,
