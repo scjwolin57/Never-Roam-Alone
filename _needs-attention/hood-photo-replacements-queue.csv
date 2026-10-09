@@ -324,31 +324,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 13,Santiago de Cuba,Cuba,Centro Historico,20.021514,-75.829525,File:Cross section of buildings in Centro Historico Vitoria 1.jpg,done,"File:General del Parque Céspedes en un espléndido día, al final, Catedral de La Asunción de Santiago de Cuba - panoramio.jpg",Commons file GPS 22 m from the hood point; eye-checked; licence CC BY 3.0
 13,Santiago de Querétaro,Mexico,Barrio de la Cruz,20.593916,-100.384883,"File:Murales alrededor del Panteón de la Cruz, barrio de Guadalupe 18.jpg",done,File:Templo de la Cruz - panoramio.jpg,Commons file GPS 130 m from the hood point; eye-checked; licence CC BY-SA 3.0
 13,Santo Domingo,Dominican Republic,Naco,18.474969,-69.926073,"File:Exterior, Border Patrol Station, Naco, Arizona LCCN2010719666.tif",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cars, a metro station and event photos"
-14,Scottsdale,United States,Gainey Ranch,33.566893,-111.913497,File:Supra (19375818800).jpg,open,,
-14,Scottsdale,United States,South Scottsdale,33.462541,-111.925695,"File:Transmission Towers - Guelph, Ontario 2020-06-19.jpg",open,,
-14,Sibiu,Romania,Sub Arini,45.78241,24.139572,File:Josephinische Landaufnahme pg011.jpg,open,,
-14,Sihanoukville,Cambodia,Downtown (Ekareach Street),10.625665,103.516094,File:Downtown Gulfport.jpg,open,,
-14,Sihanoukville,Cambodia,Victory Hill,10.640514,103.506336,"File:The Victory Inn, St Mawes, Cornwall - June 2025.jpg",open,,
-14,Srimangal,Bangladesh,Tea Garden Belt,24.300757,91.70316,"File:Ordnance Survey Half-Inch Sheet 9 Harrogate Leeds and Bradford, Published 1912.jpg",open,,
-14,Srinagar,India,Boulevard Road (Dal Lake),34.088106,74.847795,File:Close-up on the Pedestrian overpass on Taiwan Blvd. near Henan Rd. 03.jpg,open,,
-14,St. George's,Grenada,Morne Rouge,12.020513,-61.764742,File:Calvaire de Morne-Rouge.jpg,open,,
-14,St. George's,Grenada,St. George's (The Carenage),12.049509,-61.752582,"File:Admiralty Chart No 743 St George Harbour, Published 1866.jpg",open,,
-14,St. George's,Grenada,True Blue,12.004264,-61.768393,File:America's best kept secret.jpg,open,,
-14,Stanley,Falkland Islands,Ross Road East,-51.69377,-57.840133,File:A famous sign in a hedge at entrance to pub car park - geograph.org.uk - 5977591.jpg,open,,
-14,Stanley,Falkland Islands,Stanley Waterfront / Ross Road,-51.692237,-57.85736,File:Bust of Bertie Reed (base).jpg,open,,
-14,Stanley,Falkland Islands,West Stanley,-51.691927,-57.872679,"File:Pavilion at east end of screen wall, Stanley Park 4.jpg",open,,
-14,Stavanger,Norway,Storhaug,58.967056,5.740028,File:Hillari at byLarm 2023 03.jpg,open,,
-14,Sucre,Bolivia,Centro Histórico,-19.048436,-65.260477,File:Casco colonial de Petare 1.jpg,open,,
-14,Surakarta,Indonesia,Kraton & Kauman,-7.573971,110.826351,File:GrandMosqueYogya.JPG,open,,
-14,Sylhet,Bangladesh,Ambarkhana,24.905885,91.872081,File:Amberkhana.jpg,open,,
-14,São Tomé,São Tomé and Príncipe,Praia Lagarto (Airport Beach),0.366667,6.716667,File:Espécime de lagarto sem patas bem comum na reserva sapiranga.jpg,open,,
-14,Tampa,United States,Channel District,27.950382,-82.44684,File:20120414 John H Glenn fireboat sunset.JPG,open,,
-14,Tarawa,Kiribati,Ambo,1.350285,173.03883,File:Zentralbibliothek Zürich - Ambo in SS. Giovanni e Paolo zu Ravenna - 991046598359705501.jpg,open,,
-14,Taupo,New Zealand,Acacia Bay,-38.701836,176.030903,File:Milnthorpe Park ADW 004.jpg,open,,
-14,Taupo,New Zealand,Two Mile Bay,-38.712953,176.085408,File:Astro at West Bay - Flickr - Robin Mulligan.jpg,open,,
-14,Tegucigalpa,Honduras,Boulevard Morazán / Multiplaza,14.10003,-87.186412,File:Estadio Morazan 5.jpg,open,,
-14,Tegucigalpa,Honduras,Colonia Palmira,14.102032,-87.194004,File:UTUPalmira.jpg,open,,
-14,Tehran,Iran,Downtown (Ferdowsi/Imam Khomeini Square),35.685666,51.421546,File:Sanandaj city center.jpg,open,,
+14,Scottsdale,United States,Gainey Ranch,33.566893,-111.913497,File:Supra (19375818800).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are 1.4 km+ away (Camelback wash, McCormick Ranch), not Gainey Ranch"
+14,Scottsdale,United States,South Scottsdale,33.462541,-111.925695,"File:Transmission Towers - Guelph, Ontario 2020-06-19.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only speaker portraits at an event"
+14,Sibiu,Romania,Sub Arini,45.78241,24.139572,File:Josephinische Landaufnahme pg011.jpg,done,File:Hermannstadt (Sibiu)-Olympic stadium-01ASD.jpg,Commons file GPS 196 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,Sihanoukville,Cambodia,Downtown (Ekareach Street),10.625665,103.516094,File:Downtown Gulfport.jpg,done,File:Kamakor Street Sihanoukville.jpg,Commons file GPS 492 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,Sihanoukville,Cambodia,Victory Hill,10.640514,103.506336,"File:The Victory Inn, St Mawes, Cornwall - June 2025.jpg",done,File:White Horse Garden 04.jpg,Commons file GPS 576 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,Srimangal,Bangladesh,Tea Garden Belt,24.300757,91.70316,"File:Ordnance Survey Half-Inch Sheet 9 Harrogate Leeds and Bradford, Published 1912.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no Commons files near the hood point"
+14,Srinagar,India,Boulevard Road (Dal Lake),34.088106,74.847795,File:Close-up on the Pedestrian overpass on Taiwan Blvd. near Henan Rd. 03.jpg,done,"File:Dal lake and around, Srinagar - vrvvkbjk2k23iph (64).jpg",Commons file GPS 144 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,St. George's,Grenada,Morne Rouge,12.020513,-61.764742,File:Calvaire de Morne-Rouge.jpg,done,File:Grenada Grand Anse - panoramio - Stefan und Bille.jpg,Commons file GPS 297 m from the hood point; eye-checked; licence CC BY-SA 3.0
+14,St. George's,Grenada,St. George's (The Carenage),12.049509,-61.752582,"File:Admiralty Chart No 743 St George Harbour, Published 1866.jpg",done,"File:Grenada, Karibik - St. George's - Harbor - panoramio.jpg",Commons file GPS 139 m from the hood point; eye-checked; licence CC BY 3.0
+14,St. George's,Grenada,True Blue,12.004264,-61.768393,File:America's best kept secret.jpg,done,File:Sunrise from the Tower - panoramio.jpg,Commons file GPS 369 m from the hood point; eye-checked; licence CC BY 3.0
+14,Stanley,Falkland Islands,Ross Road East,-51.69377,-57.840133,File:A famous sign in a hedge at entrance to pub car park - geograph.org.uk - 5977591.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest place shots are about 1 km+ away along the harbour, not Ross Road East"
+14,Stanley,Falkland Islands,Stanley Waterfront / Ross Road,-51.692237,-57.85736,File:Bust of Bertie Reed (base).jpg,done,File:SeMo-74 (49435307886).jpg,Commons file GPS 127 m from the hood point; eye-checked; licence CC BY-SA 2.0
+14,Stanley,Falkland Islands,West Stanley,-51.691927,-57.872679,"File:Pavilion at east end of screen wall, Stanley Park 4.jpg",done,File:2024 Stanley - Falkland Inseln - Falkland Islands Museum and National Trust - by 2eight - 7DS8013.jpg,Commons file GPS 492 m from the hood point; eye-checked; licence CC BY-SA 3.0 de
+14,Stavanger,Norway,Storhaug,58.967056,5.740028,File:Hillari at byLarm 2023 03.jpg,done,"File:Storhaug, Stavanger, Norway - panoramio (1).jpg",Commons file GPS 337 m from the hood point; eye-checked; licence CC BY-SA 3.0
+14,Sucre,Bolivia,Centro Histórico,-19.048436,-65.260477,File:Casco colonial de Petare 1.jpg,done,File:Catedral (plaza principal Sucre ).jpg,Commons file GPS 50 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,Surakarta,Indonesia,Kraton & Kauman,-7.573971,110.826351,File:GrandMosqueYogya.JPG,done,File:Kraton of Surakarta 03.jpg,Commons file GPS 390 m from the hood point; eye-checked; licence CC BY-SA 4.0
+14,Sylhet,Bangladesh,Ambarkhana,24.905885,91.872081,File:Amberkhana.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a road, a portrait and the Shaheed Minar 870 m away"
+14,São Tomé,São Tomé and Príncipe,Praia Lagarto (Airport Beach),0.366667,6.716667,File:Espécime de lagarto sem patas bem comum na reserva sapiranga.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only birds, an airliner and an airport terminal"
+14,Tampa,United States,Channel District,27.950382,-82.44684,File:20120414 John H Glenn fireboat sunset.JPG,done,"File:Tampa, Florida - panoramio (7).jpg",Commons file GPS 926 m from the hood point; eye-checked; licence CC BY 3.0
+14,Tarawa,Kiribati,Ambo,1.350285,173.03883,File:Zentralbibliothek Zürich - Ambo in SS. Giovanni e Paolo zu Ravenna - 991046598359705501.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no usable files near the hood point"
+14,Taupo,New Zealand,Acacia Bay,-38.701836,176.030903,File:Milnthorpe Park ADW 004.jpg,done,File:Acacia Bay Taupo.jpg,"no GPS; description ""Acacia Bay Taupo"", Commons categories Lake Taupō and Taupō; eye-checked; licence Public domain"
+14,Taupo,New Zealand,Two Mile Bay,-38.712953,176.085408,File:Astro at West Bay - Flickr - Robin Mulligan.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are over 1.3 km away along the lakefront"
+14,Tegucigalpa,Honduras,Boulevard Morazán / Multiplaza,14.10003,-87.186412,File:Estadio Morazan 5.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest place shots are city views from 550 m+; the rest are food and portraits"
+14,Tegucigalpa,Honduras,Colonia Palmira,14.102032,-87.194004,File:UTUPalmira.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the Los Dolores church area 1.5 km away, not Colonia Palmira"
+14,Tehran,Iran,Downtown (Ferdowsi/Imam Khomeini Square),35.685666,51.421546,File:Sanandaj city center.jpg,done,File:Bank Tejarat Old Building 2.jpg,Commons file GPS 99 m from the hood point; eye-checked; licence CC BY-SA 4.0
 15,The Valley,Anguilla,Meads Bay,18.181918,-63.135101,File:Bigelow's monkeyflower Mimulus bigelovii (f7e3d85c-f3d3-487b-a8c5-b40f9f910b59).jpg,open,,
 15,The Valley,Anguilla,Rendezvous Bay,18.171508,-63.113383,File:005 Pre-EVA-1 Right Window Pan Hi-Res.webp,open,,
 15,The Valley,Anguilla,Shoal Bay East,18.253781,-63.035264,File:Brittle stars at East Shoal P8150962.JPG,open,,

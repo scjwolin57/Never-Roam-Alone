@@ -4045,7 +4045,8 @@ window.NRA_HOOD_PHOTO = {
     "Old Town (Upper Town)": { img:"images/hoods/sibiu--old-town-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Sibiu,_house_in_Old_Town_1.jpg", src:"Krzysztof Dudzik-Górnicki (User:ToSter)" },
     "Lower Town (Orasul de Jos)": { img:"images/hoods/sibiu--lower-town-orasul-de-jos.webp", page:"https://commons.wikimedia.org/wiki/File:Council_Tower_seen_from_the_Small_Square_in_Sibiu_(2023).jpg", src:"Paul Colin Hennig firstdorsal.eu" },
     "Piata Unirii / Centru": { img:"images/hoods/sibiu--piata-unirii-centru.webp", page:"https://commons.wikimedia.org/wiki/File:Hermann_t%C3%A9r_(Piata_Unirii)._Fortepan_86577.jpg", src:"FOTO:Fortepan — ID 86577: Adományozó/Donor: Magyar Földrajzi Múzeum / Erdélyi Mó" },
-    "Terezian": { img:"images/hoods/sibiu--terezian.webp", page:"https://commons.wikimedia.org/wiki/File:Sibiu_Biserica_Terezian.jpg", src:"Andrei kokelburg" }
+    "Terezian": { img:"images/hoods/sibiu--terezian.webp", page:"https://commons.wikimedia.org/wiki/File:Sibiu_Biserica_Terezian.jpg", src:"Andrei kokelburg" },
+    "Sub Arini": { img:"images/hoods/sibiu--sub-arini.webp", page:"https://commons.wikimedia.org/wiki/File:Hermannstadt_(Sibiu)-Olympic_stadium-01ASD.jpg", src:"Asurnipal" }
   },
   "Siddharthanagar": {
     "Belahiya (Sunauli Border)": { img:"images/hoods/siddharthanagar--belahiya-sunauli-border.webp", page:"https://commons.wikimedia.org/wiki/File:Inadia_Nepal_Border_Gate.jpg", src:"Sanu N" }
@@ -4058,7 +4059,9 @@ window.NRA_HOOD_PHOTO = {
   "Sihanoukville": {
     "Serendipity / Ochheuteal Beach": { img:"images/hoods/sihanoukville--serendipity-ochheuteal-beach.webp", page:"https://commons.wikimedia.org/wiki/File:2016_Sihanoukville,_Pla%C5%BCa_Serendipity_(04).jpg", src:"Marcin Konsek" },
     "Otres Beach": { img:"images/hoods/sihanoukville--otres-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Tropical_beach,_Otres_Cambodia.jpg", src:"Stekirr" },
-    "Independence Beach / Sokha": { img:"images/hoods/sihanoukville--independence-beach-sokha.webp", page:"https://commons.wikimedia.org/wiki/File:Sihanoukville_-_Independence_beach_in_the_morning.jpg", src:"Dmitry Makeev" }
+    "Independence Beach / Sokha": { img:"images/hoods/sihanoukville--independence-beach-sokha.webp", page:"https://commons.wikimedia.org/wiki/File:Sihanoukville_-_Independence_beach_in_the_morning.jpg", src:"Dmitry Makeev" },
+    "Downtown (Ekareach Street)": { img:"images/hoods/sihanoukville--downtown-ekareach-street.webp", page:"https://commons.wikimedia.org/wiki/File:Kamakor_Street_Sihanoukville.jpg", src:"Christophe95" },
+    "Victory Hill": { img:"images/hoods/sihanoukville--victory-hill.webp", page:"https://commons.wikimedia.org/wiki/File:White_Horse_Garden_04.jpg", src:"Dmitry Makeev" }
   },
   "Siwa Oasis": {
     "Shali Town Center": { img:"images/hoods/siwa-oasis--shali-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Shali_(Historic_Center_of_Siwa)_01.JPG", src:"Michael Hermann" },
@@ -4102,15 +4105,20 @@ window.NRA_HOOD_PHOTO = {
   "Srinagar": {
     "Lal Chowk": { img:"images/hoods/srinagar--lal-chowk.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_tower_at_Lal_Chowk.jpg", src:"Tamjeed Ahmed" },
     "Rajbagh": { img:"images/hoods/srinagar--rajbagh.webp", page:"https://commons.wikimedia.org/wiki/File:Rajbagh_Srinagar_-_vrvvkbjk2k23iph_(10).jpg", src:"Vinayaraj" },
-    "Nishat": { img:"images/hoods/srinagar--nishat.webp", page:"https://commons.wikimedia.org/wiki/File:Ceiling_work_inside_a_pavilion_in_Shalimar_Bagh.jpg", src:"Tamjeed Ahmed" }
+    "Nishat": { img:"images/hoods/srinagar--nishat.webp", page:"https://commons.wikimedia.org/wiki/File:Ceiling_work_inside_a_pavilion_in_Shalimar_Bagh.jpg", src:"Tamjeed Ahmed" },
+    "Boulevard Road (Dal Lake)": { img:"images/hoods/srinagar--boulevard-road-dal-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Dal_lake_and_around,_Srinagar_-_vrvvkbjk2k23iph_(64).jpg", src:"Vinayaraj" }
   },
   "St. George's": {
-    "Lance aux Epines": { img:"images/hoods/st-george-s--lance-aux-epines.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_The_Red_Crab_Restaurant_-_panoramio.jpg", src:"Stefan_und_Bille" }
+    "Lance aux Epines": { img:"images/hoods/st-george-s--lance-aux-epines.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_The_Red_Crab_Restaurant_-_panoramio.jpg", src:"Stefan_und_Bille" },
+    "Morne Rouge": { img:"images/hoods/st-george-s--morne-rouge.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_Grand_Anse_-_panoramio_-_Stefan_und_Bille.jpg", src:"Stefan_und_Bille" },
+    "St. George's (The Carenage)": { img:"images/hoods/st-george-s--st-george-s-the-carenage.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada,_Karibik_-_St._George's_-_Harbor_-_panoramio.jpg", src:"giggel" },
+    "True Blue": { img:"images/hoods/st-george-s--true-blue.webp", page:"https://commons.wikimedia.org/wiki/File:Sunrise_from_the_Tower_-_panoramio.jpg", src:"FishSpeaker" }
   },
   "Stavanger": {
     "Sentrum": { img:"images/hoods/stavanger--sentrum.webp", page:"https://commons.wikimedia.org/wiki/File:Stavanger_bybru_IMG_5870.jpg", src:"Mathieu Marquer from Paris, FRANCE" },
     "Gamle Stavanger": { img:"images/hoods/stavanger--gamle-stavanger.webp", page:"https://commons.wikimedia.org/wiki/File:Gamle_Stavanger_10_(52606705190).jpg", src:"Maarten Heerlien from Voorschoten, The Netherlands" },
-    "Eiganes & Valand": { img:"images/hoods/stavanger--eiganes-valand.webp", page:"https://commons.wikimedia.org/wiki/File:V%C3%A5landst%C3%A5rnet,_V%C3%A5landspipa,_Stavanger.jpg", src:"EliseHåland" }
+    "Eiganes & Valand": { img:"images/hoods/stavanger--eiganes-valand.webp", page:"https://commons.wikimedia.org/wiki/File:V%C3%A5landst%C3%A5rnet,_V%C3%A5landspipa,_Stavanger.jpg", src:"EliseHåland" },
+    "Storhaug": { img:"images/hoods/stavanger--storhaug.webp", page:"https://commons.wikimedia.org/wiki/File:Storhaug,_Stavanger,_Norway_-_panoramio_(1).jpg", src:"trolvag" }
   },
   "Strasbourg": {
     "Grande Ile (Centre-ville)": { img:"images/hoods/strasbourg--grande-ile-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Strasbourg_(4724841357).jpg", src:"Grzegorz Jereczek from Gdańsk, Poland" },
@@ -4126,7 +4134,8 @@ window.NRA_HOOD_PHOTO = {
     "Bad Cannstatt": { img:"images/hoods/stuttgart--bad-cannstatt.webp", page:"https://commons.wikimedia.org/wiki/File:Calisthenics_Park_Stuttgart-Bad_Cannstatt_(54190).jpg", src:"SPORTHEFT.DE Marco Cinquemani" }
   },
   "Sucre": {
-    "La Recoleta": { img:"images/hoods/sucre--la-recoleta.webp", page:"https://commons.wikimedia.org/wiki/File:IGLESIA_DEL_CONVENTO_DE_LA_RECOLETA.jpg", src:"Yurizzama" }
+    "La Recoleta": { img:"images/hoods/sucre--la-recoleta.webp", page:"https://commons.wikimedia.org/wiki/File:IGLESIA_DEL_CONVENTO_DE_LA_RECOLETA.jpg", src:"Yurizzama" },
+    "Centro Histórico": { img:"images/hoods/sucre--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Catedral_(plaza_principal_Sucre_).jpg", src:"Maria Cristina Tajima" }
   },
   "Sukhothai": {
     "New Sukhothai (Town)": { img:"images/hoods/sukhothai--new-sukhothai-town.webp", page:"https://commons.wikimedia.org/wiki/File:201401021054b_(Hartmann_Linge)_Sukhothaii_Pa_Phai..jpg", src:"Hartmann Linge" }
@@ -4141,7 +4150,8 @@ window.NRA_HOOD_PHOTO = {
   "Surakarta": {
     "Kampung Batik Laweyan": { img:"images/hoods/surakarta--kampung-batik-laweyan.webp", page:"https://commons.wikimedia.org/wiki/File:Becak_Kampung_Batik_Laweyan.jpg", src:"Herusutimbul" },
     "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" },
-    "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" }
+    "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" },
+    "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:Kraton_of_Surakarta_03.jpg", src:"Christophe95" }
   },
   "Surat Thani": {
     "Phunphin": { img:"images/hoods/surat-thani--phunphin.webp", page:"https://commons.wikimedia.org/wiki/File:Phunphin_clock_tower.jpg", src:"User:Ahoerstemeier" }
@@ -4192,7 +4202,8 @@ window.NRA_HOOD_PHOTO = {
     "Downtown / Water Street": { img:"images/hoods/tampa--downtown-water-street.webp", page:"https://commons.wikimedia.org/wiki/File:Architect_Stephanie_Ferrell_of_Tampa_represents_DSG_in_Tampa_(8471024625).jpg", src:"83DegreesMedia" },
     "Ybor City": { img:"images/hoods/tampa--ybor-city.webp", page:"https://commons.wikimedia.org/wiki/File:East_Tampa,_Tampa,_FL,_USA_-_panoramio_(1).jpg", src:"Evan Nichols (Virtua…" },
     "Hyde Park": { img:"images/hoods/tampa--hyde-park.webp", page:"https://commons.wikimedia.org/wiki/File:Tampa,Florida,USA._-_panoramio_(8).jpg", src:"Roman Eugeniusz" },
-    "Westshore": { img:"images/hoods/tampa--westshore.webp", page:"https://commons.wikimedia.org/wiki/File:Westshore_Palms,_Tampa,_FL_33609,_USA_-_panoramio.jpg", src:"Eric Friedebach" }
+    "Westshore": { img:"images/hoods/tampa--westshore.webp", page:"https://commons.wikimedia.org/wiki/File:Westshore_Palms,_Tampa,_FL_33609,_USA_-_panoramio.jpg", src:"Eric Friedebach" },
+    "Channel District": { img:"images/hoods/tampa--channel-district.webp", page:"https://commons.wikimedia.org/wiki/File:Tampa,_Florida_-_panoramio_(7).jpg", src:"davidpinter" }
   },
   "Tampere": {
     "Keskusta (City Centre)": { img:"images/hoods/tampere--keskusta-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:FI-Tampere-20131006_143924_HDR.JPG", src:"Brylie Oxley" },
@@ -4222,7 +4233,8 @@ window.NRA_HOOD_PHOTO = {
     "Yakkasaray": { img:"images/hoods/tashkent--yakkasaray.webp", page:"https://commons.wikimedia.org/wiki/File:18.10.2024_a.jpg", src:"Said228332" }
   },
   "Taupo": {
-    "Nukuhau": { img:"images/hoods/taupo--nukuhau.webp", page:"https://commons.wikimedia.org/wiki/File:Close-up_of_the_inscription_(OpenBenches_3117).jpg", src:"edent" }
+    "Nukuhau": { img:"images/hoods/taupo--nukuhau.webp", page:"https://commons.wikimedia.org/wiki/File:Close-up_of_the_inscription_(OpenBenches_3117).jpg", src:"edent" },
+    "Acacia Bay": { img:"images/hoods/taupo--acacia-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Acacia_Bay_Taupo.jpg", src:"Frozen-Coke-Rocks" }
   },
   "Tegucigalpa": {
     "Comayagüela / Centro Histórico": { img:"images/hoods/tegucigalpa--comayaguela-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:InmaculadaConcepci%C3%B3nComayaguela_01.JPG", src:"Thelmadatter" }
@@ -4230,7 +4242,8 @@ window.NRA_HOOD_PHOTO = {
   "Tehran": {
     "Vali Asr / Vanak": { img:"images/hoods/tehran--vali-asr-vanak.webp", page:"https://commons.wikimedia.org/wiki/File:Meydan-e_Vali_Asr_Metro_Station_Entrance.jpg", src:"Kasir" },
     "Elahieh / Jordan (Africa Street)": { img:"images/hoods/tehran--elahieh-jordan-africa-street.webp", page:"https://commons.wikimedia.org/wiki/File:Iran_Elahiyeh,_Tehran,_Iran_(9116203127).jpg", src:"Ninara from Helsinki, Finland" },
-    "Tajrish": { img:"images/hoods/tehran--tajrish.webp", page:"https://commons.wikimedia.org/wiki/File:Iran_-_Tehran_view_from_Jamshidiyeh_Park_-_panoramio.jpg", src:"Alireza Javaheri" }
+    "Tajrish": { img:"images/hoods/tehran--tajrish.webp", page:"https://commons.wikimedia.org/wiki/File:Iran_-_Tehran_view_from_Jamshidiyeh_Park_-_panoramio.jpg", src:"Alireza Javaheri" },
+    "Downtown (Ferdowsi/Imam Khomeini Square)": { img:"images/hoods/tehran--downtown-ferdowsi-imam-khomeini-square.webp", page:"https://commons.wikimedia.org/wiki/File:Bank_Tejarat_Old_Building_2.jpg", src:"GTVM92" }
   },
   "The Hague": {
     "Centrum": { img:"images/hoods/the-hague--centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Netherlands,_The_Hague,_Spekstraat_(02).jpg", src:"Vincent van Zeijst" },
@@ -4690,5 +4703,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "San Pedro Sula": {
     "Barrio El Centro": { img:"images/hoods/san-pedro-sula--barrio-el-centro.webp", page:"https://commons.wikimedia.org/wiki/File:SanPedroSulaChurch01.JPG", src:"Thelmadatter" }
+  },
+  "Stanley": {
+    "Stanley Waterfront / Ross Road": { img:"images/hoods/stanley--stanley-waterfront-ross-road.webp", page:"https://commons.wikimedia.org/wiki/File:SeMo-74_(49435307886).jpg", src:"Se Mo" },
+    "West Stanley": { img:"images/hoods/stanley--west-stanley.webp", page:"https://commons.wikimedia.org/wiki/File:2024_Stanley_-_Falkland_Inseln_-_Falkland_Islands_Museum_and_National_Trust_-_by_2eight_-_7DS8013.jpg", src:"Stefan Brending (2eight)" }
   },
 };
