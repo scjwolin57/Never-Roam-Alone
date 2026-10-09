@@ -1038,7 +1038,6 @@ window.NRA_HOOD_PHOTO = {
   "Antananarivo": {
     "Haute-Ville (Upper Town)": { img:"images/hoods/antananarivo--haute-ville-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Inscription_des_horaires_malgaches_dans_le_chalet_d%E2%80%99Ambohipotsy,_La_Haute_Ville_d%E2%80%99Antananarivo..jpg", src:"Anai171" },
     "Analakely": { img:"images/hoods/antananarivo--analakely.webp", page:"https://commons.wikimedia.org/wiki/File:Ex_Batiment_ECOVMA_04.jpg", src:"Lalinah" },
-    "Ivandry": { img:"images/hoods/antananarivo--ivandry.webp", page:"https://commons.wikimedia.org/wiki/File:Ipomoea_Carnea_%C3%A0_Ivandry.jpg", src:"Pwilcox10" },
     "Ankorondrano / Andraharo": { img:"images/hoods/antananarivo--ankorondrano-andraharo.webp", page:"https://commons.wikimedia.org/wiki/File:Orange_team_(5718555831).jpg", src:"Hery Zo Rakotondramanana" },
     "Isoraka": { img:"images/hoods/antananarivo--isoraka.webp", page:"https://www.flickr.com/photos/33037982@N04/3443271146/", src:"wallygrom" }
   },
@@ -1888,7 +1887,8 @@ window.NRA_HOOD_PHOTO = {
     "Karwan Bazar/Sonargaon area": { img:"images/hoods/dhaka--karwan-bazar-sonargaon-area.webp", page:"https://commons.wikimedia.org/wiki/File:Ongoing_construction_of_Metrorail_station_near_BSMMU.jpg", src:"Wasiul Bahar" }
   },
   "Dijon": {
-    "Toison d'Or": { img:"images/hoods/dijon--toison-d-or.webp", page:"https://commons.wikimedia.org/wiki/File:Le_Toison_d%27Or_2.jpg", src:"Karmakolle" }
+    "Toison d'Or": { img:"images/hoods/dijon--toison-d-or.webp", page:"https://commons.wikimedia.org/wiki/File:Le_Toison_d%27Or_2.jpg", src:"Karmakolle" },
+    "Gare and Saint-Bénigne": { img:"images/hoods/dijon--gare-and-saint-benigne.webp", page:"https://commons.wikimedia.org/wiki/File:Dijon_cathedral_facade_06.jpg", src:"Paolo da Reggio" }
   },
   "Dili": {
     "Colmera": { img:"images/hoods/dili--colmera.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_tower_roundabout,_Dili,_2018_(01).jpg", src:"Bahnfrend" },
@@ -1901,8 +1901,7 @@ window.NRA_HOOD_PHOTO = {
     "Ifri": { img:"images/hoods/djanet--ifri.webp", page:"https://commons.wikimedia.org/wiki/File:Soda_Ifri_-_20110516_(1).jpg", src:"Olybrius" }
   },
   "Djibouti City": {
-    "Plateau du Serpent": { img:"images/hoods/djibouti-city--plateau-du-serpent.webp", page:"https://commons.wikimedia.org/wiki/File:Plateau_du_Serpent_(25151636855).jpg", src:"Francisco Anzola from United States" },
-    "Ambouli": { img:"images/hoods/djibouti-city--ambouli.webp", page:"https://commons.wikimedia.org/wiki/File:Secretary_Tillerson_is_Greeted_by_Djiboutian_Foreign_Minister_Youssouf_(25836678027).jpg", src:"U.S. Department of State from United States" }
+    "Plateau du Serpent": { img:"images/hoods/djibouti-city--plateau-du-serpent.webp", page:"https://commons.wikimedia.org/wiki/File:Plateau_du_Serpent_(25151636855).jpg", src:"Francisco Anzola from United States" }
   },
   "Douala": {
     "Bonanjo": { img:"images/hoods/douala--bonanjo.webp", page:"https://commons.wikimedia.org/wiki/File:Bonanjo_-_Centre_de_documentation_et_information_urbanisme_(CUD)_03.JPG", src:"Marta Pucciarelli" },
@@ -2485,8 +2484,7 @@ window.NRA_HOOD_PHOTO = {
     "Jamestown (Main Street)": { img:"images/hoods/jamestown--jamestown-main-street.webp", page:"https://commons.wikimedia.org/wiki/File:Chalewote.jpg", src:"Kojo xo" },
     "Half Tree Hollow": { img:"images/hoods/jamestown--half-tree-hollow.webp", page:"https://commons.wikimedia.org/wiki/File:Lemon_Valley_Bay.jpg", src:"Kevstan" },
     "Longwood": { img:"images/hoods/jamestown--longwood.webp", page:"https://commons.wikimedia.org/wiki/File:Castello_di_Aymavilles_2018_abc58.jpg", src:"Patafisik e user:Elena Tartaglione" },
-    "St Paul's": { img:"images/hoods/jamestown--st-paul-s.webp", page:"https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_(41012986392).jpg", src:"Luke McKernan" },
-    "Alarm Forest": { img:"images/hoods/jamestown--alarm-forest.webp", page:"https://commons.wikimedia.org/wiki/File:Noisy_miner,_Pfingst_Rd_Chermside_DSCF5061.jpg", src:"John Robert McPherson" }
+    "St Paul's": { img:"images/hoods/jamestown--st-paul-s.webp", page:"https://commons.wikimedia.org/wiki/File:St_Paul%27s_Cathedral_(41012986392).jpg", src:"Luke McKernan" }
   },
   "Jeju City": {
     "Sinjeju (Yeon-dong)": { img:"images/hoods/jeju-city--sinjeju-yeon-dong.webp", page:"https://commons.wikimedia.org/wiki/File:KT_Sinjeju_and_MBC_Jeju_buildings.JPG", src:"Abasaa" }
@@ -3348,8 +3346,7 @@ window.NRA_HOOD_PHOTO = {
   "Mytilene": {
     "Town Centre & Harbour": { img:"images/hoods/mytilene--town-centre-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Eats_Street,_Harbour_Town_Shopping_Centre,_2025.jpg", src:"Chris Olszewski" },
     "Epano Skala": { img:"images/hoods/mytilene--epano-skala.webp", page:"https://commons.wikimedia.org/wiki/File:20150716_Valide_Mosque_Epano_Skala_Mytilene_Lesvos_Greece.jpg", src:"Ggia" },
-    "Varia (Vareia)": { img:"images/hoods/mytilene--varia-vareia.webp", page:"https://commons.wikimedia.org/wiki/File:Cages_d%27%C3%A9levage_de_juv%C3%A9niles_de_p%C3%A9toncles_noirs_(Ifremer_00735-84701_-_40414).jpg", src:"Olivier Dugornay" },
-    "Sourada / Akrotiri": { img:"images/hoods/mytilene--sourada-akrotiri.webp", page:"https://commons.wikimedia.org/wiki/File:Fedora_19_default_wallpaper.jpg", src:"Martin Sourada" }
+    "Varia (Vareia)": { img:"images/hoods/mytilene--varia-vareia.webp", page:"https://commons.wikimedia.org/wiki/File:Cages_d%27%C3%A9levage_de_juv%C3%A9niles_de_p%C3%A9toncles_noirs_(Ifremer_00735-84701_-_40414).jpg", src:"Olivier Dugornay" }
   },
   "Nablus": {
     "Rafidia": { img:"images/hoods/nablus--rafidia.webp", page:"https://commons.wikimedia.org/wiki/File:Rafidia_Hospital_001.jpg", src:"Ameen Rammal" },
@@ -3754,8 +3751,7 @@ window.NRA_HOOD_PHOTO = {
   "Podgorica": {
     "Nova Varos (Center)": { img:"images/hoods/podgorica--nova-varos-center.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_Podgorica_81000,_Montenegro_-_panoramio_(2).jpg", src:"ines lukic" },
     "Stara Varos": { img:"images/hoods/podgorica--stara-varos.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_Tower_in_2020.03.jpg", src:"CAPTAIN RAJU" },
-    "Preko Morace": { img:"images/hoods/podgorica--preko-morace.webp", page:"https://commons.wikimedia.org/wiki/File:Zgrade_Pet_udovica_Podgorica.jpg", src:"Vux33" },
-    "Stari Aerodrom": { img:"images/hoods/podgorica--stari-aerodrom.webp", page:"https://commons.wikimedia.org/wiki/File:Stari_Aerodrom,_Podgorica,_Montenegro_-_panoramio.jpg", src:"ines lukic" }
+    "Preko Morace": { img:"images/hoods/podgorica--preko-morace.webp", page:"https://commons.wikimedia.org/wiki/File:Zgrade_Pet_udovica_Podgorica.jpg", src:"Vux33" }
   },
   "Pokhara": {
     "Lakeside (Baidam)": { img:"images/hoods/pokhara--lakeside-baidam.webp", page:"https://commons.wikimedia.org/wiki/File:Lakeside_Pokhara_at_Night.jpg", src:"Saddam19" },
@@ -4396,7 +4392,8 @@ window.NRA_HOOD_PHOTO = {
   "Surakarta": {
     "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:GrandMosqueYogya.JPG", src:"Dekoelie" },
     "Kampung Batik Laweyan": { img:"images/hoods/surakarta--kampung-batik-laweyan.webp", page:"https://commons.wikimedia.org/wiki/File:Becak_Kampung_Batik_Laweyan.jpg", src:"Herusutimbul" },
-    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" }
+    "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" },
+    "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" }
   },
   "Surat Thani": {
     "Phunphin": { img:"images/hoods/surat-thani--phunphin.webp", page:"https://commons.wikimedia.org/wiki/File:Phunphin_clock_tower.jpg", src:"User:Ahoerstemeier" }
