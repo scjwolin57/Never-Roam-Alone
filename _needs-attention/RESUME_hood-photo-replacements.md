@@ -22,7 +22,11 @@ Rules for every replacement (CLAUDE.md §3.7, §4.3):
 
 Still open: the 8 "could not settle" photos in `hood-photo-collisions-2026-10-09.md` (Jeff to decide).
 
-## Hood points found wrong during the replacements (not fixed here; for the hood-data task)
+## Hood points found wrong during the replacements: FIXED 2026-10-09 (Jeff: "fix the 3 hood points")
+
+Banff/Lake Louise Village moved to the Lake Louise hamlet (51.424966, -116.1775, OSM place); Carcassonne/La Cité moved inside the walls (43.2064, 2.3633, between the Château Comtal and its hotels); Klaipėda/Fishing Village moved to Žvejų g. on the Danė (55.7069, 21.1270), where its hotels and bar strip are (its description is the Danė riverside strip, not Smiltynė). Gyms and laundromats re-derived with the loaders' rules (Banff: Fenlands gym and Cascade Coin Laundry now Banff Avenue/Downtown; Lake Louise Sport & Recreation Centre now Lake Louise Village).
+
+Original notes:
 
 - Banff / Lake Louise Village: the hood point is in Banff town (Cascade Mall is 19 m away); Lake Louise village is about 57 km north-west. Photo left on the stand-in until the point is fixed.
 - Carcassonne / La Cité (Walled Citadel): the hood point (43.2163, 2.3539) is by the station in the lower town; La Cité is about 1.4 km south-east (43.2066, 2.3637). The photo was verified by its subject (the château inside La Cité) instead.
