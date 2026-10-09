@@ -81,3 +81,11 @@ Dublin O'Connell Street. Delhi Paharganj has sources that flag scams and women's
 | Hotels for the new neighborhoods | Done by the "hotels for 18 empty hoods" session (Jeff's rule), not by me; tiers there are untiered unless a source classifies them |
 
 Still open: 14 guides at one neighborhood and 80+ at two; empty slots in the 50 new neighborhoods' picks; the 237 kept thin keeps; Manzhouli and Qicai Town; CLAUDE.md §3 rule 6 text (held by another session).
+
+
+## Update, 2026-10-09 (late)
+
+- Second-look picks for the thin keeps and new hoods: 205 verified picks loaded in 119 cities (251 passed the gate; checker and fresh audit dropped or corrected 46; 34 of 34 bars passed the safety search, 12 with no search coverage).
+- 23 thin keeps removed (checked, no hotel or restaurant listing in Google or open data); 214 stay for research. Hoods now 3,525: 15 guides with 1, 89 with 2, 175 with 3, 263 with 4, 351 with 5.
+- Every empty stay / eat / coffee / drink card now shows "Picks coming soon" and the Suggest button (city.html).
+- Still open: Kraków Nowa Huta (decided out, not applied); Mar del Plata Los Argentinos and other Instagram-only venues could not be read.

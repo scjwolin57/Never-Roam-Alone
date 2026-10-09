@@ -888,6 +888,7 @@
   .hood-panel .photo-contrib{position:static;border-color:var(--line);background:none;color:var(--muted)}
   .hood-panel .photo-contrib:hover,.hood-panel .photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
   /* "Suggest a place" at the bottom of each stay / eat / coffee / drink card, styled like "Contribute a photo" above */
+  .pick-soon{margin:0 0 8px;font-size:.85rem;font-style:italic;color:var(--muted)}   /* empty card placeholder (Jeff, 2026-10-09) */
   .hood-suggest-wrap{margin-top:auto;padding-top:6px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
   .hood-suggest-hint{margin:0;max-width:100%;font-size:.78rem;line-height:1.4;color:var(--muted);text-wrap:balance}   /* the full card width: one line wherever it fits (Jeff, 2026-09-25) */
   .hood-suggest{align-self:center;max-width:100%;border:1px solid var(--line);border-radius:3px;background:none;
@@ -2833,38 +2834,40 @@ function buildAdvisoryBanner(c, cityAdv){
     /* Bar picks for this hood — omitted entirely when we have no verified venues (ours or a Roamer's). */
     const barList = (CITY_BARS[c.city] && CITY_BARS[c.city][i]) || [];
     const dryHood = barList.length > 0 && !barList.some(b => b.k === 'dive' || b.k === 'party' || b.k === 'cocktail' || b.k === 'pub');
-    const barsHTML = (barList.length || roamerList('bars', i).length) ? `
+    /* An empty card stays visible with "Picks coming soon" and the Suggest button (Jeff, 2026-10-09). */
+    const soonRow = (list, sec) => (list.length || roamerList(sec, i).length) ? '' : '<p class="pick-soon">Picks coming soon</p>';
+    const barsHTML = `
             <div class="hood-bars">
               <p class="hood-bars-head">${dryHood ? 'Where to go out (alcohol-free)' : 'Where to drink'}</p>
-              ${barRows(barList, name, i)}
+              ${soonRow(barList, 'bars')}${barRows(barList, name, i)}
               ${roamerGroup('bars', i, name, l => barRows(l, name, i))}
               ${suggestBtn('bars', i, dryHood ? 'Suggest a place to go out' : 'Suggest a place to drink', dryHood)}
-            </div>` : '';
+            </div>`;
     const eatList = (CITY_EAT[c.city] && CITY_EAT[c.city][i]) || [];
-    const eatHTML = (eatList.length || roamerList('eat', i).length) ? `
+    const eatHTML = `
             <div class="hood-picks">
               <p class="hood-bars-head">Where to eat</p>
-              ${pickRows(eatList, EAT_KIND_META, name, i, 'eat')}
+              ${soonRow(eatList, 'eat')}${pickRows(eatList, EAT_KIND_META, name, i, 'eat')}
               ${roamerGroup('eat', i, name, l => pickRows(l, EAT_KIND_META, name, i, 'eat'))}
               ${suggestBtn('eat', i, 'Suggest a place to eat')}
-            </div>` : '';
+            </div>`;
     const cafeList = (CITY_CAFES[c.city] && CITY_CAFES[c.city][i]) || [];
-    const cafeHTML = (cafeList.length || roamerList('cafes', i).length) ? `
+    const cafeHTML = `
             <div class="hood-picks">
               <p class="hood-bars-head">Coffee &amp; takeaway</p>
-              ${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
+              ${soonRow(cafeList, 'cafes')}${pickRows(cafeList, CAFE_KIND_META, name, i, 'cafes')}
               ${roamerGroup('cafes', i, name, l => pickRows(l, CAFE_KIND_META, name, i, 'cafes'))}
               ${suggestBtn('cafes', i, 'Suggest a coffee or takeaway spot')}
-            </div>` : '';
+            </div>`;
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
     const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
-    const stayHTML = (lodgeRows || roamerList('stay', i).length) ? `
+    const stayHTML = `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
-              ${lodgeRows}
+              ${soonRow(lodgeRows ? [1] : [], 'stay')}${lodgeRows}
               ${roamerGroup('stay', i, name, l => pickRows(l, LODGE_META, name, i, 'stay'))}
               ${suggestBtn('stay', i, 'Suggest a place to stay')}
-            </div>` : '';
+            </div>`;
     return `
         <div class="hood hood-panel" role="tabpanel" id="hood-panel-${i}" aria-labelledby="hood-tab-${i}"${i === 0 ? '' : ' hidden'}>
           <div class="hood-body">
