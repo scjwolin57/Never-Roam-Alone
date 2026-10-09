@@ -3816,7 +3816,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Saint-Denis": {
     "Le Barachois": { img:"images/hoods/saint-denis--le-barachois.webp", page:"https://commons.wikimedia.org/wiki/File:Houle_cyclonique_2008_-_panoramio.jpg", src:"franek2" },
-    "La Montagne": { img:"images/hoods/saint-denis--la-montagne.webp", page:"https://commons.wikimedia.org/wiki/File:Le_colorado_et_les_hauts_de_Saint-Denis_-_panoramio.jpg", src:"regulator974" }
+    "La Montagne": { img:"images/hoods/saint-denis--la-montagne.webp", page:"https://commons.wikimedia.org/wiki/File:Le_colorado_et_les_hauts_de_Saint-Denis_-_panoramio.jpg", src:"regulator974" },
+    "Sainte-Clotilde": { img:"images/hoods/saint-denis--sainte-clotilde.webp", page:"https://commons.wikimedia.org/wiki/File:Domaine_du_Chaudron.JPG", src:"Nico AsLi" }
   },
   "Saint-Louis": {
     "Île de Saint-Louis": { img:"images/hoods/saint-louis--ile-de-saint-louis.webp", page:"https://commons.wikimedia.org/wiki/File:Island_of_Saint-Louis-113791.jpg", src:"Jim Williams" },
@@ -3834,7 +3835,8 @@ window.NRA_HOOD_PHOTO = {
   "Saint-Tropez": {
     "La Ponche": { img:"images/hoods/saint-tropez--la-ponche.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Ponche_Beach,_Saint-Tropez,_France_(52723268452).jpg", src:"dronepicr" },
     "Place des Lices": { img:"images/hoods/saint-tropez--place-des-lices.webp", page:"https://commons.wikimedia.org/wiki/File:Una_piazza_-_panoramio.jpg", src:"Itto Ogami" },
-    "Pampelonne Beach": { img:"images/hoods/saint-tropez--pampelonne-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Pampelonne_Beach,_Saint-Tropez,_France_(52723263302).jpg", src:"dronepicr" }
+    "Pampelonne Beach": { img:"images/hoods/saint-tropez--pampelonne-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Aerial_view_of_Pampelonne_Beach,_Saint-Tropez,_France_(52723263302).jpg", src:"dronepicr" },
+    "Vieux Port (Old Port)": { img:"images/hoods/saint-tropez--vieux-port-old-port.webp", page:"https://commons.wikimedia.org/wiki/File:Port_(Saint-Tropez)_(03).jpg", src:"Gzen92" }
   },
   "Saipan": {
     "Garapan": { img:"images/hoods/saipan--garapan.webp", page:"https://commons.wikimedia.org/wiki/File:Cruise_ship_blues_(Unsplash).jpg", src:"Vincent Camacho officialmapps" },
@@ -3845,7 +3847,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Salamanca": {
     "Barrio del Oeste": { img:"images/hoods/salamanca--barrio-del-oeste.webp", page:"https://commons.wikimedia.org/wiki/File:Plano_de_situaci%C3%B3n_y_emplazamiento_BO_ab17.jpg", src:"Romanarq" },
-    "Arrabal (Tormes riverside)": { img:"images/hoods/salamanca--arrabal-tormes-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:20210716_180908(0)_Iglesia_vieja_del_arrabal_en_Salamanca.jpg", src:"FLAVIVSAETIVS" }
+    "Arrabal (Tormes riverside)": { img:"images/hoods/salamanca--arrabal-tormes-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:20210716_180908(0)_Iglesia_vieja_del_arrabal_en_Salamanca.jpg", src:"FLAVIVSAETIVS" },
+    "Centro Histórico (Plaza Mayor)": { img:"images/hoods/salamanca--centro-historico-plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Salamanca_(30210979204).jpg", src:"Emilio J. Rodríguez Posada" }
   },
   "Salerno": {
     "Lungomare Trieste": { img:"images/hoods/salerno--lungomare-trieste.webp", page:"https://commons.wikimedia.org/wiki/File:Binari_del_raccordo_portule_di_Salerno_sul_lungomare_Trieste.jpg", src:"Giuseppe Masino" },
@@ -3877,16 +3880,19 @@ window.NRA_HOOD_PHOTO = {
   "Samarkand": {
     "University Boulevard": { img:"images/hoods/samarkand--university-boulevard.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%BA%D0%B0%D0%BD%D0%B4._%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80,_3_03.jpg", src:"Екатерина Борисова" },
     "Siyob Bazaar & Bibi-Khanym": { img:"images/hoods/samarkand--siyob-bazaar-bibi-khanym.webp", page:"https://commons.wikimedia.org/wiki/File:Registan,_Samarkand_(8612696877).jpg", src:"Aleksandr Zykov from Russia" },
-    "Bogishamol": { img:"images/hoods/samarkand--bogishamol.webp", page:"https://commons.wikimedia.org/wiki/File:Boqiy_shahar.jpg", src:"Sultonova M" }
+    "Bogishamol": { img:"images/hoods/samarkand--bogishamol.webp", page:"https://commons.wikimedia.org/wiki/File:Boqiy_shahar.jpg", src:"Sultonova M" },
+    "Registan & Old City": { img:"images/hoods/samarkand--registan-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Sher_Dor_Madrasa_1619-36%3B_Registan,_Samarkand,_Uzbekistan_(7).jpg", src:"Prof. Mortel" }
   },
   "San Antonio": {
     "Downtown / River Walk": { img:"images/hoods/san-antonio--downtown-river-walk.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_San_Antonio,_TX,_USA_-_panoramio_(10).jpg", src:"organic_veggie" },
-    "Pearl District": { img:"images/hoods/san-antonio--pearl-district.webp", page:"https://www.flickr.com/photos/97402086@N00/39167537325/", src:"nan palmero" }
+    "Pearl District": { img:"images/hoods/san-antonio--pearl-district.webp", page:"https://www.flickr.com/photos/97402086@N00/39167537325/", src:"nan palmero" },
+    "Southtown": { img:"images/hoods/san-antonio--southtown.webp", page:"https://commons.wikimedia.org/wiki/File:Sala_Diaz.jpg", src:"Wynne-Candy" }
   },
   "San Cristóbal de las Casas": {
     "Centro Histórico": { img:"images/hoods/san-cristobal-de-las-casas--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Sede_del_Centro_de_Investigaciones_Multidisciplinarias_sobre_Chiapas_y_la_Frontera_Sur,_San_Crist%C3%B3bal_de_Las_Casas.jpg", src:"Jordi Martínez Martínez" },
     "Real de Guadalupe": { img:"images/hoods/san-cristobal-de-las-casas--real-de-guadalupe.webp", page:"https://commons.wikimedia.org/wiki/File:RealGuadalupeSanCris.JPG", src:"AlejandroLinaresGarcia" },
-    "Barrio del Cerrillo": { img:"images/hoods/san-cristobal-de-las-casas--barrio-del-cerrillo.webp", page:"https://commons.wikimedia.org/wiki/File:Convento_Santo_Domingo_01_ID_12_DBannasch.jpg", src:"Dbannasch" }
+    "Barrio del Cerrillo": { img:"images/hoods/san-cristobal-de-las-casas--barrio-del-cerrillo.webp", page:"https://commons.wikimedia.org/wiki/File:Convento_Santo_Domingo_01_ID_12_DBannasch.jpg", src:"Dbannasch" },
+    "Barrio de Santa Lucía": { img:"images/hoods/san-cristobal-de-las-casas--barrio-de-santa-lucia.webp", page:"https://commons.wikimedia.org/wiki/File:FacadeSantaLuciaSanCris.JPG", src:"AlejandroLinaresGarcia" }
   },
   "San Diego": {
     "Gaslamp Quarter (Downtown)": { img:"images/hoods/san-diego--gaslamp-quarter-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Dell_advertising_during_SDCCI_2018.jpg", src:"RightCowLeftCoast" },
@@ -3903,7 +3909,8 @@ window.NRA_HOOD_PHOTO = {
     "Old San Juan (Viejo San Juan)": { img:"images/hoods/san-juan--old-san-juan-viejo-san-juan.webp", page:"https://commons.wikimedia.org/wiki/File:Bastion_San_Antonio_garita_1_-_San_Juan_NHS_Puerto_Rico.jpg", src:"Ian Poellet" },
     "Santurce": { img:"images/hoods/san-juan--santurce.webp", page:"https://commons.wikimedia.org/wiki/File:2016-366-41_Free_to_Leave_(24832563552).jpg", src:"cogdogblog" },
     "Isla Verde": { img:"images/hoods/san-juan--isla-verde.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_Aerea,_Hoteles_,_Carretera_hacia_Pi%C3%B1ones,_Isla_Verde,_Ya_Aterrizando_en_el_aereopuerto_Luis_Mu%C3%B1os_Mar%C3%ADn_,_P.R._-_panoramio.jpg", src:"José Astacio" },
-    "Miramar": { img:"images/hoods/san-juan--miramar.webp", page:"https://commons.wikimedia.org/wiki/File:Laguna_del_Condado,_obelisco_de_Baldorioty.jpg", src:"Medied" }
+    "Miramar": { img:"images/hoods/san-juan--miramar.webp", page:"https://commons.wikimedia.org/wiki/File:Laguna_del_Condado,_obelisco_de_Baldorioty.jpg", src:"Medied" },
+    "Condado": { img:"images/hoods/san-juan--condado.webp", page:"https://commons.wikimedia.org/wiki/File:Condado_Beach,_San_Juan,_PR,_USA.jpg", src:"MJCdetroit" }
   },
   "San Salvador": {
     "Zona Rosa / San Benito": { img:"images/hoods/san-salvador--zona-rosa-san-benito.webp", page:"https://commons.wikimedia.org/wiki/File:Monumento_Inca_Garcilaso.jpg", src:"Tejerinarubio" },
@@ -3915,11 +3922,13 @@ window.NRA_HOOD_PHOTO = {
     "Parte Vieja (Old Town)": { img:"images/hoods/san-sebastian--parte-vieja-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Donostia_-_carrer_a_la_ciutat_vella_20180801_161751.jpg", src:"pere prlpz" },
     "Centro (Área Romántica)": { img:"images/hoods/san-sebastian--centro-area-romantica.webp", page:"https://commons.wikimedia.org/wiki/File:Clara_Campoamorri_eskainitako_eskultura.jpg", src:"Ernestobanpiroa" },
     "Antiguo": { img:"images/hoods/san-sebastian--antiguo.webp", page:"https://commons.wikimedia.org/wiki/File:Parroquia_la_Antigua_photo2.jpg", src:"Sami Mlouhi" },
-    "Amara": { img:"images/hoods/san-sebastian--amara.webp", page:"https://commons.wikimedia.org/wiki/File:1313_Errota_Berri_baserria_margolana_(34784795293).jpg", src:"DONOSTIA KULTURA" }
+    "Amara": { img:"images/hoods/san-sebastian--amara.webp", page:"https://commons.wikimedia.org/wiki/File:1313_Errota_Berri_baserria_margolana_(34784795293).jpg", src:"DONOSTIA KULTURA" },
+    "Gros": { img:"images/hoods/san-sebastian--gros.webp", page:"https://commons.wikimedia.org/wiki/File:Galtzada_Nagusia.jpg", src:"Txapisotegi" }
   },
   "Sana'a": {
     "Al-Sabeen": { img:"images/hoods/sana-a--al-sabeen.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Sabeen,_Sana%27a,_Yemen_-_panoramio_-_%D8%A7%D9%84%D8%AF%D9%8A%D8%A7%D9%86%D9%8A.jpg", src:"الدياني" },
-    "Hadda": { img:"images/hoods/sana-a--hadda.webp", page:"https://commons.wikimedia.org/wiki/File:Hadda_Street,_Sana%27a_-_panoramio.jpg", src:"alimkasim" }
+    "Hadda": { img:"images/hoods/sana-a--hadda.webp", page:"https://commons.wikimedia.org/wiki/File:Hadda_Street,_Sana%27a_-_panoramio.jpg", src:"alimkasim" },
+    "Old City": { img:"images/hoods/sana-a--old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Old_City_Of_Sanaa_(95129511).jpeg", src:"Hamza Shiban" }
   },
   "Şanlıurfa": {
     "Balıklıgöl (Old City)": { img:"images/hoods/sanliurfa--balikligol-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Balikli_G%C3%B6l_01.jpg", src:"Bernard Gagnon" },
@@ -3933,7 +3942,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Santa Cruz de Tenerife": {
     "San Cristobal de La Laguna": { img:"images/hoods/santa-cruz-de-tenerife--san-cristobal-de-la-laguna.webp", page:"https://commons.wikimedia.org/wiki/File:At_Tenerife_2019_643.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
-    "Zona Centro": { img:"images/hoods/santa-cruz-de-tenerife--zona-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_Castillo.JPG", src:"Mataparda" }
+    "Zona Centro": { img:"images/hoods/santa-cruz-de-tenerife--zona-centro.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_Castillo.JPG", src:"Mataparda" },
+    "Los Llanos": { img:"images/hoods/santa-cruz-de-tenerife--los-llanos.webp", page:"https://commons.wikimedia.org/wiki/File:Tres_de_Mayo_05.jpg", src:"Koppchen" }
   },
   "Santa Marta": {
     "Centro Histórico": { img:"images/hoods/santa-marta--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:2019_Santa_Marta_-_Casas_en_el_Centro_hist%C3%B3rico_-_Calle_19_con_carrera_6.jpg", src:"Felipe Restrepo Acosta" },
@@ -3948,16 +3958,19 @@ window.NRA_HOOD_PHOTO = {
   },
   "Santiago de Compostela": {
     "San Lázaro": { img:"images/hoods/santiago-de-compostela--san-lazaro.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_de_San_L%C3%A1zaro,_Santiago_de_Compostela_02.jpg", src:"Simon Burchell" },
-    "Fontiñas": { img:"images/hoods/santiago-de-compostela--fontinas.webp", page:"https://commons.wikimedia.org/wiki/File:2026._Bar_Pamp%C3%ADn._Ruela_das_Fonti%C3%B1as._Santiago_de_Compostela.jpg", src:"Luis Miguel Bugallo Sánchez" }
+    "Fontiñas": { img:"images/hoods/santiago-de-compostela--fontinas.webp", page:"https://commons.wikimedia.org/wiki/File:2026._Bar_Pamp%C3%ADn._Ruela_das_Fonti%C3%B1as._Santiago_de_Compostela.jpg", src:"Luis Miguel Bugallo Sánchez" },
+    "Casco Histórico (Old Town)": { img:"images/hoods/santiago-de-compostela--casco-historico-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Casco_hist%C3%B3rico_de_Santiago_de_Compostela,_avenida_de_Rodrigo_del_Padr%C3%B3n.jpg", src:"D.Rovchak" }
   },
   "Santiago de Cuba": {
     "Tivoli": { img:"images/hoods/santiago-de-cuba--tivoli.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_de_las_Tradiciones_294A5261_Stgo_Cuba.jpg", src:"Christian Pirkl" },
     "Sueno": { img:"images/hoods/santiago-de-cuba--sueno.webp", page:"https://commons.wikimedia.org/wiki/File:Solar_panels_in_Santiago_de_Cuba_2026-07.jpg", src:"Escla" },
-    "Vista Alegre": { img:"images/hoods/santiago-de-cuba--vista-alegre.webp", page:"https://commons.wikimedia.org/wiki/File:R._Manduley_Avenue,_Vista_Alegre_-_Santiago_de_Cuba,_asset_l1klXPLUIWhKkfoVqo21pNls.jpg", src:"Unknown authorUnknown author" }
+    "Vista Alegre": { img:"images/hoods/santiago-de-cuba--vista-alegre.webp", page:"https://commons.wikimedia.org/wiki/File:R._Manduley_Avenue,_Vista_Alegre_-_Santiago_de_Cuba,_asset_l1klXPLUIWhKkfoVqo21pNls.jpg", src:"Unknown authorUnknown author" },
+    "Centro Historico": { img:"images/hoods/santiago-de-cuba--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:General_del_Parque_C%C3%A9spedes_en_un_espl%C3%A9ndido_d%C3%ADa,_al_final,_Catedral_de_La_Asunci%C3%B3n_de_Santiago_de_Cuba_-_panoramio.jpg", src:"DnTrotaMundos ☮" }
   },
   "Santiago de Querétaro": {
     "Centro Histórico": { img:"images/hoods/santiago-de-queretaro--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Escultura_de_Leonardo_Nierman_en_Quer%C3%A9taro.jpg", src:"Mizael Contreras" },
-    "Alameda Hidalgo": { img:"images/hoods/santiago-de-queretaro--alameda-hidalgo.webp", page:"https://commons.wikimedia.org/wiki/File:Alameda_Miguel_Hidalgo_Santiago_de_Quer%C3%A9taro.jpg", src:"Tarm92" }
+    "Alameda Hidalgo": { img:"images/hoods/santiago-de-queretaro--alameda-hidalgo.webp", page:"https://commons.wikimedia.org/wiki/File:Alameda_Miguel_Hidalgo_Santiago_de_Quer%C3%A9taro.jpg", src:"Tarm92" },
+    "Barrio de la Cruz": { img:"images/hoods/santiago-de-queretaro--barrio-de-la-cruz.webp", page:"https://commons.wikimedia.org/wiki/File:Templo_de_la_Cruz_-_panoramio.jpg", src:"jc_castaneda" }
   },
   "Santo Domingo": {
     "Zona Colonial": { img:"images/hoods/santo-domingo--zona-colonial.webp", page:"https://commons.wikimedia.org/wiki/File:Julia_de_Burgos_Santo_Domingo.jpg", src:"Ir2409" },
@@ -4669,6 +4682,13 @@ window.NRA_HOOD_PHOTO = {
     "Barrio Croata": { img:"images/hoods/punta-arenas--barrio-croata.webp", page:"https://commons.wikimedia.org/wiki/File:Santuario_Maria_Auxiliadora,_Punta_Arenas.jpg", src:"Robert Cutts Bristol Filer" }
   },
   "Saint Martin's Island": {
-    "Main Village (Jetty Area)": { img:"images/hoods/saint-martin-s-island--main-village-jetty-area.webp", page:"https://commons.wikimedia.org/wiki/File:Waterman_on_the_Beach.jpg", src:"Saiful Islam" }
+    "Main Village (Jetty Area)": { img:"images/hoods/saint-martin-s-island--main-village-jetty-area.webp", page:"https://commons.wikimedia.org/wiki/File:Waterman_on_the_Beach.jpg", src:"Saiful Islam" },
+    "West Beach": { img:"images/hoods/saint-martin-s-island--west-beach.webp", page:"https://commons.wikimedia.org/wiki/File:A_song_of_two_blues_and_a_gray.jpg", src:"Muhaisin" }
+  },
+  "San Andrés": {
+    "El Centro (Town Center)": { img:"images/hoods/san-andres--el-centro-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:San_Andr%C3%A9s_Centro.jpg", src:"Xemenendura" }
+  },
+  "San Pedro Sula": {
+    "Barrio El Centro": { img:"images/hoods/san-pedro-sula--barrio-el-centro.webp", page:"https://commons.wikimedia.org/wiki/File:SanPedroSulaChurch01.JPG", src:"Thelmadatter" }
   },
 };

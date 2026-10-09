@@ -299,31 +299,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 12,Roseau,Dominica,Roseau City Centre,15.296679,-61.387235,"File:ASC Leiden - van Achterberg Collection - 05 - 53 - Un camp touareg juste à l'extérieur de la ville - Tombouctou, Mali - Novembre-décembre 1993.jpg",done,File:King George V St in Roseau (1).jpg,Commons file GPS 31 m from the hood point; eye-checked; licence CC BY 4.0
 12,Sa Pa,Vietnam,Sa Pa Town Center,22.338098,103.8459,"File:EXAMPLE OF STONE END WITH SLIT VENTILATORS - Barn, County Road, Strasburg, Lancaster County, PA HABS PA,36-STRAS.V,1A-1.tif",done,File:Sa Pa city center.jpg,Commons file GPS 203 m from the hood point; eye-checked; licence CC BY-SA 4.0
 12,Saint Martin's Island,Bangladesh,Main Village (Jetty Area),20.623702,92.323395,File:Percy Main (geograph 2421107).jpg,done,File:Waterman on the Beach.jpg,Commons file GPS 114 m from the hood point; eye-checked; licence CC BY-SA 4.0
-13,Saint Martin's Island,Bangladesh,West Beach,20.632546,92.317201,"File:East platform, West Palm Beach station.jpg",open,,
-13,Saint-Denis,Réunion,Sainte-Clotilde,-20.895537,55.495531,File:Boîte Lettres Poste A2C2G4 Avenue Sainte Clotilde - Gagny (FR93) - 2021-04-10 - 1.jpg,open,,
-13,Saint-Tropez,France,Vieux Port (Old Port),43.272629,6.638883,File:Seine Balise R01.jpg,open,,
-13,Saipan,Northern Mariana Islands,San Antonio,15.133694,145.695695,File:Minnesota Soldiers and Sailors Monument.tif,open,,
-13,Salalah,Oman,Al Wadi,17.012784,54.067782,File:Petroglyphs in Wadi Ejili.jpg,open,,
-13,Salalah,Oman,Salalah Central,17.018454,54.099322,File:USS BOXER (LHD 4) 131101-N-GM561-158 (11027121104).jpg,open,,
-13,Salamanca,Spain,Centro Histórico (Plaza Mayor),40.964895,-5.663736,"File:Vistas de Salamanca, Guanajuato 2008 05.jpg",open,,
-13,Salta,Argentina,Tres Cerritos,-24.768421,-65.392606,File:Bajo la sombra de un mezquite.JPG,open,,
-13,Samarkand,Uzbekistan,Registan & Old City,39.654778,66.975758,"File:Andijan Old City, Registan square.jpg",open,,
-13,San Andrés,Colombia,El Centro (Town Center),12.5847,-81.7006,File:Farming in the El Centro region in California LCCN2013633417.tif,open,,
-13,San Andrés,Colombia,San Luis,12.530502,-81.708641,File:Atardecer en Villa de la Quebrada San Luis - Via Crucis del Cristo.jpg,open,,
-13,San Antonio,United States,Southtown,29.414725,-98.488762,"File:312 of '(Our own country. Descriptive, historical, pictorial.)' (11177382603).jpg",open,,
-13,San Cristóbal de las Casas,Mexico,Barrio de Santa Lucía,16.732103,-92.636492,File:Vitoria - Santa Lucía.jpg,open,,
-13,San José,Costa Rica,Barrio Escalante,9.937315,-84.062992,File:Km4 moran.JPG,open,,
-13,San Juan,Puerto Rico,Condado,18.456073,-66.071632,File:La Palma del Condado 135.jpg,open,,
-13,San Pedro Sula,Honduras,Barrio El Centro,15.505354,-88.025084,"File:Calle Arones 395, Barrio San Pedro.jpg",open,,
-13,San Pedro Sula,Honduras,Barrio Los Andes,15.510888,-88.03264,File:Casa Colectiva Parque Los Andes 03.JPG,open,,
-13,San Pedro Sula,Honduras,Jardines del Valle,15.535754,-88.028972,File:Santa Rita (azulejo).jpg,open,,
-13,San Sebastián,Spain,Gros,43.324735,-1.974615,"File:Gros Islet, Saint Lucia (2024-05-28-14-00-22 UMBRA-04).tiff",open,,
-13,Sana'a,Yemen,Old City,15.355873,44.213536,File:10 S. 2nd Street.jpg,open,,
-13,Santa Cruz de Tenerife,Spain,Los Llanos,28.458019,-16.257174,"File:Los Llanos de Aridane, Santa Cruz de Tenerife, Canary Islands, Spain (CAPELLA C10 SP GEO HH 20240803010929 20240803010957).tiff",open,,
-13,Santiago de Compostela,Spain,Casco Histórico (Old Town),42.879687,-8.545087,File:Convento das Concepcionistas.jpg,open,,
-13,Santiago de Cuba,Cuba,Centro Historico,20.021514,-75.829525,File:Cross section of buildings in Centro Historico Vitoria 1.jpg,open,,
-13,Santiago de Querétaro,Mexico,Barrio de la Cruz,20.593916,-100.384883,"File:Murales alrededor del Panteón de la Cruz, barrio de Guadalupe 18.jpg",open,,
-13,Santo Domingo,Dominican Republic,Naco,18.474969,-69.926073,"File:Exterior, Border Patrol Station, Naco, Arizona LCCN2010719666.tif",open,,
+13,Saint Martin's Island,Bangladesh,West Beach,20.632546,92.317201,"File:East platform, West Palm Beach station.jpg",done,File:A song of two blues and a gray.jpg,Commons file GPS 504 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,Saint-Denis,Réunion,Sainte-Clotilde,-20.895537,55.495531,File:Boîte Lettres Poste A2C2G4 Avenue Sainte Clotilde - Gagny (FR93) - 2021-04-10 - 1.jpg,done,File:Domaine du Chaudron.JPG,Commons file GPS 693 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,Saint-Tropez,France,Vieux Port (Old Port),43.272629,6.638883,File:Seine Balise R01.jpg,done,File:Port (Saint-Tropez) (03).jpg,Commons file GPS 8 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,Saipan,Northern Mariana Islands,San Antonio,15.133694,145.695695,File:Minnesota Soldiers and Sailors Monument.tif,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only an insect, a portrait and a cloudy road 1.3 km away"
+13,Salalah,Oman,Al Wadi,17.012784,54.067782,File:Petroglyphs in Wadi Ejili.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only dashcam frames"
+13,Salalah,Oman,Salalah Central,17.018454,54.099322,File:USS BOXER (LHD 4) 131101-N-GM561-158 (11027121104).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only dashcam frames"
+13,Salamanca,Spain,Centro Histórico (Plaza Mayor),40.964895,-5.663736,"File:Vistas de Salamanca, Guanajuato 2008 05.jpg",done,File:Plaza Mayor de Salamanca (30210979204).jpg,Commons file GPS 1 m from the hood point; eye-checked; licence CC BY-SA 2.0
+13,Salta,Argentina,Tres Cerritos,-24.768421,-65.392606,File:Bajo la sombra de un mezquite.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the Cerro San Bernardo 1.3 km away"
+13,Samarkand,Uzbekistan,Registan & Old City,39.654778,66.975758,"File:Andijan Old City, Registan square.jpg",done,"File:Sher Dor Madrasa 1619-36; Registan, Samarkand, Uzbekistan (7).jpg",Commons file GPS 6 m from the hood point; eye-checked; licence CC BY 2.0
+13,San Andrés,Colombia,El Centro (Town Center),12.5847,-81.7006,File:Farming in the El Centro region in California LCCN2013633417.tif,done,File:San Andrés Centro.jpg,Commons file GPS 723 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,San Andrés,Colombia,San Luis,12.530502,-81.708641,File:Atardecer en Villa de la Quebrada San Luis - Via Crucis del Cristo.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only wildlife, food and beaches over 1.4 km away"
+13,San Antonio,United States,Southtown,29.414725,-98.488762,"File:312 of '(Our own country. Descriptive, historical, pictorial.)' (11177382603).jpg",done,File:Sala Diaz.jpg,Commons file GPS 386 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,San Cristóbal de las Casas,Mexico,Barrio de Santa Lucía,16.732103,-92.636492,File:Vitoria - Santa Lucía.jpg,done,File:FacadeSantaLuciaSanCris.JPG,Commons file GPS 46 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,San José,Costa Rica,Barrio Escalante,9.937315,-84.062992,File:Km4 moran.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only snakes, car showrooms and an office block"
+13,San Juan,Puerto Rico,Condado,18.456073,-66.071632,File:La Palma del Condado 135.jpg,done,"File:Condado Beach, San Juan, PR, USA.jpg",Commons file GPS 160 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,San Pedro Sula,Honduras,Barrio El Centro,15.505354,-88.025084,"File:Calle Arones 395, Barrio San Pedro.jpg",done,File:SanPedroSulaChurch01.JPG,Commons file GPS 107 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,San Pedro Sula,Honduras,Barrio Los Andes,15.510888,-88.03264,File:Casa Colectiva Parque Los Andes 03.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only football matches and cathedral files from El Centro"
+13,San Pedro Sula,Honduras,Jardines del Valle,15.535754,-88.028972,File:Santa Rita (azulejo).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only medical-mission photos and a stock interior"
+13,San Sebastián,Spain,Gros,43.324735,-1.974615,"File:Gros Islet, Saint Lucia (2024-05-28-14-00-22 UMBRA-04).tiff",done,File:Galtzada Nagusia.jpg,Commons file GPS 39 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,Sana'a,Yemen,Old City,15.355873,44.213536,File:10 S. 2nd Street.jpg,done,File:Old City Of Sanaa (95129511).jpeg,Commons file GPS 85 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,Santa Cruz de Tenerife,Spain,Los Llanos,28.458019,-16.257174,"File:Los Llanos de Aridane, Santa Cruz de Tenerife, Canary Islands, Spain (CAPELLA C10 SP GEO HH 20240803010929 20240803010957).tiff",done,File:Tres de Mayo 05.jpg,Commons file GPS 127 m from the hood point; eye-checked; licence CC BY 3.0
+13,Santiago de Compostela,Spain,Casco Histórico (Old Town),42.879687,-8.545087,File:Convento das Concepcionistas.jpg,done,"File:Casco histórico de Santiago de Compostela, avenida de Rodrigo del Padrón.jpg",Commons file GPS 95 m from the hood point; eye-checked; licence CC BY-SA 4.0
+13,Santiago de Cuba,Cuba,Centro Historico,20.021514,-75.829525,File:Cross section of buildings in Centro Historico Vitoria 1.jpg,done,"File:General del Parque Céspedes en un espléndido día, al final, Catedral de La Asunción de Santiago de Cuba - panoramio.jpg",Commons file GPS 22 m from the hood point; eye-checked; licence CC BY 3.0
+13,Santiago de Querétaro,Mexico,Barrio de la Cruz,20.593916,-100.384883,"File:Murales alrededor del Panteón de la Cruz, barrio de Guadalupe 18.jpg",done,File:Templo de la Cruz - panoramio.jpg,Commons file GPS 130 m from the hood point; eye-checked; licence CC BY-SA 3.0
+13,Santo Domingo,Dominican Republic,Naco,18.474969,-69.926073,"File:Exterior, Border Patrol Station, Naco, Arizona LCCN2010719666.tif",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cars, a metro station and event photos"
 14,Scottsdale,United States,Gainey Ranch,33.566893,-111.913497,File:Supra (19375818800).jpg,open,,
 14,Scottsdale,United States,South Scottsdale,33.462541,-111.925695,"File:Transmission Towers - Guelph, Ontario 2020-06-19.jpg",open,,
 14,Sibiu,Romania,Sub Arini,45.78241,24.139572,File:Josephinische Landaufnahme pg011.jpg,open,,
