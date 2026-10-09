@@ -443,6 +443,11 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 - Numbers go in a table or on their own line, not buried in prose.
 - Anything he must decide goes in a file in `_needs-attention/` as a .md with the
   question stated plainly, plus one line here pointing to it.
+- **`_needs-attention/TODO.md` is Jeff's to-do list** (decided 2026-10-09): every item
+  waiting on him (a decision, something only he can do, work that starts on his "go", an
+  outside answer, open backlog items). A session that creates such an item adds it there;
+  a session that finishes one strikes it through in place with the date and what happened
+  (`~~item~~ done YYYY-MM-DD: ...`), never deleting it.
 - Never say "done" for a batch that is partly done. Say what is done and what
   is not, with counts.
 - When a change is visual, attach a screenshot. When he asked a question, give
@@ -467,6 +472,7 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
 | City lists that must stay in sync | see memory `nra-city-count-sync-targets` |
 | Add-city tooling and schema | `_guidebuild/add_city.py`, `CITY_SCHEMA.md` (gitignored folder) |
 | Open questions for Jeff | `_needs-attention/*.md`; finished ones move to `_done/` |
+| Jeff's to-do list | `_needs-attention/TODO.md` (strike through when done, never delete) |
 | Improvement backlog | `_needs-attention/suggested-improvements.md` |
 | Design tokens | `master.css` |
 | The one daily-cost formula | `cost-estimator.js` (city guide estimator, finder budget math, directory cost sort) |

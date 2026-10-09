@@ -3,7 +3,7 @@
 Files with open work in them. Finished files move to `_done/`; nothing is
 deleted. None of these files are used by the live site.
 
-*Index rebuilt 2026-10-07, refreshed 2026-10-09.*
+*Index rebuilt 2026-10-07, refreshed 2026-10-09.* **Jeff's own to-do list is [`TODO.md`](TODO.md)**: everything waiting on him, struck through when done.
 
 ## Open: waiting on a decision from Jeff
 
