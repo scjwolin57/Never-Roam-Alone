@@ -349,31 +349,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 14,Tegucigalpa,Honduras,Boulevard Morazán / Multiplaza,14.10003,-87.186412,File:Estadio Morazan 5.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest place shots are city views from 550 m+; the rest are food and portraits"
 14,Tegucigalpa,Honduras,Colonia Palmira,14.102032,-87.194004,File:UTUPalmira.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the Los Dolores church area 1.5 km away, not Colonia Palmira"
 14,Tehran,Iran,Downtown (Ferdowsi/Imam Khomeini Square),35.685666,51.421546,File:Sanandaj city center.jpg,done,File:Bank Tejarat Old Building 2.jpg,Commons file GPS 99 m from the hood point; eye-checked; licence CC BY-SA 4.0
-15,The Valley,Anguilla,Meads Bay,18.181918,-63.135101,File:Bigelow's monkeyflower Mimulus bigelovii (f7e3d85c-f3d3-487b-a8c5-b40f9f910b59).jpg,open,,
-15,The Valley,Anguilla,Rendezvous Bay,18.171508,-63.113383,File:005 Pre-EVA-1 Right Window Pan Hi-Res.webp,open,,
-15,The Valley,Anguilla,Shoal Bay East,18.253781,-63.035264,File:Brittle stars at East Shoal P8150962.JPG,open,,
-15,The Valley,Anguilla,The Valley (Town Centre),18.209444,-63.054722,"File:Charlton Athletic Football Club Ground, SE7 - geograph.org.uk - 3970783.jpg",open,,
-15,Timimoun,Algeria,Market Area,29.267106,0.235846,File:KÜtahya Market area 8954.jpg,open,,
-15,Timimoun,Algeria,Old Ksar (Red Town),29.26108,0.229376,"File:Homann Erben, Topographica repraesentatio barbarici portus et urbis muntiae Oran (FL13722952 2471761).jpg",open,,
-15,Timimoun,Algeria,Palm Oasis,29.268785,0.223653,File:Oasis Del Sol Blade.jpg,open,,
-15,Toulon,France,Haute Ville,43.125973,5.934037,"File:Saint-Georges-Hauteville (Loire, Fr), croix de fer.JPG",open,,
-15,Toulon,France,Vieille Ville (Old Town),43.121331,5.934706,File:Vienne Saint Maurice 28 07 2011 02 Feuille.jpg,open,,
-15,Tours,France,Gare & Grammont,47.3893,0.6936,File:Gare de Grammont - 2019-08-19 - escaliers - 01.jpg,open,,
-15,Tours,France,Vieux-Tours (Place Plumereau),47.394296,0.682121,File:Tour Saint-Jean-le-Vieux 01.jpg,open,,
-15,Trinidad,Cuba,Barrio La Popa,21.807194,-79.981404,File:Postal Cartegena de Indias - Barrio al Pie de la Popa.jpg,open,,
-15,Tripoli,Libya,Hay Andalus,32.873527,13.128765,File:Cántaro de Moveros.jpg,open,,
-15,Trujillo,Peru,Urb. San Andrés,-8.118227,-79.035548,File:AS09-21-3266 (21728046980).jpg,open,,
-15,Turpan,China,Old City Centre (Gaochang District),42.94244,89.18596,File:İçərişəhər Muzey Mərkəzi.jpg,open,,
-15,Tórshavn,Faroe Islands,Viðarlund,62.01752,-6.780649,File:A walk in the woods (7447699988).jpg,open,,
-15,Ulm,Germany,Weststadt,48.39006,9.962275,File:BS Weststadt Buecherschrank.JPG,open,,
-15,Varna,Bulgaria,City Centre,43.205241,27.909966,File:Mikhail Vorontsov Monument in Odesa2025.jpg,open,,
-15,Veracruz,Mexico,Costa de Oro,19.155247,-96.102347,"File:La Ciénaga, Muelle Antiguo de Madera, Parque Nacional Henri Pittier, La Ciénaga, Aragua.jpg",open,,
-15,Victoria,Seychelles,Victoria Town Centre,-4.623184,55.452332,File:Sanity Watergardens Taylors Lakes.jpg,open,,
-15,Vladimir,Russia,Klyazma Riverside,56.125211,40.398658,"File:Река Клязьма, Ковровский район, весна 2016 года.jpg",open,,
-15,Wellington,New Zealand,Thorndon,-41.275009,174.77784,File:1 Stanwell Green Postbox - geograph.org.uk - 4571162.jpg,open,,
-15,Weno,Federated States of Micronesia,Iras,7.452778,151.841111,File:A lucky observation of an enigmatic cloud (potw1008a).tiff,open,,
-15,Whistler,Canada,Upper Village (Blackcomb),50.116303,-122.947958,File:DSC08653 - Horse-drawn Boat (37220943815).jpg,open,,
-15,Xi'an,China,Muslim Quarter (Huimin Jie),34.263371,108.938929,File:Ablaq IMG 1544.jpg,open,,
+15,The Valley,Anguilla,Meads Bay,18.181918,-63.135101,File:Bigelow's monkeyflower Mimulus bigelovii (f7e3d85c-f3d3-487b-a8c5-b40f9f910b59).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a West End road 1.5 km away"
+15,The Valley,Anguilla,Rendezvous Bay,18.171508,-63.113383,File:005 Pre-EVA-1 Right Window Pan Hi-Res.webp,done,File:Rendezvous Bay Salt Pond.jpg,Commons file GPS 815 m from the hood point; eye-checked; licence CC BY 4.0
+15,The Valley,Anguilla,Shoal Bay East,18.253781,-63.035264,File:Brittle stars at East Shoal P8150962.JPG,done,File:Anguilla Shoal Bay is the BEST beach in the Caribbean. - panoramio.jpg,Commons file GPS 677 m from the hood point; eye-checked; licence CC BY 3.0
+15,The Valley,Anguilla,The Valley (Town Centre),18.209444,-63.054722,"File:Charlton Athletic Football Club Ground, SE7 - geograph.org.uk - 3970783.jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no Commons files near the hood point"
+15,Timimoun,Algeria,Market Area,29.267106,0.235846,File:KÜtahya Market area 8954.jpg,done,File:Market of Timimoun 01.jpg,Commons file GPS 799 m from the hood point; eye-checked; licence CC BY 4.0
+15,Timimoun,Algeria,Old Ksar (Red Town),29.26108,0.229376,"File:Homann Erben, Topographica repraesentatio barbarici portus et urbis muntiae Oran (FL13722952 2471761).jpg",done,File:Bab al-Sudan (Timimoun) 01.jpg,Commons file GPS 23 m from the hood point; eye-checked; licence CC BY 4.0
+15,Timimoun,Algeria,Palm Oasis,29.268785,0.223653,File:Oasis Del Sol Blade.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only door and knocker close-ups and market files 865 m away"
+15,Toulon,France,Haute Ville,43.125973,5.934037,"File:Saint-Georges-Hauteville (Loire, Fr), croix de fer.JPG",done,"File:Opéra de Toulon, Toulon, Provence-Alpes-Côte d'Azur, France - panoramio.jpg",Commons file GPS 120 m from the hood point; eye-checked; licence CC BY-SA 3.0
+15,Toulon,France,Vieille Ville (Old Town),43.121331,5.934706,File:Vienne Saint Maurice 28 07 2011 02 Feuille.jpg,done,File:Cathédrale Notre-Dame-de-la-Seds de Toulon-7974.jpg,Commons file GPS 39 m from the hood point; eye-checked; licence CC BY-SA 4.0
+15,Tours,France,Gare & Grammont,47.3893,0.6936,File:Gare de Grammont - 2019-08-19 - escaliers - 01.jpg,done,File:Façade Gare de Tours en soirée d'été (juin 2023).JPG,Commons file GPS 80 m from the hood point; eye-checked; licence CC BY-SA 4.0
+15,Tours,France,Vieux-Tours (Place Plumereau),47.394296,0.682121,File:Tour Saint-Jean-le-Vieux 01.jpg,done,File:Place Plumereau - maisons (Tours).jpg,Commons file GPS 41 m from the hood point; eye-checked; licence CC BY-SA 4.0
+15,Trinidad,Cuba,Barrio La Popa,21.807194,-79.981404,File:Postal Cartegena de Indias - Barrio al Pie de la Popa.jpg,done,File:Ermita de la Popa - Trinidad - 02.jpg,Commons file GPS 60 m from the hood point; eye-checked; licence CC0
+15,Tripoli,Libya,Hay Andalus,32.873527,13.128765,File:Cántaro de Moveros.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only files 1.7 km+ away and a hotel with no location data"
+15,Trujillo,Peru,Urb. San Andrés,-8.118227,-79.035548,File:AS09-21-3266 (21728046980).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only drill crowds, a mural wall and flowers"
+15,Turpan,China,Old City Centre (Gaochang District),42.94244,89.18596,File:İçərişəhər Muzey Mərkəzi.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only museum exhibits"
+15,Tórshavn,Faroe Islands,Viðarlund,62.01752,-6.780649,File:A walk in the woods (7447699988).jpg,done,File:Viðarlundin í Havn.jpg,Commons file GPS 146 m from the hood point; eye-checked; licence CC BY 2.0
+15,Ulm,Germany,Weststadt,48.39006,9.962275,File:BS Weststadt Buecherschrank.JPG,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only street-name signs"
+15,Varna,Bulgaria,City Centre,43.205241,27.909966,File:Mikhail Vorontsov Monument in Odesa2025.jpg,done,File:Navy Club Varna 02.jpg,Commons file GPS 81 m from the hood point; eye-checked; licence CC BY-SA 3.0
+15,Veracruz,Mexico,Costa de Oro,19.155247,-96.102347,"File:La Ciénaga, Muelle Antiguo de Madera, Parque Nacional Henri Pittier, La Ciénaga, Aragua.jpg",none,,candidate found but poor as a main photo (hotel logo watermark on the image); no better verified photo
+15,Victoria,Seychelles,Victoria Town Centre,-4.623184,55.452332,File:Sanity Watergardens Taylors Lakes.jpg,done,File:Big Ben Clock Tower - Victoria - Mahe - Seychelles - 01.jpg,Commons file GPS 7 m from the hood point; eye-checked; licence CC BY-SA 4.0
+15,Vladimir,Russia,Klyazma Riverside,56.125211,40.398658,"File:Река Клязьма, Ковровский район, весна 2016 года.jpg",done,File:Vladimir - panoramio - L-BBE (4).jpg,Commons file GPS 11 m from the hood point; eye-checked; licence CC BY 3.0
+15,Wellington,New Zealand,Thorndon,-41.275009,174.77784,File:1 Stanwell Green Postbox - geograph.org.uk - 4571162.jpg,done,"File:Thorndon Brewery Tower, Wellington, New Zealand (35).JPG",Commons file GPS 90 m from the hood point; eye-checked; licence CC BY-SA 4.0
+15,Weno,Federated States of Micronesia,Iras,7.452778,151.841111,File:A lucky observation of an enigmatic cloud (potw1008a).tiff,done,"File:Chuuk International Airport, Weno.jpg",Commons file GPS 644 m from the hood point; eye-checked; licence CC BY-SA 2.0
+15,Whistler,Canada,Upper Village (Blackcomb),50.116303,-122.947958,File:DSC08653 - Horse-drawn Boat (37220943815).jpg,done,File:Blackcomb gondola (48762927487).jpg,Commons file GPS 101 m from the hood point; eye-checked; licence CC BY 2.0
+15,Xi'an,China,Muslim Quarter (Huimin Jie),34.263371,108.938929,File:Ablaq IMG 1544.jpg,done,File:View from Xi'an Drum Tower Muslim Market (9912583664).jpg,Commons file GPS 175 m from the hood point; eye-checked; licence CC0
 16,Yangshuo,China,Yulong River Area (Baisha & Jiuxian),24.751346,110.451368,File:021 soteska tigrovega skoka (16).JPG,open,,
 16,Yaroslavl,Russia,Zavolzhsky (Left Bank),57.649408,39.961034,"File:Zavolzhsky, Tverskaya oblast.jpg",open,,
 16,Zadar,Croatia,Old Town (Poluotok),44.117238,15.226089,File:Z-1736 -Templarska gradina - Pakoštane 07.jpg,open,,
