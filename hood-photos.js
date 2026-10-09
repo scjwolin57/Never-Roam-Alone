@@ -2777,7 +2777,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Longyearbyen": {
     "Haugen": { img:"images/hoods/longyearbyen--haugen.webp", page:"https://commons.wikimedia.org/wiki/File:%27Haugen%27_i_Longyearbyen,_nederst_ses_Polarflokken_Barnehage.jpg", src:"Ssu" },
-    "Nybyen": { img:"images/hoods/longyearbyen--nybyen.webp", page:"https://commons.wikimedia.org/wiki/File:Longyearbyen_Busfahrt_nach_Longyearbyen_19.jpg", src:"Zairon" }
+    "Nybyen": { img:"images/hoods/longyearbyen--nybyen.webp", page:"https://commons.wikimedia.org/wiki/File:Longyearbyen_Busfahrt_nach_Longyearbyen_19.jpg", src:"Zairon" },
+    "Sentrum (Town Centre)": { img:"images/hoods/longyearbyen--sentrum-town-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Longyear-Town-Centre.jpg", src:"Bjørn Christian Tørrissen" }
   },
   "Luanda": {
     "Ilha de Luanda": { img:"images/hoods/luanda--ilha-de-luanda.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B5%B7%E6%BB%A9beach_-_panoramio.jpg", src:"yu huatian" },
@@ -2812,7 +2813,8 @@ window.NRA_HOOD_PHOTO = {
     "Kirchberg": { img:"images/hoods/luxembourg--kirchberg.webp", page:"https://commons.wikimedia.org/wiki/File:1939_Joerhonnertfeier_Kierchbierg.jpg", src:"Sultan Edijingo" }
   },
   "Luxor": {
-    "Corniche (East Bank)": { img:"images/hoods/luxor--corniche-east-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Arbre_Kornish_Al_Nile_Street_-_Louxor_(EG)_-_2025-12-10_-_1.jpg", src:"Chabe01" }
+    "Corniche (East Bank)": { img:"images/hoods/luxor--corniche-east-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Arbre_Kornish_Al_Nile_Street_-_Louxor_(EG)_-_2025-12-10_-_1.jpg", src:"Chabe01" },
+    "Al-Gezira (West Bank)": { img:"images/hoods/luxor--al-gezira-west-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Luxor_West_Bank_R06.jpg", src:"Marc Ryckaert" }
   },
   "Lviv": {
     "Halytskyi": { img:"images/hoods/lviv--halytskyi.webp", page:"https://commons.wikimedia.org/wiki/File:Danilo_Galitsk_Airporti.jpg", src:"Juanedc" },
@@ -2892,7 +2894,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Malindi": {
     "Malindi Town Centre (Old Town)": { img:"images/hoods/malindi--malindi-town-centre-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Malindi_-_Markt_in_Stadtzentrum.jpg", src:"www.malindi.info Copyright © by F. Fritzsche" },
-    "Casuarina (Little Italy)": { img:"images/hoods/malindi--casuarina-little-italy.webp", page:"https://commons.wikimedia.org/wiki/File:Malindi_-_Moschea_in_Casuarina_Rd_-_panoramio.jpg", src:"Andrea Albini" }
+    "Casuarina (Little Italy)": { img:"images/hoods/malindi--casuarina-little-italy.webp", page:"https://commons.wikimedia.org/wiki/File:Malindi_-_Moschea_in_Casuarina_Rd_-_panoramio.jpg", src:"Andrea Albini" },
+    "Silversands Beach": { img:"images/hoods/malindi--silversands-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Malindi_Sea.jpg", src:"ordercrazy" }
   },
   "Malmö": {
     "Gamla Staden": { img:"images/hoods/malmo--gamla-staden.webp", page:"https://commons.wikimedia.org/wiki/File:Basement_Cafe,_Gamla_V%C3%A4ster_Malm%C3%B6_-_panoramio.jpg", src:"Zeth Winther" },
@@ -2906,7 +2909,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Manado": {
     "Wenang": { img:"images/hoods/manado--wenang.webp", page:"https://commons.wikimedia.org/wiki/File:Cathedral_Church_Manado_-_panoramio.jpg", src:"Marcky Bolung" },
-    "Wanea": { img:"images/hoods/manado--wanea.webp", page:"https://commons.wikimedia.org/wiki/File:Location_of_Wanea_Sub-district,_Manado_City,_North_Sulawesi,_Indonesia.png", src:"CakalangSantan" }
+    "Wanea": { img:"images/hoods/manado--wanea.webp", page:"https://commons.wikimedia.org/wiki/File:Location_of_Wanea_Sub-district,_Manado_City,_North_Sulawesi,_Indonesia.png", src:"CakalangSantan" },
+    "Malalayang": { img:"images/hoods/manado--malalayang.webp", page:"https://commons.wikimedia.org/wiki/File:Universitas_Sam_Ratulangi_Manado.jpg", src:"Malesung" }
   },
   "Managua": {
     "Los Robles": { img:"images/hoods/managua--los-robles.webp", page:"https://commons.wikimedia.org/wiki/File:Calle_los_robles.jpg", src:"Richard Chris 29" },
@@ -2943,7 +2947,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Manzanillo": {
     "Salagua": { img:"images/hoods/manzanillo--salagua.webp", page:"https://commons.wikimedia.org/wiki/File:Salagua_Colima.JPG", src:"Yaomautzin Ohtokani Olvera Lara" },
-    "Club Santiago / Miramar": { img:"images/hoods/manzanillo--club-santiago-miramar.webp", page:"https://www.flickr.com/photos/39558803@N00/3651710920/", src:"Carlos Varela" }
+    "Club Santiago / Miramar": { img:"images/hoods/manzanillo--club-santiago-miramar.webp", page:"https://www.flickr.com/photos/39558803@N00/3651710920/", src:"Carlos Varela" },
+    "Las Brisas": { img:"images/hoods/manzanillo--las-brisas.webp", page:"https://commons.wikimedia.org/wiki/File:Una_tarde_solitaria_-_panoramio.jpg", src:"KABAYEK" },
+    "Peninsula de Santiago (Las Hadas)": { img:"images/hoods/manzanillo--peninsula-de-santiago-las-hadas.webp", page:"https://commons.wikimedia.org/wiki/File:Morning_view_of_Manzanillo's_Beach_in_Colima,_M%C3%A9xico..JPG", src:"Elisa Jarquin" }
   },
   "Maputo": {
     "Polana (Cimento)": { img:"images/hoods/maputo--polana-cimento.webp", page:"https://commons.wikimedia.org/wiki/File:Escola_Secund%C3%A1ria_da_Polana_Maputo.JPG", src:"Jcornelius" },
@@ -2965,11 +2971,13 @@ window.NRA_HOOD_PHOTO = {
     "San Pedro de Alcántara": { img:"images/hoods/marbella--san-pedro-de-alcantara.webp", page:"https://commons.wikimedia.org/wiki/File:Marbella_-_San_Pedro_Alc%C3%A1ntara,_Iglesia_de_San_Pedro_01.jpg", src:"Zarateman" }
   },
   "Mardin": {
-    "Old City (Eski Mardin)": { img:"images/hoods/mardin--old-city-eski-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_P1050209_20080426112815.JPG", src:"Nevit Dilmen" }
+    "Old City (Eski Mardin)": { img:"images/hoods/mardin--old-city-eski-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_P1050209_20080426112815.JPG", src:"Nevit Dilmen" },
+    "Yeni Mardin (New Mardin)": { img:"images/hoods/mardin--yeni-mardin-new-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_T%C3%9CRK%C4%B0YE_-_panoramio.jpg", src:"Emin Başar ÖZDEMİR" }
   },
   "Mariehamn": {
     "Västerhamn (Western Harbour)": { img:"images/hoods/mariehamn--vasterhamn-western-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Aktern_p%C3%A5_Viking_Grace_i_hamnen_i_Mariehamn_20221226.jpg", src:"AleWi" },
-    "Österhamn (Eastern Harbour)": { img:"images/hoods/mariehamn--osterhamn-eastern-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%85land_(7906507358).jpg", src:"Susanne Nilsson" }
+    "Österhamn (Eastern Harbour)": { img:"images/hoods/mariehamn--osterhamn-eastern-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%85land_(7906507358).jpg", src:"Susanne Nilsson" },
+    "Centrum (City Centre)": { img:"images/hoods/mariehamn--centrum-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Mariehamn_2021-08-02_image08.jpg", src:"Håkan Skogsjö" }
   },
   "Marigot": {
     "Baie Nettlé (Nettle Bay)": { img:"images/hoods/marigot--baie-nettle-nettle-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Sandy_Ground,_Baie_Nettle_(Vue_du_Ciel)_-_panoramio.jpg", src:"Remy Gumbs (shady P)" },
@@ -3002,7 +3010,8 @@ window.NRA_HOOD_PHOTO = {
   "Mataram": {
     "Cakranegara": { img:"images/hoods/mataram--cakranegara.webp", page:"https://commons.wikimedia.org/wiki/File:Tasman_Mayura_(32148367986).jpg", src:"Dan O'Cker from Adelaide, Australia" },
     "Selaparang": { img:"images/hoods/mataram--selaparang.webp", page:"https://commons.wikimedia.org/wiki/File:The_old_Selaparang_Airport.jpg", src:"HannoSEA" },
-    "Senggigi": { img:"images/hoods/mataram--senggigi.webp", page:"https://commons.wikimedia.org/wiki/File:Senggigi Setting Sun, Lombok.jpg", src:"Ken Eckert" }
+    "Senggigi": { img:"images/hoods/mataram--senggigi.webp", page:"https://commons.wikimedia.org/wiki/File:Senggigi Setting Sun, Lombok.jpg", src:"Ken Eckert" },
+    "Mataram (City Center)": { img:"images/hoods/mataram--mataram-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Islamic_Center_Mataram,_Lombok.jpg", src:"Si Gam" }
   },
   "Matera": {
     "Sasso Caveoso": { img:"images/hoods/matera--sasso-caveoso.webp", page:"https://commons.wikimedia.org/wiki/File:Chiesa_dei_Santi_Pietro_e_Paolo_-_Matera_01.jpg", src:"Diego Baglieri" },
@@ -3013,7 +3022,8 @@ window.NRA_HOOD_PHOTO = {
   "Matsumoto": {
     "Ote": { img:"images/hoods/matsumoto--ote.webp", page:"https://commons.wikimedia.org/wiki/File:130608_Nawate_shop_street_Matsumoto_Nagano_pref_Japan01n.jpg", src:"663highland" },
     "Nakamachi": { img:"images/hoods/matsumoto--nakamachi.webp", page:"https://commons.wikimedia.org/wiki/File:Nakamachi_kuranokaikan01s2048.jpg", src:"663highland" },
-    "Asama Onsen": { img:"images/hoods/matsumoto--asama-onsen.webp", page:"https://commons.wikimedia.org/wiki/File:Asama_Onsen.jpg", src:"Thesoulofjapan" }
+    "Asama Onsen": { img:"images/hoods/matsumoto--asama-onsen.webp", page:"https://commons.wikimedia.org/wiki/File:Asama_Onsen.jpg", src:"Thesoulofjapan" },
+    "Fukashi (Matsumoto Station area)": { img:"images/hoods/matsumoto--fukashi-matsumoto-station-area.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%9D%BE%E6%9C%AC%E9%A7%85_-_panoramio_(15).jpg", src:"くろふね" }
   },
   "Matsuyama": {
     "Dogo Onsen": { img:"images/hoods/matsuyama--dogo-onsen.webp", page:"https://commons.wikimedia.org/wiki/File:Dogoonsen_-_panoramio_(2).jpg", src:"DVMG" },
@@ -3050,7 +3060,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Mendoza": {
     "Área Fundacional": { img:"images/hoods/mendoza--area-fundacional.webp", page:"https://commons.wikimedia.org/wiki/File:Maqueta_de_Mendoza.JPG", src:"Belgrano" },
-    "Chacras de Coria": { img:"images/hoods/mendoza--chacras-de-coria.webp", page:"https://commons.wikimedia.org/wiki/File:SIESTA_PUEBLERINA.jpg", src:"ALBERAZZA" }
+    "Chacras de Coria": { img:"images/hoods/mendoza--chacras-de-coria.webp", page:"https://commons.wikimedia.org/wiki/File:SIESTA_PUEBLERINA.jpg", src:"ALBERAZZA" },
+    "Quinta Sección": { img:"images/hoods/mendoza--quinta-seccion.webp", page:"https://commons.wikimedia.org/wiki/File:Mendoza,_Capital_Department,_Mendoza_Province,_Argentina_-_panoramio_(21).jpg", src:"Gervacio Rosales" }
   },
   "Mérida": {
     "Centro Histórico": { img:"images/hoods/merida--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Vestigios_de_piedras_mayas_reutilizadas_en_edificio_del_Centro_Hist%C3%B3rico_de_M%C3%A9rida,_Yucat%C3%A1n.jpg", src:"Titi arqui" },

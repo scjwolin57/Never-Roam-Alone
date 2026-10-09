@@ -199,31 +199,31 @@ batch,city,country,hood,lat,lng,removed_file,status,new_file,evidence
 8,Livingstone,Zambia,Maramba,-17.847704,25.868442,File:Daniel Maramba 1870-1941 NHCP Historical Marker.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are town-centre streets 1 km away, not Maramba"
 8,Livingstone,Zambia,Town Centre,-17.848293,25.855108,"File:Street scene and buildings in Chatham, Kent.jpg",done,"File:Mosi-oa-Tunya Road, Livingstone (20260520-P1086458).jpg",Commons file GPS 146 m from the hood point; eye-checked; licence CC BY-SA 4.0
 8,Lomé,Togo,Bè,6.157632,1.267046,File:ניו פארם 1.jpg,done,File:Marché d'Akodésséwa à Lomé (Togo) 06.jpg,Commons file GPS 525 m from the hood point; eye-checked; licence CC BY-SA 4.0
-9,Longyearbyen,Norway (Svalbard),Sentrum (Town Centre),78.21801,15.63905,File:Stolperstein in Oslo-Sentrum (Oslo-Sentrum).jpg,open,,
-9,Luanda,Angola,Alvalade,-8.829772,13.23605,File:Alvalade railway stop.jpg,open,,
-9,Luanda,Angola,Miramar,-8.809749,13.249755,File:Winn Dixie Miramar Florida with scale by front door.jpg,open,,
-9,Lugano,Switzerland,Besso,46.005142,8.941766,File:Besso (3).jpg,open,,
-9,Lusaka,Zambia,Longacres,-15.408454,28.31551,"File:Gazebo viewed from above, showing rooftop, interior and circulation of walkways. Camera pointed NW from North Grandstand. (May 1993) - Longacres, North Grandstand, 1621 HABS WASH,17-RENT,1F-5.tif",open,,
-9,Luxor,Egypt,Al-Gezira (West Bank),25.70507,32.632835,File:كوب شاي على نيران النزوح جنوب الجزيرة.jpg,open,,
-9,Magelang,Indonesia,Magelang Selatan,-7.491415,110.222321,File:Light the milky way.jpg,open,,
-9,Majuro,Marshall Islands,Delap,7.088795,171.382812,File:F20250713AH-3815 President Donald Trump and First Lady Melania Trump attend the FIFA Club World Cup Final soccer match.jpg,open,,
-9,Makassar,Indonesia,Tanjung Bunga,-5.158853,119.394075,File:Thai sweets shop - 2011-03-18 - 001.jpg,open,,
-9,Malabo,Equatorial Guinea,Caracolas,3.74881,8.771524,File:Caracola (1994).101 - A Coruña.jpg,open,,
-9,Malindi,Kenya,Silversands Beach,-3.232763,40.12796,"File:Beach at Silversands Bay, Aberdour - geograph.org.uk - 6016541.jpg",open,,
-9,Manado,Indonesia,Malalayang,1.459475,124.822159,File:Map of Official and Co-Official Languages of the Philippines (en).png,open,,
-9,Managua,Nicaragua,Bolonia,12.13984,-86.280606,"File:Playa de Bolonia , Tarifa (17860).jpg",open,,
-9,Manama,Bahrain,Adliya,26.214488,50.584754,File:Adliya vazirligi binosi.jpg,open,,
-9,Manama,Bahrain,Seef,26.24192,50.53823,File:Al Seef Terminal.jpg,open,,
-9,Manzanillo,Mexico,Las Brisas,19.069553,-104.301378,File:ACAPULCO LAS BRISAS.jpg,open,,
-9,Manzanillo,Mexico,Peninsula de Santiago (Las Hadas),19.100722,-104.347916,File:Castillodearaya1.jpg,open,,
-9,Mardin,Türkiye,Yeni Mardin (New Mardin),37.322767,40.723334,File:Diyarbakır Outside walls East side 2633 in 2005.jpg,open,,
-9,Mariehamn,Finland (Åland),Centrum (City Centre),60.098,19.943041,"File:Sośnicowice - Kieferstädtel, Delikatesy Centrum.jpg",open,,
-9,Maseru,Lesotho,Hillsview,-29.326057,27.479864,File:Controls at David Dunlap Observatory.jpg,open,,
-9,Mataram,Indonesia,Mataram (City Center),-8.583773,116.10685,"File:Esquisse d 'un partie du terrain de Mataram, indiquant les mouvements rapides qui fit Diepo Negoro, KITLV 47B11.tiff",open,,
-9,Matsumoto,Japan,Fukashi (Matsumoto Station area),36.230761,137.96442,File:The hidden fires of the Flame Nebula.jpg,open,,
-9,Mazatlán,Mexico,Cerritos,23.304895,-106.485556,File:HUNTINGTON SOLANO-REEVE Rancho Los Cerritos circa 1870 official survey plat by Henry Hancock.jpg,open,,
-9,Medan,Indonesia,Merdeka / Sudirman,3.57311,98.657308,"File:23.10.2025 - Celebração do aniversário do Presidente da República, Luiz Inácio Lula da Silva e do Presidente da República da Indonésia, Prabowo Subianto (54874775946).jpg",open,,
-9,Mendoza,Argentina,Quinta Sección,-32.885408,-68.857586,"File:Basílica de Nuestra Señora de la Candelaria, Candelaria, Tenerife, España, 2012-12-12, DD 06.jpg",open,,
+9,Longyearbyen,Norway (Svalbard),Sentrum (Town Centre),78.21801,15.63905,File:Stolperstein in Oslo-Sentrum (Oslo-Sentrum).jpg,done,File:Longyear-Town-Centre.jpg,Commons file GPS 293 m from the hood point; eye-checked; licence CC BY-SA 3.0
+9,Luanda,Angola,Alvalade,-8.829772,13.23605,File:Alvalade railway stop.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a bank tower 800 m away and dashcam frames"
+9,Luanda,Angola,Miramar,-8.809749,13.249755,File:Winn Dixie Miramar Florida with scale by front door.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest place shot is the Bungo station 800 m away in the Baixa; the rest are dashcam frames"
+9,Lugano,Switzerland,Besso,46.005142,8.941766,File:Besso (3).jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only interior shots of the Swiss National Sound Archives"
+9,Lusaka,Zambia,Longacres,-15.408454,28.31551,"File:Gazebo viewed from above, showing rooftop, interior and circulation of walkways. Camera pointed NW from North Grandstand. (May 1993) - Longacres, North Grandstand, 1621 HABS WASH,17-RENT,1F-5.tif",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a plain school gate, food and a dance event"
+9,Luxor,Egypt,Al-Gezira (West Bank),25.70507,32.632835,File:كوب شاي على نيران النزوح جنوب الجزيرة.jpg,done,File:Luxor West Bank R06.jpg,Commons file GPS 79 m from the hood point; eye-checked; licence CC BY-SA 4.0
+9,Magelang,Indonesia,Magelang Selatan,-7.491415,110.222321,File:Light the milky way.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only portraits, a hotel 1.3 km away and a Borobudur file with wrong GPS"
+9,Majuro,Marshall Islands,Delap,7.088795,171.382812,File:F20250713AH-3815 President Donald Trump and First Lady Melania Trump attend the FIFA Club World Cup Final soccer match.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only Coast Guard event photos"
+9,Makassar,Indonesia,Tanjung Bunga,-5.158853,119.394075,File:Thai sweets shop - 2011-03-18 - 001.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only sunsets, classrooms and a house over 1.3 km away"
+9,Malabo,Equatorial Guinea,Caracolas,3.74881,8.771524,File:Caracola (1994).101 - A Coruña.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only a cultural centre door and a lecture"
+9,Malindi,Kenya,Silversands Beach,-3.232763,40.12796,"File:Beach at Silversands Bay, Aberdour - geograph.org.uk - 6016541.jpg",done,File:Malindi Sea.jpg,Commons file GPS 316 m from the hood point; eye-checked; licence CC0
+9,Manado,Indonesia,Malalayang,1.459475,124.822159,File:Map of Official and Co-Official Languages of the Philippines (en).png,done,File:Universitas Sam Ratulangi Manado.jpg,Commons file GPS 678 m from the hood point; eye-checked; licence CC0
+9,Managua,Nicaragua,Bolonia,12.13984,-86.280606,"File:Playa de Bolonia , Tarifa (17860).jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): no Commons files near the hood point"
+9,Manama,Bahrain,Adliya,26.214488,50.584754,File:Adliya vazirligi binosi.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): only cars, portraits and documents over 1.5 km away"
+9,Manama,Bahrain,Seef,26.24192,50.53823,File:Al Seef Terminal.jpg,none,,candidate found but poor as a main photo (a scanned print with a black frame); no better verified photo
+9,Manzanillo,Mexico,Las Brisas,19.069553,-104.301378,File:ACAPULCO LAS BRISAS.jpg,done,File:Una tarde solitaria - panoramio.jpg,Commons file GPS 367 m from the hood point; eye-checked; licence CC BY-SA 3.0
+9,Manzanillo,Mexico,Peninsula de Santiago (Las Hadas),19.100722,-104.347916,File:Castillodearaya1.jpg,done,"File:Morning view of Manzanillo's Beach in Colima, México..JPG",Commons file GPS 103 m from the hood point; eye-checked; licence CC BY-SA 4.0
+9,Mardin,Türkiye,Yeni Mardin (New Mardin),37.322767,40.723334,File:Diyarbakır Outside walls East side 2633 in 2005.jpg,done,File:Mardin TÜRKİYE - panoramio.jpg,Commons file GPS 255 m from the hood point; eye-checked; licence CC BY 3.0
+9,Mariehamn,Finland (Åland),Centrum (City Centre),60.098,19.943041,"File:Sośnicowice - Kieferstädtel, Delikatesy Centrum.jpg",done,File:Mariehamn 2021-08-02 image08.jpg,Commons file GPS 259 m from the hood point; eye-checked; licence CC BY-SA 4.0
+9,Maseru,Lesotho,Hillsview,-29.326057,27.479864,File:Controls at David Dunlap Observatory.jpg,none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are 1.8 km away in open country"
+9,Mataram,Indonesia,Mataram (City Center),-8.583773,116.10685,"File:Esquisse d 'un partie du terrain de Mataram, indiquant les mouvements rapides qui fit Diepo Negoro, KITLV 47B11.tiff",done,"File:Islamic Center Mataram, Lombok.jpg",Commons file GPS 812 m from the hood point; eye-checked; licence CC BY 4.0
+9,Matsumoto,Japan,Fukashi (Matsumoto Station area),36.230761,137.96442,File:The hidden fires of the Flame Nebula.jpg,done,File:松本駅 - panoramio (15).jpg,Commons file GPS 29 m from the hood point; eye-checked; licence CC BY 3.0
+9,Mazatlán,Mexico,Cerritos,23.304895,-106.485556,File:HUNTINGTON SOLANO-REEVE Rancho Los Cerritos circa 1870 official survey plat by Henry Hancock.jpg,none,,candidate found but poor as a main photo (grey rocks under a grey sky); no better verified photo
+9,Medan,Indonesia,Merdeka / Sudirman,3.57311,98.657308,"File:23.10.2025 - Celebração do aniversário do Presidente da República, Luiz Inácio Lula da Silva e do Presidente da República da Indonésia, Prabowo Subianto (54874775946).jpg",none,,"no verified photo (geosearch to 2 km + text search, eye-checked): nearest files are the university campus, not Merdeka / Sudirman"
+9,Mendoza,Argentina,Quinta Sección,-32.885408,-68.857586,"File:Basílica de Nuestra Señora de la Candelaria, Candelaria, Tenerife, España, 2012-12-12, DD 06.jpg",done,"File:Mendoza, Capital Department, Mendoza Province, Argentina - panoramio (21).jpg",Commons file GPS 364 m from the hood point; eye-checked; licence CC BY 3.0
 10,Monastir,Tunisia,City Centre & Corniche,35.777825,10.828382,File:Muttrah-Muscat مطرح، مسقط 29 (مرغ دریایی).jpg,open,,
 10,Monrovia,Liberia,Congo Town,6.268733,-10.732166,File:Dried fish - Oyo - Congo.JPG,open,,
 10,Mont-Saint-Michel,France,Mainland Visitor Village,48.61317,-1.509685,"File:Oak Island, Brunswick County, North Carolina, United States (2024-05-18-02-25-59 UMBRA-05).tiff",open,,
