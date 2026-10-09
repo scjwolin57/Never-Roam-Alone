@@ -67,3 +67,17 @@ Dublin O'Connell Street. Delhi Paharganj has sources that flag scams and women's
 6. **Two guides share the Prati name** (Vatican City and Rome); separate guides, no clash.
 7. CLAUDE.md §3 rule 6 still says "5 neighborhoods" per city; the decisions row amends it. The rule text is for you to update
    (the file is held by another session).
+
+
+## Follow-ups, 2026-10-09 (Jeff: resume, second neighborhood, research all categories, put back the five that qualify)
+
+| Item | Result |
+|---|---|
+| Second sources for the 242 thin keeps | 5 removed (Ambouli, Sourada / Akrotiri, Stari Aerodrom, Ivandry, Alarm Forest); 237 kept; a minority now have two sources (the agents mostly read search snippets, not pages), the rest are still thin. Held: Malabo II. Weakest keeps if you want a stricter bar: Gounghin (Ouagadougou), Nowa Huta, Free Area (Nakuru), Fintas, Paradies, Celas, Chesterton |
+| Second neighborhood for the 15 one-hood guides | Dijon found (Gare and Saint-Bénigne). The other 14 searched four or more times each: none. Manzhouli's Matryoshka Square was a weak yes (one named restaurant), not added. Zhangye's Qicai Town (a separate town, 40 km) is the one to verify if you count Zhangye as a resort destination |
+| Eat / cafes / bars for the new neighborhoods | 137 picks loaded (143 before the five removals), through the full pipeline; Dijon 3 picks. Many slots stay empty by design (no loadable page, chains, other neighborhoods) |
+| Gyms, laundromats | 211 gyms in 147 cities re-matched; laundromat lists regenerated in 120 cities |
+| Five removed by the no-hotels rule | Put back: Surakarta Pasar Gede (Hotel Trio, The Royal Surakarta Heritage). Stay removed: Monaco-Ville (no hotel on the Rock), Maceió Jaraguá (the hotels Expedia lists are in Pajuçara), Honolulu Kakaako (no bookable hotel), Saskatoon Broadway (no verifiable hotel). Each could return if you pin a real property |
+| Hotels for the new neighborhoods | Done by the "hotels for 18 empty hoods" session (Jeff's rule), not by me; tiers there are untiered unless a source classifies them |
+
+Still open: 14 guides at one neighborhood and 80+ at two; empty slots in the 50 new neighborhoods' picks; the 237 kept thin keeps; Manzhouli and Qicai Town; CLAUDE.md §3 rule 6 text (held by another session).

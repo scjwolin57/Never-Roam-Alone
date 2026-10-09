@@ -269,8 +269,7 @@ window.NRA_HOOD_PHOTO = {
   "Honolulu": {
     "Waikiki": { img:"images/hoods/honolulu--waikiki.webp", page:"https://commons.wikimedia.org/wiki/File:Canoe_(6480766515).jpg", src:"Phil Whitehouse from London, United Kingdom" },
     "Ala Moana": { img:"images/hoods/honolulu--ala-moana.webp", page:"https://commons.wikimedia.org/wiki/File:Alamoanaaerial.jpg" },
-    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" },
-    "Kakaako": { img:"images/hoods/honolulu--kakaako.webp", page:"https://commons.wikimedia.org/wiki/File:Diamond_Head_from_Kakaako_-_panoramio.jpg", src:"Eric Tessmer" }
+    "Chinatown": { img:"images/hoods/honolulu--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Honolulu-Chinatown-WoFat-building.JPG" }
   },
   "Hua Hin": {
     "North Hua Hin (Soi 5-25)": { img:"images/hoods/hua-hin--north-hua-hin-soi-5-25.webp", page:"https://commons.wikimedia.org/wiki/File:Hua_Hin_hotels_-_panoramio.jpg", src:"Andreas Hörstemeier" },
@@ -459,8 +458,7 @@ window.NRA_HOOD_PHOTO = {
     "Fontvieille": { img:"images/hoods/monaco--fontvieille.webp", page:"https://commons.wikimedia.org/wiki/File:Harbour_of_Fontvielle%2C_Monaco_(view_from_above)_2009-05-09.jpg" },
     "La Condamine": { img:"images/hoods/monaco--la-condamine.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_-_Port_en_d%C3%A9cembre.jpg" },
     "Monte-Carlo": { img:"images/hoods/monaco--monte-carlo.webp", page:"https://commons.wikimedia.org/wiki/File:Casino_de_Monte-Carlo_plaza_Monaco_2026.JPG", src:"Mike is Michi" },
-    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" },
-    "Monaco-Ville (The Rock)": { img:"images/hoods/monaco--monaco-ville-the-rock.webp", page:"https://commons.wikimedia.org/wiki/File:Le Palais Princier de Monaco (53969996808).jpg", src:"Charles from Port Chester, New York" }
+    "Larvotto": { img:"images/hoods/monaco--larvotto.webp", page:"https://commons.wikimedia.org/wiki/File:Monaco_landscape.JPG" }
   },
   "Montreal": {
     "Mile End": { img:"images/hoods/montreal--mile-end.webp", page:"https://commons.wikimedia.org/wiki/File:Churches_of_montreal.jpg" },
@@ -1035,7 +1033,6 @@ window.NRA_HOOD_PHOTO = {
   "Antananarivo": {
     "Haute-Ville (Upper Town)": { img:"images/hoods/antananarivo--haute-ville-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Inscription_des_horaires_malgaches_dans_le_chalet_d%E2%80%99Ambohipotsy,_La_Haute_Ville_d%E2%80%99Antananarivo..jpg", src:"Anai171" },
     "Analakely": { img:"images/hoods/antananarivo--analakely.webp", page:"https://commons.wikimedia.org/wiki/File:Ex_Batiment_ECOVMA_04.jpg", src:"Lalinah" },
-    "Ivandry": { img:"images/hoods/antananarivo--ivandry.webp", page:"https://commons.wikimedia.org/wiki/File:Ipomoea_Carnea_%C3%A0_Ivandry.jpg", src:"Pwilcox10" },
     "Ankorondrano / Andraharo": { img:"images/hoods/antananarivo--ankorondrano-andraharo.webp", page:"https://commons.wikimedia.org/wiki/File:Orange_team_(5718555831).jpg", src:"Hery Zo Rakotondramanana" },
     "Isoraka": { img:"images/hoods/antananarivo--isoraka.webp", page:"https://www.flickr.com/photos/33037982@N04/3443271146/", src:"wallygrom" }
   },
@@ -1848,8 +1845,7 @@ window.NRA_HOOD_PHOTO = {
     "Farol": { img:"images/hoods/dili--farol.webp", page:"https://commons.wikimedia.org/wiki/File:Dili_Harbor_Lighthouse,_2023_(03).jpg", src:"Bahnfrend" }
   },
   "Djibouti City": {
-    "Plateau du Serpent": { img:"images/hoods/djibouti-city--plateau-du-serpent.webp", page:"https://commons.wikimedia.org/wiki/File:Plateau_du_Serpent_(25151636855).jpg", src:"Francisco Anzola from United States" },
-    "Ambouli": { img:"images/hoods/djibouti-city--ambouli.webp", page:"https://commons.wikimedia.org/wiki/File:Secretary_Tillerson_is_Greeted_by_Djiboutian_Foreign_Minister_Youssouf_(25836678027).jpg", src:"U.S. Department of State from United States" }
+    "Plateau du Serpent": { img:"images/hoods/djibouti-city--plateau-du-serpent.webp", page:"https://commons.wikimedia.org/wiki/File:Plateau_du_Serpent_(25151636855).jpg", src:"Francisco Anzola from United States" }
   },
   "Douala": {
     "Bonanjo": { img:"images/hoods/douala--bonanjo.webp", page:"https://commons.wikimedia.org/wiki/File:Bonanjo_-_Centre_de_documentation_et_information_urbanisme_(CUD)_03.JPG", src:"Marta Pucciarelli" },
@@ -2842,8 +2838,7 @@ window.NRA_HOOD_PHOTO = {
     "Pajuçara": { img:"images/hoods/maceio--pajucara.webp", page:"https://commons.wikimedia.org/wiki/File:Paju%C3%A7ara,_Macei%C3%B3,_Brazil.jpg", src:"Flaviohmg" },
     "Ponta Verde": { img:"images/hoods/maceio--ponta-verde.webp", page:"https://commons.wikimedia.org/wiki/File:Ponta_Verde_-_Macei%C3%B3.jpg", src:"Ahmed Zohair Anka" },
     "Jatiúca": { img:"images/hoods/maceio--jatiuca.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_da_Jati%C3%BAca_-_panoramio.jpg", src:"Duds Nilds" },
-    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" },
-    "Jaraguá": { img:"images/hoods/maceio--jaragua.webp", page:"https://commons.wikimedia.org/wiki/File:Bairro_Jaragu%C3%A1_e_seus_encantos_1.jpg", src:"Blogilberto" }
+    "Cruz das Almas": { img:"images/hoods/maceio--cruz-das-almas.webp", page:"https://commons.wikimedia.org/wiki/File:Praia_de_Cruz_das_Almas_-_panoramio.jpg", src:"Duds Nilds" }
   },
   "Madurai": {
     "Tallakulam": { img:"images/hoods/madurai--tallakulam.webp", page:"https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%81%E0%AE%B3%E0%AE%AE%E0%AF%8D_%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B3%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D.jpg", src:"சித்திரவீதிக்காரன்" },
@@ -3177,7 +3172,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Mytilene": {
     "Epano Skala": { img:"images/hoods/mytilene--epano-skala.webp", page:"https://commons.wikimedia.org/wiki/File:20150716_Valide_Mosque_Epano_Skala_Mytilene_Lesvos_Greece.jpg", src:"Ggia" },
-    "Sourada / Akrotiri": { img:"images/hoods/mytilene--sourada-akrotiri.webp", page:"https://commons.wikimedia.org/wiki/File:Fotiadis_Tower_-_Mavroudis_Kostas_-_2181437040.jpg", src:"Konstantinos Mavroudis" },
     "Town Centre & Harbour": { img:"images/hoods/mytilene--town-centre-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%9D%CE%B1%CF%8C%CF%82_%CE%91%CE%B3%CE%AF%CE%BF%CF%85_%CE%98%CE%B5%CF%81%CE%AC%CF%80%CE%BF%CE%BD%CF%84%CE%B1_%CE%9C%CF%85%CF%84%CE%B9%CE%BB%CE%AE%CE%BD%CE%B7%CF%82_(1).jpg", src:"Chris Kar" }
   },
   "Nablus": {
@@ -3560,8 +3554,7 @@ window.NRA_HOOD_PHOTO = {
   "Podgorica": {
     "Nova Varos (Center)": { img:"images/hoods/podgorica--nova-varos-center.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown,_Podgorica_81000,_Montenegro_-_panoramio_(2).jpg", src:"ines lukic" },
     "Stara Varos": { img:"images/hoods/podgorica--stara-varos.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_Tower_in_2020.03.jpg", src:"CAPTAIN RAJU" },
-    "Preko Morace": { img:"images/hoods/podgorica--preko-morace.webp", page:"https://commons.wikimedia.org/wiki/File:Zgrade_Pet_udovica_Podgorica.jpg", src:"Vux33" },
-    "Stari Aerodrom": { img:"images/hoods/podgorica--stari-aerodrom.webp", page:"https://commons.wikimedia.org/wiki/File:Stari_Aerodrom,_Podgorica,_Montenegro_-_panoramio.jpg", src:"ines lukic" }
+    "Preko Morace": { img:"images/hoods/podgorica--preko-morace.webp", page:"https://commons.wikimedia.org/wiki/File:Zgrade_Pet_udovica_Podgorica.jpg", src:"Vux33" }
   },
   "Pokhara": {
     "Lakeside (Baidam)": { img:"images/hoods/pokhara--lakeside-baidam.webp", page:"https://commons.wikimedia.org/wiki/File:Lakeside_Pokhara_at_Night.jpg", src:"Saddam19" },
@@ -3991,8 +3984,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Saskatoon": {
     "City Park": { img:"images/hoods/saskatoon--city-park.webp", page:"https://commons.wikimedia.org/wiki/File:Spadina_Crescent_Bridge.jpg", src:"Drm310" },
-    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" },
-    "Broadway District (Nutana)": { img:"images/hoods/saskatoon--broadway-district-nutana.webp", page:"https://commons.wikimedia.org/wiki/File:Broadway_Theatre_SK1.jpg", src:"Drm310 at English Wikipedia" }
+    "Downtown": { img:"images/hoods/saskatoon--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District,_23rd_St_E,_Saskatoon_(505690)_(25993032242).jpg", src:"Robert Linsdell from St. Andrews, Canada" }
   },
   "Savonlinna": {
     "Keskusta": { img:"images/hoods/savonlinna--keskusta.webp", page:"https://commons.wikimedia.org/wiki/File:Jussilantie,_Kerava_C_DSC00098.JPG", src:"Anneli Salo" },
@@ -4734,5 +4726,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Tórshavn": {
     "Viðarlund": { img:"images/hoods/torshavn--vi-arlund.webp", page:"https://commons.wikimedia.org/wiki/File:Vi%C3%B0arlundin_%C3%AD_Havn.jpg", src:"Maciej Brencz" }
+  },
+  "Dijon": {
+    "Gare and Saint-Bénigne": { img:"images/hoods/dijon--gare-and-saint-benigne.webp", page:"https://commons.wikimedia.org/wiki/File:Dijon_cathedral_facade_06.jpg", src:"Paolo da Reggio" }
   },
 };

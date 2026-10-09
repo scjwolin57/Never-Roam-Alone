@@ -168,3 +168,20 @@ These were **not** changed. Most compare the card to UK guidance, so a few may s
 Retry later: Turkey (mevzuat.gov.tr art. 88), Azerbaijan (e-qanun.az), Morocco's law PDF once its host answers, any Lebanese or Chadian authority page. Raw results: `settle_a.json`, `settle_b.json`, `second_src.json` (scratchpad; to copy into `_guidebuild/discovercars/` with the rest).
 
 **Far airports (Jeff 2026-10-07: keep, add a note):** an airport link 100 km or more from its city shows "This airport is about N km (M mi) from <city>, but it is the usual airport for arriving here." 13 cities: Ica, Saint-Louis, Kusatsu, Sigiriya, Nakuru, Windermere, Pai, Vaduz, Kanchanaburi, Galle, Himeji, Chefchaouen, Kandy. Threshold `FAR_AIRPORT_KM = 100` in city.html.
+
+## Turkey / Türkiye settled 2026-10-09 (Jeff's sources)
+
+Jeff sent two pages (turkey-rentcar.ru, turkeytravelplanner.com) on the licence rules. Checked against official sources:
+- **The law:** Highway Traffic Regulation art. 88 (quoted by the Embassy of Türkiye in Prague, Ministry of Foreign Affairs, 2026-07-28): a foreigner may drive on a foreign licence for up to six months from entry, then must exchange it. It says nothing about the licence's script. The US State Department feed (updated 2026-06-11) agrees for US licences: valid for stays up to 180 days.
+- **The script rule is the rental companies' own:** Sixt Turkey ("Licenses written in non-Latin script (Arabic, Japanese and Cyrillic) must be accompanied by a valid International Driver's License"; Chinese licences need a translation form instead) and Turkey Rent Car (IDP or notarised translation for a non-Latin licence). Two independent company sources, as the definition allows for a company rule.
+- **Note now live in rental-notes.js** for both "Turkey" and "Türkiye" (22 guides): "A foreign driving licence is valid in Türkiye for up to six months from the day you arrive. If yours is not in the Latin alphabet (Arabic, Cyrillic, Japanese and so on), rental companies also ask for an International Driving Permit or a translation."
+- The FCDO vs State Department disagreement about which permit a UK driver needs is now shown per licence by the licence-aware Int'l permit row (2026-10-08), so the note does not repeat it.
+
+Still held: Lebanon, Chad, Armenia, Azerbaijan, Bangladesh (recommendation to Jeff 2026-10-09: close as "no note", since the licence-aware permit row covers them).
+
+## Jeff's calls on the last five, 2026-10-09
+
+Jeff: "Bangladesh (IDP Required) Chad (IDP recommended) Lebanon (IDP recommended) Armenia (IDP recommended)", plus two Baku rental-company pages for Azerbaijan.
+- **Azerbaijan: note live.** Both Baku companies (Grand Rent A Car 2025-11-23, Prestige Car Rental 2026-06-30) say a non-Latin licence needs an IDP alongside it; Grand Rent's 30-day limit has one source only and is left out. Note: "Rental companies accept a driving licence written in the Latin alphabet. If yours is in another script (Cyrillic, Arabic, Chinese and so on), they ask for an International Driving Permit as well." (Baku.)
+- **Bangladesh "Required"** matches the licence-aware permit row (UK, Canada, Australia: Required). No note needed: the card says it.
+- **Chad, Lebanon, Armenia "Recommended": flagged to Jeff, not applied.** The permit row, from each government's own advice, says otherwise: Chad US Required / UK Local permit / Canada Required; Lebanon US Required / UK Not required / Canada Required; Armenia UK, Canada, Australia Required. A country-wide "Recommended" note would contradict it.
