@@ -6,6 +6,7 @@ here the same day. See CLAUDE.md §4.5 (this file's companion rulebook).*
 
 | Date | Decision | Why / source |
 |---|---|---|
+| 2026-10-09 | **Şanlıurfa: On Gözlü Köprü (Ten-Eyed Bridge) removed from the landmarks** (9 left, not padded). It is the Dicle Bridge in Diyarbakır, about 190 km away, which is not a guide city and not a day trip from Şanlıurfa. | Jeff: "On Gözlü Köprü (also known as the Dicle Bridge) is located in Diyarbakır, not Şanlıurfa". |
 | 2026-10-09 | **Kuşadası: Kordon Promenade pinned per Jeff's pin** (Google Maps place "I love kusadasi" on the waterfront, 37.8636266, 27.2612368); was empty. | Jeff, in chat (Maps link). |
 | 2026-10-09 | **Day-trip threshold stays at 30 minutes' drive** (2026-09-23 row stands). Jeff had said 45 in chat the same day; he settled it: "keep at 30". Nothing moves back. | Jeff: "keep at 30". |
 | 2026-10-09 | **Klaipėda: Old Town Fachwerk Warehouses pinned per Jeff's pin** from his address Bažnyčių g. 4 / Daržų g. 10 (OpenStreetMap: 55.7074558, 21.1355396, Senamiestis); was empty. | Jeff, in chat. |
