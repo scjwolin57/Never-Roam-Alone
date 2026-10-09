@@ -45,9 +45,9 @@ All come from the 2026-09-15 sourcing pass (commit 1c906cbf). Most are name matc
 | ~~Jamestown~~ | ~~Half Tree Hollow~~ (settled 2026-10-09: Jeff's pin confirms the hood; replaced with the High Knoll Fort view of the settlement) | right island (Lemon Valley, St Helena) but a different valley, not Half Tree Hollow |
 | Kanchanaburi | Death Railway / Thailand-Burma Railway Centre | holiday snapshot, GPS 34 km from the railway centre (likely further up the line); no description |
 | ~~Managua~~ | ~~Los Robles~~ (settled 2026-10-09: Jeff's pin confirms the hood point; the photo could not be placed, removed; no verified replacement) | description just "Urb. Los Robles"; no country, no GPS |
-| Moshi | Kaloleni | only category is "Arusha Region" (Moshi is in Kilimanjaro Region); no description |
-| Ouagadougou | Zone du Bois | wooden statues, Commons says "Statues in unidentified locations" |
-| Roseau | Castle Comfort | right place (Castle Comfort, Dominica) but a scanned sale notice, not a photo |
+| ~~Moshi~~ | ~~Kaloleni~~ (settled 2026-10-09: Jeff's pin confirms the hood point; photo removed, no verified replacement) | only category is "Arusha Region" (Moshi is in Kilimanjaro Region); no description |
+| ~~Ouagadougou~~ | ~~Zone du Bois~~ (settled 2026-10-09: Jeff's pin confirms the hood point; photo removed, no verified replacement) | wooden statues, Commons says "Statues in unidentified locations" |
+| ~~Roseau~~ | ~~Castle Comfort~~ (settled 2026-10-09: Jeff's pin confirms the hood point; scanned notice removed, no verified photo) | right place (Castle Comfort, Dominica) but a scanned sale notice, not a photo |
 
 ## Wrong place: full list
 

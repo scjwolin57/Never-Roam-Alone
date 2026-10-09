@@ -3131,9 +3131,6 @@ window.NRA_HOOD_PHOTO = {
     "Medina (Old Town)": { img:"images/hoods/moroni--medina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Flickr_-_Woodlouse_-_Old_Friday_Mosque_and_harbour,_Moroni.jpg", src:"Woodlouse from Brighton, UK" },
     "Itsandra": { img:"images/hoods/moroni--itsandra.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_beach.jpg", src:"Radosław Botev" }
   },
-  "Moshi": {
-    "Kaloleni": { img:"images/hoods/moshi--kaloleni.webp", page:"https://commons.wikimedia.org/wiki/File:WikiAru931.jpg", src:"Bajcetic" }
-  },
   "Mostar": {
     "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" },
     "Cernica": { img:"images/hoods/mostar--cernica.webp", page:"https://commons.wikimedia.org/wiki/File:Mostar_(49032844696).jpg", src:"Fred Romero from Paris, France" }
@@ -3379,7 +3376,6 @@ window.NRA_HOOD_PHOTO = {
   },
   "Ouagadougou": {
     "Ouaga 2000": { img:"images/hoods/ouagadougou--ouaga-2000.webp", page:"https://commons.wikimedia.org/wiki/File:Vue_sur_le_ciel_de_Ouaga_2000_-_%C3%89changeur_de_Ouaga_2000.jpg", src:"Dramane BF" },
-    "Zone du Bois": { img:"images/hoods/ouagadougou--zone-du-bois.webp", page:"https://commons.wikimedia.org/wiki/File:Famille_en_bois.jpg", src:"SanwidiMireille" },
     "Koulouba": { img:"images/hoods/ouagadougou--koulouba.webp", page:"https://commons.wikimedia.org/wiki/File:Liza_Mall.jpg", src:"Yendifa" },
     "Gounghin": { img:"images/hoods/ouagadougou--gounghin.webp", page:"https://commons.wikimedia.org/wiki/File:Ouaga_watertower.png", src:"kyselak" }
   },
@@ -3766,7 +3762,6 @@ window.NRA_HOOD_PHOTO = {
     "Nanny Cay / Sea Cows Bay": { img:"images/hoods/road-town--nanny-cay-sea-cows-bay.webp", page:"https://commons.wikimedia.org/wiki/File:A_man_sits_next_to_sign_in_the_marina_of_Nanny_Cay_on_the_British_Virgin_Island_of_Tortola,_which_suffered_widespread_damage_and_destruction_when_Hurricane_Irma_passed_over_on_6_September_2017_(36706814783).jpg", src:"DFID - UK Department for International Development" }
   },
   "Roseau": {
-    "Castle Comfort": { img:"images/hoods/roseau--castle-comfort.webp", page:"https://commons.wikimedia.org/wiki/File:Dominica,_particulars_of_a_valuable_Sugar_Estate_-_called_%22Castle_Comfort,%22_situate_in_the_Parish_of_Saint_George,_in_the_Island_of_Dominica,_and_containing_240_acres,_or_thereabouts_-_which_will_LOC_2016586667-4.jpg", src:"Hards, Vaughan &amp; Leifchild (Firm)" },
     "Trafalgar / Roseau Valley": { img:"images/hoods/roseau--trafalgar-roseau-valley.webp", page:"https://commons.wikimedia.org/wiki/File:Dominica,_Karibik_-_Resting_Place_on_the_Cable_Car_-_panoramio.jpg", src:"giggel" },
     "Wotten Waven": { img:"images/hoods/roseau--wotten-waven.webp", page:"https://commons.wikimedia.org/wiki/File:Dominica,_Karibik_-_Laudat_-_Wotten_Waven_%E2%80%93_Fond_Cani_-_panoramio.jpg", src:"giggel" },
     "Goodwill / Bath Estate": { img:"images/hoods/roseau--goodwill-bath-estate.webp", page:"https://commons.wikimedia.org/wiki/File:Dominica,_Karibik_-_Roseau,_Bath_Estate_-_Goodwill_-_panoramio.jpg", src:"giggel" },
