@@ -1,10 +1,10 @@
 # Hotel picks: re-source by qualification rules, built for affiliate links
 
 *Draft plan, 2026-10-01. Nothing built, nothing changed. Supersedes the order in
-`hotel-links-pipeline-plan.md` (2026-09-26): that plan linked the hotels we already
+`_done/hotel-links-pipeline-plan.md` (2026-09-26): that plan linked the hotels we already
 have; this one re-picks them so every pick is chosen by one written rule and can carry
-a link. The partner research (`hotel-affiliate-programs-2026-09-24.md`) and both pilot
-notes (`hotel-links-pilot-results-2026-09-26.md`, `hotel-links-pilot-second-run-2026-09-26.md`)
+a link. The partner research (`_done/hotel-affiliate-programs-2026-09-24.md`) and both pilot
+notes (`_done/hotel-links-pilot-results-2026-09-26.md`, `_done/hotel-links-pilot-second-run-2026-09-26.md`)
 still stand and are reused here. Decisions for Jeff are in section 9.*
 
 ## 0. Jeff's calls, 2026-10-02 (these override the sections below where they differ)
