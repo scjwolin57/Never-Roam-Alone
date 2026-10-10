@@ -1771,7 +1771,7 @@
       why.push(s ? `☀️ ~${s.t[q]}°F, ~${Math.round(s.r[q])} rainy days/mo (${NS_QLABEL[q]})` : `☀️ No season data yet`);
     }
     return `<div class="ns-card">
-      <div class="ns-photo" style="background-image:url('${ph ? ph.img : ""}')"></div>
+      <div class="ns-photo" role="img" aria-label="${esc(r.c.city)}" style="background-image:url('${ph ? ph.img : ""}')"></div>
       <div class="ns-body">
         <p class="ns-name">#${i+1} ${esc(r.c.city)} <span class="ns-ctry">· ${esc(r.c.country)}</span></p>
         <ul class="ns-why">${why.map(w => `<li>${w}</li>`).join("")}</ul>

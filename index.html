@@ -1370,7 +1370,7 @@ const CITIES = [
       var bg = img ? "background-image:url('"+img+"')" : "";
       return '<div class="story-item">'
         + '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
-        + '<div class="frame"><div class="ph" style="'+bg+'"></div><span class="pin"></span></div>'
+        + '<div class="frame"><div class="ph" role="img" aria-label="'+f.city+'" style="'+bg+'"></div><span class="pin"></span></div>'
         + '<figcaption><span class="nm">'+f.city+'</span>'
         + (country ? '<small>'+country+'</small>' : '')
         + '<span class="cat '+f.cls+'">'+f.label+'</span>'
