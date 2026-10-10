@@ -32,8 +32,8 @@ never deleted; new items for you are added under the right heading. Details live
 
 ## 3. Say "go" and it gets done
 
-- **G1. Recheck The Cock and Bottle** (London, Notting Hill): was reopening by 3 Oct, now overdue. *`hood-picks-bar-conflicts.md`*
-- **G2. Hood picks batch 5** (cities 101 to 125 of 393). *`RESUME_hood-picks.md`*
+- ~~**G1. Recheck The Cock and Bottle** (London, Notting Hill): was reopening by 3 Oct, now overdue. *`hood-picks-bar-conflicts.md`*~~ done 2026-10-10: reopened (own site open, CAMRA 2 Oct); pick stays.
+- **G2. Hood picks batch 5** (cities 101 to 125 of 393). *`RESUME_hood-picks.md`* *2026-10-10: stopped at the Google budget gate ($245.80 of $260 spent); Jeff to choose, see `hood-picks-batch5-budget-2026-10-10.md`.*
 - **G3. Flickr shortlist: prepare the next 25 landmarks.**
 - **G4. Batch 1 chain check, part 2:** page-check the 181 "weak evidence" picks (usually duplicate map records).
 - ~~**G5. Re-run the DiscoverCars coverage check** right before the car links go live.~~ changed 2026-10-09: the links went live 2026-10-06 on the 2026-10-05 check, which was not re-run. Now an occasional re-check: say "go" and the scripts in `_guidebuild/discovercars/` re-run (about an hour) and drop any link whose page has gone. *`discovercars-coverage-2026-10-05.md`*
