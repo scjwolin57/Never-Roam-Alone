@@ -132,6 +132,7 @@ agents write `_aborted` for the cities they could not finish, and the next run p
 ## Google data kept on disk
 The raw responses in `_guidebuild/hoodpicks/cache/` hold Google ratings and addresses. Delete a batch's cache
 files once that batch is committed and audited. Only place IDs go into citydata and the sheet.
+**Exception (Jeff, 2026-10-10): batch 1's cache is kept for further research** (it is also the free source for re-picks). Do not delete `cache/` for batch 1 until he says so; later batches still follow the rule above.
 
 ## Concurrency
 City files are one line each. Do not run another data job on citydata while this runs (see _done/HANDOFF-2026-09-21.md,

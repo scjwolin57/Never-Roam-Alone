@@ -3260,7 +3260,7 @@ function buildAdvisoryBanner(c, cityAdv){
   /* ---------- International driving permit, by the licence the reader holds (decisions.md 2026-10-08) ----------
      driving-permits.js: researched values for US, UK, Canadian and Australian licences (each government's own advice),
      plus each licence country's road-traffic convention membership. Any other licence gets a worked-out answer,
-     always labelled as such. The licence defaults to the reader's first saved passport; the dropdown overrides it. */
+     always labelled as such. The licence defaults to the reader's first saved passport, else the US (Jeff, 2026-10-10); the dropdown overrides it. */
   const PERMIT_SRC = { us: "US State Department", uk: "UK FCDO", ca: "Government of Canada", au: "Smartraveller (Australia)" };
   const PERMIT_KEY = { "United States": "us", "United Kingdom": "uk", "Canada": "ca", "Australia": "au" };
   const PERMIT_STRICT = ["Not accepted", "Local permit", "Required", "Recommended", "Not required"];
@@ -3269,7 +3269,13 @@ function buildAdvisoryBanner(c, cityAdv){
     try { const v = localStorage.getItem("nra_licence_country"); if (v) return v; } catch(e){}
     const P = (typeof NRA_PERMITS !== "undefined") ? NRA_PERMITS.lic : {};
     const p = myPassports().find(x => P[x]);
-    return p || "";
+    if (p) return p;
+    return P["United States"] ? "United States" : "";   // no passport and no choice: US rules (Jeff, 2026-10-10)
+  }
+  function permitIsDefault(){
+    try { if (localStorage.getItem("nra_licence_country")) return false; } catch(e){}
+    const P = (typeof NRA_PERMITS !== "undefined") ? NRA_PERMITS.lic : {};
+    return !myPassports().some(x => P[x]);
   }
   function permitFor(lic){
     const D = NRA_PERMITS.dest[permitDest()] || {};
@@ -3311,6 +3317,7 @@ function buildAdvisoryBanner(c, cityAdv){
       const cv = r.conv == null ? "" : r.conv.length ? ` Your country's permit is recognised here under the ${r.conv.join(" and ")} road-traffic convention.` : ` ${lic} and ${permitDest()} share no road-traffic convention, so your permit may not be recognised; check with the embassy.`;
       src = base + cv;
     }
+    if (permitIsDefault()) src = `Showing US licence rules until you choose yours. ` + src;
     return `<div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${r.v}</span></div>${sel}<p class="car-permit-src">${src}</p>`;
   }
 
