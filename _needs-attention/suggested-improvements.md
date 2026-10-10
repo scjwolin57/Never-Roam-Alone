@@ -75,7 +75,7 @@
 
 **21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the* `city-meta` *edge function stamps each city's title, description and photo (checked 2026-09-18).*
 
-**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) is still open.*
+**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) was finished 2026-10-10.*
 
 ## 📷 Photo housekeeping
 
@@ -102,7 +102,7 @@
 
 **29. Analytics (S)** — Netlify Analytics or privacy-friendly Plausible: which pages people actually visit and where they come from. Without it you can't tell what's working. *2026-09-18: Plausible chosen and the script is on every page (*`6fc184c7`*); waiting on Jeff's Plausible signup. City guides get it from the edge function until city.html carries it.*
 
-**30. Alt text audit (S)** — descriptive captions on photos for image search + accessibility; part of item 22.
+**30. ~~Alt text audit (S)** — descriptive captions on photos for image search + accessibility; part of item 22.~~ *Done 2026-10-10: every `<img>` already had alt text; the gaps were photos shown as CSS backgrounds and the event poster. Fixed: event poster alt, phone landmark photo, home-page city circles, itinerary city photos (*`97d09211`*,* `d43e8e97`*). Photos with text inside their box (city hero, landmark and hood cards, post and ranking tiles) are left as decorative because the name sits in text beside them; the phone landmark label and event poster were not exercised in a browser.*
 
 **31. ~~Custom 404 page (S)** — a friendly "lost? browse all cities" page instead of Netlify's default when someone hits a dead link.~~ *Done:* `404.html` *exists and unknown city names now return a real 404 (*`443ed13f`*).*
 
