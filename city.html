@@ -3988,7 +3988,7 @@ function buildAdvisoryBanner(c, cityAdv){
          is only knowable after the fact. */
       const vote = ev.isPast ? voteWidgetHTML({type:"event", id:ev.id, city:CITY, extraClass:"fl-vote"}) : "";
       return `<div class="evt-item">` +
-        (ev.poster_url ? `<a class="evt-poster" href="${esc(ev.poster_url)}" target="_blank" rel="noopener"><img src="${esc(ev.poster_url)}" alt="" loading="lazy"></a>` : "") +
+        (ev.poster_url ? `<a class="evt-poster" href="${esc(ev.poster_url)}" target="_blank" rel="noopener"><img src="${esc(ev.poster_url)}" alt="Poster for ${esc(ev.name)}" loading="lazy"></a>` : "") +
         `<div class="evt-body">` +
           `<h4 class="evt-name">${esc(ev.name)}</h4>` +
           (time ? `<div class="evt-meta">&#128336; ${esc(time)}</div>` : "") +
@@ -5488,7 +5488,7 @@ function buildAdvisoryBanner(c, cityAdv){
       if (!bigEl || !cardsColEl || !lmks[i]) return;
       const ph = lmkPhotos[i];
       bigEl.innerHTML =
-        (ph ? `<div class="lmk-big-photo" style="background-image:url('${ph.img}')"></div>` : "") +
+        (ph ? `<div class="lmk-big-photo" role="img" aria-label="${String(lmks[i][0]).replace(/"/g,'&quot;')}" style="background-image:url('${ph.img}')"></div>` : "") +
         `<div class="lmk-big-body"><div class="lmk-big-row"><div class="lmk-big-num">${i + 1}</div>` +
         `<div><span class="lmk-big-name">${lmks[i][0]}</span>` +
         `<p class="lmk-big-desc">${lmks[i][1]}</p></div></div></div>`;
