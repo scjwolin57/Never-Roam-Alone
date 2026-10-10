@@ -17,3 +17,4 @@
 ## To recheck
 
 - **London, Notting Hill: The Cock and Bottle** is closed for a refurbishment and is expected to reopen by 3 Oct 2026 (CAMRA, updated 22 Sep 2026). Check after that date. It is also a weak fit for "dive" (a restored Victorian pub).
+  **Rechecked 2026-10-10: reopened.** The pub's own site shows "We Are Open" with hours (Mon-Sat 12:00-23:00, Sun 12:00-22:30); CAMRA (updated 2 Oct 2026) says "last refurbed autumn 2026" with the same hours. It stays as the Notting Hill dive pick; the weak fit for "dive" is unchanged and left to Jeff.
