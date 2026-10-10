@@ -12,7 +12,7 @@
    A city whose country has a note shows "More info" on its Car rental card; the popup shows
    the note, then the booking link(s).
    Shape: { "<country>": { n: "note, max 2 sentences", k: [kinds], src: [{t, u, d}], chk, one? } }
-   Site-only (not in the sheet). Research log: _needs-attention/before-you-rent-2026-10-06.md */
+   Site-only (not in the sheet). Research log: _needs-attention/_done/before-you-rent-2026-10-06.md */
 (function () {
   const FCDO = (slug, d) => ({ t: "UK FCDO", u: "https://www.gov.uk/foreign-travel-advice/" + slug, d });
   const DOS = (page, d) => ({ t: "US State Department", u: "https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/" + page + ".html", d });

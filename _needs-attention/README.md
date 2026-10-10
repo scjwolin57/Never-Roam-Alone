@@ -3,36 +3,34 @@
 Files with open work in them. Finished files move to `_done/`; nothing is
 deleted. None of these files are used by the live site.
 
-*Index rebuilt 2026-10-07, refreshed 2026-10-09.* **Jeff's own to-do list is [`TODO.md`](TODO.md)**: everything waiting on him, struck through when done.
+*Index rebuilt 2026-10-07, refreshed 2026-10-10.* **What is waiting on Jeff lives in [`TODO.md`](TODO.md)** (struck through when done). This index only says what each file still in this folder is for.
 
-## Open: waiting on a decision from Jeff
+## Still here, and why
 
-| File | What it needs |
+| File | Why it is still open |
 |---|---|
-| `before-you-rent-2026-10-06.md` | 6 countries still held (Turkey, Lebanon, Chad, Armenia, Azerbaijan, Bangladesh). Being handled in the cars task |
-| `hood-review-2026-10-08.md` | "Things to look at": calls in the neighborhood review that rest on thin evidence, each easy to reverse |
-| `hood-data-fixes-2026-09-24.md` | One question left: add Hotel Panorama to Pilsen's Lochotín, or leave it with no hotels |
-| `flickr-permission-shortlist.csv` | 572 landmarks with no photo, ranked; no request sent. Sending is yours |
-
-## Open: work in progress or due
-
-| File | State |
-|---|---|
-| `RESUME_landmark-pin-pass.md` (+ `landmark-pins-for-google.csv`) | Google phase ran 2026-10-09 (41 pins fixed, 67 disagreements with no second source). A scheduled task holds it. Its "Open for Jeff" list is stale: both items were settled 2026-09-23 |
-| `intl-permit-definition-2026-10-08.md` | Done 2026-10-08 (licence-aware permit row built, commit 55e32a2c); can move to `_done/` once the cars task closes |
-| `RESUME_hood-review-second-sources.md` (+ `hood-review-2026-10-08*.csv`) | 242 low-confidence keeps need second sources when search quota is back; also picks, gyms and laundromats for the 51 new hoods, and the 15 one-hood guides. A live session holds it |
-| `RESUME_hood-picks.md` | Batches 1 to 4 loaded (100 of 393 cities); batch 5 next. Batch 1 chain check done 2026-10-07 |
-| `hood-picks-bar-conflicts.md` | Overdue: recheck London, Notting Hill, The Cock and Bottle (was reopening by 3 Oct) |
-| `discovercars-coverage-2026-10-05.md` (+ `.csv`) | 31 places need deep links once DiscoverCars approves the account |
-| `hotel-resourcing-plan-2026-10-01.md` | Approved plan, nothing built; waits on Expedia's approval |
-
-## Always here
-
-| File | What it is |
-|---|---|
+| `TODO.md` | Jeff's to-do list |
 | `decisions.md` | The decision log every session reads first |
-| `suggested-improvements.md` | The improvement backlog (has uncommitted edits from another session or Jeff) |
-| `uploads/` | Drop folder for your own landmark photos (see its README) |
+| `suggested-improvements.md` | The improvement backlog (new ideas go here; open items are also listed in TODO.md) |
+| `RESUME_hood-picks.md`, `hood-picks-batch5-budget-2026-10-10.md` | Hood picks: 100 of 393 cities done; batch 5 stopped at the Google budget gate (2026-10-10) |
+| `RESUME_thin-keeps-picks.md` | Picks for the thin-keep neighborhoods wait for next month's free Google calls (reminder task 2026-11-02) |
+| `RESUME_hood-review-second-sources.md`, `hood-review-2026-10-08.md` (+ `.csv`, `-evidence.csv`), `thin-keeps-card-fill-2026-10-09.md` | Neighborhood review follow-ups; a live session is still working on them |
+| `RESUME_landmark-pin-pass.md`, `RESUME_landmark-leftovers-2026-10-09.md`, `landmark-pins-*.csv` | Landmark pin pass and its leftovers; a live session is still working on them |
+| `sideways-landmark-photos-2026-10-09.md` | One call left for Jeff: Kumasi's Okomfo Anokye sword site photo (top-down view) |
+| `discovercars-coverage-2026-10-05.md` (+ `.csv`) | 31 places with no DiscoverCars landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...) |
+| `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 11 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
+| `hotel-resourcing-plan-2026-10-01.md` | Approved plan, waiting on Expedia / Partnerize |
+| `uploads/` | Drop folder for your own landmark photos |
+
+## Done — moved to `_done/` (10 October 2026)
+
+| File | Why it's closed |
+|---|---|
+| `hood-picks-bar-conflicts.md` | Last recheck done 2026-10-10: The Cock and Bottle reopened. (`check_picks.py baseline --write` starts a fresh file here if it finds new conflicts) |
+| `intl-permit-definition-2026-10-08.md` | Licence-aware permit row built 2026-10-08; Jeff's three choices answered 2026-10-10 |
+| `before-you-rent-2026-10-06.md` | All held countries settled (Türkiye and Azerbaijan notes 2026-10-09; the rest closed by Jeff 2026-10-10); CLAUDE.md and rental-notes.js point to the new path |
+| `hood-data-fixes-2026-09-24.md` | All items fixed or answered 2026-10-08/09 (points, descriptions, landmarks, hotels; Lochotín removed) |
+| (17 older notes) | The duplicate originals of the 2026-10-09 moves were deleted 2026-10-10 (`b2738352`); one copy each now, in `_done/` |
 
 ## Carried over from the old index, not re-checked 2026-10-07
 
