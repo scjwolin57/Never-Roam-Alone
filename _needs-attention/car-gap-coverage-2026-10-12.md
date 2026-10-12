@@ -7,7 +7,7 @@
 The 167 guides with no DiscoverCars link and no Kiwitaxi link, minus:
 - the 13 war-zone countries (now carry a "before you rent" note, commit 5af479d3);
 - the sanctioned countries (Russia, Iran, Belarus, North Korea, Cuba);
-- Hebron, Nablus, Capri (do-not-link) and Thimphu (yours to decide).
+- Hebron, Nablus, Capri (do-not-link) and Thimphu (no link, decisions.md 2026-10-06: guide and driver required).
 
 | Program | Test | Date |
 |---|---|---|

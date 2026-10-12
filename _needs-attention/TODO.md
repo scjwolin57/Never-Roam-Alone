@@ -18,7 +18,7 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~**D9. Turkey, Azerbaijan, Bangladesh: still no "before you rent" note** for lack of a national source (Chad, Lebanon and Armenia are D2). Say "go" to retry when search quota allows. *`_done/before-you-rent-2026-10-06.md`*~~ done 2026-10-10: Jeff said it should be closed. Turkey and Azerbaijan have notes (2026-10-09, his sources); Bangladesh "Required" matches the permit row, so no note.
 - ~~**D10. Kumasi, Okomfo Anokye sword site photo:** a top-down view, so whether it is turned the right way cannot be judged from the image. Keep as is, turn it, or replace it? *`_done/sideways-landmark-photos-2026-10-09.md`*~~ done 2026-10-12: Jeff said it is good; the photo stays as it is.
 - **D11. Hood photo leftovers from the 2026-10-09 audit (queued 2026-10-12).** (a) Three photos are in the right place but their Commons file was deleted, so the credit link is dead and the licence cannot be re-checked: Andorra la Vella / Barri Antic and Escaldes-Engordany, Copenhagen / Østerbro. (b) Five generic stock photos with no place data, not provably wrong: Pattaya (pattaya-chonburi) / Jomtien Beach, Skopje / Vodno, Miami / Brickell, San Francisco / Chinatown, Orlando / Winter Park. (c) Some right-place photos are poor hero shots; an eye pass is worth doing later. For each: keep, replace with a location-verified photo, or remove (stand-in). Say "go" to research replacements for (a) and (b). *`_done/hood-photo-collisions-2026-10-09.md`*
-- **D12. Car rental gap: join Trip.com and/or Klook?** Of the 167 guides with no car link (war zones and sanctioned countries left out), Trip.com has bookable cars in 32 and Klook car charters in 19; 43 guides in all. Recommended: join Trip.com; Klook optional. Nothing changes on the site until you join and send the link. *`car-gap-coverage-2026-10-12.md`*
+- **D12. Car rental gap: join Trip.com and/or Klook?** Of the 167 guides with no car link (war zones and sanctioned countries left out), Trip.com has bookable cars in 32 and Klook car charters in 19; 43 guides in all. Recommended: join Trip.com; Klook optional. Nothing changes on the site until you join and send the link. *`car-gap-coverage-2026-10-12.md`* *Update 2026-10-12: Jeff applied to Trip.com (see W5). Klook still open.*
 
 ## 2. Things only you can do
 
@@ -49,6 +49,7 @@ never deleted; new items for you are added under the right heading. Details live
 - **W2. Hostelworld / Partnerize approval:** Expedia (US) approved 2026-10-09 (Jeff). Waiting on Hostelworld; then the hotel re-sourcing plan can be built (Expedia main + Hostelworld shared-room tier).
 - **W3. Flickr photographers' answers** (after A2).
 - **W4. Hood photo name-collision audit** (running in its own session): it will list wrong hood photos (Kalamata's "Historic Centre" is in Avignon, "Marina" is in Faro) and ask you before replacing.
+- **W5. Trip.com affiliate approval** (applied 2026-10-12). When approved, send the partner link; then the link goes on the 32 guides in one commit. *`car-gap-coverage-2026-10-12.md`*
 
 ## 5. Improvement backlog (open items from `suggested-improvements.md`, its numbers)
 
