@@ -3340,7 +3340,7 @@ function buildAdvisoryBanner(c, cityAdv){
     return `
       <h4 class="air-sub">Before you rent</h4>
       <p class="rt-intro">${n.n}</p>
-      ${src ? `<p class="air-foot">Source: ${src}. Rules can change; check with your rental company before you travel.</p>` : ""}
+      ${src ? `<p class="air-foot">Source: ${src}. ${(n.k || []).includes("unsafe") ? "Advice changes; check the latest government travel advice before you go." : "Rules can change; check with your rental company before you travel."}</p>` : ""}
       ${link ? `<h4 class="air-sub">Book</h4>${link}${rentAffLine()}` : ""}`;
   }
 
