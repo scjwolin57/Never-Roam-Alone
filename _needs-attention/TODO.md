@@ -28,7 +28,7 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~**A6. Bing Webmaster Tools** (backlog 28), about 10 minutes.~~ done 2026-10-09: Jeff set up and verified Bing Webmaster Tools.
 - **A7. Launch day:** delete the noindex line in `netlify.toml`, push, set up Google Search Console and submit the sitemap; then the monthly Search Console check (backlog 33).
 - **A8. Kiwitaxi: new account link.** You are moving to a new Kiwitaxi account; paste the new partner link (or change `KIWITAXI_TAG` in city.html) and confirm in the dashboard that clicks earn commission (the current link is recorded as a "Kiwitaxi Business" program). Used on 39 guides. *`car-rental-second-program-2026-10-06.md`*
-- **A9. NRA-MASTER.xlsx: delete the empty "Intl Driving Permit" column** in Live Cities (emptied 2026-10-08 when the permit row moved to the Driving Permits tab; the sheet tool can clear cells but not delete a column). *`_done/intl-permit-definition-2026-10-08.md`*
+- ~~**A9. NRA-MASTER.xlsx: delete the empty "Intl Driving Permit" column** in Live Cities (emptied 2026-10-08 when the permit row moved to the Driving Permits tab; the sheet tool can clear cells but not delete a column). *`_done/intl-permit-definition-2026-10-08.md`*~~ done 2026-10-12: column BP deleted by script (all 893 cells were empty; every other cell verified identical; parity 0; sheet now 254 columns).
 - ~~**Landmark pin pass leftovers (2026-10-09).**~~ done 2026-10-09: all six answers applied (see decisions.md); left: 274 China pins without a Wikidata match stay unverified, Xcaret / Manta Point / Sataya Reef / Tsingy trips have no photo. *`RESUME_landmark-leftovers-2026-10-09.md`*
 
 ## 3. Say "go" and it gets done
