@@ -12,15 +12,23 @@ deleted. None of these files are used by the live site.
 | `TODO.md` | Jeff's to-do list |
 | `decisions.md` | The decision log every session reads first |
 | `suggested-improvements.md` | The improvement backlog (new ideas go here; open items are also listed in TODO.md) |
-| `RESUME_hood-picks.md`, `hood-picks-batch5-budget-2026-10-10.md` | Hood picks: 100 of 393 cities done; batch 5 stopped at the Google budget gate (2026-10-10) |
+| `RESUME_hood-picks.md`, `hood-picks-batch5-budget-2026-10-10.md` | Hood picks: 100 of 393 cities done; batch 5 (25 cities) running since 2026-10-12 on the trial credit ($155.04 left in the console); the budget note moves when batch 5 is committed |
 | `RESUME_thin-keeps-picks.md` | Picks for the thin-keep neighborhoods wait for next month's free Google calls (reminder task 2026-11-02) |
-| `RESUME_hood-review-second-sources.md`, `hood-review-2026-10-08.md` (+ `.csv`, `-evidence.csv`), `thin-keeps-card-fill-2026-10-09.md` | Neighborhood review follow-ups; a live session is still working on them |
-| `RESUME_landmark-pin-pass.md`, `RESUME_landmark-leftovers-2026-10-09.md`, `landmark-pins-*.csv` | Landmark pin pass and its leftovers; a live session is still working on them |
-| `sideways-landmark-photos-2026-10-09.md` | One call left for Jeff: Kumasi's Okomfo Anokye sword site photo (top-down view) |
+| `RESUME_landmark-pin-pass.md`, `landmark-pins-*.csv` | Landmark pin pass: kept until the China pins Google run is done (a live session is working on it) |
 | `discovercars-coverage-2026-10-05.md` (+ `.csv`) | 31 places with no DiscoverCars landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...) |
-| `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 11 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
+| `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 10 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
 | `hotel-resourcing-plan-2026-10-01.md` | Approved plan, waiting on Expedia / Partnerize |
 | `uploads/` | Drop folder for your own landmark photos |
+
+## Done — moved to `_done/` (12 October 2026)
+
+| File | Why it's closed |
+|---|---|
+| `sideways-landmark-photos-2026-10-09.md` | 60 photos turned upright; Jeff left the Kumasi sword site photo as it is (D10, 2026-10-12) |
+| `thin-keeps-card-fill-2026-10-09.md` | Settled 2026-10-09: the 23 empty hoods removed, the rest show "Picks coming soon" |
+| `hood-review-2026-10-08.md`, `hood-review-2026-10-08.csv`, `hood-review-2026-10-08-evidence.csv` | Neighborhood review applied (D4 closed); the evidence CSV is the record of every removal and add |
+| `RESUME_landmark-leftovers-2026-10-09.md` | All six answers applied (commit `94acc51c`) |
+| `RESUME_hood-review-second-sources.md` | Second sources applied (decisions.md 2026-10-09); the new-hood picks and one-hood guides are covered by the thin-keeps and hood-picks notes |
 
 ## Done — moved to `_done/` (10 October 2026)
 
