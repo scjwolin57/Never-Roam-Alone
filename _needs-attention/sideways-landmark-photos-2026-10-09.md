@@ -87,3 +87,5 @@ Not scanned: images with no rotation tag on Commons (4,255 listed photos), the f
 | images/landmarks/mekele-abuna-yemata-guh.webp | sideways (person lying on their side) | turned 90 clockwise (done 2026-10-09) |
 
 Events, bucketlist, food, cities, day trips, hoods: none wrong. Limit: the scan finds sideways photos by where the sky is, so a sideways interior, close-up or food photo with no sky would not be flagged.
+
+Kumasi Okomfo Anokye sword site: Jeff 2026-10-12, "D10 is good": the photo stays as it is.
