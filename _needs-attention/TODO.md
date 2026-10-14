@@ -34,6 +34,7 @@ never deleted; new items for you are added under the right heading. Details live
 - ~~**Landmark pin pass leftovers (2026-10-09).**~~ done 2026-10-09: all six answers applied (see decisions.md); left: 274 China pins without a Wikidata match stay unverified, Xcaret / Manta Point / Sataya Reef / Tsingy trips have no photo. *`_done/RESUME_landmark-leftovers-2026-10-09.md`*
 - ~~**China pins: Google Places run for the 248 still unverified (2026-10-12).**~~ done 2026-10-12: Google cannot settle China's datum (see decisions.md); 13 more pins converted using Commons geotags. 205 China pins stay unverified: retry with OpenStreetMap Overpass when it is back, or send your own pins. *`china_unresolved_after_commons.json`*
 - **A10. GetYourGuide: open one live "Tours to ..." day-trip link** and check it lands on tours for that place. An automated test got the wrong page (likely bot defence), so a human check is needed. *`car-gap-coverage-2026-10-12.md`*
+- **A11. DiscoverCars: do affiliate visitors see fewer companies?** (found 2026-10-14) EWR, 26 to 27 Oct: arriving without our tag showed 152 offers from 8 companies (incl. Avis, Budget, Enterprise, National, Alamo); arriving through `?a_aid=NRA2026` showed 51 offers from 3 (ACE, Priceless, Rent a Wreck), matching your own search. Confirm in two private windows (with and without the tag), then ask DiscoverCars partner support why. If confirmed, US guides may need another partner (Trip.com) for the car link.
 
 ## 3. Say "go" and it gets done
 
