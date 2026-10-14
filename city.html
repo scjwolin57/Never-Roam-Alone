@@ -1521,6 +1521,7 @@ let CITY_LAUNDROMATS = {}; // laundromats per neighborhood from Overture open da
 let CITY_CARHIRE = {};   // DiscoverCars page for the city or its airport: {u,k,n} (CITY_SCHEMA.md "carhire"; site-only)
 let CITY_DRIVER = {};    // Kiwitaxi car-with-a-driver hub page: {u,k,n} (CITY_SCHEMA.md "driver"; site-only)
 let CITY_TRIPCAR = {};   // Trip.com car hire page for the city, a station in it, or its airport: {u,k,n} (CITY_SCHEMA.md "tripcar"; site-only)
+let CITY_KLOOKCAR = {};  // Klook car charter page (car with a driver), mainland China: {u,k} (CITY_SCHEMA.md "klookcar"; site-only)
 let CITY_NEARBY = {};    // other guides within day-trip range: [{city,tier,mins,country,blurb}] (CITY_SCHEMA.md "nearby"; built by _guidebuild/daytrips/build_nearby.py)
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
@@ -2522,6 +2523,7 @@ async function loadCityData(){
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
   fill(CITY_NEARBY, rec.nearby);       fill(CITY_CARHIRE, rec.carhire);
   fill(CITY_DRIVER, rec.driver);       fill(CITY_TRIPCAR, rec.tripcar);
+  fill(CITY_KLOOKCAR, rec.klookcar);
   fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
@@ -3268,7 +3270,18 @@ function buildAdvisoryBanner(c, cityAdv){
             <span class="dtcard-tours-v">on Trip.com</span>
           </a>`;
   }
-  function bookLinksHTML(){ return carHireHTML() + tripCarHTML() + driverHTML(); }
+  /* Klook affiliate: a car with a driver (day charter) in mainland China, where visitors cannot drive on a foreign licence
+     (CITY_SCHEMA.md "klookcar"; decisions.md 2026-10-14); Klook's own charter page for the city, or a Klook search */
+  const KLOOK_AID = "139237";
+  function klookCarHTML(){
+    const k = CITY_KLOOKCAR[c.city];
+    if (!k || !k.u || !KLOOK_AID) return "";
+    return `<a class="dtcard-tours" href="https://www.klook.com/en-US/${k.u}${k.u.includes("?") ? "&" : "?"}aid=${KLOOK_AID}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Car with a driver in ${c.city} &rarr;</span>
+            <span class="dtcard-tours-v">on Klook</span>
+          </a>`;
+  }
+  function bookLinksHTML(){ return carHireHTML() + tripCarHTML() + klookCarHTML() + driverHTML(); }
 
   /* ---------- International driving permit, by the licence the reader holds (decisions.md 2026-10-08) ----------
      driving-permits.js: researched values for US, UK, Canadian and Australian licences (each government's own advice),
@@ -3340,7 +3353,7 @@ function buildAdvisoryBanner(c, cityAdv){
     return n && n.n ? n : null;
   }
   function rentAffLine(){
-    const p = [CITY_CARHIRE[c.city] && "DiscoverCars", CITY_TRIPCAR[c.city] && "Trip.com", CITY_DRIVER[c.city] && "Kiwitaxi"].filter(Boolean);
+    const p = [CITY_CARHIRE[c.city] && "DiscoverCars", CITY_TRIPCAR[c.city] && "Trip.com", KLOOK_AID && CITY_KLOOKCAR[c.city] && "Klook", CITY_DRIVER[c.city] && "Kiwitaxi"].filter(Boolean);
     if (!p.length) return "";
     const many = p.length > 1;
     const names = many ? p.slice(0, -1).join(", ") + " and " + p[p.length - 1] : p[0];
