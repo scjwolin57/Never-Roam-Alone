@@ -92,6 +92,8 @@ China 22 (Trip.com does not list them; 10 others are on Klook), India 6, Ethiopi
 
 **Update 2026-10-13:** Hanoi, Castries, Charlotte Amalie, Cusco and Santa Cruz de la Sierra now have a DiscoverCars link (decisions.md 2026-10-13), so Trip.com would add a link to 27 guides that have none, plus a second choice on those 5.
 
+**Update 2026-10-14:** Jeff joined Trip.com; links are live on all 32 Trip.com guides (decisions.md 2026-10-14). 8 of them use a station or airport page because Trip.com has no city page there.
+
 ## Recommendation
 
 - **Trip.com: worth joining.** 32 guides, self-drive like DiscoverCars, longer cookie. It would be a third link on the same card, only on those 32 guides.

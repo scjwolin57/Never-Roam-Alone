@@ -1520,6 +1520,7 @@ let CITY_HOOD_GEO = {};  // [lat,lng] per neighborhood (aligned with hoods; null
 let CITY_LAUNDROMATS = {}; // laundromats per neighborhood from Overture open data (CITY_SCHEMA.md "laundromats"); undefined = not loaded, [] = none listed
 let CITY_CARHIRE = {};   // DiscoverCars page for the city or its airport: {u,k,n} (CITY_SCHEMA.md "carhire"; site-only)
 let CITY_DRIVER = {};    // Kiwitaxi car-with-a-driver hub page: {u,k,n} (CITY_SCHEMA.md "driver"; site-only)
+let CITY_TRIPCAR = {};   // Trip.com car hire page for the city, a station in it, or its airport: {u,k,n} (CITY_SCHEMA.md "tripcar"; site-only)
 let CITY_NEARBY = {};    // other guides within day-trip range: [{city,tier,mins,country,blurb}] (CITY_SCHEMA.md "nearby"; built by _guidebuild/daytrips/build_nearby.py)
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
@@ -2520,7 +2521,7 @@ async function loadCityData(){
   fill(CITY_HOTEL, rec.hotel);         fill(CITY_RIDES, rec.rides);
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
   fill(CITY_NEARBY, rec.nearby);       fill(CITY_CARHIRE, rec.carhire);
-  fill(CITY_DRIVER, rec.driver);
+  fill(CITY_DRIVER, rec.driver);       fill(CITY_TRIPCAR, rec.tripcar);
   fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
@@ -3255,7 +3256,19 @@ function buildAdvisoryBanner(c, cityAdv){
             <span class="dtcard-tours-v">on Kiwitaxi</span>
           </a>`;
   }
-  function bookLinksHTML(){ return carHireHTML() + driverHTML(); }
+  /* Trip.com affiliate: self-drive for guides DiscoverCars does not cover, and a second choice on a few it does
+     (CITY_SCHEMA.md "tripcar"; car-gap-coverage-2026-10-12.md); the city's Trip.com page, a station in it, or its airport */
+  const TRIPCOM_TAG = "Allianceid=10986851&SID=333233083&trip_sub1=carcard&trip_sub3=D20230044";
+  function tripCarHTML(){
+    const t = CITY_TRIPCAR[c.city];
+    if (!t || !t.u) return "";
+    const where = (t.k === "airport" || t.k === "station") && t.n ? `at ${t.n}` : `in ${c.city}`;
+    return `<a class="dtcard-tours" href="https://www.trip.com/carhire/${encodeURI(t.u)}?${TRIPCOM_TAG}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Compare rental cars ${where} &rarr;</span>
+            <span class="dtcard-tours-v">on Trip.com</span>
+          </a>`;
+  }
+  function bookLinksHTML(){ return carHireHTML() + tripCarHTML() + driverHTML(); }
 
   /* ---------- International driving permit, by the licence the reader holds (decisions.md 2026-10-08) ----------
      driving-permits.js: researched values for US, UK, Canadian and Australian licences (each government's own advice),
@@ -3327,10 +3340,11 @@ function buildAdvisoryBanner(c, cityAdv){
     return n && n.n ? n : null;
   }
   function rentAffLine(){
-    const p = [CITY_CARHIRE[c.city] && "DiscoverCars", CITY_DRIVER[c.city] && "Kiwitaxi"].filter(Boolean);
+    const p = [CITY_CARHIRE[c.city] && "DiscoverCars", CITY_TRIPCAR[c.city] && "Trip.com", CITY_DRIVER[c.city] && "Kiwitaxi"].filter(Boolean);
     if (!p.length) return "";
     const many = p.length > 1;
-    return `<p class="dtcard-foot">The booking link${many ? "s open" : " opens"} ${p.join(" and ")}. ${many ? "They are affiliate links" : "It is an affiliate link"}: it costs you nothing extra and helps keep Never Roam Alone free.</p>`;
+    const names = many ? p.slice(0, -1).join(", ") + " and " + p[p.length - 1] : p[0];
+    return `<p class="dtcard-foot">The booking link${many ? "s open" : " opens"} ${names}. ${many ? "They are affiliate links" : "It is an affiliate link"}: it costs you nothing extra and helps keep Never Roam Alone free.</p>`;
   }
   function buildCarModal(){
     const n = rentNote();
