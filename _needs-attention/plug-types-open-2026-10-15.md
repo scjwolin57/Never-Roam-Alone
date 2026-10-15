@@ -1,41 +1,13 @@
-# Plug types: 35 guides with no `power` yet (2026-10-15)
+# Plug types still open (2026-10-15)
 
-The plug / voltage / frequency data moved from a country table in city.html into the sheet and citydata (decisions.md 2026-10-15). The old table had no entry for these places, so their Power panel was already hidden and still is. Per the data rules, a territory is not given its parent country's value without a source.
+Research log of the 35-guide pass: `plug-types-research-2026-10-15.md`. After it, 33 of the 35 guides have `power`. Still open:
 
-What to do: for each, find the territory's own value (worldstandards.eu has a page per territory, or the territory's electricity authority), write `power` into the sheet columns Plug Types / Voltage / Frequency and citydata together, parity 0. Say "go" to research them.
+| Guide | What is missing | Why |
+|---|---|---|
+| Mariehamn (Åland) | everything | No source names Åland's plug letters. One travel guide gives 230V and 50Hz with 2-pin European plugs. |
+| Longyearbyen (Svalbard) | everything | Operators say 230V (one says 220V); none name plug letters or frequency. |
+| Oranjestad (Aruba) | voltage | 120V (worldstandards.eu) or 127V (Wikipedia, another guide); no utility source. |
+| Hamilton (Bermuda) | voltage | 110V (tourism site) or 120V (worldstandards.eu); the utility (BELCO) page was not read. |
+| Jamestown (Saint Helena) | voltage | 230V (reference sites) or 240V (visitor guides); no official source. |
 
-| Country string in the guide | City |
-|---|---|
-| Anguilla | The Valley |
-| Aruba | Oranjestad |
-| Bermuda | Hamilton |
-| Bonaire | Kralendijk |
-| British Virgin Islands | Road Town |
-| Curaçao | Willemstad |
-| Falkland Islands | Stanley |
-| Faroe Islands | Tórshavn |
-| Finland (Åland) | Mariehamn |
-| French Guiana | Cayenne |
-| French Polynesia | Papeete |
-| Gibraltar | Gibraltar |
-| Greenland | Nuuk |
-| Guadeloupe | Le Gosier |
-| Kosovo | Pristina |
-| Martinique | Fort-de-France |
-| Mayotte | Mamoudzou |
-| Montserrat | Brades |
-| New Caledonia | Nouméa |
-| Northern Mariana Islands | Saipan |
-| Norway (Svalbard) | Longyearbyen |
-| Palestine | Nablus, Hebron |
-| Puerto Rico | Ponce, San Juan |
-| Réunion | Saint-Denis |
-| Saint Helena | Jamestown |
-| Saint Pierre and Miquelon | Saint-Pierre |
-| Saint-Barthélemy | Gustavia |
-| Saint-Martin | Marigot |
-| Sint Maarten | Philipsburg |
-| Turks and Caicos Islands | Cockburn Town |
-| U.S. Virgin Islands | Charlotte Amalie |
-| Vatican | Vatican City |
-| Western Sahara | Laayoune |
+To close one: find the territory's own utility or government page, write `power` into the sheet columns Plug Types / Voltage / Frequency and citydata together, parity 0.

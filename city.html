@@ -2973,7 +2973,7 @@ function buildAdvisoryBanner(c, cityAdv){
           <span class="rides-k">Electricity</span>
           <div class="plug-list" data-no-i18n>${power.plugs.map(p => `
             <div class="plug-item">${plugIconSVG(p)}<span class="plug-letter">Type ${p}</span></div>`).join('')}
-            <span class="plug-meta">${power.v} &middot; ${power.hz}</span>
+            <span class="plug-meta">${[power.v, power.hz].filter(Boolean).join(" &middot; ")}</span>
           </div>
         </div>` : "";
     return `
