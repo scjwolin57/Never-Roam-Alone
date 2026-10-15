@@ -12,13 +12,19 @@ deleted. None of these files are used by the live site.
 | `TODO.md` | Jeff's to-do list |
 | `decisions.md` | The decision log every session reads first |
 | `suggested-improvements.md` | The improvement backlog (new ideas go here; open items are also listed in TODO.md) |
-| `RESUME_hood-picks.md`, `hood-picks-batch5-budget-2026-10-10.md` | Hood picks: 100 of 393 cities done; batch 5 (25 cities) running since 2026-10-12 on the trial credit ($155.04 left in the console); the budget note moves when batch 5 is committed |
+| `RESUME_hood-picks.md` | Hood picks: 125 of 393 cities done (batch 5 loaded 2026-10-15, 237 picks); batch 6 next, on the trial credit before 2026-10-29 (about $110 left) or after the free calls reset on 2026-11-01 |
 | `RESUME_thin-keeps-picks.md` | Picks for the thin-keep neighborhoods wait for next month's free Google calls (reminder task 2026-11-02) |
 | `RESUME_landmark-pin-pass.md`, `landmark-pins-*.csv` | Landmark pin pass: kept until the China pins Google run is done (a live session is working on it) |
 | `discovercars-coverage-2026-10-05.md` (+ `.csv`) | 31 places with no DiscoverCars landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...) |
 | `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 10 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
 | `hotel-resourcing-plan-2026-10-01.md` | Approved plan, waiting on Expedia / Partnerize |
 | `uploads/` | Drop folder for your own landmark photos |
+
+## Done — moved to `_done/` (15 October 2026)
+
+| File | Why it's closed |
+|---|---|
+| `hood-picks-batch5-budget-2026-10-10.md` | Batch 5 ran on the trial credit after Jeff's console figure (decisions.md 2026-10-15) |
 
 ## Done — moved to `_done/` (12 October 2026)
 
