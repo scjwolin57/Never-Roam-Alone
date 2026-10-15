@@ -8,7 +8,7 @@
 |---|---|---|
 | Link: city page | 596 | DiscoverCars has a page for the city itself (e.g. `discovercars.com/georgia/tbilisi`). Best link. |
 | Link: airport page | 36 | No city page, but the airport the guide already names has one. Link reads as renting at that airport. |
-| Listed, no landing page | 31 (25 since 2026-10-13: 6 found under DiscoverCars' own spelling and linked, decisions.md) | DiscoverCars rents there (it is in their search) but has no page to link to. Needs the dashboard's deep-link tool to open a search for that place. |
+| Listed, no landing page | 31 (25 since 2026-10-13, 22 since 2026-10-15: 9 found under DiscoverCars' own spelling and linked, decisions.md) | DiscoverCars rents there (it is in their search) but has no page to link to. Needs the dashboard's deep-link tool to open a search for that place. |
 | Review | 1 | Thimphu: see below. |
 | Do not link | 3 | Hebron, Nablus, Capri: see below. |
 | Not covered | 226 | Neither the city nor its airport is in DiscoverCars' search. |
