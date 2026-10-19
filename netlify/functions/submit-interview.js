@@ -46,7 +46,12 @@ exports.handler = async (event) => {
   // Interview answers: [{ q, a }], only the questions they actually answered.
   const answers  = (Array.isArray(p.answers) ? p.answers : [])
     .slice(0, 30)
-    .map(x => ({ q: clip(x && x.q, 300), a: clip(x && x.a, 1200) }))
+    .map(x => {
+      const o = { q: clip(x && x.q, 300), a: clip(x && x.a, 1200) };
+      const k = x && x.k;                       // "about you" fields (years / from)
+      if (k === "years" || k === "from") o.k = k;
+      return o;
+    })
     .filter(x => x.q && x.a);
   const website  = clip(p.website, 100);   // honeypot — hidden field, must stay empty
   const elapsedMs = Number(p.elapsedMs);   // ms between opening the form and submitting
@@ -66,6 +71,9 @@ exports.handler = async (event) => {
 
   if (!city || !name || !email || (!response && !answers.length)) {
     return json(400, { error: "Missing name, email, city, or any answer." });
+  }
+  if (type === "local" && !(answers.some(x => x.k === "years") && answers.some(x => x.k === "from"))) {
+    return json(400, { error: "Please say how long you've lived there and where you're originally from." });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json(400, { error: "A valid email is required" });
   console.log("[submit-interview] submission:", typeLabel, "in", city, "from", email, "| answers:", answers.length);

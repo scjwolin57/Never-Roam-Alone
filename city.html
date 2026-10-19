@@ -4026,24 +4026,34 @@ function buildAdvisoryBanner(c, cityAdv){
         { q: "Anything else you would like to share?" }
       ],
       local: [
+        { q: "Describe your city's personality in three words." },
+        { q: "What is your favorite thing about living in this city?" },
         { q: "What's something about daily life here that surprises visitors?", hint: "Rhythm, customs, quirks." },
         { q: "What's a local phrase, habit, or unwritten rule a visitor should know?", hint: "Tipping, greetings, queueing." },
-        { q: "Describe your city's personality in three words." },
         { q: "One neighborhood beyond the tourist center worth wandering — and why?" },
         { q: "A local artist, shop, market, or event you'd tell a first-time visitor not to miss?" },
-        { q: "What do locals complain about — and secretly love anyway?" },
-        { q: "What's considered rude here that visitors do without realizing?" },
-        { q: "What's the one thing everyone here argues about?", hint: "Best bakery, which neighborhood, a sports rivalry…" },
+        { q: "What do locals complain about most — why?" },
+        { q: "What would you tell a tourist is the best way to blend in?" },
         { q: "What dish or drink can you only get right here — and where's it done best?" },
         { q: "What's the late-night food ritual after a night out?" },
         { q: "What's overrated on every “must eat” list — and what should replace it?" },
         { q: "When is the worst time to visit — and when's the best time?" },
         { q: "What's a free thing to do here that beats most paid attractions?" },
         { q: "Which famous sight is worth the crowds, and which one can visitors skip?" },
-        { q: "What would make a visitor instantly win over locals?" },
         { q: "Anything else you would like to mention?" }
       ]
     };
+    /* Required "about you" fields shown above the questions (Jeff, 2026-10-19).
+       {city} is filled in at render. Answers are saved at the front of
+       `answers` with their key `k`, shown as a byline on the published card,
+       and not counted as questions. */
+    const ABOUT_FIELDS = {
+      local: [
+        { k: "years", q: "How many years have you lived in {city}?" },
+        { k: "from",  q: "Where are you originally from?" }
+      ]
+    };
+    const aboutQ = (f, city) => f.q.replace("{city}", city);
     /* Fills the "N questions about …" line at the top of each interview. */
     const ABOUT = { traveler: "questions about your trip", local: "questions about life where you live" };
     const pad2 = n => (n < 10 ? "0" + n : "" + n);
@@ -4113,6 +4123,9 @@ function buildAdvisoryBanner(c, cityAdv){
             `<div class="evt-hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>` +
             `<input type="hidden" name="type" value="${esc(type)}">` +
             `<div id="insights-identity"></div>` +
+            (ABOUT_FIELDS[type] || []).map(f =>
+              `<label>${esc(aboutQ(f, c.city))} *<input type="text" name="about_${f.k}" maxlength="80" required></label>`
+            ).join("") +
             body +
             `<div class="evt-actions">` +
               `<button type="submit" class="evt-send">Submit for review</button>` +
@@ -4148,8 +4161,15 @@ function buildAdvisoryBanner(c, cityAdv){
         const email = user ? (user.email || "") : get("email");
         const response = get("response");
         // interview answers, keeping only the questions they actually answered
-        const answers = qs.map((item, i) => ({ q: item.q, a: get("q" + i) })).filter(x => x.a);
-        if (!name || !email || (qs.length ? !answers.length : !response)){
+        const about = (ABOUT_FIELDS[type] || []).map(f => ({ k: f.k, q: aboutQ(f, c.city), a: get("about_" + f.k) }));
+        if (about.some(x => !x.a)){
+          msg.className = "evt-msg err";
+          msg.textContent = "Please fill in every required field (marked *).";
+          return;
+        }
+        const qAnswers = qs.map((item, i) => ({ q: item.q, a: get("q" + i) })).filter(x => x.a);
+        const answers = about.concat(qAnswers);
+        if (!name || !email || (qs.length ? !qAnswers.length : !response)){
           msg.className = "evt-msg err";
           msg.textContent = qs.length
             ? (user ? "Please answer at least one question." : "Please add your name, your email, and an answer to at least one question.")
@@ -4217,8 +4237,18 @@ function buildAdvisoryBanner(c, cityAdv){
     const when = r => { const d = new Date(r.published_at || r.created_at); return isNaN(d) ? "" : "Shared " + MONTHS[d.getMonth()] + " " + d.getFullYear(); };
     const qa = (list, n) => list.slice(0, n).map(x =>
       `<div class="ins-q">${esc(x.q)}</div><div class="ins-a">${esc(x.a)}</div>`).join("");
-    const pairs = r => (Array.isArray(r.answers) && r.answers.length) ? r.answers
+    const pairs = r => (Array.isArray(r.answers) && r.answers.some(x => !x.k)) ? r.answers.filter(x => !x.k)
       : (r.response ? [{ q: "In their words", a: r.response }] : []);
+    /* Local's "about you" answers as a byline: "Lived here 12 years · Originally from Ohio". */
+    const aboutLine = r => {
+      const a = Array.isArray(r.answers) ? r.answers : [];
+      const get = k => (a.find(x => x.k === k) || {}).a || "";
+      const yrs = get("years"), from = get("from");
+      const parts = [];
+      if (yrs) parts.push("Lived here: " + yrs + (/^\d+(\.\d+)?$/.test(yrs) ? (yrs === "1" ? " year" : " years") : ""));
+      if (from) parts.push("Originally from " + from);
+      return parts.join(" · ");
+    };
     let published = [];
 
     function card(r){
@@ -4226,6 +4256,7 @@ function buildAdvisoryBanner(c, cityAdv){
       const vote = voteWidgetHTML({type:"insight", id:r.id, city:c.city, extraClass:"fl-vote"});
       return `<article class="ins-card">` +
           `<div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
+          (aboutLine(r) ? `<div class="ins-when">${esc(aboutLine(r))}</div>` : "") +
           qa(all, 2) +
           (all.length > 2 ? `<button type="button" class="ins-link" data-ins-read="${esc(r.id)}">Read the full interview &rarr;</button>` : "") +
           vote +
@@ -4248,7 +4279,7 @@ function buildAdvisoryBanner(c, cityAdv){
         `<div class="evt-modal insights-modal" role="dialog" aria-modal="true">` +
           `<button type="button" class="evt-close" aria-label="Close">&times;</button>` +
           `<h3>${esc(LABEL[r.type] || LABEL.traveler)}: ${esc(r.name)}</h3>` +
-          `<p class="evt-modal-sub">${esc(c.city)} &middot; ${esc(when(r))}</p>` +
+          `<p class="evt-modal-sub">${esc(c.city)} &middot; ${esc(when(r))}${aboutLine(r) ? " &middot; " + esc(aboutLine(r)) : ""}</p>` +
           `<div class="ins-full">${qa(all, all.length)}</div>` +
         `</div>`;
       ov.querySelector(".evt-close").onclick = close;

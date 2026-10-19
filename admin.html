@@ -661,7 +661,7 @@
     const name = rowEl.querySelector('[data-f="name"]').value.trim();
     const answers = (Array.isArray(r.answers) ? r.answers : []).map((x, i) => {
       const t = rowEl.querySelector(`[data-f="a"][data-i="${i}"]`);
-      return { q: x.q, a: t ? t.value.trim() : "" };
+      return Object.assign({}, x, { a: t ? t.value.trim() : "" });   // keeps k on "about you" answers
     }).filter(x => x.a);
     const rt = rowEl.querySelector('[data-f="response"]');
     return { name, answers, response: rt ? rt.value.trim() : (r.response || "") };
