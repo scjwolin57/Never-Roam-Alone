@@ -1535,7 +1535,8 @@ window.NRA_HOOD_PHOTO = {
     "Centre-Ville (Place d'Armes)": { img:"images/hoods/cap-haitien--centre-ville-place-d-armes.webp", page:"https://commons.wikimedia.org/wiki/File:Cathedral_of_Cap-Haitien.jpg", src:"Rémi Kaupp" }
   },
   "Cape Coast": {
-    "Kotokuraba": { img:"images/hoods/cape-coast--kotokuraba.webp", page:"https://commons.wikimedia.org/wiki/File:Bearer_Of_The_Stool.jpg", src:"Fiifiabban" }
+    "Kotokuraba": { img:"images/hoods/cape-coast--kotokuraba.webp", page:"https://commons.wikimedia.org/wiki/File:Bearer_Of_The_Stool.jpg", src:"Fiifiabban" },
+    "Castle Area": { img:"images/hoods/cape-coast--castle-area.webp", page:"https://commons.wikimedia.org/wiki/File:Looking_Over_the_Bight_(7425392036).jpg", src:"Andrew Moore from Johannesburg, South Africa" }
   },
   "Capri": {
     "Capri Town (Piazzetta)": { img:"images/hoods/capri--capri-town-piazzetta.webp", page:"https://commons.wikimedia.org/wiki/File:Capri_island_-_Campania_-_Italy_-_July_12th_2013_-_06.jpg", src:"Norbert Nagel" },
@@ -1914,7 +1915,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Durham": {
     "Elvet": { img:"images/hoods/durham--elvet.webp", page:"https://commons.wikimedia.org/wiki/File:At_Durham_2025_063.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
-    "City Centre & The Bailey": { img:"images/hoods/durham--city-centre-the-bailey.webp", page:"https://commons.wikimedia.org/wiki/File:Restoration_of_Prebends_Bridge_over_the_River_Wear_in_Durham_City_-_geograph.org.uk_-_2354200.jpg", src:"peter robinson" }
+    "City Centre & The Bailey": { img:"images/hoods/durham--city-centre-the-bailey.webp", page:"https://commons.wikimedia.org/wiki/File:Restoration_of_Prebends_Bridge_over_the_River_Wear_in_Durham_City_-_geograph.org.uk_-_2354200.jpg", src:"peter robinson" },
+    "Crossgate & Framwellgate": { img:"images/hoods/durham--crossgate-framwellgate.webp", page:"https://commons.wikimedia.org/wiki/File:The_Angel_on_Crossgate_-_geograph.org.uk_-_7951992.jpg", src:"Robert Graham" }
   },
   "Durrës": {
     "Plazhi i Durrësit (Iliria)": { img:"images/hoods/durres--plazhi-i-durresit-iliria.webp", page:"https://commons.wikimedia.org/wiki/File:Portez_area_in_Durr%C3%ABs,_Albania.jpg", src:"Leeturtle" },
@@ -2265,7 +2267,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Hebron": {
     "Old City": { img:"images/hoods/hebron--old-city.webp", page:"https://commons.wikimedia.org/wiki/File:%D8%A7%D9%86%D8%B9%D9%83%D8%A7%D8%B3_%D8%A7%D9%84%D8%B6%D9%88%D8%A1_%D9%85%D9%86_%D9%86%D9%88%D8%A7%D9%81%D8%B0_%D8%A7%D9%84%D9%85%D8%AA%D8%AD%D9%81_%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF_%D9%81%D9%8A_%D8%A7%D9%84%D8%A8%D9%84%D8%AF%D8%A9_%D8%A7%D9%84%D9%82%D8%AF%D9%8A%D9%85%D8%A9_%D9%81%D9%8A_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84.jpg", src:"Morjana Jalal" },
-    "Ras al-Jura": { img:"images/hoods/hebron--ras-al-jura.webp", page:"https://commons.wikimedia.org/wiki/File:Ras_Al-Jura_Roundabout.jpg", src:"يوسف عادل جولاني" }
+    "Ras al-Jura": { img:"images/hoods/hebron--ras-al-jura.webp", page:"https://commons.wikimedia.org/wiki/File:Ras_Al-Jura_Roundabout.jpg", src:"يوسف عادل جولاني" },
+    "Ein Sara": { img:"images/hoods/hebron--ein-sara.webp", page:"https://commons.wikimedia.org/wiki/File:Hebron_-_panoramio.jpg", src:"Mujaddara" },
+    "Wadi al-Tuffah": { img:"images/hoods/hebron--wadi-al-tuffah.webp", page:"https://commons.wikimedia.org/wiki/File:%D9%85%D8%AE%D8%AA%D8%A7%D8%B1%D8%A7%D8%AA_%D9%85%D9%86_%D8%B5%D9%88%D8%B1_%D8%A7%D9%84%D8%AE%D9%84%D9%8A%D9%84_13.jpg", src:"Mounir.Kleibo" }
   },
   "Heidelberg": {
     "Neuenheim": { img:"images/hoods/heidelberg--neuenheim.webp", page:"https://commons.wikimedia.org/wiki/File:Heidelberg_Neuenheim_ehemalige_Dorfkirche_20110403.jpg", src:"Rudolf Stricker" },
@@ -2383,7 +2387,8 @@ window.NRA_HOOD_PHOTO = {
     "Malecón Tarapacá": { img:"images/hoods/iquitos--malecon-tarapaca.webp", page:"https://commons.wikimedia.org/wiki/File:C010_Sin_nombre_1.jpg", src:"EdwinJs" }
   },
   "Irkutsk": {
-    "130 Kvartal (Irkutsk Sloboda)": { img:"images/hoods/irkutsk--130-kvartal-irkutsk-sloboda.webp", page:"https://commons.wikimedia.org/wiki/File:3th_July_12.jpg", src:"VSerebrenikov" }
+    "130 Kvartal (Irkutsk Sloboda)": { img:"images/hoods/irkutsk--130-kvartal-irkutsk-sloboda.webp", page:"https://commons.wikimedia.org/wiki/File:3th_July_12.jpg", src:"VSerebrenikov" },
+    "City Center (Kirov Square)": { img:"images/hoods/irkutsk--city-center-kirov-square.webp", page:"https://commons.wikimedia.org/wiki/File:Kirov_square_-_panoramio.jpg", src:"Josef Künzli" }
   },
   "Isfahan": {
     "Naqsh-e Jahan (Old City)": { img:"images/hoods/isfahan--naqsh-e-jahan-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:32085-Isfahan-Iman-Square_(3444455706).jpg", src:"xiquinhosilva" },
@@ -2869,7 +2874,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Luoyang": {
     "Xigong District": { img:"images/hoods/luoyang--xigong-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%91%A8%E7%8E%8B%E5%9F%8E%E5%A4%A7%E9%85%92%E5%BA%97%E5%A4%96%E9%9D%A2%E7%9A%84%E5%A4%A7%E6%A5%BC_-_panoramio.jpg", src:"江上清风1961" },
-    "Luolong New District": { img:"images/hoods/luoyang--luolong-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:2017_Jinbei_New_Haise_(Shineray_Haise_X30L),_front_8.7.18.jpg", src:"Kevauto" }
+    "Luolong New District": { img:"images/hoods/luoyang--luolong-new-district.webp", page:"https://commons.wikimedia.org/wiki/File:2017_Jinbei_New_Haise_(Shineray_Haise_X30L),_front_8.7.18.jpg", src:"Kevauto" },
+    "Old Town (Laocheng)": { img:"images/hoods/luoyang--old-town-laocheng.webp", page:"https://commons.wikimedia.org/wiki/File:20230124_Luoyi_Ancient_City_04.jpg", src:"Windmemories" }
   },
   "Lusaka": {
     "Kabulonga": { img:"images/hoods/lusaka--kabulonga.webp", page:"https://commons.wikimedia.org/wiki/File:US_delivers_humanitarian_aid_to_Zambia_(8296117).jpg", src:"U.S. Army photo by Sgt. Maj. Casey Nelsen" },
@@ -3249,7 +3255,8 @@ window.NRA_HOOD_PHOTO = {
   "Mysore": {
     "City Centre (Palace & Agrahara)": { img:"images/hoods/mysore--city-centre-palace-agrahara.webp", page:"https://commons.wikimedia.org/wiki/File:Forum_Centre_City_Mall.jpg", src:"LittleT889" },
     "Gokulam": { img:"images/hoods/mysore--gokulam.webp", page:"https://commons.wikimedia.org/wiki/File:A_house_on_Contur_Road,_Mysore_(01).jpg", src:"Christopher J. Fynn" },
-    "Nazarbad": { img:"images/hoods/mysore--nazarbad.webp", page:"https://commons.wikimedia.org/wiki/File:A_house_on_Theobald_Road,_Mysore_(01).jpg", src:"Christopher J, Fynn" }
+    "Nazarbad": { img:"images/hoods/mysore--nazarbad.webp", page:"https://commons.wikimedia.org/wiki/File:A_house_on_Theobald_Road,_Mysore_(01).jpg", src:"Christopher J, Fynn" },
+    "Devaraja Mohalla": { img:"images/hoods/mysore--devaraja-mohalla.webp", page:"https://commons.wikimedia.org/wiki/File:Regional_Commissioner%27s_Office,_Mysore_(02).jpg", src:"Christopher J. Fynn" }
   },
   "Mytilene": {
     "Epano Skala": { img:"images/hoods/mytilene--epano-skala.webp", page:"https://commons.wikimedia.org/wiki/File:20150716_Valide_Mosque_Epano_Skala_Mytilene_Lesvos_Greece.jpg", src:"Ggia" },
@@ -3584,7 +3591,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Phitsanulok": {
     "Wat Chan": { img:"images/hoods/phitsanulok--wat-chan.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Chan_Tawan-ok_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%88%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%A3%E0%B9%8C%E0%B8%95%E0%B8%B0%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%AD%E0%B8%AD%E0%B8%81_-_img_05.jpg", src:"Chainwit." },
-    "Aranyik": { img:"images/hoods/phitsanulok--aranyik.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Aranyik_Phitsanulok_(March_2022)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B4%E0%B8%81_%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81_-_IMG_08.jpg", src:"Chainwit." }
+    "Aranyik": { img:"images/hoods/phitsanulok--aranyik.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Aranyik_Phitsanulok_(March_2022)_%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%AD%E0%B8%A3%E0%B8%B1%E0%B8%8D%E0%B8%8D%E0%B8%B4%E0%B8%81_%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81_-_IMG_08.jpg", src:"Chainwit." },
+    "Nai Mueang (City Center / Riverside)": { img:"images/hoods/phitsanulok--nai-mueang-city-center-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:2013_Wat_Phra_Si_Rattana_Mahathat_Prang.jpg", src:"Takeaway" }
   },
   "Phnom Penh": {
     "Daun Penh (Riverside)": { img:"images/hoods/phnom-penh--daun-penh-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Phnom_and_Cathedral_of_Phnom_Penh.jpg", src:"Willuconquer" },
@@ -3658,7 +3666,9 @@ window.NRA_HOOD_PHOTO = {
     "Veľká": { img:"images/hoods/poprad--velka.webp", page:"https://commons.wikimedia.org/wiki/File:Square_of_Velka_6.jpg", src:"Kristo" }
   },
   "Port-au-Prince": {
-    "Pétion-Ville": { img:"images/hoods/port-au-prince--petion-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Petion-Ville,_Haiti_-_panoramio.jpg", src:"Yoni Rubin" }
+    "Pétion-Ville": { img:"images/hoods/port-au-prince--petion-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Petion-Ville,_Haiti_-_panoramio.jpg", src:"Yoni Rubin" },
+    "Juvénat": { img:"images/hoods/port-au-prince--juvenat.webp", page:"https://commons.wikimedia.org/wiki/File:Vue_de_de_la_ville.jpg", src:"Gwo BwaKajou" },
+    "Turgeau (Bois-Verna)": { img:"images/hoods/port-au-prince--turgeau-bois-verna.webp", page:"https://commons.wikimedia.org/wiki/File:Villa_Miramar,_Port-au-Prince_20180716_02.jpg", src:"Lea-Kim" }
   },
   "Port Elizabeth": {
     "Summerstrand": { img:"images/hoods/port-elizabeth--summerstrand.webp", page:"https://commons.wikimedia.org/wiki/File:Garden_entrance_bnb_Margate_Place_Summerstrand.jpg", src:"Ballie Street24" },
@@ -3742,7 +3752,8 @@ window.NRA_HOOD_PHOTO = {
   "Puducherry": {
     "White Town (French Quarter)": { img:"images/hoods/puducherry--white-town-french-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Puducherry-White_Town-WUS02344.jpg", src:"Rainer Halama" },
     "Auroville": { img:"images/hoods/puducherry--auroville.webp", page:"https://commons.wikimedia.org/wiki/File:Auroville_campus_2K22TNKAN_(10).jpg", src:"Vinayaraj" },
-    "Serenity Beach": { img:"images/hoods/puducherry--serenity-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Early_morning_at_Serenity_Beach_Puducherry.jpg", src:"Jerrygoyal" }
+    "Serenity Beach": { img:"images/hoods/puducherry--serenity-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Early_morning_at_Serenity_Beach_Puducherry.jpg", src:"Jerrygoyal" },
+    "Tamil Quarter (Heritage Town)": { img:"images/hoods/puducherry--tamil-quarter-heritage-town.webp", page:"https://commons.wikimedia.org/wiki/File:Puducherry-Shri_Vedapuriswarar_Sivan_Temple-WUS02319.jpg", src:"Rainer Halama" }
   },
   "Puebla": {
     "Centro Historico": { img:"images/hoods/puebla--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:BUAPLibraryBldg_(cropped).JPG", src:"AlejandroLinaresGarcia" },
@@ -4820,7 +4831,8 @@ window.NRA_HOOD_PHOTO = {
     "Old City (Haram District)": { img:"images/hoods/karbala--old-city-haram-district.webp", page:"https://commons.wikimedia.org/wiki/File:%D9%88%D8%B1%D9%88%D8%AF%D9%8A_%D8%B5%D8%AD%D9%86_%D8%B2%D9%8A%D8%A7%D8%B1%D8%AA_%D8%A7%D9%85%D8%A7%D9%85_%D8%AD%D8%B3%D9%8A%D9%86_(%D8%B9)_%D9%85%D9%87%D8%B1_89_-_panoramio.jpg", src:"khosh1341" }
   },
   "Kusatsu": {
-    "Sai-no-Kawara": { img:"images/hoods/kusatsu--sai-no-kawara.webp", page:"https://commons.wikimedia.org/wiki/File:251129_Sainokawara_Park_17.jpg", src:"Aspere" }
+    "Sai-no-Kawara": { img:"images/hoods/kusatsu--sai-no-kawara.webp", page:"https://commons.wikimedia.org/wiki/File:251129_Sainokawara_Park_17.jpg", src:"Aspere" },
+    "Yubatake Central": { img:"images/hoods/kusatsu--yubatake-central.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B9%AF%E7%95%91_-_panoramio_(2).jpg", src:"SpringField1967" }
   },
   "Leticia": {
     "Town Center / Santander Park": { img:"images/hoods/leticia--town-center-santander-park.webp", page:"https://commons.wikimedia.org/wiki/File:Leticia,_Colombia_(7578553220).jpg", src:"Pedro Szekely from Los Angeles, USA" }
@@ -4858,7 +4870,7 @@ window.NRA_HOOD_PHOTO = {
   },
   "Stanley": {
     "Stanley Waterfront / Ross Road": { img:"images/hoods/stanley--stanley-waterfront-ross-road.webp", page:"https://commons.wikimedia.org/wiki/File:SeMo-74_(49435307886).jpg", src:"Se Mo" },
-    "West Stanley": { img:"images/hoods/stanley--west-stanley.webp", page:"https://commons.wikimedia.org/wiki/File:2024_Stanley_-_Falkland_Inseln_-_Falkland_Islands_Museum_and_National_Trust_-_by_2eight_-_7DS8013.jpg", src:"Stefan Brending (2eight)" }
+    "West Stanley": { img:"images/hoods/stanley--west-stanley.webp", page:"https://commons.wikimedia.org/wiki/File:2024_Stanley_-_Falkland_Inseln_-_Falkland_Islands_Museum_and_National_Trust_-_by_2eight_-_7DS8013.jpg", src:"Stefan Brending (2eight)" },
   },
   "The Valley": {
     "Rendezvous Bay": { img:"images/hoods/the-valley--rendezvous-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Rendezvous_Bay_Salt_Pond.jpg", src:"LittleT889" },
@@ -4892,5 +4904,11 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kralendijk": {
     "Playa (Downtown Kralendijk)": { img:"images/hoods/kralendijk--playa-downtown-kralendijk.webp", page:"https://commons.wikimedia.org/wiki/File:Bonaire_008_(2085258268).jpg", src:"BrianBoardman from Alexandria VA" }
+  },
+  "Turpan": {
+    "Old City Centre (Gaochang District)": { img:"images/hoods/turpan--old-city-centre-gaochang-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%90%90%E9%B2%81%E7%95%AA%E8%80%81%E7%B2%AE%E4%BB%93_%E5%A4%A7%E9%97%A8%EF%BC%88Turpan_Old_Granary_gate%EF%BC%89.jpg", src:"HaziiDozen" }
+  },
+  "Zhangye": {
+    "City Centre (Ganzhou)": { img:"images/hoods/zhangye--city-centre-ganzhou.webp", page:"https://commons.wikimedia.org/wiki/File:Zhangye_Gulou_2014.01.02_09-21-01.jpg", src:"Zhangzhugang" }
   },
 };
