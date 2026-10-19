@@ -2035,7 +2035,9 @@ window.NRA_HOOD_PHOTO = {
     "Herdern": { img:"images/hoods/freiburg--herdern.webp", page:"https://commons.wikimedia.org/wiki/File:Blindenheim_jm7590.jpg", src:"user:joergens.mi" }
   },
   "Funafuti": {
-    "Vaiaku": { img:"images/hoods/funafuti--vaiaku.webp", page:"https://commons.wikimedia.org/wiki/File:Tuvalu_Women_for_Change.jpg", src:"Rosodo" }
+    "Vaiaku": { img:"images/hoods/funafuti--vaiaku.webp", page:"https://commons.wikimedia.org/wiki/File:Tuvalu_Women_for_Change.jpg", src:"Rosodo" },
+    "Fakaifou": { img:"images/hoods/funafuti--fakaifou.webp", page:"https://commons.wikimedia.org/wiki/File:Funafuti_F%C4%93tu%27ao_Lima_Church.jpg", src:"Rosodo" },
+    "Alapi": { img:"images/hoods/funafuti--alapi.webp", page:"https://commons.wikimedia.org/wiki/File:Red_Cross_Centre_(28147989833).jpg", src:"Michael Coghlan from Adelaide, Australia" }
   },
   "Funchal": {
     "Sé (City Centre)": { img:"images/hoods/funchal--se-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Catedral_del_Funchal_(3).jpg", src:"Alberto-g-rovi" },
@@ -3811,12 +3813,14 @@ window.NRA_HOOD_PHOTO = {
     "Huajsapata": { img:"images/hoods/puno--huajsapata.webp", page:"https://commons.wikimedia.org/wiki/File:Cerrito_Huajsapata,_Puno_04.jpg", src:"Ordzonhyd Rudyard Tarco Palomino" }
   },
   "Pyatigorsk": {
-    "Prospekt Kirova (Centre)": { img:"images/hoods/pyatigorsk--prospekt-kirova-centre.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_18%D0%B0_IMG_0275.jpg", src:"Figure19" }
+    "Prospekt Kirova (Centre)": { img:"images/hoods/pyatigorsk--prospekt-kirova-centre.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0_18%D0%B0_IMG_0275.jpg", src:"Figure19" },
+    "Tsvetnik & Resort Zone": { img:"images/hoods/pyatigorsk--tsvetnik-resort-zone.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%B2%D1%85%D0%BE%D0%B4_%D0%B2_%D0%B3%D0%B0%D0%BB%D0%B5%D1%80%D0%B5%D1%8E.jpg", src:"Mary Mavier" }
   },
   "Pyongyang": {
     "Yanggak Island (Yanggakdo)": { img:"images/hoods/pyongyang--yanggak-island-yanggakdo.webp", page:"https://commons.wikimedia.org/wiki/File:North_Korea-Pyongyang-Yanggakdo-0w.jpg", src:"Kok Leng Yeo" },
     "Moranbong District": { img:"images/hoods/pyongyang--moranbong-district.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B9%B3%E5%A3%A4%E9%A3%8E%E5%85%89_Pyongyang,_the_Democratic_People%27s_Republic_of_Korea_-_panoramio_(1).jpg", src:"wanghongliu" },
-    "Central District (Chung-guyok)": { img:"images/hoods/pyongyang--central-district-chung-guyok.webp", page:"https://commons.wikimedia.org/wiki/File:Korean_Central_History_Museum_01.jpg", src:"Mark Fahey" }
+    "Central District (Chung-guyok)": { img:"images/hoods/pyongyang--central-district-chung-guyok.webp", page:"https://commons.wikimedia.org/wiki/File:Korean_Central_History_Museum_01.jpg", src:"Mark Fahey" },
+    "Potong River District (Potonggang-guyok)": { img:"images/hoods/pyongyang--potong-river-district-potonggang-guyok.webp", page:"https://commons.wikimedia.org/wiki/File:Potongmun_Pyongyang_(2).jpg", src:"Tom" }
   },
   "Qingdao": {
     "Badaguan": { img:"images/hoods/qingdao--badaguan.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%AA%E5%B9%B3%E8%A7%92%E5%85%AC%E5%9B%ADAe.jpg", src:"Li Chao" },
@@ -4407,7 +4411,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Timbuktu": {
     "Djingareyber": { img:"images/hoods/timbuktu--djingareyber.webp", page:"https://commons.wikimedia.org/wiki/File:Djingareiber_cour.jpg", src:"KaTeznik" },
-    "Sankoré": { img:"images/hoods/timbuktu--sankore.webp", page:"https://commons.wikimedia.org/wiki/File:Sankore_Madrasah.jpg", src:"Dr. Ondřej Havelka (cestovatel)" }
+    "Sankoré": { img:"images/hoods/timbuktu--sankore.webp", page:"https://commons.wikimedia.org/wiki/File:Sankore_Madrasah.jpg", src:"Dr. Ondřej Havelka (cestovatel)" },
+    "Badjindé": { img:"images/hoods/timbuktu--badjinde.webp", page:"https://commons.wikimedia.org/wiki/File:Sankore_Mosque_in_Timbuktu.jpg", src:"upyernoz from Haverford, USA" }
   },
   "Tirupati": {
     "Tirumala": { img:"images/hoods/tirupati--tirumala.webp", page:"https://commons.wikimedia.org/wiki/File:Tirumala_tour_2023_01.jpg", src:"Rajasekhar1961" },
@@ -4790,7 +4795,8 @@ window.NRA_HOOD_PHOTO = {
     "Nam Khan Riverside": { img:"images/hoods/luang-prabang--nam-khan-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:2024-11-04_Vat_Souvannakhiri,_Luang_Prabang_3.jpg", src:"Alexkom000" }
   },
   "Mek'ele": {
-    "Hawelti": { img:"images/hoods/mek-ele--hawelti.webp", page:"https://www.flickr.com/photos/141889533@N05/49044633013/", src:"SecondaryCities" }
+    "Hawelti": { img:"images/hoods/mek-ele--hawelti.webp", page:"https://www.flickr.com/photos/141889533@N05/49044633013/", src:"SecondaryCities" },
+    "Kedamay Weyane (City Center)": { img:"images/hoods/mek-ele--kedamay-weyane-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Hawzen_Adebabay,_Mekele,_Ethiopia,_2013_-_panoramio.jpg", src:"MarcD." }
   },
   "San Pedro de Atacama": {
     "Ayllu de Solcor": { img:"images/hoods/san-pedro-de-atacama--ayllu-de-solcor.webp", page:"https://commons.wikimedia.org/wiki/File:San_Pedro_de_Atacama-CTJ-IMG_6717.jpg", src:"Christer T Johansson" },
@@ -4835,7 +4841,8 @@ window.NRA_HOOD_PHOTO = {
     "Village Center": { img:"images/hoods/el-chalten--village-center.webp", page:"https://commons.wikimedia.org/wiki/File:Argentina_2015-11-21_(24873659906).jpg", src:"Guillaume Baviere from Uppsala, Sweden" }
   },
   "Fenghuang": {
-    "East Gate (Dongmen)": { img:"images/hoods/fenghuang--east-gate-dongmen.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%87%A4%E5%87%B0%E5%8F%A4%E5%9F%8E%E5%8D%87%E6%81%92%E9%97%A8.jpg", src:"HCCB3947" }
+    "East Gate (Dongmen)": { img:"images/hoods/fenghuang--east-gate-dongmen.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%87%A4%E5%87%B0%E5%8F%A4%E5%9F%8E%E5%8D%87%E6%81%92%E9%97%A8.jpg", src:"HCCB3947" },
+    "Tuojiang Riverside (Old Town)": { img:"images/hoods/fenghuang--tuojiang-riverside-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Boatman_Fenghuang,_Hunan_(9449805344).jpg", src:"Robert Baxter from China（中国）" }
   },
   "Flores": {
     "Flores Island (Isla de Flores)": { img:"images/hoods/flores--flores-island-isla-de-flores.webp", page:"https://commons.wikimedia.org/wiki/File:Colourful_streets_in_Isla_de_Flores.jpg", src:"Bex Walton" }
@@ -4955,5 +4962,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kangding": {
     "Old Town (Lao Cheng)": { img:"images/hoods/kangding--old-town-lao-cheng.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%BA%B7%E5%AE%9A%E5%8E%BF%E5%9F%8E%EF%BC%8C%E7%94%98%E5%AD%9C%E5%B7%9E%E5%BA%9C%E6%89%80%E5%9C%A8%E5%9C%B0_-_panoramio.jpg", src:"山海风" }
+  },
+  "Srimangal": {
+    "Sreemangal Town Center": { img:"images/hoods/srimangal--sreemangal-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Tea_gardens_Srimangal_Sreemangal_Upazila_Moulvibazar_Maulvibazar_Moulavibazar_Sylhet_234.jpg", src:"Ifsanjry" }
   },
 };
