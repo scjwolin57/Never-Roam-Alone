@@ -1164,6 +1164,8 @@
   .evt-form input[type=text],.evt-form input[type=url],.evt-form input[type=date],.evt-form input[type=time],.evt-form input[type=email],.evt-form input[type=file],.evt-form select,.evt-form textarea{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   .evt-form .evt-send{background:var(--coral)!important;border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.08em!important}
   .evt-form .evt-send:hover{background:#8a3a20!important}
+  .evt-form .evt-draft{background:transparent;color:var(--green);border:1px solid var(--green);border-radius:0;font-family:'Work Sans',monospace;font-weight:700;font-size:.92rem;padding:10px 18px;cursor:pointer;text-transform:uppercase;letter-spacing:.08em}
+  .evt-form .evt-draft:hover{background:var(--green);color:#fff}
   .cal-submit-btn{border-radius:0!important;font-family:'Work Sans',monospace!important;text-transform:uppercase!important;letter-spacing:.06em!important}
   #embassy-sel{background:var(--sand)!important;border:1px solid var(--ink)!important;border-radius:0!important;color:var(--ink)}
   #conv-row input,#conv-row select{background:transparent!important;border:none!important;border-radius:0!important;color:var(--ink)}
@@ -4129,6 +4131,7 @@ function buildAdvisoryBanner(c, cityAdv){
             body +
             `<div class="evt-actions">` +
               `<button type="submit" class="evt-send">Submit for review</button>` +
+              `<button type="button" class="evt-draft" id="insights-draft">Save draft</button>` +
               `<span class="evt-msg" id="insights-msg"></span>` +
             `</div>` +
           `</form>` +
@@ -4141,14 +4144,49 @@ function buildAdvisoryBanner(c, cityAdv){
       ov.querySelector(".evt-close").onclick = close;
       paintIdentity();
       wireForm(type);
+      restoreDraft(type);
       openedAt = Date.now();
     }
+
+    /* Drafts (Jeff, 2026-10-19: closing the form lost everything typed).
+       Kept in this browser only, one per city and interview type. Saved by
+       the Save draft button and on every keystroke, put back when the form
+       opens again, cleared once the interview is sent. */
+    const draftKey = type => "nra_interview_draft:" + c.city + ":" + type;
+    const draftFields = () => [...ov.querySelectorAll("#insights-form input[name], #insights-form textarea[name]")]
+      .filter(el => el.type !== "hidden" && el.name !== "website");
+    function saveDraft(type){
+      const data = {};
+      draftFields().forEach(el => { if (el.value.trim()) data[el.name] = el.value; });
+      try{
+        if (Object.keys(data).length) localStorage.setItem(draftKey(type), JSON.stringify(data));
+        else localStorage.removeItem(draftKey(type));
+        return true;
+      }catch(e){ return false; }
+    }
+    function restoreDraft(type){
+      let data = null;
+      try{ data = JSON.parse(localStorage.getItem(draftKey(type)) || "null"); }catch(e){}
+      if (!data) return;
+      draftFields().forEach(el => { if (data[el.name] != null && !el.value) el.value = data[el.name]; });
+      const msg = ov.querySelector("#insights-msg");
+      if (msg){ msg.className = "evt-msg"; msg.textContent = "Your saved draft is back."; }
+    }
+    function clearDraft(type){ try{ localStorage.removeItem(draftKey(type)); }catch(e){} }
 
     function wireForm(type){
       const qs = QUESTIONS[type] || [];
       const form = ov.querySelector("#insights-form");
       const msg = ov.querySelector("#insights-msg");
       const thanks = ov.querySelector("#insights-thanks");
+      let draftTimer = 0;
+      form.addEventListener("input", () => { clearTimeout(draftTimer); draftTimer = setTimeout(() => saveDraft(type), 400); });
+      ov.querySelector("#insights-draft").onclick = () => {
+        clearTimeout(draftTimer);
+        const ok = saveDraft(type);
+        msg.className = ok ? "evt-msg" : "evt-msg err";
+        msg.textContent = ok ? "Draft saved. It will be here when you come back on this device." : "Couldn't save a draft in this browser.";
+      };
       form.addEventListener("submit", async e => {
         e.preventDefault();
         const fd = new FormData(form);
@@ -4193,6 +4231,7 @@ function buildAdvisoryBanner(c, cityAdv){
           });
           const d = await r.json().catch(() => ({}));
           if (!r.ok || !d.sent) throw new Error(d.error || "Something went wrong.");
+          clearTimeout(draftTimer); clearDraft(type);
           form.hidden = true; thanks.hidden = false;
         }catch(err){
           msg.className = "evt-msg err";
