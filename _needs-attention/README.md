@@ -18,6 +18,7 @@ deleted. None of these files are used by the live site.
 | `landmark-pins-for-google.csv` | Kept: the landmark-to-day-trip scripts (`_guidebuild/daytrips/lmkmove/`) re-index it |
 | `discovercars-coverage-2026-10-05.csv` | Kept: the DiscoverCars and Kiwitaxi scripts read it (its note moved to `_done/`) |
 | `plug-types-research-2026-10-15.md` | Plug types research log (all 893 guides filled 2026-10-19); CLAUDE.md points to it |
+| `hood-picks-name-query-test-2026-10-19.md` | Neighborhood-name search test; waiting on Jeff (TODO G2e) |
 | `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 10 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
 | `hotel-resourcing-plan-2026-10-01.md` | Approved plan; Expedia approved, waiting on Hostelworld |
 | `packing-list.xlsx` | Not committed; a copy of `packing-list/packing-list.xlsx` from the blog packing-list task (TODO A12) |
