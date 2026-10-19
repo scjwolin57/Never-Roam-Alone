@@ -406,7 +406,8 @@ window.NRA_HOOD_PHOTO = {
     "Medina": { img:"images/hoods/marrakech--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna.jpg" },
     "Kasbah": { img:"images/hoods/marrakech--kasbah.webp", page:"https://commons.wikimedia.org/wiki/File:Marrakech_2009_Bab_Agnaou_Gate_LL.JPG" },
     "Gueliz": { img:"images/hoods/marrakech--gueliz.webp", page:"https://commons.wikimedia.org/wiki/File:Le_jardin_des_majorelle_40.JPG" },
-    "Palmeraie": { img:"images/hoods/marrakech--palmeraie.webp", page:"https://commons.wikimedia.org/wiki/File:La_Palmeraie_de_Marrakech_701.JPG" }
+    "Palmeraie": { img:"images/hoods/marrakech--palmeraie.webp", page:"https://commons.wikimedia.org/wiki/File:La_Palmeraie_de_Marrakech_701.JPG" },
+    "Hivernage": { img:"images/hoods/marrakech--hivernage.webp", page:"https://commons.wikimedia.org/wiki/File:SOFITEL_HOTEL_MARRAKECH_MOROCCO_APRIL_2013_(8709735037).jpg", src:"calflier001" }
   },
   "Mecca": {
     "Ajyad": { img:"images/hoods/mecca--ajyad.webp", page:"https://commons.wikimedia.org/wiki/File:Ajyad%2C_Mecca_24231%2C_Saudi_Arabia_-_panoramio_(2).jpg" },
@@ -602,12 +603,14 @@ window.NRA_HOOD_PHOTO = {
   "Riyadh": {
     "Al Malaz": { img:"images/hoods/riyadh--al-malaz.webp", page:"https://commons.wikimedia.org/wiki/File:Al_Malaz_Riyadh%2C_Nov_2023.jpg" },
     "Olaya": { img:"images/hoods/riyadh--olaya.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Skyline.jpg" },
-    "Diplomatic Quarter": { img:"images/hoods/riyadh--diplomatic-quarter.webp", page:"https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg" }
+    "Diplomatic Quarter": { img:"images/hoods/riyadh--diplomatic-quarter.webp", page:"https://en.wikipedia.org/wiki/File:Hayy_Assafarat_Grand_Mosque_2024.jpeg" },
+    "King Abdullah Financial District": { img:"images/hoods/riyadh--king-abdullah-financial-district.webp", page:"https://commons.wikimedia.org/wiki/File:Riyadh_Metro_(2024).jpg", src:"Saudi Press Agency (SPA)" }
   },
   "Jeddah": {
     "Al-Balad": { img:"images/hoods/jeddah--al-balad.webp", page:"https://commons.wikimedia.org/wiki/File:Old_Jeddah_(8).jpg", src:"Radosław Botev" },
     "Ash Shati": { img:"images/hoods/jeddah--ash-shati.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Rahmah_Mosque_2.jpg" },
-    "Al Hamra": { img:"images/hoods/jeddah--al-hamra.webp", page:"https://commons.wikimedia.org/wiki/File:JadFauW.JPG", src:"Mghamdi" }
+    "Al Hamra": { img:"images/hoods/jeddah--al-hamra.webp", page:"https://commons.wikimedia.org/wiki/File:JadFauW.JPG", src:"Mghamdi" },
+    "Al Rawdah": { img:"images/hoods/jeddah--al-rawdah.webp", page:"https://commons.wikimedia.org/wiki/File:Masjed_-_panoramio.jpg", src:"Mohammad Waqas Ahmad" }
   },
   "Rome": {
     "Monti": { img:"images/hoods/rome--monti.webp", page:"https://commons.wikimedia.org/wiki/File:P_za_Madonna_dei_Monti,_via_dei_serpenti_e_via_Baccina_P1080717.JPG", src:"Lalupa" },
@@ -1617,7 +1620,9 @@ window.NRA_HOOD_PHOTO = {
   "Chiang Mai": {
     "Nimmanhaemin": { img:"images/hoods/chiang-mai--nimmanhaemin.webp", page:"https://commons.wikimedia.org/wiki/File:Nimmanhaeminda_Road_2025.jpg", src:"Setawut" },
     "Santitham": { img:"images/hoods/chiang-mai--santitham.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_Santitham,_Chiang_Mai_(I).jpg", src:"This Photo was taken by Supanut Arunoprayote. Feel free to use any of my images," },
-    "Night Bazaar (Chang Khlan)": { img:"images/hoods/chiang-mai--night-bazaar-chang-khlan.webp", page:"https://commons.wikimedia.org/wiki/File:Chang_Khlan,_Mueang_Chiang_Mai_District,_Chiang_Mai,_Thailand_-_panoramio_(18).jpg", src:"mohigan" }
+    "Night Bazaar (Chang Khlan)": { img:"images/hoods/chiang-mai--night-bazaar-chang-khlan.webp", page:"https://commons.wikimedia.org/wiki/File:Chang_Khlan,_Mueang_Chiang_Mai_District,_Chiang_Mai,_Thailand_-_panoramio_(18).jpg", src:"mohigan" },
+    "Old City (Phra Sing)": { img:"images/hoods/chiang-mai--old-city-phra-sing.webp", page:"https://commons.wikimedia.org/wiki/File:Wat_phan_waen_chiang_mai.jpg", src:"Takeaway" },
+    "Riverside (Wat Ket)": { img:"images/hoods/chiang-mai--riverside-wat-ket.webp", page:"https://commons.wikimedia.org/wiki/File:Charoen_Rajd_Road_in_Chiang_Mai_2.jpg", src:"Christophe95" }
   },
   "Chicago": {
     "The Loop": { img:"images/hoods/chicago--the-loop.webp", page:"https://commons.wikimedia.org/wiki/File:Chicago,_Illinois,_U.S._(2023)_-_123.jpg", src:"Another Believer" },
@@ -2248,7 +2253,8 @@ window.NRA_HOOD_PHOTO = {
     "Ancient Town (Old Quarter)": { img:"images/hoods/hoi-an--ancient-town-old-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Quan_Cong_Temple_4.jpg", src:"Christophe95" },
     "An Bang Beach": { img:"images/hoods/hoi-an--an-bang-beach.webp", page:"https://commons.wikimedia.org/wiki/File:An_B%C3%A0ng_Beach_(39647680125).jpg", src:"Mig Gilbert from Brighton" },
     "Cam Thanh (Coconut Village)": { img:"images/hoods/hoi-an--cam-thanh-coconut-village.webp", page:"https://commons.wikimedia.org/wiki/File:Basket_Boat_and_the_Bamboo_forest_(Unsplash).jpg", src:"Chester Ho chesterho" },
-    "New Town (Tan An)": { img:"images/hoods/hoi-an--new-town-tan-an.webp", page:"https://commons.wikimedia.org/wiki/File:Phuoc_Lam_Pagoda_1.jpg", src:"Christophe95" }
+    "New Town (Tan An)": { img:"images/hoods/hoi-an--new-town-tan-an.webp", page:"https://commons.wikimedia.org/wiki/File:Phuoc_Lam_Pagoda_1.jpg", src:"Christophe95" },
+    "Cam Nam Island": { img:"images/hoods/hoi-an--cam-nam-island.webp", page:"https://commons.wikimedia.org/wiki/File:Hoi_An_(31460437767).jpg", src:"Isabell Schulz" }
   },
   "Honiara": {
     "Point Cruz": { img:"images/hoods/honiara--point-cruz.webp", page:"https://www.flickr.com/photos/65638600@N05/8073765585/", src:"rapidtravelchai" }
@@ -2281,7 +2287,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Hurghada": {
     "El Dahar": { img:"images/hoods/hurghada--el-dahar.webp", page:"https://commons.wikimedia.org/wiki/File:Hilton_harbour_-_panoramio.jpg", src:"Anton Nikiforov" },
-    "Sahl Hasheesh": { img:"images/hoods/hurghada--sahl-hasheesh.webp", page:"https://commons.wikimedia.org/wiki/File:Sahl_Hasheesh_R06.jpg", src:"Marc Ryckaert" }
+    "Sahl Hasheesh": { img:"images/hoods/hurghada--sahl-hasheesh.webp", page:"https://commons.wikimedia.org/wiki/File:Sahl_Hasheesh_R06.jpg", src:"Marc Ryckaert" },
+    "Sekalla (El Saqqala)": { img:"images/hoods/hurghada--sekalla-el-saqqala.webp", page:"https://commons.wikimedia.org/wiki/File:Hurghada,_Qesm_Hurghada,_Red_Sea_Governorate,_Egypt_-_panoramio_-_demonzak_(11).jpg", src:"demonzak" }
   },
   "Hyderabad": {
     "Charminar / Old City": { img:"images/hoods/hyderabad--charminar-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Charmiar_Hyderabad_full_view_image.jpg", src:"Rashid Jorvee" },
@@ -2473,7 +2480,8 @@ window.NRA_HOOD_PHOTO = {
     "Yancheng": { img:"images/hoods/kaohsiung--yancheng.webp", page:"https://commons.wikimedia.org/wiki/File:A_Kaohsiung_City_Public_Bike_Station_-_panoramio.jpg", src:"Nagono" },
     "Sinsing": { img:"images/hoods/kaohsiung--sinsing.webp", page:"https://commons.wikimedia.org/wiki/File:Kaohsiung,_Gushan_District,_Kaohsiung_City,_Taiwan_-_panoramio_(32).jpg", src:"Adonis Lin" },
     "Lingya": { img:"images/hoods/kaohsiung--lingya.webp", page:"https://commons.wikimedia.org/wiki/File:2022_Taiwan_Lantern_Festival_01.jpg", src:"人人生來平等" },
-    "Zuoying": { img:"images/hoods/kaohsiung--zuoying.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B7%A6%E7%87%9F%E7%AB%99_(2348925421).jpg", src:"Anav Rin" }
+    "Zuoying": { img:"images/hoods/kaohsiung--zuoying.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B7%A6%E7%87%9F%E7%AB%99_(2348925421).jpg", src:"Anav Rin" },
+    "Gushan (Sizihwan)": { img:"images/hoods/kaohsiung--gushan-sizihwan.webp", page:"https://commons.wikimedia.org/wiki/File:View_over_Sizihwan.jpg", src:"Bevis Chen" }
   },
   "Karachi": {
     "Clifton": { img:"images/hoods/karachi--clifton.webp", page:"https://commons.wikimedia.org/wiki/File:SBBPark.jpg", src:"Crosji" },
@@ -2908,7 +2916,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Manama": {
     "Juffair": { img:"images/hoods/manama--juffair.webp", page:"https://commons.wikimedia.org/wiki/File:AlFatehMosque.jpg", src:"XIDME" },
-    "Manama Souq / Bab Al Bahrain": { img:"images/hoods/manama--manama-souq-bab-al-bahrain.webp", page:"https://commons.wikimedia.org/wiki/File:Bab al Bahrain alley.jpg", src:"Jan Michael Pfeiffer" }
+    "Manama Souq / Bab Al Bahrain": { img:"images/hoods/manama--manama-souq-bab-al-bahrain.webp", page:"https://commons.wikimedia.org/wiki/File:Bab al Bahrain alley.jpg", src:"Jan Michael Pfeiffer" },
+    "Diplomatic Area": { img:"images/hoods/manama--diplomatic-area.webp", page:"https://commons.wikimedia.org/wiki/File:Bahrain_(48836116787).jpg", src:"Paolo Gamba from Paris, France" }
   },
   "Manaus": {
     "Centro": { img:"images/hoods/manaus--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Igreja_de_Manaus_-_AM_-_panoramio.jpg", src:"Paulo JC Nogueira" },
@@ -3203,7 +3212,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Najaf": {
     "Al Kufa": { img:"images/hoods/najaf--al-kufa.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Hamra_Mosque_Morning.jpg", src:"Yusuf Asar Yathar" },
-    "Downtown Najaf": { img:"images/hoods/najaf--downtown-najaf.webp", page:"https://commons.wikimedia.org/wiki/File:Iraqi_police_in_An_Najaf.JPEG", src:"Christopher A. Marasky, U.S. Air Force" }
+    "Downtown Najaf": { img:"images/hoods/najaf--downtown-najaf.webp", page:"https://commons.wikimedia.org/wiki/File:Iraqi_police_in_An_Najaf.JPEG", src:"Christopher A. Marasky, U.S. Air Force" },
+    "Old City (Imam Ali Shrine)": { img:"images/hoods/najaf--old-city-imam-ali-shrine.webp", page:"https://commons.wikimedia.org/wiki/File:Imam_Ali_Shrine_(6).jpg", src:"khosh1341" }
   },
   "Nakhon Ratchasima": {
     "Old City (Thao Suranaree / Chumphon Gate)": { img:"images/hoods/nakhon-ratchasima--old-city-thao-suranaree-chumphon-gate.webp", page:"https://commons.wikimedia.org/wiki/File:Downtown_Korat.JPG", src:"John Smith" }
@@ -3223,7 +3233,8 @@ window.NRA_HOOD_PHOTO = {
     "Chiaia": { img:"images/hoods/naples--chiaia.webp", page:"https://commons.wikimedia.org/wiki/File:Neapol_via_chiaia_przy_wiadukcie.jpg", src:"Panek" },
     "Vomero": { img:"images/hoods/naples--vomero.webp", page:"https://commons.wikimedia.org/wiki/File:Da_Sant_Elmo_(62719223).jpeg", src:"Vincenzo Gionta" },
     "Santa Lucia": { img:"images/hoods/naples--santa-lucia.webp", page:"https://commons.wikimedia.org/wiki/File:Fonte_battesimale_-_Santa_Lucia_Vergine_al_Monte,_Naples.jpg", src:"Baku" },
-    "Quartieri Spagnoli": { img:"images/hoods/naples--quartieri-spagnoli.webp", page:"https://commons.wikimedia.org/wiki/File:Quartieri_Spagnoli,_Naples_20230622_01.jpg", src:"Argo Navis" }
+    "Quartieri Spagnoli": { img:"images/hoods/naples--quartieri-spagnoli.webp", page:"https://commons.wikimedia.org/wiki/File:Quartieri_Spagnoli,_Naples_20230622_01.jpg", src:"Argo Navis" },
+    "Centro Storico": { img:"images/hoods/naples--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Naples_20230624_029.jpg", src:"Argo Navis" }
   },
   "Nara-shi": {
     "Nara Park / Todai-ji Area": { img:"images/hoods/nara-shi--nara-park-todai-ji-area.webp", page:"https://commons.wikimedia.org/wiki/File:Ruas_para_motos_-_Street_for_bikes_(7842182814).jpg", src:"Cesar I. Martins from Jundiai, Brazil" },
@@ -3526,7 +3537,8 @@ window.NRA_HOOD_PHOTO = {
   "Playa del Carmen": {
     "Playacar": { img:"images/hoods/playa-del-carmen--playacar.webp", page:"https://commons.wikimedia.org/wiki/File:Playacar_en_Playa_del_Carmen.jpg", src:"Ana Beatriz Vega González" },
     "Gonzalo Guerrero": { img:"images/hoods/playa-del-carmen--gonzalo-guerrero.webp", page:"https://commons.wikimedia.org/wiki/File:Gonzalo_Guerrero,_77720_Playa_del_Carmen,_Q.R.,_Mexico_-_panoramio_(1).jpg", src:"DizzyDJC" },
-    "Zazil-Ha (Coco Beach)": { img:"images/hoods/playa-del-carmen--zazil-ha-coco-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Zicht_vanaf_coco_bay_-_panoramio.jpg", src:"Sven-eric" }
+    "Zazil-Ha (Coco Beach)": { img:"images/hoods/playa-del-carmen--zazil-ha-coco-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Zicht_vanaf_coco_bay_-_panoramio.jpg", src:"Sven-eric" },
+    "Centro (Downtown / Quinta Avenida)": { img:"images/hoods/playa-del-carmen--centro-downtown-quinta-avenida.webp", page:"https://commons.wikimedia.org/wiki/File:Quinta_Avenida_-_Playa_del_Carmen,_Mexico_-_August_15,_2014_01.jpg", src:"Giorgio Galeotti" }
   },
   "Plettenberg Bay": {
     "Central Plett / Main Beach": { img:"images/hoods/plettenberg-bay--central-plett-main-beach.webp", page:"https://commons.wikimedia.org/wiki/File:TIMBER_SHED_PLETT_1.JPG", src:"Keith Lurie" },
@@ -4317,7 +4329,7 @@ window.NRA_HOOD_PHOTO = {
     "Medina": { img:"images/hoods/tunis--medina.webp", page:"https://commons.wikimedia.org/wiki/File:Mesjed_El_Arich-_entr%C3%A9e_principale.jpg", src:"Wildtunis" },
     "Les Berges du Lac": { img:"images/hoods/tunis--les-berges-du-lac.webp", page:"https://commons.wikimedia.org/wiki/File:After_sunset_lac_tunisia.jpg", src:"Architecte 86" },
     "Sidi Bou Said": { img:"images/hoods/tunis--sidi-bou-said.webp", page:"https://commons.wikimedia.org/wiki/File:Sidi_Bou_Sa%C3%AFd_Lighthouse.jpg", src:"Dennis G. Jarvis" },
-    "Gammarth": { img:"images/hoods/tunis--gammarth.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B4tel_El_Mouradi_Gammarth_-_DAE.jpg", src:"Benoît Prieur" }
+    "Gammarth": { img:"images/hoods/tunis--gammarth.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B4tel_El_Mouradi_Gammarth_-_DAE.jpg", src:"Benoît Prieur" },
   },
   "Turin": {
     "Centro (Piazza Castello)": { img:"images/hoods/turin--centro-piazza-castello.webp", page:"https://commons.wikimedia.org/wiki/File:Palazzo_Madama_Turin_Piemonte_2-12-24.jpg", src:"Jeanne Griffin" },
@@ -4663,7 +4675,8 @@ window.NRA_HOOD_PHOTO = {
     "Lin'an Ancient Town": { img:"images/hoods/jianshui--lin-an-ancient-town.webp", page:"https://commons.wikimedia.org/wiki/File:2025-02-07_%22Liang_Yi_Suo_Yao%22_Paifang_in_Jianshui,_Yunnan_%E9%9B%B2%E5%8D%97%E5%BB%BA%E6%B0%B4%E5%85%A9%E8%BF%A4%E9%8E%96%E9%91%B0_02.jpg", src:"源義信" }
   },
   "Karbala": {
-    "Bab Baghdad": { img:"images/hoods/karbala--bab-baghdad.webp", page:"https://commons.wikimedia.org/wiki/File:Karbala_56001,_Iraq_-_panoramio_(16).jpg", src:"‫سید محمود جوادی‬‎" }
+    "Bab Baghdad": { img:"images/hoods/karbala--bab-baghdad.webp", page:"https://commons.wikimedia.org/wiki/File:Karbala_56001,_Iraq_-_panoramio_(16).jpg", src:"‫سید محمود جوادی‬‎" },
+    "Old City (Haram District)": { img:"images/hoods/karbala--old-city-haram-district.webp", page:"https://commons.wikimedia.org/wiki/File:%D9%88%D8%B1%D9%88%D8%AF%D9%8A_%D8%B5%D8%AD%D9%86_%D8%B2%D9%8A%D8%A7%D8%B1%D8%AA_%D8%A7%D9%85%D8%A7%D9%85_%D8%AD%D8%B3%D9%8A%D9%86_(%D8%B9)_%D9%85%D9%87%D8%B1_89_-_panoramio.jpg", src:"khosh1341" }
   },
   "Kusatsu": {
     "Sai-no-Kawara": { img:"images/hoods/kusatsu--sai-no-kawara.webp", page:"https://commons.wikimedia.org/wiki/File:251129_Sainokawara_Park_17.jpg", src:"Aspere" }
@@ -4675,7 +4688,9 @@ window.NRA_HOOD_PHOTO = {
     "Centro (Calle Real / Parque Central)": { img:"images/hoods/liberia--centro-calle-real-parque-central.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepcion_de_Maria,_Liberia,_Costa_Rica.JPG", src:"Emw" }
   },
   "Nha Trang": {
-    "Cho Dam (Old Market)": { img:"images/hoods/nha-trang--cho-dam-old-market.webp", page:"https://commons.wikimedia.org/wiki/File:Dam_Market_Nha_Trang_1.jpg", src:"Christophe95" }
+    "Cho Dam (Old Market)": { img:"images/hoods/nha-trang--cho-dam-old-market.webp", page:"https://commons.wikimedia.org/wiki/File:Dam_Market_Nha_Trang_1.jpg", src:"Christophe95" },
+    "Vinh Hai / Hon Chong": { img:"images/hoods/nha-trang--vinh-hai-hon-chong.webp", page:"https://commons.wikimedia.org/wiki/File:Vietnam_-_panoramio_(20).jpg", src:"Андрей Бобровский" },
+    "Vinh Nguyen (Cau Da Port)": { img:"images/hoods/nha-trang--vinh-nguyen-cau-da-port.webp", page:"https://commons.wikimedia.org/wiki/File:Nha_Trang_,_Vietnam_-_panoramio_(58).jpg", src:"Kaz Ish" }
   },
   "Potosí": {
     "Centro Histórico": { img:"images/hoods/potosi--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Bolivia_-_Potos%C3%AD_-_Plaza_10_de_Noviembre_e_la_cattedrale.jpg", src:"Mario Falcetti" },
