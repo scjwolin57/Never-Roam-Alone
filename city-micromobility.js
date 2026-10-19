@@ -396,7 +396,7 @@ window.NRA_MICRO = {
 "Kingston":[],
 "Kingstown":[],
 "Kinshasa":[],
-"Klaipėda":[],
+"Klaipėda":[{"n":"Bolt","u":"https://bolt.eu/en/cities/klaipeda/"}],
 "Knysna":[],
 "Ko Samui":[],
 "Kobe":[{"n":"Kobe Community Cycle (Kobelin)","u":"https://www.kobelin.jp/"}],
