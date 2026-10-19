@@ -12,6 +12,6 @@ Jeff: "after that, move on to the next task" (the missing photos). Free sources 
 **Why the rest are empty.** For most of them no Commons photo is geotagged near the pin, or every nearby photo is the wrong subject (interiors, portraits, food, museum objects, plants, street signs). These keep the "No photo yet" stand-in, per the rule that an empty slot beats a wrong photo.
 
 **What could fill more, later.**
-1. Flickr Creative Commons search (commercial licences only) for the busiest cities: free with an API key, same location rules.
+1. ~~Flickr Creative Commons search~~: not pursued, the Flickr API key is not free (Jeff, 2026-10-19).
 2. Mainland China landmarks: Commons coverage is thin; Chinese-name search on Commons.
 3. Jeff's own photos in `_needs-attention/uploads/`.

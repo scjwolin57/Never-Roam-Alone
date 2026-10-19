@@ -7,15 +7,13 @@
 ## ✅ Recently completed (July 2026, for reference)
 
 - ~~Destination finder intelligence: one-way/return toggle, door-to-door flight times, train-vs-plane & long-ride alerts, honest ground-travel math (winding roads, en-route hotel nights), editable nights assumption, "Compare all ways to get there" expander, one-way rental fee note~~
-- Season/event bubbles on finder cards (weather + festivals/peak periods, blank when nothing to say)
+- ~~Season/event bubbles on finder cards (weather + festivals/peak periods, blank when nothing to say)~~
 - ~~"Share itinerary" button (native share sheet), validated passport-free share links, privacy policy line~~
 - ~~Map view with ranked pins that open the full city cards; "Suggested Destinations in X for Y" heading~~
 - ~~Real photos everywhere: 123 city photos + 563/615 neighborhood photos, all visually reviewed, with credits~~
 - ~~Social link previews (branded 1200×630 image with Amatic font) + lazy-loaded photos site-wide~~
 
 ---
-
-
 
 ## 🚩 The flagship
 
@@ -39,17 +37,17 @@
 
 **7. Pre-trip checklist builder (M)** — extend the visa checker: visa status, passport-validity rule, insurance, eSIM, currency. Natural honest affiliate slots (matches monetization-plan.md).
 
-**8. ~~Language survival card (S)** — city pages already know each city's languages; add ~10 key phrases per language, printable wallet card.~~
+~~**8. ~~Language survival card (S)** — city pages already know each city's languages; add ~10 key phrases per language, printable wallet card.~~~~
 
 **9. Offline guides / PWA (M/L)** — save a city guide to the phone for use while traveling without data.
 
 ## 🔎 Discovery (use the data you're sitting on)
 
-~~**10. ~~Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.~~~~
+~~~~**10. ~~Day trips from every city (M)** — 6,218-city database + existing distance math = "within 2 hours of Prague" section on every guide; also promotes coming-soon guides.~~~~~~
 
 **11. Weekend finder preset (S)** — "I have 3 days, I live in Berlin" button → filters to destinations under ~5h door-to-door.
 
-~~**12. ~~Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").~~~~
+~~~~**12. ~~Compare two cities side-by-side (M)** — costs, weather, safety, walkability, visitors, visa; all data exists. SEO gold ("Lisbon vs Porto").~~~~~~
 
 **1~~3. ~~Auto-generated seasonal collections (S/M)** — "Warm in January," "Christmas market cities," from the season/event data.~~~~
 
@@ -73,9 +71,9 @@
 
 ~~**20. "Was this estimate right?" feedback (S)** — thumbs up/down on price estimates to tune the honesty of the math over time.~~
 
-**21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the* `city-meta` *edge function stamps each city's title, description and photo (checked 2026-09-18).*
+~~**21. ~~Per-city link previews for messaging apps (M, technical)** — currently individual city links show the branded default image in iMessage/WhatsApp (those apps don't run page code). A small build step that generates one tiny static page per city would give each city its own photo preview.~~ *Done: the*~~ `city-meta` ~~*edge function stamps each city's title, description and photo (checked 2026-09-18).~~*
 
-**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) was finished 2026-10-10.*
+~~**22. Accessibility & SEO pass (S/M)** — alt text audit, structured data (schema.org) on city pages, sitemap.xml. *2026-09-18: sitemap and structured data done; the alt-text audit (item 30) was finished 2026-10-10.~~*
 
 ## 📷 Photo housekeeping
 
@@ -83,8 +81,6 @@
 
 - Re-run Pexels/Pixabay search every few months — both sites add photos constantly (keys are saved).
 - Still placeholder: story-card images on city pages; blog post photos on the homepage.
-
-
 
 ## 🚀 Post-launch SEO & growth (added July 12, 2026)
 
@@ -111,8 +107,6 @@
 **33. Monthly Search Console check-in (S, recurring)** — once indexed: fix crawl errors, see which searches bring people in, sharpen titles on pages that show up but don't get clicked.
 
 ---
-
-
 
 ## 🧭 Solo-first differentiators (added July 19, 2026 — research-backed)
 
