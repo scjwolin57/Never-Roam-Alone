@@ -1277,7 +1277,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Belize City": {
     "Fort George": { img:"images/hoods/belize-city--fort-george.webp", page:"https://commons.wikimedia.org/wiki/File:Bliss_Monument_-_B.E.S.T..jpg", src:"Willamor Media from Cary, NC, USA" },
-    "Marine Parade / Newtown Barracks": { img:"images/hoods/belize-city--marine-parade-newtown-barracks.webp", page:"https://commons.wikimedia.org/wiki/File:Parking_lot,_Central_Bank_of_Belize.jpg", src:"Psubhashish" }
+    "Marine Parade / Newtown Barracks": { img:"images/hoods/belize-city--marine-parade-newtown-barracks.webp", page:"https://commons.wikimedia.org/wiki/File:Parking_lot,_Central_Bank_of_Belize.jpg", src:"Psubhashish" },
+    "Historic Downtown (Albert Street)": { img:"images/hoods/belize-city--historic-downtown-albert-street.webp", page:"https://commons.wikimedia.org/wiki/File:Belize_High_Court_facade_Aug_2015.jpg", src:"Asdfjrjjj" }
   },
   "Belo Horizonte": {
     "Savassi": { img:"images/hoods/belo-horizonte--savassi.webp", page:"https://commons.wikimedia.org/wiki/File:Bandeira_-_panoramio.jpg", src:"Tiago Macedo" },
@@ -1593,7 +1594,9 @@ window.NRA_HOOD_PHOTO = {
   "Çeşme": {
     "Alaçatı Beach": { img:"images/hoods/cesme--alacati-beach.webp", page:"https://commons.wikimedia.org/wiki/File:S%C3%BCzer_Sun_Dreams_Beach_5_-_panoramio.jpg", src:"35_egeturk" },
     "Ilıca": { img:"images/hoods/cesme--ilica.webp", page:"https://commons.wikimedia.org/wiki/File:A_photo_from_%C3%87e%C5%9Fme,_Turkey.jpg", src:"Nihat1988" },
-    "Boyalık": { img:"images/hoods/cesme--boyalik.webp", page:"https://commons.wikimedia.org/wiki/File:%22bizimkiler%22_gene_y%C3%BCr%C3%BCy%C3%BCse_cikmis_-)_-_panoramio.jpg", src:"35_egeturk" }
+    "Boyalık": { img:"images/hoods/cesme--boyalik.webp", page:"https://commons.wikimedia.org/wiki/File:%22bizimkiler%22_gene_y%C3%BCr%C3%BCy%C3%BCse_cikmis_-)_-_panoramio.jpg", src:"35_egeturk" },
+    "Çeşme Town / Castle District": { img:"images/hoods/cesme--cesme-town-castle-district.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%87e%C5%9Fme_Kalesi-_2025.jpg", src:"Ozlmktv" },
+    "Alaçatı Old Town": { img:"images/hoods/cesme--alacat-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Izmir_Aug_2023_12_02_40_881000.jpeg", src:"Robot8A" }
   },
   "Chamonix-Mont-Blanc": {
     "Chamonix Centre": { img:"images/hoods/chamonix-mont-blanc--chamonix-centre.webp", page:"https://commons.wikimedia.org/wiki/File:L%27Arve_au_sud_du_centre_de_Chamonix_en_soir%C3%A9e_(juin_2022).JPG", src:"Florian Pépellin" },
@@ -2231,7 +2234,8 @@ window.NRA_HOOD_PHOTO = {
   "Hamilton": {
     "Paget & Elbow Beach": { img:"images/hoods/hamilton--paget-elbow-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Elbow_Beach_Surf_Club,_Paget,_Bermuda.jpg", src:"Unknown authorUnknown author" },
     "City of Hamilton (Pembroke)": { img:"images/hoods/hamilton--city-of-hamilton-pembroke.webp", page:"https://commons.wikimedia.org/wiki/File:Hamilton,_Bermuda_-_Front_Street_-_panoramio.jpg", src:"yourmanstan" },
-    "Southampton & South Shore": { img:"images/hoods/hamilton--southampton-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:Horseshoe_Bay_beach,_Bermuda_IMG_0343.jpg", src:"Captain-tucker" }
+    "Southampton & South Shore": { img:"images/hoods/hamilton--southampton-south-shore.webp", page:"https://commons.wikimedia.org/wiki/File:Horseshoe_Bay_beach,_Bermuda_IMG_0343.jpg", src:"Captain-tucker" },
+    "St. George's (East End)": { img:"images/hoods/hamilton--st-george-s-east-end.webp", page:"https://commons.wikimedia.org/wiki/File:Bermuda_-_St._Peter%27s_Church_in_St._George_-_the_oldest_church_in_the_Americas_-_panoramio.jpg", src:"David Broad" }
   },
   "Hangzhou": {
     "West Lake / Xihu": { img:"images/hoods/hangzhou--west-lake-xihu.webp", page:"https://commons.wikimedia.org/wiki/File:2009_%E6%9D%AD%E5%B7%9E_%E8%A5%BF%E6%B9%96_-_panoramio_(1).jpg", src:"张元柏" },
@@ -3031,7 +3035,8 @@ window.NRA_HOOD_PHOTO = {
     "Baie Nettlé (Nettle Bay)": { img:"images/hoods/marigot--baie-nettle-nettle-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Sandy_Ground,_Baie_Nettle_(Vue_du_Ciel)_-_panoramio.jpg", src:"Remy Gumbs (shady P)" },
     "Grand Case": { img:"images/hoods/marigot--grand-case.webp", page:"https://commons.wikimedia.org/wiki/File:Grand_Case_Beach_Club,_St._Martin_-_panoramio.jpg", src:"Scott Long" },
     "Anse Marcel": { img:"images/hoods/marigot--anse-marcel.webp", page:"https://commons.wikimedia.org/wiki/File:Anse_Marcel_in_St._Martin_from_above_-_panoramio.jpg", src:"SV Zanshin" },
-    "Orient Bay (Baie Orientale)": { img:"images/hoods/marigot--orient-bay-baie-orientale.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_maartin_-_panoramio_(5).jpg", src:"jillvb" }
+    "Orient Bay (Baie Orientale)": { img:"images/hoods/marigot--orient-bay-baie-orientale.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_maartin_-_panoramio_(5).jpg", src:"jillvb" },
+    "Marigot Centre & Marina": { img:"images/hoods/marigot--marigot-centre-marina.webp", page:"https://commons.wikimedia.org/wiki/File:Fort_Louis_Canon_(16304218222).jpg", src:"Paul Sableman" }
   },
   "Marmaris": {
     "Marmaris Marina / Old Town": { img:"images/hoods/marmaris--marmaris-marina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Marmaris_-_panoramio_(2).jpg", src:"Николай Максимович" },
@@ -3502,7 +3507,8 @@ window.NRA_HOOD_PHOTO = {
     "Geroskipou": { img:"images/hoods/paphos--geroskipou.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Athena_Beach_Hotel_Paphos_-_panoramio.jpg", src:"Arnold Schott" },
   },
   "Paramaribo": {
-    "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" }
+    "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" },
+    "Centrum": { img:"images/hoods/paramaribo--centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Freeman%27s_Quarter_-_Paramaribo_(23438754700).jpg", src:"Dan Sloan" }
   },
   "Parma": {
     "Centro Storico": { img:"images/hoods/parma--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Palazzo_Comunale_Parma_vista_da_Via_Cavour.JPG", src:"Palladino Neil" },
@@ -4183,7 +4189,8 @@ window.NRA_HOOD_PHOTO = {
     "Lance aux Epines": { img:"images/hoods/st-george-s--lance-aux-epines.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_The_Red_Crab_Restaurant_-_panoramio.jpg", src:"Stefan_und_Bille" },
     "Morne Rouge": { img:"images/hoods/st-george-s--morne-rouge.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_Grand_Anse_-_panoramio_-_Stefan_und_Bille.jpg", src:"Stefan_und_Bille" },
     "St. George's (The Carenage)": { img:"images/hoods/st-george-s--st-george-s-the-carenage.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada,_Karibik_-_St._George's_-_Harbor_-_panoramio.jpg", src:"giggel" },
-    "True Blue": { img:"images/hoods/st-george-s--true-blue.webp", page:"https://commons.wikimedia.org/wiki/File:Sunrise_from_the_Tower_-_panoramio.jpg", src:"FishSpeaker" }
+    "True Blue": { img:"images/hoods/st-george-s--true-blue.webp", page:"https://commons.wikimedia.org/wiki/File:Sunrise_from_the_Tower_-_panoramio.jpg", src:"FishSpeaker" },
+    "Grand Anse": { img:"images/hoods/st-george-s--grand-anse.webp", page:"https://commons.wikimedia.org/wiki/File:Grand_Anse_Main_Rd,_Grenada_-_panoramio.jpg", src:"Андрей Бобровский" }
   },
   "Stavanger": {
     "Sentrum": { img:"images/hoods/stavanger--sentrum.webp", page:"https://commons.wikimedia.org/wiki/File:Stavanger_bybru_IMG_5870.jpg", src:"Mathieu Marquer from Paris, FRANCE" },
@@ -4305,10 +4312,10 @@ window.NRA_HOOD_PHOTO = {
   },
   "Taupo": {
     "Nukuhau": { img:"images/hoods/taupo--nukuhau.webp", page:"https://commons.wikimedia.org/wiki/File:Close-up_of_the_inscription_(OpenBenches_3117).jpg", src:"edent" },
-    "Acacia Bay": { img:"images/hoods/taupo--acacia-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Acacia_Bay_Taupo.jpg", src:"Frozen-Coke-Rocks" }
+    "Acacia Bay": { img:"images/hoods/taupo--acacia-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Acacia_Bay_Taupo.jpg", src:"Frozen-Coke-Rocks" },
   },
   "Tegucigalpa": {
-    "Comayagüela / Centro Histórico": { img:"images/hoods/tegucigalpa--comayaguela-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:InmaculadaConcepci%C3%B3nComayaguela_01.JPG", src:"Thelmadatter" }
+    "Comayagüela / Centro Histórico": { img:"images/hoods/tegucigalpa--comayaguela-centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:InmaculadaConcepci%C3%B3nComayaguela_01.JPG", src:"Thelmadatter" },
   },
   "Tehran": {
     "Vali Asr / Vanak": { img:"images/hoods/tehran--vali-asr-vanak.webp", page:"https://commons.wikimedia.org/wiki/File:Meydan-e_Vali_Asr_Metro_Station_Entrance.jpg", src:"Kasir" },
@@ -4714,7 +4721,8 @@ window.NRA_HOOD_PHOTO = {
     "Hawelti": { img:"images/hoods/mek-ele--hawelti.webp", page:"https://www.flickr.com/photos/141889533@N05/49044633013/", src:"SecondaryCities" }
   },
   "San Pedro de Atacama": {
-    "Ayllu de Solcor": { img:"images/hoods/san-pedro-de-atacama--ayllu-de-solcor.webp", page:"https://commons.wikimedia.org/wiki/File:San_Pedro_de_Atacama-CTJ-IMG_6717.jpg", src:"Christer T Johansson" }
+    "Ayllu de Solcor": { img:"images/hoods/san-pedro-de-atacama--ayllu-de-solcor.webp", page:"https://commons.wikimedia.org/wiki/File:San_Pedro_de_Atacama-CTJ-IMG_6717.jpg", src:"Christer T Johansson" },
+    "San Pedro Town Center": { img:"images/hoods/san-pedro-de-atacama--san-pedro-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Pedro-CTJ-IMG_5528.jpg", src:"Christer T Johansson" }
   },
   "Baracoa": {
     "El Paraíso": { img:"images/hoods/baracoa--el-paraiso.webp", page:"https://commons.wikimedia.org/wiki/File:Baracoa_-_panoramio.jpg", src:"Martin Cígler" }
@@ -4804,7 +4812,8 @@ window.NRA_HOOD_PHOTO = {
     "West Beach": { img:"images/hoods/saint-martin-s-island--west-beach.webp", page:"https://commons.wikimedia.org/wiki/File:A_song_of_two_blues_and_a_gray.jpg", src:"Muhaisin" }
   },
   "San Andrés": {
-    "El Centro (Town Center)": { img:"images/hoods/san-andres--el-centro-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:San_Andr%C3%A9s_Centro.jpg", src:"Xemenendura" }
+    "El Centro (Town Center)": { img:"images/hoods/san-andres--el-centro-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:San_Andr%C3%A9s_Centro.jpg", src:"Xemenendura" },
+    "La Loma": { img:"images/hoods/san-andres--la-loma.webp", page:"https://commons.wikimedia.org/wiki/File:SAN_ANDRES_ISLAS.jpg", src:"SANTIAGO HERRERA TOCA" }
   },
   "San Pedro Sula": {
     "Barrio El Centro": { img:"images/hoods/san-pedro-sula--barrio-el-centro.webp", page:"https://commons.wikimedia.org/wiki/File:SanPedroSulaChurch01.JPG", src:"Thelmadatter" }
@@ -4841,5 +4850,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Urganch": {
     "City Center (Al-Khorezmi Ave)": { img:"images/hoods/urganch--city-center-al-khorezmi-ave.webp", page:"https://commons.wikimedia.org/wiki/File:Xorazm_AQT.jpg", src:"XorazmAQT" }
+  },
+  "Kralendijk": {
+    "Playa (Downtown Kralendijk)": { img:"images/hoods/kralendijk--playa-downtown-kralendijk.webp", page:"https://commons.wikimedia.org/wiki/File:Bonaire_008_(2085258268).jpg", src:"BrianBoardman from Alexandria VA" }
   },
 };
