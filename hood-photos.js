@@ -1628,7 +1628,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Chengde": {
     "Eight Outer Temples (Waibamiao)": { img:"images/hoods/chengde--eight-outer-temples-waibamiao.webp", page:"https://commons.wikimedia.org/wiki/File:Chengde_Mountain_Resort_15.jpg", src:"takwing.kwong" },
-    "Xinhua Road Commercial District": { img:"images/hoods/chengde--xinhua-road-commercial-district.webp", page:"https://commons.wikimedia.org/wiki/File:22104-Chengde_(49048668593).jpg", src:"xiquinhosilva" }
+    "Xinhua Road Commercial District": { img:"images/hoods/chengde--xinhua-road-commercial-district.webp", page:"https://commons.wikimedia.org/wiki/File:22104-Chengde_(49048668593).jpg", src:"xiquinhosilva" },
+    "Shuangqiao Old Town (Mountain Resort gate)": { img:"images/hoods/chengde--shuangqiao-old-town-mountain-resort-gate.webp", page:"https://commons.wikimedia.org/wiki/File:22110-Chengde_(49048669698).jpg", src:"xiquinhosilva" }
   },
   "Chengdu": {
     "Jinjiang / Chunxi Road": { img:"images/hoods/chengdu--jinjiang-chunxi-road.webp", page:"https://commons.wikimedia.org/wiki/File:Jinjiang,_Chengdu,_Sichuan,_China_-_panoramio_(2).jpg", src:"liuzusai刘祖赛" },
@@ -2095,7 +2096,8 @@ window.NRA_HOOD_PHOTO = {
   "Ghardaïa": {
     "Beni Isguen": { img:"images/hoods/ghardaia--beni-isguen.webp", page:"https://commons.wikimedia.org/wiki/File:Ksar_Beni_Isguen_14.jpg", src:"Bernard Gagnon" },
     "Melika": { img:"images/hoods/ghardaia--melika.webp", page:"https://commons.wikimedia.org/wiki/File:MELIKA_GHARDAIA_-_panoramio_(2).jpg", src:"oulad ali abdelrazak" },
-    "Bou Noura": { img:"images/hoods/ghardaia--bou-noura.webp", page:"https://commons.wikimedia.org/wiki/File:Bou_noura_Ghardaia_Alg%C3%A9rie_-_panoramio.jpg", src:"oulad ali abdelrazak" }
+    "Bou Noura": { img:"images/hoods/ghardaia--bou-noura.webp", page:"https://commons.wikimedia.org/wiki/File:Bou_noura_Ghardaia_Alg%C3%A9rie_-_panoramio.jpg", src:"oulad ali abdelrazak" },
+    "Ghardaïa Medina": { img:"images/hoods/ghardaia--ghardaia-medina.webp", page:"https://commons.wikimedia.org/wiki/File:Grand_Mosque_of_Gharda%C3%AFa_01.jpg", src:"Bernard Gagnon" }
   },
   "Gibraltar": {
     "Ocean Village / Marina": { img:"images/hoods/gibraltar--ocean-village-marina.webp", page:"https://commons.wikimedia.org/wiki/File:Bahia_de_Beliones_y_Punta_Leona.JPG", src:"Thunderbolt u2" },
@@ -2508,7 +2510,8 @@ window.NRA_HOOD_PHOTO = {
   "Kaliningrad": {
     "Rybnaya Derevnya (Fishing Village)": { img:"images/hoods/kaliningrad--rybnaya-derevnya-fishing-village.webp", page:"https://commons.wikimedia.org/wiki/File:Rybnaya_derevnya.jpg", src:"Irina Yakubovskaya (my mother)" },
     "Amalienau": { img:"images/hoods/kaliningrad--amalienau.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%92%D0%B8%D0%BB%D0%BB%D0%B0_%D0%91%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B2%D1%81%D0%BA%D0%B8.jpg", src:"Kemal KOZBAEV" },
-    "Maraunenhof": { img:"images/hoods/kaliningrad--maraunenhof.webp", page:"https://commons.wikimedia.org/wiki/File:K%C3%B6nigsberg._Maraunenhof._Herzog-Albrecht-Ged%C3%A4chtniskirche_oder_Neue_Tragheimer_Kirche.jpg", src:"Unknown authorUnknown author" }
+    "Maraunenhof": { img:"images/hoods/kaliningrad--maraunenhof.webp", page:"https://commons.wikimedia.org/wiki/File:K%C3%B6nigsberg._Maraunenhof._Herzog-Albrecht-Ged%C3%A4chtniskirche_oder_Neue_Tragheimer_Kirche.jpg", src:"Unknown authorUnknown author" },
+    "Tsentr (Victory Square)": { img:"images/hoods/kaliningrad--tsentr-victory-square.webp", page:"https://commons.wikimedia.org/wiki/File:Kaliningrad_Kathedrale.jpg", src:"Julian Nyča" }
   },
   "Kamakura": {
     "Kamakura Station": { img:"images/hoods/kamakura--kamakura-station.webp", page:"https://commons.wikimedia.org/wiki/File:Bahnhofsuhr_in_Kamakura.jpg", src:"Olaf2" },
@@ -2773,7 +2776,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Lalibela": {
     "Eastern Group of Churches": { img:"images/hoods/lalibela--eastern-group-of-churches.webp", page:"https://commons.wikimedia.org/wiki/File:Ethiopie-915.JPG", src:"BluesyPete" },
-    "Northern Group of Churches": { img:"images/hoods/lalibela--northern-group-of-churches.webp", page:"https://commons.wikimedia.org/wiki/File:Bete_Maryam_05.jpg", src:"Bernard Gagnon" }
+    "Northern Group of Churches": { img:"images/hoods/lalibela--northern-group-of-churches.webp", page:"https://commons.wikimedia.org/wiki/File:Bete_Maryam_05.jpg", src:"Bernard Gagnon" },
+    "Lalibela Town Center": { img:"images/hoods/lalibela--lalibela-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Bet_Giorgis_Church_(24165253415).jpg", src:"Ludger Heide" }
   },
   "Lamu": {
     "Lamu Old Town": { img:"images/hoods/lamu--lamu-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Contemporary_exterior_finishing_in_Lamu.jpg", src:"Ahmedshayo14" },
@@ -3225,7 +3229,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Moroni": {
     "Medina (Old Town)": { img:"images/hoods/moroni--medina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Flickr_-_Woodlouse_-_Old_Friday_Mosque_and_harbour,_Moroni.jpg", src:"Woodlouse from Brighton, UK" },
-    "Itsandra": { img:"images/hoods/moroni--itsandra.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_beach.jpg", src:"Radosław Botev" }
+    "Itsandra": { img:"images/hoods/moroni--itsandra.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_beach.jpg", src:"Radosław Botev" },
+    "Badjanani / Corniche": { img:"images/hoods/moroni--badjanani-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_market_scene_1.jpg", src:"Radosław Botev" }
   },
   "Mostar": {
     "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" },
@@ -3713,7 +3718,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Porto-Novo": {
     "Houinmè (Royal Quarter)": { img:"images/hoods/porto-novo--houinme-royal-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Ecole_maternelle_de_Houinme.jpg", src:"Ksperentos" },
-    "Ouando (Port & Market District)": { img:"images/hoods/porto-novo--ouando-port-market-district.webp", page:"https://commons.wikimedia.org/wiki/File:Marche_ouando_porto-novo.jpg", src:"Babylas" }
+    "Ouando (Port & Market District)": { img:"images/hoods/porto-novo--ouando-port-market-district.webp", page:"https://commons.wikimedia.org/wiki/File:Marche_ouando_porto-novo.jpg", src:"Babylas" },
+    "Centre-ville (Government Quarter)": { img:"images/hoods/porto-novo--centre-ville-government-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Institut_Fran%C3%A7ais_d%27Afrique_noire_04.jpg", src:"Kottiobed" },
+    "Adjatché (Afro-Brazilian Quarter)": { img:"images/hoods/porto-novo--adjatche-afro-brazilian-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Cath%C3%A9drale_Notre-Dame_de_l%27Immacul%C3%A9e_Conception_de_Porto-Novo_2021_17.jpg", src:"Mhope2010" }
   },
   "Porto Seguro": {
     "Taperapuã": { img:"images/hoods/porto-seguro--taperapua.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_da_Praia_de_Taperapu%C3%A3,_Porto_Seguro_BA.JPG", src:"HVL" },
@@ -4231,7 +4238,8 @@ window.NRA_HOOD_PHOTO = {
     "Lal Chowk": { img:"images/hoods/srinagar--lal-chowk.webp", page:"https://commons.wikimedia.org/wiki/File:Clock_tower_at_Lal_Chowk.jpg", src:"Tamjeed Ahmed" },
     "Rajbagh": { img:"images/hoods/srinagar--rajbagh.webp", page:"https://commons.wikimedia.org/wiki/File:Rajbagh_Srinagar_-_vrvvkbjk2k23iph_(10).jpg", src:"Vinayaraj" },
     "Nishat": { img:"images/hoods/srinagar--nishat.webp", page:"https://commons.wikimedia.org/wiki/File:Ceiling_work_inside_a_pavilion_in_Shalimar_Bagh.jpg", src:"Tamjeed Ahmed" },
-    "Boulevard Road (Dal Lake)": { img:"images/hoods/srinagar--boulevard-road-dal-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Dal_lake_and_around,_Srinagar_-_vrvvkbjk2k23iph_(64).jpg", src:"Vinayaraj" }
+    "Boulevard Road (Dal Lake)": { img:"images/hoods/srinagar--boulevard-road-dal-lake.webp", page:"https://commons.wikimedia.org/wiki/File:Dal_lake_and_around,_Srinagar_-_vrvvkbjk2k23iph_(64).jpg", src:"Vinayaraj" },
+    "Old City (Downtown)": { img:"images/hoods/srinagar--old-city-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Main_front_view_of_Jamia_Masjid_in_Srinagar.jpg", src:"Tamjeed Ahmed" }
   },
   "St. George's": {
     "Lance aux Epines": { img:"images/hoods/st-george-s--lance-aux-epines.webp", page:"https://commons.wikimedia.org/wiki/File:Grenada_The_Red_Crab_Restaurant_-_panoramio.jpg", src:"Stefan_und_Bille" },
@@ -4278,7 +4286,8 @@ window.NRA_HOOD_PHOTO = {
     "Kampung Batik Laweyan": { img:"images/hoods/surakarta--kampung-batik-laweyan.webp", page:"https://commons.wikimedia.org/wiki/File:Becak_Kampung_Batik_Laweyan.jpg", src:"Herusutimbul" },
     "Slamet Riyadi (City Center)": { img:"images/hoods/surakarta--slamet-riyadi-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Slamet_Riyadi_Statue_in_Surakarta.jpg", src:"Christophe95" },
     "Pasar Gede & Sudiroprajan (Chinatown)": { img:"images/hoods/surakarta--pasar-gede-sudiroprajan-chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Gede_1.jpg", src:"Christophe95" },
-    "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:Kraton_of_Surakarta_03.jpg", src:"Christophe95" }
+    "Kraton & Kauman": { img:"images/hoods/surakarta--kraton-kauman.webp", page:"https://commons.wikimedia.org/wiki/File:Kraton_of_Surakarta_03.jpg", src:"Christophe95" },
+    "Mangkunegaran & Ngarsopuro": { img:"images/hoods/surakarta--mangkunegaran-ngarsopuro.webp", page:"https://commons.wikimedia.org/wiki/File:Pasar_Triwindu_3.jpg", src:"Christophe95" }
   },
   "Surat Thani": {
     "Phunphin": { img:"images/hoods/surat-thani--phunphin.webp", page:"https://commons.wikimedia.org/wiki/File:Phunphin_clock_tower.jpg", src:"User:Ahoerstemeier" }
@@ -4757,7 +4766,9 @@ window.NRA_HOOD_PHOTO = {
     "Dinghai Old Town": { img:"images/hoods/zhoushan--dinghai-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Daxiong_Baodian,_Zuyin_Si.jpg", src:"Yumeto" }
   },
   "Ziguinchor": {
-    "Escale (Centre-Ville)": { img:"images/hoods/ziguinchor--escale-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Ziguinchor6.JPG", src:"Ji-Elle" }
+    "Escale (Centre-Ville)": { img:"images/hoods/ziguinchor--escale-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Ziguinchor6.JPG", src:"Ji-Elle" },
+    "Santhiaba": { img:"images/hoods/ziguinchor--santhiaba.webp", page:"https://commons.wikimedia.org/wiki/File:Ziguinchor6.JPG", src:"Ji-Elle" },
+    "Boucotte": { img:"images/hoods/ziguinchor--boucotte.webp", page:"https://commons.wikimedia.org/wiki/File:ZiguinchorCath%C3%A9drale.JPG", src:"Ji-Elle" }
   },
   "Cyangugu": {
     "Cyangugu (lakeshore)": { img:"images/hoods/cyangugu--cyangugu-lakeshore.webp", page:"https://commons.wikimedia.org/wiki/File:Lake_Kivu,_Cyangugu.jpg", src:"Fanny Schertzer" },
@@ -4845,7 +4856,8 @@ window.NRA_HOOD_PHOTO = {
     "Yubatake Central": { img:"images/hoods/kusatsu--yubatake-central.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%B9%AF%E7%95%91_-_panoramio_(2).jpg", src:"SpringField1967" }
   },
   "Leticia": {
-    "Town Center / Santander Park": { img:"images/hoods/leticia--town-center-santander-park.webp", page:"https://commons.wikimedia.org/wiki/File:Leticia,_Colombia_(7578553220).jpg", src:"Pedro Szekely from Los Angeles, USA" }
+    "Town Center / Santander Park": { img:"images/hoods/leticia--town-center-santander-park.webp", page:"https://commons.wikimedia.org/wiki/File:Leticia,_Colombia_(7578553220).jpg", src:"Pedro Szekely from Los Angeles, USA" },
+    "Malecón (Riverfront)": { img:"images/hoods/leticia--malecon-riverfront.webp", page:"https://commons.wikimedia.org/wiki/File:Santa_Rosa_05.jpg", src:"Redbaobab" }
   },
   "Liberia": {
     "Centro (Calle Real / Parque Central)": { img:"images/hoods/liberia--centro-calle-real-parque-central.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_Inmaculada_Concepcion_de_Maria,_Liberia,_Costa_Rica.JPG", src:"Emw" }
@@ -4920,5 +4932,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Zhangye": {
     "City Centre (Ganzhou)": { img:"images/hoods/zhangye--city-centre-ganzhou.webp", page:"https://commons.wikimedia.org/wiki/File:Zhangye_Gulou_2014.01.02_09-21-01.jpg", src:"Zhangzhugang" }
+  },
+  "Sergiyev Posad": {
+    "Historic Center": { img:"images/hoods/sergiyev-posad--historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%B5-%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BB%D0%B0%D0%B2%D1%80%D0%B0,_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%AE%D0%9D%D0%95%D0%A1%D0%9A%D0%9E.jpg", src:"Maria Botvinyeva" },
+    "Klementyevo": { img:"images/hoods/sergiyev-posad--klementyevo.webp", page:"https://commons.wikimedia.org/wiki/File:SergievPosad_KrasnoyArmy76_1018.JPG", src:"Ludvig14" }
   },
 };
