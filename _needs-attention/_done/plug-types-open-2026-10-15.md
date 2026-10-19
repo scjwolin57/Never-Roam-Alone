@@ -11,3 +11,5 @@ Research log of the 35-guide pass: `plug-types-research-2026-10-15.md`. After it
 | Jamestown (Saint Helena) | voltage | 230V (reference sites) or 240V (visitor guides); no official source. |
 
 To close one: find the territory's own utility or government page, write `power` into the sheet columns Plug Types / Voltage / Frequency and citydata together, parity 0.
+
+**Closed 2026-10-19:** all 5 settled (see the last section of `../plug-types-research-2026-10-15.md`).

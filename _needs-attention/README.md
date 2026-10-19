@@ -17,7 +17,7 @@ deleted. None of these files are used by the live site.
 | `china-unverified-landmarks-2026-10-14.csv` | China landmark pins: 165 of 444 still unverified (status per row); Jeff's Amap links settle them |
 | `landmark-pins-for-google.csv` | Kept: the landmark-to-day-trip scripts (`_guidebuild/daytrips/lmkmove/`) re-index it |
 | `discovercars-coverage-2026-10-05.csv` | Kept: the DiscoverCars and Kiwitaxi scripts read it (its note moved to `_done/`) |
-| `plug-types-open-2026-10-15.md`, `plug-types-research-2026-10-15.md` | 5 guides still without full plug data (TODO G7); CLAUDE.md points to both |
+| `plug-types-research-2026-10-15.md` | Plug types research log (all 893 guides filled 2026-10-19); CLAUDE.md points to it |
 | `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 10 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
 | `hotel-resourcing-plan-2026-10-01.md` | Approved plan; Expedia approved, waiting on Hostelworld |
 | `packing-list.xlsx` | Not committed; a copy of `packing-list/packing-list.xlsx` from the blog packing-list task (TODO A12) |
@@ -31,6 +31,7 @@ deleted. None of these files are used by the live site.
 | `discovercars-coverage-2026-10-05.md` | W1 closed 2026-10-15; the CSV stays because scripts read it |
 | `car-gap-coverage-2026-10-12.md` | D12 and W5 done: Trip.com on 32 guides, Klook on 27 (2026-10-14) |
 | `car-links-missing-2026-10-15.md` | Final record of the 175 guides with no car link, by reason (W1 closed) |
+| `plug-types-open-2026-10-15.md` | G7 done: the last 5 guides settled |
 | `hood-picks-article-first-test.md` | G2b answered: the pool fix and the new pipeline ran from batch 6 (2026-10-16/17) |
 
 ## Done — moved to `_done/` (15 October 2026)
