@@ -71,7 +71,7 @@
   .blk-tools button.del:hover{color:#fff;background:var(--coral);border-color:var(--coral)}
   .blk textarea,.blk input[type=text]{width:100%;font-size:.95rem;font-family:inherit;color:var(--ink);
     background:#fff;border:2px solid rgba(63,81,56,.18);border-radius:0;padding:9px 11px}
-  .blk textarea{resize:vertical;min-height:58px}
+  .blk textarea{resize:vertical;min-height:160px;overflow:hidden}
   .blk textarea:focus,.blk input:focus{outline:none;border-color:var(--green)}
   .blk.blk-br{display:flex;align-items:center;gap:10px;color:var(--coral);font-weight:700;letter-spacing:.3em}
   .blk.blk-br .blk-tools{letter-spacing:normal}
@@ -126,7 +126,7 @@
   .pv-hero .meta{margin-top:8px;font-size:.85rem;opacity:.95}
   .pv-body{max-width:640px;margin:0 auto;padding:28px 22px 34px;line-height:1.7}
   .pv-body p{font-size:1.05rem;margin:0 0 20px}
-  .pv-body p.lead{font-size:1.2rem}
+  .pv-body p.lead{font-size:1.2rem;white-space:pre-line}
   .pv-body h2{font-size:1.4rem;margin:30px 0 12px}
   .pv-body .pullquote{border-left:3px solid var(--coral);padding:6px 0 6px 18px;margin:26px 0;font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:1.15rem;color:var(--teal)}
   .pv-body .post-break{text-align:center;color:var(--coral);opacity:.7;margin:26px 0;letter-spacing:.4em}
@@ -505,15 +505,20 @@
         el.innerHTML = `<div class="blk-head"><span class="blk-type">${TYPE_LABEL[b.type]||b.type}</span>${tools}</div>${tag}`;
       }
       wrap.appendChild(el);
+      const ta = el.querySelector("textarea[data-text]");
+      if (ta) autoGrow(ta);
       const th = el.querySelector(`[data-thumb="${i}"]`);
       if (th && b.img && b.img.url) th.style.backgroundImage = `url('${b.img.url}')`;
     });
   }
 
+  /* text boxes grow with the text so the whole paragraph stays in view */
+  function autoGrow(t){ t.style.height = "auto"; t.style.height = t.scrollHeight + 2 + "px"; }
+
   /* typing goes straight into state (no re-render, so focus is kept) */
   $("blocks").addEventListener("input", e => {
     const t = e.target;
-    if (t.dataset.text != null) blocks[+t.dataset.text].text = t.value;
+    if (t.dataset.text != null){ blocks[+t.dataset.text].text = t.value; if (t.tagName==="TEXTAREA") autoGrow(t); }
     if (t.dataset.cap  != null) blocks[+t.dataset.cap].img.caption = t.value;
     markDirty();
   });
