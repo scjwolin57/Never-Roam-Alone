@@ -856,7 +856,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Vladimir": {
     "Studyonaya Gora": { img:"images/hoods/vladimir--studyonaya-gora.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C_%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB%D0%B0_%D0%90%D1%80%D1%85%D0%B0%D0%BD%D0%B3%D0%B5%D0%BB%D0%B0,%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80.JPG", src:"Кристина Терсенова" },
-    "Klyazma Riverside": { img:"images/hoods/vladimir--klyazma-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Vladimir_-_panoramio_-_L-BBE_(4).jpg", src:"L-BBE" }
+    "Klyazma Riverside": { img:"images/hoods/vladimir--klyazma-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:Vladimir_-_panoramio_-_L-BBE_(4).jpg", src:"L-BBE" },
+    "Historic Center (Sobornaya Square)": { img:"images/hoods/vladimir--historic-center-sobornaya-square.webp", page:"https://commons.wikimedia.org/wiki/File:Vladimir_Cathedral_Square_The_former_City_Council_IMG_9959_1725.jpg", src:"Alexxx1979" }
   },
   "Warsaw": {
     "Srodmiescie": { img:"images/hoods/warsaw--srodmiescie.webp", page:"https://commons.wikimedia.org/wiki/File:Aleja_Niepdleglosci_Warsaw_2022_aerial_(cropped).jpg" },
@@ -1258,7 +1259,9 @@ window.NRA_HOOD_PHOTO = {
   "Beihai": {
     "Yinhai / Silver Beach": { img:"images/hoods/beihai--yinhai-silver-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Beihai_Railway_Station_(1).jpg", src:"Oh nogo" },
     "Old Town (Zhuhai Road)": { img:"images/hoods/beihai--old-town-zhuhai-road.webp", page:"https://www.flickr.com/photos/86038526@N06/8575254308/", src:"Thomas Fischler" },
-    "Qiaogang": { img:"images/hoods/beihai--qiaogang.webp", page:"https://commons.wikimedia.org/wiki/File:广西壮族自治区北海市的侨港风情街.jpg", src:"热血小亮" }
+    "Qiaogang": { img:"images/hoods/beihai--qiaogang.webp", page:"https://commons.wikimedia.org/wiki/File:广西壮族自治区北海市的侨港风情街.jpg", src:"热血小亮" },
+    "Downtown (Beibuwan Square)": { img:"images/hoods/beihai--downtown-beibuwan-square.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%8C%97%E6%B5%B7%E5%95%86%E4%B8%9A%E5%8C%BA_-_panoramio.jpg", src:"史氏" },
+    "Waisha Seafood Island": { img:"images/hoods/beihai--waisha-seafood-island.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%96%E6%B2%99%E6%BB%A9%E7%9A%84%E7%BE%8E%E6%99%AF_-_panoramio.jpg", src:"史氏" }
   },
   "Beirut": {
     "Downtown (Beirut Central District)": { img:"images/hoods/beirut--downtown-beirut-central-district.webp", page:"https://commons.wikimedia.org/wiki/File:Souqs_in_Beirut_(1).jpg", src:"Radosław Botev" },
@@ -2311,7 +2314,8 @@ window.NRA_HOOD_PHOTO = {
     "Cam Nam Island": { img:"images/hoods/hoi-an--cam-nam-island.webp", page:"https://commons.wikimedia.org/wiki/File:Hoi_An_(31460437767).jpg", src:"Isabell Schulz" }
   },
   "Honiara": {
-    "Point Cruz": { img:"images/hoods/honiara--point-cruz.webp", page:"https://www.flickr.com/photos/65638600@N05/8073765585/", src:"rapidtravelchai" }
+    "Point Cruz": { img:"images/hoods/honiara--point-cruz.webp", page:"https://www.flickr.com/photos/65638600@N05/8073765585/", src:"rapidtravelchai" },
+    "Vavaea Ridge": { img:"images/hoods/honiara--vavaea-ridge.webp", page:"https://commons.wikimedia.org/wiki/File:Police_boats_and_parliament_house_Honiara.jpg", src:"Phenss" }
   },
   "Houmt El Souk": {
     "Houmt Souk (Old Town)": { img:"images/hoods/houmt-el-souk--houmt-souk-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bordj_Ghazi_Mustapha_%C3%A0_Djerba_01.jpg", src:"Youssefbensaad" },
@@ -4542,7 +4546,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Velikiy Novgorod": {
     "Kremlin (Detinets)": { img:"images/hoods/velikiy-novgorod--kremlin-detinets.webp", page:"https://commons.wikimedia.org/wiki/File:NV_Kreml_10.jpg", src:"Wikingenge" },
-    "Yaroslav's Court (Torgovaya Storona)": { img:"images/hoods/velikiy-novgorod--yaroslav-s-court-torgovaya-storona.webp", page:"https://commons.wikimedia.org/wiki/File:Kolokolnia_Nokolsk.jpg", src:"Дар Ветер" }
+    "Yaroslav's Court (Torgovaya Storona)": { img:"images/hoods/velikiy-novgorod--yaroslav-s-court-torgovaya-storona.webp", page:"https://commons.wikimedia.org/wiki/File:Kolokolnia_Nokolsk.jpg", src:"Дар Ветер" },
+    "Voskresenskiy Bulvar": { img:"images/hoods/velikiy-novgorod--voskresenskiy-bulvar.webp", page:"https://commons.wikimedia.org/wiki/File:Veliky_Novgorod,_Novgorod_Oblast,_Russia_-_panoramio_(625).jpg", src:"Дмитрий Cкляренко" }
   },
   "Veracruz": {
     "Centro Histórico": { img:"images/hoods/veracruz--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:R%C3%B3tulos_de_calles_en_el_Centro_Hist%C3%B3rico_de_Veracruz_01.jpg", src:"Isaacvp" },
@@ -4792,7 +4797,9 @@ window.NRA_HOOD_PHOTO = {
     "San Pedro Town Center": { img:"images/hoods/san-pedro-de-atacama--san-pedro-town-center.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Pedro-CTJ-IMG_5528.jpg", src:"Christer T Johansson" }
   },
   "Baracoa": {
-    "El Paraíso": { img:"images/hoods/baracoa--el-paraiso.webp", page:"https://commons.wikimedia.org/wiki/File:Baracoa_-_panoramio.jpg", src:"Martin Cígler" }
+    "El Paraíso": { img:"images/hoods/baracoa--el-paraiso.webp", page:"https://commons.wikimedia.org/wiki/File:Baracoa_-_panoramio.jpg", src:"Martin Cígler" },
+    "Casco Histórico": { img:"images/hoods/baracoa--casco-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Catedral_de_Nuestra_Se%C3%B1ora_de_la_Asuncion_-_2008_-_panoramio_(1).jpg", src:"Maxim Nedashkovskiy" },
+    "El Malecón": { img:"images/hoods/baracoa--el-malecon.webp", page:"https://commons.wikimedia.org/wiki/File:Restaurant_Yaima_-_Baracoa.jpg", src:"Maesi64" }
   },
   "Chaozhou": {
     "Ancient City (Paifang Street / Old Town)": { img:"images/hoods/chaozhou--ancient-city-paifang-street-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Chaozhou_Laocheng_Guminju_Jianzhuqun_2013.10.27_11-28-35.jpg", src:"Zhangzhugang" },
@@ -4839,7 +4846,8 @@ window.NRA_HOOD_PHOTO = {
     "Garmisch Old Town": { img:"images/hoods/garmisch-partenkirchen--garmisch-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Garmisch-Partenkirchen,_der_Gasthof_%22Goldener_Engel%22.jpg", src:"Maksym Kozlenko" }
   },
   "Harar": {
-    "Jugol (Walled Old City)": { img:"images/hoods/harar--jugol-walled-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Harar_Gate_(211539305).jpeg", src:"Francisco Anzola" }
+    "Jugol (Walled Old City)": { img:"images/hoods/harar--jugol-walled-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Harar_Gate_(211539305).jpeg", src:"Francisco Anzola" },
+    "Ferez Magala Square": { img:"images/hoods/harar--ferez-magala-square.webp", page:"https://commons.wikimedia.org/wiki/File:Sheriff_private_museum.jpg", src:"Nebilabd" }
   },
   "Harare": {
     "CBD (Central Business District)": { img:"images/hoods/harare--cbd-central-business-district.webp", page:"https://commons.wikimedia.org/wiki/File:Denkmal_zum_Ersten_Weltkrieg_in_Harare_(28340432139).jpg", src:"ilf_" }
@@ -4936,5 +4944,16 @@ window.NRA_HOOD_PHOTO = {
   "Sergiyev Posad": {
     "Historic Center": { img:"images/hoods/sergiyev-posad--historic-center.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A2%D1%80%D0%BE%D0%B8%D1%86%D0%B5-%D0%A1%D0%B5%D1%80%D0%B3%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BB%D0%B0%D0%B2%D1%80%D0%B0,_%D0%BF%D0%B0%D0%BC%D1%8F%D1%82%D0%BD%D0%B8%D0%BA_%D0%AE%D0%9D%D0%95%D0%A1%D0%9A%D0%9E.jpg", src:"Maria Botvinyeva" },
     "Klementyevo": { img:"images/hoods/sergiyev-posad--klementyevo.webp", page:"https://commons.wikimedia.org/wiki/File:SergievPosad_KrasnoyArmy76_1018.JPG", src:"Ludvig14" }
+  },
+  "Tamanrasset": {
+  },
+  "Cockburn Town": {
+    "Front Street": { img:"images/hoods/cockburn-town--front-street.webp", page:"https://commons.wikimedia.org/wiki/File:Cockburn_Town,_Grand_Turk_-_panoramio_(1).jpg", src:"socaltraveler" }
+  },
+  "Djanet": {
+    "Djanet Old Town": { img:"images/hoods/djanet--djanet-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Rue_centre-ville_Djanet.jpg", src:"Camille Gillet" }
+  },
+  "Kangding": {
+    "Old Town (Lao Cheng)": { img:"images/hoods/kangding--old-town-lao-cheng.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%BA%B7%E5%AE%9A%E5%8E%BF%E5%9F%8E%EF%BC%8C%E7%94%98%E5%AD%9C%E5%B7%9E%E5%BA%9C%E6%89%80%E5%9C%A8%E5%9C%B0_-_panoramio.jpg", src:"山海风" }
   },
 };
