@@ -3,7 +3,7 @@
 Files with open work in them. Finished files move to `_done/`; nothing is
 deleted. None of these files are used by the live site.
 
-*Index rebuilt 2026-10-07, refreshed 2026-10-10.* **What is waiting on Jeff lives in [`TODO.md`](TODO.md)** (struck through when done). This index only says what each file still in this folder is for.
+*Index rebuilt 2026-10-07, refreshed 2026-10-10 and 2026-10-19.* **What is waiting on Jeff lives in [`TODO.md`](TODO.md)** (struck through when done). This index only says what each file still in this folder is for.
 
 ## Still here, and why
 
@@ -12,13 +12,26 @@ deleted. None of these files are used by the live site.
 | `TODO.md` | Jeff's to-do list |
 | `decisions.md` | The decision log every session reads first |
 | `suggested-improvements.md` | The improvement backlog (new ideas go here; open items are also listed in TODO.md) |
-| `RESUME_hood-picks.md` | Hood picks: 125 of 393 cities done (batch 5 loaded 2026-10-15, 237 picks); batch 6 next, on the trial credit before 2026-10-29 (about $110 left) or after the free calls reset on 2026-11-01 |
-| `RESUME_thin-keeps-picks.md` | Picks for the thin-keep neighborhoods wait for next month's free Google calls (reminder task 2026-11-02) |
-| `RESUME_landmark-pin-pass.md`, `landmark-pins-*.csv` | Landmark pin pass: kept until the China pins Google run is done (a live session is working on it) |
-| `discovercars-coverage-2026-10-05.md` (+ `.csv`) | 31 places with no DiscoverCars landing page (Hanoi, Ho Chi Minh City, Hong Kong, Cusco...) |
+| `RESUME_hood-picks.md` | Hood picks: 200 of 393 cities done (batches 6 and 7 loaded 2026-10-17); a live session is on the next batch |
+| `RESUME_thin-keeps-picks.md`, `thin-keeps-city-list.md` | Picks for the 214 thin-keep neighborhoods wait for Google's free calls (reset 2026-11-01, reminder task 2026-11-02) |
+| `china-unverified-landmarks-2026-10-14.csv` | China landmark pins: 165 of 444 still unverified (status per row); Jeff's Amap links settle them |
+| `landmark-pins-for-google.csv` | Kept: the landmark-to-day-trip scripts (`_guidebuild/daytrips/lmkmove/`) re-index it |
+| `discovercars-coverage-2026-10-05.csv` | Kept: the DiscoverCars and Kiwitaxi scripts read it (its note moved to `_done/`) |
+| `plug-types-open-2026-10-15.md`, `plug-types-research-2026-10-15.md` | 5 guides still without full plug data (TODO G7); CLAUDE.md points to both |
 | `flickr-permission-shortlist.csv`, `flickr-request-message.md` | 10 permission requests ready for Jeff to send; 572 landmarks without a photo listed |
-| `hotel-resourcing-plan-2026-10-01.md` | Approved plan, waiting on Expedia / Partnerize |
+| `hotel-resourcing-plan-2026-10-01.md` | Approved plan; Expedia approved, waiting on Hostelworld |
+| `packing-list.xlsx` | Not committed; a copy of `packing-list/packing-list.xlsx` from the blog packing-list task (TODO A12) |
 | `uploads/` | Drop folder for your own landmark photos |
+
+## Done — moved to `_done/` (19 October 2026)
+
+| File | Why it's closed |
+|---|---|
+| `RESUME_landmark-pin-pass.md`, `landmark-pins-google-results-2026-10-09.csv`, `landmark-pins-places-results-2026-10-09.csv` | Pin pass and the China Google run finished (2026-10-09 / 10-12); China work continues in `china-unverified-landmarks-2026-10-14.csv` |
+| `discovercars-coverage-2026-10-05.md` | W1 closed 2026-10-15; the CSV stays because scripts read it |
+| `car-gap-coverage-2026-10-12.md` | D12 and W5 done: Trip.com on 32 guides, Klook on 27 (2026-10-14) |
+| `car-links-missing-2026-10-15.md` | Final record of the 175 guides with no car link, by reason (W1 closed) |
+| `hood-picks-article-first-test.md` | G2b answered: the pool fix and the new pipeline ran from batch 6 (2026-10-16/17) |
 
 ## Done — moved to `_done/` (15 October 2026)
 
