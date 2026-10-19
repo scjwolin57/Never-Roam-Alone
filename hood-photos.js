@@ -1527,10 +1527,12 @@ window.NRA_HOOD_PHOTO = {
     "Centro Histórico (Ciudad Amurallada)": { img:"images/hoods/campeche--centro-historico-ciudad-amurallada.webp", page:"https://commons.wikimedia.org/wiki/File:Campeche_plaza_centro.JPG", src:"Nathanael Vinnue Avila Cruz" },
     "San Román": { img:"images/hoods/campeche--san-roman.webp", page:"https://commons.wikimedia.org/wiki/File:15-07-14-Campeche_Cristo_Negro_Se%C3%B1or_de_San_Rom%C3%A1n-RalfR-WMA_0776.jpg", src:"Ralf Roletschek" },
     "Guadalupe": { img:"images/hoods/campeche--guadalupe.webp", page:"https://commons.wikimedia.org/wiki/File:Campeche,_cathedral_(14364836582).jpg", src:"Arian Zwegers from Brussels, Belgium" },
-    "San Francisco": { img:"images/hoods/campeche--san-francisco.webp", page:"https://www.flickr.com/photos/67769030@N07/14364836582/", src:"Arian Zwegers" }
+    "San Francisco": { img:"images/hoods/campeche--san-francisco.webp", page:"https://www.flickr.com/photos/67769030@N07/14364836582/", src:"Arian Zwegers" },
+    "Barrio de Santa Ana": { img:"images/hoods/campeche--barrio-de-santa-ana.webp", page:"https://commons.wikimedia.org/wiki/File:Catedral_de_Campeche_14.JPG", src:"Dge" }
   },
   "Cap-Haïtien": {
-    "Carénage": { img:"images/hoods/cap-haitien--carenage.webp", page:"https://commons.wikimedia.org/wiki/File:The_Main_Street_in_Cap_Haitien,_Haiti_(8169680065).jpg", src:"Alex Proimos from Sydney, Australia" }
+    "Carénage": { img:"images/hoods/cap-haitien--carenage.webp", page:"https://commons.wikimedia.org/wiki/File:The_Main_Street_in_Cap_Haitien,_Haiti_(8169680065).jpg", src:"Alex Proimos from Sydney, Australia" },
+    "Centre-Ville (Place d'Armes)": { img:"images/hoods/cap-haitien--centre-ville-place-d-armes.webp", page:"https://commons.wikimedia.org/wiki/File:Cathedral_of_Cap-Haitien.jpg", src:"Rémi Kaupp" }
   },
   "Cape Coast": {
     "Kotokuraba": { img:"images/hoods/cape-coast--kotokuraba.webp", page:"https://commons.wikimedia.org/wiki/File:Bearer_Of_The_Stool.jpg", src:"Fiifiabban" }
@@ -1587,7 +1589,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Cayenne": {
     "Montabo": { img:"images/hoods/cayenne--montabo.webp", page:"https://commons.wikimedia.org/wiki/File:Cayennecentreceperou.JPG", src:"Didwin973" },
-    "Rémire-Montjoly": { img:"images/hoods/cayenne--remire-montjoly.webp", page:"https://commons.wikimedia.org/wiki/File:Chaudrons_pour_le_sucre.jpg", src:"Andre Gaston Georges" }
+    "Rémire-Montjoly": { img:"images/hoods/cayenne--remire-montjoly.webp", page:"https://commons.wikimedia.org/wiki/File:Chaudrons_pour_le_sucre.jpg", src:"Andre Gaston Georges" },
+    "Centre-ville (Vieux Cayenne)": { img:"images/hoods/cayenne--centre-ville-vieux-cayenne.webp", page:"https://commons.wikimedia.org/wiki/File:Cayenne_place_des_palmistes_Banque_fran%C3%A7aise_commerciale_2013.jpg", src:"Cayambe" }
   },
   "Cebu City": {
     "Lahug (IT Park)": { img:"images/hoods/cebu-city--lahug-it-park.webp", page:"https://commons.wikimedia.org/wiki/File:Lahug_market_fish_stand_January_2021.jpg", src:"Martin Michlmayr" },
@@ -2571,7 +2574,8 @@ window.NRA_HOOD_PHOTO = {
   "Kashgar": {
     "Kashgar Old Town": { img:"images/hoods/kashgar--kashgar-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:8-07_at_Minmao_(20230922193436).jpg", src:"N509FZ" },
     "Id Kah Square": { img:"images/hoods/kashgar--id-kah-square.webp", page:"https://www.flickr.com/photos/68240136@N02/23756566030/", src:"Hotel Kaesong" },
-    "East Lake (Donghu) Area": { img:"images/hoods/kashgar--east-lake-donghu-area.webp", page:"https://commons.wikimedia.org/wiki/File:2015-09-10-111321_-_Blick_zur_Altstadt_vom_Kashgar.jpg", src:"Zossolino" }
+    "East Lake (Donghu) Area": { img:"images/hoods/kashgar--east-lake-donghu-area.webp", page:"https://commons.wikimedia.org/wiki/File:2015-09-10-111321_-_Blick_zur_Altstadt_vom_Kashgar.jpg", src:"Zossolino" },
+    "Renmin Road (Downtown)": { img:"images/hoods/kashgar--renmin-road-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%96%80%E4%BB%80%E8%80%81%E5%9F%8E_-_Kashgar_Old_Town_-_2015.04_-_panoramio_(1).jpg", src:"rheins" }
   },
   "Kathmandu": {
     "Thamel": { img:"images/hoods/kathmandu--thamel.webp", page:"https://commons.wikimedia.org/wiki/File:An_old_stupa_in_Thamel.jpg", src:"Christopher J. Fynn" },
@@ -2626,7 +2630,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Klaipėda": {
     "Melnragė": { img:"images/hoods/klaipeda--melnrage.webp", page:"https://commons.wikimedia.org/wiki/File:Ztrosk1Lo%C4%8F55.753194,_21.07913.jpg", src:"Kusurija" },
-    "New Town": { img:"images/hoods/klaipeda--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:German_style_building_in_Klaip%C4%97da_(54175695895).jpg", src:"Harald Groven from Tromsø, Norway" }
+    "New Town": { img:"images/hoods/klaipeda--new-town.webp", page:"https://commons.wikimedia.org/wiki/File:German_style_building_in_Klaip%C4%97da_(54175695895).jpg", src:"Harald Groven from Tromsø, Norway" },
+    "Old Town": { img:"images/hoods/klaipeda--old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Tall_ship_race_2009_Klaipeda_-_panoramio.jpg", src:"gintarasjank" },
+    "Fishing Village": { img:"images/hoods/klaipeda--fishing-village.webp", page:"https://commons.wikimedia.org/wiki/File:Pasukamas_tiltelis_(1).jpg", src:"The original uploader was Squareshadow at Lithuanian Wikipedia." }
   },
   "Knysna": {
     "Knysna Central / Waterfront": { img:"images/hoods/knysna--knysna-central-waterfront.webp", page:"https://commons.wikimedia.org/wiki/File:Knysna_(ZA),_Bahnhof,_Drehscheibe_--_2024_--_2347.jpg", src:"Dietmar Rabich" },
@@ -2909,7 +2915,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Madurai": {
     "Tallakulam": { img:"images/hoods/madurai--tallakulam.webp", page:"https://commons.wikimedia.org/wiki/File:%E0%AE%A4%E0%AE%B2%E0%AF%8D%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%81%E0%AE%B3%E0%AE%AE%E0%AF%8D_%E0%AE%AA%E0%AF%86%E0%AE%B0%E0%AF%81%E0%AE%AE%E0%AE%BE%E0%AE%B3%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%B5%E0%AE%BF%E0%AE%B2%E0%AF%8D_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D.jpg", src:"சித்திரவீதிக்காரன்" },
-    "Goripalayam": { img:"images/hoods/madurai--goripalayam.webp", page:"https://commons.wikimedia.org/wiki/File:Gorippalayam.jpg", src:"Wasifwasif (talk)" }
+    "Goripalayam": { img:"images/hoods/madurai--goripalayam.webp", page:"https://commons.wikimedia.org/wiki/File:Gorippalayam.jpg", src:"Wasifwasif (talk)" },
+    "Old City (Temple Area)": { img:"images/hoods/madurai--old-city-temple-area.webp", page:"https://commons.wikimedia.org/wiki/File:Madhurai_meenakshi_temple.jpg", src:"Gayatri" }
   },
   "Magelang": {
     "Magelang Tengah": { img:"images/hoods/magelang--magelang-tengah.webp", page:"https://commons.wikimedia.org/wiki/File:Baituttaqwa_Mosque_in_Nepal_Van_Java,_Magelang.jpg", src:"Alharomain354" },
@@ -3014,7 +3021,8 @@ window.NRA_HOOD_PHOTO = {
     "Salagua": { img:"images/hoods/manzanillo--salagua.webp", page:"https://commons.wikimedia.org/wiki/File:Salagua_Colima.JPG", src:"Yaomautzin Ohtokani Olvera Lara" },
     "Club Santiago / Miramar": { img:"images/hoods/manzanillo--club-santiago-miramar.webp", page:"https://www.flickr.com/photos/39558803@N00/3651710920/", src:"Carlos Varela" },
     "Las Brisas": { img:"images/hoods/manzanillo--las-brisas.webp", page:"https://commons.wikimedia.org/wiki/File:Una_tarde_solitaria_-_panoramio.jpg", src:"KABAYEK" },
-    "Peninsula de Santiago (Las Hadas)": { img:"images/hoods/manzanillo--peninsula-de-santiago-las-hadas.webp", page:"https://commons.wikimedia.org/wiki/File:Morning_view_of_Manzanillo's_Beach_in_Colima,_M%C3%A9xico..JPG", src:"Elisa Jarquin" }
+    "Peninsula de Santiago (Las Hadas)": { img:"images/hoods/manzanillo--peninsula-de-santiago-las-hadas.webp", page:"https://commons.wikimedia.org/wiki/File:Morning_view_of_Manzanillo's_Beach_in_Colima,_M%C3%A9xico..JPG", src:"Elisa Jarquin" },
+    "Centro (Downtown / Zona Centro)": { img:"images/hoods/manzanillo--centro-downtown-zona-centro.webp", page:"https://commons.wikimedia.org/wiki/File:LA_ZONA_NAVAL_-_panoramio.jpg", src:"KABAYEK" }
   },
   "Maputo": {
     "Polana (Cimento)": { img:"images/hoods/maputo--polana-cimento.webp", page:"https://commons.wikimedia.org/wiki/File:Escola_Secund%C3%A1ria_da_Polana_Maputo.JPG", src:"Jcornelius" },
@@ -3037,7 +3045,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Mardin": {
     "Old City (Eski Mardin)": { img:"images/hoods/mardin--old-city-eski-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_P1050209_20080426112815.JPG", src:"Nevit Dilmen" },
-    "Yeni Mardin (New Mardin)": { img:"images/hoods/mardin--yeni-mardin-new-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_T%C3%9CRK%C4%B0YE_-_panoramio.jpg", src:"Emin Başar ÖZDEMİR" }
+    "Yeni Mardin (New Mardin)": { img:"images/hoods/mardin--yeni-mardin-new-mardin.webp", page:"https://commons.wikimedia.org/wiki/File:Mardin_T%C3%9CRK%C4%B0YE_-_panoramio.jpg", src:"Emin Başar ÖZDEMİR" },
+    "Şar / Savurkapı": { img:"images/hoods/mardin--sar-savurkap.webp", page:"https://commons.wikimedia.org/wiki/File:MARD%C4%B0NDEN_MEZOPOTAMYA_OVASI_-_panoramio.jpg", src:"Necim" }
   },
   "Mariehamn": {
     "Västerhamn (Western Harbour)": { img:"images/hoods/mariehamn--vasterhamn-western-harbour.webp", page:"https://commons.wikimedia.org/wiki/File:Aktern_p%C3%A5_Viking_Grace_i_hamnen_i_Mariehamn_20221226.jpg", src:"AleWi" },
@@ -3347,7 +3356,8 @@ window.NRA_HOOD_PHOTO = {
     "City Centre (Trafalgar Street)": { img:"images/hoods/nelson--city-centre-trafalgar-street.webp", page:"https://commons.wikimedia.org/wiki/File:Centre_of_NZ_plaque_MRD.jpg", src:"Mike Dickison" },
     "Tāhunanui": { img:"images/hoods/nelson--tahunanui.webp", page:"https://commons.wikimedia.org/wiki/File:A_New_Favourite_(Unsplash).jpg", src:"Samara Doole samaradoole" },
     "Wakefield Quay": { img:"images/hoods/nelson--wakefield-quay.webp", page:"https://commons.wikimedia.org/wiki/File:Anchor_Shipping_and_Foundry_(31396193310).jpg", src:"Tony Hisgett from Birmingham, UK" },
-    "Stoke": { img:"images/hoods/nelson--stoke.webp", page:"https://commons.wikimedia.org/wiki/File:Stoke_Turf_Hotel_003.JPG", src:"Mattinbgn (talk · contribs)" }
+    "Stoke": { img:"images/hoods/nelson--stoke.webp", page:"https://commons.wikimedia.org/wiki/File:Stoke_Turf_Hotel_003.JPG", src:"Mattinbgn (talk · contribs)" },
+    "The Wood": { img:"images/hoods/nelson--the-wood.webp", page:"https://commons.wikimedia.org/wiki/File:Collingwood_Street_Bridge_02.jpg", src:"Thaddeus Roan" }
   },
   "New Orleans": {
     "French Quarter (Vieux Carré)": { img:"images/hoods/new-orleans--french-quarter-vieux-carre.webp", page:"https://commons.wikimedia.org/wiki/File:1979-08-16-New_Orleans-167.jpg", src:"Rainer Halama" },
@@ -4261,7 +4271,8 @@ window.NRA_HOOD_PHOTO = {
   "Sylhet": {
     "Zindabazar": { img:"images/hoods/sylhet--zindabazar.webp", page:"https://commons.wikimedia.org/wiki/File:Sylheti_Nagari_Alphabet_Monument.jpg", src:"Sajibur" },
     "Dargah Gate (Shah Jalal)": { img:"images/hoods/sylhet--dargah-gate-shah-jalal.webp", page:"https://commons.wikimedia.org/wiki/File:Front_gate_of_Shah_Jalal_Dargah.jpg", src:"Abu Sayeed" },
-    "Airport Road (Baghbari)": { img:"images/hoods/sylhet--airport-road-baghbari.webp", page:"https://commons.wikimedia.org/wiki/File:Airport_road,_Sylhet_1.jpg", src:"Salim_Khandoker" }
+    "Airport Road (Baghbari)": { img:"images/hoods/sylhet--airport-road-baghbari.webp", page:"https://commons.wikimedia.org/wiki/File:Airport_road,_Sylhet_1.jpg", src:"Salim_Khandoker" },
+    "Ambarkhana": { img:"images/hoods/sylhet--ambarkhana.webp", page:"https://commons.wikimedia.org/wiki/File:Airport_road,_Sylhet_1.jpg", src:"Salim_Khandoker" }
   },
   "Ta'if": {
     "Al Hada": { img:"images/hoods/ta-if--al-hada.webp", page:"https://commons.wikimedia.org/wiki/File:Al-Hada_sunset,_near_al-Taif,_Saudi_Arabia_(10).jpg", src:"Prof. Mortel" },
@@ -4398,7 +4409,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Tozeur": {
     "Ouled el-Hadef (Medina)": { img:"images/hoods/tozeur--ouled-el-hadef-medina.webp", page:"https://commons.wikimedia.org/wiki/File:Bortal_Abderrazak_El_Hadfi,_Medina_of_Tozeur_(Ouled_El_Hadef)_02.jpg", src:"Rawen Ab" },
-    "Bled El Hadhar": { img:"images/hoods/tozeur--bled-el-hadhar.webp", page:"https://commons.wikimedia.org/wiki/File:Mosque_of_Bled_El_Hadhar_01.jpg", src:"Rawen Ab" }
+    "Bled El Hadhar": { img:"images/hoods/tozeur--bled-el-hadhar.webp", page:"https://commons.wikimedia.org/wiki/File:Mosque_of_Bled_El_Hadhar_01.jpg", src:"Rawen Ab" },
+    "City Centre (Avenue Habib Bourguiba)": { img:"images/hoods/tozeur--city-centre-avenue-habib-bourguiba.webp", page:"https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_Ferkous_Tozeur_06.jpg", src:"TOUMOU" }
   },
   "Trabzon": {
     "Meydan (Atatürk Alanı)": { img:"images/hoods/trabzon--meydan-ataturk-alani.webp", page:"https://commons.wikimedia.org/wiki/File:ATATURK_HEYKELI.TRABZON_-_panoramio.jpg", src:"Kayhan ERTUGRUL" },
@@ -4414,7 +4426,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Trincomalee": {
     "Uppuveli": { img:"images/hoods/trincomalee--uppuveli.webp", page:"https://commons.wikimedia.org/wiki/File:Puffer_fish_at_Nilaveli,_Sri_lanka.jpg", src:"Satheesha J." },
-    "Nilaveli": { img:"images/hoods/trincomalee--nilaveli.webp", page:"https://commons.wikimedia.org/wiki/File:Bade_Tag_-_panoramio.jpg", src:"aachim3" }
+    "Nilaveli": { img:"images/hoods/trincomalee--nilaveli.webp", page:"https://commons.wikimedia.org/wiki/File:Bade_Tag_-_panoramio.jpg", src:"aachim3" },
+    "Trincomalee Town & Fort Frederick": { img:"images/hoods/trincomalee--trincomalee-town-fort-frederick.webp", page:"https://commons.wikimedia.org/wiki/File:Fort_Frederick_-_panoramio_(1).jpg", src:"Alexey Komarov" }
   },
   "Trinidad": {
     "Plaza Mayor": { img:"images/hoods/trinidad--plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Perspectiva_basada_en_la_verja_de_Plaza_Mayor_-_panoramio.jpg", src:"DnTrotaMundos ☮" },
@@ -4789,7 +4802,9 @@ window.NRA_HOOD_PHOTO = {
     "Flores Island (Isla de Flores)": { img:"images/hoods/flores--flores-island-isla-de-flores.webp", page:"https://commons.wikimedia.org/wiki/File:Colourful_streets_in_Isla_de_Flores.jpg", src:"Bex Walton" }
   },
   "Garmisch-Partenkirchen": {
-    "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:20230608_Olympiaschanze_Garmisch-Partenkirchen.jpg", src:"Flocci Nivis" }
+    "Olympic Quarter": { img:"images/hoods/garmisch-partenkirchen--olympic-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:20230608_Olympiaschanze_Garmisch-Partenkirchen.jpg", src:"Flocci Nivis" },
+    "Partenkirchen Old Town": { img:"images/hoods/garmisch-partenkirchen--partenkirchen-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Ludwigstra%C3%9Fe_in_Garmisch-Partenkirchen.jpg", src:"Tiia Monto" },
+    "Garmisch Old Town": { img:"images/hoods/garmisch-partenkirchen--garmisch-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Garmisch-Partenkirchen,_der_Gasthof_%22Goldener_Engel%22.jpg", src:"Maksym Kozlenko" }
   },
   "Harar": {
     "Jugol (Walled Old City)": { img:"images/hoods/harar--jugol-walled-old-city.webp", page:"https://commons.wikimedia.org/wiki/File:Harar_Gate_(211539305).jpeg", src:"Francisco Anzola" }
@@ -4854,7 +4869,8 @@ window.NRA_HOOD_PHOTO = {
     "Old Ksar (Red Town)": { img:"images/hoods/timimoun--old-ksar-red-town.webp", page:"https://commons.wikimedia.org/wiki/File:Bab_al-Sudan_(Timimoun)_01.jpg", src:"Bernard Gagnon" }
   },
   "Tórshavn": {
-    "Viðarlund": { img:"images/hoods/torshavn--vi-arlund.webp", page:"https://commons.wikimedia.org/wiki/File:Vi%C3%B0arlundin_%C3%AD_Havn.jpg", src:"Maciej Brencz" }
+    "Viðarlund": { img:"images/hoods/torshavn--vi-arlund.webp", page:"https://commons.wikimedia.org/wiki/File:Vi%C3%B0arlundin_%C3%AD_Havn.jpg", src:"Maciej Brencz" },
+    "Tinganes & Reyn (Old Town)": { img:"images/hoods/torshavn--tinganes-reyn-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:T%C3%B3rshavn_Tinganes_12.JPG", src:"Zairon" }
   },
   "Dijon": {
     "Gare and Saint-Bénigne": { img:"images/hoods/dijon--gare-and-saint-benigne.webp", page:"https://commons.wikimedia.org/wiki/File:Dijon_cathedral_facade_06.jpg", src:"Paolo da Reggio" },
