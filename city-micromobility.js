@@ -43,7 +43,7 @@ window.NRA_MICRO = {
 "Amsterdam":[{"n":"Check","u":"https://ridecheck.app"},{"n":"Donkey Republic","u":"https://www.donkey.bike/"},{"n":"Felyx","u":"https://felyx.com/"}],
 "Anaheim":[],
 "Anchorage":[],
-"Andorra la Vella":[],
+"Andorra la Vella":[{"n":"Cicland","u":"https://www.cicland.ad/"}],
 "Angra dos Reis":[],
 "Ankara":[{"n":"Hop","u":"https://hoplagit.com/"},{"n":"Martı","u":"https://play.google.com/store/apps/details?id=com.martitech.marti&hl=en"}],
 "Annecy":[{"n":"Vélonecy","u":"https://mobilites.grandannecy.fr/"}],
@@ -784,7 +784,7 @@ window.NRA_MICRO = {
 "Surabaya":[],
 "Surakarta":[],
 "Surat Thani":[],
-"Suzhou":[],
+"Suzhou":[{"n":"Suzhou Public Bicycle (苏州公共自行车, run by Youon 永安行)","u":"https://www.subicycle.com/"}],
 "Sydney":[{"n":"Lime","u":"https://www.li.me/en-au/locations/sydney"},{"n":"HelloRide","u":"https://www.helloride-global.com/"}],
 "Sylhet":[],
 "São Paulo":[{"n":"Bike Itaú","u":"https://bikeitau.com.br/bikesampa"},{"n":"Bike Itaú (Bike Sampa / Tembici)","u":"https://bikeitau.com.br/sao-paulo/"}],
@@ -910,6 +910,6 @@ window.NRA_MICRO = {
 "Ålesund":[{"n":"Ryde","u":"https://www.ryde-technology.com/"}],
 "Århus":[{"n":"Donkey Republic","u":"https://www.donkey.bike/"}],
 "Çeşme":[],
-"İzmir":[],
+"İzmir":[{"n":"Martı","u":"https://www.marti.tech/en/"},{"n":"Hop","u":"https://hoplagit.com/"}],
 "Şanlıurfa":[]
 };

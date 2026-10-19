@@ -97,3 +97,6 @@ Tell the user plainly:
 - That, like every other change to this site, it needs `git push` + a Netlify redeploy to go live — nothing here deploys itself.
 
 No i18n/translation follow-up is needed — the site's long-form city content translates live via API for every city automatically (see `city_count_247_verified.md`).
+
+## Bikes & scooters (since 2026-10-19)
+Research per `_guidebuild/micro/MICRO_BRIEF.md` (own city list, GBFS feed, official page or dated 2025-26 reporting, live own link), independent check per `MICRO_CHECK_BRIEF.md`, then `python3 _guidebuild/micro/micro_tool.py apply <file>`: it writes the NRA-MASTER.xlsx "Bikes & Scooters" tab and the city's line in `city-micromobility.js` together. A new city needs its line in the js (empty list `[]` when nothing is verified). Parity: `check_sheet_parity.py`.
