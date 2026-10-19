@@ -690,7 +690,8 @@ window.NRA_HOOD_PHOTO = {
     "Al Khan": { img:"images/hoods/sharjah--al-khan.webp", page:"https://commons.wikimedia.org/wiki/File:Sharjah_Al_Khan_-_Sharafeldin_1.jpg", src:"Sharaf01" },
     "Al Taawun": { img:"images/hoods/sharjah--al-taawun.webp", page:"https://commons.wikimedia.org/wiki/File:A_beautiful_view_from_a_balcony.jpg", src:"Tasniem mohamed" },
     "Al Nahda": { img:"images/hoods/sharjah--al-nahda.webp", page:"https://commons.wikimedia.org/wiki/File:Al_amman_signal_-_panoramio.jpg", src:"Bin Al Stroker" },
-    "Heart of Sharjah": { img:"images/hoods/sharjah--heart-of-sharjah.webp", page:"https://commons.wikimedia.org/wiki/File:Heart_of_Sharjah.jpg", src:"Alexandermcnabb" }
+    "Heart of Sharjah": { img:"images/hoods/sharjah--heart-of-sharjah.webp", page:"https://commons.wikimedia.org/wiki/File:Heart_of_Sharjah.jpg", src:"Alexandermcnabb" },
+    "Al Majaz": { img:"images/hoods/sharjah--al-majaz.webp", page:"https://commons.wikimedia.org/wiki/File:Sharjsh_-_panoramio.jpg", src:"Xiaotong Gao" }
   },
   "Shenzhen": {
     "Futian": { img:"images/hoods/shenzhen--futian.webp", page:"https://commons.wikimedia.org/wiki/File:Futian_Railway_Station.jpg" },
@@ -928,7 +929,8 @@ window.NRA_HOOD_PHOTO = {
     "Marina d'Agadir": { img:"images/hoods/agadir--marina-d-agadir.webp", page:"https://commons.wikimedia.org/wiki/File:In_the_Marina_of_Agadir_(33392688025).png", src:"Camping Aourir from Aourir, Marokko" },
     "Talborjt": { img:"images/hoods/agadir--talborjt.webp", page:"https://commons.wikimedia.org/wiki/File:Avenue_29_F%C3%A9vrier_-_Agadir_-_Talborjt.jpg", src:"Hamza Izourane" },
     "Anza": { img:"images/hoods/agadir--anza.webp", page:"https://commons.wikimedia.org/wiki/File:Mezquita_en_Anza_(entre_Agadir_y_Aourir).jpg", src:"Ulises Icardi" },
-    "Founty (Sonaba)": { img:"images/hoods/agadir--founty-sonaba.webp", page:"https://commons.wikimedia.org/wiki/File:Founty,_Agadir_80000,_Morocco_-_panoramio.jpg", src:"karel291" }
+    "Founty (Sonaba)": { img:"images/hoods/agadir--founty-sonaba.webp", page:"https://commons.wikimedia.org/wiki/File:Founty,_Agadir_80000,_Morocco_-_panoramio.jpg", src:"karel291" },
+    "Beachfront Promenade (Centre-ville)": { img:"images/hoods/agadir--beachfront-promenade-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Beach_-_panoramio_-_michiel1972.jpg", src:"michiel1972" }
   },
   "Agra": {
     "Taj Ganj": { img:"images/hoods/agra--taj-ganj.webp", page:"https://commons.wikimedia.org/wiki/File:Buffaloes_in_the_streets_of_Taj_Ganj,_Agra,_11-2009_-_panoramio.jpg", src:"David M." },
@@ -1080,7 +1082,8 @@ window.NRA_HOOD_PHOTO = {
   "Arusha": {
     "Njiro": { img:"images/hoods/arusha--njiro.webp", page:"https://commons.wikimedia.org/wiki/File:A_valley_with_a_river_at_Njiro_Arusha.jpg", src:"Praygod mwanga" },
     "Sakina": { img:"images/hoods/arusha--sakina.webp", page:"https://commons.wikimedia.org/wiki/File:WikiAru44.jpg", src:"Bajcetic" },
-    "Kijenge / Themi": { img:"images/hoods/arusha--kijenge-themi.webp", page:"https://commons.wikimedia.org/wiki/File:Streets_of_Arusha_(15).jpg", src:"Zenith4237" }
+    "Kijenge / Themi": { img:"images/hoods/arusha--kijenge-themi.webp", page:"https://commons.wikimedia.org/wiki/File:Streets_of_Arusha_(15).jpg", src:"Zenith4237" },
+    "City Centre (Clock Tower)": { img:"images/hoods/arusha--city-centre-clock-tower.webp", page:"https://commons.wikimedia.org/wiki/File:Arusha_Clock_Tower_roundabout_with_blooming_jacaranda_trees.jpg", src:"Agness Abubakar Saidi" }
   },
   "Ashgabat": {
     "Berzengi": { img:"images/hoods/ashgabat--berzengi.webp", page:"https://commons.wikimedia.org/wiki/File:Berzengi_Construction.jpg", src:"Gilad Rom" },
@@ -1102,7 +1105,8 @@ window.NRA_HOOD_PHOTO = {
   "Aswan": {
     "Sharia As-Souq": { img:"images/hoods/aswan--sharia-as-souq.webp", page:"https://commons.wikimedia.org/wiki/File:Objects_sold_at_Sharia_el_Souk_(14284065219).jpg", src:"Jorge Láscar from Melbourne, Australia" },
     "Elephantine Island": { img:"images/hoods/aswan--elephantine-island.webp", page:"https://commons.wikimedia.org/wiki/File:Assuan_Oberoi_03.JPG", src:"Olaf Tausch" },
-    "Gharb Seheil (West Bank Nubian Village)": { img:"images/hoods/aswan--gharb-seheil-west-bank-nubian-village.webp", page:"https://commons.wikimedia.org/wiki/File:Delcious_Egyptian_breakfast_at_nubian_village_Gharb_Soheil,_Arti_ka_Hotel_%26_Restaurant,_Aswan_at_7_September_2021.jpg", src:"Same7.sabry" }
+    "Gharb Seheil (West Bank Nubian Village)": { img:"images/hoods/aswan--gharb-seheil-west-bank-nubian-village.webp", page:"https://commons.wikimedia.org/wiki/File:Delcious_Egyptian_breakfast_at_nubian_village_Gharb_Soheil,_Arti_ka_Hotel_%26_Restaurant,_Aswan_at_7_September_2021.jpg", src:"Same7.sabry" },
+    "Corniche (East Bank)": { img:"images/hoods/aswan--corniche-east-bank.webp", page:"https://commons.wikimedia.org/wiki/File:Aswan_Corniche_in_2017_,_photo_by_Hatem_Moushir_5.jpg", src:"Hatem Moushir" }
   },
   "Atlanta": {
     "Downtown": { img:"images/hoods/atlanta--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:75_Ted_Turner_Drive_Building,_Atlanta,_GA_(33598206688).jpg", src:"Warren LeMay from Cincinnati, OH, United States" },
@@ -1530,7 +1534,8 @@ window.NRA_HOOD_PHOTO = {
   "Carcassonne": {
     "Canal du Midi (Bassin)": { img:"images/hoods/carcassonne--canal-du-midi-bassin.webp", page:"https://commons.wikimedia.org/wiki/File:Resclosa_de_Carcassona_-_20230824_111758.jpg", src:"Pere López Brosa" },
     "La Cité (Walled Citadel)": { img:"images/hoods/carcassonne--la-cite-walled-citadel.webp", page:"https://commons.wikimedia.org/wiki/File:Carcassonne_la_m%C3%A9di%C3%A9vale.jpg", src:"Gerardromeo" },
-    "Trivalle": { img:"images/hoods/carcassonne--trivalle.webp", page:"https://commons.wikimedia.org/wiki/File:Rue_Trivalle,_Carcassonne_(3990443741).jpg", src:"Andy Mitchell from Glasgow, UK" }
+    "Trivalle": { img:"images/hoods/carcassonne--trivalle.webp", page:"https://commons.wikimedia.org/wiki/File:Rue_Trivalle,_Carcassonne_(3990443741).jpg", src:"Andy Mitchell from Glasgow, UK" },
+    "Ville Basse (Lower Town)": { img:"images/hoods/carcassonne--ville-basse-lower-town.webp", page:"https://commons.wikimedia.org/wiki/File:Carcassonne_France_(7)_(4805242049).jpg", src:"Gary Bembridge from London, UK" }
   },
   "Cardiff": {
     "City Centre": { img:"images/hoods/cardiff--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:21_St_Mary_Street,_Cardiff.jpg", src:"Armonjones" },
@@ -1549,7 +1554,8 @@ window.NRA_HOOD_PHOTO = {
     "Maârif": { img:"images/hoods/casablanca--maarif.webp", page:"https://commons.wikimedia.org/wiki/File:Libye_-_Alg%C3%A9rie7.jpg", src:"mustapha_ennaimi" },
     "Ain Diab (Corniche)": { img:"images/hoods/casablanca--ain-diab-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Ain_Diab,_Casablanca_20052,_Morocco_-_panoramio.jpg", src:"angelius1979" },
     "Old Medina": { img:"images/hoods/casablanca--old-medina.webp", page:"https://commons.wikimedia.org/wiki/File:CasablancaOldMedinaNight.jpg", src:"Elgaard" },
-    "Gauthier": { img:"images/hoods/casablanca--gauthier.webp", page:"https://commons.wikimedia.org/wiki/File:GAUTHIER,_Casablanca_20250,_Morocco_-_panoramio_(1).jpg", src:"karel291" }
+    "Gauthier": { img:"images/hoods/casablanca--gauthier.webp", page:"https://commons.wikimedia.org/wiki/File:GAUTHIER,_Casablanca_20250,_Morocco_-_panoramio_(1).jpg", src:"karel291" },
+    "Centre Ville": { img:"images/hoods/casablanca--centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:%CE%9A%CE%B5%CE%BD%CF%84%CF%81%CE%B9%CE%BA%CE%AE_%CE%91%CE%B3%CE%BF%CF%81%CE%AC_%CE%9A%CE%B1%CE%B6%CE%B1%CE%BC%CF%80%CE%BB%CE%AC%CE%BD%CE%BA%CE%B1_1821.jpg", src:"C messier" }
   },
   "Castries": {
     "Vigie / Choc Bay": { img:"images/hoods/castries--vigie-choc-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Vigie,_Saint_Lucia_-_panoramio.jpg", src:"Luboš Holič" },
@@ -1689,7 +1695,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Colmar": {
     "La Petite Venise (Little Venice)": { img:"images/hoods/colmar--la-petite-venise-little-venice.webp", page:"https://commons.wikimedia.org/wiki/File:Lauch,_petite_Venise,_coll%C3%A9giale_Saint-Martin_(Colmar)_(2).JPG", src:"Gzen92" },
-    "Old Town Center": { img:"images/hoods/colmar--old-town-center.webp", page:"https://www.flickr.com/photos/29350288@N06/49797632292/", src:"Infrogmation" }
+    "Old Town Center": { img:"images/hoods/colmar--old-town-center.webp", page:"https://www.flickr.com/photos/29350288@N06/49797632292/", src:"Infrogmation" },
+    "Quartier de la Gare": { img:"images/hoods/colmar--quartier-de-la-gare.webp", page:"https://commons.wikimedia.org/wiki/File:Gare_de_Colmar_(53931598450).jpg", src:"Alexandre Prevot from Nancy, France" }
   },
   "Cologne": {
     "Altstadt": { img:"images/hoods/cologne--altstadt.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_%C3%BCber_den_Rhein_Richtung_K%C3%B6lner_Altstadt_mit_Dom-4099.jpg", src:"Raimond Spekking" },
@@ -2656,7 +2663,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Kuşadası": {
     "Ladies Beach (Kadınlar Denizi)": { img:"images/hoods/kusadasi--ladies-beach-kadinlar-denizi.webp", page:"https://commons.wikimedia.org/wiki/File:Turkey_Ku%C5%9Fadas%C4%B1_Ladys_Beach_-_panoramio.jpg", src:"Tutku Çetinel" },
-    "Davutlar": { img:"images/hoods/kusadasi--davutlar.webp", page:"https://commons.wikimedia.org/wiki/File:Davutlar_-_panoramio_(1).jpg", src:"rahimabaid" }
+    "Davutlar": { img:"images/hoods/kusadasi--davutlar.webp", page:"https://commons.wikimedia.org/wiki/File:Davutlar_-_panoramio_(1).jpg", src:"rahimabaid" },
+    "Grand Bazaar District": { img:"images/hoods/kusadasi--grand-bazaar-district.webp", page:"https://commons.wikimedia.org/wiki/File:%C3%96k%C3%BCz_Mehmed_Pasha_Caravanserai,_Ku%C5%9Fadas%C4%B1_03.jpg", src:"Zeynel Cebeci" }
   },
   "Kuwait City": {
     "Sharq": { img:"images/hoods/kuwait-city--sharq.webp", page:"https://commons.wikimedia.org/wiki/File:Fishing_rod,_Souq_Sharq,_Kuwait.jpg", src:"Yaz1998" },
@@ -2991,7 +2999,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Marmaris": {
     "Marmaris Marina / Old Town": { img:"images/hoods/marmaris--marmaris-marina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Marmaris_-_panoramio_(2).jpg", src:"Николай Максимович" },
-    "Içmeler": { img:"images/hoods/marmaris--icmeler.webp", page:"https://commons.wikimedia.org/wiki/File:Icmeler_2.07.2011_-_panoramio.jpg", src:"agentura" }
+    "Içmeler": { img:"images/hoods/marmaris--icmeler.webp", page:"https://commons.wikimedia.org/wiki/File:Icmeler_2.07.2011_-_panoramio.jpg", src:"agentura" },
+    "Uzunyalı": { img:"images/hoods/marmaris--uzunyal.webp", page:"https://commons.wikimedia.org/wiki/File:TUR_%E2%80%94_Region_%C3%84g%C3%A4is_%E2%80%94_Provinz_Mu%C4%9Fla_%E2%80%94_%C4%B0l%C3%A7e_Marmaris_%E2%80%94_Marmaris_city_%E2%80%94_opposite_Japanese_garden_(text_photospot_with_cityscape)_Mattes_2022-10-09.jpg", src:"User:Mattes" }
   },
   "Marsa Alam": {
     "Port Ghalib": { img:"images/hoods/marsa-alam--port-ghalib.webp", page:"https://commons.wikimedia.org/wiki/File:Marsa_Alam_R22-manipulated.jpg", src:"Marc Ryckaert (MJJR) and Piotrus" },
@@ -3446,7 +3455,7 @@ window.NRA_HOOD_PHOTO = {
     "Kato Paphos": { img:"images/hoods/paphos--kato-paphos.webp", page:"https://commons.wikimedia.org/wiki/File:Amphitheater_and_viewpoint,_Kato_Paphos,_Paphos,_Cyprus.jpg", src:"Fry72, Karel Frydrýšek" },
     "Ktima (Upper Town)": { img:"images/hoods/paphos--ktima-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Paphos,_T%C3%BCrkisches_Bad_am_Markt_-_panoramio.jpg", src:"Arnold Schott" },
     "Coral Bay": { img:"images/hoods/paphos--coral-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Coral_Bay,_Peyia,_Cyprus_-_panoramio_(10).jpg", src:"greglaskiewicz" },
-    "Geroskipou": { img:"images/hoods/paphos--geroskipou.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Athena_Beach_Hotel_Paphos_-_panoramio.jpg", src:"Arnold Schott" }
+    "Geroskipou": { img:"images/hoods/paphos--geroskipou.webp", page:"https://commons.wikimedia.org/wiki/File:Blick_auf_das_Athena_Beach_Hotel_Paphos_-_panoramio.jpg", src:"Arnold Schott" },
   },
   "Paramaribo": {
     "Waterkant": { img:"images/hoods/paramaribo--waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:Dag_der_Marrons,_Paramaribo,_2020_-_01.jpg", src:"Ymnes" }
@@ -3714,7 +3723,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Quanzhou": {
     "Tumen Street & Qingjing Mosque": { img:"images/hoods/quanzhou--tumen-street-qingjing-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Quanzhou_Tonghuai_Guanyue_Miao_20120229-01.jpg", src:"Zhangzhugang" },
-    "Zhongshan Road": { img:"images/hoods/quanzhou--zhongshan-road.webp", page:"https://commons.wikimedia.org/wiki/File:20230130_Quanzhou_Fu_Confucian_Temple_02.jpg", src:"Windmemories" }
+    "Zhongshan Road": { img:"images/hoods/quanzhou--zhongshan-road.webp", page:"https://commons.wikimedia.org/wiki/File:20230130_Quanzhou_Fu_Confucian_Temple_02.jpg", src:"Windmemories" },
+    "West Street & Kaiyuan Temple": { img:"images/hoods/quanzhou--west-street-kaiyuan-temple.webp", page:"https://commons.wikimedia.org/wiki/File:Emporium_of_the_World_in_Song-Yuan_China_(53565063945).jpg", src:"xiquinhosilva" }
   },
   "Québec": {
     "Vieux-Québec – Haute-Ville (Upper Town)": { img:"images/hoods/quebec--vieux-quebec-haute-ville-upper-town.webp", page:"https://commons.wikimedia.org/wiki/File:Assembl%C3%A9e_nationale_du_Qu%C3%A9bec_(la_nuit)_-_panoramio.jpg", src:"Daniel Hu" },
@@ -3827,7 +3837,8 @@ window.NRA_HOOD_PHOTO = {
     "Admiralteysky (Nevsky Prospekt)": { img:"images/hoods/saint-petersburg--admiralteysky-nevsky-prospekt.webp", page:"https://commons.wikimedia.org/wiki/File:Municipal_Institutions_Building_(Sadovaya_Street)_gargoyle1.jpg", src:"SadPetzl" },
     "Tsentralny": { img:"images/hoods/saint-petersburg--tsentralny.webp", page:"https://commons.wikimedia.org/wiki/File:Tsentralny_District,_St_Petersburg,_Russia_-_panoramio_(168).jpg", src:"Денис Александров" },
     "Petrogradsky": { img:"images/hoods/saint-petersburg--petrogradsky.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3,_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D1%8C_%D0%A2%D0%B0%D1%80%D0%B0%D1%81%D0%B0_%D0%A8%D0%B5%D0%B2%D1%87%D0%B5%D0%BD%D0%BA%D0%BE_%D1%81%D0%B2%D0%B5%D1%80%D1%85%D1%83.jpg", src:"Nikolai Bulykin" },
-    "Vasileostrovsky": { img:"images/hoods/saint-petersburg--vasileostrovsky.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_Petersburg_tram_0526_2007-09_1191066130_Vasileostrovsky_tram_depot_LM-99AVN.JPG", src:"Artyom Svetlov" }
+    "Vasileostrovsky": { img:"images/hoods/saint-petersburg--vasileostrovsky.webp", page:"https://commons.wikimedia.org/wiki/File:Saint_Petersburg_tram_0526_2007-09_1191066130_Vasileostrovsky_tram_depot_LM-99AVN.JPG", src:"Artyom Svetlov" },
+    "Kolomna": { img:"images/hoods/saint-petersburg--kolomna.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D0%B0_%D0%93%D1%80%D0%B8%D0%B1%D0%BE%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0_%D1%80%D1%8F%D0%B4%D0%BE%D0%BC_%D1%81_%D0%90%D0%BB%D0%B0%D1%80%D1%87%D0%B8%D0%BD%D1%8B%D0%BC_%D0%BC%D0%BE%D1%81%D1%82%D0%BE%D0%BC_02.jpg", src:"Anastasiya Lvova" }
   },
   "Saint-Pierre": {
     "Pointe aux Canons": { img:"images/hoods/saint-pierre--pointe-aux-canons.webp", page:"https://commons.wikimedia.org/wiki/File:Saint-Pierre-et-Miquelon_la_Pointe_aux_Canons.jpg", src:"Marie975" }
@@ -4094,7 +4105,8 @@ window.NRA_HOOD_PHOTO = {
   "Sousse": {
     "Medina of Sousse": { img:"images/hoods/sousse--medina-of-sousse.webp", page:"https://commons.wikimedia.org/wiki/File:Medina_Sousse_Nov_2021_002.jpg", src:"Yamen" },
     "Sousse Ville (City Center)": { img:"images/hoods/sousse--sousse-ville-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:The_Candyguy.jpg", src:"Monaam Ben Fredj" },
-    "Port El Kantaoui": { img:"images/hoods/sousse--port-el-kantaoui.webp", page:"https://commons.wikimedia.org/wiki/File:2008-11-25-El-Kantaoui-97.JPG", src:"R-E-AL (talk | contribs | Gallery) (German Wikipedia)" }
+    "Port El Kantaoui": { img:"images/hoods/sousse--port-el-kantaoui.webp", page:"https://commons.wikimedia.org/wiki/File:2008-11-25-El-Kantaoui-97.JPG", src:"R-E-AL (talk | contribs | Gallery) (German Wikipedia)" },
+    "Boujaffar Beach & Corniche": { img:"images/hoods/sousse--boujaffar-beach-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Sousse_-_%D0%BD%D0%B0%D0%B1%D0%B5%D1%80%D0%B5%D0%B6%D0%BD%D0%B0%D1%8F_%D0%B8_%D0%BF%D0%BB%D1%8F%D0%B6%D0%B8_(%D0%B2%D0%B8%D0%B4_%D0%B8%D0%B7_%D0%BD%D0%BE%D0%BC%D0%B5%D1%80%D0%B0_750_ElHana_Beach3*)_-_panoramio.jpg", src:"Andrii Svyrydenko" }
   },
   "Split": {
     "Varoš": { img:"images/hoods/split--varos.webp", page:"https://commons.wikimedia.org/wiki/File:Church_of_St._Nicholas_in_Split,_Croatia_20231223_01.jpg", src:"Argo Navis" },
@@ -4215,7 +4227,8 @@ window.NRA_HOOD_PHOTO = {
     "Medina": { img:"images/hoods/tangier--medina.webp", page:"https://commons.wikimedia.org/wiki/File:La_Grande_Mosqu%C3%A9e_de_Tanger.jpg", src:"ZAINEB HACHAMI" },
     "Kasbah": { img:"images/hoods/tangier--kasbah.webp", page:"https://commons.wikimedia.org/wiki/File:Kasbah_de_Tanger_3.jpg", src:"ZAINEB HACHAMI" },
     "Malabata": { img:"images/hoods/tangier--malabata.webp", page:"https://commons.wikimedia.org/wiki/File:Faro_de_Cabo_Malabata.jpg", src:"Aureliano" },
-    "Marshan": { img:"images/hoods/tangier--marshan.webp", page:"https://commons.wikimedia.org/wiki/File:Marshan,_Tangier,_Morocco_-_panoramio.jpg", src:"aziz aaraj" }
+    "Marshan": { img:"images/hoods/tangier--marshan.webp", page:"https://commons.wikimedia.org/wiki/File:Marshan,_Tangier,_Morocco_-_panoramio.jpg", src:"aziz aaraj" },
+    "Ville Nouvelle (Centre-ville)": { img:"images/hoods/tangier--ville-nouvelle-centre-ville.webp", page:"https://commons.wikimedia.org/wiki/File:Marokko2018-12_(42042540584).jpg", src:"paigeproduction2012" }
   },
   "Tarawa": {
     "Bikenibeu": { img:"images/hoods/tarawa--bikenibeu.webp", page:"https://commons.wikimedia.org/wiki/File:Secondary_School_students_in_Bikenibeu._Kiribati_2007._Photo-_Lorrie_Graham_(10720882343).jpg", src:"Department of Foreign Affairs and Trade" },
