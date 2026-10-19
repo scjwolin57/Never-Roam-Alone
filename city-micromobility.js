@@ -59,7 +59,7 @@ window.NRA_MICRO = {
 "Arusha":[],
 "Ashgabat":[],
 "Asmara":[],
-"Astana":[],
+"Astana":[{"n":"JET","u":"https://jetshr.com/"},{"n":"Astana Bike","u":"https://velobike.kz/"}],
 "Asunción":[],
 "Aswan":[],
 "Athens":[{"n":"Dott","u":"https://ridedott.com/"}],
