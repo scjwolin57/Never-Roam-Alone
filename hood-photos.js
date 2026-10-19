@@ -21,8 +21,8 @@ window.NRA_HOOD_PHOTO = {
     "Oud-West": { img:"images/hoods/amsterdam--oud-west.webp", page:"https://commons.wikimedia.org/wiki/File:During_the_day,_Eerste_Constantijn_Huygensstraat,_with_houseboats,_21_November_1977,_Amsterdam_,_Netherlands_-_panoramio_(65).jpg" }
   },
   "Andorra la Vella": {
-    "Barri Antic (Centre Històric)": { img:"images/hoods/andorra-la-vella--barri-antic-centre-historic.webp", page:"https://commons.wikimedia.org/wiki/File:Casa_de_la_Vall_4.JPG" },
-    "Escaldes-Engordany": { img:"images/hoods/andorra-la-vella--escaldes-engordany.webp", page:"https://commons.wikimedia.org/wiki/File:Caldea_spa_resort%2C_May_2016.jpg" },
+    "Barri Antic (Centre Històric)": { img:"images/hoods/andorra-la-vella--barri-antic-centre-historic.webp", page:"https://commons.wikimedia.org/wiki/File:041_Sant_Esteve_(Andorra_la_Vella),_cap%C3%A7alera_i_campanar.JPG", src:"Enfo" },
+    "Escaldes-Engordany": { img:"images/hoods/andorra-la-vella--escaldes-engordany.webp", page:"https://commons.wikimedia.org/wiki/File:Pont_d%27Engordany_WLM_Photwalk.JPG", src:"Vriullop" },
     "Avinguda Meritxell": { img:"images/hoods/andorra-la-vella--avinguda-meritxell.webp", page:"https://commons.wikimedia.org/wiki/File:Avinguda_Meritxell_Andorra_la_Vella_20231008_123955.jpg" },
     "Prat de la Creu": { img:"images/hoods/andorra-la-vella--prat-de-la-creu.webp", page:"https://commons.wikimedia.org/wiki/File:080_Casa_de_la_Vall_(Andorra_la_Vella),_portal_exterior_nord_i_torre.JPG", src:"Enfo" }
   },
@@ -158,7 +158,7 @@ window.NRA_HOOD_PHOTO = {
     "Vesterbro": { img:"images/hoods/copenhagen--vesterbro.webp", page:"https://commons.wikimedia.org/wiki/File:Vesterbro_(15296780753).jpg", src:"Tony Webster from Portland, Oregon, United States" },
     "Norrebro": { img:"images/hoods/copenhagen--norrebro.webp", page:"https://commons.wikimedia.org/wiki/File:Cityscape_and_skyline_by_the_Copenhagen_Lakes%2C_Denmark_-_(36018109956).jpg" },
     "Christianshavn": { img:"images/hoods/copenhagen--christianshavn.webp", page:"https://commons.wikimedia.org/wiki/File:Christianshavns_Kanal_-_Kayaks.jpg" },
-    "Osterbro": { img:"images/hoods/copenhagen--osterbro.webp", page:"https://commons.wikimedia.org/wiki/File:Copenhagen_-_the_little_mermaid_statue_-_2013.jpg" },
+    "Osterbro": { img:"images/hoods/copenhagen--osterbro.webp", page:"https://commons.wikimedia.org/wiki/File:Copenhagen_getting_ready_for_the_Grand_Depart_of_the_Tour_de_France_2022_(52170194503).jpg", src:"Lars K Jensen" },
     "Indre By": { img:"images/hoods/copenhagen--indre-by.webp", page:"https://commons.wikimedia.org/wiki/File:Kejsergade.jpg", src:"Leif Jørgensen" }
   },
   "Delhi": {
@@ -439,7 +439,7 @@ window.NRA_HOOD_PHOTO = {
     "South Beach": { img:"images/hoods/miami--south-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Ocean_drive_day_2009j.JPG" },
     "Little Havana": { img:"images/hoods/miami--little-havana.webp", page:"https://commons.wikimedia.org/wiki/File:Little_Havana_Dominos_Park.JPG" },
     "Wynwood": { img:"images/hoods/miami--wynwood.webp", page:"https://commons.wikimedia.org/wiki/File:Wynwood,_Miami,_FL,_USA_-_panoramio_(1).jpg", src:"Sebastian Carlosena" },
-    "Brickell": { img:"images/hoods/miami--brickell.webp", page:"https://pixabay.com/photos/miami-florida-flags-usa-1635943/", src:"Pixabay" }
+    "Brickell": { img:"images/hoods/miami--brickell.webp", page:"https://commons.wikimedia.org/wiki/File:Icon_Brickell_2.jpg", src:"Periodismodepaz" }
   },
   "Milan": {
     "Brera": { img:"images/hoods/milan--brera.webp", page:"https://commons.wikimedia.org/wiki/File:5275MilanoViaMadonnina.JPG" },
@@ -498,7 +498,7 @@ window.NRA_HOOD_PHOTO = {
   "Orlando": {
     "Downtown Orlando": { img:"images/hoods/orlando--downtown-orlando.webp", page:"https://commons.wikimedia.org/wiki/File:Lake-eola-park-orlando-florida.jpg" },
     "International Drive": { img:"images/hoods/orlando--international-drive.webp", page:"https://commons.wikimedia.org/wiki/File:IDrive_Street_View.JPG" },
-    "Winter Park": { img:"images/hoods/orlando--winter-park.webp", page:"https://www.pexels.com/photo/people-waiting-in-a-gazebo-at-winter-park-14071206/", src:"Pexels" },
+    "Winter Park": { img:"images/hoods/orlando--winter-park.webp", page:"https://commons.wikimedia.org/wiki/File:Park_Ave_Shoppes_04.JPG", src:"Miosotis jade" },
     "Lake Buena Vista / Disney Springs": { img:"images/hoods/orlando--lake-buena-vista-disney-springs.webp", page:"https://commons.wikimedia.org/wiki/File:Characters_in_Flight,_Disney_Springs.jpg", src:"Michael Rivera" }
   },
   "Osaka": {
@@ -532,7 +532,7 @@ window.NRA_HOOD_PHOTO = {
   "Pattaya-Chonburi": {
     "Central Pattaya": { img:"images/hoods/pattaya-chonburi--central-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:DZ6_0614_Sunny_beachfront_scene_with_palm-lined_promenade_rows_of_beach_umbrellas_and_jet_skis_cruising_along_the_shoreline.jpg", src:"PattayaPatrol" },
     "North Pattaya": { img:"images/hoods/pattaya-chonburi--north-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:DFC_4029_Sunny_morning_at_the_city_beach_-_small_boats_bobbing_in_the_calm_bay_with_high-rises_rising_in_the_background.jpg", src:"PattayaPatrol" },
-    "Jomtien Beach": { img:"images/hoods/pattaya-chonburi--jomtien-beach.webp", page:"https://pixabay.com/photos/seascape-sea-beach-ocean-sand-5542469/", src:"Pixabay" },
+    "Jomtien Beach": { img:"images/hoods/pattaya-chonburi--jomtien-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Jomtien_Beach_(11).jpg", src:"Georgy Dolgopsky" },
     "Naklua": { img:"images/hoods/pattaya-chonburi--naklua.webp", page:"https://pixabay.com/photos/naklua-thailand-asia-beach-sea-5321943/", src:"Pixabay" },
     "South Pattaya": { img:"images/hoods/pattaya-chonburi--south-pattaya.webp", page:"https://commons.wikimedia.org/wiki/File:Pattaya%2C_Walking_Street_at_night%2C_Thailand.jpg" }
   },
@@ -620,7 +620,7 @@ window.NRA_HOOD_PHOTO = {
     "Haight-Ashbury": { img:"images/hoods/san-francisco--haight-ashbury.webp", page:"https://commons.wikimedia.org/wiki/File:1550_Page_St.,_San_Francisco,_CA_3-4-2012_4-13-37_PM.JPG", src:"Sanfranman59" },
     "Mission District": { img:"images/hoods/san-francisco--mission-district.webp", page:"https://commons.wikimedia.org/wiki/File:Mission_High_School_(cropped).jpg" },
     "Nob Hill": { img:"images/hoods/san-francisco--nob-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Fairmont_Hotel%2C_San_Francisco.jpg" },
-    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://www.pexels.com/photo/traditional-lanterns-over-sunlit-street-18348774/", src:"Pexels" },
+    "Chinatown": { img:"images/hoods/san-francisco--chinatown.webp", page:"https://commons.wikimedia.org/wiki/File:Chinese_gateway,_San_Francisco.jpg", src:"Mike Peel" },
     "Fisherman's Wharf": { img:"images/hoods/san-francisco--fisherman-s-wharf.webp", page:"https://commons.wikimedia.org/wiki/File:San_Francisco_Pier_39.-_Fisherman%27s_Wharf_(15).jpg", src:"Pierre André" }
   },
   "San Marino": {
@@ -710,7 +710,7 @@ window.NRA_HOOD_PHOTO = {
   "Skopje": {
     "Old Bazaar": { img:"images/hoods/skopje--old-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BE%D0%B3%D0%BB%D0%B5%D0%B4_%D0%BA%D0%BE%D0%BD_%D0%A1%D1%83%D0%BB%D0%B8_%D0%90%D0%BD_%D0%B8_%D0%A1%D1%82%D0%B0%D1%80%D0%B0%D1%82%D0%B0_%D1%81%D0%BA%D0%BE%D0%BF%D1%81%D0%BA%D0%B0_%D1%87%D0%B0%D1%80%D1%88%D0%B8%D1%98%D0%B0.JPG" },
     "Centar": { img:"images/hoods/skopje--centar.webp", page:"https://commons.wikimedia.org/wiki/File:Stone_Bridge_Skopje_4.jpg" },
-    "Vodno": { img:"images/hoods/skopje--vodno.webp", page:"https://pixabay.com/photos/nature-mountain-panoramic-landscape-3135545/", src:"Pixabay" },
+    "Vodno": { img:"images/hoods/skopje--vodno.webp", page:"https://commons.wikimedia.org/wiki/File:Green_view_(28991642878).jpg", src:"aiva." },
     "Debar Maalo": { img:"images/hoods/skopje--debar-maalo.webp", page:"https://commons.wikimedia.org/wiki/File:Starogradska_arhitektura_vo_Debar_Maalo%2C_Skopje_na_Ilindenska.jpg" },
     "Aerodrom": { img:"images/hoods/skopje--aerodrom.webp", page:"https://commons.wikimedia.org/wiki/File:Cevahir_towers.jpg", src:"kallerna" }
   },
