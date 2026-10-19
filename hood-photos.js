@@ -146,7 +146,7 @@ window.NRA_HOOD_PHOTO = {
     "Green Point / De Waterkant": { img:"images/hoods/cape-town--green-point-de-waterkant.webp", page:"https://commons.wikimedia.org/wiki/File:De_Waterkant_42.jpg", src:"HelenOnline" }
   },
   "Chiang Rai": {
-    "Mae Kok Riverside (Rim Kok)": { img:"images/hoods/chiang-rai--mae-kok-riverside-rim-kok.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Kok_River_-_Chiang_Rai_(18820240405).jpg", src:"cloud.shepherd" }
+    "Mae Kok Riverside (Rim Kok)": { img:"images/hoods/chiang-rai--mae-kok-riverside-rim-kok.webp", page:"https://commons.wikimedia.org/wiki/File:Mae_Kok_River_-_Chiang_Rai_(18820240405).jpg", src:"cloud.shepherd" },
   },
   "Chișinău": {
     "Centru": { img:"images/hoods/chisinau--centru.webp", page:"https://commons.wikimedia.org/wiki/File:Cl%C4%83direa_prim%C4%83riei_municipiului_Chi%C8%99in%C4%83u.jpg" },
@@ -1567,7 +1567,8 @@ window.NRA_HOOD_PHOTO = {
     "Vigie / Choc Bay": { img:"images/hoods/castries--vigie-choc-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Vigie,_Saint_Lucia_-_panoramio.jpg", src:"Luboš Holič" },
     "Gros Islet / Pigeon Island": { img:"images/hoods/castries--gros-islet-pigeon-island.webp", page:"https://commons.wikimedia.org/wiki/File:Castries_-_Gros_Islet_Hwy,_Choc,_Saint_Lucia_-_panoramio.jpg", src:"Luboš Holič" },
     "Marigot Bay": { img:"images/hoods/castries--marigot-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Marigot_Bay_(23636996074).jpg", src:"Prayitno / Thank you for (12 millions +) view from Los Angeles, USA" },
-    "Rodney Bay": { img:"images/hoods/castries--rodney-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Rodney_Bay_-_panoramio.jpg", src:"Vlad Podvorny" }
+    "Rodney Bay": { img:"images/hoods/castries--rodney-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Rodney_Bay_-_panoramio.jpg", src:"Vlad Podvorny" },
+    "Castries City Centre": { img:"images/hoods/castries--castries-city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:St._Lucia,_Karibik_-_Castries_%E2%80%93_Buorbon_Str._Micoud_Str._-_panoramio.jpg", src:"giggel" }
   },
   "Catania": {
     "Centro Storico": { img:"images/hoods/catania--centro-storico.webp", page:"https://commons.wikimedia.org/wiki/File:Catania_-_chiesa_di_San_Francesco_d%27Assisi_all%27Immacolata_-_2026-09-10_22-40-26_001.jpg", src:"Jumk18" },
@@ -2087,7 +2088,7 @@ window.NRA_HOOD_PHOTO = {
   "Girona": {
     "Barri Vell (Old Town)": { img:"images/hoods/girona--barri-vell-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:092_Edifici_de_la_pl._de_l%27Oli_6_(Girona).JPG", src:"Enfo" },
     "Mercadal": { img:"images/hoods/girona--mercadal.webp", page:"https://commons.wikimedia.org/wiki/File:139_Edifici_amb_esgrafiats_a_la_pl._Mercadal_(Girona).JPG", src:"Enfo" },
-    "Pedret": { img:"images/hoods/girona--pedret.webp", page:"https://commons.wikimedia.org/wiki/File:Entremitgeres_Pedret_1_Girona.jpg", src:"Maite oliva alsina" }
+    "Pedret": { img:"images/hoods/girona--pedret.webp", page:"https://commons.wikimedia.org/wiki/File:Entremitgeres_Pedret_1_Girona.jpg", src:"Maite oliva alsina" },
   },
   "Gisenyi": {
     "Kivu Beach": { img:"images/hoods/gisenyi--kivu-beach.webp", page:"https://commons.wikimedia.org/wiki/File:Saturday_at_the_lake.jpg", src:"Francisco Anzola" }
@@ -3118,7 +3119,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Mombasa": {
     "Nyali": { img:"images/hoods/mombasa--nyali.webp", page:"https://commons.wikimedia.org/wiki/File:Fishing_boat_as_viewed_from_Nyali_Beach_next_to_the_Mombasa_Beach_Hotel_during_low_tide_and_still_conditions_in_Mombasa,_Kenya.jpg", src:"CT Cooper" },
-    "Bamburi Beach": { img:"images/hoods/mombasa--bamburi-beach.webp", page:"https://commons.wikimedia.org/wiki/File:BAMBURI_BEACH.MOMBASA_-_panoramio.jpg", src:"Kayhan ERTUGRUL" }
+    "Bamburi Beach": { img:"images/hoods/mombasa--bamburi-beach.webp", page:"https://commons.wikimedia.org/wiki/File:BAMBURI_BEACH.MOMBASA_-_panoramio.jpg", src:"Kayhan ERTUGRUL" },
+    "City Centre (CBD)": { img:"images/hoods/mombasa--city-centre-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Tusks_-_Flickr_-_Rob_Oo.jpg", src:"Rob Oo from NL" }
   },
   "Monastir": {
     "Skanès (Zone Touristique)": { img:"images/hoods/monastir--skanes-zone-touristique.webp", page:"https://commons.wikimedia.org/wiki/File:Le_palais.JPG", src:"Cyrine kalboussi" },
@@ -3266,7 +3268,8 @@ window.NRA_HOOD_PHOTO = {
     "Bouffay": { img:"images/hoods/nantes--bouffay.webp", page:"https://commons.wikimedia.org/wiki/File:Place_du_Bouffay_plaque_Tour_du_Bouffay.JPG", src:"Adam Bishop" },
     "Île de Nantes": { img:"images/hoods/nantes--ile-de-nantes.webp", page:"https://commons.wikimedia.org/wiki/File:Flickr_-_IngolfBLN_-_Nantes_-_Busway_-_Ligne_4_-_%C3%8Ele_de_Nantes_(10).jpg", src:"IngolfBLN" },
     "Hauts-Pavés – Saint-Félix": { img:"images/hoods/nantes--hauts-paves-saint-felix.webp", page:"https://commons.wikimedia.org/wiki/File:19_rue_des_Hauts-Pav%C3%A9s_Nantes.jpg", src:"Adam Bishop" },
-    "Chantenay": { img:"images/hoods/nantes--chantenay.webp", page:"https://commons.wikimedia.org/wiki/File:Forges_Basse_Indre_%C3%A0_Chantenay.jpg", src:"Jibi44" }
+    "Chantenay": { img:"images/hoods/nantes--chantenay.webp", page:"https://commons.wikimedia.org/wiki/File:Forges_Basse_Indre_%C3%A0_Chantenay.jpg", src:"Jibi44" },
+    "Centre-ville (Graslin)": { img:"images/hoods/nantes--centre-ville-graslin.webp", page:"https://commons.wikimedia.org/wiki/File:Th%C3%A9%C3%A2tre_Graslin_-_Place_Graslin,_Nantes.jpg", src:"Selbymay" }
   },
   "Naples": {
     "Chiaia": { img:"images/hoods/naples--chiaia.webp", page:"https://commons.wikimedia.org/wiki/File:Neapol_via_chiaia_przy_wiadukcie.jpg", src:"Panek" },
@@ -3737,7 +3740,8 @@ window.NRA_HOOD_PHOTO = {
     "Badaguan": { img:"images/hoods/qingdao--badaguan.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%A4%AA%E5%B9%B3%E8%A7%92%E5%85%AC%E5%9B%ADAe.jpg", src:"Li Chao" },
     "May Fourth Square / CBD": { img:"images/hoods/qingdao--may-fourth-square-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Aofan_Base_Marina_City_Shangquan,_Shinan,_Qingdao,_Shandong,_China_-_panoramio.jpg", src:"Matthew Summerton" },
     "Laoshan (Shilaoren)": { img:"images/hoods/qingdao--laoshan-shilaoren.webp", page:"https://commons.wikimedia.org/wiki/File:Big_screen_-_panoramio.jpg", src:"Roddy Pfeiffer" },
-    "Licang / Shibei (Taidong)": { img:"images/hoods/qingdao--licang-shibei-taidong.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E9%85%92%E5%BA%97%E7%AE%A1%E7%90%86%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2.jpg", src:"又黑蜗壳" }
+    "Licang / Shibei (Taidong)": { img:"images/hoods/qingdao--licang-shibei-taidong.webp", page:"https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E9%85%92%E5%BA%97%E7%AE%A1%E7%90%86%E8%81%8C%E4%B8%9A%E6%8A%80%E6%9C%AF%E5%AD%A6%E9%99%A2.jpg", src:"又黑蜗壳" },
+    "Shinan Old Town & Zhanqiao Pier": { img:"images/hoods/qingdao--shinan-old-town-zhanqiao-pier.webp", page:"https://commons.wikimedia.org/wiki/File:View_-_panoramio_(83).jpg", src:"---=XEON=---" }
   },
   "Qinhuangdao": {
     "Beidaihe District": { img:"images/hoods/qinhuangdao--beidaihe-district.webp", page:"https://commons.wikimedia.org/wiki/File:Beidaihe,_Qinhuangdao,_Hebei,_China_-_panoramio_(10).jpg", src:"liyuhanrenll" },
@@ -3977,7 +3981,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Santa Cruz de la Sierra": {
     "Centro (Casco Viejo)": { img:"images/hoods/santa-cruz-de-la-sierra--centro-casco-viejo.webp", page:"https://commons.wikimedia.org/wiki/File:Banco_de_la_Naci%C3%B3n_y_Consulado_Argentino_en_Santa_Cruz_de_la_Sierra_-_panoramio.jpg", src:"Julio Benitez" },
-    "Equipetrol": { img:"images/hoods/santa-cruz-de-la-sierra--equipetrol.webp", page:"https://commons.wikimedia.org/wiki/File:Ventura_Mall,_San_Cruz.jpg", src:"Ana Luz MH" }
+    "Equipetrol": { img:"images/hoods/santa-cruz-de-la-sierra--equipetrol.webp", page:"https://commons.wikimedia.org/wiki/File:Ventura_Mall,_San_Cruz.jpg", src:"Ana Luz MH" },
+    "Sirari": { img:"images/hoods/santa-cruz-de-la-sierra--sirari.webp", page:"https://commons.wikimedia.org/wiki/File:Condominio_Mare,_Scz.jpg", src:"Parallelepiped09" }
   },
   "Santa Cruz de Tenerife": {
     "San Cristobal de La Laguna": { img:"images/hoods/santa-cruz-de-tenerife--san-cristobal-de-la-laguna.webp", page:"https://commons.wikimedia.org/wiki/File:At_Tenerife_2019_643.jpg", src:"Photograph by Mike Peel (www.mikepeel.net)." },
@@ -4076,7 +4081,8 @@ window.NRA_HOOD_PHOTO = {
     "Zand (Historic Core)": { img:"images/hoods/shiraz--zand-historic-core.webp", page:"https://commons.wikimedia.org/wiki/File:Architecture_of_Shiraz_(1).jpg", src:"Mostafameraji" },
     "Eram Garden Area": { img:"images/hoods/shiraz--eram-garden-area.webp", page:"https://commons.wikimedia.org/wiki/File:(((%D8%A8%D8%A7%D8%BA_%D8%A7%D8%B1%D9%85_%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2)))_-_panoramio.jpg", src:"auoob farabi" },
     "Hafezieh (Hafez Tomb)": { img:"images/hoods/shiraz--hafezieh-hafez-tomb.webp", page:"https://commons.wikimedia.org/wiki/File:Mezquita_de_Nasirolmolk,_Shiraz,_Ir%C3%A1n,_2016-09-24,_DD_60-62_HDR.jpg", src:"Diego Delso" },
-    "Chamran Boulevard (Northwest)": { img:"images/hoods/shiraz--chamran-boulevard-northwest.webp", page:"https://commons.wikimedia.org/wiki/File:2022-03-25_Iran,_Shiraz_DSC_0462_DxO.jpg", src:"Laurens R. Krol" }
+    "Chamran Boulevard (Northwest)": { img:"images/hoods/shiraz--chamran-boulevard-northwest.webp", page:"https://commons.wikimedia.org/wiki/File:2022-03-25_Iran,_Shiraz_DSC_0462_DxO.jpg", src:"Laurens R. Krol" },
+    "Gode Araban (Pink Mosque)": { img:"images/hoods/shiraz--gode-araban-pink-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Nasir_almolk_wide_03.jpg", src:"Hamidespanani1988" }
   },
   "Siargao": {
     "General Luna": { img:"images/hoods/siargao--general-luna.webp", page:"https://commons.wikimedia.org/wiki/File:From_the_beach_next_to_Patricks_on_the_beach_-_panoramio.jpg", src:"Mats Sjödin" },
@@ -4370,7 +4376,8 @@ window.NRA_HOOD_PHOTO = {
   "Tromso": {
     "Tromsdalen": { img:"images/hoods/tromso--tromsdalen.webp", page:"https://commons.wikimedia.org/wiki/File:Tromsdalen_(7801606058).jpg", src:"Mark Ledingham" },
     "Bjerkaker": { img:"images/hoods/tromso--bjerkaker.webp", page:"https://commons.wikimedia.org/wiki/File:Myreng_-_panoramio.jpg", src:"Flippo" },
-    "Breivika": { img:"images/hoods/tromso--breivika.webp", page:"https://commons.wikimedia.org/wiki/File:2010-08-02_-_Troms%C3%B8_-_Blick_vom_Hafen_-_panoramio.jpg", src:"giggel" }
+    "Breivika": { img:"images/hoods/tromso--breivika.webp", page:"https://commons.wikimedia.org/wiki/File:2010-08-02_-_Troms%C3%B8_-_Blick_vom_Hafen_-_panoramio.jpg", src:"giggel" },
+    "Sentrum": { img:"images/hoods/tromso--sentrum.webp", page:"https://commons.wikimedia.org/wiki/File:Troms%C3%B8_2013_06_05_3741_(10118620745).jpg", src:"Harvey Barrison from Massapequa, NY, USA" }
   },
   "Trujillo": {
     "Centro Histórico": { img:"images/hoods/trujillo--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Abendstimung,_Centro_Historico,_Victor_Larco_Herrera_13001,_Trujillo,_Peru_-_panoramio.jpg", src:"gertrudis2010" },
@@ -4420,7 +4427,8 @@ window.NRA_HOOD_PHOTO = {
   "Valparaíso": {
     "Cerro Alegre": { img:"images/hoods/valparaiso--cerro-alegre.webp", page:"https://commons.wikimedia.org/wiki/File:Caf%C3%A9_Cuentos.jpg", src:"M.Fernanda.Diaz" },
     "Cerro Concepción": { img:"images/hoods/valparaiso--cerro-concepcion.webp", page:"https://commons.wikimedia.org/wiki/File:Paseo_Atkinson_Cerro_Concepci%C3%B3n.jpg", src:"Sofía Leiva" },
-    "Cerro Bellavista": { img:"images/hoods/valparaiso--cerro-bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Arquitectura_porte%C3%B1a.jpg", src:"Rodrigo Gillibrand" }
+    "Cerro Bellavista": { img:"images/hoods/valparaiso--cerro-bellavista.webp", page:"https://commons.wikimedia.org/wiki/File:Arquitectura_porte%C3%B1a.jpg", src:"Rodrigo Gillibrand" },
+    "El Plan (Downtown/Port)": { img:"images/hoods/valparaiso--el-plan-downtown-port.webp", page:"https://commons.wikimedia.org/wiki/File:Comandancia_Armada_Valpara%C3%ADso.jpg", src:"Nellu Mazilu from Mobile, Terra, Sol, Milky Way" }
   },
   "Varanasi": {
     "Assi Ghat": { img:"images/hoods/varanasi--assi-ghat.webp", page:"https://commons.wikimedia.org/wiki/File:ASSI_GHAT_TOP_VIEW_BANARAS.jpg", src:"RAGHAV SUDAN" },
@@ -4641,7 +4649,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Zanzibar City": {
     "Shangani": { img:"images/hoods/zanzibar-city--shangani.webp", page:"https://commons.wikimedia.org/wiki/File:Tippu_Tip%27s_House_in_Zanzibar_-march_2021.jpg", src:"Erasmus Kamugisha" },
-    "Darajani/Malindi": { img:"images/hoods/zanzibar-city--darajani-malindi.webp", page:"https://commons.wikimedia.org/wiki/File:Darajani_market_scene,_Mjini,_Zanzibar.jpg", src:"Mangapwani" }
+    "Darajani/Malindi": { img:"images/hoods/zanzibar-city--darajani-malindi.webp", page:"https://commons.wikimedia.org/wiki/File:Darajani_market_scene,_Mjini,_Zanzibar.jpg", src:"Mangapwani" },
+    "Stone Town (Mji Mkongwe)": { img:"images/hoods/zanzibar-city--stone-town-mji-mkongwe.webp", page:"https://commons.wikimedia.org/wiki/File:Stone_Town_-_Roads.jpg", src:"MMo" }
   },
   "Zaragoza": {
     "Casco Antiguo": { img:"images/hoods/zaragoza--casco-antiguo.webp", page:"https://commons.wikimedia.org/wiki/File:Casco_Antiguo,_Zaragoza,_Spain_-_panoramio.jpg", src:"Santi Garcia" },
@@ -4799,5 +4808,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Manzhouli": {
     "Central Manzhouli (Erdaojie)": { img:"images/hoods/manzhouli--central-manzhouli-erdaojie.webp", page:"https://commons.wikimedia.org/wiki/File:%E6%BB%A1%E6%B4%B2%E9%87%8C%E5%B8%82%E5%8C%97%E6%96%B9%E5%B8%82%E5%9C%BA%E5%A4%9C%E6%99%AF_-_panoramio.jpg", src:"mayanming" }
+  },
+  "Oran": {
+    "Centre-Ville (Place d'Armes)": { img:"images/hoods/oran--centre-ville-place-d-armes.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_ville_d%27Oran.jpg", src:"Bernard Gagnon" },
+    "Médina Jedida": { img:"images/hoods/oran--medina-jedida.webp", page:"https://commons.wikimedia.org/wiki/File:Tahtaha.jpg", src:"Boumlik Messaïli" }
   },
 };
