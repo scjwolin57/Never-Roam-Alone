@@ -3910,7 +3910,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/hurghada-hurghada-grand-aquarium.webp", page:"https://commons.wikimedia.org/wiki/File:Hurghada_Grand_Aquarium_by_Hatem_Moushir_1.JPG", credit:"Hatem Moushir / CC BY-SA 4.0"},
     {img:"images/landmarks/hurghada-orange-bay-island.webp", page:"https://commons.wikimedia.org/wiki/File:Hurghada_gifton_island_Orange_bay.jpg", credit:"Mahmoudxx1 / CC BY-SA 4.0"},
     null,
-    {"img": "images/landmarks/hurghada-eastern-desert-bedouin-villages-and-dunes.webp", "page": "https://www.flickr.com/photos/68166820@N08/46564934055/", "credit": "cattan2011 (CC BY)"},
+    {"img": "images/landmarks/hurghada-eastern-desert-bedouin-villages-and-dunes.webp", "page": "https://www.flickr.com/photos/68166820@N08/40508928563/", "credit": "cattan2011 (CC BY)"},
   ],
   "Huế": [
     {img:"images/landmarks/hue-imperial-city.webp", page:"https://commons.wikimedia.org/wiki/File:Imperial_City_Hue_20190917-3.jpg", credit:"Suicasmo / CC BY-SA 4.0"},
