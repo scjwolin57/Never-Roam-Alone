@@ -503,7 +503,7 @@ window.NRA_MICRO = {
 "Maseru":[],
 "Mashhad":[],
 "Mataram":[],
-"Matera":[],
+"Matera":[{"n":"VAIMOO","u":"https://www.vaimoo.com/en/our-cities/"}],
 "Matsumoto":[{"n":"HELLO CYCLING","u":"https://www.hellocycling.jp/station/nagano/%E6%9D%BE%E6%9C%AC%E5%B8%82"}],
 "Matsuyama":[{"n":"HELLO CYCLING","u":"https://www.hellocycling.jp/station/ehime/%E6%9D%BE%E5%B1%B1%E5%B8%82"}],
 "Maun":[],
