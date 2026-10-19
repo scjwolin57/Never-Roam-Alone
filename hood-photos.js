@@ -965,7 +965,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Aleppo": {
     "Al-Jdeideh (Christian Quarter)": { img:"images/hoods/aleppo--al-jdeideh-christian-quarter.webp", page:"https://commons.wikimedia.org/wiki/File:Abu_abdo_jdeideh_alep.jpg", src:"Higt" },
-    "New Aleppo (Halab al-Jadida)": { img:"images/hoods/aleppo--new-aleppo-halab-al-jadida.webp", page:"https://commons.wikimedia.org/wiki/File:Aleppo_Modern_mosque_9484.jpg", src:"Dosseman" }
+    "New Aleppo (Halab al-Jadida)": { img:"images/hoods/aleppo--new-aleppo-halab-al-jadida.webp", page:"https://commons.wikimedia.org/wiki/File:Aleppo_Modern_mosque_9484.jpg", src:"Dosseman" },
+    "Old City (Ancient Aleppo)": { img:"images/hoods/aleppo--old-city-ancient-aleppo.webp", page:"https://commons.wikimedia.org/wiki/File:On_the_Aleppo_citadel%E5%9C%A8%E9%98%BF%E5%8B%92%E5%9D%A1%E5%8F%A4%E5%A0%A1%E4%B8%8A_-_panoramio.jpg", src:"Jacky Lee" }
   },
   "Ålesund": {
     "Aspøya": { img:"images/hoods/alesund--aspoya.webp", page:"https://commons.wikimedia.org/wiki/File:Alesund_-_Aspoya.jpg", src:"GangerRolf" },
@@ -1505,7 +1506,8 @@ window.NRA_HOOD_PHOTO = {
   "Cali": {
     "Granada": { img:"images/hoods/cali--granada.webp", page:"https://commons.wikimedia.org/wiki/File:Monumento_a_Joaqu%C3%ADn_de_Cayzedo_y_Cuero,_Plaza_de_Cayzedo,_Cali.jpg", src:"Hurluberlue" },
     "San Antonio": { img:"images/hoods/cali--san-antonio.webp", page:"https://commons.wikimedia.org/wiki/File:Iglesia_de_San_Antonio_1.jpg", src:"Martinduquea" },
-    "Centro": { img:"images/hoods/cali--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Fiestes_Navidiegues_2014_en_Cali_06.jpg", src:"Sahaquiel9102" }
+    "Centro": { img:"images/hoods/cali--centro.webp", page:"https://commons.wikimedia.org/wiki/File:Fiestes_Navidiegues_2014_en_Cali_06.jpg", src:"Sahaquiel9102" },
+    "El Peñón": { img:"images/hoods/cali--el-penon.webp", page:"https://commons.wikimedia.org/wiki/File:Empedrado_-_WLCO_04.jpg", src:"Sahaquiel9102" }
   },
   "Cambridge": {
     "City Centre": { img:"images/hoods/cambridge--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:Lion_Yard,_Cambridge.jpg", src:"Magnus Manske" },
@@ -2021,7 +2023,8 @@ window.NRA_HOOD_PHOTO = {
     "São Martinho / Praia Formosa": { img:"images/hoods/funchal--sao-martinho-praia-formosa.webp", page:"https://commons.wikimedia.org/wiki/File:Igreja_de_S%C3%A3o_Martinho_-_Funchal_-_Portugal_(8711711776)_(cropped).jpg", src:"Vitor Oliveira from Torres Vedras, PORTUGAL" }
   },
   "Gaborone": {
-    "Kgale": { img:"images/hoods/gaborone--kgale.webp", page:"https://commons.wikimedia.org/wiki/File:Broken_homes.jpg", src:"Theodorekanjo" }
+    "Kgale": { img:"images/hoods/gaborone--kgale.webp", page:"https://commons.wikimedia.org/wiki/File:Broken_homes.jpg", src:"Theodorekanjo" },
+    "Central Business District (CBD)": { img:"images/hoods/gaborone--central-business-district-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Three_Dikgosi_monument_in_Gaborone.jpg", src:"Lkabs" }
   },
   "Galle": {
     "Galle Fort": { img:"images/hoods/galle--galle-fort.webp", page:"https://commons.wikimedia.org/wiki/File:Fort,_Galle_80000,_Sri_Lanka_-_panoramio_(100).jpg", src:"Daibo Taku" },
@@ -2180,7 +2183,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Gyeongju": {
     "Hwangnidan-gil": { img:"images/hoods/gyeongju--hwangnidan-gil.webp", page:"https://commons.wikimedia.org/wiki/File:Hwangnidan-gil_03.jpg", src:"Seefooddiet" },
-    "Bomun Lake Resort": { img:"images/hoods/gyeongju--bomun-lake-resort.webp", page:"https://commons.wikimedia.org/wiki/File:Bomun_Lake_from_Gyeongju_World.jpg", src:"Christophe95" }
+    "Bomun Lake Resort": { img:"images/hoods/gyeongju--bomun-lake-resort.webp", page:"https://commons.wikimedia.org/wiki/File:Bomun_Lake_from_Gyeongju_World.jpg", src:"Christophe95" },
+    "Historic Center (Daereungwon)": { img:"images/hoods/gyeongju--historic-center-daereungwon.webp", page:"https://commons.wikimedia.org/wiki/File:Daereungwon_Tomb_Complex_3.jpg", src:"Christophe95" },
+    "Downtown / Seongdong Market": { img:"images/hoods/gyeongju--downtown-seongdong-market.webp", page:"https://commons.wikimedia.org/wiki/File:Wonhyo-ro,_Gyeongju.jpg", src:"Christophe95" }
   },
   "Hạ Long": {
     "Bai Chay": { img:"images/hoods/ha-long--bai-chay.webp", page:"https://commons.wikimedia.org/wiki/File:Bai_Chay_Bridge_(49357435003).jpg", src:"Martin Lewison from Forest Hills, NY, U.S.A." },
@@ -2303,7 +2308,8 @@ window.NRA_HOOD_PHOTO = {
     "Station District": { img:"images/hoods/hualien-city--station-district.webp", page:"https://commons.wikimedia.org/wiki/File:108%E5%B9%B410%E6%9C%88%E8%8A%B1%E8%93%AE%E8%BB%8A%E7%AB%99%E6%9D%B1%E7%AB%99.jpg", src:"Mfpan9389115" }
   },
   "Huangshan": {
-    "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" }
+    "Tunxi Old Street": { img:"images/hoods/huangshan--tunxi-old-street.webp", page:"https://commons.wikimedia.org/wiki/File:%E5%B1%AF%E6%BA%AA%E8%80%81%E8%A1%97_-_panoramio_(1).jpg", src:"gdczjkk" },
+    "Liyang In Lane": { img:"images/hoods/huangshan--liyang-in-lane.webp", page:"https://commons.wikimedia.org/wiki/File:Vista_-_panoramio_(2).jpg", src:"Xiaotong Gao" }
   },
   "Huế": {
     "Phú Hội": { img:"images/hoods/hue--phu-hoi.webp", page:"https://commons.wikimedia.org/wiki/File:Hue_Hotel_Saigon_(24675543497).jpg", src:"dronepicr" },
@@ -2353,7 +2359,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Inverness": {
     "Crown": { img:"images/hoods/inverness--crown.webp", page:"https://commons.wikimedia.org/wiki/File:Provost_lamp_-_Beaufort_Road,_Inverness_(8695202167).jpg", src:"Glen Wallace from Inverness, Scotland" },
-    "Ballifeary": { img:"images/hoods/inverness--ballifeary.webp", page:"https://commons.wikimedia.org/wiki/File:Ballifeary_Lane_and_Ballifeary_Road.jpg", src:"Mx. Granger" }
+    "Ballifeary": { img:"images/hoods/inverness--ballifeary.webp", page:"https://commons.wikimedia.org/wiki/File:Ballifeary_Lane_and_Ballifeary_Road.jpg", src:"Mx. Granger" },
+    "City Centre": { img:"images/hoods/inverness--city-centre.webp", page:"https://commons.wikimedia.org/wiki/File:84_Church_Street,_Inverness_-_geograph.org.uk_-_6574232.jpg", src:"Andrew Abbott" }
   },
   "Iquitos": {
     "Centro (Plaza de Armas)": { img:"images/hoods/iquitos--centro-plaza-de-armas.webp", page:"https://commons.wikimedia.org/wiki/File:Uno_de_los_Edificios_antiguos_de_Iquitos.jpg", src:"Bettyreategui" },
@@ -3176,7 +3183,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Mostar": {
     "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" },
-    "Cernica": { img:"images/hoods/mostar--cernica.webp", page:"https://commons.wikimedia.org/wiki/File:Mostar_(49032844696).jpg", src:"Fred Romero from Paris, France" }
+    "Cernica": { img:"images/hoods/mostar--cernica.webp", page:"https://commons.wikimedia.org/wiki/File:Mostar_(49032844696).jpg", src:"Fred Romero from Paris, France" },
+    "City Centre (Rondo)": { img:"images/hoods/mostar--city-centre-rondo.webp", page:"https://commons.wikimedia.org/wiki/File:20201220_Mostar,_Hrvatski_dom.jpg", src:"Niegodzisie" }
   },
   "Mumbai": {
     "Colaba": { img:"images/hoods/mumbai--colaba.webp", page:"https://commons.wikimedia.org/wiki/File:NE_Boman_Behram_Marg_Colaba_Jul25_A7CR_05948.jpg", src:"Timothy A. Gonsalves" },
@@ -3831,7 +3839,8 @@ window.NRA_HOOD_PHOTO = {
     "Lakefront": { img:"images/hoods/rotorua--lakefront.webp", page:"https://commons.wikimedia.org/wiki/File:Cultura_Maori,_Rotorua,_Nueva_Zelanda_-_panoramio.jpg", src:"Nelson Pérez" },
     "Ohinemutu": { img:"images/hoods/rotorua--ohinemutu.webp", page:"https://commons.wikimedia.org/wiki/File:Ohinemutu,_the_Bell_of_ceremonie_in_Tamatekapua_Meeting_House.jpg", src:"Pierre André Leclercq" },
     "Fenton Street / Glenholme": { img:"images/hoods/rotorua--fenton-street-glenholme.webp", page:"https://commons.wikimedia.org/wiki/File:Fenton_Street_in_Rotorua.jpg", src:"Krzysztof Golik" },
-    "Whakarewarewa": { img:"images/hoods/rotorua--whakarewarewa.webp", page:"https://commons.wikimedia.org/wiki/File:2018-12-30_151552_Whakarewarewa_Thermal_Village_anagoria.jpg", src:"Anagoria" }
+    "Whakarewarewa": { img:"images/hoods/rotorua--whakarewarewa.webp", page:"https://commons.wikimedia.org/wiki/File:2018-12-30_151552_Whakarewarewa_Thermal_Village_anagoria.jpg", src:"Anagoria" },
+    "Rotorua CBD": { img:"images/hoods/rotorua--rotorua-cbd.webp", page:"https://commons.wikimedia.org/wiki/File:Former_Post_Office,_Rororua,_New_Zealand.jpg", src:"Ulrich Lange, Bochum, Germany" }
   },
   "Rotterdam": {
     "Centrum": { img:"images/hoods/rotterdam--centrum.webp", page:"https://commons.wikimedia.org/wiki/File:Phoenix_by_Ian_Kirkpatrick.jpg", src:"Wvdp" },
@@ -3886,12 +3895,14 @@ window.NRA_HOOD_PHOTO = {
     "Susupe / Chalan Kanoa": { img:"images/hoods/saipan--susupe-chalan-kanoa.webp", page:"https://commons.wikimedia.org/wiki/File:Saipan_Sunset_(15551933139).jpg", src:"Phil Warren from St. Ann, USA" }
   },
   "Salalah": {
-    "Al Haffa": { img:"images/hoods/salalah--al-haffa.webp", page:"https://commons.wikimedia.org/wiki/File:Oman,_Salalah,_Haffa_Souq_(Souq_al-Hosn),_Frankincense.jpg", src:"Dr. Thomas Liptak" }
+    "Al Haffa": { img:"images/hoods/salalah--al-haffa.webp", page:"https://commons.wikimedia.org/wiki/File:Oman,_Salalah,_Haffa_Souq_(Souq_al-Hosn),_Frankincense.jpg", src:"Dr. Thomas Liptak" },
+    "Salalah Central": { img:"images/hoods/salalah--salalah-central.webp", page:"https://commons.wikimedia.org/wiki/File:The_Salalah_mosque_B-N_-_panoramio.jpg", src:"patano" },
   },
   "Salamanca": {
     "Barrio del Oeste": { img:"images/hoods/salamanca--barrio-del-oeste.webp", page:"https://commons.wikimedia.org/wiki/File:Plano_de_situaci%C3%B3n_y_emplazamiento_BO_ab17.jpg", src:"Romanarq" },
     "Arrabal (Tormes riverside)": { img:"images/hoods/salamanca--arrabal-tormes-riverside.webp", page:"https://commons.wikimedia.org/wiki/File:20210716_180908(0)_Iglesia_vieja_del_arrabal_en_Salamanca.jpg", src:"FLAVIVSAETIVS" },
-    "Centro Histórico (Plaza Mayor)": { img:"images/hoods/salamanca--centro-historico-plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Salamanca_(30210979204).jpg", src:"Emilio J. Rodríguez Posada" }
+    "Centro Histórico (Plaza Mayor)": { img:"images/hoods/salamanca--centro-historico-plaza-mayor.webp", page:"https://commons.wikimedia.org/wiki/File:Plaza_Mayor_de_Salamanca_(30210979204).jpg", src:"Emilio J. Rodríguez Posada" },
+    "Salesas": { img:"images/hoods/salamanca--salesas.webp", page:"https://commons.wikimedia.org/wiki/File:SA-Julio_Robles_monumento_01.jpg", src:"Ytha67" }
   },
   "Salerno": {
     "Lungomare Trieste": { img:"images/hoods/salerno--lungomare-trieste.webp", page:"https://commons.wikimedia.org/wiki/File:Binari_del_raccordo_portule_di_Salerno_sul_lungomare_Trieste.jpg", src:"Giuseppe Masino" },
@@ -4677,7 +4688,9 @@ window.NRA_HOOD_PHOTO = {
     "Kamembe": { img:"images/hoods/cyangugu--kamembe.webp", page:"https://commons.wikimedia.org/wiki/File:Kamembe_Airport_from_the_outside,_2017_1.jpg", src:"Jon Harald Søby" }
   },
   "Saint John's": {
-    "Dickenson Bay": { img:"images/hoods/saint-john-s--dickenson-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Dickenson_Bay_(5149395640).jpg", src:"Josh Dobson from UK" }
+    "Dickenson Bay": { img:"images/hoods/saint-john-s--dickenson-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Dickenson_Bay_(5149395640).jpg", src:"Josh Dobson from UK" },
+    "Downtown & Heritage Quay": { img:"images/hoods/saint-john-s--downtown-heritage-quay.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_und_Barbuda_-_panoramio_-_georama_(2).jpg", src:"georama" },
+    "Fort James & Runaway Bay": { img:"images/hoods/saint-john-s--fort-james-runaway-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Antigua_und_Barbuda_-_panoramio_-_georama_(1).jpg", src:"georama" }
   },
   "Luang Prabang": {
     "The Peninsula (Old Town)": { img:"images/hoods/luang-prabang--the-peninsula-old-town.webp", page:"https://www.flickr.com/photos/8721758@N06/50636492958/", src:"Jorge Lascar" },
@@ -4812,5 +4825,8 @@ window.NRA_HOOD_PHOTO = {
   "Oran": {
     "Centre-Ville (Place d'Armes)": { img:"images/hoods/oran--centre-ville-place-d-armes.webp", page:"https://commons.wikimedia.org/wiki/File:H%C3%B4tel_de_ville_d%27Oran.jpg", src:"Bernard Gagnon" },
     "Médina Jedida": { img:"images/hoods/oran--medina-jedida.webp", page:"https://commons.wikimedia.org/wiki/File:Tahtaha.jpg", src:"Boumlik Messaïli" }
+  },
+  "Urganch": {
+    "City Center (Al-Khorezmi Ave)": { img:"images/hoods/urganch--city-center-al-khorezmi-ave.webp", page:"https://commons.wikimedia.org/wiki/File:Xorazm_AQT.jpg", src:"XorazmAQT" }
   },
 };
