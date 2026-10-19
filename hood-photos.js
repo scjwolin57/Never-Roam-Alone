@@ -770,7 +770,8 @@ window.NRA_HOOD_PHOTO = {
     "Neve Tzedek": { img:"images/hoods/tel-aviv--neve-tzedek.webp", page:"https://commons.wikimedia.org/wiki/File:%D7%A0%D7%95%D7%95%D7%94_%D7%A6%D7%93%D7%A7_-_%D7%94%D7%A9%D7%9B%D7%95%D7%A0%D7%94_%D7%94%D7%90%D7%93%D7%95%D7%9E%D7%94.jpg" },
     "Jaffa (Yafo)": { img:"images/hoods/tel-aviv--jaffa-yafo.webp", page:"https://commons.wikimedia.org/wiki/File:Jaffa_BW_3.JPG" },
     "Rothschild (Lev Ha'ir)": { img:"images/hoods/tel-aviv--rothschild-lev-ha-ir.webp", page:"https://commons.wikimedia.org/wiki/File:Rothschild_Boulevard%2C_Tel_Aviv-Yafo.jpg" },
-    "Florentin": { img:"images/hoods/tel-aviv--florentin.webp", page:"https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_69381_old_building_in_south_tel_aviv.jpg", src:"Israel Preker / PikiWiki Israel" }
+    "Florentin": { img:"images/hoods/tel-aviv--florentin.webp", page:"https://commons.wikimedia.org/wiki/File:PikiWiki_Israel_69381_old_building_in_south_tel_aviv.jpg", src:"Israel Preker / PikiWiki Israel" },
+    "HaYarkon Beachfront (Old North)": { img:"images/hoods/tel-aviv--hayarkon-beachfront-old-north.webp", page:"https://commons.wikimedia.org/wiki/File:Strand_und_Uferpromenade,_Tel_Aviv_-_panoramio.jpg", src:"Martin Furtschegger" }
   },
   "Thessaloniki": {
     "Panorama": { img:"images/hoods/thessaloniki--panorama.webp", page:"https://commons.wikimedia.org/wiki/File:Panorama_war_memorial_-_2018-04-26_-_Andy_Mabbett_-_05.jpg", src:"Andy Mabbett" },
@@ -934,7 +935,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Agra": {
     "Taj Ganj": { img:"images/hoods/agra--taj-ganj.webp", page:"https://commons.wikimedia.org/wiki/File:Buffaloes_in_the_streets_of_Taj_Ganj,_Agra,_11-2009_-_panoramio.jpg", src:"David M." },
-    "Taj East Gate (Taj Nagari)": { img:"images/hoods/agra--taj-east-gate-taj-nagari.webp", page:"https://commons.wikimedia.org/wiki/File:Taj_Mahal_metro_station.jpg", src:"Ravi Dwivedi" }
+    "Taj East Gate (Taj Nagari)": { img:"images/hoods/agra--taj-east-gate-taj-nagari.webp", page:"https://commons.wikimedia.org/wiki/File:Taj_Mahal_metro_station.jpg", src:"Ravi Dwivedi" },
+    "Sadar Bazaar": { img:"images/hoods/agra--sadar-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Sadar_Bazar,_Agra.jpg", src:"Siddhartha Shukla" }
   },
   "Ahmedabad": {
     "Navrangpura": { img:"images/hoods/ahmedabad--navrangpura.webp", page:"https://commons.wikimedia.org/wiki/File:M_G_Science_Institute_Ahmedabad.jpg", src:"Gazal world" },
@@ -1065,7 +1067,8 @@ window.NRA_HOOD_PHOTO = {
   "Aqaba": {
     "Coral Coast (Dive Strip)": { img:"images/hoods/aqaba--coral-coast-dive-strip.webp", page:"https://commons.wikimedia.org/wiki/File:IHM_%D7%90%D7%99_%D7%94%D7%90%D7%9C%D7%9E%D7%95%D7%92%D7%99%D7%9D_1.jpeg", src:"GorALexeY" },
     "Tala Bay": { img:"images/hoods/aqaba--tala-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Tala_Bay,_Aqaba,_Jordan_-_panoramio.jpg", src:"Tomobe03" },
-    "Ayla Oasis": { img:"images/hoods/aqaba--ayla-oasis.webp", page:"https://commons.wikimedia.org/wiki/File:Mama_Gaia_restaurant_located_in_Mama_Gaia_beach_club.jpg", src:"Ghaydaa.s" }
+    "Ayla Oasis": { img:"images/hoods/aqaba--ayla-oasis.webp", page:"https://commons.wikimedia.org/wiki/File:Mama_Gaia_restaurant_located_in_Mama_Gaia_beach_club.jpg", src:"Ghaydaa.s" },
+    "Downtown / City Center": { img:"images/hoods/aqaba--downtown-city-center.webp", page:"https://commons.wikimedia.org/wiki/File:Aqaba_castle_-_panoramio.jpg", src:"Alexey Komarov" },
   },
   "Arequipa": {
     "Centro Histórico (Plaza de Armas)": { img:"images/hoods/arequipa--centro-historico-plaza-de-armas.webp", page:"https://commons.wikimedia.org/wiki/File:Arequipa_Jesuit_Church_(_2011)_(2).jpg", src:"Pierre André Leclercq" },
@@ -1807,7 +1810,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Damascus": {
     "Downtown / Salhiyeh": { img:"images/hoods/damascus--downtown-salhiyeh.webp", page:"https://commons.wikimedia.org/wiki/File:20o150420_123005.jpg", src:"Rema.hilmi" },
-    "Mazzeh": { img:"images/hoods/damascus--mazzeh.webp", page:"https://commons.wikimedia.org/wiki/File:AL_JALLAA_Swimming_Pool.JPG", src:"haitham alfalah" }
+    "Mazzeh": { img:"images/hoods/damascus--mazzeh.webp", page:"https://commons.wikimedia.org/wiki/File:AL_JALLAA_Swimming_Pool.JPG", src:"haitham alfalah" },
+    "Old City (Bab Touma)": { img:"images/hoods/damascus--old-city-bab-touma.webp", page:"https://commons.wikimedia.org/wiki/File:DamascusBabTouma.jpg", src:"Heretiq" },
+    "Abu Rumaneh & Malki": { img:"images/hoods/damascus--abu-rumaneh-malki.webp", page:"https://commons.wikimedia.org/wiki/File:Damascus_Ataa_al_Aiyouby_street_3020.jpg", src:"Dosseman" }
   },
   "Dar es Salaam": {
     "Oyster Bay": { img:"images/hoods/dar-es-salaam--oyster-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Coco_Beach,_Dar_es_Salaam.jpg", src:"Ali A. Fazal" },
@@ -1833,7 +1838,8 @@ window.NRA_HOOD_PHOTO = {
     "Downtown / LoDo": { img:"images/hoods/denver--downtown-lodo.webp", page:"https://commons.wikimedia.org/wiki/File:Central_Business_District_-_Denver,_CO.jpg", src:"Disucbsiudciub" },
     "RiNo (River North Art District)": { img:"images/hoods/denver--rino-river-north-art-district.webp", page:"https://commons.wikimedia.org/wiki/File:Denver_B-Cycle_station_on_1350_Larimer_Street_(1).jpg", src:"Bidgee" },
     "Capitol Hill": { img:"images/hoods/denver--capitol-hill.webp", page:"https://commons.wikimedia.org/wiki/File:Park_Place_Tower,_Denver,_CO_2021-03-01.jpg", src:"Xnatedawgx" },
-    "Cherry Creek": { img:"images/hoods/denver--cherry-creek.webp", page:"https://commons.wikimedia.org/wiki/File:Denver_duplex_built_in_2021.JPG", src:"Jeffrey Beall" }
+    "Cherry Creek": { img:"images/hoods/denver--cherry-creek.webp", page:"https://commons.wikimedia.org/wiki/File:Denver_duplex_built_in_2021.JPG", src:"Jeffrey Beall" },
+    "Highlands / LoHi": { img:"images/hoods/denver--highlands-lohi.webp", page:"https://commons.wikimedia.org/wiki/File:Denver,_Colorado_(2025)_-_135.jpg", src:"Another Believer" }
   },
   "Detroit": {
     "Downtown": { img:"images/hoods/detroit--downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Detroit_(24413466028).jpg", src:"bryan..." },
@@ -3101,7 +3107,9 @@ window.NRA_HOOD_PHOTO = {
   },
   "Monastir": {
     "Skanès (Zone Touristique)": { img:"images/hoods/monastir--skanes-zone-touristique.webp", page:"https://commons.wikimedia.org/wiki/File:Le_palais.JPG", src:"Cyrine kalboussi" },
-    "City Centre & Corniche": { img:"images/hoods/monastir--city-centre-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Bourguiba_Mausoleum_-_april_2012_-_2.JPG", src:"Benoît Prieur" }
+    "City Centre & Corniche": { img:"images/hoods/monastir--city-centre-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Bourguiba_Mausoleum_-_april_2012_-_2.JPG", src:"Benoît Prieur" },
+    "Medina & Ribat": { img:"images/hoods/monastir--medina-ribat.webp", page:"https://commons.wikimedia.org/wiki/File:Monastir,_septembre_2021,_Ribat,_20210926_144755.jpg", src:"Habib M'henni" },
+    "Marina de Cap Monastir": { img:"images/hoods/monastir--marina-de-cap-monastir.webp", page:"https://commons.wikimedia.org/wiki/File:Cap_Monastir_-_panoramio.jpg", src:"patano" }
   },
   "Monrovia": {
     "Mamba Point": { img:"images/hoods/monrovia--mamba-point.webp", page:"https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_F._van_der_Kraaij_Collection_-_14_-_69_-_Tall_slender_palm_trees_behind_an_asphalt_road_near_the_Atlantic_Ocean_-_Mamba_Point,_Monrovia,_Montserrado_County,_Liberia_-_1977-1978.tif", src:"Fred van der Kraaij" },
@@ -3280,7 +3288,8 @@ window.NRA_HOOD_PHOTO = {
   },
   "Negombo": {
     "Lewis Place": { img:"images/hoods/negombo--lewis-place.webp", page:"https://commons.wikimedia.org/wiki/File:Kudapaduwa,_Negombo,_Sri_Lanka_-_panoramio_(1).jpg", src:"Luboš Holič" },
-    "Kudapaduwa / Duwa": { img:"images/hoods/negombo--kudapaduwa-duwa.webp", page:"https://commons.wikimedia.org/wiki/File:Kudapaduwa,_Negombo,_Sri_Lanka_-_panoramio_(2).jpg", src:"Luboš Holič" }
+    "Kudapaduwa / Duwa": { img:"images/hoods/negombo--kudapaduwa-duwa.webp", page:"https://commons.wikimedia.org/wiki/File:Kudapaduwa,_Negombo,_Sri_Lanka_-_panoramio_(2).jpg", src:"Luboš Holič" },
+    "Ethukala (Porutota Road)": { img:"images/hoods/negombo--ethukala-porutota-road.webp", page:"https://commons.wikimedia.org/wiki/File:Negombo,_Sri_Lanka_-_panoramio_(16).jpg", src:"Daibo Taku" }
   },
   "Nelson": {
     "City Centre (Trafalgar Street)": { img:"images/hoods/nelson--city-centre-trafalgar-street.webp", page:"https://commons.wikimedia.org/wiki/File:Centre_of_NZ_plaque_MRD.jpg", src:"Mike Dickison" },
@@ -3676,7 +3685,8 @@ window.NRA_HOOD_PHOTO = {
   "Puerto Plata": {
     "Playa Dorada": { img:"images/hoods/puerto-plata--playa-dorada.webp", page:"https://commons.wikimedia.org/wiki/File:Hotel_en_Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg", src:"Juan Espaillat" },
     "Cofresí": { img:"images/hoods/puerto-plata--cofres.webp", page:"https://commons.wikimedia.org/wiki/File:Ocean_World_Park,_Puerto_Plata,_Dominican_Republic.jpg", src:"anokarina (Flickr)" },
-    "Sosúa (El Batey)": { img:"images/hoods/puerto-plata--sosua-el-batey.webp", page:"https://commons.wikimedia.org/wiki/File:Sosua_beach.jpg", src:"Reimarhoven (German Wikipedia)" }
+    "Sosúa (El Batey)": { img:"images/hoods/puerto-plata--sosua-el-batey.webp", page:"https://commons.wikimedia.org/wiki/File:Sosua_beach.jpg", src:"Reimarhoven (German Wikipedia)" },
+    "Centro Histórico": { img:"images/hoods/puerto-plata--centro-historico.webp", page:"https://commons.wikimedia.org/wiki/File:Correo_12_de_Julio_-_panoramio.jpg", src:"AngelsPerfumes" }
   },
   "Puerto Princesa": {
     "Sabang": { img:"images/hoods/puerto-princesa--sabang.webp", page:"https://commons.wikimedia.org/wiki/File:Group_of_Tourists_at_Puerto_Princesa_Underground_River.jpg", src:"Outoftownblog.com" },
@@ -3993,7 +4003,8 @@ window.NRA_HOOD_PHOTO = {
     "Dadonghai": { img:"images/hoods/sanya--dadonghai.webp", page:"https://commons.wikimedia.org/wiki/File:Sanya_Dadonghay_Mandarin_Oriental_-_panoramio_(1).jpg", src:"Tanya Dedyukhina" },
     "Yalong Bay": { img:"images/hoods/sanya--yalong-bay.webp", page:"https://commons.wikimedia.org/wiki/File:%E7%99%BE%E8%8A%B1%E8%B0%B7_La_Floret_-_panoramio.jpg", src:"lienyuan lee" },
     "Sanya Bay": { img:"images/hoods/sanya--sanya-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Sanya_-_panoramio_(1).jpg", src:"Tanya Dedyukhina" },
-    "Haitang Bay": { img:"images/hoods/sanya--haitang-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Haitang,_Sanya,_Hainan,_China_-_panoramio_(1).jpg", src:"陈晓俊" }
+    "Haitang Bay": { img:"images/hoods/sanya--haitang-bay.webp", page:"https://commons.wikimedia.org/wiki/File:Haitang,_Sanya,_Hainan,_China_-_panoramio_(1).jpg", src:"陈晓俊" },
+    "Downtown (Jiyang / Sanya River)": { img:"images/hoods/sanya--downtown-jiyang-sanya-river.webp", page:"https://commons.wikimedia.org/wiki/File:Sanya_River.JPG", src:"Typhoonchaser" }
   },
   "São Tomé": {
     "Centro (Downtown)": { img:"images/hoods/sao-tome--centro-downtown.webp", page:"https://commons.wikimedia.org/wiki/File:Armaz%C3%A9m_da_Ro%C3%A7a_%C3%81gua-Iz%C3%A9_-_IMG_6908.jpg", src:"7deAbril" },
