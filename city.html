@@ -669,6 +669,12 @@
   .air-transit li{margin:2px 0}
   .air-transit b{font-weight:700}
   .air-link{color:var(--green);font-weight:700}
+  .air-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px}
+  .air-tab{font:700 .78rem 'Work Sans',sans-serif;letter-spacing:.06em;padding:6px 12px;border:1px solid var(--green);
+    background:transparent;color:var(--green);border-radius:2px;cursor:pointer}
+  .air-tab[aria-selected="true"]{background:var(--green);color:#fff}
+  .air-pane[hidden]{display:none}
+  .air-est{font-size:.78rem;color:var(--muted);font-weight:400}
   .air-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   /* Train / bus / ferry route modal content */
@@ -1864,6 +1870,7 @@ let CITY_ROUTES = window.NRA_ROUTES || {};
 /* Primary airport detail per city. km = distance to city center; costs in USD.
    ride.avail = "yes" | "limited" | "no". transit: {m: option, c: USD cost}. */
 let CITY_AIRPORT = {};
+let CITY_AIRPORTS2 = {};   // other airports, same shape as airport (Other Airports tab, decisions.md 2026-10-20)
 
 /* Connectivity per city — mobile & Wi-Fi avg download speeds (Mbps),
    major cellular operators, and typical tourist SIM data price per GB (USD).
@@ -2361,6 +2368,7 @@ async function loadCityData(){
   fill(CITY_RAIN, rec.rain);           fill(CITY_WATER, rec.water);
   fill(CITY_DRINKS, rec.drinks);       fill(CITY_TRANSIT, rec.transit);
   fill(CITY_TRANSPORT, rec.transport); fill(CITY_AIRPORT, rec.airport);
+  fill(CITY_AIRPORTS2, rec.airports2);
   fill(CITY_NET, rec.net);             fill(CITY_ESIM, rec.esim);
   fill(CITY_TIP, rec.tip);             fill(CITY_POWER, rec.power);
   /* The five heavy catalogs (food, landmarks, routes, day trips) are folded
@@ -4734,13 +4742,14 @@ function buildAdvisoryBanner(c, cityAdv){
   const modalBody  = document.getElementById("modal-body");
   const modalClose = document.getElementById("modal-close");
 
-  function buildAirportModal(code) {
-    const a = CITY_AIRPORT[c.city];
-    if (!a) return `<p class="modal-placeholder">More information coming soon.</p>`;
+  /* One airport's facts. The main airport is `airport`; the others are `airports2`, same shape
+     (Other Airports tab of NRA-MASTER.xlsx, decisions.md 2026-10-20). */
+  function airportBlock(a, code) {
     const mi = a.km != null ? Math.round(a.km * 0.621371) : null;
-    const others = ((CITY_TRANSPORT[c.city] && CITY_TRANSPORT[c.city].air) || []).filter(x => x !== a.name);
     const tx = CITY_TAXI[c.city];
     const taxiMeta = tx ? `<br><span class="air-taxi-meta">Official: ${tx.color} &middot; <b style="color:${taxiFareColor(tx.fare)}">${tx.fareNote}</b></span>` : "";
+    /* a worked-out fare (taxiEst) says so, with how it was worked out behind the info icon (Jeff, 2026-10-20) */
+    const est = a.taxiEst ? ` <span class="air-est">est.</span><button type="button" class="note-btn hint-btn" data-hint="${String(a.taxiEst).replace(/"/g, "&quot;")}" onclick="this.classList.toggle('open')" aria-label="How this fare was estimated">${INFO_ICON}</button>` : "";
     /* Fares and on-site rental counters aren't on file for every airport; a row
        is shown only where we actually have the figure, rather than guessed. */
     const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : "";
@@ -4755,7 +4764,7 @@ function buildAdvisoryBanner(c, cityAdv){
       return u ? `<a class="ride-chip" href="${u}" target="_blank" rel="noopener" title="Get the ${r} app">${r}</a>` : "";
     }).join("");
     const rideRow = rideText + (appChips ? `<div class="rides-list air-apps">${appChips}</div>` : "");
-    const transit = (a.transit || []).map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
+    const transit = (a.transit || []).map(t => `<li>${t.m}${t.c == null ? "" : ` — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b>`}</li>`).join("");
     const carRental = [a.drive ? `Drive ~${a.drive}` : "",
                        (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
                       .filter(Boolean).join(" &middot; ");
@@ -4766,13 +4775,40 @@ function buildAdvisoryBanner(c, cityAdv){
       <dl class="air-rows">
         ${row("Car rental", carRental)}
         ${row("Car service", a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)}`)}
-        ${row("Taxi", a.taxi == null ? "" : `avg ${fmtPrice(a.taxi, code)}${taxiMeta}`)}
+        ${row("Taxi", a.taxi == null ? "" : `avg ${fmtPrice(a.taxi, code)}${est}${taxiMeta}`)}
         ${row("Ride-hailing", rideRow)}
         ${row("Public transit", transit ? `<ul class="air-transit">${transit}</ul>` : "")}
       </dl>
-      ${a.note ? `<p class="note-text">${a.note}</p>` : ""}
-      ${others.length ? `<p class="air-foot">Figures shown for ${a.name}. Other airports: ${others.join(", ")}.</p>` : ""}`;
+      ${a.note ? `<p class="note-text">${a.note}</p>` : ""}`;
   }
+  /* the IATA code for a chip: the `code` field, else the three capitals in brackets in the name */
+  function airportCode(a) {
+    if (a.code) return a.code;
+    const m = /\(([A-Z]{3})\b/.exec(a.name || "");
+    return m ? m[1] : (a.name || "").split(/[ (,]/)[0];
+  }
+  /* Layout A (Jeff, 2026-10-20): with more than one airport, square chips by code switch the block shown */
+  function buildAirportModal(code) {
+    const a = CITY_AIRPORT[c.city];
+    if (!a) return `<p class="modal-placeholder">More information coming soon.</p>`;
+    const all = [a].concat(CITY_AIRPORTS2[c.city] || []);
+    /* airports listed in transport.air with no block yet (too far, or not researched) are named in the foot line */
+    const codesIn = s => (String(s).match(/\b[A-Z]{3}\b/g) || []);
+    const covered = new Set(all.map(airportCode));
+    const others = ((CITY_TRANSPORT[c.city] && CITY_TRANSPORT[c.city].air) || [])
+      .filter(x => x !== a.name && !all.some(b => b.name === x) && !(codesIn(x).length && codesIn(x).every(k => covered.has(k))));
+    if (all.length === 1) return airportBlock(a, code)
+      + (others.length ? `<p class="air-foot">Figures shown for ${a.name}. Other airports: ${others.join(", ")}.</p>` : "");
+    const foot = others.length ? `<p class="air-foot">Also nearby: ${others.join(", ")}.</p>` : "";
+    const tabs = all.map((b, i) => `<button type="button" class="air-tab" role="tab" aria-selected="${i === 0}" onclick="airTab(this, ${i})">${airportCode(b)}</button>`).join("");
+    const panes = all.map((b, i) => `<div class="air-pane" role="tabpanel"${i ? " hidden" : ""}>${airportBlock(b, code)}</div>`).join("");
+    return `<div class="air-tabs" role="tablist" aria-label="Airports">${tabs}</div>${panes}${foot}`;
+  }
+  window.airTab = function (btn, i) {
+    const box = btn.closest(".modal-body") || document;
+    box.querySelectorAll(".air-tab").forEach((t, k) => t.setAttribute("aria-selected", k === i ? "true" : "false"));
+    box.querySelectorAll(".air-pane").forEach((p, k) => { p.hidden = k !== i; });
+  };
 
   /* Google Maps search link, centered on the city when we have coordinates */
   function atmMapUrl(term) {
