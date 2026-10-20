@@ -2685,7 +2685,7 @@ function buildAdvisoryBanner(c, cityAdv){
               ${suggestBtn('cafes', i, 'Suggest a coffee or takeaway spot')}
             </div>`;
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-    const lodgeRows = (function(){ const picks = ((CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || []).filter(Boolean); if (picks.length >= 3) { return LODGE_TIERS.map((t, ti) => `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${picks[ti]}</span>${lodgeVote(t.k, ti)}</div>`).join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
+    const lodgeRows = (function(){ const raw = (CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || [], picks = raw.filter(Boolean); /* a tier left empty (its hotel replaced by a Roamer pick, 2026-10-20) is skipped; the others keep their labels */ if (raw.length >= 3) { return LODGE_TIERS.map((t, ti) => raw[ti] ? `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${raw[ti]}</span>${lodgeVote(t.k, ti)}</div>` : '').join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
     const stayHTML = `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>

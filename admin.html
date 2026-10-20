@@ -130,6 +130,14 @@
   .sug-check .ok{color:var(--green)}
   .sug-check pre{background:#f2efe6;border:1px solid #ddd4c2;padding:9px 11px;font-family:'SF Mono',Menlo,Consolas,monospace;
     font-size:.76rem;line-height:1.5;white-space:pre-wrap;word-break:break-word;margin:0 0 8px}
+  /* Append / Replace (2026-10-20): what the suggestion does to the items the guide already has */
+  .apply-box{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:8px;padding:8px 10px;background:#f2efe6;border:1px solid #ddd4c2;font-size:.82rem}
+  .apply-box .apply-k{font-weight:700;color:var(--muted)}
+  .apply-box label{display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+  .apply-box select{flex:1 1 220px;min-width:0;max-width:100%;padding:5px 7px;border:1px solid #cfc7b4;border-radius:0;font:inherit;font-size:.82rem;background:#fff}
+  .apply-box select:disabled{opacity:.5}
+  .apply-box .apply-msg{flex-basis:100%;font-size:.76rem;color:var(--muted)}
+  .apply-box .apply-msg.err{color:#c05135}
   .sug-check .note{color:var(--muted);font-size:.76rem;margin:4px 0 0}
 
 
@@ -232,7 +240,7 @@
     <!-- ========== PLACE SUGGESTIONS (city-page "Suggest a place") ========== -->
     <section id="tab-suggestions" class="tabpane" hidden>
       <div class="topbar"><h2>Suggestions — places to stay, eat, drink</h2></div>
-      <p class="sect-note">Places visitors suggested from the bottom of a neighborhood card. A suggestion never goes on the guide by itself: check the venue through the hood-picks pipeline and add it to the sheet first. <b>Check</b> looks the venue up on Google (rating, review count, open, distance from the hood, a possible duplicate) and builds the exact command for you &mdash; read its checks, then run the command yourself (or fix it first): <code>python3 _guidebuild/hoodpicks/load_picks.py roamer &lt;slug&gt; &lt;hood#&gt; &lt;stay|eat|cafes|bars&gt; &lt;kind&gt; "&lt;name&gt;" --pid &lt;place id&gt; --note "…" --by &lt;member id&gt;</code>, then <code>apply &lt;slug&gt;</code>; it then shows in the card's "From Roamers" group with the member's picture. Then <b>Mark published</b> records it and thanks the person once, if they asked (a message in their Never Roam Alone inbox if they were signed in, otherwise an email), and gives a signed-in member the recommendation points. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="sect-note">Places visitors suggested from the bottom of a neighborhood card, and food &amp; drink recommendations from the Food &amp; drink popup. <b>Check</b> looks the place up and builds the command that adds it. A suggestion never goes on the guide by itself: check the venue through the hood-picks pipeline and add it to the sheet first. <b>Check</b> looks the venue up on Google (rating, review count, open, distance from the hood, a possible duplicate) and builds the exact command for you &mdash; read its checks, then run the command yourself (or fix it first): <code>python3 _guidebuild/hoodpicks/load_picks.py roamer &lt;slug&gt; &lt;hood#&gt; &lt;stay|eat|cafes|bars&gt; &lt;kind&gt; "&lt;name&gt;" --pid &lt;place id&gt; --note "…" --by &lt;member id&gt;</code>, then <code>apply &lt;slug&gt;</code>; it then shows in the card's "From Roamers" group with the member's picture. Then <b>Mark published</b> records it and thanks the person once, if they asked (a message in their Never Roam Alone inbox if they were signed in, otherwise an email), and gives a signed-in member the recommendation points. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good. Each pending suggestion has <b>Append</b> (added beside what the guide already has) or <b>Replace</b> (pick the one item on the guide it takes the place of). Replace adds <code>--replace</code> to the add command, and marking it published or added is refused while the replaced item is still on the live guide (suggestions-update-2026-10-20.sql).</p>
       <p class="admin-msg" id="sug-msg"></p>
       <label class="evt-check" style="display:flex;align-items:center;gap:8px;margin:0 0 14px;font-weight:600">
         <input type="checkbox" id="sug-show-done"> Also show suggestions I've already dealt with
@@ -240,7 +248,7 @@
       <div id="sug-list"></div>
 
       <div class="topbar" style="margin-top:28px"><h2>Suggestions — day trips and landmarks</h2></div>
-      <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip") and landmarks suggested under any city's Landmarks ("Suggest a landmark"; daytrip-suggestions-setup.sql, then landmark-suggestions-setup.sql). A suggestion never goes on the guide by itself. A day trip must pass the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city); a landmark must be inside the city, confirmed at its Google Maps link, with a pin and a licensed photo. Add it to <code>day-trips.js</code> or the landmark catalogs, citydata and the sheet, and push. Then <b>Mark added</b>: you type the name it has on the guide, the server checks it is on the live guide, marks it added, gives a signed-in member their 10 points (votes on that card then count toward their rating) and thanks them if they asked.</p>
+      <p class="sect-note">Day trips visitors suggested from a city page that has none ("Suggest a day trip") and landmarks suggested under any city's Landmarks ("Suggest a landmark"; daytrip-suggestions-setup.sql, then landmark-suggestions-setup.sql). A suggestion never goes on the guide by itself. A day trip must pass the day-trip rules (a real place, outside the city, 1.5 hours or less each way for a half day and 3 hours for a full day, not another guide city); a landmark must be inside the city, confirmed at its Google Maps link, with a pin and a licensed photo. Add it to <code>day-trips.js</code> or the landmark catalogs, citydata and the sheet, and push. Then <b>Mark added</b>: you type the name it has on the guide, the server checks it is on the live guide, marks it added, gives a signed-in member their 10 points (votes on that card then count toward their rating) and thanks them if they asked. <b>Check</b> looks the place up (distance from the city centre, duplicates) and builds the add command (<code>add_daytrip.py</code> / <code>add_landmark.py</code>); write the blurb into it before running it. Each pending suggestion has <b>Append</b> (added beside what the guide already has) or <b>Replace</b> (pick the one item on the guide it takes the place of). Replace adds <code>--replace</code> to the add command, and marking it published or added is refused while the replaced item is still on the live guide (suggestions-update-2026-10-20.sql).</p>
       <p class="admin-msg" id="dts-msg"></p>
       <div id="dts-list"></div>
 
@@ -732,7 +740,15 @@
 
   /* One line per fact the check returned, plain and unstyled beyond pass/warn/bad, so Jeff still reads
      and judges them himself — this never renders a verdict, only what Google and citydata say. */
-  function renderSugCheck(d){
+  /* The add command with the suggestion's current Append / Replace choice: Replace adds --replace "<name>" */
+  function withReplace(cmd, r){
+    if (!cmd) return cmd;
+    const base = cmd.replace(/ --replace "(?:[^"\\]|\\.)*"$/, "");
+    if (!r || r.apply_mode !== "replace" || !r.replace_target) return base;
+    return base + ' --replace "' + String(r.replace_target).replace(/\\/g, "\\\\").replace(/"/g, '\\"') + '"';
+  }
+  function renderSugCheck(d, r){
+    if (r) d = Object.assign({}, d, { command: withReplace(d.command, r) });
     const cls = v => /^pass/.test(v) ? "ok" : /no Google|GOOGLE_MAPS|no rating|no review|unknown|isn't set/.test(v) ? "" : "warn";
     const rows = [];
     if (d.resolved && d.resolved.name) rows.push(["Resolved name", esc(d.resolved.name)]);
@@ -748,6 +764,7 @@
       if (d.checks.reviews) rows.push(["Reviews", `<span class="${cls(d.checks.reviews)}">${esc(d.checks.reviews)}</span>`]);
       if (d.checks.distance) rows.push(["Distance", `<span class="${cls(d.checks.distance)}">${esc(d.checks.distance)}</span>`]);
       if (d.checks.duplicate) rows.push(["Duplicate?", `<span class="bad">${esc(d.checks.duplicate)}</span>`]);
+      if (d.checks.full) rows.push(["Landmarks", `<span class="warn">${esc(d.checks.full)}</span>`]);
     }
     if (!d.slugFound) rows.push(["City", `<span class="warn">not found in citydata/_index.json &mdash; check the city name</span>`]);
     if (d.placesError) rows.push(["Google Places", `<span class="warn">${esc(d.placesError)}</span>`]);
@@ -785,6 +802,7 @@
       return;
     }
     const cityLink = c => "city.html?city=" + encodeURIComponent(c);
+    setTimeout(() => fillApplyBoxes(wrap, sRows), 0);
     wrap.innerHTML = list.map(r => {
       const chip = r.status === "pending" ? `<span class="chip pending">Pending review</span>`
                  : r.status === "published" ? `<span class="chip live">Published</span>`
@@ -800,6 +818,7 @@
             <div class="sub">${esc(SUG_SECTION[r.section] || r.section)} · ${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
             <div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps</a>${r.website_url ? ` · <a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website</a>` : ""}</div>
             ${r.info ? `<div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${esc(r.info)}</div>` : ""}
+            ${applyBoxHTML(r, "place", r.status === "published")}
           </div>
           <div class="acts">
             ${r.status !== "published" ? `<button class="btn small" data-sact="check" type="button">${sChecks[r.id] ? "Recheck" : "Check"}</button>` : ""}
@@ -809,7 +828,7 @@
             <button class="btn small danger" data-sact="delete" type="button">Delete</button>
           </div>
         </div>
-        ${sChecks[r.id] ? renderSugCheck(sChecks[r.id]) : ""}
+        ${sChecks[r.id] ? renderSugCheck(sChecks[r.id], r) : ""}
       </div>`;
     }).join("");
     if (sugReview){
@@ -904,12 +923,113 @@
   });
 
   /* ======================================================================
+     APPEND OR REPLACE (Jeff, 2026-10-20) — on every suggestion that needs
+     approval: "Append" adds it beside what the guide already has; "Replace"
+     names the one item it takes the place of. Saved on the row (apply_mode,
+     replace_target; suggestions-update-2026-10-20.sql). The add command gets
+     --replace, and Mark published / Mark added refuse while the replaced item
+     is still on the live guide. The list is read from the live citydata file.
+     ====================================================================== */
+  const applyCity = {};   // city -> Promise of its citydata record
+  function cityRecord(city){
+    if (!applyCity[city]) applyCity[city] = fetch("citydata/_index.json").then(r => r.json())
+      .then(ix => { const slug = (ix.slug || {})[city]; if (!slug) throw new Error("no guide for " + city);
+                    return fetch("citydata/" + encodeURIComponent(slug) + ".json").then(r => r.json()); })
+      .catch(e => { delete applyCity[city]; throw e; });
+    return applyCity[city];
+  }
+  const TIER_LABEL = ["Luxury", "Comfort", "Budget"];
+  /* The items on the guide this suggestion could replace: [{name, label}] */
+  function applyItems(r, src, rec){
+    if (src === "event")   // the city's other events on the calendar; the one replaced is hidden when this is added
+      return eRows.filter(x => x.id !== r.id && x.city === r.city && !x.pending && x.published)
+        .map(x => ({ name: x.id, label: `${x.name} · ${x.event_date || ""}` }));
+    if (src === "trip"){
+      if (r.kind === "landmark") return (rec.landmarks || []).map(l => Array.isArray(l) ? l[0] : l && l.name).filter(Boolean).map(n => ({ name: n, label: n }));
+      return ["half", "full"].flatMap(k => ((rec.daytrips && rec.daytrips[k]) || []).map(t => t && t.name).filter(Boolean)
+        .map(n => ({ name: n, label: `${n} (${k === "half" ? "half day" : "full day"})` })));
+    }
+    if (r.section === "food"){
+      const dish = (rec.food || []).find(f => f && f.name === r.kind_label);
+      return ((dish && dish.places) || []).map(p => ({ name: p.name, label: `${p.name}${p.area ? " · " + p.area : ""}` }));
+    }
+    let hi = (rec.hoods || []).indexOf(r.hood_name);
+    if (hi < 0 && Number.isInteger(r.hood_idx)) hi = r.hood_idx;
+    if (hi < 0) return [];
+    const out = [];
+    if (r.section === "stay") ((rec.lodging && rec.lodging[hi]) || []).forEach((n, ti) => { if (n) out.push({ name: n, label: `Our ${TIER_LABEL[ti] || ""} hotel: ${n}` }); });
+    else ((rec[r.section] && rec[r.section][hi]) || []).forEach(p => p && p.n && out.push({ name: p.n, label: `Our pick (${p.k}): ${p.n}` }));
+    ((rec.roamer_picks && rec.roamer_picks[r.section] && rec.roamer_picks[r.section][hi]) || []).forEach(p => p && p.n && out.push({ name: p.n, label: `From Roamers (${p.k}): ${p.n}` }));
+    return out;
+  }
+  /* what to call the replaced item: an event is stored by id, everything else by its name on the guide */
+  function targetLabel(r, src){
+    if (src !== "event") return r.replace_target;
+    const x = eRows.find(e => e.id === r.replace_target);
+    return x ? `${x.name} · ${x.event_date || ""}` : "an event no longer on the calendar";
+  }
+  function applyBoxHTML(r, src, done){
+    const rep = r.apply_mode === "replace";
+    if (done) return rep && r.replace_target ? `<div class="sub">Replaced <b>${esc(targetLabel(r, src))}</b></div>` : "";
+    return `<div class="apply-box" data-apply-src="${src}">
+      <span class="apply-k">On the guide:</span>
+      <label><input type="radio" name="am-${esc(r.id)}" value="append"${rep ? "" : " checked"}> Append</label>
+      <label><input type="radio" name="am-${esc(r.id)}" value="replace"${rep ? " checked" : ""}> Replace</label>
+      <select class="apply-target" aria-label="Item it replaces"${rep ? "" : " disabled"}><option value="">${r.replace_target ? esc(targetLabel(r, src)) : "Loading what the guide has…"}</option></select>
+      <span class="apply-msg">${rep && r.replace_target ? `Replaces <b>${esc(targetLabel(r, src))}</b>${src === "event" ? " (hidden when this is added)" : ""}.` : "Added beside what the guide already has."}</span>
+    </div>`;
+  }
+  async function fillApplyBoxes(wrap, rows){
+    for (const box of wrap.querySelectorAll(".apply-box")){
+      const r = rows.find(x => String(x.id) === box.closest(".erow").dataset.id);
+      if (!r) continue;
+      const sel = box.querySelector(".apply-target");
+      let items = [];
+      try { items = applyItems(r, box.dataset.applySrc, box.dataset.applySrc === "event" ? null : await cityRecord(r.city)); }
+      catch (e) { sel.innerHTML = `<option value="">Couldn't read the ${esc(r.city)} guide</option>`; continue; }
+      const gone = r.replace_target && !items.some(i => i.name === r.replace_target);
+      sel.innerHTML = `<option value="">${items.length ? "Choose what it replaces" : "Nothing on the guide here yet"}</option>` +
+        items.map(i => `<option value="${esc(i.name)}"${i.name === r.replace_target ? " selected" : ""}>${esc(i.label)}</option>`).join("") +
+        (gone ? `<option value="${esc(r.replace_target)}" selected>${esc(targetLabel(r, box.dataset.applySrc))} (no longer on the guide)</option>` : "");
+    }
+  }
+  document.addEventListener("change", async e => {
+    const box = e.target.closest && e.target.closest(".apply-box");
+    if (!box) return;
+    const rowEl = box.closest(".erow"), src = box.dataset.applySrc;
+    const rows = src === "trip" ? dtsRows : src === "event" ? eRows : sRows;
+    const table = src === "trip" ? "daytrip_suggestions" : src === "event" ? "city_events" : "place_suggestions";
+    const r = rows.find(x => String(x.id) === rowEl.dataset.id);
+    if (!r) return;
+    const mode = (box.querySelector('input[type=radio]:checked') || {}).value || "append";
+    const sel = box.querySelector(".apply-target"), msg = box.querySelector(".apply-msg");
+    sel.disabled = mode !== "replace";
+    if (mode === "replace" && !sel.value){ msg.className = "apply-msg"; msg.textContent = "Choose the item it replaces."; return; }
+    const patch = mode === "replace" ? { apply_mode: "replace", replace_target: sel.value } : { apply_mode: "append", replace_target: null };
+    msg.className = "apply-msg"; msg.textContent = "Saving…";
+    const { error } = await sb.from(table).update(patch).eq("id", r.id);
+    if (error){
+      msg.className = "apply-msg err";
+      msg.textContent = /apply_mode|replace_target|column/.test(error.message || "") ? "Run suggestions-update-2026-10-20.sql in Supabase first." : "Couldn't save: " + (error.message || "error");
+      return;
+    }
+    Object.assign(r, patch);
+    msg.innerHTML = mode === "replace" ? `Replaces <b>${esc(targetLabel(r, src))}</b>${src === "event" ? " (hidden when this is added)" : ""}.` : "Added beside what the guide already has.";
+    const chk = src === "event" ? null : (src === "place" ? sChecks : dtsChecks)[r.id];
+    if (chk){   // refresh the command shown under it
+      const old = rowEl.querySelector(".sug-check");
+      if (old) old.outerHTML = renderSugCheck(chk, r);
+    }
+  });
+
+  /* ======================================================================
      DAY TRIP SUGGESTIONS — "Suggest a day trip" from a city page with no day
      trips (daytrip_suggestions, daytrip-suggestions-setup.sql; Jeff 2026-09-30).
      Admin-only table policies; the "Also show suggestions I've already dealt
      with" box above covers this list too.
      ====================================================================== */
   let dtsRows = [];
+  let dtsChecks = {};   // suggestion id -> last check-suggestion.js result (table "trip"), this page load only
   let dtsReview = "";   // ?tab=suggestions&tripreview=<id> from the submission email
   const DTS_DIST = { half: "1.5 hours/half day", full: "3+ hours/full days" };
 
@@ -935,6 +1055,7 @@
       return;
     }
     const cityLink = c => "city.html?city=" + encodeURIComponent(c);
+    setTimeout(() => fillApplyBoxes(wrap, dtsRows), 0);
     wrap.innerHTML = list.map(r => {
       const chip = r.status === "pending" ? `<span class="chip pending">Pending review</span>`
                  : r.status === "added" ? `<span class="chip live">Added</span>`
@@ -951,17 +1072,20 @@
             <div class="title"><span class="chip">${r.kind === "landmark" ? "Landmark" : "Day trip"}</span> ${esc(r.place_name)} · ${r.kind === "landmark" ? "in" : "from"} <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
             <div class="sub">${r.kind === "landmark" ? "" : esc(DTS_DIST[r.distance] || r.distance || "") + " each way · "}${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
             ${r.added_name ? `<div class="sub">On the guide as <b>${esc(r.added_name)}</b></div>` : ""}
+            ${applyBoxHTML(r, "trip", r.status === "added")}
             ${r.maps_url ? `<div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps link</a></div>` : ""}
             ${r.website_url ? `<div class="sub"><a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website / booking</a></div>` : ""}
             <div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${r.kind === "landmark" ? `<b>Why it's worth seeing:</b> ${esc(r.why || "")}` : `<b>How to get there:</b> ${esc(r.how_to_get || "")}`}</div>
           </div>
           <div class="acts">
+            ${r.status !== "added" ? `<button class="btn small" data-dact="check" type="button">${dtsChecks[r.id] ? "Recheck" : "Check"}</button>` : ""}
             ${r.status !== "added" ? `<button class="btn small coral" data-dact="added" type="button">Mark added</button>` : ""}
             ${r.status === "pending" ? `<button class="btn small" data-dact="decline" type="button">Decline</button>` : ""}
             ${r.status !== "pending" ? `<button class="btn small" data-dact="reopen" type="button">Back to pending</button>` : ""}
             <button class="btn small danger" data-dact="delete" type="button">Delete</button>
           </div>
         </div>
+        ${dtsChecks[r.id] ? renderSugCheck(dtsChecks[r.id], r) : ""}
       </div>`;
     }).join("");
     if (dtsReview){
@@ -988,6 +1112,27 @@
     const what = `${r.place_name} ${r.kind === "landmark" ? "in" : "from"} ${r.city}`;
     /* Mark added goes through approve-trip-suggestion: it checks the name is on the live guide, gives the
        member their points and vote link, and thanks them once if they asked. */
+    if (act === "check") {
+      btn.disabled = true; btn.textContent = "Checking…";
+      try {
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/check-suggestion", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id, table: "trip" })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        dtsChecks[r.id] = d;
+        renderDaytripSuggestions();
+      } catch (err) {
+        btn.disabled = false; btn.textContent = "Check";
+        setMsg($("dts-msg"), (err && err.message) || "Something went wrong.", true);
+      }
+      return;
+    }
     let addedName = "";
     if (act === "added") {
       addedName = prompt(`Is ${what} on the live guide now? Type the exact name it has there:`, r.added_name || r.place_name);
@@ -1534,6 +1679,7 @@
       return true;                                   // "all"
     });
     if (!list.length){ wrap.innerHTML = `<div class="empty">No ${filter === "all" ? "" : filter + " "}events to show.</div>`; return; }
+    setTimeout(() => fillApplyBoxes(wrap, eRows), 0);
     wrap.innerHTML = list.map(ev => {
       const time = ev.start_time ? fmtTime(ev.start_time) + (ev.end_time ? "–"+fmtTime(ev.end_time) : "") : "";
       const thumb = ev.poster_url ? `<div class="thumb" style="background-image:url('${esc(ev.poster_url)}')"></div>` : `<div class="thumb"></div>`;
@@ -1554,6 +1700,7 @@
         <div class="info">
           <div class="title">${esc(ev.name)} ${chip}</div>
           <div class="sub">${esc(ev.city)} · ${esc(ev.event_date || "")}${time ? " · " + esc(time) : ""}${ev.location ? " · " + esc(ev.location) : ""}${ev.contact_value ? " · ✉ " + esc(ev.contact_value) + (ev.allow_contact ? " (shown to attendees)" : " (hidden)") : ""}</div>
+          ${pending ? applyBoxHTML(ev, "event", false) : ""}
         </div>
         <div class="acts">${acts}</div>
       </div>`;
@@ -1684,6 +1831,8 @@
       if (!published){
         const { error } = await sb.from("city_events").update({ published: true, pending: false }).eq("id", ev.id);
         if (error){ setMsg($("list-msg"), "Couldn't add: " + error.message, true); btn.disabled = false; return; }
+        if (ev.apply_mode === "replace" && ev.replace_target)
+          await sb.from("city_events").update({ published: false }).eq("id", ev.replace_target).eq("city", ev.city);
         published = true;
       }
       await loadEvents();

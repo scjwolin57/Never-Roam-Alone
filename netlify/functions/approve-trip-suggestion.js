@@ -76,6 +76,12 @@ exports.handler = async (event) => {
   if (!name) {
     return json(409, { error: `"${wanted}" isn't a ${what} on the live ${row.city} guide yet. Add it (${lmk ? "landmark catalogs" : "day-trips.js"}, citydata and the sheet), push, wait for the deploy, then mark it added. Or check the spelling matches the guide.` });
   }
+  // Replace (Admin's Append / Replace choice, 2026-10-20): the item it replaces must be off the live guide too.
+  if (row.apply_mode === "replace" && row.replace_target && norm(row.replace_target) !== norm(name)) {
+    let still = null;
+    try { still = await nameOnGuide(siteBase, row.city, row.replace_target, lmk); } catch (e) { /* the check above read the same file */ }
+    if (still) return json(409, { error: `This suggestion is set to replace "${still}", which is still on the live ${row.city} guide. Remove it (${lmk ? "landmark catalogs" : "day-trips.js"}, citydata and the sheet), push, then mark it added. Or switch the suggestion to Append.` });
+  }
 
   // 2. Mark it added.
   const wasAdded = row.status === "added" || !!row.added_name;   // added before (even if re-opened since): never thank twice

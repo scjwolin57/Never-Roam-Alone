@@ -13,7 +13,7 @@
 // Section "food" (2026-10-20): a recommendation for a dish or drink from the
 // Food & drink popup. kind is "dish" or "drink", item is the dish's name (kept
 // as kind_label), placeName the business, hoodName the neighborhood or
-// "Somewhere else in <city>" (hoodIdx null). Needs food-suggestions-setup.sql;
+// "Somewhere else in <city>" (hoodIdx null). Needs suggestions-update-2026-10-20.sql;
 // until it is run the insert fails and only the email goes out.
 //
 // A signed-in member sends their Supabase access token; the server checks

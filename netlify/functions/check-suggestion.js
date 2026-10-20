@@ -15,8 +15,14 @@
 // then flag or remove) — this function does not decide, it only saves the
 // person typing and one browser tab.
 //
-//   POST { id }
+//   POST { id }                     a place_suggestions row (neighborhood places, food)
+//   POST { id, table: "trip" }      a daytrip_suggestions row (day trips and landmarks, 2026-10-20)
 //   header Authorization: Bearer <admin access token>
+//
+// Every suggestion gets the same treatment (Jeff, 2026-10-20): the venue looked up, checked against
+// what the guide already has, and the add command built (load_picks.py roamer, food/load_food_place.py,
+// suggestions/add_landmark.py, suggestions/add_daytrip.py). The Admin page appends --replace when the
+// suggestion is set to Replace.
 //
 // Environment variables:
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY  - same as approve-suggestion.js
@@ -78,6 +84,7 @@ exports.handler = async (event) => {
   try { p = JSON.parse(event.body || "{}"); } catch (e) { return json(400, { error: "Bad JSON" }); }
   const id = String(p.id || "");
   if (!id) return json(400, { error: "No suggestion id." });
+  if (p.table === "trip") return checkTrip({ id, svc, siteBase, SUPABASE_URL, GOOGLE_MAPS_API_KEY });
 
   let row;
   try {
@@ -125,7 +132,7 @@ exports.handler = async (event) => {
 
   // 3. Google Places (New): Text Search for the resolved name near the hood, if we have a key and a name.
   let place = null, candidateCount = 0, placesError = null;
-  const searchName = resolved.name;
+  const searchName = resolved.name || (row.section === "food" ? row.place_name : "");   // food: the business name the visitor typed
   if (GOOGLE_MAPS_API_KEY && searchName) {
     try {
       const bias = hoodCenter ? { circle: { center: { latitude: hoodCenter[0], longitude: hoodCenter[1] }, radius: 2000 } }
@@ -177,7 +184,16 @@ exports.handler = async (event) => {
   // 5. A ready-to-run command. Still needs a person to read the checks above, confirm the venue and
   //    the note, and run it (or fix it) themselves — see the note in the header of this file.
   let command = null;
-  if (slug && finalName && row.section !== "food") {   // food has no loader yet: added to the sheet and city-food.js by hand
+  if (slug && row.section === "food") {
+    /* food: one place under the dish in city-food.js and citydata (load_food_place.py, 2026-10-20). The area is the
+       neighborhood the visitor chose; "Somewhere else" leaves it empty for you to fill (the loader refuses an empty one).
+       The note is yours to write: it is the line shown under the place. Admin adds --replace for a Replace. */
+    const nm = (place && place.displayName && place.displayName.text) || row.place_name || finalName;
+    const area = row.hood_idx == null ? "" : (row.hood_name || "");
+    const parts = ["python3 _guidebuild/food/load_food_place.py", slug, q(row.kind_label || ""), q(nm), "--area", q(area), "--note", q("")];
+    if (row.user_id) parts.push("--by", row.user_id);
+    command = parts.join(" ");
+  } else if (slug && finalName) {
     const hn = Number(row.hood_idx) + 1;
     const noteSource = (row.info || "").trim();
     const note = noteSource ? clip(noteSource, 90) : "";
@@ -202,6 +218,85 @@ exports.handler = async (event) => {
     slugFound: !!slug, checks, command
   });
 };
+
+/* Day trips and landmarks: the place on Google, its distance from the city centre (a landmark is inside the city,
+   a day trip outside it: rulebook 4.3), a duplicate check against both lists, and the add command. The blurb and,
+   for a day trip, the region line are left empty for a person to write: the loaders refuse them empty. */
+const LANDMARK_MAX_KM = 15;   // past this from the centre a landmark is probably a day trip: flagged, not decided
+const DAYTRIP_MIN_KM = 10;    // under this a day trip is probably in the city (a landmark or a hood): flagged, not decided
+async function checkTrip({ id, svc, siteBase, SUPABASE_URL, GOOGLE_MAPS_API_KEY }) {
+  let row;
+  try {
+    const gr = await fetch(`${SUPABASE_URL}/rest/v1/daytrip_suggestions?id=eq.${encodeURIComponent(id)}&select=*`, { headers: svc });
+    if (!gr.ok) return json(502, { error: "Couldn't reach the suggestions store." });
+    row = (await gr.json())[0];
+  } catch (e) { return json(502, { error: "Couldn't reach the suggestions store." }); }
+  if (!row) return json(404, { error: "That suggestion no longer exists." });
+  const lmk = row.kind === "landmark";
+
+  const resolved = await resolveMapsLink(row.maps_url);
+  let slug = null, cd = null;
+  try {
+    const ir = await fetch(`${siteBase}/citydata/_index.json`);
+    if (ir.ok) slug = ((await ir.json()).slug || {})[row.city] || null;
+    if (slug) { const cr = await fetch(`${siteBase}/citydata/${slug}.json`); if (cr.ok) cd = await cr.json(); }
+  } catch (e) {}
+  const centre = cd && cd.c && typeof cd.c.lat === "number" ? [cd.c.lat, cd.c.lng] : null;
+
+  let place = null, candidateCount = 0, placesError = null;
+  const searchName = resolved.name || row.place_name;
+  if (GOOGLE_MAPS_API_KEY && searchName) {
+    try {
+      const body = { textQuery: lmk ? `${searchName}, ${row.city}` : searchName };
+      if (centre) body.locationBias = { circle: { center: { latitude: centre[0], longitude: centre[1] }, radius: lmk ? 20000 : 50000 } };
+      const pr = await fetch("https://places.googleapis.com/v1/places:searchText", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Goog-Api-Key": GOOGLE_MAPS_API_KEY,
+                   "X-Goog-FieldMask": "places.id,places.displayName,places.rating,places.userRatingCount,places.businessStatus,places.formattedAddress,places.location,places.googleMapsUri" },
+        body: JSON.stringify(body)
+      });
+      if (pr.ok) { const pd = await pr.json(); const ps = Array.isArray(pd.places) ? pd.places : []; candidateCount = ps.length; place = ps[0] || null; }
+      else placesError = `Places API HTTP ${pr.status}`;
+    } catch (e) { placesError = (e && e.message) || String(e); }
+  }
+
+  const loc = place && place.location ? [place.location.latitude, place.location.longitude]
+            : (resolved.lat != null ? [resolved.lat, resolved.lng] : null);
+  const checks = {};
+  if (place) {
+    checks.open = !place.businessStatus || place.businessStatus === "OPERATIONAL" ? "pass" : `Google shows this as ${place.businessStatus}`;
+    if (typeof place.rating === "number") checks.rating = `${place.rating} (${place.userRatingCount || 0} reviews)`;
+  } else {
+    checks.open = GOOGLE_MAPS_API_KEY ? "no Google Places match — check the Maps link by hand" : "GOOGLE_MAPS_API_KEY isn't set on Netlify yet";
+  }
+  if (centre && loc) {
+    const km = haversineKm(centre[0], centre[1], loc[0], loc[1]);
+    checks.distance = lmk
+      ? (km <= LANDMARK_MAX_KM ? `pass (${km.toFixed(1)} km from the city centre)` : `${km.toFixed(1)} km from the city centre — outside the city is a day trip, not a landmark`)
+      : (km >= DAYTRIP_MIN_KM ? `pass (${km.toFixed(1)} km from the city centre; check the drive time against ${row.distance === "full" ? "3 hours" : "1.5 hours"})` : `${km.toFixed(1)} km from the city centre — inside the city is a landmark or a neighborhood, not a day trip`);
+  }
+  const finalName = (place && place.displayName && place.displayName.text) || row.place_name || resolved.name || "";
+  const lmkNames = ((cd && cd.landmarks) || []).map(l => Array.isArray(l) ? l[0] : l && l.name);
+  const tripNames = ["half", "full"].flatMap(k => ((cd && cd.daytrips && cd.daytrips[k]) || []).map(t => t && t.name));
+  const dupe = finalName ? findDuplicate(finalName, lmkNames.concat(tripNames)) : null;
+  if (dupe) checks.duplicate = `possibly already on the guide: "${dupe}"`;
+  if (lmk && lmkNames.length >= 10) checks.full = `${row.city} has 10 landmarks: choose Replace, or the add command refuses`;
+
+  let command = null;
+  if (slug && finalName) {
+    command = lmk
+      ? ["python3 _guidebuild/suggestions/add_landmark.py", slug, q(finalName), "--blurb", q(""),
+         "--lat", loc ? String(loc[0]) : "?", "--lng", loc ? String(loc[1]) : "?"].join(" ")
+      : ["python3 _guidebuild/suggestions/add_daytrip.py", q(row.city), q(finalName), "--len", row.distance === "full" ? "full" : "half",
+         "--country", q(""), "--blurb", q("")].join(" ");
+  }
+  return json(200, {
+    row: { id: row.id, city: row.city, kind: row.kind, section: lmk ? "landmark" : "daytrip" },
+    resolved: { url: resolved.url, name: resolved.name, lat: resolved.lat, lng: resolved.lng, blocked: !!resolved.blocked, error: resolved.error || null },
+    place: place ? { id: place.id, name: (place.displayName && place.displayName.text) || null, formattedAddress: place.formattedAddress || null, googleMapsUri: place.googleMapsUri || null } : null,
+    candidateCount, placesError, apiKeyConfigured: !!GOOGLE_MAPS_API_KEY, slugFound: !!slug, checks, command
+  });
+}
 
 function findDuplicate(name, existing) {
   const norm = s => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();

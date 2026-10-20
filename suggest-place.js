@@ -29,7 +29,7 @@
    asking for the name of the business (required), the neighborhood (the
    guide's neighborhoods plus "Somewhere else in <city>", required) and the
    Google Maps link (required). It goes to the same function and table,
-   section "food" (food-suggestions-setup.sql).
+   section "food" (suggestions-update-2026-10-20.sql).
 
    Uses the .cf-* dialog styles city.html already has for the photo form,
    plus the few rules below.

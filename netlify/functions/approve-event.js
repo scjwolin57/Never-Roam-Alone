@@ -117,6 +117,15 @@ async function publishAndNotify(id, env) {
     });
   } catch (e) { return { ok: false, code: 502, message: "Couldn't publish the event." }; }
 
+  // Replace (Admin's Append / Replace choice, 2026-10-20): the event it replaces is hidden, same city only.
+  if (ev.apply_mode === "replace" && ev.replace_target && ev.replace_target !== ev.id) {
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/city_events?id=eq.${encodeURIComponent(ev.replace_target)}&city=eq.${encodeURIComponent(ev.city)}`, {
+        method: "PATCH", headers: svc, body: JSON.stringify({ published: false })
+      });
+    } catch (e) { console.error("[approve-event] hiding the replaced event failed:", (e && e.message) || e); }
+  }
+
   // Credit a signed-in member: 5 points, and votes on the event count toward their rating.
   await award({ url: SUPABASE_URL, key: SUPABASE_SERVICE_KEY, userId: ev.submitted_by, kind: "event",
                 sourceTable: "city_events", sourceId: id, city: ev.city, targets: [{ type: "event", id }] });
