@@ -31,6 +31,5 @@ Tooling (gitignored): `_guidebuild/airports/` (BRIEF.md, airports_tool.py, geo.p
   Ukrainian airspace; the main airport KBP is closed too, so the Kyiv popup may need a note).
 
 ## Still to do
-- city.html popup (layout A chips + "est."): `python3 _guidebuild/airports/patch_city_html.py`, then
-  checkjs, 6 widths, screenshots. Waiting for the tidy-up session to release city.html.
-- CLAUDE.md §5.1 inventory row, decisions.md row and TODO.md D14 line: same wait (files held by that session).
+- ~~city.html popup~~ done 2026-10-20 (56566815). ~~CLAUDE.md §5.1, decisions.md, TODO.md D14~~ done (56566815).
+- Jeff's calls on the 21 held airports (TODO.md D14). Not pushed.
