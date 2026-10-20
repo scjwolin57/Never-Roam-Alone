@@ -15,3 +15,14 @@ Jeff: "after that, move on to the next task" (the missing photos). Free sources 
 1. ~~Flickr Creative Commons search~~: not pursued, the Flickr API key is not free (Jeff, 2026-10-19).
 2. Mainland China landmarks: Commons coverage is thin; Chinese-name search on Commons.
 3. Jeff's own photos in `_needs-attention/uploads/`.
+
+## Google Images "Creative Commons licenses" pilot (2026-10-19)
+
+Jeff: "try using a city and name search on google images with a creative commons filter applied". 12 missing photos picked at random (8 landmarks outside China, 4 neighborhoods), one search each in Jeff's Chrome (`udm=2&tbs=sur:cl`), every hit checked on its own page.
+
+**Result: 0 of 12 usable.**
+- 6 searches returned nothing at all (Lampulo Boat on the Roof, Ponderosa Adventure Park, Shomudro Bilash, Klemat, M'Gombani, plus Golden Mile Bentota with no photo host among its hits).
+- The rest returned the wrong place: Al Bujairi Heritage Park gave At-Turaif (across the wadi, a different site); Center Street Promenade gave Pearson Park and a statue in another Anaheim park; "Nelson Saturday Market" gave Paddington Markets in Sydney; "Maun Educational Park" gave a park in Mansfield, England; Matlapana gave two locator maps.
+- Google's filter also lets non-commercial licences through: 4 of the 8 Flickr hits were CC BY-NC-ND, which our rule rejects.
+
+**Conclusion:** the filter finds what Commons and Flickr already hold, and our missing slots are exactly the places those sites lack. Not worth a full pass; your own photos in `uploads/` or a paid source remain the ways to fill them.
