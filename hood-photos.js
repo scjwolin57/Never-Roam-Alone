@@ -1766,6 +1766,7 @@ window.NRA_HOOD_PHOTO = {
     "Garitsa": { img:"images/hoods/corfu--garitsa.webp", page:"https://commons.wikimedia.org/wiki/File:Windmill_-_Garitsa,_Corfu.jpg", src:"Texniths" },
     "Kanoni": { img:"images/hoods/corfu--kanoni.webp", page:"https://commons.wikimedia.org/wiki/File:Kanoni_harbour.jpg", src:"Panek" },
     "Kontokali": { img:"images/hoods/corfu--kontokali.webp", page:"https://commons.wikimedia.org/wiki/File:Corfu_Kontokali_Church_R04.jpg", src:"Marc Ryckaert (MJJR)" },
+    "Mandouki (Port)": { img:"images/hoods/corfu--mandouki-port.webp" }
   },
   "Cork": {
     "City Centre (Island)": { img:"images/hoods/cork--city-centre-island.webp", page:"https://commons.wikimedia.org/wiki/File:Ballintemple,_Cork,_Ireland_-_panoramio_(5).jpg", src:"K.ristof" },
