@@ -207,9 +207,7 @@
   .card-accept .ca-word{font-weight:700}
   .card-accept .ca-bar-track{flex:1 1 120px;min-width:90px;height:7px;background:#e7e0d2;border-radius:4px;overflow:hidden}
   .card-accept .ca-bar{height:100%;border-radius:4px;transition:width .4s ease}
-  .cur-grid{display:grid;grid-template-columns:200px 1fr;gap:24px;margin-top:12px;align-items:stretch;min-width:0}
-  .conv-and-atm{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-  .conv-and-atm .conv-row{flex:1 1 auto}
+  .cur-grid{display:grid;grid-template-columns:120px 1fr;gap:18px;margin-top:10px;align-items:stretch;min-width:0}
   .cur-grid > *{min-width:0}
 
   /* Cost cards */
@@ -260,9 +258,9 @@
   .fl-list li{padding:8px 0;border-top:1px solid rgba(0,0,0,.08);font-size:.88rem;line-height:1.35}
   .fl-list li:first-child{border-top:0}
   .fl-list .fl-n{font-weight:700}
-  .fl-kind{display:inline-block;margin-left:6px;padding:1px 6px;border:1px solid rgba(63,81,56,.35);border-radius:0;
+  .fl-ltype{display:inline-block;margin-left:6px;padding:1px 6px;border:1px solid rgba(63,81,56,.35);border-radius:0;
     font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);vertical-align:1px}
-  .fl-kind.is-self{background:var(--green);border-color:var(--green);color:#fff}
+  .fl-ltype.is-self{background:var(--green);border-color:var(--green);color:#fff}
   .fl-list .fl-m{display:block;color:var(--muted);font-size:.78rem}
   .fl-list a{color:var(--green);font-weight:700;text-decoration:none;white-space:nowrap}
   .fl-list a:hover{text-decoration:underline}
@@ -285,6 +283,7 @@
   a.ride-chip:hover,a.ride-chip:focus-visible{background:var(--green);border-color:var(--green);color:#fff}
   a.ride-chip:hover::after,a.ride-chip:focus-visible::after{opacity:1}
   .rides-none{font-size:.8rem;color:var(--muted)}
+  .air-apps{margin-top:7px}
   .taxi-tip{margin:10px 0 0;padding-top:10px;border-top:1px solid rgba(0,0,0,.08);font-size:.8rem;color:var(--muted);line-height:1.4}
   .taxi-tip-btn,.find-lg-btn{display:block;width:100%;margin-top:10px;padding:10px 0 0;border:0;border-top:1px solid rgba(0,0,0,.08);
     background:none;font-family:inherit;font-size:.8rem;font-weight:700;color:var(--green);text-align:left;cursor:pointer;transition:color .2s}
@@ -405,7 +404,11 @@
   .food-item-tag.food-tag-drink{background:var(--coral,#b5492c)}
   .food-item-desc{margin:3px 0 0;font-size:.8rem;color:var(--muted);line-height:1.4}
   .food-item-hint{margin:4px 0 0;font-size:.72rem;font-weight:700;color:var(--green)}
-  .food-back-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;padding:0 0 10px;font-family:inherit;font-size:.8rem;color:var(--green);font-weight:700;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+  .food-back-btn{display:inline-flex;align-items:center;gap:6px;background:var(--green);border:none;border-radius:3px;padding:8px 14px;margin:0 0 14px;font-family:inherit;font-size:.88rem;color:#fff;font-weight:700;cursor:pointer;transition:background .2s}
+  .food-back-btn:hover,.food-back-btn:focus-visible{background:var(--coral)}
+  .food-rec-row{margin:16px 0 0;padding:12px 14px;background:rgba(92,105,51,.1);border-left:4px solid var(--green);font-size:.9rem;color:var(--ink);line-height:1.4}
+  .food-rec-btn{display:inline-block;margin-top:8px;border:none;background:var(--coral);color:#fff;border-radius:3px;padding:7px 14px;font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}
+  .food-rec-btn:hover,.food-rec-btn:focus-visible{background:var(--green)}
   .food-place{border:1px solid rgba(0,0,0,.08);border-radius:3px;padding:10px 12px;margin-top:10px;background:#faf7f0}
   .food-place-name{font-weight:700;font-size:.92rem}
   .food-place-area{font-size:.78rem;color:var(--muted);margin-left:6px}
@@ -427,10 +430,11 @@
   .tcard-static .dtcard-tours{margin-top:auto}
   .car-far{margin:6px 0 0;font-size:.72rem;line-height:1.35;color:var(--muted)}
   .car-permit{display:flex;flex-direction:column;gap:6px}
-  .car-lic{display:flex;align-items:center;gap:8px;font-size:.76rem;color:var(--muted);min-width:0}
-  .car-lic span{white-space:nowrap}
-  .car-lic-sel{flex:1 1 auto;min-width:0;max-width:100%;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:5px 7px;font-family:inherit;font-size:.8rem;color:var(--ink);background:#fff}
-  .car-permit-src{margin:0;font-size:.72rem;line-height:1.35;color:var(--muted)}
+  .car-lic{display:flex;flex-direction:column;align-items:stretch;gap:4px;font-size:.76rem;color:var(--muted);min-width:0}
+  .car-lic-sel{width:100%;min-width:0;max-width:100%;border:1.5px solid rgba(63,81,56,.35);border-radius:0;padding:5px 7px;font-family:inherit;font-size:.8rem;color:var(--ink);background:#fff}
+  .car-permit-src{display:none;margin:0;font-size:.72rem;line-height:1.35;color:var(--muted);background:var(--sand);padding:7px 9px}
+  .car-permit.show-src .car-permit-src{display:block}
+  .car-permit.show-src .car-permit-info{opacity:1}
   .tcard-icon{color:var(--teal);display:inline-flex;margin-bottom:8px}
   .tcard-k{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:700;margin-bottom:10px}
   .tcard-list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -693,9 +697,11 @@
   .rt-foot{margin-top:18px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
   /* ATM & cash finder button + modal */
-  .atm-btn{display:inline-flex;align-items:center;gap:8px;align-self:center;flex-shrink:0;
-    padding:10px 16px;border:2px solid var(--green);background:#fff;color:var(--green);
-    font-family:inherit;font-weight:700;font-size:.9rem;border-radius:12px;cursor:pointer;transition:background .2s,color .2s}
+  .atm-btn{display:inline-flex;align-items:center;gap:6px;align-self:center;flex-shrink:0;
+    padding:6px 11px;border:2px solid var(--green);background:#fff;color:var(--green);
+    font-family:inherit;font-weight:700;font-size:.8rem;border-radius:12px;cursor:pointer;transition:background .2s,color .2s}
+  .cur-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+  .cur-head .k{min-width:0}
   .atm-btn:hover{background:var(--coral);color:#fff}
   .atm-btn svg{flex-shrink:0}
   .atm-intro{margin:0 0 16px;font-size:.95rem;color:var(--ink)}
@@ -714,17 +720,19 @@
   .atm-tips b{font-weight:700}
   .atm-foot{margin-top:20px;font-size:.78rem;color:var(--muted);font-style:italic;
     border-top:1px solid rgba(0,0,0,.08);padding-top:12px}
-  .cur-local{background:var(--sand);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;justify-content:center}
-  .cur-symbol{font-family:'Fraunces',Georgia,serif;font-size:2.4rem;line-height:1;color:var(--green)}
-  .cur-code{font-weight:700;letter-spacing:.06em;margin-top:8px;font-size:1.05rem}
-  .cur-name{color:var(--muted);font-size:.86rem;margin-top:2px}
-  .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:12px}
-  .conv-labels{display:flex;justify-content:space-between;gap:10px;margin-bottom:-6px}
-  .conv-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-  .conv-sub{font-size:.78rem;color:var(--muted);font-weight:600;text-align:center}
-  .conv-rate-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:2px}
-  .csnap-toggle.conv-currency-toggle{margin-left:auto;font-size:1rem;font-weight:700}
-  .csnap-toggle.conv-currency-toggle input{width:20px;height:20px}
+  .cur-local{background:var(--sand);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;justify-content:center}
+  .cur-symbol{font-family:'Fraunces',Georgia,serif;font-size:1.6rem;line-height:1;color:var(--green)}
+  .cur-code{font-weight:700;letter-spacing:.06em;margin-top:5px;font-size:.9rem}
+  .cur-name{color:var(--muted);font-size:.76rem;margin-top:1px;line-height:1.25}
+  .cur-conv{display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .conv-col{display:flex;flex-direction:column;gap:3px;flex:1;min-width:150px}
+  .conv-label{font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .conv-mid{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;align-self:flex-end}
+  .conv-sub{font-size:.74rem;color:var(--muted);font-weight:600;text-align:center}
+  /* highlighted: the switch that turns every cost on the page into the chosen currency */
+  .csnap-toggle.conv-currency-toggle{font-size:.92rem;font-weight:700;background:rgba(92,105,51,.12);
+    border:1.5px solid var(--green);border-left-width:5px;padding:9px 12px;align-self:stretch}
+  .csnap-toggle.conv-currency-toggle input{width:19px;height:19px}
   .cost-snapshot{display:block;margin-top:18px}
   .csnap-box{background:var(--sand);border-radius:12px;padding:16px 18px;width:100%;box-sizing:border-box}
   .csnap-toggles{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
@@ -755,27 +763,27 @@
     .csnap-day .cd-v{margin-top:0;text-align:right}}
   .conv-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
   .conv-field{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid rgba(63,81,56,.22);
-    border-radius:12px;padding:10px 14px;flex:1;min-width:150px;overflow:hidden}
+    border-radius:12px;padding:7px 12px;overflow:hidden}
   .conv-field:focus-within{border-color:var(--green)}
   .conv-field-from{background:rgba(168,72,42,.09);border-color:rgba(168,72,42,.28)}
   .conv-field-from:focus-within{border-color:var(--coral)}
   .conv-field-to{background:rgba(63,81,56,.09);border-color:rgba(63,81,56,.28)}
-  .conv-field input{border:none;outline:none;background:transparent;font-size:1.05rem;font-family:inherit;
+  .conv-field input{border:none;outline:none;background:transparent;font-size:1rem;font-family:inherit;
     color:var(--ink);flex:1 1 auto;width:auto;min-width:48px}
   .conv-field .tag{font-weight:700;color:var(--teal);font-size:.9rem;flex-shrink:0}
   .conv-field select{border:none;outline:none;background:transparent;font-size:.9rem;font-weight:700;
     color:var(--teal);font-family:inherit;cursor:pointer;flex:0 1 auto;min-width:0;
     text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
   .conv-eq{font-size:1.3rem;color:var(--muted);font-weight:700;flex-shrink:0}
-  .conv-swap{flex-shrink:0;width:42px;height:42px;border-radius:50%;border:none;cursor:pointer;
+  .conv-swap{flex-shrink:0;width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;
     background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;
     transition:background .2s, transform .35s}
   .conv-swap:hover{background:var(--coral)}
   .conv-swap:active{transform:rotate(180deg)}
   .conv-swap svg{display:block}
-  .conv-rate{font-size:.82rem;color:var(--muted)}
+  .conv-rate{font-size:.72rem;color:var(--muted);text-align:center;line-height:1.25;white-space:nowrap}
   .conv-rate b{color:var(--ink)}
-  .conv-rate .src{font-size:.72rem;opacity:.8;margin-left:4px}
+  .conv-rate .src{display:block;font-size:.64rem;opacity:.8}
 
   /* Neighborhood guide */
   .hood-intro{color:var(--muted);font-size:1.02rem;max-width:760px;margin:0 0 24px;font-style:italic}
@@ -1072,6 +1080,9 @@
     .temp-row:last-child{border-bottom:none}
     .tiles{grid-template-columns:1fr}
     .cur-grid{grid-template-columns:1fr}
+    .cur-local{flex-direction:row;align-items:baseline;gap:8px;padding:8px 12px;flex-wrap:wrap}
+    .cur-symbol{font-size:1.3rem}
+    .cur-code{margin-top:0}
     .cost-cards-grid{grid-template-columns:repeat(2,1fr)}
     .net-stats{grid-template-columns:repeat(2,1fr)}
   }
@@ -1101,10 +1112,13 @@
     .esim-buy{margin-left:0;margin-top:4px}
 
     /* Currency converter stacks neatly */
-    .conv-row{flex-direction:column;align-items:stretch}
-    .conv-and-atm{flex-direction:column;align-items:stretch}
-    .conv-and-atm .atm-btn{justify-content:center}
+    .conv-row{flex-direction:column;align-items:stretch;gap:6px}
+    .conv-col{flex:none;width:100%;min-width:0}
+    .conv-mid{flex-direction:row;align-self:center;gap:10px}
+    .conv-mid .conv-rate{text-align:left}
     .conv-field{flex:none;width:100%;min-width:0}
+    .cur-head .atm-btn{font-size:.74rem;padding:5px 8px}
+    .csnap-toggle.conv-currency-toggle{font-size:.86rem}
     .conv-field select{max-width:100%}
     .conv-eq{text-align:center}
     .conv-swap{align-self:center}
@@ -1293,7 +1307,7 @@
     padding:8px 16px;font:inherit;font-size:.9rem;cursor:pointer}
   .lmk-contrib-btn:hover{background:var(--coral);border-color:var(--coral)}
   /* Contribute-a-photo form */
-  .cf-back{position:fixed;inset:0;z-index:80;background:rgba(43,36,23,.55);display:flex;
+  .cf-back{position:fixed;inset:0;z-index:210;background:rgba(43,36,23,.55);display:flex;
     align-items:flex-start;justify-content:center;padding:36px 16px;overflow:auto}
   .cf-box{background:var(--card,#fff);border-radius:4px;max-width:520px;width:100%;
     box-shadow:0 24px 60px rgba(43,36,23,.4);padding:22px 24px 24px;position:relative}
@@ -3138,7 +3152,7 @@ function buildAdvisoryBanner(c, cityAdv){
     if (typeof NRA_PERMITS === "undefined") return "";
     const lic = permitLicence();
     const opts = Object.keys(NRA_PERMITS.lic).sort((a, b) => a.localeCompare(b));
-    const sel = `<label class="car-lic"><span>Licence from</span><select class="car-lic-sel" aria-label="Country your driving licence is from">
+    const sel = `<label class="car-lic"><span>License issued from:</span><select class="car-lic-sel" aria-label="Country your driving licence is from">
         <option value=""${lic ? "" : " selected"}>Choose…</option>${opts.map(o => `<option${o === lic ? " selected" : ""}>${o}</option>`).join("")}</select></label>`;
     if (!lic) return `<div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">Depends on your licence</span></div>${sel}`;
     const r = permitFor(lic), D = NRA_PERMITS.dest[permitDest()] || {};
@@ -3152,7 +3166,8 @@ function buildAdvisoryBanner(c, cityAdv){
       src = base + cv;
     }
     if (permitIsDefault()) src = `Showing US licence rules until you choose yours. ` + src;
-    return `<div class="car-row"><span class="car-k">Int'l permit</span><span class="car-v">${r.v}</span></div>${sel}<p class="car-permit-src">${src}</p>`;
+    /* the source and the explanation sit behind the info icon (Jeff, 2026-10-20) */
+    return `<div class="car-row"><span class="car-k">Int'l permit<button type="button" class="note-btn car-permit-info" aria-expanded="false" aria-label="About this permit advice">${INFO_ICON}</button></span><span class="car-v">${r.v}</span></div>${sel}<p class="car-permit-src">${src}</p>`;
   }
 
   /* "Before you rent" note for this country (rental-notes.js; CITY_SCHEMA.md "rental notes"), or null */
@@ -3355,7 +3370,7 @@ function buildAdvisoryBanner(c, cityAdv){
       </div>
     </div>
 
-    <div class="hero-back-bar" style="display:flex;gap:20px;flex-wrap:wrap"><a class="back" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg></a><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a></div>
+    <div class="hero-back-bar" style="display:flex;gap:20px;flex-wrap:wrap"><a class="back back-guides" href="cities.html">&larr; Back to City Guides</a><a class="back" href="compare.html?a=${encodeURIComponent(c.city)}">Compare with another city <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px"><path d="M9.01 14H2v2h7.01v3L13 15l-3.99-4v3zm5.98-1v-3H22V8h-7.01V5L11 9l3.99 4z"/></svg></a><span class="trip-add-wrap"><a class="back back-itin" href="itinerary.html?type=upcoming" data-trip-add data-city="${encodeURIComponent(c.city)}" data-country="${encodeURIComponent(c.country)}">+ Add to trip</a><button type="button" class="note-btn hint-btn trip-hint" data-hint="Saves ${c.city} to your Wishlist, to a trip you have already started, or to a new trip you name. Your trips are kept on your Itinerary page. You need to be signed in." onclick="this.classList.toggle('open')" aria-label="What Add to trip does">${INFO_ICON}</button></span></div>
 
     ${buildAdvisoryBanner(c, cityAdv)}
 
@@ -3413,8 +3428,14 @@ function buildAdvisoryBanner(c, cityAdv){
           </div>
         </div>
         <div id="net-card" class="fact net-banner"></div>
-        <div class="fact fact-wide">
-          <div class="k">Cost, currency and converter</div>
+        <div class="fact fact-wide cur-card">
+          <div class="cur-head">
+            <div class="k">Cost, currency and converter</div>
+            <button type="button" class="atm-btn" id="atm-btn" aria-haspopup="dialog">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="14" x2="9" y2="14"/><line x1="7" y1="17" x2="13" y2="17"/></svg>
+              Find ATMs &amp; cash
+            </button>
+          </div>
           ${cardAcceptHTML}
           <div class="cur-grid">
             <div class="cur-local">
@@ -3423,19 +3444,9 @@ function buildAdvisoryBanner(c, cityAdv){
               <div class="cur-name">${curInfo.n}</div>
             </div>
             <div class="cur-conv">
-              <div class="conv-labels" id="conv-labels"></div>
               <div class="conv-row" id="conv-row"></div>
               <div class="conv-sub">Enter an amount, pick a currency, or tap &#8644; to reverse</div>
-              <div class="conv-and-atm">
-                <button type="button" class="atm-btn" id="atm-btn" aria-haspopup="dialog">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="7" y1="14" x2="9" y2="14"/><line x1="7" y1="17" x2="13" y2="17"/></svg>
-                  Find ATMs &amp; cash
-                </button>
-              </div>
-              <div class="conv-rate-row">
-                <div class="conv-rate" id="conv-rate"></div>
-                <label class="csnap-toggle conv-currency-toggle"><input type="checkbox" id="cost-currency-toggle"> Show estimated costs in chosen currency</label>
-              </div>
+              <label class="csnap-toggle conv-currency-toggle"><input type="checkbox" id="cost-currency-toggle"> Show estimated costs in chosen currency</label>
             </div>
           </div>
           <div id="cost-snapshot" class="cost-snapshot"></div>
@@ -4599,21 +4610,15 @@ function buildAdvisoryBanner(c, cityAdv){
     const currency = isLocal
       ? `<span class="tag">${localCode}</span>`
       : `<select id="conv-sel" aria-label="Compare currency">${compareOptions()}</select>`;
-    return `<div class="conv-field conv-field-${role}">${input}${currency}</div>`;
+    return `<div class="conv-col"><span class="conv-label">${isLocal ? "Local currency" : "Chosen currency"}</span><div class="conv-field conv-field-${role}">${input}${currency}</div></div>`;
   }
 
   function renderConverter(amount) {
     const fromLocal = !reversed;
     document.getElementById("conv-row").innerHTML =
       fieldHTML("from", fromLocal) +
-      `<button type="button" class="conv-swap" id="conv-swap" title="Reverse currencies" aria-label="Reverse currencies">${SWAP_SVG}</button>` +
+      `<div class="conv-mid"><div class="conv-rate" id="conv-rate"></div><button type="button" class="conv-swap" id="conv-swap" title="Reverse currencies" aria-label="Reverse currencies">${SWAP_SVG}</button></div>` +
       fieldHTML("to", !fromLocal);
-    const labelsEl = document.getElementById("conv-labels");
-    if (labelsEl) {
-      labelsEl.innerHTML =
-        `<span class="conv-label">${fromLocal ? "Local currency" : "Chosen currency"}</span>` +
-        `<span class="conv-label">${fromLocal ? "Chosen currency" : "Local currency"}</span>`;
-    }
     document.getElementById("conv-amt").value = amount;
     bindConverter();
     renderConversion();
@@ -4628,7 +4633,7 @@ function buildAdvisoryBanner(c, cityAdv){
     const one = convert(1, fromCode, toCode);
     document.getElementById("conv-rate").innerHTML =
       `1 ${fromCode} = <b>${fmtMoney(one, toCode)} ${toCode}</b>` +
-      `<span class="src">· ${ratesLive ? "live rates" : "approx. rates"}</span>`;
+      `<span class="src">${ratesLive ? "live rates" : "approx. rates"}</span>`;
   }
 
   /* Build the full-width "Getting around the city" transit card */
@@ -4743,6 +4748,13 @@ function buildAdvisoryBanner(c, cityAdv){
       ? "Not available"
       : `${a.ride.avail === "limited" ? "Limited availability" : "Available"}${
           a.ride.cost == null ? "" : ` &middot; avg ${fmtPrice(a.ride.cost, code)}`}`;
+    /* the city's ride-share apps (rides key) as store buttons, only where ride-hailing works at the airport */
+    const apps = (a.ride && a.ride.avail !== "no" && CITY_RIDES[c.city]) || [];
+    const appChips = apps.map(r => {
+      const u = window.nraAppLink ? window.nraAppLink(r, c.country) : null;
+      return u ? `<a class="ride-chip" href="${u}" target="_blank" rel="noopener" title="Get the ${r} app">${r}</a>` : "";
+    }).join("");
+    const rideRow = rideText + (appChips ? `<div class="rides-list air-apps">${appChips}</div>` : "");
     const transit = (a.transit || []).map(t => `<li>${t.m} — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b></li>`).join("");
     const carRental = [a.drive ? `Drive ~${a.drive}` : "",
                        (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
@@ -4753,9 +4765,9 @@ function buildAdvisoryBanner(c, cityAdv){
       <h4 class="air-sub">Getting to the city center</h4>
       <dl class="air-rows">
         ${row("Car rental", carRental)}
-        ${row("Car service", a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)} &middot; <a class="air-link" href="#">Book a transfer &rarr;</a>`)}
+        ${row("Car service", a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)}`)}
         ${row("Taxi", a.taxi == null ? "" : `avg ${fmtPrice(a.taxi, code)}${taxiMeta}`)}
-        ${row("Ride-hailing", rideText)}
+        ${row("Ride-hailing", rideRow)}
         ${row("Public transit", transit ? `<ul class="air-transit">${transit}</ul>` : "")}
       </dl>
       ${a.note ? `<p class="note-text">${a.note}</p>` : ""}
@@ -4962,9 +4974,9 @@ function buildAdvisoryBanner(c, cityAdv){
       /* The open data names the kind only when the listing's own name does (decisions.md
          2026-09-24): "Laundromat" otherwise, the same word the sheet stores. Self-service
          is the one travellers look for, so it is tagged in brand green. */
-      const kindTag = x.k === "self" ? `<span class="fl-kind is-self">Self-service</span>`
-                    : x.k === "drop" ? `<span class="fl-kind">Drop-off &amp; fold</span>`
-                    : `<span class="fl-kind">Laundromat</span>`;
+      const kindTag = x.k === "self" ? `<span class="fl-ltype is-self">Self-service</span>`
+                    : x.k === "drop" ? `<span class="fl-ltype">Drop-off &amp; fold</span>`
+                    : `<span class="fl-ltype">Laundromat</span>`;
       /* some open-data names stack every search term they could think of
          ("Self Service Laundry Athens / Coin laundry Athens / …"): show the first part */
       const shortName = (x.n.split(/\s+[\/|]\s+/)[0] || x.n).trim() || x.n;   // spaces both sides, so "4/27" and "(a/b)" stay whole
@@ -5164,6 +5176,16 @@ function buildAdvisoryBanner(c, cityAdv){
         </div>`).join("")}
       </div>`;
   }
+  /* "Submit a recommendation" under a dish's places: suggest-place.js in food mode
+     (business name, neighborhood, Google Maps link) → place_suggestions, section "food" */
+  function openFoodSuggest(idx) {
+    const items = (typeof CITY_FOOD !== "undefined" && CITY_FOOD[c.city]) || null;
+    const it = items && items[idx];
+    if (!it || !window.NRA_SUGGEST) return;
+    NRA_SUGGEST.open({ city: c.city, section: "food", item: it.name, itemType: it.type === "drink" ? "drink" : "dish",
+                       hoods: CITY_HOODS[c.city] || [], title: `Recommend a place for ${it.name}` });
+  }
+  window.openFoodSuggest = openFoodSuggest;
   /* Second view: best places for one dish/drink */
   function showFoodPlaces(idx) {
     const items = (typeof CITY_FOOD !== "undefined" && CITY_FOOD[c.city]) || null;
@@ -5171,7 +5193,7 @@ function buildAdvisoryBanner(c, cityAdv){
     if (!it) return;
     modalTitle.textContent = `${it.name} — ${c.city}`;
     modalBody.innerHTML = `
-      <button type="button" class="food-back-btn" onclick="openModal('Local food &amp; drink')">&lsaquo; All food &amp; drink</button>
+      <button type="button" class="food-back-btn" onclick="openModal('Local food &amp; drink')">&larr; Back to all food &amp; drink</button>
       <p class="rt-intro">${it.desc}</p>
       ${it.places.map(p => `
       <div class="food-place">
@@ -5180,6 +5202,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <a class="food-place-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ", " + p.area + ", " + c.city)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>
         ${voteWidgetHTML({type:"food_place", id:`${it.name}|${p.name}`, city:c.city, extraClass:"fl-vote", size:13})}
       </div>`).join("")}
+      <div class="food-rec-row">Want to submit a recommendation for a great ${it.name} in ${c.city}?<br><button type="button" class="food-rec-btn" onclick="openFoodSuggest(${idx})">Submit a recommendation</button></div>
       <p class="food-contrib-row">Have a photo of ${it.name}?<button type="button" class="food-contrib-btn" data-contrib-kind="food-dish" data-contrib-subject="${it.name.replace(/"/g,'&quot;')}" data-contrib-idx="${idx}">Contribute one</button></p>
       <p class="food-src-note">Picks are based on recent traveler reviews and food articles — hours and quality can change, so double-check before you go.</p>`;
     modalBody.scrollTop = 0;
@@ -5279,16 +5302,19 @@ function buildAdvisoryBanner(c, cityAdv){
       if (!e.target.classList.contains("car-lic-sel")) return;
       try { e.target.value ? localStorage.setItem("nra_licence_country", e.target.value) : localStorage.removeItem("nra_licence_country"); } catch(err){}
       const box = e.target.closest(".car-permit");
-      if (box){ box.innerHTML = permitBlockHTML(); const s = box.querySelector(".car-lic-sel"); if (s) s.focus(); }
+      if (box){ box.innerHTML = permitBlockHTML(); const s = box.querySelector(".car-lic-sel"); if (s) s.focus();
+                const pi = box.querySelector(".car-permit-info"); if (pi) pi.setAttribute("aria-expanded", box.classList.contains("show-src") ? "true" : "false"); }
     });
     transportEl.addEventListener("click", e => {
+      const pi = e.target.closest(".car-permit-info");
+      if (pi){ const box = pi.closest(".car-permit"); if (box){ box.classList.toggle("show-src"); pi.setAttribute("aria-expanded", box.classList.contains("show-src") ? "true" : "false"); } return; }
       if (e.target.closest("a, select, label")) return;   // links and the licence dropdown never open the card's popup
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) openModal(card.dataset.info);
     });
     transportEl.addEventListener("keydown", e => {
       if (e.key !== "Enter" && e.key !== " ") return;
-      if (e.target.closest("a")) return;
+      if (e.target.closest("a, button, select")) return;
       const card = e.target.closest(".tcard");
       if (card && card.dataset.info) { e.preventDefault(); openModal(card.dataset.info); }
     });
@@ -5822,6 +5848,11 @@ function buildAdvisoryBanner(c, cityAdv){
 <style>
   .hero-back-bar .back.back-itin{background:var(--coral)}
   .hero-back-bar .back.back-itin:hover{background:var(--green)}
+  .hero-back-bar .back.back-guides{background:var(--ink)}
+  .hero-back-bar .back.back-guides:hover{background:var(--coral)}
+  .trip-add-wrap{display:inline-flex;align-items:center;gap:2px}
+  .trip-add-wrap .trip-hint{margin-left:6px;opacity:.8}
+  .trip-add-wrap .trip-hint svg{width:17px;height:17px}
 </style>
 <script src="trip-add.js"></script>
 <script src="auth.js"></script>

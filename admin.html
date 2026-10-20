@@ -727,7 +727,7 @@
      ====================================================================== */
   let sRows = [];
   let sugReview = "";   // ?tab=suggestions&review=<id> from the submission email
-  const SUG_SECTION = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out" };
+  const SUG_SECTION = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out", food: "Food & drink (city-food.js)" };
   let sChecks = {};   // suggestion id -> last check-suggestion.js result, kept for this page load only
 
   /* One line per fact the check returned, plain and unstyled beyond pass/warn/bad, so Jeff still reads
@@ -755,6 +755,7 @@
     return `<div class="sug-check">
       <dl>${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
       ${d.command ? `<pre>${esc(d.command)}</pre><button type="button" class="btn small" data-copy-cmd="${esc(d.command)}">Copy command</button>`
+                  : d.row && d.row.section === "food" ? `<p class="note">Food &amp; drink recommendations have no loader: add the place to the dish in the sheet and city-food.js by hand, then Mark published.</p>`
                   : `<p class="note">Couldn't build a command &mdash; the link didn't resolve to a venue name.</p>`}
     </div>`;
   }
@@ -795,7 +796,7 @@
       <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
         <div class="ihead">
           <div class="info">
-            <div class="title">${esc(r.kind_label || r.kind)} · ${esc(r.hood_name)}, <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
+            <div class="title">${r.section === "food" ? esc(r.place_name || "(no name)") + " for " : ""}${esc(r.kind_label || r.kind)} · ${esc(r.hood_name)}, <a href="${esc(cityLink(r.city))}" target="_blank" rel="noopener">${esc(r.city)}</a> ${chip}</div>
             <div class="sub">${esc(SUG_SECTION[r.section] || r.section)} · ${esc(String(r.created_at || "").slice(0, 10))} · ${from} · ${contact}</div>
             <div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps</a>${r.website_url ? ` · <a href="${esc(r.website_url)}" target="_blank" rel="noopener">Website</a>` : ""}</div>
             ${r.info ? `<div class="sub" style="white-space:pre-wrap;color:var(--ink);margin-top:6px">${esc(r.info)}</div>` : ""}

@@ -110,7 +110,11 @@ exports.handler = async (event) => {
         const hi = Number(row.hood_idx);
         if (Number.isInteger(hi) && Array.isArray(cd.hood_geo) && cd.hood_geo[hi]) hoodCenter = cd.hood_geo[hi];
         const pull = (obj) => Array.isArray(obj) && Array.isArray(obj[hi]) ? obj[hi].map(x => (x && x.n) || x).filter(Boolean) : [];
-        if (row.section === "stay") {
+        if (row.section === "food") {
+          /* a dish or drink recommendation: compare with the places already listed for that dish */
+          const dish = (Array.isArray(cd.food) ? cd.food : []).find(f => f && f.name === row.kind_label);
+          existingNames = ((dish && dish.places) || []).map(x => x && x.name).filter(Boolean);
+        } else if (row.section === "stay") {
           existingNames = pull(cd.lodging).concat(pull(cd.roamer_picks && cd.roamer_picks.stay));
         } else {
           existingNames = pull(cd[row.section]).concat(pull(cd.roamer_picks && cd.roamer_picks[row.section]));
@@ -173,7 +177,7 @@ exports.handler = async (event) => {
   // 5. A ready-to-run command. Still needs a person to read the checks above, confirm the venue and
   //    the note, and run it (or fix it) themselves — see the note in the header of this file.
   let command = null;
-  if (slug && finalName) {
+  if (slug && finalName && row.section !== "food") {   // food has no loader yet: added to the sheet and city-food.js by hand
     const hn = Number(row.hood_idx) + 1;
     const noteSource = (row.info || "").trim();
     const note = noteSource ? clip(noteSource, 90) : "";

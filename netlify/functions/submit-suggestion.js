@@ -10,6 +10,12 @@
 //   POST { city, hoodIdx, hoodName, section, kind, mapsUrl, websiteUrl, info,
 //          contact, email, accessToken, website (honeypot), elapsedMs }
 //
+// Section "food" (2026-10-20): a recommendation for a dish or drink from the
+// Food & drink popup. kind is "dish" or "drink", item is the dish's name (kept
+// as kind_label), placeName the business, hoodName the neighborhood or
+// "Somewhere else in <city>" (hoodIdx null). Needs food-suggestions-setup.sql;
+// until it is run the insert fails and only the email goes out.
+//
 // A signed-in member sends their Supabase access token; the server checks
 // it and stores their user id (their thank-you then goes to their Never Roam
 // Alone inbox, and they earn the recommendation points). A visitor who is
@@ -30,9 +36,10 @@ const KINDS = {
   eat:   { local: "Local traditional", casual: "Casual dining", fine: "Fine dining" },
   cafes: { coffee: "Coffee shop", takeaway: "Takeaway", bakery: "Bakery / pastries" },
   bars:  { dive: "Dive / local bar", party: "Party bar", cocktail: "Cocktail bar", pub: "Pub / casual bar",
-           cafe: "Coffee house", hangout: "Late-night hangout", mocktail: "Juice & mocktails" }
+           cafe: "Coffee house", hangout: "Late-night hangout", mocktail: "Juice & mocktails" },
+  food:  { dish: "Dish", drink: "Drink" }
 };
-const SECTION_LABEL = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out" };
+const SECTION_LABEL = { stay: "Where to stay", eat: "Where to eat", cafes: "Coffee & takeaway", bars: "Where to drink / go out", food: "Food & drink" };
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -51,9 +58,11 @@ exports.handler = async (event) => {
 
   const city       = clip(p.city, 80);
   const hoodName   = clip(p.hoodName, 120);
-  const hoodIdx    = Number.isInteger(Number(p.hoodIdx)) && Number(p.hoodIdx) >= 0 && Number(p.hoodIdx) < 20 ? Number(p.hoodIdx) : null;
+  const hoodIdx    = p.hoodIdx != null && p.hoodIdx !== "" && Number.isInteger(Number(p.hoodIdx)) && Number(p.hoodIdx) >= 0 && Number(p.hoodIdx) < 20 ? Number(p.hoodIdx) : null;
   const section    = String(p.section || "");
   const kind       = String(p.kind || "");
+  const item       = clip(p.item, 80);        // food: the dish or drink
+  const placeName  = clip(p.placeName, 120);  // food: the business
   const mapsUrl    = clip(p.mapsUrl, 1000);
   const websiteUrl = clip(p.websiteUrl, 500);
   const info       = clip(p.info, 1000);
@@ -75,8 +84,11 @@ exports.handler = async (event) => {
   // --- the fields ---
   if (!city || !hoodName) return json(400, { error: "Missing the city or neighborhood." });
   if (!KINDS[section]) return json(400, { error: "Unknown section." });
-  const kindLabel = KINDS[section][kind];
-  if (!kindLabel) return json(400, { error: "Please choose which listing this is for." });
+  const food = section === "food";
+  if (food && !item) return json(400, { error: "Missing the dish or drink." });
+  if (food && !placeName) return json(400, { error: "Please add the name of the business." });
+  const kindLabel = food ? (KINDS.food[kind] && item) : KINDS[section][kind];
+  if (!kindLabel) return json(400, { error: food ? "Missing the dish or drink." : "Please choose which listing this is for." });
   if (!mapsUrl) return json(400, { error: "Please add the Google Maps link." });
   if (!isMapsUrl(mapsUrl)) return json(400, { error: "That doesn't look like a Google Maps link. Open the place in Google Maps, tap Share, and paste the link." });
   if (websiteUrl && !isWebUrl(websiteUrl)) return json(400, { error: "The website link should start with http:// or https://" });
@@ -121,6 +133,7 @@ exports.handler = async (event) => {
         body: JSON.stringify({
           city, hood_idx: hoodIdx, hood_name: hoodName, section, kind, kind_label: kindLabel,
           maps_url: mapsUrl, website_url: websiteUrl || null, info: info || null,
+          ...(food ? { place_name: placeName } : {}),
           contact, email: email || null, user_id: userId, status: "pending"
         })
       });
@@ -150,20 +163,22 @@ exports.handler = async (event) => {
         from: "Never Roam Alone <hello@neverroamalone.com>",
         to: [toEmail],
         ...(email ? { reply_to: email } : {}),
-        subject: `Place suggestion (${kindLabel}): ${hoodName}, ${city}`,
+        subject: food ? `Food & drink recommendation (${kindLabel}): ${placeName}, ${city}` : `Place suggestion (${kindLabel}): ${hoodName}, ${city}`,
         html: `
           <div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;padding:24px;color:#1d2a32">
             <h2 style="color:#5c6933;margin:0 0 6px">New place suggestion</h2>
             <p style="margin:0 0 16px;color:#3a4a52">${escapeHtml(SECTION_LABEL[section])} &middot; ${escapeHtml(hoodName)} &middot; <a href="${escapeHtml(cityUrl)}">${escapeHtml(city)}</a></p>
             <table style="border-collapse:collapse;font-size:15px;margin:0 0 16px">
               ${row("For", escapeHtml(kindLabel))}
+              ${row("Business", food ? escapeHtml(placeName) : "")}
+              ${row("Neighborhood", food ? escapeHtml(hoodName) : "")}
               ${row("Google Maps", `<a href="${escapeHtml(mapsUrl)}">${escapeHtml(mapsUrl)}</a>`)}
               ${row("Website", websiteUrl ? `<a href="${escapeHtml(websiteUrl)}">${escapeHtml(websiteUrl)}</a>` : "")}
               ${row("From", who)}
               ${row("Contact", contact ? (userId ? "Yes, by Never Roam Alone message" : "Yes, by email") : "No")}
             </table>
             ${info ? `<div style="background:#f6f1e7;padding:12px 14px;margin:0 0 16px;white-space:pre-wrap">${escapeHtml(info)}</div>` : ""}
-            <p style="margin:0 0 16px;color:#3a4a52">${reviewId ? "It's saved as <strong>pending</strong>. Nothing changes on the site until the venue passes the hood-picks checks and you mark it published." : "<strong>It was not saved for review</strong> (the database didn't accept it), so it won't show on the Admin page. The details are above."}</p>
+            <p style="margin:0 0 16px;color:#3a4a52">${reviewId ? (food ? "It's saved as <strong>pending</strong>. Nothing changes on the site until the place is checked, added to the dish in the sheet and city-food.js, and you mark it published." : "It's saved as <strong>pending</strong>. Nothing changes on the site until the venue passes the hood-picks checks and you mark it published.") : "<strong>It was not saved for review</strong> (the database didn't accept it), so it won't show on the Admin page. The details are above."}</p>
             ${reviewId ? `<p style="margin:0 0 20px"><a href="${escapeHtml(reviewUrl)}" style="display:inline-block;background:#5c6933;color:#fff;text-decoration:none;font-weight:bold;padding:12px 22px">Review on the Admin page &rarr;</a></p>` : ""}
             <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${escapeHtml(city)} city page.</p>
           </div>`

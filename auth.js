@@ -139,7 +139,7 @@ window.NRA_AUTH = (function(){
     border-radius:3px;font-size:.84rem;font-weight:600;color:#2b2417;line-height:1.35}
   .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#2b2417;margin-top:10px;cursor:pointer}
   .nra-check input{margin-top:2px;accent-color:#b5492c}
-  .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+  .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:220;display:flex;align-items:center;justify-content:center;padding:18px}
   .nra-modal{background:#f6efdd;border:1px solid #2b2417;border-radius:0;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 16px 40px rgba(43,36,23,.3);max-height:92vh;overflow:auto}
   .nra-modal h3{font-family:'Fraunces',Georgia,serif;font-weight:700;margin:0 0 4px;font-size:1.35rem;color:#2b2417}
   .nra-modal .sub{color:#82755b;font-size:.86rem;margin:0 0 16px}

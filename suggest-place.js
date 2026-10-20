@@ -22,6 +22,15 @@
    which re-checks every field and saves it as pending for review on the
    Admin page (Suggestions tab), the same flow as the Insights interviews.
 
+   Food mode (2026-10-20): the "Submit a recommendation" button under a dish
+   or drink in the Food & drink popup opens the same dialog with
+     NRA_SUGGEST.open({ city, section: "food", item: "Pastel de nata",
+                        itemType: "dish" | "drink", hoods: [...], title })
+   asking for the name of the business (required), the neighborhood (the
+   guide's neighborhoods plus "Somewhere else in <city>", required) and the
+   Google Maps link (required). It goes to the same function and table,
+   section "food" (food-suggestions-setup.sql).
+
    Uses the .cf-* dialog styles city.html already has for the photo form,
    plus the few rules below.
    ===================================================================== */
@@ -85,28 +94,32 @@ window.NRA_SUGGEST = (function(){
     opts = opts || {};
     var city = String(opts.city || "").trim(), hoodName = String(opts.hoodName || "").trim();
     var kinds = Array.isArray(opts.kinds) ? opts.kinds : [];
-    if (!city || !hoodName || !opts.section || !kinds.length) return;
+    var food = opts.section === "food";
+    var item = String(opts.item || "").trim();
+    var hoods = Array.isArray(opts.hoods) ? opts.hoods : [];
+    if (food ? (!city || !item) : (!city || !hoodName || !opts.section || !kinds.length)) return;
     ensureCSS();
-
-    var back = document.createElement("div");
-    back.className = "cf-back";
-    back.innerHTML =
-      '<div class="cf-box" role="dialog" aria-modal="true" aria-label="' + esc(opts.title || "Suggest a place") + '">' +
-        '<button type="button" class="cf-close" aria-label="Close">&times;</button>' +
-        '<h3>' + esc(opts.title || "Suggest a place") + '</h3>' +
-        '<p class="cf-sub">In ' + esc(hoodName) + ', ' + esc(city) + '. We check every suggestion before it goes on the guide.</p>' +
-        '<form id="sp-form" novalidate>' +
-          '<div class="cf-f">' +
-            '<label for="sp-kind">Which listing is it for?</label>' +
-            '<select id="sp-kind" required><option value="">Choose one</option>' +
-              kinds.map(function(o){ return '<option value="' + esc(o.k) + '">' + esc(o.label) + '</option>'; }).join("") +
-            '</select>' +
-          '</div>' +
-          '<div class="cf-f">' +
-            '<label for="sp-maps">Google Maps link</label>' +
-            '<input type="url" id="sp-maps" required placeholder="https://maps.app.goo.gl/..." autocomplete="off">' +
-            '<p class="cf-note">Open the place in Google Maps, tap Share, and paste the link here.</p>' +
-          '</div>' +
+    var elsewhere = "Somewhere else in " + city;
+    var topFields = food
+      ? '<div class="cf-f">' +
+          '<label for="sp-name">Name of the business</label>' +
+          '<input type="text" id="sp-name" required maxlength="120" autocomplete="off">' +
+        '</div>' +
+        '<div class="cf-f">' +
+          '<label for="sp-kind">Neighborhood</label>' +
+          '<select id="sp-kind" required><option value="">Choose one</option>' +
+            hoods.map(function(h, i){ return '<option value="' + i + '">' + esc(h) + '</option>'; }).join("") +
+            '<option value="x">' + esc(elsewhere) + '</option>' +
+          '</select>' +
+        '</div>'
+      : '<div class="cf-f">' +
+          '<label for="sp-kind">Which listing is it for?</label>' +
+          '<select id="sp-kind" required><option value="">Choose one</option>' +
+            kinds.map(function(o){ return '<option value="' + esc(o.k) + '">' + esc(o.label) + '</option>'; }).join("") +
+          '</select>' +
+        '</div>';
+    /* food mode asks only for the three fields above plus the Maps link (Jeff, 2026-10-20) */
+    var extraFields = food ? '' :
           '<div class="cf-f">' +
             '<label for="sp-site">Website <span class="sp-opt">(optional)</span></label>' +
             '<input type="url" id="sp-site" placeholder="https://" autocomplete="off">' +
@@ -114,7 +127,23 @@ window.NRA_SUGGEST = (function(){
           '<div class="cf-f">' +
             '<label for="sp-info">Anything you want to share about this place <span class="sp-opt">(optional)</span></label>' +
             '<textarea id="sp-info" rows="3" maxlength="1000"></textarea>' +
+          '</div>';
+
+    var back = document.createElement("div");
+    back.className = "cf-back";
+    back.innerHTML =
+      '<div class="cf-box" role="dialog" aria-modal="true" aria-label="' + esc(opts.title || "Suggest a place") + '">' +
+        '<button type="button" class="cf-close" aria-label="Close">&times;</button>' +
+        '<h3>' + esc(opts.title || "Suggest a place") + '</h3>' +
+        '<p class="cf-sub">' + (food ? 'Where to get a great ' + esc(item) + ' in ' + esc(city) : 'In ' + esc(hoodName) + ', ' + esc(city)) + '. We check every suggestion before it goes on the guide.</p>' +
+        '<form id="sp-form" novalidate>' +
+          topFields +
+          '<div class="cf-f">' +
+            '<label for="sp-maps">Google Maps link</label>' +
+            '<input type="url" id="sp-maps" required placeholder="https://maps.app.goo.gl/..." autocomplete="off">' +
+            '<p class="cf-note">Open the place in Google Maps, tap Share, and paste the link here.</p>' +
           '</div>' +
+          extraFields +
           '<div style="position:absolute;left:-9999px" aria-hidden="true">' +
             '<label for="sp-website">Website</label>' +
             '<input type="text" id="sp-website" tabindex="-1" autocomplete="off">' +
@@ -183,11 +212,13 @@ window.NRA_SUGGEST = (function(){
       var msg = $("sp-msg"), btn = $("sp-submit");
       var fail = function(text, focusId){ msg.className = "cf-msg err"; msg.textContent = text; if (focusId && $(focusId)) $(focusId).focus(); };
       var kind = $("sp-kind").value;
+      var placeName = $("sp-name") ? ($("sp-name").value || "").trim() : "";
       var mapsUrl = ($("sp-maps").value || "").trim();
-      var siteUrl = ($("sp-site").value || "").trim();
+      var siteUrl = $("sp-site") ? ($("sp-site").value || "").trim() : "";
       var contact = $("sp-contact").checked;
       var email = $("sp-email") ? ($("sp-email").value || "").trim() : "";
-      if (!kind) return fail("Please choose which listing this is for.", "sp-kind");
+      if (food && !placeName) return fail("Please add the name of the business.", "sp-name");
+      if (!kind) return fail(food ? "Please choose the neighborhood." : "Please choose which listing this is for.", "sp-kind");
       if (!mapsUrl) return fail("Please add the Google Maps link.", "sp-maps");
       if (!isMapsUrl(mapsUrl)) return fail("That doesn't look like a Google Maps link. Open the place in Google Maps, tap Share, and paste the link.", "sp-maps");
       if (siteUrl && !isWebUrl(siteUrl)) return fail("The website link should start with http:// or https://", "sp-site");
@@ -203,8 +234,12 @@ window.NRA_SUGGEST = (function(){
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            city: city, hoodIdx: opts.hoodIdx, hoodName: hoodName, section: opts.section,
-            kind: kind, mapsUrl: mapsUrl, websiteUrl: siteUrl, info: ($("sp-info").value || "").trim(),
+            city: city, section: opts.section,
+            hoodIdx: food ? (kind === "x" ? null : Number(kind)) : opts.hoodIdx,
+            hoodName: food ? (kind === "x" ? elsewhere : String(hoods[Number(kind)] || "")) : hoodName,
+            kind: food ? (opts.itemType === "drink" ? "drink" : "dish") : kind,
+            item: food ? item : "", placeName: placeName,
+            mapsUrl: mapsUrl, websiteUrl: siteUrl, info: $("sp-info") ? ($("sp-info").value || "").trim() : "",
             contact: contact, email: token ? "" : email, accessToken: token,
             website: $("sp-website").value,          /* honeypot */
             elapsedMs: Date.now() - openedAt
@@ -214,7 +249,7 @@ window.NRA_SUGGEST = (function(){
         try { out = await r.json(); } catch (e2) { /* non-JSON error page */ }
         if (!r.ok || !out.sent) throw new Error(out.error || ("Sending failed (" + r.status + ")"));
         back.querySelector(".cf-box").innerHTML =
-          '<h3>Thank you</h3><p class="cf-sub">Your suggestion for ' + esc(hoodName) + ' has been sent. We check every suggestion before it goes on the guide.' +
+          '<h3>Thank you</h3><p class="cf-sub">Your suggestion for ' + esc(food ? item + ' in ' + city : hoodName) + ' has been sent. We check every suggestion before it goes on the guide.' +
           (contact ? (token ? ' If it\'s published, we\'ll send you a message in your Never Roam Alone inbox.' : ' If it\'s published, we\'ll email you.') : '') + '</p>' +
           '<div class="cf-actions"><button type="button" class="cf-submit" id="sp-done">Close</button></div>';
         back.querySelector("#sp-done").addEventListener("click", close);
@@ -224,7 +259,7 @@ window.NRA_SUGGEST = (function(){
       }
     });
 
-    setTimeout(function(){ var k = $("sp-kind"); if (k) k.focus(); }, 30);
+    setTimeout(function(){ var k = $(food ? "sp-name" : "sp-kind"); if (k) k.focus(); }, 30);
   }
 
   return { open: open, isMapsUrl: isMapsUrl };

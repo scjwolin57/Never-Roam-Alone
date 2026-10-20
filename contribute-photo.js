@@ -70,7 +70,7 @@ window.NRA_PHOTO_CONTRIB = (function(){
 
   /* ---------- styles (injected once, works on any page) ---------- */
   var CSS = [
-    ".cf-back{position:fixed;inset:0;z-index:80;background:rgba(43,36,23,.55);display:flex;",
+    ".cf-back{position:fixed;inset:0;z-index:210;background:rgba(43,36,23,.55);display:flex;",
     "  align-items:flex-start;justify-content:center;padding:36px 16px;overflow:auto}",
     ".cf-box{background:var(--card,#fff);border-radius:4px;max-width:520px;width:100%;",
     "  box-shadow:0 24px 60px rgba(43,36,23,.4);padding:22px 24px 24px;position:relative}",

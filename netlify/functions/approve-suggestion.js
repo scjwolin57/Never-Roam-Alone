@@ -97,7 +97,9 @@ exports.handler = async (event) => {
   let notified = false, via = null, messageId = null;
   if (row.contact && !row.notified) {
     const cityUrl = siteBase + "/city.html?city=" + encodeURIComponent(row.city);
-    const what = `${row.kind_label || "place"} in ${row.hood_name}, ${row.city}`;
+    const what = row.section === "food"
+      ? `${row.place_name || "place"} (for ${row.kind_label || "a local dish"})`
+      : `${row.kind_label || "place"} in ${row.hood_name}, ${row.city}`;
     let emailTo = row.email || "";
 
     if (row.user_id && row.user_id !== admin.id) {
