@@ -1,0 +1,847 @@
+﻿Type,Country,City,Slot,Name
+Landmark,Afghanistan,Bamyan,4,Dara-e Ajdahar (Dragon Valley)
+Landmark,Afghanistan,Bamyan,5,Kakrak Valley Buddha Niche
+Landmark,Afghanistan,Bamyan,6,Foladi Valley Caves
+Landmark,Afghanistan,Bamyan,8,Bamyan Cliff Monastic Caves
+Neighborhood,Afghanistan,Kabul,1,Wazir Akbar Khan
+Landmark,Algeria,Constantine,7,The Casbah and Souika old town
+Neighborhood,Algeria,Djanet,2,Ifri
+Neighborhood,Algeria,Oran,2,Es Seddikia
+Neighborhood,Algeria,Oran,3,Miramar
+Landmark,Algeria,Tamanrasset,3,Maison de l'Artisanat
+Neighborhood,Algeria,Tamanrasset,1,Town Center
+Neighborhood,Algeria,Tamanrasset,2,Soro
+Landmark,Algeria,Timimoun,2,Porte du Soudan (Sudan Gate)
+Landmark,Algeria,Timimoun,3,Hôtel de l'Oasis Rouge
+Landmark,Algeria,Timimoun,7,Ksar Ouled Saïd
+Neighborhood,Algeria,Timimoun,2,Palm Oasis
+Neighborhood,Angola,Luanda,3,Miramar
+Neighborhood,Angola,Luanda,4,Alvalade
+Landmark,Anguilla,The Valley,2,St. Gerard's Roman Catholic Church
+Landmark,Anguilla,The Valley,4,Old Valley Well and Historic Village
+Landmark,Anguilla,The Valley,5,Ebenezer Methodist Church
+Landmark,Anguilla,The Valley,6,Fountain Cavern National Park
+Landmark,Anguilla,The Valley,8,Crocus Bay and Little Bay
+Landmark,Anguilla,The Valley,9,Big Spring Heritage Site (Island Harbour)
+Landmark,Anguilla,The Valley,10,Crocus Hill
+Neighborhood,Anguilla,The Valley,1,The Valley (Town Centre)
+Neighborhood,Anguilla,The Valley,2,Sandy Ground
+Neighborhood,Anguilla,The Valley,4,Meads Bay
+Landmark,Antigua and Barbuda,Saint John's,2,Redcliffe Quay
+Landmark,Antigua and Barbuda,Saint John's,6,Public Market (Heritage Market)
+Neighborhood,Antigua and Barbuda,Saint John's,4,Hodges Bay & Cedar Grove
+Neighborhood,Argentina,Bariloche,4,Playa Bonita
+Landmark,Argentina,El Calafate,4,Walichu Caves (Punta Walichu)
+Landmark,Argentina,Puerto Iguazú,8,Jardín de los Picaflores
+Neighborhood,Argentina,Puerto Madryn,1,Rambla (Waterfront)
+Neighborhood,Argentina,Salta,3,Tres Cerritos
+Landmark,Australia,Alice Springs,8,Olive Pink Botanic Garden
+Neighborhood,Bahrain,Manama,1,Seef
+Neighborhood,Bahrain,Manama,2,Adliya
+Landmark,Bangladesh,Cox's Bazar,5,Aggmeda Khyang
+Landmark,Bangladesh,Saint Martin's Island,2,West Beach
+Landmark,Bangladesh,Saint Martin's Island,3,Coral Beach (East Beach)
+Landmark,Bangladesh,Saint Martin's Island,4,Shomudro Bilash (Humayun Ahmed's House)
+Landmark,Bangladesh,Saint Martin's Island,8,Saint Martin's Bazaar
+Landmark,Bangladesh,Saint Martin's Island,9,Dakhinpara (Southern Village)
+Neighborhood,Bangladesh,Srimangal,2,Tea Garden Belt
+Neighborhood,Bangladesh,Sylhet,4,Shahjalal Upashahar (Uposhohor)
+Landmark,Belize,Belize City,9,Image Factory Art Foundation
+Landmark,Belize,Belize City,10,Yarborough Cemetery
+Neighborhood,Belize,Belize City,4,Kings Park
+Landmark,Benin,Cotonou,7,Cotonou Friendship Bridge (Pont du Novotel)
+Neighborhood,Benin,Cotonou,1,Haie Vive
+Landmark,Benin,Porto-Novo,10,Marché International d'Ouando
+Landmark,Bermuda,Hamilton,3,Fort Hamilton
+Landmark,Bermuda,Hamilton,4,Bermuda Underwater Exploration Institute (BUEI)
+Landmark,Bermuda,Hamilton,9,Albuoy's Point and the Birdcage
+Neighborhood,Bermuda,Hamilton,5,Hamilton Parish & Flatts
+Neighborhood,Bhutan,Thimphu,5,Changzamtog
+Landmark,Bolivia,Santa Cruz de la Sierra,6,Manzana Uno Espacio de Arte
+Neighborhood,Bolivia,Sucre,3,San Roque
+Landmark,Bonaire,Kralendijk,9,Terramar Museum
+Neighborhood,Bonaire,Kralendijk,2,Belnem
+Neighborhood,Bonaire,Kralendijk,3,Hato
+Neighborhood,Botswana,Gaborone,2,The Village
+Landmark,Botswana,Maun,3,Nhabe Museum
+Landmark,Botswana,Maun,4,Maun Educational Park
+Landmark,Botswana,Maun,5,Old Matlapaneng Bridge
+Landmark,Botswana,Maun,6,Motsana Cultural Centre
+Neighborhood,Botswana,Maun,1,Central Maun (Mall)
+Neighborhood,Botswana,Maun,2,Matlapana
+Neighborhood,Botswana,Maun,3,Shorobe Road (Riverside)
+Neighborhood,Botswana,Maun,4,Sedie
+Landmark,Brazil,Angra dos Reis,5,Ilha da Gipoia and Praia do Dentista
+Neighborhood,Brazil,Cuiabá,4,Araés
+Landmark,Brazil,Foz do Iguaçu,9,Refúgio Biológico Bela Vista
+Neighborhood,Brazil,Foz do Iguaçu,2,Vila Yolanda
+Neighborhood,Brazil,Foz do Iguaçu,4,Vila Portes / Jardim das Nações
+Landmark,Brazil,Guarujá,10,Mirante da Campina (Campina Hill Lookout)
+Landmark,Brazil,Maceió,5,Mirante da Sereia
+Neighborhood,Brazil,Petrópolis,5,Nogueira/Cascatinha
+Landmark,Brazil,Porto Seguro,4,Memorial da Epopeia do Descobrimento
+Landmark,Brazil,Porto Seguro,10,Museu de Porto Seguro
+Neighborhood,Brazil,Porto Seguro,2,Passarela do Álcool (Centro)
+Landmark,British Virgin Islands,Road Town,2,J.R. O'Neal Botanic Gardens
+Landmark,British Virgin Islands,Road Town,6,Callwood Rum Distillery
+Landmark,British Virgin Islands,Road Town,7,Crafts Alive Village
+Landmark,British Virgin Islands,Road Town,9,1780 Lower Estate Sugar Works Museum
+Neighborhood,British Virgin Islands,Road Town,2,Main Street (Old Town)
+Landmark,Bulgaria,Varna,6,Naval Museum and the Druzki Torpedo Boat
+Landmark,Bulgaria,Varna,7,Retro Museum
+Landmark,Burkina Faso,Ouagadougou,8,Moro-Naba Palace
+Neighborhood,Burkina Faso,Ouagadougou,3,Zone du Bois
+Neighborhood,Burundi,Bujumbura,4,Centre-Ville
+Landmark,Cambodia,Battambang,6,Phare Ponleu Selpak Circus
+Landmark,Cambodia,Battambang,9,Battambang Provincial Museum
+Neighborhood,Cambodia,Phnom Penh,2,Boeung Keng Kang (BKK1)
+Neighborhood,Cambodia,Siem Reap,3,Riverside/Old French Quarter
+Landmark,Cambodia,Sihanoukville,4,Wat Leu (Upper Pagoda)
+Landmark,Cameroon,Douala,7,Deido District
+Neighborhood,Cameroon,Yaoundé,2,Centre-Ville (Centre Administratif)
+Neighborhood,Canada,Banff,3,Lake Louise Village
+Landmark,Canada,Kelowna,6,Father Pandosy Mission
+Landmark,Canada,Kelowna,9,Okanagan Heritage Museum
+Neighborhood,Canada,Kelowna,2,Pandosy Village
+Landmark,Canada,Saskatoon,7,Western Development Museum (Boomtown 1910)
+Landmark,Central African Republic,Bangui,7,Boganda National Museum
+Landmark,Central African Republic,Bangui,8,PK5 Central Mosque
+Landmark,Central African Republic,Bangui,9,Palais de la Renaissance (Presidential Palace)
+Neighborhood,Central African Republic,Bangui,1,Centre-ville
+Neighborhood,Central African Republic,Bangui,2,Lakouanga
+Landmark,Chad,N'Djamena,6,Avenue Charles de Gaulle
+Neighborhood,Chad,N'Djamena,1,Centre-ville (Avenue Charles de Gaulle)
+Neighborhood,Chad,N'Djamena,2,Klemat
+Neighborhood,Chad,N'Djamena,3,Chagoua
+Neighborhood,Chad,N'Djamena,4,Moursal
+Neighborhood,Chile,La Serena,3,La Pampa
+Landmark,Chile,Pucón,9,Salto El Claro
+Landmark,Chile,Puerto Natales,7,Museo Histórico Municipal
+Landmark,Chile,Puerto Natales,9,Estación de Ferrocarril de Puerto Natales
+Landmark,Chile,Puerto Natales,10,Cementerio Municipal de Puerto Natales
+Landmark,China,Anshun,2,Yunfeng Tunpu (Eight Villages)
+Landmark,China,Anshun,3,Anshun Confucian Temple (Wen Miao)
+Landmark,China,Anshun,4,Anshun Batik Museum
+Landmark,China,Anshun,5,Hongshan Lake
+Neighborhood,China,Anshun,2,Hongshan Lake
+Landmark,China,Beihai,3,Crocodile Mountain Scenic Area
+Landmark,China,Beihai,4,Guantouling National Forest Park
+Landmark,China,Beihai,5,Jinhaiwan Mangrove Ecological Zone
+Landmark,China,Beihai,6,Beihai Underwater World
+Landmark,China,Beihai,7,Beibu Gulf Square
+Landmark,China,Beihai,8,Haibin Park (Beihai Seaside Park)
+Landmark,China,Chaozhou,10,Phoenix Mountain (Fenghuang Shan) Tea Country
+Landmark,China,Chongqing,7,Nanshan Yizhi Botanical Garden (One Tree Viewing Platform)
+Landmark,China,Enshi,3,Qingjiang Wind-Rain Bridge
+Landmark,China,Enshi,4,Enshi Prefecture Museum
+Landmark,China,Enshi,5,Lianzhu Pagoda (Lianzhu Tower)
+Neighborhood,China,Enshi,1,Enshi City Center
+Landmark,China,Fenghuang,5,North Gate Tower (Bei Men)
+Landmark,China,Fenghuang,8,Longevity Palace (Wanshou Gong)
+Landmark,China,Fenghuang,9,Yang Family Ancestral Hall
+Landmark,China,Harbin,9,Volga Manor
+Landmark,China,Jianshui,10,Zitao Street (Purple Pottery Street)
+Landmark,China,Jingdezhen,6,Sanbao Ceramic Art Village
+Landmark,China,Jingdezhen,8,Taoyangli Historic District
+Neighborhood,China,Jingdezhen,3,Sanbao Village
+Landmark,China,Kangding,6,Erdaoqiao Hot Springs
+Landmark,China,Kangding,7,Kangding Old Town and Zheduo River Squares
+Landmark,China,Kashgar,8,Mor Pagoda (Mo'er Buddhist Stupa)
+Landmark,China,Leshan,3,Jiuqu Plank Road
+Landmark,China,Leshan,6,Mahao Cliff Tombs Museum
+Landmark,China,Leshan,8,Zhanggongqiao Food Street
+Landmark,China,Leshan,10,Laoxiaoding
+Neighborhood,China,Leshan,3,Binjiang Road
+Landmark,China,Lijiang,4,Wangu Tower on Lion Hill
+Landmark,China,Lijiang,8,Sifang Street (Square Market)
+Landmark,China,Lijiang,9,Big Water Wheel
+Landmark,China,Lijiang,10,Naxi Ancient Music Association
+Landmark,China,Manzhouli,4,Mammoth Park (Zhalainuoer)
+Landmark,China,Qingdao,8,Qingdao Protestant Church
+Landmark,China,Qinhuangdao,4,Mengjiangnü Temple
+Landmark,China,Qinhuangdao,6,Pigeon Nest Park (Gezhenwo)
+Landmark,China,Qinhuangdao,7,Beidaihe Wetlands and Bird Sanctuary
+Landmark,China,Qinhuangdao,9,Xin'ao Undersea World
+Landmark,China,Qinhuangdao,10,Qinhuang Qiuxian Ruhai Chu (Emperor Qin's Departure Point)
+Landmark,China,Shangri-La,7,Dabao Temple (Dabaosi)
+Landmark,China,Shangri-La,8,Gucheng Zangjingtang
+Landmark,China,Shaoxing,8,Zhou Enlai Ancestral Home
+Landmark,China,Wuyishan,9,Impression Da Hong Pao
+Landmark,China,Wuyishan,10,Chengcun Han City Ruins
+Neighborhood,China,Xiamen,3,Zengcuoan / Xiamen University
+Neighborhood,China,Yangshuo,3,Yulong River Area (Baisha & Jiuxian)
+Neighborhood,China,Yangzhou,2,Slender West Lake & Shugang
+Landmark,China,Zhangjiajie,8,Ten-Mile Natural Gallery
+Landmark,China,Zhangye,4,Zhangye National Wetland Park
+Landmark,China,Zhangye,5,Pingshanhu Grand Canyon
+Landmark,China,Zhaoqing,9,Licha Bagua Village
+Landmark,China,Zhaoqing,10,China Inkstone Culture Village (Baishi)
+Landmark,China,Zhoushan,8,Dinghai Ancient City
+Landmark,China,Zhuhai,5,Qi'ao Island Mangrove Wetland
+Landmark,China,Zhuhai,8,Jida Fisherman's Wharf
+Neighborhood,Colombia,Barranquilla,2,Alto Prado
+Neighborhood,Colombia,Barranquilla,5,El Golf
+Neighborhood,Colombia,Cali,4,Ciudad Jardín
+Landmark,Colombia,Leticia,3,Mundo Amazónico Ethnobotanical Park
+Landmark,Colombia,Leticia,6,Catedral Nuestra Señora de la Paz
+Landmark,Colombia,Leticia,7,Flor Lagoon
+Landmark,Colombia,Leticia,8,Acuarios Etuena
+Landmark,Colombia,Leticia,9,Yahuarcaca Lakes
+Landmark,Colombia,San Andrés,4,Spratt Bight Beach
+Landmark,Colombia,San Andrés,10,Jardín Botánico de San Andrés
+Neighborhood,Colombia,San Andrés,2,San Luis
+Landmark,Comoros,Moroni,6,Palais du Peuple (Beit Salam)
+Landmark,Comoros,Moroni,7,Itsandra Beach and Palace Ruins
+Neighborhood,Comoros,Moroni,2,Volo Volo
+Landmark,Costa Rica,Liberia,6,Ponderosa Adventure Park
+Landmark,Costa Rica,Liberia,7,Museo de Sabanero
+Landmark,Costa Rica,Liberia,8,Africa Mia
+Landmark,Costa Rica,Liberia,10,Casa de la Cultura de Liberia
+Neighborhood,Costa Rica,Liberia,2,Barrio La Victoria
+Neighborhood,Costa Rica,Liberia,3,Barrio Los Ángeles
+Neighborhood,Costa Rica,San José,2,Barrio Escalante
+Landmark,Côte d'Ivoire,Abidjan,9,Cocody Town Hall
+Neighborhood,Côte d'Ivoire,Yamoussoukro,1,Millionnaire
+Neighborhood,Côte d'Ivoire,Yamoussoukro,3,Dioulakro
+Landmark,Cuba,Baracoa,5,Yumurí Canyon
+Landmark,Cuba,Baracoa,7,Castillo de Seboruco
+Landmark,Cuba,Baracoa,9,Cueva del Paraíso (Museo Arqueológico)
+Landmark,Cuba,Trinidad,6,Casa de la Música Steps
+Neighborhood,Cyprus,Paphos,3,Tombs of the Kings Road
+Neighborhood,Czechia,Pilsen,2,Brewery Quarter
+Landmark,Democratic Republic of the Congo,Kinshasa,7,Marché Central (Grand Marché)
+Landmark,Djibouti,Djibouti City,6,Djibouti Museum
+Neighborhood,Djibouti,Djibouti City,1,Héron (Îlot du Héron)
+Landmark,Dominican Republic,La Romana,5,Regional Museum of Archaeology (Altos de Chavón)
+Landmark,Dominican Republic,La Romana,8,Dye Fore Golf Course
+Landmark,Dominican Republic,La Romana,9,Central Romana Sugar Mill
+Landmark,Dominican Republic,La Romana,10,Playa Minitas
+Landmark,Dominican Republic,Puerto Plata,5,Museo del Ámbar
+Landmark,Dominican Republic,Puerto Plata,6,Parque Independencia
+Neighborhood,Dominican Republic,Puerto Plata,3,Costambar
+Landmark,Dominican Republic,Punta Cana,6,Indigenous Eyes Ecological Park (Reserva Ecológica Ojos Indígenas)
+Neighborhood,Dominican Republic,Santo Domingo,4,Naco
+Landmark,Dominica,Roseau,6,Champagne Reef
+Landmark,Dominica,Roseau,9,Titou Gorge
+Neighborhood,Dominica,Roseau,2,Castle Comfort
+Landmark,DR Congo,Goma,6,Mount Goma
+Landmark,DR Congo,Goma,8,Virunga Market and Birere District
+Landmark,DR Congo,Goma,9,Grande Barrière Border Crossing
+Landmark,Egypt,Hurghada,4,El Dahar Old Town and Bazaar
+Landmark,Egypt,Hurghada,9,Dolphin House Reef (Sha'ab El Erg)
+Neighborhood,Egypt,Hurghada,3,El Mamsha
+Landmark,Egypt,Marsa Alam,3,Samadai Reef (Dolphin House)
+Neighborhood,Egypt,Marsa Alam,2,Marsa Alam Town Center
+Neighborhood,El Salvador,San Salvador,4,Boulevard de los Héroes
+Landmark,Equatorial Guinea,Malabo,2,Plaza de la Independencia
+Landmark,Equatorial Guinea,Malabo,5,Parque de la Amistad (Friendship Park)
+Landmark,Equatorial Guinea,Malabo,10,Luba (Concepción) Coastal Town
+Neighborhood,Equatorial Guinea,Malabo,4,Caracolas
+Neighborhood,Eritrea,Asmara,2,Tiravolo
+Neighborhood,Eritrea,Asmara,3,Gejeret/Beleza
+Neighborhood,Eritrea,Asmara,4,Sembel
+Neighborhood,Ethiopia,Addis Ababa,1,Bole
+Landmark,Ethiopia,Axum,9,Axum Archaeological Museum
+Landmark,Ethiopia,Bahir Dar,5,Bezawit Hill (Haile Selassie Palace Viewpoint)
+Neighborhood,Ethiopia,Bahir Dar,1,City Centre
+Neighborhood,Ethiopia,Bahir Dar,2,Lake Tana Waterfront
+Neighborhood,Ethiopia,Bahir Dar,3,Shimbit
+Landmark,Ethiopia,Gondar,6,Ras Gimb Palace Museum
+Landmark,Ethiopia,Harar,10,Mekina Girgir (Sewing Machine Street)
+Landmark,Ethiopia,Lalibela,7,Asheton Maryam Monastery
+Landmark,Ethiopia,Mek'ele,3,Abraha Castle
+Landmark,Ethiopia,Mek'ele,5,Kedamay Weyane Market
+Neighborhood,Falkland Islands,Stanley,2,Ross Road East
+Landmark,Federated States of Micronesia,Weno,3,Shinkoku Maru
+Landmark,Federated States of Micronesia,Weno,4,Nefo Cave
+Landmark,Federated States of Micronesia,Weno,6,Tonotan Guns and Caves
+Landmark,Federated States of Micronesia,Weno,7,Wiichen Men's Meetinghouse
+Landmark,Federated States of Micronesia,Weno,9,Kimiuo Aisek Memorial Museum
+Landmark,Federated States of Micronesia,Weno,10,Eten Island
+Landmark,Fiji,Nadi,7,Momi Battery Historical Park
+Landmark,Fiji,Nadi,8,Vuda Marina
+Neighborhood,Fiji,Nadi,3,Martintar
+Neighborhood,Fiji,Nadi,5,Namaka
+Landmark,Finland,Rovaniemi,9,Arctic Circle Hiking Area and Vaattunkiköngäs
+Neighborhood,France,Bordeaux,3,Triangle d'Or
+Landmark,France,Chamonix-Mont-Blanc,9,Musée Alpin
+Neighborhood,French Guiana,Cayenne,3,Bourda
+Landmark,Gabon,Libreville,1,Cathédrale Sainte-Marie
+Landmark,Gabon,Libreville,7,Arboretum Raponda Walker
+Landmark,Gabon,Libreville,10,Akanda National Park
+Neighborhood,Gabon,Libreville,1,Centre-Ville
+Neighborhood,Gabon,Libreville,2,Quartier Louis
+Neighborhood,Gabon,Libreville,3,Batterie IV
+Landmark,Gambia,Banjul,5,McCarthy Square
+Landmark,Gambia,Banjul,7,State House
+Neighborhood,Germany,Ulm,3,Weststadt
+Landmark,Ghana,Accra,10,W.E.B. Du Bois Centre
+Landmark,Ghana,Cape Coast,7,Cape Coast Centre for National Culture
+Landmark,Ghana,Kumasi,4,Prempeh II Jubilee Museum
+Landmark,Ghana,Kumasi,7,Rattray Park
+Landmark,Ghana,Kumasi,10,Centre for National Culture
+Neighborhood,Ghana,Kumasi,4,Ahodwo
+Landmark,Greece,Chios,8,Chios Archaeological Museum
+Landmark,Greece,Chios,9,Chios Maritime Museum
+Landmark,Greece,Corfu,8,Kanoni viewpoint
+Neighborhood,Greece,Corfu,4,Mandouki (Port)
+Landmark,Greece,Heraklion,10,Central Market on 1866 Street
+Neighborhood,Greece,Heraklion,2,Poros
+Neighborhood,Greece,Heraklion,4,Mastampas
+Landmark,Greece,Kalamata,8,Monastery of Kalograion (Nuns' Monastery)
+Landmark,Greece,Kalamata,10,Kalamata Costume Museum (Benaki Museum Annex)
+Neighborhood,Greece,Kalamata,2,Aristomenous & Central Market
+Neighborhood,Greece,Kalamata,4,Marina
+Landmark,Greece,Mytilene,6,"Teriade Museum, Varia"
+Landmark,Greece,Mytilene,7,Theophilos Museum
+Landmark,Greece,Mytilene,9,Ermou Street and the Old Market
+Neighborhood,Greece,Mytilene,3,Varia (Vareia)
+Landmark,Greenland,Nuuk,10,Myggedalen Viewpoint
+Landmark,Grenada,St. George's,5,Market Square
+Landmark,Grenada,St. George's,10,Bay Gardens Botanical Reserve
+Landmark,Guadeloupe,Le Gosier,9,Friday Night Market of Gosier
+Neighborhood,Guadeloupe,Le Gosier,4,Montauban
+Landmark,Guatemala,Flores,5,Jorge's Rope Swing
+Landmark,Guatemala,Flores,6,ARCAS Wildlife Rescue Center
+Landmark,Guatemala,Flores,7,Parque Natural Ixpanpajul
+Neighborhood,Guatemala,Flores,2,Santa Elena
+Landmark,Guinea-Bissau,Bissau,3,Bandim Market
+Neighborhood,Guinea-Bissau,Bissau,3,Cuntum / Avenida dos Combatentes
+Landmark,Guinea,Conakry,5,Grand Marché Madina
+Landmark,Guinea,Conakry,7,Rogbané Beach
+Neighborhood,Guinea,Conakry,1,Kaloum
+Neighborhood,Guinea,Conakry,5,Dixinn
+Neighborhood,Guyana,Georgetown,2,Queenstown
+Neighborhood,Guyana,Georgetown,3,Cummingsburg
+Neighborhood,Guyana,Georgetown,4,Bel Air Park
+Landmark,Haiti,Cap-Haïtien,4,Place d'Armes
+Landmark,Haiti,Cap-Haïtien,8,Île-à-Rat (Amiga Island)
+Landmark,Haiti,Cap-Haïtien,10,Site des Ramiers
+Neighborhood,Haiti,Port-au-Prince,3,Vivy Mitchell
+Landmark,Honduras,La Ceiba,3,Catedral San Isidro and Parque Central
+Landmark,Honduras,La Ceiba,5,Museum of Butterflies and Other Insects
+Landmark,Honduras,La Ceiba,6,Parque Swinford
+Landmark,Honduras,La Ceiba,7,Reynaldo Canales Tourist Pier
+Landmark,Honduras,La Ceiba,8,Paseo de los Ceibeños
+Neighborhood,Honduras,La Ceiba,1,El Centro
+Neighborhood,Honduras,La Ceiba,2,Zona Viva (Barrio La Isla)
+Neighborhood,Honduras,La Ceiba,3,Colonia El Sauce / Zona Mall
+Landmark,Honduras,San Pedro Sula,4,Mercado Guamilito
+Landmark,Honduras,San Pedro Sula,7,Museo de la Naturaleza
+Landmark,Honduras,San Pedro Sula,8,Cathedral viewpoint at El Merendón
+Neighborhood,Honduras,San Pedro Sula,2,Zona Viva (Circunvalación)
+Neighborhood,Honduras,San Pedro Sula,3,Colonia Moderna
+Neighborhood,Honduras,San Pedro Sula,4,Jardines del Valle
+Neighborhood,Honduras,San Pedro Sula,5,Barrio Los Andes
+Neighborhood,Honduras,Tegucigalpa,1,Colonia Palmira
+Neighborhood,Honduras,Tegucigalpa,2,Lomas del Guijarro
+Neighborhood,Honduras,Tegucigalpa,3,Boulevard Morazán / Multiplaza
+Neighborhood,India,Agra,3,Fatehabad Road
+Neighborhood,India,Agra,5,Civil Lines
+Landmark,India,Ahmedabad,9,Calico Museum of Textiles
+Neighborhood,India,Ahmedabad,4,SG Highway
+Neighborhood,India,Amritsar,3,Lawrence Road
+Neighborhood,India,Amritsar,5,Mall Road & GT Road
+Neighborhood,India,Aurangabad,2,CIDCO
+Neighborhood,India,Aurangabad,3,Nirala Bazaar
+Neighborhood,India,Aurangabad,4,Cantonment
+Neighborhood,India,Jaipur,4,Civil Lines
+Neighborhood,India,Madurai,3,K.K. Nagar
+Landmark,India,Tirupati,10,Sri Venkateswara Gosamrakshanashala
+Neighborhood,India,Tirupati,2,Tirupati Town Centre (near Railway Station)
+Neighborhood,India,Tirupati,5,Tiruchanoor Road
+Landmark,Indonesia,Banda Aceh,4,Lampulo Boat on the Roof
+Neighborhood,Indonesia,Banyuwangi,1,Alun-alun / Taman Blambangan (Town Center)
+Landmark,Indonesia,Labuan Bajo,2,Cunca Wulang Waterfall
+Landmark,Indonesia,Magelang,9,OHD Museum
+Neighborhood,Indonesia,Magelang,4,Magelang Selatan
+Landmark,Indonesia,Makassar,8,Center Point of Indonesia (CPI)
+Neighborhood,Indonesia,Makassar,4,Tanjung Bunga
+Landmark,Indonesia,Manado,7,Pasar Bersehati
+Landmark,Indonesia,Mataram,10,Sekarbela Pearl District
+Neighborhood,Indonesia,Mataram,1,Ampenan
+Landmark,Indonesia,Medan,7,Titi Gantung (Medan Hanging Bridge)
+Neighborhood,Indonesia,Medan,2,Merdeka / Sudirman
+Neighborhood,Iran,Kashan,2,Sultan Amir Ahmad Bath Quarter
+Neighborhood,Iran,Kerman,2,Azadi Square
+Neighborhood,Iran,Kerman,3,Jomhouri Boulevard
+Neighborhood,Iran,Kerman,4,Shahid Motahari Street
+Landmark,Iran,Kermanshah,4,Emad od-Dowleh Mosque
+Landmark,Iran,Kermanshah,8,Dowlatshah Mosque
+Neighborhood,Iran,Mashhad,3,Nawab Safavi & Tabarsi
+Neighborhood,Iran,Mashhad,4,Sajjad Boulevard
+Neighborhood,Iran,Mashhad,5,Koohsangi & Vakilabad
+Neighborhood,Iran,Tabriz,4,Abrasan
+Neighborhood,Iraq,Erbil,3,Gulan Street
+Neighborhood,Iraq,Erbil,4,Italian Village
+Landmark,Iraq,Karbala,5,Karbala Old City Souks
+Landmark,Iraq,Karbala,6,Maqam of Imam al-Mahdi
+Neighborhood,Iraq,Karbala,2,Al-Abbasiyah (New Karbala)
+Landmark,Iraq,Najaf,7,"House of Imam Ali (Dar al-Imam Ali, Kufa)"
+Landmark,Iraq,Najaf,10,Imam Amir al-Mu'minin Public Library
+Landmark,Israel,Eilat,8,Eilat Birdwatching Park (IBRCE)
+Neighborhood,Israel,Eilat,4,City Center (HaTmarim)
+Neighborhood,Italy,Bologna,3,Bolognina
+Landmark,Italy,Cortina d'Ampezzo,1,Tofana di Mezzo and the Freccia nel Cielo cable car
+Landmark,Italy,Cortina d'Ampezzo,6,Lagazuoi and its WWI tunnels
+Neighborhood,Italy,Cortina d'Ampezzo,3,Zuel / Peziè
+Neighborhood,Italy,Parma,3,San Leonardo
+Landmark,Italy,Positano,7,MAR Positano (Roman Archaeological Museum)
+Landmark,Italy,Positano,10,Arienzo Beach
+Neighborhood,Italy,Salerno,1,Centro Storico
+Landmark,Jamaica,Kingston,8,Trench Town Culture Yard
+Neighborhood,Jamaica,Kingston,1,New Kingston
+Neighborhood,Jamaica,Kingston,2,Liguanea
+Landmark,Jamaica,Montego Bay,5,Hip Strip (Gloucester Avenue)
+Landmark,Jamaica,Montego Bay,6,Cinnamon Hill Great House
+Landmark,Jamaica,Montego Bay,8,Rocklands Bird Sanctuary
+Neighborhood,Jamaica,Montego Bay,3,Ironshore
+Landmark,Japan,Aomori,9,Auga Fish Market
+Landmark,Japan,Kurashiki,7,Japan Rural Toy Museum
+Landmark,Japan,Kusatsu,6,Gozanoyu Bathhouse
+Landmark,Japan,Kusatsu,10,Nishinokawara Park
+Landmark,Jordan,Aqaba,5,Aqaba Marine Reserve
+Landmark,Jordan,Aqaba,6,Cedar Pride Shipwreck
+Landmark,Jordan,Aqaba,10,Aqaba Bird Observatory
+Neighborhood,Jordan,Aqaba,2,Corniche Hotel Strip
+Neighborhood,Kazakhstan,Astana,3,Almaty District
+Landmark,Kenya,Lamu,8,German Post Office Museum
+Landmark,Kenya,Lamu,10,Harambee Avenue
+Landmark,Kenya,Malindi,9,Falconry of Kenya
+Landmark,Kenya,Malindi,10,Silversand Beach
+Neighborhood,Kenya,Mombasa,1,Old Town
+Landmark,Kenya,Nakuru,9,Soysambu Conservancy
+Landmark,Kenya,Nakuru,10,Nakuru Town Curio and Maasai Market
+Neighborhood,Kenya,Nakuru,1,Milimani
+Neighborhood,Kenya,Nakuru,2,Nakuru Town Centre
+Neighborhood,Kenya,Nakuru,3,Free Area
+Landmark,Kiribati,Tarawa,3,"Japanese Bunkers and Naval Guns, Betio"
+Neighborhood,Kiribati,Tarawa,3,Ambo
+Neighborhood,Kiribati,Tarawa,4,Bairiki
+Landmark,Kuwait,Al Ahmadi,1,Ahmadi Garden (Al Ahmadi Public Garden)
+Landmark,Kuwait,Al Ahmadi,2,Ahmad Al-Jaber Oil and Gas Exhibition
+Landmark,Kuwait,Al Ahmadi,4,Ahmadi Township Heritage District
+Landmark,Kuwait,Al Ahmadi,6,Al Kout Mall and Waterfront
+Landmark,Kuwait,Al Ahmadi,8,Ahmadi Stadium
+Landmark,Kuwait,Al Ahmadi,9,Sahara Kuwait Resort and Golf Club
+Neighborhood,Kuwait,Al Ahmadi,4,Fintas
+Landmark,Kuwait,Kuwait City,7,Tareq Rajab Museum
+Landmark,Kyrgyzstan,Bishkek,2,Manas Statue and State Flag
+Neighborhood,Kyrgyzstan,Bishkek,4,Yug-2
+Landmark,Kyrgyzstan,Karakol,2,Holy Trinity Orthodox Cathedral
+Landmark,Kyrgyzstan,Karakol,10,Karakol Ski Base
+Landmark,Laos,Luang Prabang,10,Ban Chan Pottery Village
+Neighborhood,Laos,Luang Prabang,4,Phou Vao / Southern Luang Prabang
+Landmark,Laos,Vientiane,10,COPE Visitor Centre
+Landmark,Lesotho,Maseru,2,Royal Palace of Lesotho
+Landmark,Lesotho,Maseru,5,Lancer's Gap
+Landmark,Lesotho,Maseru,6,Maseru Club
+Neighborhood,Lesotho,Maseru,2,Maseru West
+Neighborhood,Lesotho,Maseru,3,Hillsview
+Neighborhood,Lesotho,Maseru,4,Sea Point
+Landmark,Liberia,Monrovia,3,Centennial Pavilion
+Landmark,Liberia,Monrovia,7,Liberia National Museum
+Landmark,Liberia,Monrovia,10,Monrovia's CeCe Beach
+Neighborhood,Libya,Tripoli,3,Hay Andalus
+Landmark,Madagascar,Morondava,3,Nosy Kely Beach
+Landmark,Madagascar,Morondava,5,Sacred Baobab of Mahabo
+Landmark,Madagascar,Morondava,6,Kimony Beach
+Landmark,Madagascar,Morondava,7,Marofandilia Craft Village
+Landmark,Madagascar,Morondava,8,Morondava Mangroves and River Delta
+Neighborhood,Madagascar,Morondava,2,Centre-ville (Bazary Be)
+Landmark,Malawi,Blantyre,4,Michiru Mountain Nature Sanctuary
+Landmark,Malawi,Blantyre,5,Mount Soche
+Landmark,Malawi,Blantyre,8,Jacaranda Cultural Centre
+Landmark,Malawi,Blantyre,9,Blantyre Crafts Market (Pa Ziboli-boli)
+Landmark,Malawi,Blantyre,10,Njamba Freedom Park
+Neighborhood,Malawi,Blantyre,3,Sunnyside
+Neighborhood,Malawi,Blantyre,4,Namiwawa
+Landmark,Malawi,Lilongwe,4,Capital Hill
+Landmark,Malawi,Lilongwe,6,Lilongwe Golf Club
+Landmark,Malawi,Lilongwe,9,Kamuzu Institute for Sports
+Neighborhood,Malawi,Lilongwe,1,Old Town
+Neighborhood,Malawi,Lilongwe,2,City Centre (Capital City)
+Neighborhood,Malawi,Lilongwe,3,Area 10 / Presidential Way
+Landmark,Malaysia,Johor Bahru,10,Hutan Bandar Recreational Park (City Forest)
+Landmark,Malaysia,Malacca,10,Maritime Museum (Flor de la Mar)
+Landmark,Maldives,Malé,8,Muleeaage Palace
+Neighborhood,Maldives,Malé,3,Machangolhi/Galolhu
+Landmark,Mali,Bamako,8,Point G Hill
+Neighborhood,Mali,Bamako,2,Hippodrome
+Landmark,Mali,Timbuktu,5,Heinrich Barth House
+Landmark,Mali,Timbuktu,8,Well of Old Bouctou
+Landmark,Mali,Timbuktu,9,Flame of Peace Monument
+Landmark,Mali,Timbuktu,10,Grand Marché and Saharan Dunes
+Landmark,Marshall Islands,Majuro,2,WWII Japanese Bunkers and Relics
+Landmark,Marshall Islands,Majuro,4,Marshall Islands Capitol Building
+Landmark,Marshall Islands,Majuro,5,Uliga District Waterfront
+Landmark,Marshall Islands,Majuro,7,Rita Point
+Landmark,Marshall Islands,Majuro,9,Assumption of Mary Catholic Church
+Neighborhood,Marshall Islands,Majuro,2,Delap
+Neighborhood,Marshall Islands,Majuro,3,Djarrit-Rita
+Landmark,Martinique,Fort-de-France,10,Baie des Flamands Waterfront (Malecón)
+Neighborhood,Martinique,Fort-de-France,5,Bellevue / Redoute
+Neighborhood,Mauritania,Nouakchott,1,Tevragh-Zeina
+Neighborhood,Mauritania,Nouakchott,2,Ksar
+Neighborhood,Mauritius,Port Louis,4,Balaclava & Baie du Tombeau
+Landmark,Mayotte,Mamoudzou,9,Coconi Botanical Garden (Jardin Botanique de Coconi)
+Neighborhood,Mayotte,Mamoudzou,1,Centre-ville
+Neighborhood,Mayotte,Mamoudzou,2,M'Gombani
+Landmark,Mexico,Ensenada,9,Mirador El Ciprés (Chapultepec Hill)
+Landmark,Mexico,Ensenada,10,Museo Caracol (Museo de Ciencias)
+Neighborhood,Mexico,Ensenada,1,Centro (Downtown/Malecón)
+Neighborhood,Mexico,Ensenada,2,Zona Costero (Hotel Zone)
+Neighborhood,Mexico,Ensenada,3,Estero Beach
+Neighborhood,Mexico,Guadalajara,2,Colonia Americana / Chapultepec
+Neighborhood,Mexico,Guadalajara,3,Providencia
+Landmark,Mexico,Manzanillo,7,El Tortugario Ecological Center (Cuyutlán)
+Landmark,Mexico,Manzanillo,9,Iguanario de Archundia
+Landmark,Mexico,Manzanillo,10,Península de Santiago viewpoints
+Neighborhood,Mexico,Mazatlán,4,Cerritos
+Landmark,Mexico,Morelia,7,Mercado de Dulces y Artesanías
+Neighborhood,Mexico,Morelia,2,Chapultepec Norte
+Neighborhood,Mexico,Morelia,3,Las Américas (Camelinas)
+Neighborhood,Mexico,Morelia,4,Santa María de Guido
+Neighborhood,Mexico,Oaxaca,4,Reforma
+Landmark,Mexico,Playa del Carmen,6,Cenote Chaak Tun
+Landmark,Mexico,Playa del Carmen,9,Punta Esmeralda
+Neighborhood,Mexico,Puerto Vallarta,4,Hotel Zone (Zona Hotelera)
+Landmark,Mexico,San Cristóbal de las Casas,9,El Arcotete Ecological Park
+Landmark,Mexico,Veracruz,10,Plaza de la Campana
+Neighborhood,Mexico,Veracruz,5,Costa de Oro
+Landmark,Montenegro,Kotor,7,Napoleon's Theatre
+Landmark,Montenegro,Podgorica,7,St. George's Church and Gorica Hill
+Landmark,Montenegro,Podgorica,9,Niagara Falls on the Cijevna
+Landmark,Montserrat,Brades,4,Jack Boy Hill Viewpoint
+Landmark,Montserrat,Brades,7,Montserrat National Trust Botanic Garden
+Landmark,Montserrat,Brades,8,Oriole Walkway Trail (Centre Hills)
+Landmark,Montserrat,Brades,9,Runaway Ghaut
+Neighborhood,Montserrat,Brades,2,Woodlands
+Neighborhood,Montserrat,Brades,3,Olveston & Old Towne
+Landmark,Morocco,Chefchaouen,10,Bab el-Ain gate and Callejon El Asri
+Neighborhood,Morocco,Ouarzazate,1,Centre-ville (Avenue Mohammed V)
+Landmark,Mozambique,Inhambane,6,Provincial Museum of Inhambane
+Landmark,Mozambique,Inhambane,9,Ilha dos Porcos (Pig Island)
+Landmark,Mozambique,Pemba,2,Paquitequete Fishing Village
+Landmark,Mozambique,Pemba,5,Artes Maconde Craft Cooperative
+Landmark,Mozambique,Pemba,6,Chuiba Beach
+Landmark,Mozambique,Pemba,7,Mercado Municipal de Pemba
+Neighborhood,Mozambique,Pemba,2,Town Centre (Baixa)
+Neighborhood,Mozambique,Pemba,3,Paquitequete (Harbour / Old Town)
+Neighborhood,Mozambique,Pemba,4,Cariacó
+Neighborhood,Myanmar,Mandalay,1,Chanayethazan (Downtown / Zegyo Market)
+Neighborhood,Namibia,Windhoek,4,Luxury Hill
+Landmark,Nauru,Yaren,2,Command Ridge
+Landmark,Nauru,Yaren,5,Moqua Well and Caves
+Landmark,Nauru,Yaren,9,Nauru Secondary School War Memorial
+Neighborhood,Nauru,Yaren,2,Meneng
+Neighborhood,Nauru,Yaren,3,Ewa
+Neighborhood,Nepal,Pokhara,5,Mahendrapul (New Road)
+Neighborhood,New Caledonia,Nouméa,4,Quartier Latin
+Landmark,New Zealand,Nelson,4,Nelson Saturday Market
+Landmark,New Zealand,Taupo,9,AC Baths
+Neighborhood,New Zealand,Taupo,1,Town Centre (Lakefront)
+Neighborhood,New Zealand,Taupo,2,Two Mile Bay
+Landmark,Nicaragua,León,6,Museo Rubén Darío
+Landmark,Nicaragua,León,9,Museum of Traditions and Legends
+Neighborhood,Nicaragua,León,4,Barrio Guadalupe
+Landmark,Nicaragua,Managua,5,Árboles de la Vida (Trees of Life)
+Neighborhood,Nicaragua,Managua,1,Los Robles
+Neighborhood,Nicaragua,Managua,4,Bolonia
+Landmark,Niger,Agadez,3,Sultan's Palace
+Landmark,Niger,Agadez,5,Maison de Heinrich Barth
+Landmark,Niger,Agadez,7,Camel Market
+Neighborhood,Niger,Agadez,2,Sabon Gari
+Landmark,Nigeria,Calabar,6,Duke Town Presbyterian Church
+Landmark,Nigeria,Calabar,8,Tinapa Business and Leisure Resort
+Neighborhood,Nigeria,Calabar,1,State Housing Estate
+Landmark,Nigeria,Ibadan,7,Dugbe Market
+Landmark,Nigeria,Ibadan,8,Oyo State Museum of Natural History
+Landmark,Nigeria,Ibadan,10,Ibadan's Seven Hills Viewpoints
+Neighborhood,Nigeria,Ibadan,3,Agodi GRA
+Neighborhood,Nigeria,Ibadan,4,Ring Road
+Neighborhood,Nigeria,Kano,1,Fagge
+Neighborhood,Nigeria,Kano,2,Nassarawa GRA
+Neighborhood,Nigeria,Kano,3,Sabon Gari
+Landmark,Nigeria,Osogbo,3,Suzanne Wenger House (Adunni Olorisha Trust)
+Landmark,Nigeria,Osogbo,5,Nike Centre for Art and Culture
+Neighborhood,Nigeria,Osogbo,1,Oja Oba
+Neighborhood,Nigeria,Osogbo,2,Gbodofon
+Neighborhood,Northern Mariana Islands,Saipan,3,San Antonio
+Neighborhood,Northern Mariana Islands,Saipan,4,San Roque
+Landmark,Oman,Salalah,7,Khawr Ad Dahariz Nature Reserve
+Landmark,Oman,Salalah,8,Ayn Hamran
+Neighborhood,Oman,Salalah,2,Al Dahariz
+Neighborhood,Oman,Salalah,3,Al Wadi
+Neighborhood,Oman,Salalah,5,Hawana Salalah
+Landmark,Pakistan,Gilgit,7,Henzal Stupa
+Neighborhood,Pakistan,Islamabad,1,F-6
+Neighborhood,Pakistan,Lahore,3,DHA (Defence Housing Authority)
+Landmark,Pakistan,Mingora,9,Mingora Bazaar
+Neighborhood,Pakistan,Mingora,1,Green Chowk (City Center)
+Neighborhood,Pakistan,Murree,1,Mall Road
+Neighborhood,Pakistan,Skardu,2,Satpara Road Area
+Neighborhood,Palau,Koror,1,Downtown Koror (Main Street/T-Dock)
+Landmark,Palestine,Hebron,7,Ramat al-Khalil (Ancient Mamre)
+Landmark,Palestine,Nablus,8,Hammam al-Shifa
+Neighborhood,Palestine,Nablus,1,Old City
+Landmark,Papua New Guinea,Port Moresby,9,Loloata Island
+Neighborhood,Papua New Guinea,Port Moresby,1,Town (Downtown/CBD)
+Neighborhood,Papua New Guinea,Port Moresby,4,Boroko/Gordons
+Neighborhood,Papua New Guinea,Port Moresby,5,Korobosea/Airport area
+Neighborhood,Paraguay,Asunción,5,Costanera (Bahía de Asunción)
+Neighborhood,Peru,Arequipa,4,Vallecito
+Landmark,Peru,Ica,6,Bodega Tacama
+Neighborhood,Peru,Ica,3,Subtanjalla
+Landmark,Peru,Iquitos,6,Amazon Rescue Center (CREA)
+Landmark,Peru,Iquitos,7,Pilpintuwasi Butterfly Farm and Amazon Animal Orphanage
+Neighborhood,Peru,Iquitos,3,Punchana
+Landmark,Peru,Trujillo,9,Museo de Arqueología de la Universidad de Trujillo
+Neighborhood,Peru,Trujillo,3,Urb. San Andrés
+Neighborhood,Peru,Trujillo,4,Víctor Larco Herrera (El Golf / California)
+Landmark,Philippines,Boracay,8,Ariel's Point
+Landmark,Philippines,Coron,4,Mount Tapyas viewpoint
+Landmark,Philippines,Davao,8,Bankerohan Public Market
+Landmark,Philippines,Legaspi,9,Japanese Tunnel (Legazpi)
+Neighborhood,Philippines,Legaspi,3,Rawis
+Landmark,Philippines,Panglao,8,Napaling Point
+Neighborhood,Philippines,Puerto Princesa,2,Bancao-Bancao
+Neighborhood,Philippines,Puerto Princesa,4,San Manuel
+Landmark,Philippines,Siargao,4,Daku Island
+Landmark,Philippines,Siargao,8,Coconut Mountain View Deck
+Landmark,Philippines,Siargao,9,Pacifico Beach
+Neighborhood,Philippines,Siargao,2,Catangnan
+Neighborhood,Philippines,Siargao,3,Pacifico
+Landmark,Philippines,Vigan,9,Baluarte ni Chavit Singson
+Landmark,Philippines,Vigan,10,Hidden Garden
+Landmark,Republic of the Congo,Brazzaville,3,Cathédrale de Brazzaville
+Landmark,Republic of the Congo,Brazzaville,8,Stade Alphonse Massamba-Débat
+Neighborhood,Republic of the Congo,Brazzaville,1,Centre-Ville (Plateau)
+Neighborhood,Republic of the Congo,Brazzaville,4,Patte d'Oie / Moungali
+Landmark,Romania,Constanța,3,National History and Archaeology Museum and Ovid Square
+Landmark,Romania,Constanța,7,Old Town peninsula and seafront promenade
+Landmark,Romania,Constanța,10,Constanța Dolphinarium
+Neighborhood,Romania,Constanța,2,City Center (Bulevardul Tomis)
+Neighborhood,Romania,Constanța,5,Tomis Nord
+Landmark,Russia,Sergiyev Posad,8,Blinnaya Gora (Pancake Hill) Viewpoint
+Landmark,Russia,Vladimir,10,"Trinity Church (Crystal, Lacquer Miniatures and Embroidery Museum)"
+Landmark,Rwanda,Cyangugu,2,Rusizi River Border and Bridge
+Landmark,Rwanda,Cyangugu,3,Gihaya Island
+Landmark,Rwanda,Cyangugu,7,Mibirizi Catholic Church
+Neighborhood,Rwanda,Cyangugu,3,Gihundwe
+Landmark,Rwanda,Gisenyi,3,Nyamyumba Hot Springs
+Landmark,Rwanda,Gisenyi,4,Congo Nile Trail (Northern Trailhead)
+Landmark,Rwanda,Gisenyi,5,Imbabazi Gardens (Rosamond Carr's Mugongo)
+Landmark,Rwanda,Gisenyi,6,Pfunda Tea Estate
+Landmark,Rwanda,Gisenyi,8,Gisenyi Central Market
+Neighborhood,Rwanda,Gisenyi,1,Gisenyi Centre / Downtown
+Neighborhood,Rwanda,Gisenyi,3,Kigufi
+Landmark,Rwanda,Kigali,10,Caplaki Craft Village
+Neighborhood,Rwanda,Kigali,2,City Centre (Nyarugenge/CBD)
+Landmark,Saint Pierre and Miquelon,Saint-Pierre,10,Quai de la République Waterfront
+Neighborhood,Saint Pierre and Miquelon,Saint-Pierre,1,Centre-ville (Downtown)
+Neighborhood,Saint-Barthélemy,Gustavia,3,Flamands
+Landmark,Saint-Martin,Marigot,4,Rue de la République
+Landmark,Saint-Martin,Marigot,6,Loterie Farm
+Landmark,Saint-Martin,Marigot,8,Friar's Bay Beach
+Neighborhood,Samoa,Apia,3,Vaiala Beach
+Neighborhood,São Tomé and Príncipe,São Tomé,2,Praia Lagarto (Airport Beach)
+Neighborhood,São Tomé and Príncipe,São Tomé,3,Riboque
+Landmark,Saudi Arabia,Abha,8,Abha High City
+Landmark,Saudi Arabia,Abha,9,Souq Al Thulatha (Tuesday Market)
+Neighborhood,Saudi Arabia,Abha,1,Abha City Center
+Neighborhood,Saudi Arabia,Abha,3,Al Shifa
+Landmark,Saudi Arabia,Jeddah,5,Jeddah Sculpture Museum (Open-Air)
+Neighborhood,Saudi Arabia,Jeddah,5,Al Andalus
+Landmark,Saudi Arabia,Riyadh,9,Al Bujairi Heritage Park
+Neighborhood,Saudi Arabia,Riyadh,4,Al Nakheel
+Landmark,Saudi Arabia,Ta'if,6,Al Rudaf Park
+Landmark,Saudi Arabia,Ta'if,7,Saiysad National Park
+Landmark,Saudi Arabia,Ta'if,8,Old Ta'if Souq (Souq Al Balad)
+Landmark,Saudi Arabia,Ta'if,9,Al Kar Tourist Village
+Neighborhood,Saudi Arabia,Ta'if,1,Downtown Ta'if (City Center)
+Neighborhood,Saudi Arabia,Ta'if,4,Al Rudaf
+Landmark,Senegal,Saint-Louis,8,Musée de la Photographie (MuPho)
+Neighborhood,Senegal,Saint-Louis,2,Sor
+Landmark,Senegal,Ziguinchor,2,Marché Saint-Maur-des-Fossés
+Landmark,Senegal,Ziguinchor,6,Place Jean-Paul II
+Landmark,Senegal,Ziguinchor,8,Boulevard du Général de Gaulle
+Neighborhood,Senegal,Ziguinchor,3,Boudody
+Landmark,Sierra Leone,Freetown,6,Fort Thornton
+Landmark,Sierra Leone,Freetown,9,King Jimmy Market
+Landmark,Sierra Leone,Freetown,10,Big Market
+Neighborhood,Sierra Leone,Freetown,3,Congo Cross / Wilberforce
+Landmark,Sint Maarten,Philipsburg,8,Rainforest Adventures Rockland Estate
+Neighborhood,Sint Maarten,Philipsburg,5,Dawn Beach & Oyster Pond
+Landmark,Slovakia,Poprad,10,Evangelical Church of the Holy Spirit
+Landmark,Solomon Islands,Honiara,7,Iron Bottom Sound
+Landmark,Solomon Islands,Honiara,9,Betikama War Relics Museum
+Neighborhood,Solomon Islands,Honiara,2,Chinatown
+Neighborhood,Solomon Islands,Honiara,3,Kukum
+Landmark,Somalia,Mogadishu,3,Fakhr ad-Din Mosque
+Neighborhood,Somalia,Mogadishu,2,Hodan (KM4)
+Landmark,South Africa,Durban,10,Kwazulu-Natal Sharks Board
+Neighborhood,South Africa,Durban,1,Golden Mile (Beachfront)
+Landmark,South Africa,Knysna,10,Jubilee Creek and the Goldfields
+Neighborhood,South Africa,Knysna,3,Leisure Isle
+Landmark,South Africa,Nelspruit,5,Nelspruit Nature Reserve
+Landmark,South Africa,Nelspruit,6,Riverside Park
+Landmark,South Africa,Nelspruit,7,I'langa Mall
+Landmark,South Africa,Nelspruit,9,Emoyeni
+Neighborhood,South Africa,Nelspruit,1,Nelspruit Central (CBD)
+Neighborhood,South Africa,Nelspruit,2,West Acres
+Neighborhood,South Africa,Nelspruit,3,Sonheuwel
+Neighborhood,South Africa,Nelspruit,4,Riverside
+Landmark,South Africa,Plettenberg Bay,9,Kranshoek Viewpoint
+Landmark,South Africa,Plettenberg Bay,10,Tenikwa Wildlife Awareness Centre
+Landmark,South Africa,Port Elizabeth,9,Sardinia Bay
+Neighborhood,South Africa,Port Elizabeth,5,Walmer
+Neighborhood,South Korea,Jeju City,3,Nohyeong-dong
+Landmark,South Korea,Jeonju,10,Wansan Park
+Landmark,South Sudan,Juba,5,All Saints Cathedral
+Landmark,South Sudan,Juba,7,University of Juba
+Landmark,South Sudan,Juba,8,Konyo Konyo Market
+Landmark,South Sudan,Juba,9,Nyakuron Cultural Centre
+Landmark,South Sudan,Juba,10,Custom Market
+Neighborhood,South Sudan,Juba,1,Juba Town
+Neighborhood,South Sudan,Juba,2,Tongping
+Neighborhood,South Sudan,Juba,3,Munuki
+Neighborhood,South Sudan,Juba,4,Hai Malakal
+Neighborhood,Spain,Córdoba,5,Zona Estación (Vial Norte)
+Neighborhood,Spain,Girona,3,Eixample
+Neighborhood,Spain,Marbella,3,Golden Mile
+Neighborhood,Spain,Santiago de Compostela,2,Zona Nova (New Town / Ensanche)
+Neighborhood,Spain,Santiago de Compostela,4,Zona Universitaria
+Neighborhood,Spain,Tarragona,5,Nou Eixample
+Neighborhood,Spain,Zaragoza,2,Centro
+Landmark,Sri Lanka,Bentota,4,Bentota River Safari
+Landmark,Sri Lanka,Bentota,8,Galapata Raja Maha Viharaya
+Neighborhood,Sri Lanka,Bentota,2,Bentota River & Dedduwa Lake
+Neighborhood,Sri Lanka,Bentota,3,Golden Mile Beach Strip
+Neighborhood,Sri Lanka,Kandy,3,Katukele
+Landmark,Sri Lanka,Negombo,9,Duwa Fishing Village
+Neighborhood,Sri Lanka,Negombo,3,Kochchikade
+Neighborhood,Sri Lanka,Negombo,4,Negombo Town Centre
+Landmark,St. Kitts and Nevis,Basseterre,10,Timothy Hill Overlook
+Neighborhood,St. Kitts and Nevis,Basseterre,1,Basseterre Town Center
+Neighborhood,Sudan,Khartoum,1,Al Mogran
+Landmark,Sudan,Port Sudan,4,Towartit Reefs
+Landmark,Sudan,Port Sudan,5,Red Sea University
+Landmark,Sudan,Port Sudan,6,Red Sea Museum
+Neighborhood,Sudan,Port Sudan,1,City Center (Downtown)
+Neighborhood,Sudan,Port Sudan,2,Corniche / Waterfront
+Neighborhood,Suriname,Paramaribo,3,Flora & Rainville
+Landmark,Sweden,Visby,3,St. Nicolai Church Ruin
+Neighborhood,Switzerland,Lugano,5,Besso
+Neighborhood,Syria,Aleppo,3,Al-Aziziyah
+Neighborhood,Syria,Damascus,4,Souq Saroujah
+Neighborhood,Tajikistan,Dushanbe,3,Zarafshon
+Landmark,Tanzania,Arusha,4,Maasai Market (Curio Market)
+Landmark,Tanzania,Arusha,8,The Tanzanite Experience Museum
+Landmark,Tanzania,Moshi,3,Materuni Coffee Tour
+Landmark,Tanzania,Moshi,5,Marangu Village and Chagga Caves
+Landmark,Tanzania,Moshi,7,Rau Forest Reserve
+Landmark,Tanzania,Moshi,9,Kilasiya Waterfall
+Neighborhood,Tanzania,Moshi,1,Moshi Town Centre
+Neighborhood,Tanzania,Moshi,2,Shanty Town
+Neighborhood,Thailand,Chiang Rai,1,City Center / Night Bazaar
+Landmark,Thailand,Hua Hin,5,Maruekhathaiyawan Palace (Palace of Love and Hope)
+Landmark,Thailand,Ko Samui,9,Lad Koh Viewpoint
+Landmark,Thailand,Nakhon Ratchasima,6,Maha Wirawong National Museum
+Landmark,Thailand,Nakhon Ratchasima,7,Save One Night Market
+Neighborhood,Thailand,Nakhon Ratchasima,2,Mittraphap Road
+Landmark,Thailand,Pai,5,Tha Pai Hot Springs
+Landmark,Thailand,Pai,10,Pai Land Split
+Landmark,Thailand,Pattaya-Chonburi,10,Underwater World Pattaya
+Landmark,Thailand,Phitsanulok,10,Thai Bird Garden
+Neighborhood,Thailand,Surat Thani,1,City Centre (Talat)
+Neighborhood,Thailand,Surat Thani,2,Ban Don Pier
+Landmark,Togo,Lomé,7,Lomé Grand Marché Textile District
+Landmark,Togo,Lomé,8,National Museum of Togo
+Landmark,Tonga,Nuku'alofa,9,International Dateline Marker
+Landmark,Tonga,Nuku'alofa,10,Tongan National Cultural Centre
+Neighborhood,Tonga,Nuku'alofa,2,Vuna Road Waterfront (Kolomotu'a)
+Neighborhood,Trinidad and Tobago,Port of Spain,3,St. Ann's
+Neighborhood,Tunisia,Houmt El Souk,4,Sidi Mahres Beach
+Neighborhood,Tunisia,Kairouan,3,Ville Nouvelle
+Landmark,Tunisia,Monastir,9,Museum of Islamic Art
+Landmark,Tunisia,Sousse,8,Boujaffar Beach
+Neighborhood,Tunisia,Sousse,4,Khezama
+Landmark,Tunisia,Tozeur,4,Belvédère Rocks
+Landmark,Tunisia,Tozeur,6,Zoo du Sahara et Jardin du Paradis
+Landmark,Tunisia,Tozeur,8,Central Market of Tozeur
+Neighborhood,Tunisia,Tozeur,3,Zone Touristique (Route Touristique)
+Neighborhood,Tunisia,Tunis,2,Ville Nouvelle (Downtown)
+Landmark,Turkey,Trabzon,9,Bedesten Bazaar
+Landmark,Türkiye,Çeşme,5,Aya Yorgi Bay
+Landmark,Türkiye,Denizli,8,Kaleiçi Bazaar
+Neighborhood,Türkiye,Denizli,2,İncilipınar
+Neighborhood,Türkiye,Denizli,5,Çamlık
+Landmark,Türkiye,Gaziantep,7,Emine Göğüş Culinary Museum
+Landmark,Türkiye,Kayseri,6,Kayseri Covered Bazaar and Vezirhan
+Landmark,Türkiye,Kuşadası,9,Kuşadası Grand Bazaar
+Landmark,Türkiye,Kuşadası,10,Kordon Promenade
+Neighborhood,Türkiye,Kuşadası,1,Kuşadası Harbor / Old Town
+Landmark,Türkiye,Mardin,10,Revaklı Çarşı (Old Bazaar)
+Landmark,Türkiye,Marmaris,2,Kaleiçi (Old Town)
+Landmark,Türkiye,Marmaris,4,Uzunyalı Promenade (Long Beach)
+Landmark,Türkiye,Marmaris,10,Marmaris Grand Bazaar
+Neighborhood,Turkmenistan,Ashgabat,2,Kopetdag
+Landmark,Turks and Caicos Islands,Cockburn Town,2,Front Street and Duke Street historic district
+Landmark,Turks and Caicos Islands,Cockburn Town,4,Governor's Beach
+Landmark,Turks and Caicos Islands,Cockburn Town,5,Columbus Landfall National Park
+Landmark,Turks and Caicos Islands,Cockburn Town,6,Her Majesty's Prison
+Landmark,Turks and Caicos Islands,Cockburn Town,7,Grand Turk Salinas
+Landmark,Turks and Caicos Islands,Cockburn Town,8,Gibbs Cay
+Landmark,Turks and Caicos Islands,Cockburn Town,10,Pillory Beach
+Neighborhood,Turks and Caicos Islands,Cockburn Town,2,Duke Street
+Neighborhood,Turks and Caicos Islands,Cockburn Town,3,Pillory Beach
+Landmark,Tuvalu,Funafuti,3,Tuvalu Philatelic Bureau
+Landmark,Tuvalu,Funafuti,6,Fongafale Islet War Relics
+Landmark,Tuvalu,Funafuti,9,Tuvalu National Library and Archives
+Neighborhood,Tuvalu,Funafuti,4,Teone
+Landmark,U.S. Virgin Islands,Charlotte Amalie,5,St. Thomas Synagogue
+Neighborhood,UAE,Abu Dhabi,2,Saadiyat Island
+Landmark,UAE,Sharjah,1,Al Noor Mosque
+Neighborhood,Uganda,Kampala,5,Muyenga
+Landmark,United Kingdom,Cardiff,9,Victorian and Edwardian Arcades
+Landmark,United States,Anaheim,8,Center Street Promenade
+Neighborhood,United States,Dallas,5,Knox/Henderson
+Landmark,United States,Reno,5,Midtown District Murals
+Landmark,United States,Scottsdale,6,The Wave (Scottsdale Waterfront)
+Neighborhood,United States,Scottsdale,4,Gainey Ranch
+Neighborhood,United States,Scottsdale,5,South Scottsdale
+Landmark,Vanuatu,Port Vila,9,Rentapao (Teouma) Blue Hole
+Neighborhood,Venezuela,Caracas,3,La Castellana
+Neighborhood,Venezuela,Caracas,4,El Rosal
+Landmark,Vietnam,Hạ Long,9,Long Tien Pagoda
+Landmark,Vietnam,Hoi An,9,Tra Que Vegetable Village
+Landmark,Vietnam,Hoi An,10,Thanh Ha Pottery Village
+Neighborhood,Vietnam,Huế,3,Vỹ Dạ
+Landmark,Vietnam,Nha Trang,9,Thap Ba Hot Springs and Mud Baths
+Neighborhood,Vietnam,Nha Trang,1,Tran Phu Beachfront (City Center)
+Landmark,Vietnam,Sa Pa,7,Thac Tinh Yeu (Love Waterfall)
+Landmark,Western Sahara,Laayoune,4,Colline aux Oiseaux
+Landmark,Western Sahara,Laayoune,6,Old Spanish Quarter (Colonial Lower Town)
+Landmark,Western Sahara,Laayoune,7,Souk Djemal (camel market district)
+Landmark,Western Sahara,Laayoune,8,Ensemble Artisanal (craft complex)
+Landmark,Western Sahara,Laayoune,10,Souk ez-Zaj
+Neighborhood,Western Sahara,Laayoune,1,Al Aouda (Al Wahda)
+Landmark,Yemen,Sana'a,10,Liberation Square (Midan al-Tahrir)
+Neighborhood,Yemen,Sana'a,2,Tahrir
+Neighborhood,Yemen,Sana'a,4,Ma'ain
+Landmark,Zambia,Livingstone,10,Batoka Gorge
+Neighborhood,Zambia,Livingstone,4,Maramba
+Landmark,Zambia,Lusaka,10,Kabwata Cultural Village
+Neighborhood,Zambia,Lusaka,1,Longacres
+Landmark,Zimbabwe,Bulawayo,9,Mzilikazi Arts & Crafts Centre
+Neighborhood,Zimbabwe,Bulawayo,1,City Centre (CBD)
+Neighborhood,Zimbabwe,Bulawayo,2,Suburbs
+Landmark,Zimbabwe,Harare,7,Chapungu Sculpture Park
+Landmark,Zimbabwe,Harare,8,Domboshava Rocks
+Neighborhood,Zimbabwe,Harare,2,Avondale
+Neighborhood,Zimbabwe,Harare,3,Borrowdale
+Neighborhood,Zimbabwe,Harare,4,Highlands
+Neighborhood,Zimbabwe,Harare,5,Milton Park
+Neighborhood,Zimbabwe,Victoria Falls,1,Town Centre (CBD)
+Neighborhood,Zimbabwe,Victoria Falls,3,Zambezi Riverfront
