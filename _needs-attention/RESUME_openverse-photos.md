@@ -17,3 +17,10 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
 - Day 1 (2026-10-19): 173 of 846 searched (21 skipped on timeouts, to retry). 7 gaps had a geotagged hit;
   3 applied (Bishkek, Chamonix, Malacca; 6abbe77a), 4 rejected by eye.
 - Yield so far: about 1 photo per 58 gaps searched. The full list would give roughly 15 photos over 4 more days.
+- Day 2 (2026-10-20, scheduled run): Openverse was very slow all day. 190 calls: 38 gaps searched and saved,
+  152 skipped (150 timeouts at 40 s, 2 HTTP 500), all to retry next run. The 38 returned 66 hits; 29 were big
+  enough to check, 0 had a Flickr or Commons geotag (Flickr pages loaded in full; the geotag reader was
+  re-tested on a known geotagged Addis Ababa photo and still works). Applied 0, rejected 0. No commit of
+  photos or data. Running total: 211 of 846 gaps have a result file; 635 left, including the skipped ones.
+- Gotcha: in zsh, pass a key list to geo.py as `${=K}`, not `$K` (zsh does not split words), or geo.py
+  silently matches nothing.
