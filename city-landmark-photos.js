@@ -1383,7 +1383,7 @@ window.NRA_LANDMARK_PHOTOS = {
   ],
   "Bishkek": [
     {img:"images/landmarks/bishkek-ala-too-square.webp", page:"https://commons.wikimedia.org/wiki/File:Bishkek_P9170507_014_(40103613941).jpg", credit:"t_y_l / CC BY-SA 2.0"},
-    null,
+    {img:"images/landmarks/bishkek-manas-statue-and-state-flag.webp", page:"https://www.flickr.com/photos/9508280@N07/16258087845", credit:"Dan Lundberg / CC BY-SA 2.0"},
     {img:"images/landmarks/bishkek-kyrgyz-state-historical-museum.webp", page:"https://commons.wikimedia.org/wiki/File:Kyrgyz_State_Historical_Museum,_Ala_Too_Square,_Bishkek,_Kyrgyzstan.jpg", credit:"Vilya Shoni / CC BY 4.0"},
     {img:"images/landmarks/bishkek-osh-bazaar.webp", page:"https://commons.wikimedia.org/wiki/File:Osh_bazaar_Bishkek.jpg", credit:"Ekrem Canli / CC BY-SA 3.0"},
     {img:"images/landmarks/bishkek-victory-square.webp", page:"https://commons.wikimedia.org/wiki/File:Victory_Square,_Bishkek_01.jpg", credit:"Davide Mauro / CC BY-SA 4.0"},
@@ -2026,7 +2026,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/chamonix-mont-blanc-balmat-saussure-monument.webp", page:"https://commons.wikimedia.org/wiki/File:Chamonix-Mont-Blanc_-_Place_Balmat_-_Monument_%C3%A0_Jacques_Balmat_et_Horace_B%C3%A9n%C3%A9dict_de_Saussure_(Jean-Jules_Salmson).jpg", credit:"Romainbehar / CC0"},
     {img:"images/landmarks/chamonix-mont-blanc-glacier-des-bossons.webp", page:"https://commons.wikimedia.org/wiki/File:2025-07-22_Glacier_des_Bossons_1.jpg", credit:"Alexkom000 / CC BY 4.0"},
     {img:"images/landmarks/chamonix-mont-blanc-la-flegere.webp", page:"https://commons.wikimedia.org/wiki/File:Chamonix-Mont-Blanc_--_T%C3%A9l%C3%A9cabine_Br%C3%A9vent-Fl%C3%A9g%C3%A8re_3.JPG", credit:"AntonyB / CC BY 3.0"},
-    null,
+    {img:"images/landmarks/chamonix-mont-blanc-musee-alpin.webp", page:"https://www.flickr.com/photos/129231073@N06/44238373811", credit:"corno.fulgur75 / CC BY 2.0"},
     {img:"images/landmarks/chamonix-mont-blanc-vallee-blanche-gondola.webp", page:"https://commons.wikimedia.org/wiki/File:Punta_helbronner_1.jpg", credit:"Zorro2212 / CC BY-SA 3.0"},
   ],
   "Chaozhou": [
@@ -5469,7 +5469,7 @@ window.NRA_LANDMARK_PHOTOS = {
     {img:"images/landmarks/malacca-kampung-kling-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Kampung_Kling_Mosque_Exterior.jpg", credit:"Azuladnan / CC BY-SA 4.0"},
     {img:"images/landmarks/malacca-melaka-straits-mosque.webp", page:"https://commons.wikimedia.org/wiki/File:Malacca_Malaysia_Malacca-Straits-Mosque-01.jpg", credit:"CEphoto, Uwe Aranas / CC BY-SA 3.0"},
     {img:"images/landmarks/malacca-melaka-river-cruise.webp", page:"https://commons.wikimedia.org/wiki/File:Melaka_River_Cruise.jpg", credit:"Chongkian / CC BY-SA 4.0"},
-    null,
+    {img:"images/landmarks/malacca-maritime-museum-flor-de-la-mar.webp", page:"https://www.flickr.com/photos/21013862@N08/2260809203", credit:"twiga_swala / CC BY-SA 2.0"},
   ],
   "Malang": [
     {img:"images/landmarks/malang-kampung-warna-warni-jodipan.webp", page:"https://commons.wikimedia.org/wiki/File:Rainbow_village_in_Malang_01.jpg", credit:"Christophe95 / CC BY-SA 4.0"},
