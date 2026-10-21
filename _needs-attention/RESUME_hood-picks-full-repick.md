@@ -18,3 +18,5 @@ Deferred: Miami (citydata/miami.json held by another live session on 2026-10-21)
 ## Log
 
 - **Batch 1 (2026-10-21), phase 1, Dubai to Jeddah (24 cities; Miami deferred):** 88 open coffee/bakery slots -> 25 picks -> gate/address re-test 24 (Le Gout: East Hollywood) -> checkers 22 (Aungku and Queeze fixed; Fornalia dropped: outlets uncountable; La Baguette dropped: Woodlands hotel bakery) -> full audit 22/22 (NITAN note narrowed) -> loaded 22 in 15 cities, parity 0. Reopened for the phase-1 follow-up: Cairo Zamalek bakery, Pattaya Naklua bakery (work/fr1/reopened.json).
+
+- **Batch 3 (2026-10-21), phase 1, Manila to Sao Paulo (25 cities):** 143 open coffee/bakery slots -> 74 picks -> gate 74 -> checkers 69 (fixes: Cafe Nostalgie, CAPSULE MONSTER note, MARUMI COFFEE STAND, Goodness Gracious note; dropped Timinn and Dulce de Leche (another listed hood), Black Sheep Bagel (sandwiches), Taj A Sweet (uncountable), Toto by chichi (matcha cafe)) -> full audit 69/69 (CoffeeToBe renamed) -> loaded 69, parity 0. Same brand twice for G2g: My Coffee Porto (Ribeira, Baixa), Hygge (Reykjavik).
