@@ -27,3 +27,5 @@ Deferred: Miami (citydata/miami.json held by another live session on 2026-10-21)
 
 - **Batch 6 (2026-10-21), phase 1, last 20 cities:** 47 slots -> 14 picks -> gate 14 -> checkers 14 (Sultongue renamed) -> audit 14 (Kamakura Mushinan renamed) -> loaded 14, parity 0.
 - **Facebook re-check (2026-10-21):** the 10 held picks all went straight to the login page (www and m.); they stay off. Facebook now blocks every read, so a venue whose only page is Facebook counts as no page from here on.
+
+- **Batch 7 (2026-10-21), phase 2, Hong Kong to Ho Chi Minh City (24 cities; Miami deferred):** 239 eat/takeaway/bar slots -> 24 picks (Celestial Court held for Jeff: hotel Cantonese as local, TODO G2f) -> gate 23 -> checkers 20 (Linga Longa Bar renamed; dropped Mod Kaew (no cheap signal), MASSO (outside Adliya, not an edge candidate), Bandiera (fine on price level only)) -> audit 20/20 -> safety 5/5 ok -> loaded 20, parity 0. Phase 2 yield is about 1 pick per 10 slots: old skips for these kinds were mostly sound.
