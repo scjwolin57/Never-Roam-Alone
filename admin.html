@@ -108,6 +108,18 @@
   .erow .sub{font-size:.78rem;color:var(--muted);margin-top:2px}
   .erow .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 
+  /* contributed photos: bigger thumb that opens a full-size preview */
+  #photo-list .erow .thumb{width:120px;height:90px;border:0;padding:0;cursor:zoom-in;font:inherit;font-size:.7rem;color:var(--muted)}
+  #photo-list .erow .thumb:disabled{cursor:default}
+  #photo-list .erow .thumb:not(:disabled):hover{box-shadow:0 0 0 2px var(--green)}
+  .pv-overlay{position:fixed;inset:0;z-index:1000;background:rgba(20,24,18,.86);display:flex;align-items:center;justify-content:center;padding:16px}
+  .pv-overlay[hidden]{display:none}
+  .pv-box{background:var(--card);border-radius:3px;max-width:min(1100px,100%);max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+  .pv-img{display:block;max-width:100%;max-height:calc(100vh - 150px);object-fit:contain;margin:0 auto;background:var(--sand)}
+  .pv-foot{padding:10px 14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:.82rem}
+  .pv-foot .pv-cap{flex:1;min-width:160px;overflow-wrap:anywhere}
+  .pv-foot .pv-warn{color:var(--coral);font-weight:600}
+
   /* insights (city-page interviews) */
   .irow{flex-direction:column;align-items:stretch}
   .irow .ihead{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
@@ -224,6 +236,16 @@
         <input type="checkbox" id="photo-show-done"> Also show photos I've already decided on
       </label>
       <div id="photo-list"></div>
+      <div class="pv-overlay" id="photo-preview" hidden role="dialog" aria-modal="true" aria-label="Photo preview">
+        <div class="pv-box">
+          <img class="pv-img" id="pv-img" alt="">
+          <div class="pv-foot">
+            <span class="pv-cap" id="pv-cap"></span>
+            <a class="btn small ghost" id="pv-open" href="#" target="_blank" rel="noopener">Open original</a>
+            <button class="btn small" id="pv-close" type="button">Close</button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ========== INSIGHTS (city-page interviews) ========== -->
@@ -531,7 +553,7 @@
         : "";
       return `
       <div class="erow${pending ? " pending" : ""}" data-id="${esc(r.id)}">
-        <div class="thumb"${r._url ? ` style="background-image:url('${esc(r._url)}')"` : ""}></div>
+        <button class="thumb" type="button" data-pview${r._url ? ` style="background-image:url('${esc(r._url)}')" title="Preview full size" aria-label="Preview the photo full size"` : ` disabled title="No preview: the photo could not be loaded"`}>${r._url ? "" : "No preview"}</button>
         <div class="info">
           <div class="title">${esc(r.landmark || "(no subject)")} ${chip}</div>
           <div class="sub">${slot} · ${where}${taken ? " · taken " + esc(taken) : ""} · credit: ${esc(credit)}</div>
@@ -547,6 +569,38 @@
 
   document.addEventListener("change", e => {
     if (e.target && e.target.id === "photo-show-done") renderPhotoRows();
+  });
+
+  /* Full-size preview. Shows the pixel size and flags a portrait photo, since
+     portrait shots go on a review list rather than into a landscape slot. */
+  function closePhotoPreview(){
+    $("photo-preview").hidden = true;
+    $("pv-img").removeAttribute("src");
+  }
+  document.addEventListener("click", e => {
+    const t = e.target.closest("#photo-list button[data-pview]");
+    if (t){
+      const row = pRows.find(r => r.id === t.closest(".erow").dataset.id);
+      if (!row || !row._url) return;
+      const img = $("pv-img"), cap = $("pv-cap");
+      const label = esc(row.landmark || "Photo") + " · " + esc(row.city || "");
+      cap.innerHTML = label + " · loading…";
+      img.alt = row.landmark || "Contributed photo";
+      img.onload = () => {
+        const w = img.naturalWidth, h = img.naturalHeight;
+        cap.innerHTML = `${label} · ${w} × ${h} px` +
+          (h > w ? ` · <span class="pv-warn">portrait</span>` : "");
+      };
+      img.onerror = () => { cap.innerHTML = label + ` · <span class="pv-warn">couldn't load the photo (the link may have expired; reload the page)</span>`; };
+      img.src = row._url;
+      $("pv-open").href = row._url;
+      $("photo-preview").hidden = false;
+      return;
+    }
+    if (e.target.id === "pv-close" || e.target.id === "photo-preview") closePhotoPreview();
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !$("photo-preview").hidden) closePhotoPreview();
   });
 
   document.addEventListener("click", async e => {
