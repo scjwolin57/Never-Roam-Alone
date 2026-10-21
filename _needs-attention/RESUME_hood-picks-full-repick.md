@@ -49,3 +49,8 @@ Deferred: Miami (citydata/miami.json held by another live session on 2026-10-21)
 ## Finished 2026-10-21
 
 All 14 batches loaded: 732 picks in 202 cities (phase 1 coffee and bakery 209, phase 2 eat, takeaway and bars 523), 0 Google calls. Open items are in TODO.md G2h. Follow-ups: the non-Latin chain-flag re-offer (570 venues, 64 cities) and the phase-1 reopened slots (work/fr1/reopened.json, work/fr2/reopened.json).
+
+## Non-Latin chain-flag re-offer (NL, 2026-10-21; TODO G2h)
+Why: `name_key()` keyed every name written only in non-Latin script to "", so those venues were all one "chain". Fix: the flag was recomputed in `cands/` with a Unicode key (scratch script; per-city log `work/nl_unflag_log.json`): 610 candidate entries cleared, 2 kept (Moscow's "Вкусно — и точка", same name at 2+ points). `dive_reviews.py` / `takeaway_type.py` re-run from cache (`work/nl_scripts`, `work/nl_take`): every newly eligible venue lacks saved reviews or details, so no script pick (0 Google calls); pickers judged dive and takeaway by CHECKLIST I instead. `nl.py plan`: 56 cities, 369 venues, open slots only (`work/nl_plan.json`); `nl.py todo <n>` offers only those venues. Briefs: the NL section at the end of FR_BRIEF.md.
+
+- **Batch 3 (2026-10-21), last 6 cities (Salalah to Yerevan):** 6 venues, 12 slots -> 1 pick (5 no website) -> gate 1 -> checker 1/1 -> audit 1/1 -> loaded 1 (Restoran Morvarid, Tabriz Abrasan local), parity 0.
