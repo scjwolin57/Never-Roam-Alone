@@ -805,12 +805,8 @@
     color:#2b2417;background:#8a9a5b;border-radius:0;padding:6px 12px;
     text-decoration:none;transition:background .2s;box-shadow:0 2px 8px rgba(0,0,0,.25)}
   .hood-map-link:hover{background:#b0802f}
-  /* Vote widget on the neighborhood photo, top left — across from the "best for" flag at top right */
-  /* The like/dislike buttons used to sit on the photo, across from the
-     best-for flag; on a phone the two crowded each other (Jeff, 2026-09-23).
-     They live in the card now, bottom right, just above the line that starts
-     the recommendations. */
-  .hood-vote-row{display:flex;justify-content:flex-end;margin:0 0 12px}
+  /* The like/dislike buttons used to sit on the photo, across from the best-for flag; on a phone the two
+     crowded each other (Jeff, 2026-09-23). Since 2026-10-21 they sit top right of the card (.hood-panel-tools). */
   .avoid-sec{margin-top:30px}
   .avoid-title{font-size:1.15rem;font-weight:700;color:#7a1f14;margin:0 0 12px;display:flex;align-items:center;gap:8px}
   .avoid-ico{color:#b3261e;font-size:1.2rem}
@@ -899,6 +895,15 @@
   .hood-panel-head h3{font-size:1.5rem;margin:0}
   .hood-panel-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-left:auto}
   .hood-panel .hood-map-link{position:static;box-shadow:none}
+  /* Jeff, 2026-10-21: map as a plain text link beside the name / best-for tag; the card's like / dislike
+     (hearts) top right; "Contribute a photo" on each neighborhood photo, above its name */
+  .hood-map-text{font-size:.82rem;font-weight:700;color:var(--green);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+  .hood-map-text:hover{color:var(--coral)}
+  .hood-panel-tools .hood-vote{margin:0}
+  .hood-panel-head{position:relative;padding-right:96px}
+  .hood-panel-head .hood-panel-tools{position:absolute;top:4px;right:0;margin:0}
+  .hood-tile .hood-tile-contrib{left:50%;right:auto;bottom:auto;transform:translateX(-50%);z-index:2;white-space:nowrap;
+    font-size:.6rem;padding:3px 7px;max-width:calc(100% - 12px);overflow:hidden;text-overflow:ellipsis}
   .hood-panel .photo-contrib{position:static;border-color:var(--line);background:none;color:var(--muted)}
   .hood-panel .photo-contrib:hover,.hood-panel .photo-contrib:focus-visible{background:var(--coral);border-color:var(--coral);color:#fff}
   /* "Suggest a place" at the bottom of each stay / eat / coffee / drink card, styled like "Contribute a photo" above */
@@ -1013,6 +1018,9 @@
   .ins-list:empty{display:none}
   .ins-card{background:var(--sand);border:1px solid rgba(43,36,23,.22);border-left:3px solid var(--green);border-radius:0;padding:14px 16px}
   .is-local .ins-card{border-left-color:var(--coral)}
+  .ins-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .ins-head-text{min-width:0}
+  .ins-head .fl-vote{margin-top:0;flex-shrink:0}
   .ins-who{font-weight:700;font-size:.92rem;color:var(--ink);overflow-wrap:anywhere}
   .ins-when{font-size:.74rem;color:var(--muted)}
   .ins-q{font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700;line-height:1.4;margin:12px 0 3px}
@@ -1021,8 +1029,11 @@
   .ins-link{background:none;border:none;padding:0;margin-top:12px;font-family:inherit;font-weight:700;font-size:.84rem;color:var(--green);cursor:pointer;text-align:left}
   .ins-link:hover{color:var(--coral)}
   .ins-more{align-self:center;margin-top:0}
-  .ins-full .ins-q{font-size:.72rem;margin-top:18px}
-  .ins-full .ins-q:first-of-type{margin-top:6px}
+  /* full interview: each question on a tinted band, with room around each answer (Jeff, 2026-10-21) */
+  .ins-full .ins-q{font-size:.74rem;color:var(--ink);background:rgba(92,105,51,.12);border-left:3px solid var(--green);
+    padding:8px 11px;margin:26px 0 10px}
+  .ins-full .ins-q:first-of-type{margin-top:8px}
+  .ins-full .ins-a{padding:0 2px 0 14px}
   /* Plate 09 (Dispatches) is just a heading, a placeholder line and a back
      link — centered rather than left-aligned like the fuller sections above. */
   .dispatches-empty{text-align:center}
@@ -2610,6 +2621,7 @@ function buildAdvisoryBanner(c, cityAdv){
         <div class="hood-tile" role="tab" id="hood-tab-${i}" aria-controls="hood-panel-${i}" aria-selected="${i === 0 ? 'true' : 'false'}" tabindex="${i === 0 ? 0 : -1}" data-hood-idx="${i}">
           <div class="hood-hero" data-hood="${name.replace(/"/g,'&quot;')}">
             ${tagHTML}
+            <button type="button" class="photo-contrib hood-tile-contrib" data-contrib-kind="neighborhood-hero" data-contrib-subject="${name.replace(/"/g,'&quot;')}" data-contrib-idx="${i}">Contribute a photo</button>
             <h3 class="hood-name">${name}</h3>
             <p class="hood-credit"></p>
           </div>
@@ -2706,13 +2718,10 @@ function buildAdvisoryBanner(c, cityAdv){
           <div class="hood-body">
             <div class="hood-panel-head">
               <h3>${name}</h3>${tagHTML}
-              <div class="hood-panel-tools">
-                <a class="hood-map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ', ' + c.city)}" target="_blank" rel="noopener">View on a map &rarr;</a>
-                <button type="button" class="photo-contrib" data-contrib-kind="neighborhood-hero" data-contrib-subject="${name.replace(/"/g,'&quot;')}" data-contrib-idx="${i}">Contribute a photo</button>
-              </div>
+              <a class="hood-map-text" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ', ' + c.city)}" target="_blank" rel="noopener">View on a map &rarr;</a>
+              <div class="hood-panel-tools">${voteWidgetHTML({type:"hood_photo", id:`${c.city}:${i}`, city:c.city, extraClass:"hood-vote", size:15, icon:"heart"})}</div>
             </div>
             <p class="hood-desc">${(CITY_HOOD_DESC[c.city] && CITY_HOOD_DESC[c.city][i]) ? CITY_HOOD_DESC[c.city][i] : `Placeholder — a short overview of ${name} will go here: the vibe, who it suits, and what's nearby.`}</p>
-            <div class="hood-vote-row">${voteWidgetHTML({type:"hood_photo", id:`${c.city}:${i}`, city:c.city, extraClass:"hood-vote", size:13})}</div>
             <div class="hood-groups">${stayHTML}${eatHTML}${cafeHTML}${barsHTML}</div>
           </div>
         </div>`;
@@ -3238,14 +3247,16 @@ function buildAdvisoryBanner(c, cityAdv){
   }
 
   /* ---------- Day trips section ---------- */
-  /* GetYourGuide affiliate: each trip's stored search link (t.gyg, built from its name) plus our partner ID.
-     Search links, not per-tour picks: the partner API needs 100k visits a month (decisions.md 2026-09-21, 2026-09-24). */
+  /* GetYourGuide affiliate: each trip's stored link (t.gyg) plus our partner ID. Since 2026-10-20 that is GetYourGuide's
+     own page for the place (/-l<id>/, matched by name and country) where one exists, since a name search can land on
+     another place of the same name (Naples, Florida searched as "Naples" showed Naples, Italy); else the name search.
+     Not per-tour picks: the partner API needs 100k visits a month (decisions.md 2026-09-21, 2026-09-24, 2026-10-20). */
   const GYG_PARTNER_ID = "NCT4RBD";
   function dtTourHTML(t){
     if (!t.gyg) return "";
-    const href = t.gyg + "&partner_id=" + GYG_PARTNER_ID + "&utm_medium=online_publisher&cmp=daytrip";
+    const href = t.gyg + (t.gyg.includes("?") ? "&" : "?") + "partner_id=" + GYG_PARTNER_ID + "&utm_medium=online_publisher&cmp=daytrip";
     return `<a class="dtcard-tours" href="${href}" target="_blank" rel="noopener sponsored">
-            <span class="dtcard-tours-k">Tours to ${t.name} &rarr;</span>
+            <span class="dtcard-tours-k">${t.name} tours &rarr;</span>
             <span class="dtcard-tours-v">on GetYourGuide</span>
           </a>`;
   }
@@ -4312,12 +4323,12 @@ function buildAdvisoryBanner(c, cityAdv){
     function card(r){
       const all = pairs(r);
       const vote = voteWidgetHTML({type:"insight", id:r.id, city:c.city, extraClass:"fl-vote"});
+      /* like / dislike in the top right corner, beside the name (Jeff, 2026-10-21) */
       return `<article class="ins-card">` +
-          `<div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
-          (aboutLine(r) ? `<div class="ins-when">${esc(aboutLine(r))}</div>` : "") +
+          `<div class="ins-head"><div class="ins-head-text"><div class="ins-who">${esc(r.name)}</div><div class="ins-when">${esc(when(r))}</div>` +
+          (aboutLine(r) ? `<div class="ins-when">${esc(aboutLine(r))}</div>` : "") + `</div>${vote}</div>` +
           qa(all, 2) +
           (all.length > 2 ? `<button type="button" class="ins-link" data-ins-read="${esc(r.id)}">Read the full interview &rarr;</button>` : "") +
-          vote +
         `</article>`;
     }
     function paintList(type, showAll){
@@ -4538,6 +4549,8 @@ function buildAdvisoryBanner(c, cityAdv){
         const credit = tile.querySelector('.hood-credit');
         const ch = credit && credit.textContent.trim() ? credit.offsetHeight : 0;
         n.style.bottom = Math.max(18, ch + 6) + 'px';
+        const cb = tile.querySelector('.hood-tile-contrib');
+        if (cb) cb.style.bottom = (Math.max(18, ch + 6) + n.offsetHeight + 6) + 'px';
       });
       probe.remove();
     }
