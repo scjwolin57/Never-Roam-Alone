@@ -24,3 +24,11 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
   photos or data. Running total: 211 of 846 gaps have a result file; 635 left, including the skipped ones.
 - Gotcha: in zsh, pass a key list to geo.py as `${=K}`, not `$K` (zsh does not split words), or geo.py
   silently matches nothing.
+- Day 3 (2026-10-21, scheduled run): Openverse still slow (a one-word test query took 33 s against the 40 s
+  timeout). 190 calls: 111 gaps searched and saved, 79 skipped (76 timeouts, 3 HTTP errors), to retry next run.
+  The 111 returned 212 hits; 107 were big enough to check; 3 gaps had a geotagged hit within range
+  (`work/c5_cands.json`, sheet `work/c5_sheet.jpg`, 8 candidates). Applied 0. Rejected 3 gaps by eye:
+  Bariloche Playa Bonita (portrait, dark path, does not show the area), Ensenada Centro (indoor mural, not the
+  downtown or malecón), Knysna Leisure Isle (a person filling the frame, a breakfast plate, a map sign, birds,
+  a jellyfish). No photo or data commit. Running total: 322 of 846 gaps have a result file; 524 left,
+  including the skipped ones.
