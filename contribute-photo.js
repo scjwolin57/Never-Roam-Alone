@@ -24,7 +24,9 @@
    Three things this module is careful about:
      1. The title field is filled from the photo slot the button belongs to,
         so a reviewer always knows what the photo is meant to replace.
-     2. "Credit my Never Roam Alone profile" needs a signed-in account. When
+     2. Two credit choices: the member's user name linked to their profile
+        page, or a typed name linked to a website they give (optional).
+        The profile credit needs a signed-in account. When
         nobody is signed in, that option is disabled and a sign-in button is
         offered in its place; the choice re-enables itself the moment the
         visitor signs in, without losing the rest of the form.
@@ -89,6 +91,9 @@ window.NRA_PHOTO_CONTRIB = (function(){
     ".cf-row>*{flex:1}",
     ".cf-opt{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.88rem;font-weight:400}",
     ".cf-opt input{margin-top:3px;flex:none;width:auto}",
+    ".cf-f label.cf-opt{display:flex;font-weight:400}",
+    ".cf-opt>span{flex:1;min-width:0}",
+    ".cf-f .cf-opt span input[type=text],.cf-f .cf-opt span input[type=url]{display:block;width:100%}",
     ".cf-note{font-size:.78rem;color:var(--muted,#777);margin:4px 0 0}",
     ".cf-terms{display:flex;gap:9px;align-items:flex-start;font-size:.8rem;line-height:1.45;",
     "  background:#f7f4ea;border:1px solid #e3dccb;border-radius:3px;padding:11px 12px;margin:4px 0 12px}",
@@ -204,18 +209,16 @@ window.NRA_PHOTO_CONTRIB = (function(){
           '</div>' +
           '<div class="cf-f">' +
             '<label>How would you like to be credited?</label>' +
-            '<label class="cf-opt"><input type="radio" name="cf-cred" value="name" checked>' +
-              '<span>Credit this name<br><input type="text" id="cf-credname" placeholder="Name to display" style="margin-top:5px"></span></label>' +
             '<label class="cf-opt" id="cf-opt-profile"><input type="radio" name="cf-cred" value="profile">' +
-              '<span>My Never Roam Alone profile</span></label>' +
+              '<span>My Never Roam Alone user name, linked to my profile page</span></label>' +
             '<div id="cf-profile-state"></div>' +
+            '<label class="cf-opt"><input type="radio" name="cf-cred" value="name" checked>' +
+              '<span>A name I type, linked to my website' +
+                '<input type="text" id="cf-credname" maxlength="80" placeholder="Name to display" style="margin-top:5px">' +
+                '<input type="url" id="cf-link" maxlength="500" placeholder="Website (optional)" style="margin-top:5px">' +
+              '</span></label>' +
             '<label class="cf-opt"><input type="radio" name="cf-cred" value="none">' +
               '<span>No credit desired</span></label>' +
-          '</div>' +
-          '<div class="cf-f">' +
-            '<label for="cf-link">Link to your creative work <span style="font-weight:400;color:#8a7f66">(optional)</span></label>' +
-            '<input type="url" id="cf-link" placeholder="https://">' +
-            '<p class="cf-note">Shown alongside your photo credit.</p>' +
           '</div>' +
           '<div style="position:absolute;left:-9999px" aria-hidden="true">' +
             '<label for="cf-website">Website</label>' +
@@ -261,9 +264,12 @@ window.NRA_PHOTO_CONTRIB = (function(){
     $("cf-cancel").addEventListener("click", close);
     back.addEventListener("click", function(e){ if (e.target === back) close(); });
 
-    /* the free-text name only applies to the "credit this name" option */
+    /* the typed name and its website only apply to the "name I type" option;
+       a profile credit always links to the profile page */
     back.querySelectorAll('input[name="cf-cred"]').forEach(function(r){
-      r.addEventListener("change", function(){ $("cf-credname").disabled = r.value !== "name"; });
+      r.addEventListener("change", function(){
+        $("cf-credname").disabled = $("cf-link").disabled = r.value !== "name";
+      });
     });
 
     /* ---- profile credit needs an account ----------------------------------
@@ -290,7 +296,7 @@ window.NRA_PHOTO_CONTRIB = (function(){
       /* fall back to a plain name credit if the locked option was selected */
       if (radio.checked) {
         var nameRadio = back.querySelector('input[name="cf-cred"][value="name"]');
-        if (nameRadio) { nameRadio.checked = true; $("cf-credname").disabled = false; }
+        if (nameRadio) { nameRadio.checked = true; $("cf-credname").disabled = $("cf-link").disabled = false; }
       }
       state.className = "cf-signin";
       state.innerHTML = authEnabled()
@@ -327,6 +333,11 @@ window.NRA_PHOTO_CONTRIB = (function(){
       var mode = (back.querySelector('input[name="cf-cred"]:checked') || {}).value || "none";
       var token = await accessToken();
       if (mode === "profile" && !token) return fail("Please sign in again to credit your profile.");
+      var credName = mode === "name" ? ($("cf-credname").value || "").trim() : "";
+      if (mode === "name" && credName.length < 2) return fail("Please type the name to credit, or choose another credit option.");
+      var credUrl = mode === "name" ? ($("cf-link").value || "").trim() : "";
+      if (credUrl && !/^https?:\/\//i.test(credUrl)) credUrl = "https://" + credUrl;
+      if (credUrl && !/^https?:\/\/[^\s\/.]+\.[^\s]+$/i.test(credUrl)) return fail("That website address doesn't look right. Use the full address, like https://example.com");
 
       var rec = {
         subjectKind: kindKey,
@@ -343,8 +354,8 @@ window.NRA_PHOTO_CONTRIB = (function(){
         takenMonth: $("cf-month").value ? Number($("cf-month").value) : null,
         takenYear:  $("cf-year").value  ? Number($("cf-year").value)  : null,
         creditMode: mode,
-        creditName: mode === "name" ? ($("cf-credname").value || "").trim() : "",
-        workUrl: ($("cf-link").value || "").trim(),
+        creditName: credName,
+        workUrl: credUrl,
         rightsConfirmed: true,
         signature: signature,
         licenseVersion: LICENSE_VERSION,

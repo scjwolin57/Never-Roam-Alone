@@ -261,8 +261,8 @@ async function adminCheck(event, env) {
 
 async function reviewBody(row, action, token, env) {
   const img = await previewUrl(row, env);
-  const credit = row.credit_mode === "name" ? (row.credit_name || "(name not given)")
-               : row.credit_mode === "profile" ? "their Never Roam Alone profile"
+  const credit = row.credit_mode === "name" ? (row.credit_name || "(name not given)") + (row.work_url ? " → " + row.work_url : "")
+               : row.credit_mode === "profile" ? "their Never Roam Alone user name, linked to their profile"
                : "no credit requested";
   const taken = [MONTHS[row.taken_month] || "", row.taken_year || ""].filter(Boolean).join(" ") || "not given";
   const other = action === "reject" ? "approve" : "reject";

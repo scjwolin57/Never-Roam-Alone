@@ -541,8 +541,8 @@
       const chip = pending ? `<span class="chip pending">Pending review</span>`
                  : r.status === "approved" ? `<span class="chip live">Published</span>`
                  : `<span class="chip hidden">Turned down</span>`;
-      const credit = r.credit_mode === "name" ? (r.credit_name || "(name not given)")
-                   : r.credit_mode === "profile" ? "their Never Roam Alone profile"
+      const credit = r.credit_mode === "name" ? (r.credit_name || "(name not given)") + (r.work_url ? " → " + r.work_url : "")
+                   : r.credit_mode === "profile" ? "their Never Roam Alone user name, linked to their profile"
                    : "no credit requested";
       const taken = [MONTH_NAMES[r.taken_month] || "", r.taken_year || ""].filter(Boolean).join(" ");
       const where = esc(r.city || "") + (r.country ? ", " + esc(r.country) : "");
