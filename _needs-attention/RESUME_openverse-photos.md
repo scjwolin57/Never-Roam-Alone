@@ -32,3 +32,10 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
   downtown or malecón), Knysna Leisure Isle (a person filling the frame, a breakfast plate, a map sign, birds,
   a jellyfish). No photo or data commit. Running total: 322 of 846 gaps have a result file; 524 left,
   including the skipped ones.
+- Day 4 (2026-10-22, scheduled run): Openverse slow for the first 40 minutes, then normal. 190 calls: 128 gaps
+  searched and saved, 62 skipped (all timeouts at 40 s), to retry next run. The 128 returned 212 hits; 180 were big
+  enough to check; 2 gaps had a geotagged hit within range (`work/c6_cands.json`, sheet `work/c6_sheet.jpg`,
+  4 candidates, both in Positano). Applied 0. Rejected both gaps by eye: MAR Positano (one a portrait window view
+  with a watermark, the other the Church of Santa Maria Assunta above the museum, which already has its photo),
+  Arienzo Beach (both show Spiaggia Grande and the town, not the Arienzo cove; one with people in front).
+  No photo or data commit. Running total: 450 of 846 gaps have a result file; 396 left, including the skipped ones.
