@@ -234,19 +234,32 @@
     padding-top:0;padding-bottom:11px;max-width:100%;
   }
 
-  /* ---------- saved landmarks / day trips / places under a stop (trip_items, 2026-10-22) ---------- */
-  .ig-items{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
-  .ig-items li{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:.82rem;line-height:1.4;min-width:0}
-  .ig-item-k{flex:none;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--green);padding:2px 6px;border-radius:0}
-  .ig-item-k.daytrip{background:var(--coral)}
-  .ig-item-k.place{background:#82755b}
-  .ig-items a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
-  .ig-items a:hover{color:var(--coral)}
-  .ig-item-hood{color:var(--muted);font-weight:600}
-  .ig-item-rm{flex:none;border:none;background:none;color:var(--muted);font-size:.8rem;line-height:1;padding:2px 5px;cursor:pointer;border-radius:0}
-  .ig-item-rm:hover{color:var(--coral);background:rgba(181,73,44,.08)}
-  .ig-table .trip-table .titems{padding-top:0;padding-bottom:12px;white-space:normal}
-  .ig-table .trip-table .titems .ig-items{margin-top:0}
+  /* ---------- "Saved places" button beside the country name, and its popup (trip_items; Jeff, 2026-10-22) ---------- */
+  .ig-saved{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(63,81,56,.4);background:#fff;color:var(--green);cursor:pointer;
+    font-weight:700;font-size:.7rem;font-family:inherit;line-height:1;padding:4px 8px;border-radius:3px;white-space:nowrap;vertical-align:middle;transition:.15s}
+  .ig-saved:hover{background:var(--green);color:#fff}
+  .ig-saved .n{background:var(--green);color:#fff;font-size:.62rem;padding:1px 5px;border-radius:3px}
+  .ig-saved:hover .n{background:#fff;color:var(--green)}
+  .ig-stop .where .ig-saved{margin-left:6px}
+  .ig-table .trip-table td.tcountry{white-space:normal}
+  .ig-table .trip-table td.tcountry .tc-name{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ig-table .trip-table td.tcountry .ig-saved{margin-top:4px}
+  .saved-modal{max-height:85vh;overflow:auto}
+  .saved-modal h3 small{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-top:4px}
+  .saved-cat{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--green);display:inline-block;padding:3px 8px;margin:14px 0 6px}
+  .saved-cat.daytrip{background:var(--coral)}
+  .saved-cat.place{background:#82755b}
+  .saved-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+  .saved-list .nm{flex:1 1 0;min-width:0;display:inline-flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+  .saved-list li{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:.9rem;line-height:1.45;min-width:0;padding-bottom:6px;border-bottom:1px solid rgba(63,81,56,.1)}
+  .saved-list li:last-child{border-bottom:none}
+  .saved-list a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+  .saved-list a:hover{color:var(--coral)}
+  .saved-list .h{color:var(--muted);font-weight:600;font-size:.82rem}
+  .saved-list .note{flex-basis:100%;color:var(--muted);font-size:.8rem;line-height:1.4}
+  .saved-list .rm{margin-left:auto;flex:none;border:none;background:none;color:var(--muted);font-size:.85rem;line-height:1;padding:2px 6px;cursor:pointer;border-radius:0}
+  .saved-list .rm:hover{color:var(--coral);background:rgba(181,73,44,.08)}
+  .saved-empty{color:var(--muted);font-size:.92rem;margin:0}
 
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
   .ig-foot{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
@@ -598,6 +611,17 @@
     <p>Turning a trip public shows your name, photo, and the cities and dates on that trip's route in the &ldquo;Roamers in town&rdquo; section of each city guide on your route, so other signed-in members can see you'll be there and say hi. It doesn't send your itinerary to anyone by itself — that's what the separate Share trip button is for — and it never shares payment, contact, or account details. You can switch a trip back to private at any time.</p>
     <div class="sm-btns">
       <button type="button" class="sm-no" id="public-info-close">Got it</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== "Saved places" popup: everything saved to one trip for one city, by category ===== -->
+<div class="share-overlay" id="saved-overlay" role="dialog" aria-modal="true" aria-labelledby="saved-title">
+  <div class="share-modal saved-modal">
+    <h3 id="saved-title">Saved places</h3>
+    <div id="saved-body"></div>
+    <div class="sm-btns" style="margin-top:18px">
+      <button type="button" class="sm-no" id="saved-close">Close</button>
     </div>
   </div>
 </div>
@@ -1343,6 +1367,10 @@
     }catch(e){ /* nothing deleted unless everything inserted — old data stays safe */ }
   }
 
+  /* saved landmarks / day trips / places per trip (trip_items), filled by renderItineraries */
+  let savedItems = {};
+  const savedFor = (tripId, place) => (savedItems[tripId] || []).filter(x => String(x.city||"").toLowerCase() === String(place||"").toLowerCase());
+
   async function renderItineraries(){
     const groups = $("itin-groups"), newRow = $("itin-new-row");
     parkSearchRow();                 // move the search row out before we rebuild the cards (so it isn't wiped)
@@ -1393,22 +1421,12 @@
     }
     const byItin = {};
     places.forEach(p => { (byItin[p.itinerary_id] = byItin[p.itinerary_id] || []).push(p); });
-    const itemsByItin = {};
-    items.forEach(x => { (itemsByItin[x.itinerary_id] = itemsByItin[x.itinerary_id] || []).push(x); });
-    /* the saved items for one city stop; a city listed twice on a trip shows them under its first stop only */
-    const itemLabel = x => (window.NRA_TRIP_ITEM_LABEL ? NRA_TRIP_ITEM_LABEL(x) : x.kind);
-    const stopItemsHTML = (tripId, place, seen, editable) => {
-      const key = String(place||"").toLowerCase();
-      if (seen.has(key)) return "";
-      seen.add(key);
-      const list = (itemsByItin[tripId] || []).filter(x => String(x.city||"").toLowerCase() === key);
-      if (!list.length) return "";
-      return `<ul class="ig-items">` + list.map(x => {
-        const nm = x.map_url ? `<a href="${esc(x.map_url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : `<b>${esc(x.name)}</b>`;
-        const hood = x.kind === "place" && x.hood ? `<span class="ig-item-hood">· ${esc(x.hood)}</span>` : (x.kind === "daytrip" && x.section ? `<span class="ig-item-hood">· ${x.section === "half" ? "half day" : "full day"}</span>` : "");
-        const rm = editable ? `<button type="button" class="ig-item-rm" data-rmi="${esc(String(x.id))}" aria-label="Remove ${esc(x.name)} from this trip" title="Remove">✕</button>` : "";
-        return `<li><span class="ig-item-k ${esc(x.kind)}">${esc(itemLabel(x))}</span>${nm}${hood}${rm}</li>`;
-      }).join("") + `</ul>`;
+    savedItems = {};
+    items.forEach(x => { (savedItems[x.itinerary_id] = savedItems[x.itinerary_id] || []).push(x); });
+    /* "Saved places" button beside the country name: opens the popup for that trip + city */
+    const savedBtn = (tripId, place) => {
+      const n = savedFor(tripId, place).length;
+      return `<button type="button" class="ig-saved" data-saved-trip="${esc(String(tripId))}" data-saved-place="${esc(place||"")}" aria-label="Saved places in ${esc(place||"")}">Saved places${n ? ` <span class="n">${n}</span>` : ""}</button>`;
     };
     // a trip whose last stop (by order) has already passed lives on the Past tab instead
     const visibleItins = itins.filter(it => tripEnded(byItin[it.id] || []) === (type === "past"));
@@ -1426,7 +1444,6 @@
       if (!cities.length){
         rows = `<p class="ig-empty">No cities yet — open any city guide and tap “Add to trip,” or search above.</p>`;
       } else {
-        const seenEdit = new Set();
         rows = cities.map((p, i) => {
           const g = guideOf(p.place);
           const where = esc(p.country || (g && g.country) || "");
@@ -1441,17 +1458,16 @@
               </button>
             </div>
             <span class="num">${i+1}</span>
-            <span class="info"><span class="place">${nameHtml}${where ? ` <span class="where">(${where})</span>` : ""}</span>
+            <span class="info"><span class="place">${nameHtml}${where ? ` <span class="where">(${where})${savedBtn(it.id, p.place)}</span>` : ` <span class="where">${savedBtn(it.id, p.place)}</span>`}</span>
               <span class="dates">
                 <label>Arrive <input type="text" class="date-field" data-pa value="${esc(p.arrive||"")}" placeholder="Pick a date"></label>
                 <label>Depart <input type="text" class="date-field" data-pd value="${esc(p.depart||"")}" placeholder="Pick a date"></label>
-              </span><span data-hol></span>${stopItemsHTML(it.id, p.place, seenEdit, true)}</span>
+              </span><span data-hol></span></span>
           </div>`;
         }).join("");
       }
       const cardView = tripCardView[it.id] || "table";
-      const seenTable = new Set();
-      const tableHtml = buildTripTable(cities, place => stopItemsHTML(it.id, place, seenTable, false));
+      const tableHtml = buildTripTable(cities, place => savedBtn(it.id, place));
       const calendarHtml = buildTripCalendar(cities);
       const badge = (type === "past") ? "Past Trip" : tripStatus(cities);
       const badgeClass = badge === "Current Trip" ? "is-current" : (badge === "Past Trip" ? "is-past" : "is-upcoming");
@@ -1637,7 +1653,7 @@
   }
 
   /* ---- read-only table for one trip card (reuses the Past-tab table styling) ---- */
-  function buildTripTable(cities, itemsFor){
+  function buildTripTable(cities, savedBtnFor){
     if (!cities.length){
       return `<p class="table-empty">Nothing to show yet — switch to “Edit” to add stops.</p>`;
     }
@@ -1651,12 +1667,10 @@
       rows += `<tr class="trow-main">
         <td class="tnum">${i+1}</td>
         <td class="tcity">${nameHtml}</td>
-        <td class="tcountry">${country || "—"}</td>
+        <td class="tcountry"><span class="tc-name">${country || "—"}</span>${savedBtnFor ? savedBtnFor(p.place) : ""}</td>
         <td class="tnights">${esc(nights(p.arrive, p.depart))}</td>
       </tr>
       <tr class="trow-dates"><td class="tdates" colspan="4">${esc(dateRange(p.arrive, p.depart))}</td></tr>`;
-      const ih = itemsFor ? itemsFor(p.place) : "";
-      if (ih) rows += `<tr class="trow-items"><td class="titems" colspan="4">${ih}</td></tr>`;
     });
     return `<table class="trip-table">
       <thead><tr><th class="tnum">#</th><th class="tcity">City</th><th class="tcountry">Country</th><th class="tnights">Nights</th></tr></thead>
@@ -2168,13 +2182,9 @@
         catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
       });
     });
-    /* remove a saved landmark / day trip / place from a trip */
-    groups.querySelectorAll("[data-rmi]").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        btn.disabled = true;
-        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("trip_items").delete().eq("id", btn.dataset.rmi); if (error) throw error; renderItineraries(); }
-        catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
-      });
+    /* "Saved places" beside the country name opens the popup for that trip + city */
+    groups.querySelectorAll("[data-saved-trip]").forEach(btn => {
+      btn.addEventListener("click", e => { e.stopPropagation(); openSavedModal(btn.dataset.savedTrip, btn.dataset.savedPlace); });
     });
     /* drag to reorder within a trip */
     groups.querySelectorAll(".ig-stop .drag").forEach(h => h.addEventListener("pointerdown", startTripDrag));
@@ -2333,6 +2343,59 @@
   });
   $("share-overlay").addEventListener("click", (e) => { if (e.target === $("share-overlay")) closeShareModal(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("share-overlay").classList.contains("open")) closeShareModal(); });
+
+  /* ---- "Saved places" popup: one trip, one city, grouped by category; ✕ removes the row (trip_items) ---- */
+  const SAVED_CATS = [
+    { k:"landmark", label:"Landmarks",         test:x => x.kind === "landmark" },
+    { k:"daytrip",  label:"Day trips",         test:x => x.kind === "daytrip" },
+    { k:"place",    label:"Places to eat",     test:x => x.kind === "place" && x.section === "eat" },
+    { k:"place",    label:"Coffee & takeaway", test:x => x.kind === "place" && x.section === "cafes" },
+    { k:"place",    label:"Places to drink",   test:x => x.kind === "place" && x.section === "bars" },
+    { k:"place",    label:"Places to stay",    test:x => x.kind === "place" && x.section === "stay" },
+    { k:"place",    label:"Other places",      test:x => x.kind === "place" && !["eat","cafes","bars","stay"].includes(x.section) }
+  ];
+  let savedOpen = null;   // { tripId, place } while the popup is open
+  function renderSavedModal(){
+    if (!savedOpen) return;
+    const list = savedFor(savedOpen.tripId, savedOpen.place);
+    const g = guideOf(savedOpen.place);
+    const trip = document.querySelector(`.itin-group[data-id="${CSS.escape(String(savedOpen.tripId))}"] .ig-name`);
+    $("saved-title").innerHTML = `Saved places in ${esc(g ? g.city : savedOpen.place)}<small>${trip ? esc(trip.value) : ""}</small>`;
+    if (!list.length){
+      $("saved-body").innerHTML = `<p class="saved-empty">Nothing saved here yet. On the ${esc(savedOpen.place)} guide, tap the green + beside any landmark, day trip or pick to save it to this trip.</p>`;
+      return;
+    }
+    $("saved-body").innerHTML = SAVED_CATS.map(cat => {
+      const rows = list.filter(cat.test);
+      if (!rows.length) return "";
+      return `<div class="saved-cat ${cat.k}">${cat.label}</div><ul class="saved-list">` + rows.map(x => {
+        const nm = x.map_url ? `<a href="${esc(x.map_url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : `<b>${esc(x.name)}</b>`;
+        const extra = x.kind === "place" && x.hood ? `<span class="h">· ${esc(x.hood)}</span>`
+          : (x.kind === "daytrip" && x.section ? `<span class="h">· ${x.section === "half" ? "half day" : "full day"}</span>` : "");
+        const note = x.note ? `<span class="note">${esc(x.note)}</span>` : "";
+        return `<li><span class="nm">${nm}${extra}</span><button type="button" class="rm" data-rmi="${esc(String(x.id))}" aria-label="Remove ${esc(x.name)} from this trip" title="Remove from this trip">✕</button>${note}</li>`;
+      }).join("") + `</ul>`;
+    }).join("");
+    $("saved-body").querySelectorAll("[data-rmi]").forEach(btn => btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      try{
+        const sb = NRA_AUTH.client(); const { error } = await sb.from("trip_items").delete().eq("id", btn.dataset.rmi); if (error) throw error;
+        savedItems[savedOpen.tripId] = (savedItems[savedOpen.tripId] || []).filter(x => String(x.id) !== btn.dataset.rmi);
+        renderSavedModal();
+        /* the count on the button behind the popup */
+        document.querySelectorAll(`[data-saved-trip="${CSS.escape(String(savedOpen.tripId))}"]`).forEach(b => {
+          if (String(b.dataset.savedPlace||"").toLowerCase() !== String(savedOpen.place||"").toLowerCase()) return;
+          const n = savedFor(savedOpen.tripId, savedOpen.place).length;
+          b.innerHTML = `Saved places${n ? ` <span class="n">${n}</span>` : ""}`;
+        });
+      }catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
+    }));
+  }
+  function openSavedModal(tripId, place){ savedOpen = { tripId, place }; renderSavedModal(); $("saved-overlay").classList.add("open"); }
+  function closeSavedModal(){ $("saved-overlay").classList.remove("open"); savedOpen = null; }
+  $("saved-close").addEventListener("click", closeSavedModal);
+  $("saved-overlay").addEventListener("click", (e) => { if (e.target === $("saved-overlay")) closeSavedModal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("saved-overlay").classList.contains("open")) closeSavedModal(); });
 
   /* ---- "what does Make public/private do?" info popup (the ⓘ button next to it) ---- */
   function openPublicInfoModal(){ $("public-info-overlay").classList.add("open"); }
