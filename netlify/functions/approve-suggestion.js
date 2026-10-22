@@ -27,6 +27,7 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
 const { award } = require("./_shared/contrib");   // points (5) + vote keys for the member who sent it
+const { seeUrl } = require("./_shared/seelink");  // link straight to the pick on the guide
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -103,7 +104,7 @@ exports.handler = async (event) => {
   // Thank them, once, only if they asked.
   let notified = false, via = null, messageId = null;
   if (row.contact && !row.notified) {
-    const cityUrl = siteBase + "/city.html?city=" + encodeURIComponent(row.city);
+    const cityUrl = await pickSeeUrl(siteBase, row, targets).catch(() => seeUrl(siteBase, row.city));
     const what = row.section === "food"
       ? `${row.place_name || "place"} (for ${row.kind_label || "a local dish"})`
       : `${row.kind_label || "place"} in ${row.hood_name}, ${row.city}`;
@@ -209,6 +210,28 @@ async function foodPickKeys(siteBase, row) {
   const dish = ((rec && rec.food) || []).find(f => f && f.name === row.kind_label);
   return ((dish && dish.places) || []).filter(p => p && p.by === row.user_id && p.name)
     .map(p => ({ type: "food_place", id: `${row.kind_label}|${p.name}` }));
+}
+
+// The link in the thank-you: straight to the pick on the guide. A member's pick is found by their id (the vote
+// keys above); a guest's by the place name (food) or, for a neighborhood card, the one Roamer pick of that kind.
+// Not found: the dish, or the neighborhood, or the top of the guide.
+async function pickSeeUrl(siteBase, row, targets) {
+  if (targets && targets[0]) return seeUrl(siteBase, row.city, targets[0].type, targets[0].id);
+  const rec = await cityRecord(siteBase, row.city);
+  const n = s => String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (row.section === "food") {
+    const dish = ((rec && rec.food) || []).find(f => f && f.name === row.kind_label);
+    const p = ((dish && dish.places) || []).find(p => p && row.place_name && n(p.name) === n(row.place_name));
+    if (p) return seeUrl(siteBase, row.city, "food_place", `${row.kind_label}|${p.name}`);
+    return dish ? seeUrl(siteBase, row.city, "dish", dish.name) : seeUrl(siteBase, row.city);
+  }
+  let hi = ((rec && rec.hoods) || []).indexOf(row.hood_name);
+  if (hi < 0 && Number.isInteger(row.hood_idx)) hi = row.hood_idx;
+  const list = ((rec && rec.roamer_picks && rec.roamer_picks[row.section]) || [])[hi] || [];
+  const same = list.filter(pk => pk && pk.n && !pk.by && pk.k === row.kind);
+  const part = row.section === "bars" ? "bar" : row.section;
+  if (same.length === 1) return seeUrl(siteBase, row.city, "recommendation", `${row.city}:${hi}:${part}:${same[0].n}`);
+  return row.hood_name ? seeUrl(siteBase, row.city, "hood", row.hood_name) : seeUrl(siteBase, row.city);
 }
 
 // Is the pick this suggestion replaces still on the live guide? Same hood and section (stay: our hotels too),

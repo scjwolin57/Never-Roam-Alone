@@ -22,6 +22,7 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
 const { award } = require("./_shared/contrib");
+const { seeUrl } = require("./_shared/seelink");  // link straight to the trip / landmark on the guide
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -104,7 +105,7 @@ exports.handler = async (event) => {
   // 4. Thank them, once (only on the first time it is marked added), only if they asked.
   let notified = false, via = null, messageId = null;
   if (row.contact && !wasAdded) {
-    const cityUrl = siteBase + "/city.html?city=" + encodeURIComponent(row.city);
+    const cityUrl = seeUrl(siteBase, row.city, lmk ? "landmark" : "daytrip", `${row.city}:${name}`);
     const line = `The ${what} you suggested, ${name}, is now on the ${row.city} guide`;
     let emailTo = row.email || "";
     if (row.user_id && row.user_id !== admin.id) {

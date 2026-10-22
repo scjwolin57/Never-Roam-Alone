@@ -31,6 +31,7 @@
 const crypto = require("crypto");
 
 const { award } = require("./_shared/contrib");   // points for the member who sent it
+const { photoSeeUrl } = require("./_shared/seelink");  // link straight to the photo's slot on the guide
 const PRIVATE_BUCKET = "landmark-contributions";
 const PUBLIC_BUCKET  = "landmark-photos";
 const MIME = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp" };
@@ -205,7 +206,7 @@ async function notifyContributor(row, env) {
     if (r.ok) { const u = await r.json(); email = (u && u.email) || ""; }
   } catch (e) { /* a missing account is not a failure to publish */ }
   if (!email) return false;
-  const cityUrl = env.siteBase + "/city.html?city=" + encodeURIComponent(row.city);
+  const cityUrl = photoSeeUrl(env.siteBase, row);
   try {
     const er = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -290,7 +291,7 @@ function doneBody(row, env) {
   if (row.status === "approved") {
     return `<p>&#9989; <strong>${escapeHtml(row.landmark)}</strong> is published.</p>` +
       (url ? `<img src="${escapeHtml(url)}" alt="" style="width:100%;border-radius:10px;margin:14px 0 0">` : "") +
-      `<p style="margin:22px 0 0"><a class="b" href="${escapeHtml(env.siteBase + "/city.html?city=" + encodeURIComponent(row.city))}">Open the ${escapeHtml(row.city)} guide</a></p>`;
+      `<p style="margin:22px 0 0"><a class="b" href="${escapeHtml(photoSeeUrl(env.siteBase, row))}">See it on the ${escapeHtml(row.city)} guide</a></p>`;
   }
   return `<p>&#128465; <strong>${escapeHtml(row.landmark)}</strong> was turned down and will not appear on the site.</p>` +
     `<p style="color:#5b6b75;font-size:.9rem">The file is kept in the review bucket, so this can be undone.</p>`;

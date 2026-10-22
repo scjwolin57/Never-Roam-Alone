@@ -5876,6 +5876,8 @@ function buildAdvisoryBanner(c, cityAdv){
   window.openModal = openModal;
   window.showFoodPlaces = showFoodPlaces;
   window.loadFoodData = loadFoodData;
+  /* deeplink.js: an approval link to a landmark or day trip loads that section without waiting for a scroll */
+  window.loadLmkDtData = loadLmkDtData;
 }
 }); /* end of loadCityData().then(...) render wrapper */
 
@@ -5972,6 +5974,7 @@ function buildAdvisoryBanner(c, cityAdv){
 })();
 </script>
 <script src="votes.js"></script>
+<script src="deeplink.js"></script>
 <script>
 (function(){
   /* Vote widgets (thumbs up/down) are injected the same way the hero
