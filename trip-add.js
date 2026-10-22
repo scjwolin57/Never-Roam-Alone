@@ -77,12 +77,15 @@
   .ta-more{border:none;background:none;padding:0;margin:4px 0 0;font-family:inherit;font-size:.82rem;font-weight:700;
     color:#5c6933;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
   .ta-more:hover{color:#b5492c}
-  /* "+ Add to trip" on landmark, day-trip and pick rows (city.html) */
-  .trip-item-btn{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(92, 105, 51,.45);background:#fff;color:#5c6933;
-    font-family:inherit;font-size:.72rem;font-weight:700;line-height:1;padding:5px 8px;border-radius:0;cursor:pointer;white-space:nowrap;
-    transition:background .15s,color .15s,border-color .15s}
-  .trip-item-btn:hover,.trip-item-btn:focus-visible{background:#5c6933;color:#fff;border-color:#5c6933}
-  .trip-item-btn.done{background:rgba(92, 105, 51,.1);border-color:rgba(92, 105, 51,.45);color:#5c6933;cursor:default}
+  /* the "+" icon on landmark, day-trip and pick rows (city.html): a green + in a white circle, the prompt on hover (title);
+     "done" = a green circle with a white check once something was saved from it (Jeff, 2026-10-22) */
+  .trip-item-btn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;flex:none;border:1.5px solid #5c6933;
+    border-radius:50%;background:#fff;color:#5c6933;font-family:inherit;font-size:15px;font-weight:800;line-height:1;padding:0;cursor:pointer;
+    vertical-align:middle;transition:background .15s,color .15s}
+  .trip-item-btn::before{content:"+";display:block;margin-top:-1px}
+  .trip-item-btn:hover,.trip-item-btn:focus-visible{background:#5c6933;color:#fff}
+  .trip-item-btn.done{background:#5c6933;color:#fff;cursor:default}
+  .trip-item-btn.done::before{content:"✓";font-size:11px;margin-top:0}
   /* a ready-made small button pages can use next to cards */
   .trip-add-chip{border:none;background:#5c6933;color:#fff;font-weight:700;font-family:inherit;font-size:.78rem;
     padding:7px 12px;border-radius:0;cursor:pointer;transition:background .2s;white-space:nowrap}
@@ -217,7 +220,7 @@
   /* the card's button reads "✓ In a trip" once something was saved from it */
   function markItemDone(){
     const el = curItem && curItem.el;
-    if (el){ el.classList.add("done"); el.textContent = "✓ In a trip"; }
+    if (el){ el.classList.add("done"); el.title = `${curItem.name} is in a trip`; el.setAttribute("aria-label", el.title); }
   }
 
   async function addToWishlist(count, btn){
