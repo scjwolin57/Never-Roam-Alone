@@ -460,6 +460,9 @@
   .dtcard-country{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
   .dtcard-blurb{font-size:.86rem;line-height:1.4;color:var(--ink,#333);margin:0}
   .dtcard-link{display:inline-block;margin-top:10px;font-size:.76rem;font-weight:700;color:var(--green)}
+  .dtcard-trip{margin-top:10px}
+  .lmk-vote-wrap .trip-item-btn{margin-right:auto}   /* left of the votes on the card's bottom row */
+  .bar-info .trip-item-btn,.lodge-name .trip-item-btn{vertical-align:middle;margin-left:2px}
   /* name on the left, like / dislike across from it on the right (Jeff, 2026-09-24) */
   .dtcard-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
   .dtcard-head .dtcard-name{min-width:0}
@@ -2631,6 +2634,9 @@ function buildAdvisoryBanner(c, cityAdv){
   /* Map link for a pick: the exact venue by Google place ID when it has one, else a text search. */
   const pickMapHref = (p, hoodName) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.n + ', ' + hoodName + ', ' + c.city) + (p.pid ? '&query_place_id=' + encodeURIComponent(p.pid) : '');
 
+  /* "+ Add to trip" on a landmark, day trip or pick (2026-10-22): trip-add.js's item mode saves it to a trip that
+     stops in this city, or starts a new trip with this city as the first stop. Rows live in Supabase trip_items. */
+  const tripItemBtn = o => `<button type="button" class="trip-item-btn" data-trip-item data-kind="${o.kind}" data-name="${escB(o.name)}" data-city="${escB(c.city)}" data-country="${escB(c.country)}" data-section="${escB(o.section || '')}" data-hood="${escB(o.hood || '')}" data-note="${escB(String(o.note || '').replace(/<[^>]*>/g, '').slice(0, 400))}" data-map="${escB(o.map || '')}" aria-label="Add ${escB(o.name)} to a trip">+ Add to trip</button>`;
   /* One venue row: label pill styled like the lodging tiers, name linked to Maps, one-line note. */
   /* A pick with `near` (source hood index) sits in a nearby neighborhood: the map link uses that hood and the row carries a flag.
      `near` equal to the pick's own hood index means just outside that hood's boundary (decisions.md 2026-09-24). */
@@ -2650,12 +2656,12 @@ function buildAdvisoryBanner(c, cityAdv){
   const pickRows = (list, meta, hoodName, i, kind) => list.map(p => {
     const m = meta[p.k] || { label: p.k, c: "#5c6933" };
     const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:${kind}:${p.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p, i) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p, i)}${byHTML(p)}</span>${vote}</div>`;
+    return `<div class="lodge-row pick-row"><span class="lodge-tier pick-kind" style="background:${m.c}">${escB(m.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(p, nearHood(p, i) || hoodName)}" target="_blank" rel="noopener">${escB(p.n)}</a>${p.d ? ` <span class="bar-note">&mdash; ${escB(p.d)}</span>` : ''}${nearFlag(p, i)}${byHTML(p)} ${tripItemBtn({kind:'place', name:p.n, section:kind, hood:nearHood(p, i) || hoodName, note:p.d, map:pickMapHref(p, nearHood(p, i) || hoodName)})}</span>${vote}</div>`;
   }).join('');
   const barRows = (list, hoodName, i) => list.map(b => {
     const meta = BAR_KIND_META[b.k] || { label: b.k, emoji: '' };
     const vote = voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:bar:${b.n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-    return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b, i) || hoodName)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b, i)}${byHTML(b)}</span>${vote}</div>`;
+    return `<div class="bar-row"><span class="bar-kind" title="${escB(meta.label)}">${meta.emoji} ${escB(meta.label)}</span><span class="bar-info"><a class="bar-name" href="${pickMapHref(b, nearHood(b, i) || hoodName)}" target="_blank" rel="noopener">${escB(b.n)}</a>${b.d ? ` <span class="bar-note">&mdash; ${escB(b.d)}</span>` : ''}${nearFlag(b, i)}${byHTML(b)} ${tripItemBtn({kind:'place', name:b.n, section:'bars', hood:nearHood(b, i) || hoodName, note:b.d, map:pickMapHref(b, nearHood(b, i) || hoodName)})}</span>${vote}</div>`;
   }).join('');
   /* Stay picks from Roamers use the lodging tier as their kind (High-end / Mid-range / Budget), labelled like the tier tags. */
   const LODGE_META = Object.fromEntries(LODGE_TIERS.map(t => [t.k, { label: t.label, c: t.c }]));
@@ -2705,7 +2711,7 @@ function buildAdvisoryBanner(c, cityAdv){
               ${suggestBtn('cafes', i, 'Suggest a coffee or takeaway spot')}
             </div>`;
     const lodgeVote = (kind, n) => voteWidgetHTML({type:"recommendation", id:`${c.city}:${i}:lodge:${kind}:${n}`, city:c.city, extraClass:"fl-vote pick-vote", size:13});
-    const lodgeRows = (function(){ const raw = (CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || [], picks = raw.filter(Boolean); /* a tier left empty (its hotel replaced by a Roamer pick, 2026-10-20) is skipped; the others keep their labels */ if (raw.length >= 3) { return LODGE_TIERS.map((t, ti) => raw[ti] ? `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${raw[ti]}</span>${lodgeVote(t.k, ti)}</div>` : '').join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
+    const lodgeRows = (function(){ const raw = (CITY_LODGING[c.city] && CITY_LODGING[c.city][i]) || [], picks = raw.filter(Boolean); /* a tier left empty (its hotel replaced by a Roamer pick, 2026-10-20) is skipped; the others keep their labels */ if (raw.length >= 3) { return LODGE_TIERS.map((t, ti) => raw[ti] ? `<div class="lodge-row"><span class="lodge-tier" style="background:${t.c}">${t.label}</span><span class="lodge-name">${raw[ti]} ${tripItemBtn({kind:'place', name:raw[ti], section:'stay', hood:name, note:t.label})}</span>${lodgeVote(t.k, ti)}</div>` : '').join(''); } return picks.map((n, ni) => `<div class="lodge-row lodge-row-plain"><span class="lodge-name">${n} ${tripItemBtn({kind:'place', name:n, section:'stay', hood:name})}</span>${lodgeVote('plain', ni)}</div>`).join(''); })();
     const stayHTML = `
             <div class="hood-lodging">
               <p class="hood-bars-head">Where to stay</p>
@@ -3260,7 +3266,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <span class="dtcard-tours-v">on GetYourGuide</span>
           </a>`;
   }
-  function dtCardHTML(t){
+  function dtCardHTML(t, tier){
     const link = t.featured
       ? `<a href="city.html?city=${encodeURIComponent(t.name)}">${t.name}</a>`
       : t.name;
@@ -3286,6 +3292,7 @@ function buildAdvisoryBanner(c, cityAdv){
           ${dtAlertHTML(t.alert)}
           <p class="dtcard-blurb">${t.blurb}</p>
           ${more}
+          <div class="dtcard-trip">${tripItemBtn({kind:'daytrip', name:t.name, section:tier || '', note:t.blurb, map:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(t.name + ', ' + (t.country || c.country))})}</div>
           ${dtTourHTML(t)}
         </div>`;
   }
@@ -3320,7 +3327,7 @@ function buildAdvisoryBanner(c, cityAdv){
             <div class="lmk-body">
               <a class="lmk-name" href="${mapHref}" target="_blank" rel="noopener">${l[0]}</a>
               <p class="lmk-desc">${l[1]}</p>
-              <div class="lmk-vote-wrap">${lmkVote}</div>
+              <div class="lmk-vote-wrap">${tripItemBtn({kind:'landmark', name:l[0], note:l[1], map:mapHref})}${lmkVote}</div>
             </div>
           </div>
         </div>`;
@@ -3357,9 +3364,9 @@ function buildAdvisoryBanner(c, cityAdv){
     if (!half.length && !full.length && !nh.length && !nf.length) return "";
     return `
       ${half.length || nh.length ? `<div class="daytrip-sub">Half day &middot; 1.5 hours or less one way</div>
-      <div class="daytrip-grid">${half.map(dtCardHTML).join("")}${nh.map(dtGuideCardHTML).join("")}</div>` : ""}
+      <div class="daytrip-grid">${half.map(t => dtCardHTML(t, "half")).join("")}${nh.map(dtGuideCardHTML).join("")}</div>` : ""}
       ${full.length || nf.length ? `<div class="daytrip-sub">Full day &middot; 3 hours or less one way</div>
-      <div class="daytrip-grid">${full.map(dtCardHTML).join("")}${nf.map(dtGuideCardHTML).join("")}</div>` : ""}
+      <div class="daytrip-grid">${full.map(t => dtCardHTML(t, "full")).join("")}${nf.map(dtGuideCardHTML).join("")}</div>` : ""}
       ${half.concat(full).some(t => t.gyg) ? `<p class="dtcard-foot">Tour links open GetYourGuide. They are affiliate links: they cost you nothing extra and help keep Never Roam Alone free.</p>` : ""}`; }
 
   const _coordStr = (typeof c.lat==="number" && typeof c.lng==="number")

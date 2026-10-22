@@ -234,6 +234,20 @@
     padding-top:0;padding-bottom:11px;max-width:100%;
   }
 
+  /* ---------- saved landmarks / day trips / places under a stop (trip_items, 2026-10-22) ---------- */
+  .ig-items{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+  .ig-items li{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:.82rem;line-height:1.4;min-width:0}
+  .ig-item-k{flex:none;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--green);padding:2px 6px;border-radius:0}
+  .ig-item-k.daytrip{background:var(--coral)}
+  .ig-item-k.place{background:#82755b}
+  .ig-items a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+  .ig-items a:hover{color:var(--coral)}
+  .ig-item-hood{color:var(--muted);font-weight:600}
+  .ig-item-rm{flex:none;border:none;background:none;color:var(--muted);font-size:.8rem;line-height:1;padding:2px 5px;cursor:pointer;border-radius:0}
+  .ig-item-rm:hover{color:var(--coral);background:rgba(181,73,44,.08)}
+  .ig-table .trip-table .titems{padding-top:0;padding-bottom:12px;white-space:normal}
+  .ig-table .trip-table .titems .ig-items{margin-top:0}
+
   /* ---------- Suggest next stop (Upcoming tab cards) ---------- */
   .ig-foot{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;padding:8px 0 10px}
   .ig-tips{display:inline-flex;align-items:center;gap:7px;font-size:.83rem;color:#82755b;cursor:pointer;user-select:none}
@@ -1341,7 +1355,7 @@
     }
     newRow.style.display = (type === "upcoming") ? "" : "none";
     groups.innerHTML = `<p class="empty" style="display:block">Loading your trips…</p>`;
-    let itins = [], places = [];
+    let itins = [], places = [], items = [];
     try{
       const sb = NRA_AUTH.client();
       // is_public powers the "Share" switch (roamers-setup.sql). If that SQL
@@ -1365,6 +1379,10 @@
         .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
       if (r2.error) throw r2.error;
       places = r2.data || [];
+      // saved landmarks / day trips / places (trip-items-setup.sql); without that SQL the trips still show
+      const r3 = await sb.from("trip_items").select("id,itinerary_id,city,kind,name,section,hood,note,map_url")
+        .order("sort_order", { ascending:true }).order("created_at", { ascending:true });
+      items = r3.error ? [] : (r3.data || []);
     }catch(e){
       groups.innerHTML = `<p class="empty" style="display:block">Couldn't load your trips — if you're the site owner, make sure named-itineraries-setup.sql has been run in Supabase.</p>`;
       return;
@@ -1375,6 +1393,23 @@
     }
     const byItin = {};
     places.forEach(p => { (byItin[p.itinerary_id] = byItin[p.itinerary_id] || []).push(p); });
+    const itemsByItin = {};
+    items.forEach(x => { (itemsByItin[x.itinerary_id] = itemsByItin[x.itinerary_id] || []).push(x); });
+    /* the saved items for one city stop; a city listed twice on a trip shows them under its first stop only */
+    const itemLabel = x => (window.NRA_TRIP_ITEM_LABEL ? NRA_TRIP_ITEM_LABEL(x) : x.kind);
+    const stopItemsHTML = (tripId, place, seen, editable) => {
+      const key = String(place||"").toLowerCase();
+      if (seen.has(key)) return "";
+      seen.add(key);
+      const list = (itemsByItin[tripId] || []).filter(x => String(x.city||"").toLowerCase() === key);
+      if (!list.length) return "";
+      return `<ul class="ig-items">` + list.map(x => {
+        const nm = x.map_url ? `<a href="${esc(x.map_url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : `<b>${esc(x.name)}</b>`;
+        const hood = x.kind === "place" && x.hood ? `<span class="ig-item-hood">· ${esc(x.hood)}</span>` : (x.kind === "daytrip" && x.section ? `<span class="ig-item-hood">· ${x.section === "half" ? "half day" : "full day"}</span>` : "");
+        const rm = editable ? `<button type="button" class="ig-item-rm" data-rmi="${esc(String(x.id))}" aria-label="Remove ${esc(x.name)} from this trip" title="Remove">✕</button>` : "";
+        return `<li><span class="ig-item-k ${esc(x.kind)}">${esc(itemLabel(x))}</span>${nm}${hood}${rm}</li>`;
+      }).join("") + `</ul>`;
+    };
     // a trip whose last stop (by order) has already passed lives on the Past tab instead
     const visibleItins = itins.filter(it => tripEnded(byItin[it.id] || []) === (type === "past"));
     if (!visibleItins.length){
@@ -1391,6 +1426,7 @@
       if (!cities.length){
         rows = `<p class="ig-empty">No cities yet — open any city guide and tap “Add to trip,” or search above.</p>`;
       } else {
+        const seenEdit = new Set();
         rows = cities.map((p, i) => {
           const g = guideOf(p.place);
           const where = esc(p.country || (g && g.country) || "");
@@ -1409,12 +1445,13 @@
               <span class="dates">
                 <label>Arrive <input type="text" class="date-field" data-pa value="${esc(p.arrive||"")}" placeholder="Pick a date"></label>
                 <label>Depart <input type="text" class="date-field" data-pd value="${esc(p.depart||"")}" placeholder="Pick a date"></label>
-              </span><span data-hol></span></span>
+              </span><span data-hol></span>${stopItemsHTML(it.id, p.place, seenEdit, true)}</span>
           </div>`;
         }).join("");
       }
       const cardView = tripCardView[it.id] || "table";
-      const tableHtml = buildTripTable(cities);
+      const seenTable = new Set();
+      const tableHtml = buildTripTable(cities, place => stopItemsHTML(it.id, place, seenTable, false));
       const calendarHtml = buildTripCalendar(cities);
       const badge = (type === "past") ? "Past Trip" : tripStatus(cities);
       const badgeClass = badge === "Current Trip" ? "is-current" : (badge === "Past Trip" ? "is-past" : "is-upcoming");
@@ -1600,7 +1637,7 @@
   }
 
   /* ---- read-only table for one trip card (reuses the Past-tab table styling) ---- */
-  function buildTripTable(cities){
+  function buildTripTable(cities, itemsFor){
     if (!cities.length){
       return `<p class="table-empty">Nothing to show yet — switch to “Edit” to add stops.</p>`;
     }
@@ -1618,6 +1655,8 @@
         <td class="tnights">${esc(nights(p.arrive, p.depart))}</td>
       </tr>
       <tr class="trow-dates"><td class="tdates" colspan="4">${esc(dateRange(p.arrive, p.depart))}</td></tr>`;
+      const ih = itemsFor ? itemsFor(p.place) : "";
+      if (ih) rows += `<tr class="trow-items"><td class="titems" colspan="4">${ih}</td></tr>`;
     });
     return `<table class="trip-table">
       <thead><tr><th class="tnum">#</th><th class="tcity">City</th><th class="tcountry">Country</th><th class="tnights">Nights</th></tr></thead>
@@ -2126,6 +2165,14 @@
       btn.addEventListener("click", async () => {
         btn.disabled = true;
         try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("itinerary_places").delete().eq("id", btn.dataset.rmp); if (error) throw error; renderItineraries(); }
+        catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
+      });
+    });
+    /* remove a saved landmark / day trip / place from a trip */
+    groups.querySelectorAll("[data-rmi]").forEach(btn => {
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        try{ const sb = NRA_AUTH.client(); const { error } = await sb.from("trip_items").delete().eq("id", btn.dataset.rmi); if (error) throw error; renderItineraries(); }
         catch(e){ btn.disabled = false; status("Couldn't remove that — try again.", "err"); }
       });
     });
