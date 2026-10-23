@@ -3500,7 +3500,8 @@ window.NRA_HOOD_PHOTO = {
   "Ouarzazate": {
     "Tabounte": { img:"images/hoods/ouarzazate--tabounte.webp", page:"https://commons.wikimedia.org/wiki/File:Lava_Flow_on_Precambrian_Ignimbrite_near_Tabounte_in_Morocco.jpg", src:"Ronny (https://www.geodiversite.net/auteur137)" },
     "Sidi Daoud": { img:"images/hoods/ouarzazate--sidi-daoud.webp", page:"https://commons.wikimedia.org/wiki/File:..%D8%B3%D9%88%D9%82_%D8%A7%D9%84%D9%85%D8%B5%D9%86%D9%88%D8%B9%D8%A7%D8%AA_%D8%A7%D9%84%D8%AA%D9%82%D9%84%D9%8A%D8%AF%D9%8A%D8%A9_%D8%A8%D9%88%D8%B1%D8%B2%D8%A7%D8%B2%D8%A7%D8%AA_souk_artisanal.jpg", src:"Dortiti عبد الله فكري" },
-    "Taourirt": { img:"images/hoods/ouarzazate--taourirt.webp", page:"https://commons.wikimedia.org/wiki/File:Kasba_of_Taourirt.jpg", src:"Abdeaitali" }
+    "Taourirt": { img:"images/hoods/ouarzazate--taourirt.webp", page:"https://commons.wikimedia.org/wiki/File:Kasba_of_Taourirt.jpg", src:"Abdeaitali" },
+    "Centre-ville (Avenue Mohammed V)": { img:"images/hoods/ouarzazate--centre-ville-avenue-mohammed-v.webp", page:"https://www.flickr.com/photos/84554176@N00/15682663448", src:"Giåm" }
   },
   "Oxford": {
     "Jericho": { img:"images/hoods/oxford--jericho.webp", page:"https://commons.wikimedia.org/wiki/File:Combe_Road,_Jericho,_Oxford-geograph-3606658-by-David-Hallam-Jones.jpg", src:"David Hallam-Jones" },

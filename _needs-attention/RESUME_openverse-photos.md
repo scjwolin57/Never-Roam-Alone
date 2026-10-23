@@ -39,3 +39,13 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
   with a watermark, the other the Church of Santa Maria Assunta above the museum, which already has its photo),
   Arienzo Beach (both show Spiaggia Grande and the town, not the Arienzo cove; one with people in front).
   No photo or data commit. Running total: 450 of 846 gaps have a result file; 396 left, including the skipped ones.
+- Day 5 (2026-10-23, scheduled run): Openverse slow for the first hour (about half the calls timed out), then
+  normal. 190 calls: 134 gaps searched and saved, 56 skipped (55 timeouts at 40 s, 1 HTTP 500 on Bangui #8), to
+  retry next run. The 134 returned 256 hits; 129 were big enough to check; 3 gaps had a geotagged hit within range
+  (`work/c7_cands.json`, sheet `work/c7_sheet.jpg`, 5 candidates). Applied 1: Ouarzazate Centre-ville (Avenue
+  Mohammed V), a street scene by Giåm on Flickr (CC BY-SA 2.0), geotag 0.78 km from the hood point and the
+  photographer's caption "Ouarzazate. Dans les rues du centre-ville."; the minaret close-up from the same set was
+  passed over as less representative. Rejected 2 gaps by eye: N'Djamena Moursal (a consulate gate with a Canadian
+  flag and plaque, not the neighborhood), Saskatoon Western Development Museum (two gingerbread-house displays
+  inside the museum, portrait, one with a person; wrong subject, so not a portrait-review case). Running total:
+  584 of 846 gaps have a result file; 262 left, including the skipped ones.
