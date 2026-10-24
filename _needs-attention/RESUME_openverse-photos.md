@@ -49,3 +49,18 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
   flag and plaque, not the neighborhood), Saskatoon Western Development Museum (two gingerbread-house displays
   inside the museum, portrait, one with a person; wrong subject, so not a portrait-review case). Running total:
   584 of 846 gaps have a result file; 262 left, including the skipped ones.
+- Day 6 (2026-10-24, scheduled run): Openverse normal all day. 190 calls: 189 gaps searched and saved, 1 skipped
+  (Honiara hood #2 timed out at 40 s), to retry next run. The 189 returned 588 hits; 306 were
+  big enough to check; 9 gaps had a geotagged hit within range (`work/c8_cands.json`, sheet `work/c8_sheet.jpg`,
+  11 candidates). Applied 1: Moroni Volo Volo, the Volo Volo market street by D-Stanley on Flickr (CC BY 2.0),
+  geotag 0.34 km from the hood point, the sign in frame reads "Marché de Volovolo"; a crowd scene, no one person
+  filling the frame. Rejected 7 gaps by eye: Barranquilla Alto Prado (a 1024 × 275 skyline panorama, 206 px wide
+  after the 3:4 hood crop), Khartoum Al Mogran (the confluence waters from the bank; after the centre crop it is
+  brown river and a far tree line, none of the quarter's buildings), Kigali City Centre (the Genocide Memorial
+  garden, which is in Gisozi, not the CBD; the geotag sits on the city centre), Lalibela Asheton Maryam Monastery
+  (a monk reading, close-up, square), Nablus Old City (three produce and spice close-ups, no street), Nouméa
+  Quartier Latin (a locked shop grille, portrait), Parma San Leonardo (a "Parma" station sign close-up). Portrait
+  review list: Visby St. Nicolai Church Ruin, the right ruin lit blue at night, 754 × 1024
+  (https://www.flickr.com/photos/63457884@N04/5911324637, Bochum1805, CC BY-SA 2.0); not applied, landmark slots
+  are landscape. Running total: 773 of 846 gaps have a result file; 73 left, including the skipped one. One more
+  run should finish the list.

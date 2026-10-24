@@ -3237,7 +3237,8 @@ window.NRA_HOOD_PHOTO = {
   "Moroni": {
     "Medina (Old Town)": { img:"images/hoods/moroni--medina-old-town.webp", page:"https://commons.wikimedia.org/wiki/File:Flickr_-_Woodlouse_-_Old_Friday_Mosque_and_harbour,_Moroni.jpg", src:"Woodlouse from Brighton, UK" },
     "Itsandra": { img:"images/hoods/moroni--itsandra.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_beach.jpg", src:"Radosław Botev" },
-    "Badjanani / Corniche": { img:"images/hoods/moroni--badjanani-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_market_scene_1.jpg", src:"Radosław Botev" }
+    "Badjanani / Corniche": { img:"images/hoods/moroni--badjanani-corniche.webp", page:"https://commons.wikimedia.org/wiki/File:Moroni_market_scene_1.jpg", src:"Radosław Botev" },
+    "Volo Volo": { img:"images/hoods/moroni--volo-volo.webp", page:"https://www.flickr.com/photos/79721788@N00/10912886835", src:"D-Stanley" }
   },
   "Mostar": {
     "Old Town (Stari Grad)": { img:"images/hoods/mostar--old-town-stari-grad.webp", page:"https://commons.wikimedia.org/wiki/File:Stjepangrad_(01).jpg", src:"Ma▀▄Ga" },
