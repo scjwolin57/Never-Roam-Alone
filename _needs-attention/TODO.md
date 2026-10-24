@@ -99,7 +99,7 @@ never deleted; new items for you are added under the right heading. Details live
 - **19.** "How far can $2,000 take me?" shareable graphic (M)
 - ~~**22 / 30.** Accessibility & SEO pass: alt-text audit (a session is working on it now)~~ done 2026-10-10: alt-text audit finished (sitemap and structured data were done 2026-09-18).
 - **23.** Remaining neighborhood photos; re-run the Pexels/Pixabay search every few months; story-card and blog placeholders
-- **27.** Page-speed pass: defer city.html's heavy scripts (about 1.45 MB) *2026-10-24: 5 data files (~295 KB) moved off the blocking path; city-photos.js (~127 KB) and the ~263 KB main script still block.*
+- **27.** Page-speed pass: defer city.html's heavy scripts (about 1.45 MB) *2026-10-24: 5 data files (~295 KB) moved off the blocking path; city-photos.js (~127 KB) and the ~263 KB main script still block.* *Later the same day: the main script is now its own cached file, `city-main.js`; city.html 412 KB to 150 KB. Left: city-photos.js, then a PageSpeed test once pushed.*
 - ~~**28.** Bing Webmaster Tools (see A6)~~ done 2026-10-09 (see A6)
 - **29.** Analytics: Plausible signup (see A3)
 - **32.** Backlinks (ongoing)
