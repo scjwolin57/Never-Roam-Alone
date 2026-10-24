@@ -1438,7 +1438,13 @@
    them (NRA_DATA_READY) before drawing the guide, exactly as before: every
    section still has its data when it is drawn. A file that fails to load
    resolves anyway, so it can never hold the guide back. */
-window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"].map(function (src) {
+/* 2026-10-24 (backlog 27): five more data files moved here from plain <script>
+   tags (app-store links ~16 KB, eSIM providers ~25 KB, rental notes ~23 KB,
+   driving permits ~74 KB, advisories ~157 KB). Nothing reads them before the
+   guide is drawn, and the draw waits for this list, so they behave as before. */
+window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js",
+  "app-store-links.js", "esim-providers.js", "rental-notes.js",
+  "driving-permits.js", "advisories.js"].map(function (src) {
   return new Promise(function (resolve) {
     var s = document.createElement("script");
     s.src = src; s.async = true;
@@ -1469,22 +1475,11 @@ window.NRA_DATA_READY = ["hood-photos.js", "city-phrases.js", "city-holidays.js"
   } catch (e) { /* purely an optimization — never break the page */ }
 })();
 </script>
-<!-- hood-photos.js, city-phrases.js and city-holidays.js load in the
-     background: see NRA_DATA_READY above. -->
-<!-- App Store / Play Store links for ride-hailing and bike-share apps (~12 KB).
-     Provides window.nraAppLink(name, country). -->
-<script src="app-store-links.js"></script>
-<!-- Travel-eSIM coverage + verified deep links, keyed by country (~25 KB).
-     Provides window.NRA_ESIM / _HOSTS / _AFF / _PROVIDERS for the
-     "Travel eSIMs" modal behind the Connectivity banner's Buy an eSIM button. -->
-<script src="esim-providers.js"></script>
-<script src="rental-notes.js"></script>
+<!-- hood-photos.js, city-phrases.js, city-holidays.js, app-store-links.js
+     (window.nraAppLink), esim-providers.js (window.NRA_ESIM / _HOSTS / _AFF /
+     _PROVIDERS), rental-notes.js, driving-permits.js and advisories.js (US, UK,
+     Canada; decisions.md 2026-09-22) load in the background: see NRA_DATA_READY above. -->
 <script src="country-fold.js"></script>
-<script src="driving-permits.js"></script>
-<!-- Travel advisories by country from the three governments the site tracks
-     (US, UK, Canada; decisions.md 2026-09-22). Country level; a city whose region
-     is rated differently carries its own override in citydata. ~118 KB. -->
-<script src="advisories.js"></script>
 <!-- Approved visitor photos overlay the static ones. Loaded here, ahead of
      the render script below, so its fetch runs alongside the city data
      instead of after it. nra-config.js moves up with it for the keys. -->
