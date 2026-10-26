@@ -340,6 +340,9 @@ citydata, and fails on any mismatch. Run it in the add-city verify phase.
   in the same style, never as a per-page override that fights it.
 - **Square corners** everywhere. Maximum `border-radius: 3px`. This has been
   requested at least four separate times; treat any rounded element as a bug.
+  The ONLY exception (Jeff, decisions.md 2026-10-22): the header profile icon
+  (login icon and signed-in initials) is round, to match the round logo. No other
+  element may be rounded; do not cite this exception to round anything else.
 - Brand colours only: green `#5c6933`, rust `#b5492c`, parchment/sand, ink.
   Legacy `#3f5138`, `#a8482a`, `#2c3a27` and gradients are gone; do not reintroduce.
 - Fonts: Work Sans for UI, Fraunces italic for editorial headings. Self-hosted.
