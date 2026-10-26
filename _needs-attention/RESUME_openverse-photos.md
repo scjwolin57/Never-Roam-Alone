@@ -64,3 +64,21 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
   (https://www.flickr.com/photos/63457884@N04/5911324637, Bochum1805, CC BY-SA 2.0); not applied, landmark slots
   are landscape. Running total: 773 of 846 gaps have a result file; 73 left, including the skipped one. One more
   run should finish the list.
+- Day 7 (2026-10-25, scheduled run): Openverse normal all day. 73 calls (all that was left): 73 gaps searched and
+  saved, 0 skipped. The 73 returned 129 hits; 70 were big enough to check; 18 carried a geotag, 0 within range
+  (`work/c9_cands.json` is empty, no contact sheet). Applied 0, rejected 0 by eye. Two near-misses checked by hand
+  and left out: Weno Eten Island (8 Flickr shots by mattk1979, CC BY-SA, titled Eten Island, all batch-geotagged on
+  one spot 6.0 km south of the pin; the pin agrees with the island's published position, so the pin stands and the
+  photos' location is unproven), Saint Martin's Island Coral Beach (East Beach) (two CC0 shots 1.9 km south, titled
+  and geotagged at Chera Dwip, the southern islet, a different place). Running total: 846 of 846 gaps have a result
+  file, 0 left.
+
+## Finished 2026-10-25
+Every gap in `missing-photos-2026-10-19.csv` has been searched on Openverse once, with every skipped gap retried:
+846 of 846 result files in `work/res/`. Totals for the pass: 846 gaps searched over 7 days; 24 gaps had a geotagged
+hit within range; 5 applied (Bishkek, Chamonix, Malacca on day 1; Ouarzazate Centre-ville on day 5; Moroni Volo Volo
+on day 6); 18 rejected by eye (wrong place, wrong subject, people, watermark, sign or object close-ups, too narrow);
+1 on the portrait review list (Visby St. Nicolai Church Ruin, above). Yield: 1 photo per 169 gaps. 841 gaps remain
+on the stand-in; they go back to TODO G8 (a free source or Jeff's own photos in `uploads/`). The daily scheduled task
+`nra-openverse-photos-daily` has nothing left to do and can be deleted. Leads for Jeff, if he wants to judge them
+by eye without a geotag: the Eten Island set above (https://www.flickr.com/photos/24879135@N04/4019275313).
