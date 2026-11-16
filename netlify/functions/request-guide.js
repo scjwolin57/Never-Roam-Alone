@@ -63,7 +63,7 @@ exports.handler = async (event) => {
         subject: `${tripType === "search" ? "Destination request" : "City guide request"}: ${place}`,
         html: `
           <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;padding:24px;color:#1d2a32">
-            <h2 style="color:#185e3f;margin:0 0 6px">New city guide request</h2>
+            <h2 style="color:#185e3f;margin:0 0 6px">${tripType === "search" ? "New destination request" : "New city guide request"}</h2>
             <div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:14px 0 20px">
               <p style="margin:0 0 4px;font-size:18px;font-weight:bold">${escapeHtml(place)}${country ? ", " + escapeHtml(country) : ""}</p>
               <p style="margin:0;color:#3a4a52">Requested by: ${who}</p>

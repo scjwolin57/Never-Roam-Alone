@@ -1832,7 +1832,7 @@ map.on("load", () => {
     }
     var s = document.createElement("script"); s.src = "search-index.js"; s.onload = done; s.onerror = done; document.head.appendChild(s);
   }
-  var hits = [], on = -1, q = "", raw = "";
+  var hits = [], on = -1, q = "", raw = "", guess = false;
   var KEY = "nra_search_requests";
   function sent(){ try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch(e){ return []; } }
   function close(){ list.hidden = true; inp.setAttribute("aria-expanded","false"); on = -1; }
@@ -1853,10 +1853,53 @@ map.on("load", () => {
     hits = c.concat(k, inCountry).slice(0, 8);
     if (q.length >= 3) hits = hits.concat(pick(places, 8 - hits.length));
     on = hits.length ? 0 : -1;
+    guess = false;
+    if (!hits.length && q.length >= 4){ hits = near(); guess = hits.length > 0; }
     draw();
+  }
+  /* ---- typo help: nothing matched, so offer the closest names ---- */
+  /* edit distance (a swapped pair counts as one), given up early past max */
+  function dist(a, b, max){
+    var la = a.length, lb = b.length;
+    if (Math.abs(la - lb) > max) return max + 1;
+    var p2 = null, p1 = [], cur, i, j, low;
+    for (j = 0; j <= lb; j++) p1[j] = j;
+    for (i = 1; i <= la; i++){
+      cur = [i]; low = i;
+      for (j = 1; j <= lb; j++){
+        var cost = a.charAt(i-1) === b.charAt(j-1) ? 0 : 1;
+        var v = Math.min(p1[j] + 1, cur[j-1] + 1, p1[j-1] + cost);
+        if (p2 && i > 1 && j > 1 && a.charAt(i-1) === b.charAt(j-2) && a.charAt(i-2) === b.charAt(j-1)) v = Math.min(v, p2[j-2] + 1);
+        cur[j] = v; if (v < low) low = v;
+      }
+      if (low > max) return max + 1;
+      p2 = p1; p1 = cur;
+    }
+    return p1[lb];
+  }
+  function near(){
+    var max = q.length >= 7 ? 2 : 1, out = [];
+    [cities, countries, places].forEach(function(pool, rank){
+      for (var i = 0; i < pool.length; i++){
+        var n = pool[i].n, d = dist(q, n, max);
+        /* a half-typed name, or one word of a longer name, ranks just behind a whole-name match */
+        if (d > max && n.length > q.length) d = dist(q, n.slice(0, q.length), max) + .5;
+        if (d > max + .5 && n.indexOf(" ") !== -1){
+          var w = n.split(" ");
+          /* one word alone is a weak match: it must also start with the same letter */
+          for (var j = 0; j < w.length; j++) if (w[j].length >= 4 && w[j].charAt(0) === q.charAt(0)){ var dw = dist(q, w[j], max) + .5; if (dw < d) d = dw; }
+        }
+        if (d <= max + .5) out.push({h:pool[i], d:d + rank / 10 + (n.charAt(0) === q.charAt(0) ? 0 : .25)});
+      }
+    });
+    out.sort(function(a, b){ return a.d - b.d; });
+    return out.slice(0, 3).map(function(x){ return x.h; });
   }
   function draw(){
     list.textContent = "";
+    if (guess){
+      var g = document.createElement("li"); g.className = "none"; g.textContent = "Did you mean:"; list.appendChild(g);
+    }
     hits.forEach(function(h,i){
       var li = document.createElement("li"), b = document.createElement("b"), s = document.createElement("span");
       li.setAttribute("role","option"); if (i === on) li.className = "on";
