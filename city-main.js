@@ -62,6 +62,7 @@ let CITY_CARHIRE = {};   // DiscoverCars page for the city or its airport: {u,k,
 let CITY_DRIVER = {};    // Kiwitaxi car-with-a-driver hub page: {u,k,n} (CITY_SCHEMA.md "driver"; site-only)
 let CITY_TRIPCAR = {};   // Trip.com car hire page for the city, a station in it, or its airport: {u,k,n} (CITY_SCHEMA.md "tripcar"; site-only)
 let CITY_KLOOKCAR = {};  // Klook car charter page (car with a driver), mainland China: {u,k} (CITY_SCHEMA.md "klookcar"; site-only)
+let CITY_TRANSFER = {};  // Klook airport transfer page per airport, keyed by airport name: {"<name>": "<page>"} (CITY_SCHEMA.md "transfer"; site-only)
 let CITY_NEARBY = {};    // other guides within day-trip range: [{city,tier,mins,country,blurb}] (CITY_SCHEMA.md "nearby"; built by _guidebuild/daytrips/build_nearby.py)
 let CITY_GYMS = {};      // researched gyms with day/multi-day/week passes (see CITY_SCHEMA.md "gyms"); undefined = not researched yet, [] = researched, none found
 /* info bubbles: a tap on the icon toggles it (inline onclick); a tap anywhere
@@ -870,7 +871,7 @@ async function loadCityData(){
   fill(CITY_LAUNDRY, rec.laundry);      fill(CITY_HOOD_GEO, rec.hood_geo);
   fill(CITY_NEARBY, rec.nearby);       fill(CITY_CARHIRE, rec.carhire);
   fill(CITY_DRIVER, rec.driver);       fill(CITY_TRIPCAR, rec.tripcar);
-  fill(CITY_KLOOKCAR, rec.klookcar);
+  fill(CITY_KLOOKCAR, rec.klookcar);   fill(CITY_TRANSFER, rec.transfer);
   fill(CITY_GYMS, rec.gyms);         fill(CITY_LAUNDROMATS, rec.laundromats);
   fill(CITY_TAXI, rec.taxi);           fill(CITY_EMERGENCY, rec.emergency);
   fill(CITY_RELIGION, rec.religion);   fill(CITY_ENGLISH, rec.english);
@@ -3289,6 +3290,14 @@ function buildAdvisoryBanner(c, cityAdv){
       return u ? `<a class="ride-chip" href="${u}" target="_blank" rel="noopener" title="Get the ${r} app">${r}</a>` : "";
     }).join("");
     const rideRow = rideText + (appChips ? `<div class="rides-list air-apps">${appChips}</div>` : "");
+    /* Klook affiliate: that airport's transfer page, only where Klook lists fares from it (CITY_SCHEMA.md "transfer";
+       decisions.md 2026-11-16); never for a closed airport */
+    const tr = !a.closed && KLOOK_AID && (CITY_TRANSFER[c.city] || {})[a.name];
+    const trLink = tr ? `<a class="dtcard-tours air-book" href="https://www.klook.com/en-US/airport-transfers/service/${tr}/?aid=${KLOOK_AID}" target="_blank" rel="noopener sponsored">
+            <span class="dtcard-tours-k">Book a transfer from ${airportCode(a)} &rarr;</span>
+            <span class="dtcard-tours-v">on Klook</span>
+          </a>` : "";
+    const carSvc = (a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)}`) + trLink;
     const transit = (a.transit || []).map(t => `<li>${t.m}${t.c == null ? "" : ` — <b>${t.c === 0 ? "free" : fmtPrice(t.c, code)}</b>`}</li>`).join("");
     const carRental = [a.drive ? `Drive ~${a.drive}` : "",
                        (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
@@ -3303,12 +3312,13 @@ function buildAdvisoryBanner(c, cityAdv){
       <h4 class="air-sub">Getting to the city center</h4>
       <dl class="air-rows">
         ${row("Car rental", carRental)}
-        ${row("Car service", a.carService == null ? "" : `avg ${fmtPrice(a.carService, code)}`)}
+        ${row("Car service", carSvc)}
         ${row("Taxi", a.taxi == null ? "" : `avg ${fmtPrice(a.taxi, code)}${est}${taxiMeta}`)}
         ${row("Ride-hailing", rideRow)}
         ${row("Public transit", transit ? `<ul class="air-transit">${transit}</ul>` : "")}
       </dl>
-      ${a.note ? `<p class="note-text">${a.note}</p>` : ""}`;
+      ${a.note ? `<p class="note-text">${a.note}</p>` : ""}
+      ${trLink ? `<p class="dtcard-foot">The transfer link opens Klook. It is an affiliate link: it costs you nothing extra and helps keep Never Roam Alone free.</p>` : ""}`;
   }
   /* "2026-11-16" -> "November 2026" */
   function airMonth(d) {
