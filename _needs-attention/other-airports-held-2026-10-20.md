@@ -1,5 +1,9 @@
 # Other airports: held items and removals for Jeff (2026-10-20)
 
+**Settled 2026-11-16** (Jeff: remove any with no commercial flights). Re-checked: 19 removed from their guides, 2 kept (Nouméa Magenta GEA, Paris-Vatry XCR). Evidence per airport in `_guidebuild/airports/work/held_recheck_2026-11-16.json`. Kyiv's Boryspil now carries a closure note.
+
+Still open: three main airports are open but have no scheduled flights (Bamyan, Agadez, Saidu Sharif for Mingora); they have no note. Say if you want a "no scheduled flights" note on them.
+
 The research pass over all 198 guides is done (`RESUME_other-airports.md`). These airports were **held**: the evidence that
 they have no scheduled flights was too weak or the closure is temporary, so nothing was changed. Each still shows in the
 popup's foot line exactly as before. Say "remove <name>" for any you want taken out of the guide, or "keep" to leave it.

@@ -1749,7 +1749,9 @@ function buildAdvisoryBanner(c, cityAdv){
           </div>
           ${note ? `<span class="tcard-more">More info &rarr;</span>` : bookLinksHTML()}
         </div>`;
-    return listCard(TRANSPORT_ICONS.air, "Major airports", t.air, "—")
+    /* a closed airport carries a "closed" tag on the card too (decisions.md 2026-11-16) */
+    const airItems = (t.air || []).map(x => closedAirportFor(x) ? `${x} <span class="air-closed-tag">closed</span>` : x);
+    return listCard(TRANSPORT_ICONS.air, "Major airports", airItems, "—")
          + listCard(TRANSPORT_ICONS.train, "Major train stations", t.train, "No intercity rail")
          + listCard(TRANSPORT_ICONS.bus, "Major bus stations", t.bus, "—")
          + listCard(TRANSPORT_ICONS.ferry, "Ferry / boat ports", t.ferry, "No passenger ferry ports")
@@ -3291,8 +3293,12 @@ function buildAdvisoryBanner(c, cityAdv){
     const carRental = [a.drive ? `Drive ~${a.drive}` : "",
                        (a.rentals && a.rentals.length) ? `on-site counters: ${a.rentals.join(", ")}` : ""]
                       .filter(Boolean).join(" &middot; ");
+    /* a closed airport says so first (Airport Closures tab, decisions.md 2026-11-16) */
+    const closedNote = a.closed ? String(a.closed.note).replace(/^([^.]*\.)/, "<b>$1</b>") : "";   // the first sentence in bold
+    const closed = a.closed ? `<p class="air-closed">${closedNote}${a.closed.alt ? ` ${a.closed.alt}` : ""}${a.closed.checked ? ` <span class="air-closed-k">Checked ${airMonth(a.closed.checked)}</span>` : ""}</p>` : "";
     return `
       <p class="air-name">${a.name}</p>
+      ${closed}
       ${a.km == null ? "" : `<div class="air-dist"><span class="air-dist-v">${a.km} km / ${mi} mi</span><span class="air-dist-k">to city center</span></div>`}
       <h4 class="air-sub">Getting to the city center</h4>
       <dl class="air-rows">
@@ -3303,6 +3309,17 @@ function buildAdvisoryBanner(c, cityAdv){
         ${row("Public transit", transit ? `<ul class="air-transit">${transit}</ul>` : "")}
       </dl>
       ${a.note ? `<p class="note-text">${a.note}</p>` : ""}`;
+  }
+  /* "2026-11-16" -> "November 2026" */
+  function airMonth(d) {
+    const m = /^(\d{4})-(\d{2})/.exec(d || "");
+    return m ? new Date(+m[1], +m[2] - 1, 1).toLocaleString("en-US", { month: "long", year: "numeric" }) : d;
+  }
+  /* the closed airport (main or other) a transport.air line names, matched by code or exact name */
+  function closedAirportFor(line) {
+    const all = [CITY_AIRPORT[c.city]].concat(CITY_AIRPORTS2[c.city] || []).filter(x => x && x.closed);
+    const codes = String(line).match(/\b[A-Z]{3}\b/g) || [];
+    return all.find(x => x.name === line || (codes.length && codes.includes(airportCode(x))));
   }
   /* the IATA code for a chip: the `code` field, else the three capitals in brackets in the name */
   function airportCode(a) {
@@ -3323,7 +3340,7 @@ function buildAdvisoryBanner(c, cityAdv){
     if (all.length === 1) return airportBlock(a, code)
       + (others.length ? `<p class="air-foot">Figures shown for ${a.name}. Other airports: ${others.join(", ")}.</p>` : "");
     const foot = others.length ? `<p class="air-foot">Also nearby: ${others.join(", ")}.</p>` : "";
-    const tabs = all.map((b, i) => `<button type="button" class="air-tab" role="tab" aria-selected="${i === 0}" onclick="airTab(this, ${i})">${airportCode(b)}</button>`).join("");
+    const tabs = all.map((b, i) => `<button type="button" class="air-tab" role="tab" aria-selected="${i === 0}" onclick="airTab(this, ${i})">${airportCode(b)}${b.closed ? ` <span class="air-tab-x">closed</span>` : ""}</button>`).join("");
     const panes = all.map((b, i) => `<div class="air-pane" role="tabpanel"${i ? " hidden" : ""}>${airportBlock(b, code)}</div>`).join("");
     return `<div class="air-tabs" role="tablist" aria-label="Airports">${tabs}</div>${panes}${foot}`;
   }

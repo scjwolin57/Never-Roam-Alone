@@ -131,3 +131,13 @@ do not overwrite each other.
 2. **Layout A (switcher chips) or B (stacked)?**
 3. **200 km limit** right, or a different reach?
 4. **Show "est." on taxi estimates**, including the 5 main airports that already have one?
+
+## Amendment 2026-11-16 (Jeff: "put a note for any airports that are currently closed, for the held airports, if no commercial flights are being operated there remove them")
+
+- **Held airports:** re-checked; no commercial passenger flights now (closed, suspended route, charter only) = removed
+  from `transport.air`. 19 removed, 2 kept with full blocks (Nouméa Magenta GEA, Paris-Vatry XCR for Reims). The `hold`
+  verdict is retired.
+- **Closed airports:** any airport a guide shows (main or other) that is closed to commercial passenger flights now gets
+  `closed: {note, since, alt?, checked}`, from the new "Airport Closures" sheet tab. The popup shows a rust note under
+  the airport name; the Major airports card and the chip carry a "closed" tag. First pass: the 89 guides in war or
+  unrest countries; 7 closed (Kyiv, Lviv, Odesa, Sana'a, Goma, Axum, Timbuktu).
