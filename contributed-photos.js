@@ -84,17 +84,17 @@ window.NRA_CONTRIBUTED = (function(){
     return u;
   }
 
-  /* Where the credit links to. A contributor who asked for a profile credit
-     gets their profile; one who gave a link to their work gets that. Anyone
+  /* Where the credit links to. A profile credit always links to the member's
+     profile page; a typed-name credit links to the website they gave. Anyone
      else gets the page explaining what a contributed photo is, because the
      credit line is a link everywhere it appears — without a target the
      existing renderers would show no credit at all. */
   function creditLink(row){
     if (row.credit_mode === "none") return "";
-    var work = safeUrl(row.work_url);
-    if (work) return work;
-    if (row.credit_profile_id && /^[0-9a-f-]{36}$/i.test(String(row.credit_profile_id)))
+    if (row.credit_mode === "profile" && row.credit_profile_id && /^[0-9a-f-]{36}$/i.test(String(row.credit_profile_id)))
       return "roamer.html?id=" + encodeURIComponent(row.credit_profile_id);
+    var work = row.credit_mode === "name" ? safeUrl(row.work_url) : "";
+    if (work) return work;
     return "terms.html#photos";
   }
   function creditName(row){

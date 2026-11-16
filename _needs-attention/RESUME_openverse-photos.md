@@ -17,3 +17,68 @@ Jeff, 2026-10-19: "try openverse first". Gaps: `missing-photos-2026-10-19.csv` (
 - Day 1 (2026-10-19): 173 of 846 searched (21 skipped on timeouts, to retry). 7 gaps had a geotagged hit;
   3 applied (Bishkek, Chamonix, Malacca; 6abbe77a), 4 rejected by eye.
 - Yield so far: about 1 photo per 58 gaps searched. The full list would give roughly 15 photos over 4 more days.
+- Day 2 (2026-10-20, scheduled run): Openverse was very slow all day. 190 calls: 38 gaps searched and saved,
+  152 skipped (150 timeouts at 40 s, 2 HTTP 500), all to retry next run. The 38 returned 66 hits; 29 were big
+  enough to check, 0 had a Flickr or Commons geotag (Flickr pages loaded in full; the geotag reader was
+  re-tested on a known geotagged Addis Ababa photo and still works). Applied 0, rejected 0. No commit of
+  photos or data. Running total: 211 of 846 gaps have a result file; 635 left, including the skipped ones.
+- Gotcha: in zsh, pass a key list to geo.py as `${=K}`, not `$K` (zsh does not split words), or geo.py
+  silently matches nothing.
+- Day 3 (2026-10-21, scheduled run): Openverse still slow (a one-word test query took 33 s against the 40 s
+  timeout). 190 calls: 111 gaps searched and saved, 79 skipped (76 timeouts, 3 HTTP errors), to retry next run.
+  The 111 returned 212 hits; 107 were big enough to check; 3 gaps had a geotagged hit within range
+  (`work/c5_cands.json`, sheet `work/c5_sheet.jpg`, 8 candidates). Applied 0. Rejected 3 gaps by eye:
+  Bariloche Playa Bonita (portrait, dark path, does not show the area), Ensenada Centro (indoor mural, not the
+  downtown or malecón), Knysna Leisure Isle (a person filling the frame, a breakfast plate, a map sign, birds,
+  a jellyfish). No photo or data commit. Running total: 322 of 846 gaps have a result file; 524 left,
+  including the skipped ones.
+- Day 4 (2026-10-22, scheduled run): Openverse slow for the first 40 minutes, then normal. 190 calls: 128 gaps
+  searched and saved, 62 skipped (all timeouts at 40 s), to retry next run. The 128 returned 212 hits; 180 were big
+  enough to check; 2 gaps had a geotagged hit within range (`work/c6_cands.json`, sheet `work/c6_sheet.jpg`,
+  4 candidates, both in Positano). Applied 0. Rejected both gaps by eye: MAR Positano (one a portrait window view
+  with a watermark, the other the Church of Santa Maria Assunta above the museum, which already has its photo),
+  Arienzo Beach (both show Spiaggia Grande and the town, not the Arienzo cove; one with people in front).
+  No photo or data commit. Running total: 450 of 846 gaps have a result file; 396 left, including the skipped ones.
+- Day 5 (2026-10-23, scheduled run): Openverse slow for the first hour (about half the calls timed out), then
+  normal. 190 calls: 134 gaps searched and saved, 56 skipped (55 timeouts at 40 s, 1 HTTP 500 on Bangui #8), to
+  retry next run. The 134 returned 256 hits; 129 were big enough to check; 3 gaps had a geotagged hit within range
+  (`work/c7_cands.json`, sheet `work/c7_sheet.jpg`, 5 candidates). Applied 1: Ouarzazate Centre-ville (Avenue
+  Mohammed V), a street scene by Giåm on Flickr (CC BY-SA 2.0), geotag 0.78 km from the hood point and the
+  photographer's caption "Ouarzazate. Dans les rues du centre-ville."; the minaret close-up from the same set was
+  passed over as less representative. Rejected 2 gaps by eye: N'Djamena Moursal (a consulate gate with a Canadian
+  flag and plaque, not the neighborhood), Saskatoon Western Development Museum (two gingerbread-house displays
+  inside the museum, portrait, one with a person; wrong subject, so not a portrait-review case). Running total:
+  584 of 846 gaps have a result file; 262 left, including the skipped ones.
+- Day 6 (2026-10-24, scheduled run): Openverse normal all day. 190 calls: 189 gaps searched and saved, 1 skipped
+  (Honiara hood #2 timed out at 40 s), to retry next run. The 189 returned 588 hits; 306 were
+  big enough to check; 9 gaps had a geotagged hit within range (`work/c8_cands.json`, sheet `work/c8_sheet.jpg`,
+  11 candidates). Applied 1: Moroni Volo Volo, the Volo Volo market street by D-Stanley on Flickr (CC BY 2.0),
+  geotag 0.34 km from the hood point, the sign in frame reads "Marché de Volovolo"; a crowd scene, no one person
+  filling the frame. Rejected 7 gaps by eye: Barranquilla Alto Prado (a 1024 × 275 skyline panorama, 206 px wide
+  after the 3:4 hood crop), Khartoum Al Mogran (the confluence waters from the bank; after the centre crop it is
+  brown river and a far tree line, none of the quarter's buildings), Kigali City Centre (the Genocide Memorial
+  garden, which is in Gisozi, not the CBD; the geotag sits on the city centre), Lalibela Asheton Maryam Monastery
+  (a monk reading, close-up, square), Nablus Old City (three produce and spice close-ups, no street), Nouméa
+  Quartier Latin (a locked shop grille, portrait), Parma San Leonardo (a "Parma" station sign close-up). Portrait
+  review list: Visby St. Nicolai Church Ruin, the right ruin lit blue at night, 754 × 1024
+  (https://www.flickr.com/photos/63457884@N04/5911324637, Bochum1805, CC BY-SA 2.0); not applied, landmark slots
+  are landscape. Running total: 773 of 846 gaps have a result file; 73 left, including the skipped one. One more
+  run should finish the list.
+- Day 7 (2026-10-25, scheduled run): Openverse normal all day. 73 calls (all that was left): 73 gaps searched and
+  saved, 0 skipped. The 73 returned 129 hits; 70 were big enough to check; 18 carried a geotag, 0 within range
+  (`work/c9_cands.json` is empty, no contact sheet). Applied 0, rejected 0 by eye. Two near-misses checked by hand
+  and left out: Weno Eten Island (8 Flickr shots by mattk1979, CC BY-SA, titled Eten Island, all batch-geotagged on
+  one spot 6.0 km south of the pin; the pin agrees with the island's published position, so the pin stands and the
+  photos' location is unproven), Saint Martin's Island Coral Beach (East Beach) (two CC0 shots 1.9 km south, titled
+  and geotagged at Chera Dwip, the southern islet, a different place). Running total: 846 of 846 gaps have a result
+  file, 0 left.
+
+## Finished 2026-10-25
+Every gap in `missing-photos-2026-10-19.csv` has been searched on Openverse once, with every skipped gap retried:
+846 of 846 result files in `work/res/`. Totals for the pass: 846 gaps searched over 7 days; 24 gaps had a geotagged
+hit within range; 5 applied (Bishkek, Chamonix, Malacca on day 1; Ouarzazate Centre-ville on day 5; Moroni Volo Volo
+on day 6); 18 rejected by eye (wrong place, wrong subject, people, watermark, sign or object close-ups, too narrow);
+1 on the portrait review list (Visby St. Nicolai Church Ruin, above). Yield: 1 photo per 169 gaps. 841 gaps remain
+on the stand-in; they go back to TODO G8 (a free source or Jeff's own photos in `uploads/`). The daily scheduled task
+`nra-openverse-photos-daily` has nothing left to do and can be deleted. Leads for Jeff, if he wants to judge them
+by eye without a geotag: the Eten Island set above (https://www.flickr.com/photos/24879135@N04/4019275313).

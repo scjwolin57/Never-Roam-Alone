@@ -139,7 +139,7 @@ window.NRA_AUTH = (function(){
     border-radius:3px;font-size:.84rem;font-weight:600;color:#2b2417;line-height:1.35}
   .nra-check{display:flex;align-items:flex-start;gap:8px;font-size:.8rem;color:#2b2417;margin-top:10px;cursor:pointer}
   .nra-check input{margin-top:2px;accent-color:#b5492c}
-  .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
+  .nra-modal-bg{position:fixed;inset:0;background:rgba(43,36,23,.55);z-index:220;display:flex;align-items:center;justify-content:center;padding:18px}
   .nra-modal{background:#f6efdd;border:1px solid #2b2417;border-radius:0;max-width:400px;width:100%;padding:26px 24px;box-shadow:0 16px 40px rgba(43,36,23,.3);max-height:92vh;overflow:auto}
   .nra-modal h3{font-family:'Fraunces',Georgia,serif;font-weight:700;margin:0 0 4px;font-size:1.35rem;color:#2b2417}
   .nra-modal .sub{color:#82755b;font-size:.86rem;margin:0 0 16px}
@@ -158,10 +158,14 @@ window.NRA_AUTH = (function(){
   .nra-social.google:hover{border-color:#b5492c;color:#b5492c}
   .nra-close{float:right;border:none;background:none;font-size:1.2rem;cursor:pointer;color:#82755b}
   .nra-row-btns{display:flex;gap:10px;align-items:center;margin-top:4px}
-  .nra-nav-avatar{width:34px;height:34px;border-radius:0;background:#b5492c;color:#f6efdd;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
+  /* round, to match the round logo: the one exception to square corners (Jeff, 2026-10-22; decisions.md) */
+  .nra-nav-avatar{width:34px;height:34px;border-radius:50%;background:#b5492c;color:#f6efdd;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;text-decoration:none;border:none;cursor:pointer;padding:0}
   .nra-nav-avatar:hover{background:#8a3a20}
-  .nra-nav-signin{width:34px;height:34px;border-radius:0;background:#b5492c;color:#f6efdd;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .nra-nav-signin:hover{background:#8a3a20}
+  .nra-nav-signin{width:34px;height:34px;border-radius:50%;background:#b5492c;color:#f6efdd;border:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .nra-nav-signin-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:0;padding:0;margin:0;cursor:pointer;color:#b5492c;font:inherit;flex-shrink:0}
+  .nra-nav-signin-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1}
+  .nra-nav-signin:hover,.nra-nav-signin-wrap:hover .nra-nav-signin{background:#8a3a20}
+  .nra-nav-signin-wrap:hover .nra-nav-signin-label{color:#8a3a20}
   .nra-nav-signin svg{width:17px;height:17px}
   .nra-nav-wrap{position:relative}
   .nra-nav-menu{position:absolute;top:calc(100% + 10px);right:0;background:#f6efdd;border:1px solid #2b2417;border-radius:0;box-shadow:0 10px 30px rgba(43,36,23,.25);padding:8px;min-width:190px;z-index:60}
@@ -377,9 +381,11 @@ window.NRA_AUTH = (function(){
       })();
     } else {
       renderNavWidget._admin = null; // forget admin status on sign-out so the next sign-in re-checks
-      el.innerHTML = `<button class="nra-nav-signin" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
-        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +
-        `<circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-6.5 8-6.5s8 2.1 8 6.5"></path></svg></button>`;
+      /* "Login" under the icon for visitors who are not signed in (Jeff, 2026-10-22) */
+      el.innerHTML = `<button class="nra-nav-signin-wrap" id="nra-nav-signin-btn" aria-label="Sign in" title="Sign in">` +
+        `<span class="nra-nav-signin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">` +
+        `<circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4.4 3.6-6.5 8-6.5s8 2.1 8 6.5"></path></svg></span>` +
+        `<span class="nra-nav-signin-label" aria-hidden="true">Login</span></button>`;
       el.querySelector("#nra-nav-signin-btn").addEventListener("click", openModal);
     }
   }

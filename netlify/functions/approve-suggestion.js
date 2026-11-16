@@ -27,6 +27,7 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
 const { award } = require("./_shared/contrib");   // points (5) + vote keys for the member who sent it
+const { seeUrl } = require("./_shared/seelink");  // link straight to the pick on the guide
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -70,6 +71,13 @@ exports.handler = async (event) => {
   } catch (e) { return json(502, { error: "Couldn't reach the suggestions store." }); }
   if (!row) return json(404, { error: "That suggestion no longer exists." });
 
+  // Replace (Admin's Append / Replace choice, 2026-10-20): the pick it replaces must be off the live guide first.
+  if (row.apply_mode === "replace" && row.replace_target) {
+    let still = false;
+    try { still = await stillOnGuide(siteBase, row); } catch (e) { console.error("[approve-suggestion] replace check:", (e && e.message) || e); }
+    if (still) return json(409, { error: `This suggestion is set to replace "${row.replace_target}", which is still on the live ${row.city} guide. Run the add command with --replace, push, wait for the deploy, then mark it published. Or switch the suggestion to Append.` });
+  }
+
   // Publish.
   try {
     const ur = await fetch(`${SUPABASE_URL}/rest/v1/place_suggestions?id=eq.${encodeURIComponent(id)}`, {
@@ -86,7 +94,7 @@ exports.handler = async (event) => {
   // from the live city file: the rows in roamer_picks[section][hood] that carry this member's id.
   let points = false, targets = [];
   if (row.user_id) {
-    targets = await roamerPickKeys(siteBase, row).catch(e => { console.error("[approve-suggestion] pick keys:", (e && e.message) || e); return []; });
+    targets = await (row.section === "food" ? foodPickKeys : roamerPickKeys)(siteBase, row).catch(e => { console.error("[approve-suggestion] pick keys:", (e && e.message) || e); return []; });
     const credit = await award({ url: SUPABASE_URL, key: SUPABASE_SERVICE_KEY, userId: row.user_id, kind: "recommendation",
                                  sourceTable: "place_suggestions", sourceId: id, city: row.city, targets });
     points = credit.points;
@@ -96,8 +104,10 @@ exports.handler = async (event) => {
   // Thank them, once, only if they asked.
   let notified = false, via = null, messageId = null;
   if (row.contact && !row.notified) {
-    const cityUrl = siteBase + "/city.html?city=" + encodeURIComponent(row.city);
-    const what = `${row.kind_label || "place"} in ${row.hood_name}, ${row.city}`;
+    const cityUrl = await pickSeeUrl(siteBase, row, targets).catch(() => seeUrl(siteBase, row.city));
+    const what = row.section === "food"
+      ? `${row.place_name || "place"} (for ${row.kind_label || "a local dish"})`
+      : `${row.kind_label || "place"} in ${row.hood_name}, ${row.city}`;
     let emailTo = row.email || "";
 
     if (row.user_id && row.user_id !== admin.id) {
@@ -182,6 +192,64 @@ async function roamerPickKeys(siteBase, row) {
   const picks = (lists[hi] || []).filter(pk => pk && pk.by === row.user_id && pk.n);
   const part = row.section === "bars" ? "bar" : row.section;
   return picks.map(pk => ({ type: "recommendation", id: `${row.city}:${hi}:${part}:${pk.n}` }));
+}
+
+async function cityRecord(siteBase, city) {
+  const ir = await fetch(siteBase + "/citydata/_index.json");
+  if (!ir.ok) return null;
+  const slug = ((await ir.json()).slug || {})[city];
+  if (!slug) return null;
+  const cr = await fetch(siteBase + "/citydata/" + encodeURIComponent(slug) + ".json");
+  return cr.ok ? cr.json() : null;
+}
+
+// Food & drink: the place(s) under this dish that carry this member's id (load_food_place.py --by), keyed as
+// city.html keys a food place's votes: type "food_place", id "<dish>|<place>".
+async function foodPickKeys(siteBase, row) {
+  const rec = await cityRecord(siteBase, row.city);
+  const dish = ((rec && rec.food) || []).find(f => f && f.name === row.kind_label);
+  return ((dish && dish.places) || []).filter(p => p && p.by === row.user_id && p.name)
+    .map(p => ({ type: "food_place", id: `${row.kind_label}|${p.name}` }));
+}
+
+// The link in the thank-you: straight to the pick on the guide. A member's pick is found by their id (the vote
+// keys above); a guest's by the place name (food) or, for a neighborhood card, the one Roamer pick of that kind.
+// Not found: the dish, or the neighborhood, or the top of the guide.
+async function pickSeeUrl(siteBase, row, targets) {
+  if (targets && targets[0]) return seeUrl(siteBase, row.city, targets[0].type, targets[0].id);
+  const rec = await cityRecord(siteBase, row.city);
+  const n = s => String(s || "").toLowerCase().replace(/\s+/g, " ").trim();
+  if (row.section === "food") {
+    const dish = ((rec && rec.food) || []).find(f => f && f.name === row.kind_label);
+    const p = ((dish && dish.places) || []).find(p => p && row.place_name && n(p.name) === n(row.place_name));
+    if (p) return seeUrl(siteBase, row.city, "food_place", `${row.kind_label}|${p.name}`);
+    return dish ? seeUrl(siteBase, row.city, "dish", dish.name) : seeUrl(siteBase, row.city);
+  }
+  let hi = ((rec && rec.hoods) || []).indexOf(row.hood_name);
+  if (hi < 0 && Number.isInteger(row.hood_idx)) hi = row.hood_idx;
+  const list = ((rec && rec.roamer_picks && rec.roamer_picks[row.section]) || [])[hi] || [];
+  const same = list.filter(pk => pk && pk.n && !pk.by && pk.k === row.kind);
+  const part = row.section === "bars" ? "bar" : row.section;
+  if (same.length === 1) return seeUrl(siteBase, row.city, "recommendation", `${row.city}:${hi}:${part}:${same[0].n}`);
+  return row.hood_name ? seeUrl(siteBase, row.city, "hood", row.hood_name) : seeUrl(siteBase, row.city);
+}
+
+// Is the pick this suggestion replaces still on the live guide? Same hood and section (stay: our hotels too),
+// or for food the same dish.
+async function stillOnGuide(siteBase, row) {
+  const rec = await cityRecord(siteBase, row.city);
+  if (!rec) return false;
+  const t = row.replace_target;
+  if (row.section === "food") {
+    const dish = (rec.food || []).find(f => f && f.name === row.kind_label);
+    return ((dish && dish.places) || []).some(p => p && p.name === t);
+  }
+  let hi = (rec.hoods || []).indexOf(row.hood_name);
+  if (hi < 0 && Number.isInteger(row.hood_idx)) hi = row.hood_idx;
+  const names = l => ((l && l[hi]) || []).map(x => (x && x.n) || x);
+  const ours = row.section === "stay" ? names(rec.lodging) : names(rec[row.section]);
+  const roam = names(rec.roamer_picks && rec.roamer_picks[row.section]);
+  return ours.concat(roam).includes(t);
 }
 
 function json(statusCode, body) {

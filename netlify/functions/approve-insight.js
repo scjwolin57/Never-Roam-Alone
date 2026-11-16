@@ -17,6 +17,7 @@
 //   SUPABASE_URL, SUPABASE_SERVICE_KEY, RESEND_API_KEY, SITE_URL (optional)
 
 const { award } = require("./_shared/contrib");   // points + vote key for the member who sent it
+const { seeUrl } = require("./_shared/seelink");  // link straight to the interview card
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return json(405, { error: "POST only" });
@@ -93,7 +94,7 @@ exports.handler = async (event) => {
   // Tell the submitter, once.
   let notified = false;
   if (row.email && !row.notified && RESEND_API_KEY) {
-    const cityUrl = siteBase + "/city.html?city=" + encodeURIComponent(row.city);
+    const cityUrl = seeUrl(siteBase, row.city, "insight", id);
     const label = row.type === "local" ? "Local's Perspective" : "Traveler's Take";
     try {
       const er = await fetch("https://api.resend.com/emails", {

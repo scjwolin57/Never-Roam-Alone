@@ -86,7 +86,8 @@ exports.handler = async (event) => {
   const kindLabel = clip(p.subjectLabel, 60) || kind;
   const context   = clip(p.context, 160);
   const creditName= mode === "name" ? clip(p.creditName, 80) : "";
-  const workUrl   = rawUrl(p.workUrl);
+  // The website only goes with a typed-name credit; a profile credit links to the profile.
+  const workUrl   = mode === "name" ? rawUrl(p.workUrl) : "";
   const month     = intOrNull(p.takenMonth, 1, 12);
   const year      = intOrNull(p.takenYear, 1900, 2100);
   const rights    = p.rightsConfirmed === true;
@@ -214,7 +215,7 @@ exports.handler = async (event) => {
             <b>City:</b> ${escapeHtml(city)}${country ? ", " + escapeHtml(country) : ""}<br>
             <b>Date taken:</b> ${escapeHtml(taken)}<br>
             <b>Credit:</b> ${creditLine}<br>
-            ${workUrl ? `<b>Their work:</b> <a href="${escapeHtml(workUrl)}">${escapeHtml(workUrl)}</a><br>` : ""}
+            ${workUrl ? `<b>Name links to:</b> <a href="${escapeHtml(workUrl)}">${escapeHtml(workUrl)}</a><br>` : ""}
             <b>Rights confirmed:</b> yes<br>
             <b>Signed:</b> ${escapeHtml(signature)} (licence ${escapeHtml(licVer)}, ${escapeHtml(agreedAt)})<br>
             <b>Account:</b> ${userId ? escapeHtml(userId) : "not signed in"}<br>

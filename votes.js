@@ -72,12 +72,18 @@ window.NRA_VOTES = (function(){
     return `Like - ${p.up}\nDislike - ${p.down}` + (hasStar && p.star ? `\nStar - ${p.star}` : "");
   }
 
+  const HEART_PATH = "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z";
   function widgetHTML(opts){
     const s = opts.size || 16;
     const p = PROMPTS[opts.type] || {};
     const upLabel = p.up || opts.upLabel, downLabel = p.down || opts.downLabel;
     const hint = hintFor(opts.type, !!opts.beforeHint) || opts.hint;
-    const icon = down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
+    /* opts.icon "heart": a heart for like, a heart in a circle with a slash for dislike (neighborhood cards, Jeff 2026-10-21) */
+    const icon = opts.icon === "heart"
+      ? down => down
+        ? `<svg class="vote-icon vote-icon-heart-no" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="${HEART_PATH}" fill="currentColor" stroke="none" transform="translate(5.4 5.3) scale(.55)"/><circle cx="12" cy="12" r="10"/><line x1="5" y1="5" x2="19" y2="19"/></svg>`
+        : `<svg class="vote-icon vote-icon-heart" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${HEART_PATH}"/></svg>`
+      : down => `<svg class="vote-icon${down ? " vote-icon-down" : ""}" width="${s}" height="${s}" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="${VOTE_HAND_PATH}"/></svg>`;
     return `<div class="vote-widget${opts.extraClass ? " " + opts.extraClass : ""}" data-vote-type="${escAttr(opts.type)}" data-vote-id="${escAttr(opts.id)}" data-vote-city="${escAttr(opts.city)}">
     <button type="button" class="vote-btn vote-down" aria-label="${escAttr(downLabel)}">${icon(true)}<span class="vote-count"></span></button>
     <button type="button" class="vote-btn vote-up" aria-label="${escAttr(upLabel)}">${icon(false)}<span class="vote-count"></span></button>

@@ -139,7 +139,11 @@
   .legend-toggle.visible{display:inline-flex;}
   .map-legend b{display:block;margin-bottom:6px;font-size:.82rem;padding-right:16px}
   .legend-row{display:flex;align-items:center;gap:8px;color:var(--muted);margin-top:4px}
-  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(138,58,32,.55);border:1.5px solid #8a3a20}
+  .tier-toggle{margin-left:auto;padding:0 6px;line-height:1.5;background:none;border:1px solid var(--line);border-radius:0;font-family:'Work Sans',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);cursor:pointer;flex:none}
+  .tier-toggle:hover{border-color:var(--coral);color:var(--coral)}
+  .legend-row.tier-off{opacity:.45}
+  .legend-row.tier-off .tier-toggle{opacity:1}
+  .legend-bubble{display:inline-block;border-radius:50%;background:rgba(43,36,23,.55);border:1.5px solid #2b2417}
   .legend-bubble.purple{background:rgba(168,72,42,.5);border-color:#b5492c}
   .legend-bubble.pink{background:rgba(176,128,47,.5);border-color:#b0802f}
   .legend-bubble.yellow{background:rgba(138,154,91,.55);border-color:#8a9a5b}
@@ -278,6 +282,9 @@
   .dest-cta-icon{color:var(--brass-lt)}
   .dest-cta-btn:hover{background:var(--coral)}
   .dest-cta-btn:hover .dest-cta-icon{transform:rotate(135deg)}
+  .guides-btn{padding:6px 16px 6px 10px;vertical-align:middle;line-height:1.4}
+  .guides-btn .dest-cta-icon{width:18px;height:18px}
+  .globe-hint{display:block;font-style:italic;font-size:.85rem;line-height:1.5;margin-top:2px}
 
 
 
@@ -288,17 +295,17 @@
 
   /* ---- full-design: waypoint featured cities on a dashed route ---- */
   .stories{max-width:var(--maxw);margin:30px auto 36px;padding:0 22px;position:relative;display:flex;gap:26px;justify-content:space-evenly;flex-wrap:wrap}
-  .stories::before{content:"";position:absolute;left:8%;right:8%;top:44px;border-top:2px dashed rgba(168,72,42,.4);z-index:0}
+  .stories::before{content:"";position:absolute;left:8%;right:8%;top:98px;border-top:2px dashed rgba(168,72,42,.4);z-index:0}
   .story{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:9px;cursor:pointer;transition:transform .2s;text-decoration:none}
   .story:hover{transform:translateY(-5px)}
   .story .frame{position:relative;width:92px;height:92px;border:2px solid var(--ink);background:var(--sand);padding:4px}
   .story:hover .frame{border-color:var(--coral)}
   .story .frame .ph{width:100%;height:100%;background-size:cover;background-position:center;background-color:var(--paper-2);filter:sepia(.18) saturate(.95)}
-  .story .cat{display:inline-block;margin-top:6px;color:#fff;font-family:'Work Sans',monospace;font-size:.54rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;line-height:1.4}
-  .story .cat.fx-new{background:var(--coral)}
-  .story .cat.fx-top{background:var(--teal)}
-  .story .cat.fx-under{background:var(--brass)}
-  .story .cat.fx-season{background:var(--rust-dk)}
+  .stories .cat{display:inline-block;margin-top:0;color:#fff;font-family:'Work Sans',monospace;font-size:.54rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;line-height:1.4}
+  .stories .cat.fx-new{background:var(--coral)}
+  .stories .cat.fx-top{background:var(--teal)}
+  .stories .cat.fx-under{background:var(--brass)}
+  .stories .cat.fx-season{background:var(--rust-dk)}
   .story .frame .pin{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--brass);border:2px solid var(--sand);box-shadow:0 0 6px rgba(176,128,47,.6)}
   .story figcaption{text-align:center}
   .story figcaption .nm{display:block;font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--ink)}
@@ -309,6 +316,14 @@
   .story-item .see-more{margin-top:6px;font-family:'Work Sans',monospace;font-size:.62rem;font-weight:600;letter-spacing:.04em;color:var(--teal);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
   .story-item .see-more:hover{color:var(--coral);border-bottom-color:var(--coral)}
   @media(max-width:560px){.stories::before{display:none}.story .frame{width:78px;height:78px}}
+  .story-item .list-more{margin:5px 0 10px;font-family:'Work Sans',monospace;font-size:.62rem;font-weight:600;letter-spacing:.04em;color:var(--teal);text-decoration:none;border-bottom:1px solid transparent;transition:.2s}
+  .story-item .list-more:hover{color:var(--coral);border-bottom-color:var(--coral)}
+  .story-item .list-more .lm-tag{white-space:nowrap}
+  @media(max-width:560px){.story-item{max-width:120px}.story-item .list-more,.story figcaption{text-align:center}.story-item .list-more .lm-tag{display:block}}
+  .stories-shuffle button svg{width:13px;height:13px;vertical-align:-2px;margin-right:6px}
+  .stories-shuffle{text-align:center;margin:-18px auto 30px;padding:0 22px}
+  .stories-shuffle button{font-family:'Work Sans',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--ink);border-radius:0;padding:7px 14px;cursor:pointer;transition:.2s}
+  .stories-shuffle button:hover{color:#fff;background:var(--coral);border-color:var(--coral)}
 
   /* ---- full-design: rust italic emphasis in section heads ---- */
   .section-head h2 em{font-style:italic;color:var(--coral)}
@@ -353,17 +368,18 @@
 
 <!-- ===== Waypoint featured cities ===== -->
 <div class="stories" id="featured-cities" aria-label="Featured cities"></div>
+<div class="stories-shuffle"><button type="button" id="fx-shuffle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="M15 15l6 6"/><path d="M4 4l5 5"/></svg>shuffle picks</button></div>
 
-<p class="sub" style="max-width:620px;margin:0 auto 14px;text-align:center;color:var(--muted);font-size:1.05rem">Scan the globe to discover the world's most traveled cities & destinations. Click on a location bubble to learn more</p>
+<p class="sub" style="max-width:620px;margin:0 auto 14px;text-align:center;color:var(--muted);font-size:1.05rem;line-height:2.4">Check out our <a class="dest-cta-btn guides-btn" href="cities.html"><svg class="dest-cta-icon" aria-hidden="true"><use href="#compass"/></svg>City Guides</a> to discover the world's most traveled destinations or scan the interactive globe below.<span class="globe-hint">Click on a location bubble to learn more</span></p>
 <div class="map-wrap">
   <div id="map"></div>
   <div class="map-legend">
     <button id="legend-close" class="legend-close" aria-label="Hide the map key">✕</button>
     <b>Annual international visitors</b>
-    <div class="legend-row"><span class="legend-bubble yellow" style="width:10px;height:10px"></span> under 1 million</div>
-    <div class="legend-row"><span class="legend-bubble pink" style="width:14px;height:14px"></span> under 5 million</div>
-    <div class="legend-row"><span class="legend-bubble purple" style="width:20px;height:20px"></span> under 12 million</div>
-    <div class="legend-row"><span class="legend-bubble" style="width:28px;height:28px"></span> 12 million +</div>
+    <div class="legend-row" data-tier="0"><span class="legend-bubble yellow" style="width:10px;height:10px"></span> under 1 million<button type="button" class="tier-toggle" aria-pressed="false" aria-label="Hide under 1 million bubbles">hide</button></div>
+    <div class="legend-row" data-tier="1"><span class="legend-bubble pink" style="width:14px;height:14px"></span> under 5 million<button type="button" class="tier-toggle" aria-pressed="false" aria-label="Hide under 5 million bubbles">hide</button></div>
+    <div class="legend-row" data-tier="2"><span class="legend-bubble purple" style="width:20px;height:20px"></span> under 12 million<button type="button" class="tier-toggle" aria-pressed="false" aria-label="Hide under 12 million bubbles">hide</button></div>
+    <div class="legend-row" data-tier="3"><span class="legend-bubble" style="width:28px;height:28px"></span> 12 million +<button type="button" class="tier-toggle" aria-pressed="false" aria-label="Hide 12 million + bubbles">hide</button></div>
     <div class="legend-row" style="margin-top:8px" id="legend-hint">Hover a bubble for details</div>
   </div>
   <button id="legend-toggle" class="legend-toggle" aria-label="Show the map key">⊕ Key</button>
@@ -411,6 +427,9 @@
 <script src="city-photos.js"></script>
 <script src="posts.js"></script>
 <script src="country-fold.js"></script>
+<script src="city-intl-visitors.js"></script>
+<script src="underrated-picks-data.js"></script>
+<script src="season-picks.js"></script>
 <script>
 /* ---------------------------------------------------------
    STARTER CITY DATA
@@ -1319,18 +1338,32 @@ const CITIES = [
   {city:"Cairo", country:"Egypt", lng:31.2357, lat:30.0444, visitors:5, est:true},
 ];
 
-/* ===== Featured cities — 3 curated slots (real photos + guide links) ===== */
+/* ===== Featured cities — 3 slots drawn from the data behind each list page ===== */
 (function(){
-  /* Which city fills each slot will be driven by real data soon
-     (top visited, editor's underrated pick, seasonal pick).
-     For now these are easy-to-edit placeholders — just change the "city"
-     values below. Each must match a city name in the CITIES list above.
-     "more" links to the page that lists out that slot's full category. */
+  /* Each slot shows a random city from the same set its list page shows:
+       Top visited     -> city-intl-visitors.js (every city top-visited.html shows)
+       Underrated pick -> underrated-picks-data.js (the editors' list)
+       Seasonal pick   -> the "Ideal" cities best-time-to-visit.html shows for
+                          this month (season-picks.js rule on city-seasons.js)
+     "shuffle picks" draws a new city for every slot. city-seasons.js is
+     large, so it loads after the cards paint and fills the seasonal slot then. */
+  function names(list){ return (list || []).map(function(x){ return x.city; }); }
+  function seasonalPool(){
+    if (!window.NRA_SEASON || !window.NRA_monthBuckets || typeof CITIES === "undefined") return [];
+    var B = window.NRA_monthBuckets(new Date().getMonth() + 1, CITIES);
+    return names(B.ideal.slice(0, window.NRA_IDEAL_SHOWN).map(function(x){ return x.c; }));
+  }
   var FEATURED = [
-    { label:"Top visited",            city:"Hong Kong", cls:"fx-top",    more:"top-visited.html" },
-    { label:"Underrated pick", city:"Lisbon",    cls:"fx-under",  more:"underrated-picks.html" },
-    { label:"Seasonal pick",          city:"Marrakech", cls:"fx-season", more:"best-time-to-visit.html" }
+    { label:"Top visited",     pool:names(window.NRA_CITY_INTL_VISITORS), cls:"fx-top",    more:"top-visited.html" },
+    { label:"Underrated pick", pool:names(window.NRA_UNDERRATED),         cls:"fx-under",  more:"underrated-picks.html" },
+    { label:"Seasonal pick",   pool:[],                                   cls:"fx-season", more:"best-time-to-visit.html" }
   ];
+  // A random city from the slot's pool, never the one it shows now.
+  function draw(f){
+    var p = f.pool.filter(function(n){ return n !== f.city; });
+    if (!p.length) p = f.pool;
+    f.city = p.length ? p[Math.floor(Math.random() * p.length)] : "";
+  }
   function ph(name){
     var rec = (window.NRA_CITY_PHOTO || {})[name];
     var img = (rec && rec.img) ? rec.img : "";
@@ -1364,18 +1397,21 @@ const CITIES = [
       spc.textContent = Object.keys(countries).length + " countries";
     }
     el.innerHTML = FEATURED.map(function(f){
+      var head = '<span class="cat '+f.cls+'">'+f.label+'</span>'
+        + '<a class="list-more" href="'+f.more+'">show more <span class="lm-tag">'+f.label.toLowerCase().replace(/ pick$/, " picks")+'&nbsp;&rarr;</span></a>';
+      if (!f.city) return '<div class="story-item">'+head+'<div class="story"><div class="frame"><div class="ph"></div><span class="pin"></span></div>'
+        + '<figcaption><span class="nm">&nbsp;</span></figcaption></div></div>';
       var c = find(f.city);
       var country = c ? c.country : "";
       var img = ph(f.city);
       var bg = img ? "background-image:url('"+img+"')" : "";
-      return '<div class="story-item">'
+      return '<div class="story-item">' + head
         + '<a class="story" href="city.html?city='+encodeURIComponent(f.city)+'">'
         + '<div class="frame"><div class="ph" role="img" aria-label="'+f.city+'" style="'+bg+'"></div><span class="pin"></span></div>'
         + '<figcaption><span class="nm">'+f.city+'</span>'
         + (country ? '<small>'+country+'</small>' : '')
-        + '<span class="cat '+f.cls+'">'+f.label+'</span>'
         + '</figcaption></a>'
-        + (f.more ? '<a class="see-more" href="'+f.more+'">See more &rarr;</a>' : '')
+        + '<a class="see-more" href="city.html?city='+encodeURIComponent(f.city)+'">visit guide &rarr;</a>'
         + '</div>';
     }).join("");
   }
@@ -1383,7 +1419,23 @@ const CITIES = [
   // everything it needs is already loaded. Waiting for DOMContentLoaded made
   // these above-the-fold cards (the page's largest visible content) paint
   // seconds late on slow connections.
+  FEATURED.forEach(draw);
   render();
+  function loadSeasons(){
+    FEATURED[2].pool = seasonalPool();
+    draw(FEATURED[2]);
+    render();
+  }
+  if (window.NRA_SEASON) loadSeasons();
+  else {
+    var sc = document.createElement("script");
+    sc.src = "city-seasons.js";
+    sc.async = true;
+    sc.onload = loadSeasons;
+    document.head.appendChild(sc);
+  }
+  var btn = document.getElementById("fx-shuffle");
+  if (btn) btn.addEventListener("click", function(){ FEATURED.forEach(draw); render(); });
 })();
 
 
@@ -1395,6 +1447,42 @@ const geojson = {
     geometry:{ type:"Point", coordinates:[c.lng, c.lat] }
   }))
 };
+
+/* Legend show/hide per bubble tier. Tiers match the bubble colour steps
+   below: 0 = under 1M, 1 = under 5M, 2 = under 12M, 3 = 12M+. The choice is
+   kept here so it also applies when the globe starts after a click. */
+const hiddenTiers = new Set();
+let globeMap = null;
+function tierFilter(){
+  if(!hiddenTiers.size) return null;
+  const v = ["get","visitors"];
+  const ranges = [
+    ["<", v, 1],
+    ["all", [">=", v, 1], ["<", v, 5]],
+    ["all", [">=", v, 5], ["<", v, 12]],
+    [">=", v, 12]
+  ];
+  return ["!", ["any", ...[...hiddenTiers].map(t => ranges[t])]];
+}
+function applyTierFilter(){
+  if(globeMap && globeMap.getLayer("city-bubbles")) globeMap.setFilter("city-bubbles", tierFilter());
+}
+document.querySelectorAll(".map-legend .legend-row[data-tier]").forEach(row => {
+  const t = +row.dataset.tier;
+  const b = row.querySelector(".tier-toggle");
+  const label = row.textContent.replace(/(hide|show)$/, "").trim();
+  // No stopPropagation: on phones the click also starts the live globe
+  // (the still picture cannot hide bubbles), and the filter applies on load.
+  b.addEventListener("click", () => {
+    const off = !hiddenTiers.has(t);
+    if(off) hiddenTiers.add(t); else hiddenTiers.delete(t);
+    row.classList.toggle("tier-off", off);
+    b.textContent = off ? "show" : "hide";
+    b.setAttribute("aria-pressed", off ? "true" : "false");
+    b.setAttribute("aria-label", (off ? "Show " : "Hide ") + label + " bubbles");
+    applyTierFilter();
+  });
+});
 
 /* Perf: the WebGL globe is heavy to start, so it only initializes when the
    map area is on (or near) the screen — immediately if it's already visible. */
@@ -1422,12 +1510,13 @@ map.on("load", () => {
 
   // Bubble color/size tiers by annual international visitors (millions):
   // under 1M small yellow, under 5M slightly larger pink, under 12M slightly
-  // larger purple, 12M+ same size/color the map has always used (coral, scaling on up).
+  // larger purple, 12M+ ink (brand near-black, so it reads apart from the
+  // rust under-12M tier), scaling on up.
   const bubbleColor = ["step", ["get","visitors"],
     "#8a9a5b",
     1, "#b0802f",
     5, "#b5492c",
-    12, "#8a3a20"
+    12, "#2b2417"
   ];
   const bubbleRadius = ["step", ["get","visitors"],
     6,
@@ -1450,6 +1539,8 @@ map.on("load", () => {
       "circle-stroke-opacity":0.95
     }
   });
+  globeMap = map;
+  applyTierFilter();
 
   const popup = new maplibregl.Popup({ closeButton:false, closeOnClick:false, offset:14, maxWidth:"260px" });
   let pinned = false;

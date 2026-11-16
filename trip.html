@@ -40,6 +40,17 @@
   .stop .place{font-weight:700;font-size:1.05rem}
   .stop .country{color:var(--muted);font-size:.86rem}
   .stop .when{color:var(--muted);font-size:.85rem;margin-top:2px}
+  /* saved landmarks / day trips / places under a stop (trip_items) */
+  .stop .items{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+  .stop .items li{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:.84rem;line-height:1.4;min-width:0}
+  .stop .items .k{flex:none;font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:var(--green);padding:2px 6px}
+  .stop .items .k.daytrip{background:var(--coral)}
+  .stop .items .k.place{background:#82755b}
+  .stop .items a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+  .stop .items a:hover{color:var(--coral)}
+  .stop .items .h{color:var(--muted);font-weight:600}
+  .stop{align-items:flex-start}
+  .stop .num{margin-top:2px}
   .stop a.guide{flex-shrink:0;background:var(--green);color:#fff;font-weight:700;font-size:.8rem;
     padding:8px 14px;border-radius:0;transition:.2s}
   .stop a.guide:hover{background:var(--coral)}
@@ -138,6 +149,19 @@
     $("trip-view").hidden    = which !== "view";
   }
 
+  /* what each saved item is called (same words as the itinerary page) */
+  const ITEM_LABEL = { landmark:"Landmark", daytrip:"Day trip", eat:"Place to eat", cafes:"Coffee & takeaway", bars:"Place to drink", stay:"Place to stay" };
+  function itemsHTML(items){
+    if (!Array.isArray(items) || !items.length) return "";
+    return `<ul class="items">` + items.map(x => {
+      const label = ITEM_LABEL[x.kind === "place" ? x.section : x.kind] || "Place";
+      const nm = x.map_url ? `<a href="${esc(x.map_url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : `<b>${esc(x.name)}</b>`;
+      const extra = x.kind === "place" && x.hood ? `<span class="h">· ${esc(x.hood)}</span>`
+        : (x.kind === "daytrip" && x.section ? `<span class="h">· ${x.section === "half" ? "half day" : "full day"}</span>` : "");
+      return `<li><span class="k ${esc(x.kind)}">${esc(label)}</span>${nm}${extra}</li>`;
+    }).join("") + `</ul>`;
+  }
+
   function render(trip){
     $("trip-name").textContent  = trip.name || "My itinerary";
     $("trip-owner").textContent = trip.owner || "a Roamer";
@@ -162,6 +186,7 @@
           <span class="place">${esc(s.place)}</span>
           ${s.country ? `<span class="country"> — ${esc(s.country)}</span>` : ""}
           ${when ? `<div class="when">🗓️ ${when}</div>` : ""}
+          ${itemsHTML(s.items)}
         </span>
         ${guide}
       </li>`;
