@@ -26,6 +26,9 @@ never deleted; new items for you are added under the right heading. Details live
 
 ## 2. Things only you can do
 
+- ~~**A16. Run `destination-requests-setup.sql` in Supabase (2026-11-16).** Creates the `destination_requests` table for Admin → Suggestions → Destination requests.~~ done 2026-11-16: Jeff ran it.
+- **A17. Test the destination requests list (2026-11-16).** Send one request from the homepage search, open Admin → Suggestions → Destination requests, and check the row is there and "Research and add" copies the request.
+
 - ~~**A1. Push to the live site.** Many commits since 7 Oct are local only. Say "push it" (or push from Terminal) once you have looked at them.~~ done 2026-10-09: 15 commits pushed (656d4a4a..1805f697) after every check passed on the committed state.
 - **A2. Send the Flickr permission requests:** 10 photos marked "ready to ask" (was 11; the Denizli rooster was dropped 2026-10-09). Message: `flickr-request-message.md`; record each answer in the row. *`flickr-permission-shortlist.csv`*
 - **A3. Plausible analytics signup** (backlog 29): the script is already on every page.
