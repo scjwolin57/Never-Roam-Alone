@@ -25,10 +25,27 @@ exports.handler = async (event) => {
   try { payload = JSON.parse(event.body || "{}"); } catch (e) { return json(400, { error: "Bad JSON" }); }
   const place = String(payload.place || "").trim().slice(0, 80);
   const country = String(payload.country || "").trim().slice(0, 60);
-  const tripType = payload.tripType === "past" ? "past" : payload.tripType === "home" ? "home" : "upcoming";
+  const tripType = payload.tripType === "past" ? "past" : payload.tripType === "home" ? "home" : payload.tripType === "search" ? "search" : "upcoming";
   const requesterName = String(payload.requesterName || "").trim().slice(0, 40);
   const requesterEmail = String(payload.requesterEmail || "").trim().slice(0, 120);
   if (!place) return json(400, { error: "No place given" });
+  // A homepage search request comes from a form: country and a real email are
+  // required, and an optional Google Maps link must be a Google Maps address.
+  let mapsLink = "";
+  if (tripType === "search") {
+    if (!country) return json(400, { error: "No country given" });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(requesterEmail)) return json(400, { error: "A valid email is required" });
+    const raw = String(payload.mapsLink || "").trim().slice(0, 400);
+    if (raw) {
+      try {
+        const u = new URL(raw), h = u.hostname.replace(/^www\./, "");
+        const ok = u.protocol === "https:" && (h === "maps.app.goo.gl" || (h === "goo.gl" && u.pathname.startsWith("/maps")) ||
+          h === "maps.google.com" || (/^google\.[a-z.]+$/.test(h) && u.pathname.startsWith("/maps")));
+        if (!ok) return json(400, { error: "Not a Google Maps link" });
+        mapsLink = u.href;
+      } catch (e) { return json(400, { error: "Not a Google Maps link" }); }
+    }
+  }
   console.log("[request-guide] request for:", place, country ? "(" + country + ")" : "");
 
   const who = requesterName || requesterEmail
@@ -42,16 +59,18 @@ exports.handler = async (event) => {
       body: JSON.stringify({
         from: "Never Roam Alone <hello@neverroamalone.com>",
         to: [GUIDE_REQUEST_EMAIL],
-        subject: `City guide request: ${place}`,
+        ...(tripType === "search" ? { reply_to: requesterEmail } : {}),
+        subject: `${tripType === "search" ? "Destination request" : "City guide request"}: ${place}`,
         html: `
           <div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;padding:24px;color:#1d2a32">
             <h2 style="color:#185e3f;margin:0 0 6px">New city guide request</h2>
             <div style="background:#f6f1e7;border-radius:12px;padding:14px 16px;margin:14px 0 20px">
               <p style="margin:0 0 4px;font-size:18px;font-weight:bold">${escapeHtml(place)}${country ? ", " + escapeHtml(country) : ""}</p>
               <p style="margin:0;color:#3a4a52">Requested by: ${who}</p>
-              <p style="margin:4px 0 0;color:#3a4a52">${tripType === "home" ? "It's their <strong>home city</strong> (from their profile)." : `It's on their <strong>${tripType}</strong> trips list.`}</p>
+              ${mapsLink ? `<p style="margin:4px 0 0"><a href="${escapeHtml(mapsLink)}">Open their Google Maps link</a></p>` : ""}
+              <p style="margin:4px 0 0;color:#3a4a52">${tripType === "search" ? "They <strong>searched</strong> for it on the homepage and found no match." : tripType === "home" ? "It's their <strong>home city</strong> (from their profile)." : `It's on their <strong>${tripType}</strong> trips list.`}</p>
             </div>
-            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${tripType === "home" ? "profile" : "itinerary"} page on ${escapeHtml(SITE_URL || "Never Roam Alone")}.</p>
+            <p style="margin:0;font-size:13px;color:#8a9aa3">Sent from the ${tripType === "search" ? "homepage search" : tripType === "home" ? "profile page" : "itinerary page"} on ${escapeHtml(SITE_URL || "Never Roam Alone")}.</p>
           </div>`
       })
     });
