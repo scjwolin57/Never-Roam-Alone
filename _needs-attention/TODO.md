@@ -47,7 +47,6 @@ New items for you are added under the right heading. Details live in the file na
 
 *New ideas and research still go into `suggested-improvements.md` (CLAUDE.md §4.4); strike an item through in both files when it is done.*
 
-- **0.** Events on the destination finder, from the events spreadsheet
 - **4.** Monthly "Where to go in {month}" page / newsletter (S/M)
 - **5.** Arrival cheat-sheet per city (M), the recommended next flagship
 - **6.** Smart packing list generator (S/M)
@@ -78,6 +77,5 @@ New items for you are added under the right heading. Details live in the file na
 - **45.** "Apps to download before you land" (S/M)
 - **46.** Essentials strip (S/M)
 - **47.** Local rhythm (S/M)
-- **48.** Cash vs. card verdict (S)
 - **49.** Best months mini-strip (S/M)
 - **50.** Dessert / ice cream picks per neighborhood (M)

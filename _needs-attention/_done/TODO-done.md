@@ -68,3 +68,10 @@
 - ~~Car rental: Türkiye and Azerbaijan "before you rent" notes~~ done 2026-10-09 from your sources.
 - ~~Lochotín: add Hotel Panorama or not~~ done 2026-10-09: no hotels to choose from, so Lochotín was removed.
 - ~~Folder cleanup commit~~ done 2026-10-09.
+
+## Moved 2026-11-17 (backlog clean-up)
+
+### 5. Improvement backlog
+
+- ~~**0.** Events on the destination finder, from the events spreadsheet~~ done: the finder's "World Events" tool, from events.js (checked 2026-11-17).
+- ~~**48.** Cash vs. card verdict (S)~~ done: the currency card shows the card-acceptance % with a verdict word (checked 2026-11-17).
