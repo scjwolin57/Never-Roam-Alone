@@ -274,6 +274,12 @@
       <p class="admin-msg" id="dts-msg"></p>
       <div id="dts-list"></div>
 
+      <!-- ========== DESTINATION REQUESTS (homepage search, itinerary and profile "request a guide") ========== -->
+      <div class="topbar" style="margin-top:28px"><h2>Destination requests</h2></div>
+      <p class="sect-note">Places people asked for that have no guide: the homepage search's "Request destination" form, and the "Request city guide" buttons on the itinerary and profile pages (destination-requests-setup.sql). A request never adds anything by itself. <b>Research and add</b> builds the request for Claude Code: copy it and paste it into Claude Code on your Mac. Claude first confirms the place is a city and is not already on the site, then runs the full add-city research, adds the guide and the sheet row, and the city count goes up by itself. The page cannot run the research from here: it needs the Mac's tools and keys. After the guide is pushed and live, <b>Mark added</b>: you type the guide's name, the server checks it is on the live site, marks the request added and emails the person who asked, once. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
+      <p class="admin-msg" id="dreq-msg"></p>
+      <div id="dreq-list"></div>
+
       <div class="topbar" style="margin-top:28px"><h2>Corrections</h2></div>
       <p class="sect-note">Messages sent from the feedback page as "Something in a city guide is wrong or out of date" (corrections-setup.sql). Nothing changes on the guide by itself: check the claim, fix citydata and the sheet through the normal checks, and push. Then <b>Mark fixed</b>: you say what you changed in a few words, it records that, gives a signed-in member their 5 correction points once, and thanks the sender (inbox for a member, otherwise by email). The screenshot, if any, is only in the email. <b>Decline</b> keeps it here without telling anyone; <b>Delete</b> removes it for good.</p>
       <p class="admin-msg" id="cor-msg"></p>
@@ -465,12 +471,13 @@
     const wantTab = params.get("tab");
     if (wantTab) showTab(wantTab);
     if (wantTab === "insights") insReview = params.get("review") || "";
-    if (wantTab === "suggestions") { sugReview = params.get("review") || ""; dtsReview = params.get("tripreview") || ""; corReview = params.get("correction") || ""; }
+    if (wantTab === "suggestions") { sugReview = params.get("review") || ""; dtsReview = params.get("tripreview") || ""; corReview = params.get("correction") || ""; dreqReview = params.get("destreview") || ""; }
     await loadEvents();
     await loadPhotos();
     await loadInsights();
     await loadSuggestions();
     await loadDaytripSuggestions();
+    await loadDestinationRequests();
     await loadCorrections();
     await loadConn();
     loadEmailsTab();
@@ -1073,6 +1080,165 @@
     if (chk){   // refresh the command shown under it
       const old = rowEl.querySelector(".sug-check");
       if (old) old.outerHTML = renderSugCheck(chk, r);
+    }
+  });
+
+  /* ======================================================================
+     DESTINATION REQUESTS — places people asked for that have no guide
+     (destination_requests, destination-requests-setup.sql; Jeff 2026-11-16).
+     Saved by request-guide.js. "Research and add" builds the request to paste
+     into Claude Code (the add-city research needs the Mac's tools and keys, so
+     the page cannot run it). "Mark added" goes through
+     approve-destination-request, which checks the guide is live and emails the
+     person who asked, once. The "Also show suggestions I've already dealt
+     with" box above covers this list too.
+     ====================================================================== */
+  let dreqRows = [];
+  let dreqOpen = {};    // request id -> true once "Research and add" was pressed, this page load only
+  let dreqReview = "";  // ?tab=suggestions&destreview=<id> from the request email
+  const DREQ_SRC = { search: "Homepage search", upcoming: "Itinerary, upcoming trip", past: "Itinerary, past trip", home: "Profile, home city" };
+  const dreqNorm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+  /* Guides the site already has that this request may be: exact name first, then names that contain it or sit inside it */
+  function dreqMatches(r){
+    const key = dreqNorm(r.place), all = window.NRA_DESTINATIONS || [];
+    if (!key) return { exact: null, close: [] };
+    const exact = all.find(d => dreqNorm(d.city) === key) || null;
+    const close = exact || key.length < 4 ? [] : all.filter(d => { const n = dreqNorm(d.city); return n.length >= 4 && (n.indexOf(key) !== -1 || key.indexOf(n) !== -1); }).slice(0, 4);
+    return { exact, close };
+  }
+  function dreqPrompt(r){
+    const where = r.place + (r.country ? ", " + r.country : "");
+    return [
+      `Add a city guide for ${where}.`,
+      `It was requested on the site on ${String(r.created_at || "").slice(0, 10)} (destination request ${r.id}).`,
+      r.maps_url ? `Their Google Maps link: ${r.maps_url}` : "",
+      `First confirm it is a city (not a landmark, region, island or neighborhood), pin the spelling and country, and check it is not already on the site under another name. If it is not a city, stop and tell me what it is and where it could go instead.`,
+      `If it is a city, run the add-city skill: research every section of the guide, add it to the city guides and the sheet, run the checks, and report against the add-city checklist. Do not push until I say so.`
+    ].filter(Boolean).join("\n");
+  }
+
+  async function loadDestinationRequests(){
+    const { data, error } = await sb.from("destination_requests").select("*").order("created_at", { ascending: false });
+    if (error){
+      setMsg($("dreq-msg"), "Couldn't load destination requests: " + (error.message || "unknown error") +
+        " — has destination-requests-setup.sql been run in Supabase?", true);
+      $("dreq-list").innerHTML = ""; return;
+    }
+    dreqRows = (data || []).sort((a, b) => (a.status === "pending" ? 0 : 1) - (b.status === "pending" ? 0 : 1));
+    const waiting = dreqRows.filter(r => r.status === "pending").length;
+    setMsg($("dreq-msg"), waiting ? `${waiting} destination request${waiting === 1 ? "" : "s"} waiting.` : "");
+    renderDestinationRequests();
+  }
+
+  function renderDestinationRequests(){
+    const wrap = $("dreq-list");
+    const showDone = $("sug-show-done") && $("sug-show-done").checked;
+    const list = dreqRows.filter(r => showDone || r.status === "pending" || r.id === dreqReview);
+    if (!list.length){
+      wrap.innerHTML = `<div class="empty">${dreqRows.length ? "Nothing waiting on you." : "No destination requests yet."}</div>`;
+      return;
+    }
+    const cityLink = c => "city.html?city=" + encodeURIComponent(c);
+    /* how many open requests ask for the same place: a sign of demand */
+    const tally = {};
+    dreqRows.forEach(r => { if (r.status === "pending"){ const k = dreqNorm(r.place) + "|" + dreqNorm(r.country); tally[k] = (tally[k] || 0) + 1; } });
+    wrap.innerHTML = list.map(r => {
+      const chip = r.status === "pending" ? `<span class="chip pending">Pending</span>`
+                 : r.status === "added" ? `<span class="chip live">Added</span>`
+                 : `<span class="chip hidden">Declined</span>`;
+      const m = r.status === "pending" ? dreqMatches(r) : { exact: null, close: [] };
+      const same = tally[dreqNorm(r.place) + "|" + dreqNorm(r.country)] || 0;
+      const who = (r.requester_name ? esc(r.requester_name) + " · " : "") +
+        (r.requester_email ? `<a href="mailto:${esc(r.requester_email)}">${esc(r.requester_email)}</a>` : "no email left");
+      const cmd = dreqPrompt(r);
+      return `
+      <div class="erow irow${r.status === "pending" ? " pending" : ""}" data-id="${esc(r.id)}">
+        <div class="ihead">
+          <div class="info">
+            <div class="title">${esc(r.place)}${r.country ? ", " + esc(r.country) : ""} ${chip}</div>
+            <div class="sub">${esc(DREQ_SRC[r.source] || r.source || "")} · ${esc(String(r.created_at || "").slice(0, 10))} · ${who}${same > 1 && r.status === "pending" ? ` · <b>${same} open requests for this place</b>` : ""}</div>
+            ${r.added_city ? `<div class="sub">On the site as <a href="${esc(cityLink(r.added_city))}" target="_blank" rel="noopener"><b>${esc(r.added_city)}</b></a></div>` : ""}
+            ${m.exact ? `<div class="sub" style="color:#c05135"><b>Already a guide:</b> <a href="${esc(cityLink(m.exact.city))}" target="_blank" rel="noopener">${esc(m.exact.city)}, ${esc(m.exact.country || "")}</a>. If this is the same place, Mark added; if it is another ${esc(r.place)}, research it.</div>` : ""}
+            ${m.close.length ? `<div class="sub">Similar guides on the site: ${m.close.map(d => `<a href="${esc(cityLink(d.city))}" target="_blank" rel="noopener">${esc(d.city)}</a>`).join(", ")}</div>` : ""}
+            ${r.maps_url ? `<div class="sub"><a href="${esc(r.maps_url)}" target="_blank" rel="noopener">Google Maps link</a></div>` : ""}
+          </div>
+          <div class="acts">
+            ${r.status !== "added" ? `<button class="btn small coral" data-qact="research" type="button">Research and add</button>` : ""}
+            ${r.status !== "added" ? `<button class="btn small" data-qact="added" type="button">Mark added</button>` : ""}
+            ${r.status === "pending" ? `<button class="btn small" data-qact="decline" type="button">Decline</button>` : ""}
+            ${r.status !== "pending" ? `<button class="btn small" data-qact="reopen" type="button">Back to pending</button>` : ""}
+            <button class="btn small danger" data-qact="delete" type="button">Delete</button>
+          </div>
+        </div>
+        ${dreqOpen[r.id] && r.status !== "added" ? `<div class="sug-check">
+          <p class="note" style="margin:0 0 8px">Paste this into Claude Code on your Mac. It confirms the place is a city, then runs the full add-city research.</p>
+          <pre>${esc(cmd)}</pre><button type="button" class="btn small" data-copy-cmd="${esc(cmd)}">Copy again</button>
+        </div>` : ""}
+      </div>`;
+    }).join("");
+    if (dreqReview){
+      const row = wrap.querySelector(`.irow[data-id="${CSS.escape(dreqReview)}"]`);
+      if (row){
+        row.scrollIntoView({ behavior: "smooth", block: "start" });
+        row.classList.add("flash");
+        setTimeout(() => row.classList.remove("flash"), 2600);
+      }
+      dreqReview = "";
+    }
+  }
+
+  document.addEventListener("change", e => {
+    if (e.target && e.target.id === "sug-show-done") renderDestinationRequests();
+  });
+
+  document.addEventListener("click", async e => {
+    const btn = e.target.closest("#dreq-list button[data-qact]");
+    if (!btn) return;
+    const r = dreqRows.find(x => x.id === btn.closest(".irow").dataset.id);
+    if (!r) return;
+    const act = btn.dataset.qact;
+    const what = r.place + (r.country ? ", " + r.country : "");
+    if (act === "research") {
+      dreqOpen[r.id] = true;
+      let copied = true;
+      try { await navigator.clipboard.writeText(dreqPrompt(r)); } catch (err) { copied = false; }
+      renderDestinationRequests();
+      setMsg($("dreq-msg"), copied ? `The research request for ${what} is copied. Paste it into Claude Code on your Mac.`
+                                   : `Couldn't copy by itself. Select the text under ${what} and copy it.`, !copied);
+      return;
+    }
+    let addedCity = "";
+    if (act === "added") {
+      addedCity = prompt(`Is the ${what} guide on the live site now? Type the guide's exact name:`, r.added_city || r.place);
+      if (!addedCity || !addedCity.trim()) return;
+    }
+    if (act === "delete" && !confirm(`Delete the request for ${what}? This can't be undone.`)) return;
+    btn.disabled = true;
+    try {
+      let error, note = "";
+      if (act === "added") {
+        const { data: { session } } = await sb.auth.getSession();
+        const token = session && session.access_token;
+        if (!token) throw new Error("Your session expired — sign in again.");
+        const res = await fetch("/.netlify/functions/approve-destination-request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+          body: JSON.stringify({ id: r.id, city: addedCity.trim() })
+        });
+        const d = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(d.error || ("That didn't go through (" + res.status + ")"));
+        note = d.notified ? " They were emailed." : d.alreadyAdded ? "" : d.hadEmail ? " Couldn't email them; check the logs." : " They left no email.";
+      }
+      if (act === "decline") ({ error } = await sb.from("destination_requests").update({ status: "declined" }).eq("id", r.id));
+      if (act === "reopen")  ({ error } = await sb.from("destination_requests").update({ status: "pending" }).eq("id", r.id));
+      if (act === "delete")  ({ error } = await sb.from("destination_requests").delete().eq("id", r.id));
+      if (error) throw error;
+      await loadDestinationRequests();
+      setMsg($("dreq-msg"), act === "added" ? `Marked ${what} as added.${note}` : act === "decline" ? `Declined ${what}. Nobody was told.` : act === "reopen" ? "Back in the pending list." : "Deleted.");
+    } catch(err){
+      btn.disabled = false;
+      setMsg($("dreq-msg"), (err && err.message) || "Something went wrong.", true);
     }
   });
 

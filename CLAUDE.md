@@ -452,7 +452,8 @@ Left open:  <items, and where they are logged; for a city add, the §5 inventory
   waiting on him (a decision, something only he can do, work that starts on his "go", an
   outside answer, open backlog items). A session that creates such an item adds it there;
   a session that finishes one strikes it through in place with the date and what happened
-  (`~~item~~ done YYYY-MM-DD: ...`), never deleting it.
+  (`~~item~~ done YYYY-MM-DD: ...`), never deleting it. When Jeff asks for a clean list,
+  struck items are moved, unchanged, to `_needs-attention/_done/TODO-done.md` (2026-11-17).
 - Never say "done" for a batch that is partly done. Say what is done and what
   is not, with counts.
 - When a change is visual, attach a screenshot. When he asked a question, give
