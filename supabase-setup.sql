@@ -22,6 +22,10 @@ create table public.profiles (
   created_at timestamptz not null default now()
 );
 alter table public.profiles enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, update on public.profiles to authenticated;
+grant all on public.profiles to service_role;
 create policy "read own profile"   on public.profiles for select using (auth.uid() = id);
 create policy "update own profile" on public.profiles for update using (auth.uid() = id);
 
@@ -60,7 +64,17 @@ create table public.replies (
   created_at timestamptz not null default now()
 );
 alter table public.questions enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert on public.questions to anon;
+grant select, insert on public.questions to authenticated;
+grant all on public.questions to service_role;
 alter table public.replies  enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert on public.replies to anon;
+grant select, insert on public.replies to authenticated;
+grant all on public.replies to service_role;
 -- Everyone (signed in or not) can read and post — login stays optional.
 create policy "questions are public" on public.questions for select using (true);
 create policy "anyone can ask"       on public.questions for insert with check (true);

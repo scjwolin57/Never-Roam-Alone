@@ -75,6 +75,9 @@ $$;
 -- ---- The rules (row-level security) ----
 alter table public.messages enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant all on public.messages to service_role;
+
 drop policy if exists "read own conversations" on public.messages;
 create policy "read own conversations" on public.messages
   for select to authenticated
@@ -101,6 +104,9 @@ grant select, insert on public.messages to authenticated;
 grant update (read_at) on public.messages to authenticated;
 
 alter table public.message_blocks enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant all on public.message_blocks to service_role;
 
 drop policy if exists "manage own block list" on public.message_blocks;
 create policy "manage own block list" on public.message_blocks

@@ -35,6 +35,10 @@ create table if not exists public.email_broadcasts (
 
 alter table public.email_broadcasts enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.email_broadcasts to authenticated;
+grant all on public.email_broadcasts to service_role;
+
 -- Admins (the blog_admins list) can view the send history from the
 -- Admin page. Nobody can insert/update from the browser — only the
 -- server function (service key) writes rows.
@@ -57,6 +61,10 @@ create table if not exists public.site_settings (
 );
 
 alter table public.site_settings enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update on public.site_settings to authenticated;
+grant all on public.site_settings to service_role;
 
 drop policy if exists "admins read settings" on public.site_settings;
 create policy "admins read settings" on public.site_settings

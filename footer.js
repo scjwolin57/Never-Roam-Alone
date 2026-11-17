@@ -17,6 +17,7 @@
     { label: "Contact",                 href: "contact.html" },
     { label: "Feedback",                href: "feedback.html" },
     { label: "Community Contributions", href: "community.html" },
+    { label: "Newsletter",              href: "index.html#newsletter" },
     { label: "Privacy Policy",          href: "privacy.html" },
     { label: "Terms of Service",        href: "terms.html" }
   ];

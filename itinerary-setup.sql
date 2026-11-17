@@ -25,6 +25,10 @@ alter table public.itinerary_items add column if not exists sort_order integer n
 
 alter table public.itinerary_items enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.itinerary_items to authenticated;
+grant all on public.itinerary_items to service_role;
+
 -- Only you can see or change your own itinerary.
 -- (drop-then-create makes this safe to re-run.)
 drop policy if exists "read own itinerary" on public.itinerary_items;

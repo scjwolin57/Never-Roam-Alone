@@ -50,6 +50,11 @@ create index if not exists roamer_posts_tags_idx
 
 alter table public.roamer_posts enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.roamer_posts to anon;
+grant select, insert, update, delete on public.roamer_posts to authenticated;
+grant all on public.roamer_posts to service_role;
+
 drop policy if exists rp_read on public.roamer_posts;
 create policy rp_read on public.roamer_posts
   for select using (
@@ -87,6 +92,11 @@ create table if not exists public.roamer_post_likes (
 );
 
 alter table public.roamer_post_likes enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.roamer_post_likes to anon;
+grant select, insert, delete on public.roamer_post_likes to authenticated;
+grant all on public.roamer_post_likes to service_role;
 
 drop policy if exists rpl_read on public.roamer_post_likes;
 create policy rpl_read on public.roamer_post_likes
@@ -139,6 +149,11 @@ create index if not exists roamer_replies_post_idx
   on public.roamer_post_replies (post_id, created_at);
 
 alter table public.roamer_post_replies enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.roamer_post_replies to anon;
+grant select, insert, update, delete on public.roamer_post_replies to authenticated;
+grant all on public.roamer_post_replies to service_role;
 
 drop policy if exists rpr_read on public.roamer_post_replies;
 create policy rpr_read on public.roamer_post_replies
@@ -202,6 +217,10 @@ create index if not exists roamer_reports_open_idx
   on public.roamer_post_reports (resolved, created_at desc);
 
 alter table public.roamer_post_reports enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.roamer_post_reports to authenticated;
+grant all on public.roamer_post_reports to service_role;
 
 -- Admins see every report. A member can see only the ones they filed
 -- themselves (this is also what lets the browser read back the new
