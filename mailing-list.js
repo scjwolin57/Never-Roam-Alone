@@ -18,6 +18,7 @@
 
 (function(){
   const CSS = `
+  [data-nra-signup]{scroll-margin-top:96px}
   .nra-ml{position:relative;overflow:hidden;max-width:760px;margin:0 auto;background:#c98976;border:1px solid #2b2417;border-radius:0;
     box-shadow:0 12px 28px rgba(43,36,23,.18);padding:40px 36px;text-align:center;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='230' viewBox='0 0 760 230'%3E%3Cg fill='none'%3E%3Cpath d='M20 185 C 140 120, 230 205, 340 150 S 540 60, 660 95' stroke='%232b2417' stroke-width='2.5' stroke-dasharray='7 8' stroke-linecap='round' opacity='.5'/%3E%3Ccircle cx='20' cy='185' r='6' fill='%233f5138'/%3E%3Ccircle cx='340' cy='150' r='4.5' fill='%23b0802f'/%3E%3Ccircle cx='500' cy='96' r='4.5' fill='%23b0802f'/%3E%3Cpath d='M648 83 L672 107 M672 83 L648 107' stroke='%232b2417' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='660' cy='95' r='20' stroke='%232b2417' stroke-width='1.5' opacity='.4' stroke-dasharray='3 5'/%3E%3C/g%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right -20px bottom -14px}
@@ -36,10 +37,6 @@
   .nra-ml .ml-msg.ok{color:#5c6933}
   .nra-ml .ml-msg.err{color:#b5492c}
   .nra-ml .ml-fine{font-size:.72rem;color:#2b2417;margin:26px 0 0;position:relative;z-index:2;background:rgba(246,239,221,.9);display:inline-block;padding:3px 10px;border-radius:0}
-  .nra-ml .ml-ints{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px auto 0;max-width:520px}
-  .nra-ml .ml-ints-label{width:100%;font-family:'Work Sans',monospace;font-size:.66rem;text-transform:uppercase;letter-spacing:.14em;color:#2b2417;margin:0 0 2px}
-  .nra-ml .ml-int{cursor:pointer;background:#ece2cc;border:1px solid #2b2417;border-radius:0;padding:7px 14px;font-size:.78rem;font-family:'Work Sans',monospace;color:#2b2417;transition:.15s}
-  .nra-ml .ml-int[aria-pressed=true]{background:#5c6933;color:#fff;border-color:#5c6933}
   @media(max-width:520px){.nra-ml{padding:28px 20px}.nra-ml input[type=email]{min-width:0;width:100%}.nra-ml button{width:100%}}
   `;
 
@@ -64,11 +61,6 @@
           <input type="email" placeholder="you@example.com" autocomplete="email" aria-label="Email address" required>
           <button type="submit">Subscribe</button>
         </form>
-        <div class="ml-ints" role="group" aria-label="Regions you're interested in">
-          <p class="ml-ints-label">Regional Content Interested in (optional)</p>
-          ${["Europe","Asia","North America","South America","Africa","Middle East","Oceania","All Regions"]
-            .map(r => `<button type="button" class="ml-int" aria-pressed="false">${r}</button>`).join("")}
-        </div>
         <p class="ml-msg" role="status" aria-live="polite"></p>
         <p class="ml-fine">We'll only use your email to send you Never Roam Alone content, unsubscribe anytime.</p>
       </div>`;
@@ -78,15 +70,6 @@
     const btn   = mount.querySelector("button");
     const msgEl = mount.querySelector(".ml-msg");
     const setMsg = (text, kind) => { msgEl.textContent = text || ""; msgEl.className = "ml-msg" + (kind ? " " + kind : ""); };
-
-    // Interest chips: click to toggle on/off.
-    mount.querySelectorAll(".ml-int").forEach(chip => {
-      chip.addEventListener("click", () => {
-        chip.setAttribute("aria-pressed", chip.getAttribute("aria-pressed") === "true" ? "false" : "true");
-      });
-    });
-    const pickedInterests = () =>
-      Array.from(mount.querySelectorAll('.ml-int[aria-pressed="true"]')).map(c => c.textContent.trim());
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -100,7 +83,7 @@
       btn.disabled = true; btn.textContent = "Subscribing…"; setMsg("");
       try{
         await window.NRA_AUTH.ready();
-        const res = await window.NRA_AUTH.subscribeMailing(email, source, pickedInterests());
+        const res = await window.NRA_AUTH.subscribeMailing(email, source);
         if (res && res.ok){
           setMsg(res.already ? "You're already on the list — thanks for the love!" : "You're in! Check your inbox for a confirmation.", "ok");
           if (!res.already) input.value = "";
@@ -120,6 +103,33 @@
     if (!mounts.length) return;
     ensureCSS();
     mounts.forEach(build);
+    // Footer "Newsletter" link (index.html#newsletter): the form is drawn by
+    // this script, so jump to it once it exists and hold it there while the
+    // page above finishes loading.
+    const jump = () => {
+      const target = location.hash && document.getElementById(location.hash.slice(1));
+      if (!target || !target.hasAttribute("data-nra-signup")) return;
+      const go = () => {
+        const bar = document.querySelector("header");
+        const gap = (bar && getComputedStyle(bar).position.match(/sticky|fixed/) ? bar.offsetHeight : 0) + 16;
+        window.scrollTo({top: target.getBoundingClientRect().top + window.scrollY - gap, behavior: "instant"});
+      };
+      // The page scrolls smoothly; that animation fights this jump, so it is
+      // switched off until the jump is done.
+      const root = document.documentElement, was = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      go();
+      // Keep it in place while the content above finishes drawing (up to 5 s),
+      // unless the reader starts scrolling themselves.
+      if (!window.ResizeObserver) { root.style.scrollBehavior = was; return; }
+      const ro = new ResizeObserver(go);
+      const stop = () => { ro.disconnect(); root.style.scrollBehavior = was; ["wheel","touchstart","keydown"].forEach(t => window.removeEventListener(t, stop)); };
+      ro.observe(document.body);
+      ["wheel","touchstart","keydown"].forEach(t => window.addEventListener(t, stop, {passive:true}));
+      setTimeout(stop, 5000);
+    };
+    jump();
+    window.addEventListener("hashchange", jump);
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
