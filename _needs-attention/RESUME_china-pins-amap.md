@@ -3,6 +3,8 @@
 Jeff, 2026-10-19: "retry the amap search for the remaining china pins later, slower".
 
 ## State
+- **2026-11-17: every row searched.** 4 batches (b3937e2d, 74c6f968, 68bf2757 and the last one): 83 moved, 33 verified, 34 left unverified with a reason in `why`. Questions in `china-pins-questions-2026-11-17.md`. Nothing left to search; this note can move to `_done/` once Jeff answers.
+- When Amap stops answering mid-run, close the Chrome tab, open a fresh one on amap.com and carry on (Jeff, 2026-11-17). Give each fetch a 25 s timeout so a hang shows up.
 - `china-unverified-landmarks-2026-10-14.csv`: rows with status `UNVERIFIED` and an empty or old `why` are still to search.
   Rows whose `why` starts "Amap 2026-10-19:" were searched and left on purpose; do not search them again.
 - First pass (af89e7d2): 29 searched, 14 moved, 1 verified. Amap answered HTTP 419 after about 28 searches at 2 to 3 s apart.
