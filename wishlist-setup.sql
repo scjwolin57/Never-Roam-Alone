@@ -20,6 +20,10 @@ create table if not exists public.wishlist_items (
 
 alter table public.wishlist_items enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.wishlist_items to authenticated;
+grant all on public.wishlist_items to service_role;
+
 -- Only you can see or change your own wishlist.
 drop policy if exists "read own wishlist" on public.wishlist_items;
 create policy "read own wishlist"   on public.wishlist_items for select using (auth.uid() = user_id);

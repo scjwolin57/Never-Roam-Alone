@@ -38,6 +38,10 @@ create index if not exists city_insights_city_idx
 
 alter table public.city_insights enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, update, delete on public.city_insights to authenticated;
+grant all on public.city_insights to service_role;
+
 create or replace function public.city_insights_touch()
 returns trigger language plpgsql as $$
 begin

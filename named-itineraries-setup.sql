@@ -34,7 +34,15 @@ create table if not exists public.itinerary_places (
 );
 
 alter table public.itineraries      enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.itineraries to authenticated;
+grant all on public.itineraries to service_role;
 alter table public.itinerary_places enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.itinerary_places to authenticated;
+grant all on public.itinerary_places to service_role;
 
 -- ---- Only you can see or change your own itineraries ----
 drop policy if exists "read own itineraries" on public.itineraries;

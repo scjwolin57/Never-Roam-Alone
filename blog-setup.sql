@@ -20,6 +20,10 @@ create table if not exists public.blog_admins (
 );
 alter table public.blog_admins enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.blog_admins to authenticated;
+grant all on public.blog_admins to service_role;
+
 insert into public.blog_admins (email) values ('jcwolinsky@gmail.com')
 on conflict (email) do nothing;
 
@@ -67,6 +71,11 @@ create table if not exists public.blog_posts (
 );
 
 alter table public.blog_posts enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.blog_posts to anon;
+grant select, insert, update, delete on public.blog_posts to authenticated;
+grant all on public.blog_posts to service_role;
 
 -- Keep updated_at current automatically.
 create or replace function public.blog_posts_touch()

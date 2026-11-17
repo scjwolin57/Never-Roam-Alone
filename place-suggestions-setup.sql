@@ -44,6 +44,10 @@ create index if not exists place_suggestions_status_idx
 
 alter table public.place_suggestions enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, update, delete on public.place_suggestions to authenticated;
+grant all on public.place_suggestions to service_role;
+
 create or replace function public.place_suggestions_touch()
 returns trigger language plpgsql as $$
 begin

@@ -50,6 +50,10 @@ create table if not exists public.contribution_targets (
 );
 create index if not exists contribution_targets_user_idx on public.contribution_targets (user_id);
 alter table public.contribution_targets enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.contribution_targets to authenticated;
+grant all on public.contribution_targets to service_role;
 -- No client policies: only the service key (approve functions) and the
 -- security-definer trigger below write here. Admins can read it.
 drop policy if exists "admins read contribution targets" on public.contribution_targets;

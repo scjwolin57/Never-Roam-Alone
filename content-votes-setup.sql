@@ -35,6 +35,10 @@ create index if not exists content_votes_target_idx
 
 alter table public.content_votes enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, insert, update, delete on public.content_votes to authenticated;
+grant all on public.content_votes to service_role;
+
 create or replace function public.content_votes_touch()
 returns trigger language plpgsql as $$
 begin

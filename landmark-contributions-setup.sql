@@ -26,6 +26,10 @@ create index if not exists lpc_city_idx   on public.landmark_photo_contributions
 
 alter table public.landmark_photo_contributions enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.landmark_photo_contributions to authenticated;
+grant all on public.landmark_photo_contributions to service_role;
+
 -- No client-side inserts at all: submissions come through the
 -- contribute-photo Netlify function, which writes with the service key
 -- (service-role bypasses RLS). Nothing else may write to this table.

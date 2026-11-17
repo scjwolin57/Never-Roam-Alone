@@ -26,6 +26,11 @@ create table if not exists public.mailing_list (
 
 alter table public.mailing_list enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant insert on public.mailing_list to anon;
+grant select, insert, update, delete on public.mailing_list to authenticated;
+grant all on public.mailing_list to service_role;
+
 -- Anyone (signed in or not) can add an email address. They cannot read
 -- the list back, so the form can't be used to see who's subscribed.
 drop policy if exists "anyone can subscribe" on public.mailing_list;

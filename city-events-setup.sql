@@ -25,6 +25,10 @@ create table if not exists public.blog_admins (
 -- may read it. Without this, anon/authenticated keys could read the list.
 alter table public.blog_admins enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.blog_admins to authenticated;
+grant all on public.blog_admins to service_role;
+
 insert into public.blog_admins (email) values ('jcwolinsky@gmail.com')
 on conflict (email) do nothing;
 
@@ -86,6 +90,11 @@ create index if not exists city_events_city_date_idx
   on public.city_events (city, event_date);
 
 alter table public.city_events enable row level security;
+
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select on public.city_events to anon;
+grant select, insert, update, delete on public.city_events to authenticated;
+grant all on public.city_events to service_role;
 
 -- Keep updated_at current automatically.
 create or replace function public.city_events_touch()

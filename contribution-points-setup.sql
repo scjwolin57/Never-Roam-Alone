@@ -48,6 +48,10 @@ create index if not exists contribution_events_user_idx
 
 alter table public.contribution_events enable row level security;
 
+-- Data API access (Supabase stops auto-granting on 2026-10-30). Mirrors the policies.
+grant select, update on public.contribution_events to authenticated;
+grant all on public.contribution_events to service_role;
+
 -- Admins manage everything (approve functions use the service key and
 -- bypass RLS entirely; these policies are for admin.html's own queries,
 -- same shape as city_insights). A signed-in visitor can read their own
