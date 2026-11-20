@@ -31,7 +31,7 @@ For the **optional** sections (`routes`, `daytrips`, `score`), include them if y
 
 **Day-trip safety alerts (decisions.md 2026-09-23):** never leave out a day trip because of a travel advisory. For each trip, check whether the US ("Do Not Travel"), UK ("advises against all travel") or Canada ("Avoid all travel") gives its top-level warning for the trip's location, and if so give it an `alert` (`{"c","area","by","chk"}`, CITY_SCHEMA.md). Rules and method: `_guidebuild/daytrips/alerts/BRIEF.md`. Report the alerts set in the add-city report.
 
-**Day-trip tour links (decisions.md 2026-09-28):** do not type a `gyg` field. `add_city.py` builds each trip's GetYourGuide search link from its name, and city.html adds the partner ID. Check in the report that every trip in `day-trips.js` and the citydata file has one.
+**Day-trip tour links (decisions.md 2026-09-28, changed 2026-11-20):** a trip gets a `gyg` field only when GetYourGuide has its own place page (`/-l<id>/`, found by hand on getyourguide.com: right country, shared name word); never a name search (`/s/?q=`). No page means no `gyg` and no tours row. Report how many of the new city's trips have one.
 
 **Day-trip hero photos (decisions.md 2026-09-28):** after `add_city.py` runs, run `python3 _guidebuild/daytrips/fetch_daytrip_photos.py --city "<Name>"` to give each trip a location-checked Commons photo. Never hand-pick or hand-type a `photo` field. Look at every photo it finds for the new city before reporting -- the automated checks catch bad licences and portrait crops but not everything (a flag or a close-up of a person has gotten through before); replace or remove anything that fails rule 7. A trip with no verified photo keeps a plain card. Report each trip filled or open by name.
 

@@ -32,3 +32,5 @@ tab's `localStorage` as `nra_trips`). Result lines:
 the loop is waiting it out. 0 of 3,124 resolved.
 
 **Status 2026-10-20 22:05:** 1,974 of 3,124 resolved (1,139 ok, 189 wrong, 646 none), no rate-limit block since noon. Jeff: let the search finish before applying anything. The scheduled task's first run (12:28) is stuck on a permission prompt, so nothing has been applied yet.
+
+**Finished 2026-11-20:** 1,797 place pages, 1,330 trips with no link (Jeff: hide). Zero /s/ links left. Results: _guidebuild/daytrips/gyg_results_2026-11-19.json.
