@@ -1838,8 +1838,6 @@ map.on("load", () => {
     var s = document.createElement("script"); s.src = "search-index.js"; s.onload = done; s.onerror = done; document.head.appendChild(s);
   }
   var hits = [], on = -1, q = "", raw = "", guess = false;
-  var KEY = "nra_search_requests";
-  function sent(){ try { return JSON.parse(localStorage.getItem(KEY) || "[]"); } catch(e){ return []; } }
   function close(){ list.hidden = true; inp.setAttribute("aria-expanded","false"); on = -1; }
   function pick(pool, max){
     var a = [], b = [];
@@ -1920,16 +1918,13 @@ map.on("load", () => {
     } else if (q.length >= 3 && !exact){
       var r = document.createElement("li"); r.className = "req";
       var t = document.createElement("span");
-      var already = sent().indexOf(q) !== -1;
-      if (already) t.textContent = "Thanks. Your request for “" + raw + "” was sent.";
-      else t.textContent = hits.length ? "Not what you were looking for?" : "“" + raw + "” is not on the site yet.";
+      /* The Request button always shows: the same place can be requested again, by anyone (Jeff, 2026-11-21) */
+      t.textContent = hits.length ? "Not what you were looking for?" : "“" + raw + "” is not on the site yet.";
       r.appendChild(t);
-      if (!already){
-        var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Request destination";
-        btn.addEventListener("mousedown", function(e){ e.preventDefault(); });
-        btn.addEventListener("click", function(){ var p = raw; close(); openForm(p); });
-        r.appendChild(btn);
-      }
+      var btn = document.createElement("button"); btn.type = "button"; btn.textContent = "Request destination";
+      btn.addEventListener("mousedown", function(e){ e.preventDefault(); });
+      btn.addEventListener("click", function(){ var p = raw; close(); openForm(p); });
+      r.appendChild(btn);
       list.appendChild(r);
     } else if (!hits.length){
       var n = document.createElement("li"); n.className = "none"; n.textContent = "Keep typing…"; list.appendChild(n);
@@ -1994,7 +1989,6 @@ map.on("load", () => {
           requesterName: (user && A.displayName && A.displayName()) || "", requesterEmail: em })
       }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(b){ if (!r.ok || !b.sent) throw 0; }); })
         .then(function(){
-          try { var s = sent(); s.push(norm(p)); localStorage.setItem(KEY, JSON.stringify(s.slice(-50))); } catch(e2){}
           var box = back.querySelector(".rq-box"), f = $("rq-form");
           f.remove(); box.querySelector(".rq-sub").textContent = "Thanks. Your request for " + p + ", " + c + " was sent.";
           var ok = document.createElement("button"); ok.type = "button"; ok.className = "rq-submit"; ok.textContent = "Close";

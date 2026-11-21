@@ -8,7 +8,9 @@
   // The one and only menu. Order = display order.
   var NAV_ITEMS = [
     { label: "Home",               href: "index.html" },
-    { label: "Blog",               href: "blog.html" },
+    // Blog is hidden until the first post is published (Jeff, 2026-11-21; decisions.md). To bring it back,
+    // restore this line, the blog.html line in sitemap.xml, and remove the noindex tag in blog.html:
+    // { label: "Blog",               href: "blog.html" },
     { label: "City Guides",        href: "cities.html" },
     { label: "Destination Finder", href: "choose.html" },
     { label: "Ask A Roamer",       href: "askaroamer.html" }
