@@ -88,6 +88,38 @@
     font-weight:700;font-size:.82rem;padding:8px 15px;cursor:pointer;font-family:inherit;transition:.15s}
   .insert-bar button:hover{border-style:solid;background:rgba(63,81,56,.06)}
 
+  /* formatting toolbar above each text block (bold, italic, link, photo, line break) */
+  .fmt-bar{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+  .fmt-bar button{background:#fff;border:1px solid rgba(63,81,56,.3);border-radius:0;min-width:34px;height:30px;padding:0 10px;cursor:pointer;
+    color:var(--green);font-family:inherit;font-size:.8rem;font-weight:700;line-height:1;transition:.15s}
+  .fmt-bar button:hover{border-color:var(--green);background:rgba(63,81,56,.07)}
+  .fmt-bar .sp{flex:1}
+  .fmt-panel{background:#fff;border:2px solid var(--green);border-radius:0;padding:12px;margin-bottom:8px}
+  .fmt-panel[hidden]{display:none}
+  .fmt-panel label{display:block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
+  .fmt-panel input[type=text],.fmt-panel select{display:block;width:100%;margin-top:4px;font-size:.92rem;font-family:inherit;color:var(--ink);
+    background:var(--sand);border:2px solid rgba(63,81,56,.22);border-radius:0;padding:8px 10px;text-transform:none;letter-spacing:0;font-weight:400}
+  .fmt-panel label.chk{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-weight:600;font-size:.85rem;color:var(--ink)}
+  .fmt-panel label.chk input{width:auto;margin:0}
+  .fmt-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:520px){.fmt-grid{grid-template-columns:1fr}}
+  .fmt-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .fmt-err{color:#b34a3a;font-size:.8rem;font-weight:600;margin-top:6px}
+  .fmt-err:empty{display:none}
+  .fmt-thumb{width:100%;max-width:220px;height:120px;background:var(--sand) center/cover no-repeat;border:2px solid rgba(63,81,56,.18);margin-bottom:10px}
+
+  /* photos and links placed inside a paragraph (same rules live in post.html) */
+  .pv-body p{display:flow-root}
+  .pv-body p a,.pv-body h2 a,.pv-body .pullquote a{color:var(--coral);text-decoration:underline}
+  .ph{display:block;margin:6px 0 14px}
+  .ph img{display:block;width:100%;height:auto;border-radius:3px}
+  .ph small{display:block;font-size:.76rem;line-height:1.4;color:var(--muted);margin-top:4px;font-style:italic}
+  .ph-s{width:33%}.ph-m{width:50%}.ph-l{width:100%}
+  .ph-left{float:left;margin-right:18px}
+  .ph-right{float:right;margin-left:18px}
+  .ph-center{margin-left:auto;margin-right:auto}
+  @media(max-width:520px){.ph-s,.ph-m,.ph-left,.ph-right{float:none;width:100%;margin:6px 0 14px}}
+
   /* ---------- save bar ---------- */
   .save-bar{position:sticky;bottom:0;z-index:40;background:rgba(236,226,204,.95);backdrop-filter:blur(8px);
     border-top:1px solid rgba(63,81,56,.2);margin:0 -22px;padding:12px 22px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -225,7 +257,7 @@
         <button type="button" data-add="br">+ Line break</button>
         <button type="button" data-add="img">+ Photo</button>
       </div>
-      <div class="hint" style="margin-top:10px">Tip: start with one <b>Lead paragraph</b> — it renders larger, like the opening of the existing stories. Use the ↑ ↓ arrows on each piece to reorder.</div>
+      <div class="hint" style="margin-top:10px">Tip: start with one <b>Lead paragraph</b> — it renders larger, like the opening of the existing stories. Use the ↑ ↓ arrows on each piece to reorder. Inside any paragraph or pull-quote, the toolbar adds <b>bold</b>, <i>italic</i>, links, photos and line breaks. Select text first to make it a link or bold. You can also type HTML straight into the box.</div>
     </div>
 
     <!-- ===== Byline (optional) ===== -->
@@ -323,7 +355,8 @@
   let sb = null;
 
   /* ------------ editor state ------------ */
-  let postId = null;              // uuid once saved
+  let fmtCtx = null;              // open toolbar panel: {i, start, end, kind, photo}
+  let postId = null;            // uuid once saved
   let published = false;
   let cover = null;               // {url, credit, creditLink}
   let blocks = [];                // [{type:"p"|"lead"|"h2"|"quote"|"br"|"img", text, img:{url,caption,credit,creditLink}}]
@@ -474,6 +507,7 @@
 
   function renderBlocks(){
     const wrap = $("blocks");
+    fmtCtx = null;                 /* a re-render (move, delete, add) drops any open panel */
     wrap.innerHTML = "";
     blocks.forEach((b, i) => {
       const el = document.createElement("div");
@@ -502,7 +536,16 @@
         const tag = (b.type==="h2")
           ? `<input type="text" data-text="${i}" maxlength="90" placeholder="Section header" value="${esc(b.text||"")}">`
           : `<textarea data-text="${i}" placeholder="${b.type==="quote" ? "A short line worth pulling out of the story…" : "Write here…"}">${esc(b.text||"")}</textarea>`;
-        el.innerHTML = `<div class="blk-head"><span class="blk-type">${TYPE_LABEL[b.type]||b.type}</span>${tools}</div>${tag}`;
+        const fmt = (b.type==="h2") ? "" : `
+          <div class="fmt-bar" role="toolbar" aria-label="Formatting">
+            <button type="button" data-fmt="bold" data-i="${i}" title="Bold (wraps the selected text)"><b>B</b></button>
+            <button type="button" data-fmt="italic" data-i="${i}" title="Italic (wraps the selected text)"><i>I</i></button>
+            <button type="button" data-fmt="link" data-i="${i}" title="Make the selected text a link">Link</button>
+            <button type="button" data-fmt="photo" data-i="${i}" title="Put a photo inside this paragraph">Photo</button>
+            ${b.type==="lead" ? "" : `<button type="button" data-fmt="br" data-i="${i}" title="Line break inside the paragraph">Line break</button>`}
+          </div>
+          <div class="fmt-panel" data-panel="${i}" hidden></div>`;
+        el.innerHTML = `<div class="blk-head"><span class="blk-type">${TYPE_LABEL[b.type]||b.type}</span>${tools}</div>${fmt}${tag}`;
       }
       wrap.appendChild(el);
       const ta = el.querySelector("textarea[data-text]");
@@ -567,6 +610,128 @@
     }
   });
 
+  /* ------------ formatting toolbar: HTML inside a paragraph ------------ */
+  const taFor    = i => $("blocks").querySelector(`textarea[data-text="${i}"]`);
+  const panelFor = i => $("blocks").querySelector(`[data-panel="${i}"]`);
+  function closePanels(){
+    $("blocks").querySelectorAll(".fmt-panel").forEach(p => { p.hidden = true; p.innerHTML = ""; });
+    fmtCtx = null;
+  }
+  /* put new text in the box, keep state in step, put the cursor after it */
+  function applyText(i, ta, value, caret){
+    ta.value = value; blocks[i].text = value; autoGrow(ta); markDirty();
+    ta.focus(); ta.setSelectionRange(caret, caret);
+  }
+  function replaceRange(i, start, end, html){
+    const ta = taFor(i); if (!ta) return;
+    const v = ta.value;
+    applyText(i, ta, v.slice(0,start) + html + v.slice(end), start + html.length);
+  }
+  function wrapSel(i, open, close, placeholder){
+    const ta = taFor(i); if (!ta) return;
+    const s = ta.selectionStart, e = ta.selectionEnd;
+    const mid = ta.value.slice(s,e) || placeholder;
+    replaceRange(i, s, e, open + mid + close);
+  }
+  /* web address -> safe address, or "" when it can't be used */
+  function cleanUrl(u){
+    u = (u||"").trim();
+    if (!u) return "";
+    if (/^(https?:\/\/|mailto:|tel:|\/|#)/i.test(u)) return u;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(u)) return "";                 // javascript:, data:, etc.
+    if (/\.html?(\?|#|$)/i.test(u)) return u;                        // a page on this site
+    if (/^(www\.)?[\w-]+(\.[\w-]+)*\.[a-z]{2,}(\/|\?|#|$)/i.test(u)) return "https://" + u;
+    return "";
+  }
+
+  function openLinkPanel(i){
+    const ta = taFor(i), p = panelFor(i); if (!ta || !p) return;
+    closePanels();
+    const s = ta.selectionStart, e = ta.selectionEnd;
+    fmtCtx = {i, start:s, end:e, kind:"link"};
+    p.innerHTML = `
+      <div class="fmt-grid">
+        <label>Link text<input type="text" data-f="text" value="${esc(ta.value.slice(s,e))}" placeholder="the words people click"></label>
+        <label>Web address<input type="text" data-f="url" placeholder="https://… or city.html?city=Lisbon"></label>
+      </div>
+      <label class="chk"><input type="checkbox" data-f="blank" checked> Open in a new tab</label>
+      <div class="fmt-actions"><button class="btn" type="button" data-pact="ok">Insert link</button><button class="btn ghost" type="button" data-pact="cancel">Cancel</button></div>
+      <div class="fmt-err" data-f="err"></div>`;
+    p.hidden = false;
+    (ta.value.slice(s,e) ? p.querySelector('[data-f="url"]') : p.querySelector('[data-f="text"]')).focus();
+  }
+  function openPhotoPanel(i, sel){
+    const p = panelFor(i); if (!p || !fmtCtx) return;
+    fmtCtx.kind = "photo"; fmtCtx.photo = sel;
+    const credit = sel.credit ? "Photo: " + sel.credit : "";
+    p.innerHTML = `
+      <div class="fmt-thumb" style="background-image:url('${esc(sel.url)}')"></div>
+      <label>Describe the photo (for screen readers and search)<input type="text" data-f="alt" maxlength="140" placeholder="e.g. Sunrise over the Plaza de Armas"></label>
+      <div class="fmt-grid">
+        <label>Size<select data-f="size"><option value="ph-s">Small</option><option value="ph-m" selected>Medium</option><option value="ph-l">Full width</option></select></label>
+        <label>Position<select data-f="pos"><option value="ph-right" selected>Right of text</option><option value="ph-left">Left of text</option><option value="ph-center">Centered</option></select></label>
+      </div>
+      <label>Caption or credit line (optional)<input type="text" data-f="cap" maxlength="160" value="${esc(credit)}"></label>
+      <div class="fmt-actions"><button class="btn" type="button" data-pact="ok">Insert photo</button><button class="btn ghost" type="button" data-pact="cancel">Cancel</button></div>
+      <div class="fmt-err" data-f="err"></div>`;
+    p.hidden = false;
+    p.querySelector('[data-f="alt"]').focus();
+  }
+
+  $("blocks").addEventListener("click", e => {
+    /* toolbar buttons */
+    const fb = e.target.closest("button[data-fmt]");
+    if (fb){
+      const i = +fb.dataset.i, kind = fb.dataset.fmt, ta = taFor(i);
+      if (!ta) return;
+      if (kind==="bold")        { closePanels(); wrapSel(i, "<strong>", "</strong>", "bold text"); }
+      else if (kind==="italic") { closePanels(); wrapSel(i, "<em>", "</em>", "italic text"); }
+      else if (kind==="br")     { closePanels(); replaceRange(i, ta.selectionStart, ta.selectionEnd, "<br>"); }
+      else if (kind==="link")   { openLinkPanel(i); }
+      else if (kind==="photo")  {
+        closePanels();
+        fmtCtx = {i, start:ta.selectionStart, end:ta.selectionEnd, kind:"pick"};
+        const ctx = fmtCtx;
+        openPicker(sel => { if (fmtCtx === ctx && blocks[i] && taFor(i)) openPhotoPanel(i, sel); });
+      }
+      return;
+    }
+    /* panel buttons */
+    const pb = e.target.closest("button[data-pact]");
+    if (!pb || !fmtCtx) return;
+    const panel = pb.closest(".fmt-panel"), f = n => panel.querySelector(`[data-f="${n}"]`);
+    if (pb.dataset.pact === "cancel"){ const i = fmtCtx.i; closePanels(); const ta = taFor(i); if (ta) ta.focus(); return; }
+    const fail = m => { f("err").textContent = m; };
+    const {i, start, end} = fmtCtx;
+    if (fmtCtx.kind === "link"){
+      const url = cleanUrl(f("url").value);
+      if (!url) return fail("Enter a full web address starting with https://, or a page on this site such as city.html?city=Lisbon.");
+      const text = f("text").value.trim() || f("url").value.trim();
+      const blank = f("blank").checked && /^https?:/i.test(url);
+      const a = `<a href="${esc(url)}"${blank ? ' target="_blank" rel="noopener"' : ""}>${esc(text)}</a>`;
+      closePanels(); replaceRange(i, start, end, a);
+    } else if (fmtCtx.kind === "photo"){
+      const ph = fmtCtx.photo, size = f("size").value, pos = f("pos").value;
+      const alt = f("alt").value.trim(), cap = f("cap").value.trim();
+      let capHtml = "";
+      if (cap){
+        const defCap = ph.credit ? "Photo: " + ph.credit : "";
+        capHtml = (ph.creditLink && cap === defCap)
+          ? `<small><a href="${esc(ph.creditLink)}" target="_blank" rel="noopener">${esc(cap)}</a></small>`
+          : `<small>${esc(cap)}</small>`;
+      }
+      const cls = "ph " + size + (size === "ph-l" ? "" : " " + pos);
+      const html = `<span class="${cls}"><img src="${esc(ph.url)}" alt="${esc(alt)}" loading="lazy">${capHtml}</span>`;
+      closePanels(); replaceRange(i, start, end, html);
+    }
+  });
+  /* Enter inside a panel field = Insert */
+  $("blocks").addEventListener("keydown", e => {
+    if (e.key==="Enter" && e.target.closest(".fmt-panel") && e.target.tagName==="INPUT" && e.target.type==="text"){
+      e.preventDefault();
+      const ok = e.target.closest(".fmt-panel").querySelector('[data-pact="ok"]'); if (ok) ok.click();
+    } else if (e.key==="Escape" && e.target.closest(".fmt-panel")) closePanels();
+  });
   /* ------------ image picker modal ------------ */
   let pickCb = null;
   function openPicker(cb){
@@ -642,15 +807,38 @@
   });
 
   /* ------------ preview ------------ */
+  /* The live page shows paragraph text as written (HTML included), so the preview
+     does too, but only with the tags the toolbar makes. Anything else is dropped here. */
+  const OK_TAGS = {A:1,B:1,STRONG:1,I:1,EM:1,U:1,BR:1,SPAN:1,SMALL:1,IMG:1,SUP:1,SUB:1,MARK:1};
+  const OK_ATTR = {href:1,target:1,rel:1,src:1,alt:1,class:1,loading:1,title:1};
+  function safeHtml(html){
+    const t = document.createElement("template");
+    t.innerHTML = String(html==null?"":html);
+    (function walk(node){
+      Array.from(node.childNodes).forEach(ch => {
+        if (ch.nodeType === 1){
+          if (/^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED)$/.test(ch.tagName)){ ch.remove(); return; }
+          walk(ch);
+          if (!OK_TAGS[ch.tagName]){ while (ch.firstChild) node.insertBefore(ch.firstChild, ch); ch.remove(); return; }
+          Array.from(ch.attributes).forEach(a => {
+            const n = a.name.toLowerCase();
+            if (!OK_ATTR[n] || ((n==="href"||n==="src") && !/^(https?:\/\/|mailto:|tel:|\/|#|[\w.\-\/]+(\?|#|$))/i.test(a.value.trim()))) ch.removeAttribute(a.name);
+          });
+        } else if (ch.nodeType !== 3) ch.remove();
+      });
+    })(t.content);
+    return t.innerHTML;
+  }
+
   function pvBlock(b){
-    if (b.type==="lead")  return `<p class="lead">${esc(b.text)}</p>`;
-    if (b.type==="h2")    return `<h2>${esc(b.text)}</h2>`;
-    if (b.type==="quote") return `<blockquote class="pullquote">${esc(b.text)}</blockquote>`;
+    if (b.type==="lead")  return `<p class="lead">${safeHtml(b.text)}</p>`;
+    if (b.type==="h2")    return `<h2>${safeHtml(b.text)}</h2>`;
+    if (b.type==="quote") return `<blockquote class="pullquote">${safeHtml(b.text)}</blockquote>`;
     if (b.type==="br")    return `<div class="post-break">&#10022;</div>`;
     if (b.type==="img")   return b.img.url
       ? `<figure><img src="${esc(b.img.url)}" alt="${esc(b.img.caption||"")}">${(b.img.caption||b.img.credit)?`<figcaption><span>${esc(b.img.caption||"")}</span>${b.img.credit?`<span><i>Photo: ${esc(b.img.credit)}</i></span>`:""}</figcaption>`:""}</figure>`
       : "";
-    return `<p>${esc(b.text)}</p>`;
+    return `<p>${safeHtml(b.text)}</p>`;
   }
   $("btn-preview").onclick = () => {
     const pv = $("preview");
@@ -660,7 +848,7 @@
     $("pv-hero").style.backgroundImage = `url('${hero}')`;
     $("pv-tag").textContent = $("f-tag").value.trim() || "Story";
     $("pv-title").textContent = $("f-title").value.trim() || "Untitled article";
-    const words = blocks.reduce((n,b)=> n + (b.text ? b.text.split(/\s+/).length : 0), 0);
+    const words = blocks.reduce((n,b)=> n + (b.text ? b.text.replace(/<[^>]*>/g," ").split(/\s+/).filter(Boolean).length : 0), 0);
     $("pv-meta").textContent = ($("f-date").value || "") + "  ·  " + ($("f-location").value.trim()||"") + "  ·  " + Math.max(1,Math.round(words/200)) + " min read";
     $("pv-body").innerHTML = blocks.map(pvBlock).join("\n");
     pv.style.display = "block";

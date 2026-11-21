@@ -48,6 +48,18 @@
   .back{display:inline-block;background:var(--green);color:#fff;font-weight:700;padding:12px 22px;border-radius:0;transition:background .2s}
   .back:hover{background:var(--coral)}
 
+  /* Links and photos placed inside a paragraph with the editor toolbar (same rules in blog-editor.html) */
+  article.post p{display:flow-root}
+  article.post p a,article.post h2 a,.pullquote a{color:var(--coral);text-decoration:underline}
+  .ph{display:block;margin:6px 0 14px}
+  .ph img{display:block;width:100%;height:auto;border-radius:3px}
+  .ph small{display:block;font-size:.8rem;line-height:1.4;color:var(--muted);margin-top:4px;font-style:italic}
+  .ph-s{width:33%}.ph-m{width:50%}.ph-l{width:100%}
+  .ph-left{float:left;margin-right:18px}
+  .ph-right{float:right;margin-left:18px}
+  .ph-center{margin-left:auto;margin-right:auto}
+  @media(max-width:520px){.ph-s,.ph-m,.ph-left,.ph-right{float:none;width:100%;margin:6px 0 14px}}
+
   /* Blocks written with the online editor */
   .post-break{text-align:center;color:var(--coral);opacity:.7;font-size:1.05rem;margin:30px 0;letter-spacing:.4em}
   figure.post-img{margin:30px 0}
@@ -137,7 +149,7 @@ function showPost(){
   const post = window.NRA_POSTS_UTIL.bySlug(slug);
   if(post){
     document.title = `${post.title} — Never Roam Alone`;
-    const words = post.body.reduce((n,b)=> n + (typeof b[1]==="string" ? b[1].split(/\s+/).length : 0), 0);
+    const words = post.body.reduce((n,b)=> n + (typeof b[1]==="string" ? b[1].replace(/<[^>]*>/g," ").split(/\s+/).filter(Boolean).length : 0), 0);
     const mins = Math.max(1, Math.round(words/200));
     const hero = window.NRA_POST_PHOTO ? window.NRA_POST_PHOTO(post, 1600, 900)
                : `https://picsum.photos/seed/${post.seed}-hero/1600/900`;
