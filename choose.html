@@ -356,6 +356,7 @@
     border-radius:26px;padding:13px 18px;transition:background .2s}
   .bm-tour:hover{background:var(--coral)}
   .bm-tour.soon{background:#e7ded0;color:var(--muted);cursor:not-allowed}
+  .bm-aff{margin:-4px 0 0;font-size:.74rem;color:var(--muted);line-height:1.4;text-align:center}
   .bm-map{display:block;text-align:center;color:var(--teal);font-weight:700;font-size:.88rem;padding:4px}
   .bm-map:hover{text-decoration:underline}
 
@@ -940,6 +941,7 @@
     <div id="bmBody"></div>
     <div class="bm-actions">
       <a class="bm-tour" id="bmTour" target="_blank" rel="noopener sponsored"></a>
+      <p class="bm-aff" id="bmAff" hidden>Opens GetYourGuide. It is an affiliate link: it costs you nothing extra and helps keep Never Roam Alone free.</p>
       <a class="bm-map" id="bmMap" target="_blank" rel="noopener">View on map ↗</a>
     </div>
   </div>
@@ -2555,6 +2557,8 @@ const blModal = document.getElementById("blModal");
 const bmName  = document.getElementById("bmName");
 const bmBody  = document.getElementById("bmBody");
 const bmTour  = document.getElementById("bmTour");
+const bmAff   = document.getElementById("bmAff");
+const GYG_PARTNER_ID = "NCT4RBD";   // same ID as the day-trip cards in city-main.js
 const bmMap   = document.getElementById("bmMap");
 const bmClose = document.getElementById("bmClose");
 
@@ -2582,9 +2586,15 @@ function openHowTo(idx, kind){
   bmMap.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(b.name + ", " + (kind === "ev" ? b.location : b.country));
   // Second action link: an affiliate tour slot for landmarks ("coming soon" until a URL is added),
   // or the event's own source link for events.
-  const tourUrl = kind === "ev" ? b.source : a.tour;
+  // A landmark with no link of its own gets GetYourGuide's own page for it (b.gyg in bucketlist.js) plus our
+  // partner ID. Never a name search: GetYourGuide can ignore the search words and show another place's tours.
+  // A landmark with no page there shows no tour link at all (decisions.md 2026-11-17).
+  const gygUrl = kind !== "ev" && !a.tour ? (b.gyg || "") : "";
+  const tourUrl = kind === "ev" ? b.source : (a.tour || (gygUrl && gygUrl + (gygUrl.includes("?") ? "&" : "?") + "partner_id=" + GYG_PARTNER_ID + "&utm_medium=online_publisher&cmp=bucketlist"));
+  bmAff.hidden = !gygUrl;
+  bmTour.style.display = kind !== "ev" && !tourUrl ? "none" : "";
   if(tourUrl){
-    bmTour.textContent = kind === "ev" ? "Event info ↗" : "Visit / Take a tour ↗";
+    bmTour.textContent = kind === "ev" ? "Event info ↗" : gygUrl ? b.name + " tours ↗" : "Visit / Take a tour ↗";
     bmTour.href = tourUrl;
     bmTour.classList.remove("soon");
     bmTour.removeAttribute("aria-disabled");
