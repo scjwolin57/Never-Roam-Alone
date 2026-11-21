@@ -327,9 +327,8 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    # >>> PRE-LAUNCH: keeps the whole site out of Google until launch day.
-    # >>> DELETE the next line when officially launching!
-    X-Robots-Tag = "noindex"
+    # Launched 2026-11-21: the site-wide X-Robots-Tag "noindex" line was removed here (Jeff: "go, remove the noindex").
+    # Private pages keep their own noindex tag in their HTML; the media kit keeps its header further down.
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
