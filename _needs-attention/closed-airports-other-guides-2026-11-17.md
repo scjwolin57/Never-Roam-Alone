@@ -51,3 +51,22 @@ Add a "seasonal flights only" note to them, or leave them as they are?
 - Rouen: the main airport has no flights. Swap the main airport to Paris CDG or Beauvais, with researched fares?
 
 Say "go d16" with your calls.
+
+## Update 2026-11-22 (Jeff: "check D16, make any notes that need to be made regarding airports")
+
+These airports are not closed. Their notes went on the airport's own note line, so the popup gives no "closed" tag. The schema says a quiet airport is not closed.
+
+| Item | Result | Sources |
+|---|---|---|
+| (b) Reims, Vatry | Kept, no note. Ryanair Marrakech–Vatry flights are still tracked (19 Nov 2026) | flightaware.com RYR4407; aeroports-voyages.fr XCR programme |
+| (c) Bern | Note: few scheduled flights, mostly summer holiday routes; fly into Zurich or Geneva and take the train | travelnews.ch summer 2026 list; fluggesellschaft.de (almost no scheduled service since SkyWork, 2018) |
+| (c) Grenoble | Note: flights mainly in the ski season (about December to April), mostly to and from the UK; Lyon at other times | aeroports-voyages.fr GNB (5 Dec 2026 to 11 Apr 2027); francebleu.fr (Edeis: traffic mainly in winter); Wikipedia (Jet2 seasonal) |
+| (c) Salamanca | Note: the only regular route is Volotea to Palma in summer; otherwise occasional charters; Madrid | lagacetadesalamanca.es 23 Aug 2026; salamancahoy.es 23 Oct 2026 |
+| (d) Kangding | Note: few, seasonal flights (Sichuan Airlines to Chengdu, about twice a week, mainly July to October) | flightconnections.com and flightsfrom.com (aggregators, Sep 2026); Wikipedia |
+| (d) Yamoussoukro | Note: no scheduled passenger flights found in 2026; fly into Abidjan | aircotedivoire.com route pages (no Yamoussoukro); flightsfrom.com/ASK (no direct flights) |
+| (d) Cienfuegos, Baracoa | Note: few and irregular flights in 2026 (Cuba jet-fuel shortage); check with the airline | cubaheadlines.com (no jet fuel at 10 airports until 1 Dec 2026); Flightradar24 CFG; Baracoa CU826 cancelled (June 2026 tracker) |
+| (d) Trinidad, Cuba | Note: no scheduled flights found in 2026; most visitors arrive by road | Wikipedia (no airlines listed); cubaheadlines.com fuel shortage |
+| (d) Nouméa Magenta | Kept (the programme is approved to Feb 2027; 2026-11-16 sources) | |
+| (d) Santo Domingo, La Isabela (JBQ) | Not checked | |
+
+**Still open:** (a) remove the Naples note on 1 December, once the airport has reopened. (e) the 9 data fixes.

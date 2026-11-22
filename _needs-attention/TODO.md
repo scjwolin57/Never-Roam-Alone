@@ -10,7 +10,7 @@ New items for you are added under the right heading. Details live in the file na
 
 ## 1. Decisions waiting on you
 
-- **D16. Closed-airport check, other 804 guides: what is left (2026-11-17).** Notes added for Naples (closed all November; 4 guides), Potosí and Rouen; Lugano's airport removed from the Lugano guide. Open: (a) **take the Naples note off on 1 December** if the airport has reopened (`airports_tool.py` closures tab, 4 rows); (b) Reims: Vatry's flights, sources disagree; (c) Bern, Salamanca, Grenoble are summer- or ski-season-only main airports: add a "seasonal" note or not?; (d) 7 airports could not be settled; (e) 9 guides name the wrong or a weak airport (Rouen's main airport has no flights: swap to Paris CDG?). Say "go d16" with your calls. *`closed-airports-other-guides-2026-11-17.md`*
+- **D16. Closed-airport check, other 804 guides: what is left (2026-11-17).** Notes added for Naples (closed all November; 4 guides), Potosí and Rouen; Lugano's airport removed from the Lugano guide. *2026-11-22, Jeff "check D16, make any notes that need to be made": (b) Vatry kept, Ryanair Marrakech flights tracked on 19 Nov 2026; (c) and (d) airport notes added in 8 guides (Bern, Grenoble, Salamanca seasonal or few flights; Kangding seasonal; Yamoussoukro no flights found; Cienfuegos, Baracoa, Trinidad Cuba fuel shortage). Nouméa Magenta kept; Santo Domingo's La Isabela not checked.* Still open: (a) **take the Naples note off on 1 December** if the airport has reopened (`airports_tool.py` closures tab, 4 rows); (e) 9 guides name the wrong or a weak airport (Rouen's main airport has no flights: swap to Paris CDG?). Say "go d16" for (e). *`closed-airports-other-guides-2026-11-17.md`*
 
 ## 2. Things only you can do
 
